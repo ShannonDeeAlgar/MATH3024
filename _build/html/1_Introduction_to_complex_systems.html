@@ -1,0 +1,1067 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Welcome to MATH3024: Complex Systems &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '1_Introduction_to_complex_systems';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Notebooks with MyST Markdown" href="markdown-notebooks.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Welcome to MATH3024: Complex Systems</a></li>
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F1_Introduction_to_complex_systems.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/1_Introduction_to_complex_systems.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Welcome to MATH3024: Complex Systems</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Welcome to MATH3024: Complex Systems</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-study-complex-systems-at-uwa">Why study Complex Systems at UWA?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structure">Structure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#timetable">Timetable</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#guest-lecture-schedule-for-2025">Guest lecture schedule for 2025!</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assessment">Assessment</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes">Learning outcomes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#project">Project</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#project-description-see-lms">Project description (see LMS)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#python">Python</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#yes-this-is-different">Yes, this is different…</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#expectations-surrounding-chatgpt-etc">Expectations surrounding ChatGPT etc</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weekly-quiz">Weekly quiz</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tests">Tests</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-systems">Complex Systems</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#our-model-models">Our ‘model’ models</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#planetary-orbits">Planetary orbits</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#segregation">Segregation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#we-ll-need-a-different-approach">We’ll need a different approach</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-are-our-two-models-different">How are our two models different?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-are-our-two-models-the-same">How are our two models the same?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-systems-as-a-field">Complex Systems as a field</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-features-of-complex-systems">Key features of complex systems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-systems-thinkers-see-things-differently">Complex Systems Thinkers see things differently</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-paradigm">Changing paradigm</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-role-contribution-of-mathematics-to-complex-systems">The role/contribution of mathematics to complex systems</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-biggest-challenges-of-the-21st-century-are-complex">The biggest challenges of the 21st century are ‘complex’</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#next-session-modelling">Next session: Modelling</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="welcome-to-math3024-complex-systems">
+<h1>Welcome to MATH3024: Complex Systems<a class="headerlink" href="#welcome-to-math3024-complex-systems" title="Link to this heading">#</a></h1>
+<p>This unit (re)integrates play with learning</p>
+<p>It reflects Complex Systems generally in that:</p>
+<ul class="simple">
+<li><p>multidisciplinary</p></li>
+<li><p>intuitive and accessible examples</p></li>
+<li><p>mathematics is the language used to describe and analyse systems</p></li>
+<li><p>code is unavoidable and welcomed, allowing exploration and manipulation of systems</p></li>
+<li><p>cutting edge research will feature throughout.</p></li>
+</ul>
+<p>It will likely be your first foray into research (and research integrated learning/teaching). It may also be your first experience with coding. These are essential skills for anyone working with complex systems.</p>
+<section id="why-study-complex-systems-at-uwa">
+<h2>Why study Complex Systems at UWA?<a class="headerlink" href="#why-study-complex-systems-at-uwa" title="Link to this heading">#</a></h2>
+<center>
+<!-- <img src="TCSG_trans.png" width="300"/> -->
+<img src="TCSG_logo.jpg" width="300"/>
+</center>
+<ul class="simple">
+<li><p>we are a research-intensive university</p></li>
+<li><p>and we have particular strength in Complex Systems!</p></li>
+<li><p>members of our group have been instrumental in developing key parts of the field and are world-renowned for their work.</p></li>
+</ul>
+</section>
+<section id="structure">
+<h2>Structure<a class="headerlink" href="#structure" title="Link to this heading">#</a></h2>
+<p>Each week will form a classic topic from Complex Systems:</p>
+<ul class="simple">
+<li><p>Fractals</p></li>
+<li><p>Reaction-diffusion systems</p></li>
+<li><p>Cellular automata</p></li>
+<li><p>Agent-based models</p></li>
+<li><p>Synchronisation</p></li>
+<li><p>Self-organised criticality</p></li>
+<li><p>Intelligent systems</p></li>
+<li><p>Information theory</p></li>
+<li><p>Game theory</p></li>
+</ul>
+<blockquote>
+<div><p><em>“I hear and I forget, I see and I remember, I do and I understand”</em> - Confucius</p>
+</div></blockquote>
+<section id="timetable">
+<h3>Timetable<a class="headerlink" href="#timetable" title="Link to this heading">#</a></h3>
+<p>Our sessions will be separated as:</p>
+<ol class="arabic simple">
+<li><p><strong>bring your glasses:</strong> Maths basics will be embedded in a wider discussion of the weekly topic with e.g. videos, relevant explorables, a focus system, recent papers or news item etc</p></li>
+<li><p><strong>bring a pen:</strong> nitty gritty maths detail, typically via a system of interest</p></li>
+<li><p><strong>bring a coffee:</strong> Guest lecture from someone interesting to highlight the amazing research (relevant to the weekly topic), which is being done in complex systems at UWA</p>
+<ul class="simple">
+<li><p>See LMS for schedule</p></li>
+<li><p>Material presented in the guest lectures <em>is examinable</em></p></li>
+<li><p>Do not rely on recording/slides being provided. This will only occur if the guest consents to it</p></li>
+</ul>
+</li>
+<li><p><strong>bring your device:</strong> immediately following the guest lecture (or just prior to it depending on schedule) there will be a coding workshop</p>
+<ul class="simple">
+<li><p>Self-contained Jupyter Notebooks of python code are provided for students to tinker with the systems we have discussed all week</p></li>
+<li><p>If guest lectures are not filled, the workshop will take up the full two hour timeslot.</p></li>
+</ul>
+</li>
+</ol>
+<p>Relevant slides from these lectures will be released on LMS soon after the relevant session along with a related Jupyter Notebook for session #3’s Workshop</p>
+<p>Take notes: The Pen Is Mightier Than the Keyboard: Advantages of Longhand Over Laptop Note Taking
+Mueller et al, [2014] <a class="reference external" href="https://doi.org/10.1177/0956797614524581">https://doi.org/10.1177/0956797614524581</a></p>
+<p>Slides will be minimal</p>
+<p>Papers are the text book - opportunity to engage with research</p>
+</section>
+<section id="guest-lecture-schedule-for-2025">
+<h3>Guest lecture schedule for 2025!<a class="headerlink" href="#guest-lecture-schedule-for-2025" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>25.7.24 &#64;10:00: <strong>Prof. Michael Small</strong> <em>Maths</em></p></li>
+<li><p>TBC <strong>Dr. Ben McCallister</strong> <em>Physics</em></p></li>
+<li><p>8.8.24 &#64;10:00: <strong>Prof. Sally Thompson</strong> <em>Engineering</em></p></li>
+<li><p>15.8.24 <strong>Dr. Clas Weber</strong> <em>Philosophy</em></p></li>
+<li><p>22.8.24 &#64;10:00: <strong>Prof. George Milne</strong> <em>Computer science</em></p></li>
+<li><p>29.8.24 &#64;10:00: <strong>Assoc. Prof. Jennifer Rodger</strong>: <em>Neuroscience</em></p></li>
+<li><p>12.9.24 &#64;10:00: <strong>Assoc. Prof. Ionat Zurr</strong> <em>Arts</em></p></li>
+<li><p>…</p></li>
+</ul>
+</section>
+</section>
+<section id="assessment">
+<h2>Assessment<a class="headerlink" href="#assessment" title="Link to this heading">#</a></h2>
+<section id="learning-outcomes">
+<h3>Learning outcomes<a class="headerlink" href="#learning-outcomes" title="Link to this heading">#</a></h3>
+<p>In general at university we are aiming to prepare you for successful careers, active citizenship, and lifelong learning. In this unit we want you to become a <em>Complex Systems Thinker</em></p>
+<p>Complex Systems Thinkers have a holistic and integrative approach to problem-solving. They can identify and understand the interconnections and interdependencies within complex systems</p>
+<p>The specific learning outcomes that you can look forward to are:</p>
+<ul class="simple">
+<li><p>Understanding: fundamental concepts, principles, and characteristics of complex systems</p></li>
+<li><p>Modelling: employ various modelling techniques, tools and methods to describe complex systems</p></li>
+<li><p>Analysis: employ mathematical methods/visualisation techniques to analyse complex systems</p></li>
+<li><p>Application: apply Complex Systems theory for understanding of real systems and data</p></li>
+<li><p>Communication: effectively communicate ideas, models, and findings related to complex systems through written reports, appropriate data analysis and visualisation</p></li>
+<li><p>Research: read and understand scientific research papers.</p></li>
+</ul>
+<p>Ultimately, all of this aims at developing an <strong>intuition</strong> of complex systems that will guide decision-making.</p>
+</section>
+<section id="project">
+<h3>Project<a class="headerlink" href="#project" title="Link to this heading">#</a></h3>
+<p>You are going to do research.</p>
+<blockquote>
+<div><p><em>“I have not failed. I have just found 10,000 ways that don’t work.”</em> - Thomas Edison.</p>
+</div></blockquote>
+<!-- Don't get discouraged!
+- Time management. See study-smart web pages. 
+  "Don't tell me I'm burning the candle at both ends -- tell me where to
+  get more wax!"
+- Use consultation time. 
+- Help each other! --><section id="project-description-see-lms">
+<h4>Project description (see LMS)<a class="headerlink" href="#project-description-see-lms" title="Link to this heading">#</a></h4>
+<p>Your task is, (a big part of this course) is centred around a model of a complex system that you will design, implement, explore and analyse</p>
+<p>The model should be inspired by something scary</p>
+<p>Totally uninspired? Have your own idea you want to explore? Let’s talk about it! All projects are to be approved by the end of week 3.</p>
+<p>There are two parts to the project:</p>
+<ul class="simple">
+<li><p><strong>Interim report:</strong> <em>10%, due end of week 5</em></p>
+<ul>
+<li><p>brief summary of your progress on, and plans for, your model</p></li>
+</ul>
+</li>
+<li><p><strong>Final report:</strong> <em>40%, due last day of semester</em></p>
+<ul>
+<li><p>Project Report and Jupyter Notebook</p></li>
+<li><p>I should be able to review the code and run it in a Jupyter Notebook. Code must be documented, clear, and readable with version of python and versions of any packages you use included.</p></li>
+<li><p>Formatting constraints apply to focus your storytelling and save markers’ time. Yes, they are strict. I will not read/mark beyond the limit. That doesn’t mean you can use 3pt font.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="python">
+<h4>Python<a class="headerlink" href="#python" title="Link to this heading">#</a></h4>
+<p>All code is to be written in Python and presented in a Jupyter Notebook.</p>
+<p>See <code class="docutils literal notranslate"><span class="pre">LMS</span> <span class="pre">-&gt;</span> <span class="pre">CODE</span> <span class="pre">-&gt;</span> <span class="pre">Getting</span> <span class="pre">things</span> <span class="pre">to</span> <span class="pre">work</span></code> for installation guide ASAP</p>
+<center>
+<!-- <img src="Python.png" width="250"/> -->
+<img src="python_comic.png" width="300"/>
+</center>
+<p>This course is not about coding but coding is essential for modelling. Embrace it, get excited… at the end of this unit you will have ‘Python’ on your CV and will be equipped to code out in the real world. You are welcome to use any AI that is helpful.</p>
+<p>I am not teaching you to code and it is my expectation that you learn by interacting with the provided Jupyter Notebooks in the Workshops</p>
+<p>For some, it will be a steep learning curve but at the end of this unit you’ll have Python on your CV.</p>
+</section>
+<section id="yes-this-is-different">
+<h4>Yes, this is different…<a class="headerlink" href="#yes-this-is-different" title="Link to this heading">#</a></h4>
+<p>This is, first and foremost, a self-directed third year research project.</p>
+<p>The task is intentionally ill-defined to allow you an opportunity to engage in research and assessment in a way that is relevant to you, your interests and your future path, whilst developing practical skills relevant to Complex Systems</p>
+<p>You are expected to take the initiative for your project and ultimately how much work you do is up to you. Projects will be judged on extent and quality with highest marks awarded for implementation and analysis that goes beyond what has already been done. To get there, you will need to start small and build up your understanding of the system and your model by increasing the complexity. Do not leave it to the last minute! I am happy to discuss your ideas and results at any stage throughout the semester, but do not expect a step-by-step outline of what to do (it simply doesn’t exist).</p>
+<p>Note that the Project is released in the first week to allow you to mull over ideas as we learn new things, not to cause you to panic if you do not have a project well defined by the end of week 3!</p>
+</section>
+<section id="expectations-surrounding-chatgpt-etc">
+<h4>Expectations surrounding ChatGPT etc<a class="headerlink" href="#expectations-surrounding-chatgpt-etc" title="Link to this heading">#</a></h4>
+<p><strong>My view:</strong> We are ‘raising you’ to be critical thinkers in a tech-centred world. ChatGPT is like a calculator - and I’m not teaching you to do addition. I’m not teaching you to code either, so if it frees up cognitive resources for you to think deeply about a problem… go for it</p>
+<p>From an ethical standpoint you should declare how you have used ChatGPT. e.g. ‘The human generated content was edited and condensed by ChatGPT + Version’. ‘ChatGPT + Version partially/fully wrote this code with <span class="math notranslate nohighlight">\(N\)</span> iterations of prompts’ (consider attaching your conversations and definitely keep them for integrity checks)</p>
+<p><strong>A warning:</strong> ChatGPT can say some really dumb things and it is very easily confused, convinced of wrong things and overly confident in non-factual responses. You must ask good questions, defend good questions, and fact check – skills I am very happy for you to practise. As critical thinkers, you have a responsibility to read and evaluate the content before incorporating it into your work and associating it with your name. Ensure that any work you submit genuinely reflects your own viewpoint and that you aren’t blindly copying someone/something else’s views because if you do this you can expect to be heavily penalised.</p>
+</section>
+</section>
+<section id="weekly-quiz">
+<h3>Weekly quiz<a class="headerlink" href="#weekly-quiz" title="Link to this heading">#</a></h3>
+<p><em>10%: 10 quizzes, 7 count towards your grade. See LMS for details</em></p>
+<p>All other assessment for the unit is summative but these are formative. They are to help keep you engaged and on top of the content, which can at times feel like it is self-contained to the weekly topic.  You are free to use any resources and complete them with your peers if you like. I’ll select a few to look at each week to confirm the automated grade of 1/1 marks for a submission continues to be valid and if at any stage it is not I’ll reassess</p>
+<p>The quizzes will frequently contain material that you may find helpful, not just questions to answer</p>
+<p>If solutions are relevant then I will post them but mostly this won’t apply</p>
+<p>Special Consideration: You have 3 spare quizzes up your sleeve to account for any unforeseen circumstances. <strong>Do not apply for special consideration, I will not adjust the marking scheme if central approves it.</strong></p>
+</section>
+<section id="tests">
+<h3>Tests<a class="headerlink" href="#tests" title="Link to this heading">#</a></h3>
+<p><em>2 in-class tests, 20% each. See LMS for details</em></p>
+<p>The tests from last year are available on LMS if you are interested. Obviously, this year’s tests will be different</p>
+<p>Special Consideration: If you miss a test and receive Special Consideration you can sit a deferred test to be held in the common lunch hour on the following Tuesday (this will ensure there are no timetabled clashes). If you miss the deferred test and again receive Special Consideration you will sit an oral test with me at an arranged time.</p>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="complex-systems">
+<h1>Complex Systems<a class="headerlink" href="#complex-systems" title="Link to this heading">#</a></h1>
+<blockquote>
+<div><p><em>“I think the next (21st) century will be the century of complexity”</em> – Stephen Hawking</p>
+</div></blockquote>
+<section id="our-model-models">
+<h2>Our ‘model’ models<a class="headerlink" href="#our-model-models" title="Link to this heading">#</a></h2>
+<p>We will introduce most of the ideas today via two different observations and the models that were proposed to investigate them:</p>
+<ol class="arabic simple">
+<li><p>Planetary orbits are elliptical</p></li>
+<li><p>Parts of society are segregated</p></li>
+</ol>
+<section id="planetary-orbits">
+<h3>Planetary orbits<a class="headerlink" href="#planetary-orbits" title="Link to this heading">#</a></h3>
+<center> 
+<img src="DummyImage.png" width="300"/>
+</center> 
+<p><strong>Kepler’s observation:</strong> The orbit of every planet is an ellipse with the Sun at one of the two foci. (This, and his other two laws, were found by analysing astronomical data.)</p>
+<p><strong>The model:</strong> Isaac Newton proved Kepler was right by following a sort of ‘recipe’…</p>
+<ol class="arabic simple">
+<li><p>he appealed to a general principle - the <em>law</em> of gravitation, which can be</p></li>
+<li><p>written as a <em>differential equation</em> and</p></li>
+<li><p><em>analytically solved</em> this to give an elliptic solution</p></li>
+<li><p><em>QED</em>.</p></li>
+</ol>
+<p>This mathematical derivation gives rigor and a sense of absolute and unwavering proof of the observed phenomena, so people tended to like this</p>
+<p>Is it perfect?</p>
+<p>No - ignores some stuff: forces of say other planets or relativistic effects, which we justify because they are small relative to those we deem important, size of planet, modelled as point masses as actual size is negligible relative to inter-planet distance. But these assumptions/approximations seem reasonable and justified.</p>
+</section>
+<section id="segregation">
+<h3>Segregation<a class="headerlink" href="#segregation" title="Link to this heading">#</a></h3>
+<p><strong>Background:</strong> America is set to be a ‘majority-minority nation’ by 2044</p>
+<p>Colouring a map of a city like Chicago based on the racial profile of it’s people, what do you expect to see?</p>
+<p><strong>Schelling’s observation:</strong> <a class="reference external" href="https://www.washingtonpost.com/graphics/2018/national/segregation-us-cities/">Segregation</a></p>
+<center>
+<!-- <img src="Chicago_map.jpeg" width="300"/> -->
+<img src="Chicago_map_2016.jpg" width="300"/>
+</center>  
+<div style="text-align: right"> </div>
+<!-- Racial residential segregation (Six race categories) in Chicago according to the 2010 census [2]. Maps are based on the Weldon Cooper Center for Public Service at the University of Virginia built from census data from 1990, 2000, 2010 and the latest estimates from the 2016 five-year American Community Survey. This has now been taken offline but the Washington Post article remains. To calculate diversity they use the entropy index (we'll see more about this in future weeks)-->
+<!-- There are legacy effects of segregation and Jim Crow laws creating persistent segregation: *"factors such as social networks and communities play a large role in keeping segregation embedded in American life."* --  -->
+<p><strong>The model:</strong> What’s the general principle? What’s the differential equation we can sit down and solve with a pen?</p>
+<section id="we-ll-need-a-different-approach">
+<h4>We’ll need a different approach<a class="headerlink" href="#we-ll-need-a-different-approach" title="Link to this heading">#</a></h4>
+<blockquote>
+<div><p><em>“I can calculate the motion of planets but not the madness of people” - Newton</em></p>
+</div></blockquote>
+<p>(Isaac Newton supposedly lost $4600000 (in today’s dollars) in the nationwide speculation frenzy known as the South Sea Bubble of 1720 <a class="reference external" href="https://ncase.me/crowds/">https://ncase.me/crowds/</a>)</p>
+<p>How can we move towards a model that can give insight?</p>
+<p><em>“This is a story of how harmless choices can make a harmful world”</em>: <a class="reference external" href="https://ncase.me/polygons/">Parable of the polygons</a> by Vi Hart and Nicky Case.</p>
+<center>
+<!-- <img src="Parable_of_the_Polygons_Meh_characters.svg" width="300"> -->
+<img src="Parable_of_the_Polygons_Meh_characters.svg.png" width="300"/>
+</center> 
+<!-- - even with a mild preference for like-neighbours as individuals move to satisfy these preferences, segregation will emerge
+- Given this is the driver it is more like congregation than segregation (as was noted by Schelling) but that isn't how it looks from the outside. --></section>
+</section>
+<section id="how-are-our-two-models-different">
+<h3>How are our two models different?<a class="headerlink" href="#how-are-our-two-models-different" title="Link to this heading">#</a></h3>
+<p>Elliptic orbits vs segregation model:</p>
+<ul class="simple">
+<li><p>equation-based vs. rule-based</p></li>
+<li><p>analytic solution vs. numerical solution via computational integration i.e. analysis vs. simulation</p></li>
+<li><p>simplicity (e.g. continuous, linear, reductionism, equilibrium, independence, deterministic, abstract, few particles, homogenous) vs complexity (discrete, nonlinear, non-equilibrium, interaction, detailed, many particles and heterogenous)</p></li>
+<li><p>physical vs. social (free-will?)</p></li>
+</ul>
+</section>
+<section id="how-are-our-two-models-the-same">
+<h3>How are our two models the same?<a class="headerlink" href="#how-are-our-two-models-the-same" title="Link to this heading">#</a></h3>
+<p>Both models:</p>
+<ul class="simple">
+<li><p>seek insight into a physical observation</p></li>
+<li><p>make assumptions</p></li>
+<li><p>kept things simple</p></li>
+<li><p>have parameters</p></li>
+<li><p>made generalisable conclusions</p></li>
+</ul>
+<p>Is one model better than the other?</p>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="complex-systems-as-a-field">
+<h1>Complex Systems as a field<a class="headerlink" href="#complex-systems-as-a-field" title="Link to this heading">#</a></h1>
+<p>Complex Systems is essentially <strong>a diverse and adaptable toolkit</strong> for dealing with complex systems</p>
+<p>Note that I will typically capitalise the discipline and use lower case for a system that is complex.</p>
+<p>‘Classical’ modelling describes the extreme scenarios well…</p>
+<ul class="simple">
+<li><p><strong>Simple systems:</strong> comprised of a small number of interacting components that can be easily described using mathematical models.</p>
+<ul>
+<li><p>e.g. motion of planets</p></li>
+<li><p>described well by classical mechanics</p></li>
+</ul>
+</li>
+<li><p><strong>Complicated (disorganised) systems:</strong> comprised of a large number of mostly non-interacting components and are amenable to aggregation and linear modelling.</p>
+<ul>
+<li><p>e.g. The billions of atoms in a gas, but their interactions are trivial</p></li>
+<li><p>statistical mechanics describes their macro-scale behaviour well</p></li>
+</ul>
+</li>
+</ul>
+<p>These classical systems are normally closed, reversible, symmetry-dominated and predictable and we have very good theory to describe these systems and their behaviour</p>
+<p>On the other hand, classical modelling can struggle when attempting to disentangle <strong>complex systems</strong> sitting between these extremes.</p>
+<p>… and that’s exactly where most of the interesting stuff lies!</p>
+<p><strong>Organised complex systems:</strong> are composed of large numbers of parts (as in the disorganised systems) with non-trivial (typically nonlinear) interactions spanning multiple scales</p>
+<p>They are characterised by properties such as…</p>
+<ul class="simple">
+<li><p>open (positioned within some gradient, e.g. chemical)</p></li>
+<li><p>self-organising (with rules that amplify fluctuations into coordinate space-time patterns)</p></li>
+<li><p>dissipative (dynamics that are irreversible and break time-reversal symmetry)</p></li>
+<li><p>uncertain (open-ended space of possible states not enumerable in initial conditions)</p></li>
+<li><p>adaptive (capture of information by a system from the environment that promostes persistence and increases multiplicity)</p></li>
+</ul>
+<p>At one extreme there are fundamental regularities described using minimal assumptions, simple rules and few initial conditions: symmetry and law</p>
+<p>At the other there are emergent regularities constructed from contingent histories described with coarse-grained rules and nested boundary conditions: information and adaptation</p>
+<p>`There are laws of physics and there are rules of life – and rules are meant to be broken’ - Volume 1 page 6</p>
+<p>The complex domain encompasses the world of self-organising and evolving agents at all scales: from organisms to societies</p>
+<center>
+<!-- <img src="ComplexSystemsEgs.png" width="700"/> -->
+<img src="DummyImage.png" width="300"/>
+</center>  
+<p>… very diverse! Can a single framework really study them all?</p>
+<p>(figure essentially stolen from Prof. Michael Small (with permission). Pretty brain: Consciousness by Greg Dunn)</p>
+<!-- They could be physical, biological, or social systems that sit in this really awkward space between so few particles that things are boring and so many particles that we just have to pretend it's boring and look at things on average --><section id="key-features-of-complex-systems">
+<h2>Key features of complex systems<a class="headerlink" href="#key-features-of-complex-systems" title="Link to this heading">#</a></h2>
+<ul>
+<li><p><strong>Interactions:</strong> across spatial and/or temporal scales.</p></li>
+<li><p><strong>A large number of components</strong> (but not too large)</p></li>
+<li><p><strong>Nonlinearity:</strong> Relationships between inputs and outputs, or between components within the system, are complex and often not linear.</p>
+  <!-- **Schelling:** interactions and feedback loops. Small changes in neighbourhood or preference can have large effect. -->
+</li>
+<li><p><strong>Heterogeneity:</strong> Diversity across the components in the system such as different attributes, behaviours, or states.</p>
+  <!-- **Schelling:** small amount of heterogeneity with different 'agent' types (blue and yellow) and varied degrees of satisfaction. More could be included. -->
+</li>
+<li><p><strong>Emergence:</strong> A theory of the system at some scale or level of organisation is qualitatively different from the lower level scale. i.e <em>the whole is more than the sum of its parts</em> - Aristole. Society is more than a collection of individuals, consciousness is more than a collection of neurons, traffic is more than a collection of cars. This is a behavioural phenomena at the system level</p>
+  <!-- **Schelling:** contrary to intuition, a high level of homophily (*homós:* 'same, common', *philía:* 'friendship, love') can produce a mixed state of the society because agents keep moving without reaching a stationary state, and it doesn't take much homophily to cause segregation to occur -->
+</li>
+<li><p><strong>Multiscale dynamics:</strong> Dynamics occur across multiple scales. The system often lacks of a characteristic scale. How do we go from the dynamics of neurons to brain function and behaviour?</p>
+  <!-- **Schelling:** individual agent-level decisions contribute to the emergence of segregation at various scales. —>
+</li>
+<li><p><strong>Far from equilibrium:</strong> complex systems usually exist in an open environment from which individual components can both consume and dissipate energy, allowing for time reversal symmetry to break. A complex system such as this is often referred to as ‘active matter’, if the individuals in the matter are moving somehow then they may be referred to as ‘self-propelled particles’. Individuals may also have an ability to express a strategy, adapting, coordinating, optimising as they make decisions in an evolving environment.</p>
+<ul class="simple">
+<li><p>As a related but somewhat rabbit-holey tangential: <a class="reference external" href="https://www.youtube.com/watch?v=rohgVwQ57uM&amp;amp;t=393s">Does free-will violate physics?</a></p></li>
+</ul>
+</li>
+</ul>
+<!-- **Schelling:** Humans are active matter and the Schelling individuals are self-propelled, they have a preference for a particular neighbourhood configuration and an ability to move if dissatisfied.  -->
+<ul>
+<li><p><strong>Strong transitions:</strong> Abrupt shifts can occur as systems pass critical points (called bifurcation or tipping points). This may continue to produce a cascade, where one failure (or success) can lead to cascading failures (or successes) that may have catastrophic (or beneficial) consequences.</p>
+  <!-- **Schelling:** lowering the bias (and restarting the simulation from a random configuration) caused a decrease in the amount of segregation (provided we start from a random initialisation). We also saw that increasing the bias to a point where no-one could remain satisfied for long would cause a shift in behaviour. However, the strength of this transition wasn't easy to determine because we weren't directly tracking how the segregation changed with the bias parameter. -->
+</li>
+<li><p><strong>Memory:</strong> The processes that make up the world are dynamic: the past informs on the future and individual moments cannot be assumed to be decoupled from the history that lead up to that point.</p>
+  <!-- **Schelling:** There is no individual memory in this model. But there could be... we're modelling the movement of people and people certainly have memory. On the other hand there is a collective memory. We saw that reducing bias will have no impact on society if it is already segregated. -->
+</li>
+<li><p><strong>Feedback Loops:</strong> Both negative (dampening), and positive (amplifying) feedback are almost always found in complex systems. Negative feedback tends to move a system towards equilibria that are stable, predictable, and resistant to change, whilst positive feedback moves a system away from equilibria and promotes further disruption. Whether a feedback is classified as positive or negative is based on its influence on the patterns and dynamics.</p>
+  <!-- **Schelling:** an individual moves to satisfy their objective of not being in the minority. This changes the ethnic mix in both locations in a way that precipitates further movement, i.e. positive feedback. As clusters emerge there are fewer vacant cells available for further relocation, leading to a dampening effect on the segregation dynamics. --></li>
+</ul>
+</section>
+<section id="complex-systems-thinkers-see-things-differently">
+<h2>Complex Systems Thinkers see things differently<a class="headerlink" href="#complex-systems-thinkers-see-things-differently" title="Link to this heading">#</a></h2>
+<p>Most fields tend to focus on the components. They would group the below systems by columns</p>
+<p>But Complex Systems emphasises the interactions that occur between these components and would group them by row - cross-disciplinary</p>
+<center>
+<!-- <img src="ComplexSystemsThinkersSeeThingsDifferently.jpeg" width="300"/> -->
+<img src="DummyImage.png" width="300"/>
+</center>  
+<p>(figure from <em>An Introduction to Complex Systems Science and Its Applications by A F. Siegenfeld</em>)</p>
+<p>The study of complexity is not defined by a subject or specific system of research, but <em>a way to approach the understanding of systems behaviour</em></p>
+<!-- I'd like to redo this figure because I don't exactly agree with the examples they use but like the idea. --> </section>
+<section id="changing-paradigm">
+<h2>Changing paradigm<a class="headerlink" href="#changing-paradigm" title="Link to this heading">#</a></h2>
+<p>In both science and philosophy, a paradigm refers to a unique framework consisting of concepts, thought patterns, theories, research methods, postulates, and criteria that define what is considered valid and valuable within a particular field of study</p>
+<p>Complex Systems is a relatively ‘new’ field, being coined circa 1980. It is new in that the tools, the thinking <em>and the criteria for judging a model</em> are new. It is at the centre of a gradual shift in what we consider to be (good) science… and good modelling.</p>
+<!-- <center>
+<img src="Incredibles_MathIsMath.png" width="300"/>
+</center>   -->
+<p>It is one of the most radical new scientific paradigms of the twentieth century, forging four areas of research into a new way of seeing the world: entropy, evolution, dynamics and computation. Complex systems – the theory of far-from-equilibrium, purposeful machines</p>
+<p>The sorts of questions we ask of these systems: optimisation, robustness, resilience, stability, energy dissipation, regulatory mechanics, origination, informational constraints, computational costs and limits</p>
+<p>We are also making a transition from a traditional analytical description of nature (used with tremendous success since Galileo and Newton) towards an algorithmic description (perhaps in parallel with a data-driven/AI description)</p>
+<p>Measuring complexity</p>
+<p>At its worst, … equates the many principles of complexity with the search for a universal metric that might apply to all observables: the complexity of a brain, sicieties and technologies, all on one single axis of quantification. This is a case of techniques substituting for theories. It would be like trying to measure the degree of ‘chemistry’ in all chemical reactions or the quotient of ‘anthropology’ in a society. …</p>
+<p>There are schools of thought in which everything is mathematics, everything is physics, everything is poetry, and everything is religion. These kinds of framing of reality are lacking in richness, subtlety, modesty, and value. The last thing we want is for everything to be complexity.
+– Page 11</p>
+<p>The four pillars (the prequels of complexity science in from the nineteenth century)</p>
+<ul class="simple">
+<li><p>Entropy (statistical mechnics, thermodynamics). Work of: Maxwell, Boltzmann, Carnot, Clausius, Gibbs)
+- principles of order and disorder in relation to the production of mechanical work</p></li>
+<li><p>Evolution and adaptation. Work of: Darwin, Wallace, Mendel
+- mathematics of the evolutionary and adaptive process</p></li>
+<li><p>Nonlinear dynamcis. Work of: Poincare, Maxwell
+- regulation, control and prediction of nonlinear dynamical systems</p></li>
+<li><p>Computation and logic (machinery of difference and analytical engines). Work of Babbage, Lovelace, Boole
+- informational and computational requirements of purposefull or intelligent behaviour</p></li>
+</ul>
+<p>Other prequels/attempts to understand systems that interact in non-trivial ways (text book)
+Cybernetics, systems theory game theory,</p>
+<p>The elements of complex systems are becoming clear: dynamcial multilayer networks, scaling, statistical mechanics of algorithmic dynamics, evolution and co-evolution and information theory
+- we do not cover networks, dynamics or random processes (there are separate units for each of these)</p>
+<p>Text book…</p>
+<p>More traits:</p>
+<ul class="simple">
+<li><p>path dependence</p></li>
+<li><p>power laws</p></li>
+<li><p>rich phase diagrams</p></li>
+<li><p>produce and destroy diversity</p></li>
+<li><p>inherently prone to collapse</p></li>
+<li><p>resilient</p></li>
+<li><p>stochastic</p></li>
+<li><p>…</p></li>
+</ul>
+<p>The ultimate goal - to control and eventually design systemic properties of systems</p>
+<p>Why is this a maths unit?
+Maths in the language that lets us express the facts in a qunatitative and predictive manner and make statements that are unambiguous</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">YouTubeVideo</span>
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s2">&quot;BCxiABGoPP4&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+<span class="c1"># &lt;!-- https://www.youtube.com/watch?v=BCxiABGoPP4 --&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+        <iframe
+            width="400"
+            height="300"
+            src="https://www.youtube.com/embed/BCxiABGoPP4"
+            frameborder="0"
+            allowfullscreen
+            
+        ></iframe>
+        </div></div>
+</div>
+<section id="the-role-contribution-of-mathematics-to-complex-systems">
+<h3>The role/contribution of mathematics to complex systems<a class="headerlink" href="#the-role-contribution-of-mathematics-to-complex-systems" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><p><em>“Mathematics is the language with which God has written the universe.”</em> - Galileo Galilei</p>
+</div></blockquote>
+<p>Unreasonable effectiveness of mathematics and its ability to describe physical phenomena - Wigner</p>
+<!-- Wigner spoke of inanimate systems and considered biological applications too hard "A much more difficult and confusing situation would arise if we could, some day, establish a theory of the phenomena of consciousness, or of biology, which would be as coherent and convincing as our present theories of the inanimate world." - Wigner 1960 -->
+<!-- http://philsci-archive.pitt.edu/16635/1/Greslehner_2018_41st_Wittgenstein_Symposium.pdf -->
+<!-- (maths helps with simplest cases, biology is not simple, hence maths is not useful in biology - wrong!) -->
+<p>It’s often thought that mathematics can only handle simplest of cases but this is simply not true. The maths:</p>
+<ul class="simple">
+<li><p>makes complex systems simple so as to reduce complexity and tackle things systematically because simple models provide deep insight into fundamental principles!</p></li>
+<li><p>underpins our models (probability, statistics, DEs, networks, …)</p></li>
+</ul>
+<!-- Complex systems is done in computer science departments too but their approach is often very different. -->
+<p>Our goal is to <strong>model the system</strong> to gain a better understanding of it with the hope that we can control the emergent properties of these complex systems.</p>
+<p>Complexity comes from the Latin word <em>“plexus”</em>, which indicates non-separability of components</p>
+<p>As a relatively new field the boundaries and key terms are hotly debated. Personally, I like Hiroki Sayama’s topical clusters:</p>
+<ul class="simple">
+<li><p>Collective behaviour</p></li>
+<li><p>Networks</p></li>
+<li><p>Evolution and adaptation</p></li>
+<li><p>Pattern formation</p></li>
+<li><p>Systems theory</p></li>
+<li><p>Nonlinear dynamics</p></li>
+<li><p>Game theory</p></li>
+</ul>
+<p>Each of these could be a unit on their own, indeed Networks and Nonlinear Dynamics are the focus of our units MATH3002 and MATH3021 respectively. We will not go into much depth on these units but I will make connections to them where relevant</p>
+<p>The clusters are a combination of modelling tools, general properties and theoretical fields</p>
+<p>Sayama’s text book, <em>Introduction to the Modeling and Analysis of Complex Systems</em> is freely available online and comes with some python code too.</p>
+</section>
+<section id="the-biggest-challenges-of-the-21st-century-are-complex">
+<h3>The biggest challenges of the 21st century are ‘complex’<a class="headerlink" href="#the-biggest-challenges-of-the-21st-century-are-complex" title="Link to this heading">#</a></h3>
+<p>These challenges are:</p>
+<ul class="simple">
+<li><p>tied together by a common theme: emergent complexity in highly-interconnected systems</p></li>
+<li><p>at the boundary of theory and the unknown</p></li>
+<li><p>not so unknown that they’re hopeless, but there’s not enough theory to predict the results of our decisions.</p></li>
+</ul>
+<p>We are now in the midst of a new era:</p>
+<ul class="simple">
+<li><p>emergence over reductionism</p></li>
+<li><p>learning is being done across disciplines with common and shared methodologies dissolving boundaries</p></li>
+<li><p>2021 Nobel prize was awarded to Complex Systems Scientists “for groundbreaking contributions to our understanding of complex systems” (Syukuro Manabe and Klaus Hasselmann (Earth climate), Giorgio Parisi (disordered and random processes)).</p></li>
+<li><p>massive data collection and computing power are available</p></li>
+<li><p>social relevance (and in some cases urgency) of problems is prompting further work</p></li>
+<li><p>mainstream social understanding of complex systems and the Complex Systems approach is improving (slowly)</p></li>
+<li><p>journals dedicated to Complex Systems</p></li>
+</ul>
+<!-- This motivates the Lecture 3 and doing a lot of the learning via case studies and example systems. --></section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="next-session-modelling">
+<h1>Next session: Modelling<a class="headerlink" href="#next-session-modelling" title="Link to this heading">#</a></h1>
+<blockquote>
+<div><p><em>“All models are wrong, but some are useful”</em> – George Box.</p>
+</div></blockquote>
+<!-- the motto of instrumentalism --><p><a class="reference external" href="https://complexity.simplecast.com/episodes/1/transcript">https://complexity.simplecast.com/episodes/1/transcript</a>…</p>
+<p>Yeah. So there’s two issues here. Right, to answer this properly we have to understand what complexity is, and complexity is this domain of reality that straddles the very regular and the random. And science has been really good at those two limits, right? And so one limit, classical mechanics, and the other limit, statistical mechanics. And both are powerful theories, one dealing with, if you like, crystals and the other one dealing with gases. The perfectly ordered and the very disordered. And in the middle is where it all gets complicated and complex, and that’s where we live at SFI.</p>
+<p>Now, what that’s done, because science is not very good there, historically, is generated two possible approaches. One of them is complexity science and one of them is machine learning and AI, and they do different things. Machine learning and AI takes all that complexity in, encodes it in big models like deep neural networks, and makes predictions, but those predictions are completely opaque and don’t give anyone an understanding as to how they were reached. On the other hand, you have complexity science, which tries to, in Murray’s language, take “a crude look at the whole.” It tries to find the right scale at which you can do theory of these adaptive systems, if you like, in the center, with a view to not producing perfect predictions, but generating real insight, explanation for why they exist.</p>
+<p>And I think we’re now entering in the 21st century, a new kind of scientific schism where we’re going to live with two very different ways of engaging with reality. A machine-based, high-dimensional, very precise predictive framework that is a black box … and ours, which is a more familiar framework from the history of science, if you like, but that is faithful to the complexity of the systems we study, which doesn’t predict so well, but does allow us to understand the basic mechanisms generating the phenomena of interest. And that’s where I think complexity lives, and it’s going to have to come to terms with living with machine learning and AI. It’s almost as if we’ve returned, to use your biblical metaphors, to the Cain and Abel, and those two brothers are going to have to get on as opposed to one killing the other.</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="markdown-notebooks.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Notebooks with MyST Markdown</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Welcome to MATH3024: Complex Systems</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-study-complex-systems-at-uwa">Why study Complex Systems at UWA?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structure">Structure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#timetable">Timetable</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#guest-lecture-schedule-for-2025">Guest lecture schedule for 2025!</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assessment">Assessment</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes">Learning outcomes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#project">Project</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#project-description-see-lms">Project description (see LMS)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#python">Python</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#yes-this-is-different">Yes, this is different…</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#expectations-surrounding-chatgpt-etc">Expectations surrounding ChatGPT etc</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weekly-quiz">Weekly quiz</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tests">Tests</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-systems">Complex Systems</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#our-model-models">Our ‘model’ models</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#planetary-orbits">Planetary orbits</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#segregation">Segregation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#we-ll-need-a-different-approach">We’ll need a different approach</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-are-our-two-models-different">How are our two models different?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-are-our-two-models-the-same">How are our two models the same?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-systems-as-a-field">Complex Systems as a field</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-features-of-complex-systems">Key features of complex systems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-systems-thinkers-see-things-differently">Complex Systems Thinkers see things differently</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-paradigm">Changing paradigm</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-role-contribution-of-mathematics-to-complex-systems">The role/contribution of mathematics to complex systems</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-biggest-challenges-of-the-21st-century-are-complex">The biggest challenges of the 21st century are ‘complex’</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#next-session-modelling">Next session: Modelling</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1239 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>How the cheetah got his spots &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '1_ReactionDiffusion';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Euclidean geometry" href="1_Fractals.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_Introduction_to_complex_systems.html">Welcome to MATH3024: Complex Systems</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="1_Fractals.html">Euclidean geometry</a></li>
+
+
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">How the cheetah got his spots</a></li>
+
+
+
+
+
+
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F1_ReactionDiffusion.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/1_ReactionDiffusion.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>How the cheetah got his spots</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">How the cheetah got his spots</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-pattern">What is a pattern?</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-they-form">How do they form?</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#alan-turing">Alan Turing</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-chemical-basis-of-morphogenesis">The chemical basis of morphogenesis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#morphogenesis">Morphogenesis</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#reaction-diffusion-systems">Reaction-diffusion systems</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#competing-interests">Competing interests</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activator">Activator</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inhibitor-of-the-activator">Inhibitor (of the activator)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reaction">Reaction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffusion">Diffusion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#brownian-motion">Brownian motion</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#random-walks">Random walks</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#turing-instabilities">Turing instabilities</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regulation">Regulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#putting-it-all-together">Putting it all together</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#so-what-happens-in-this-system">So what happens in this system?</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-s-important-in-our-simulations">What’s important in our simulations?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-can-happen">What can happen?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#putting-all-of-this-together-into-a-complete-picture-of-the-model">Putting all of this together into a complete picture of the model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extensions">Extensions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#so-why-does-a-cheetah-have-spots">So why does a cheetah have spots?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#returning-to-understanding-a-zebra-s-or-sand-dune-s-stripes">Returning to understanding a zebra’s or sand-dune’s stripes</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#biology-benefiting-from-a-reductive-physicists-approach">Biology benefiting from a reductive ‘physicist’s’ approach.</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#animal-patterns">Animal patterns:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#turing-like-mechanisms">Turing-like mechanisms</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#i-ve-sort-of-lied-to-you">I’ve sort of lied to you…</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remember">Remember…</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-it-fit-in-with-complex-systems-generally">How does it fit in with ‘complex systems’ generally?</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#previous-topics">Previous topics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#upcoming-topics">Upcoming topics</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-and-play">Explore and play</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ode-definition-revision">ODE definition (revision)</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="how-the-cheetah-got-his-spots">
+<h1>How the cheetah got his spots<a class="headerlink" href="#how-the-cheetah-got-his-spots" title="Link to this heading">#</a></h1>
+<p>Why aren’t they striped?</p>
+<p>And why is Midjourney struggling so much to draw a stripey cheetah?!!?</p>
+<center> 
+<img src="MidJ_Cheetah.png" width="400"/>
+</center>
+<!-- This is not a fractal --><p>And it’s not just a cheetah’s spots… there are patterns all around us</p>
+<p>We see similarities in systems that seem to share nothing in common</p>
+<centre> 
+<img src="Zebra_SandRipples.png" width="600"/>
+</centre>
+<!-- <table><tr>
+<td> <img src="Zebra.jpg" alt="Drawing" style="width: 250px;"/> </td>
+<td> <img src="1969_Afghanistan_(Sistan)_wind_ripples.tiff" alt="Drawing" style="width: 250px;"/> </td>
+</tr></table> -->
+<p>(Sand ripples: By Kempf EK - Own work, CC BY-SA 3.0, <a class="reference external" href="https://commons.wikimedia.org/w/index.php?curid=31910106">https://commons.wikimedia.org/w/index.php?curid=31910106</a>)</p>
+<p>Pattern formation is explored in many fields: developmental biology, cell biology and synthetic biology, to physics, mathematics and computer science</p>
+<p>Complex Systems Thinkers therefore seek to use mathematical methods to</p>
+<ul class="simple">
+<li><p>model and understand the underlying mechanisms driving biological pattern formation; and</p></li>
+<li><p>quantify the resulting pattern.</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="what-is-a-pattern">
+<h1>What is a pattern?<a class="headerlink" href="#what-is-a-pattern" title="Link to this heading">#</a></h1>
+<p>We sort of know intuitively. Humans have an uncanny ability to smooth detail in order to see patterns</p>
+<p>Neither bland uniformity nor disorderly chaos but something in between with some notion of <em>‘repetition’</em></p>
+<p>A simple type of pattern is a repeating structure in space, like wallpaper tessellations or symmetries (shifting one’s view by one repeat length results in seeing the same thing). There are also repeating patterns in time, like the seasons.</p>
+<p>Alternatively, you can consider something like a dress pattern (prototypes), which allows for the dress to be copied</p>
+<p>Possible definitions:</p>
+<ul class="simple">
+<li><p>a set of relationships that are satisfied by observations of a system or a collection of systems</p></li>
+<li><p>a simple kind of emergent property of a system, where the pattern is a property of the system as a whole but is not a property of small parts of the system</p></li>
+<li><p>a property of a system that allows its description to be shortened as compared to a list of the descriptions of its parts</p></li>
+</ul>
+<!-- These two notions of a pattern depict different types of emergent properties: those that arise from relationships between parts of a system, and those that arise from relationships between the system and its environment. --><section id="how-do-they-form">
+<h2>How do they form?<a class="headerlink" href="#how-do-they-form" title="Link to this heading">#</a></h2>
+<p>How patterns form (pattern formation) and how they are recognised by the brain (pattern recognition) are important areas of study in complex systems</p>
+<p>Patterns emerge via via <em>spatio-temporal dynamics</em></p>
+<ul class="simple">
+<li><p>fractals</p></li>
+<li><p>Rayleigh-Bénard convection</p></li>
+<li><p>growth processes can both produce honeycomb-like structures,</p></li>
+<li><p>elastic instability is thought to be responsible for fold patterns on the cerebral cortex of higher animals</p></li>
+<li><p>…</p></li>
+<li><p>patterns are likely the result of an interplay of several mechanisms and processes across many scales</p></li>
+</ul>
+<p>Today we will focus on one of the most celebrated mechanisms to explain self-organising spatial structures - Turing reaction-diffusion instability as a source of symmetry breaking</p>
+<!-- (Space can be either 'real' space or a state space) -->
+<!-- Spatio-temporal dynamics are typically modelled with partial differential equations (PDEs), i.e. in a continuous field (distinction is important because next week is cellular automata) -->
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="alan-turing">
+<h1>Alan Turing<a class="headerlink" href="#alan-turing" title="Link to this heading">#</a></h1>
+<table><tr>
+<td> <img src="Alan_Turing_Aged_16.jpg" alt="Drawing" style="width: 100px;"/> </td>
+<td> <img src="The_Imitation_Game_(2014).png" alt="Drawing" style="width: 90px;"/> </td>
+</tr></table>
+<p>Well-known for:</p>
+<ul class="simple">
+<li><p>Enigma (code used by the Germany Navy) codebreaker during the Second World War and is widely considered to have been critical for ending the war</p></li>
+<li><p>Pioneer/the father of computer science and all round visionary. Created blueprint for the digital computer — a universal computing device that may store and execute programs. Also outlined the basics of what would later become known as artificial intelligence, Turing test for determining whether machines can think.</p></li>
+</ul>
+<!-- : a human interrogator who poses questions to the machine and to a human foil, and seeks to identify which is which. If there is no discernible difference in the responses,we have no logical reason to deny that the machine is thinking. Famously used in Ridley Scott’s 1982 movieB laderunner to identify non-human ‘replicants’.  -->
+<ul class="simple">
+<li><p>Suffered shameful treatment accepting ‘corrective’ hormone therapy (chemical castration) in preference to jail time for ‘homosexual acts’ after the war, precipitating  his suicide. (The British government apologised for this in 2009:  <a class="reference external" href="https://www.theguardian.com/world/2009/sep/11/pm-apology-to-alan-turing">https://www.theguardian.com/world/2009/sep/11/pm-apology-to-alan-turing</a>)</p></li>
+</ul>
+<section id="the-chemical-basis-of-morphogenesis">
+<h2>The chemical basis of morphogenesis<a class="headerlink" href="#the-chemical-basis-of-morphogenesis" title="Link to this heading">#</a></h2>
+<p>Turing was ahead of his time in many ways</p>
+<p>He is not so well-known for his contributions to a fundamental problem in biology: the mechanism underlying biological regularity of patterns. He was the first to offer an explanation of morphogenesis through chemistry</p>
+<p>His prediction was extremely original (no-one was really asking these questions until Turing, he only referenced 6 relevant works!)</p>
+</center>
+<img src="TuringReferences.png" width="400"/>
+</center>
+<p>Turing, Alan M. The Chemical Basis of Morphogenesis. 1952. Philosophical Transactions of the Royal Society; 237: 37-72
+<a class="reference external" href="https://royalsocietypublishing.org/doi/10.1098/rstb.1952.0012">https://royalsocietypublishing.org/doi/10.1098/rstb.1952.0012</a></p>
+<!-- Published in the year prior to his death -->
+<p>This work has now been cited over 16000 times!!</p>
+</section>
+<section id="morphogenesis">
+<h2>Morphogenesis<a class="headerlink" href="#morphogenesis" title="Link to this heading">#</a></h2>
+<p><em>‘Morphogenesis’</em>, from the Greek <em>morphê</em> meaning shape/form and <em>genesis</em> meaning creation (literally “the generation of form”)</p>
+<p>General mechanism producing a diverse array of patterns</p>
+<p>Morphogens are the ‘shape formers’. They are <strong>different chemical signals/substances that react together and diffuse through a plant or animal tissue, one activating and one deactivating growth, to set up patterns of development</strong></p>
+<p>Turing was deliberately vague about what these morphogens were. They could be chemicals/molecules/proteins/hormones/genes etc, operating in tissue or cells… It was the 50s lots wasn’t known yet and Turing wasn’t trying to be a biologist</p>
+<p>The interaction between <em>activator and inhibitor morphogens</em> leads to the formation of spatial patterns of pigmentation, either through the instability of homogeneous states or the formation of spatial gradients</p>
+</center>
+<img src="TuringOriginal_Dappled.png" width="400"/>
+</center><p>The theory was largely ignored for several decades (the biological community became fixated with the double-helix structure of DNA a year later and the subsequent development of molecular biology) but is now still active and new examples of these patterns are still being discovered</p>
+<p>Interest was kickstarted In the 1970s, Alfred Gierer and Hans Meinhardt reintroduced the ideas of a diffusion-driven instability leading to pattern formation in their study of Hydra, a freshwater invertebrate. They identified the fundamental ingredients: Locally acting activator, and an inhibitor that suppresses pattern elements over longer ranges.</p>
+</center>
+<img src="Hydra.jpg" width="400"/>
+</center>
+<!-- In Greek mythology the Hydra was a poisonous, many-headed serpent with the power of regeneration – cut off one of its heads and two would grow in its place -->
+<p>It’s only quite recently been possible to test the idea (with increased computing power + advances in molecular sciences on the bio side) - a common theme in Complex Systems!</p>
+<p>Determining what the job of each morphogen is will be critical, as scientists come to programme stem cells to do certain things in the body.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="reaction-diffusion-systems">
+<h1>Reaction-diffusion systems<a class="headerlink" href="#reaction-diffusion-systems" title="Link to this heading">#</a></h1>
+<!-- How the single celled fertilised egg becomes a striped zebra -->
+<p>A process by which complex spatial structures may arise</p>
+<p>It is the <em>interaction</em> (or “reaction”) of two morphogens that allows for the autonomous generation of spatial patterns during development via a type of symmetry breaking</p>
+<section id="competing-interests">
+<h2>Competing interests<a class="headerlink" href="#competing-interests" title="Link to this heading">#</a></h2>
+<section id="activator">
+<h3>Activator<a class="headerlink" href="#activator" title="Link to this heading">#</a></h3>
+<p>Slow-moving activator (the reactant) promotes pigment formation in regions where its concentration is high</p>
+<ul class="simple">
+<li><p>tells cell to do something, such as make colored pigment;</p></li>
+<li><p>tells cell to make more activator; and</p></li>
+<li><p>tells cell to start making its inhibitor.</p></li>
+</ul>
+</section>
+<section id="inhibitor-of-the-activator">
+<h3>Inhibitor (of the activator)<a class="headerlink" href="#inhibitor-of-the-activator" title="Link to this heading">#</a></h3>
+<p>Fast-moving inhibitor (the autocatalyst), thus acting at longer ranges, inhibits pigment formation in regions where its concentration is high</p>
+<ul class="simple">
+<li><p>tells cell to slow down activator production (and thus, ultimately, to make less of itself).</p></li>
+</ul>
+</section>
+</section>
+<section id="reaction">
+<h2>Reaction<a class="headerlink" href="#reaction" title="Link to this heading">#</a></h2>
+<p>We use <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> to denote the activator (reactant) and inhibitor (product) respectively and will explore the specific example of the following chemical reactions:</p>
+<p><span class="math notranslate nohighlight">\(A+2B\rightarrow 3B\)</span></p>
+<p>i.e. a single species of <span class="math notranslate nohighlight">\(A\)</span> will interact with two species of <span class="math notranslate nohighlight">\(B\)</span> to form three species of <span class="math notranslate nohighlight">\(B\)</span> (sort of like predator-prey (i.e. <span class="math notranslate nohighlight">\(B\)</span>-<span class="math notranslate nohighlight">\(A\)</span>) system)</p>
+<p>This is part of the Gray-Scott model</p>
+<p>For this interaction to happen (with some probability) the particles first have to come into contact with each other.</p>
+</section>
+<section id="diffusion">
+<h2>Diffusion<a class="headerlink" href="#diffusion" title="Link to this heading">#</a></h2>
+<p>But first… Brownian motion - a bridge between the (invisible) atomic and the (observable) macroscopic world</p>
+<p>aka Wiener processes, named for Robert Brown [1827], but explained with the kinetic theory of gases by Albert Einstein [1905]</p>
+<!-- Brown noticed that pollen grains suspended in water  -->
+<p>A (microscopic) particle suspended in a fluid (e.g. dust in air) moves in an apparently random motion because of the constant, random collisions of the suspended particle with the quick molecules of the surrounding fluid</p>
+<!-- We don't see big particles jiggle because they are obviously too heavy to be moved by the collisions -->
+<p>It’s a huge number of collisions (like 10^16-10^20/second for gas/water) but the forces from these collisions are not symmetric in both time and space at every instant and so there is a net movement</p>
+<!-- Cells are full of proteins, complex macromolecules that perform nearly every cellular function. If a protein could move in a straight line, then it would move at 20 kph or faster, meaning that the protein would cover a distance 1 billion times its length every second (analogous to a car traveling at 20 billion kph). However, the cytoplasm filling the cell is so densely packed with water molecules that the protein ping-pongs off them, frequently changing direction. -->
+<!-- It is a continuous process such that its increments for any time scale are drawn from a normal distribution -(The normal distribution ticks most boxes for analytical properties) --><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># https://www.youtube.com/watch?v=7orMPKrYPwE</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">YouTubeVideo</span>
+<span class="n">display</span><span class="p">(</span><span class="n">YouTubeVideo</span><span class="p">(</span><span class="s2">&quot;7orMPKrYPwE&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">400</span><span class="p">))</span>
+
+
+<span class="c1"># https://www.youtube.com/watch?v=cD3dOlcxVmE</span>
+<span class="c1"># from IPython.display import YouTubeVideo</span>
+<span class="c1"># display(YouTubeVideo(&quot;cD3dOlcxVmE&quot;, width=400))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+        <iframe
+            width="400"
+            height="300"
+            src="https://www.youtube.com/embed/7orMPKrYPwE"
+            frameborder="0"
+            allowfullscreen
+            
+        ></iframe>
+        </div></div>
+</div>
+<section id="brownian-motion">
+<h3>Brownian motion<a class="headerlink" href="#brownian-motion" title="Link to this heading">#</a></h3>
+<!-- The equation Einstein derived to describe Brownian motion is: -->
+<p><span class="math notranslate nohighlight">\( \langle x^2 \rangle = 2Dt \)</span></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\langle x^2 \rangle\)</span> is the mean square displacement of the particle</p></li>
+<li><p><span class="math notranslate nohighlight">\(D\)</span> is the diffusion coefficient</p></li>
+<li><p><span class="math notranslate nohighlight">\(t\)</span> is the time elapsed.</p></li>
+</ul>
+<p>The diffusion coefficient <span class="math notranslate nohighlight">\(D\)</span> can be related to other physical quantities through the Stokes-Einstein equation:</p>
+<p><span class="math notranslate nohighlight">\( D = \frac{k_B T}{6 \pi \eta r} \)</span></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(k_B\)</span> is the Boltzmann constant</p></li>
+<li><p><span class="math notranslate nohighlight">\(T\)</span> is the absolute temperature of the fluid</p></li>
+<li><p><span class="math notranslate nohighlight">\(\eta\)</span> is the dynamic viscosity of the fluid</p></li>
+<li><p><span class="math notranslate nohighlight">\(r\)</span> is the radius of the spherical particle.</p></li>
+</ul>
+<p>By combining these equations, Einstein provided a way to calculate the diffusion coefficient from measurable quantities and to study the properties of the particles and the fluid they are suspended in. This approach allowed for experimental verification and provided a method to estimate Avogadro’s number, thus giving strong support to the atomic theory of matter.</p>
+<!-- Einstein worked out how much atoms (that he couldn't see) weigh by observing the diffusion (that he could see). We didn't even know for sure that matter was made of atoms in 1905! He assumed that all particles move by same rules it's just that we can't see the really small ones -->
+<!-- Completed the groundwork for the development of statistical mechanics that had begun with Maxwell, Boltzmann and Gibbs towards end of 19th century. It demonstrated how macroscopic phenomena could be explained by the statistical behavior of microscopic particles -->
+<!-- Brownian motion is the building block of stochastic calculus and therefore, the key to simulating stochastic processes.  --><section id="random-walks">
+<h4>Random walks<a class="headerlink" href="#random-walks" title="Link to this heading">#</a></h4>
+<p>To model this phenomenon a particle evolves in space by taking independent steps in a random direction</p>
+<!-- Mathematically, it's a particular Markov continuous stochastic process -->
+<p>After <span class="math notranslate nohighlight">\(n\)</span> steps of unit length in a random walk, a particle will on average find itself a distance from its origin that is proportional to <span class="math notranslate nohighlight">\(\sqrt{n}\)</span></p>
+<p>With many particles performing random walks like this the particles will slowly spread outwards at a certain rate. This is <em>diffusion</em></p>
+<p>Eventually they will fill the space they have to occupy and be evenly mixed, i.e. diffusion should lead to uniformity</p>
+<p>Intuitively we know this happens. You smell dinner before you see it and wearing masks in the midst of a pandemic is good.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.animation</span><span class="w"> </span><span class="kn">import</span> <span class="n">FuncAnimation</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">simulate_brownian_motion</span><span class="p">(</span><span class="n">num_steps</span><span class="p">,</span> <span class="n">step_size</span><span class="p">):</span>
+    <span class="n">displacements</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">step_size</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">num_steps</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="n">positions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">displacements</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">positions</span>
+
+<span class="n">num_steps</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">step_size</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">positions</span> <span class="o">=</span> <span class="n">simulate_brownian_motion</span><span class="p">(</span><span class="n">num_steps</span><span class="p">,</span> <span class="n">step_size</span><span class="p">)</span>
+
+<span class="c1"># Create a figure and axis for the animation</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">line</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([],</span> <span class="p">[],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Brownian motion&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$x$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$y$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># Reduce the number of frames for the animation</span>
+<span class="n">num_frames</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">frames</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">num_steps</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">num_frames</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">():</span>
+    <span class="n">line</span><span class="o">.</span><span class="n">set_data</span><span class="p">([],</span> <span class="p">[])</span>
+    <span class="k">return</span> <span class="n">line</span><span class="p">,</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="n">frame</span><span class="p">):</span>
+    <span class="n">line</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">positions</span><span class="p">[:</span><span class="n">frame</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">positions</span><span class="p">[:</span><span class="n">frame</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">line</span><span class="p">,</span>
+
+<span class="c1"># Create the animation</span>
+<span class="n">animation</span> <span class="o">=</span> <span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">update</span><span class="p">,</span> <span class="n">frames</span><span class="o">=</span><span class="n">frames</span><span class="p">,</span> <span class="n">init_func</span><span class="o">=</span><span class="n">init</span><span class="p">,</span> <span class="n">blit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># To display the animation in Jupyter Notebook, use the following line:</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTML</span>
+<span class="n">HTML</span><span class="p">(</span><span class="n">animation</span><span class="o">.</span><span class="n">to_jshtml</span><span class="p">())</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.animation</span><span class="w"> </span><span class="kn">import</span> <span class="n">FuncAnimation</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;numpy&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">simulate_brownian_motion</span><span class="p">(</span><span class="n">num_steps</span><span class="p">,</span> <span class="n">step_size</span><span class="p">):</span>
+    <span class="c1"># Generate random displacements</span>
+    <span class="n">displacements</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">step_size</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">num_steps</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+    
+    <span class="c1"># Calculate cumulative sum of displacements</span>
+    <span class="n">positions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">displacements</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">positions</span>
+
+<span class="c1"># Set the number of steps and step size</span>
+<span class="n">num_steps</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">step_size</span> <span class="o">=</span> <span class="mf">0.1</span>
+
+<span class="c1"># Simulate Brownian motion</span>
+<span class="n">positions</span> <span class="o">=</span> <span class="n">simulate_brownian_motion</span><span class="p">(</span><span class="n">num_steps</span><span class="p">,</span> <span class="n">step_size</span><span class="p">)</span>
+
+<span class="c1"># Plot the results</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">positions</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">positions</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Brownian motion&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$x$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$y$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/f2b71dd4776e2da933968023b37f3f8d8de2d5bcfda7b78733f5220af92ee5c2.png" src="_images/f2b71dd4776e2da933968023b37f3f8d8de2d5bcfda7b78733f5220af92ee5c2.png" />
+</div>
+</div>
+<p>Returning to the example we are considering of the two morphogens…</p>
+<p>Let the diffusion of <span class="math notranslate nohighlight">\(B\)</span> (white-blue-purple), <span class="math notranslate nohighlight">\(D_B\)</span> to be twice that of <span class="math notranslate nohighlight">\(A\)</span> (yellow-orange-brown), <span class="math notranslate nohighlight">\(D_A\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="n">n</span> <span class="o">=</span> <span class="mi">5000</span>
+
+<span class="c1"># Adjust the standard deviation to change diffusion rate.</span>
+<span class="n">diffusion_rate_1</span> <span class="o">=</span> <span class="mf">0.1</span>  <span class="c1"># Adjust this value for particle 1</span>
+<span class="n">diffusion_rate_2</span> <span class="o">=</span> <span class="mf">0.2</span>  <span class="c1"># Adjust this value for particle 2</span>
+
+<span class="n">x_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">diffusion_rate_1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+<span class="n">y_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">diffusion_rate_1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+<span class="n">x_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">diffusion_rate_2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+<span class="n">y_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">diffusion_rate_2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+
+<span class="c1"># We add 10 intermediary points between two</span>
+<span class="c1"># successive points. We interpolate x and y.</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">x_1B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">k</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="n">k</span><span class="p">,</span> <span class="n">x_1</span><span class="p">)</span>
+<span class="n">y_1B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">k</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="n">k</span><span class="p">,</span> <span class="n">y_1</span><span class="p">)</span>
+<span class="n">x_2B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">k</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="n">k</span><span class="p">,</span> <span class="n">x_2</span><span class="p">)</span>
+<span class="n">y_2B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">k</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="n">k</span><span class="p">,</span> <span class="n">y_2</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.facecolor&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">patch</span><span class="o">.</span><span class="n">set_alpha</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_1B</span><span class="p">,</span> <span class="n">y_1B</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">k</span><span class="p">),</span> <span class="n">linewidths</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+           <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">YlOrBr</span><span class="p">,)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_2B</span><span class="p">,</span> <span class="n">y_2B</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">k</span><span class="p">),</span> <span class="n">linewidths</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+           <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">BuPu</span><span class="p">,)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/436f13f5102925ba22342292d22440a815bdf4ef01f863e1a70928ac02e5fa14.png" src="_images/436f13f5102925ba22342292d22440a815bdf4ef01f863e1a70928ac02e5fa14.png" />
+</div>
+</div>
+</section>
+<section id="turing-instabilities">
+<h4>Turing instabilities<a class="headerlink" href="#turing-instabilities" title="Link to this heading">#</a></h4>
+<p>Turing considered a chemical system that was in a stable equilibrium state, so that no net reactions were occurring, but that could be <em>destabilised</em> by the presence of diffusion of these chemicals</p>
+<p>This is sort of paradoxical - diffusion normally acts to smooth out concentration differences. But Turing showed that it can cause an initially homogeneous system to become patterned</p>
+<p>How? Small fluctuations in concentration can lead to a situation where areas with a higher concentration of one chemical promote a reaction that further increases the concentration difference. Over time, this <em>feedback</em> can create distinct patterns.</p>
+</section>
+</section>
+</section>
+<section id="regulation">
+<h2>Regulation<a class="headerlink" href="#regulation" title="Link to this heading">#</a></h2>
+<p>We will also include:</p>
+<ul class="simple">
+<li><p>Feed rate, <span class="math notranslate nohighlight">\(f\)</span>: controls the supply of <span class="math notranslate nohighlight">\(A\)</span></p></li>
+<li><p>Kill rate, <span class="math notranslate nohighlight">\(k\)</span>: controls the decay of <span class="math notranslate nohighlight">\(B\)</span> (converted to <span class="math notranslate nohighlight">\(C\)</span> via the chemical reaction: <span class="math notranslate nohighlight">\(B\rightarrow C\)</span>, where <span class="math notranslate nohighlight">\(C\)</span> is an inert product of these irreversible reactions)</p></li>
+</ul>
+<p>This is also lumped in with the ‘reaction’ part of the dynamics (because it isn’t diffusion)</p>
+</section>
+<section id="putting-it-all-together">
+<h2>Putting it all together<a class="headerlink" href="#putting-it-all-together" title="Link to this heading">#</a></h2>
+</center>
+<img src="ReactionDiffusion_Particles.png" width="750"/>
+</center></section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="so-what-happens-in-this-system">
+<h1>So what happens in this system?<a class="headerlink" href="#so-what-happens-in-this-system" title="Link to this heading">#</a></h1>
+<p>How do we solve this?</p>
+<p>The short answer is that we don’t… we simulate it (but this is a ‘solution’ too)</p>
+<!-- All the interactions are local so this a good candidate for a parallel implementation.  -->
+<!-- Diffusion may be modeled by an explicitly conservative exchange process among neighbours where the reactions are locally modeled. --><section id="what-s-important-in-our-simulations">
+<h2>What’s important in our simulations?<a class="headerlink" href="#what-s-important-in-our-simulations" title="Link to this heading">#</a></h2>
+<!-- There is also a length scale for the interaction to occur, possibly some probability for the conversion etc but these are the main parameters assumed:-->
+<p>Assuming we have the right reaction equations, we move on to explore the parameters:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(k\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(f\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(D_A\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(D_B\)</span></p></li>
+</ul>
+<p>We need to explore (via parameter sweeps) the many combinations (the parameter space) of these parameters</p>
+<p>4-dimensional parameter space, maybe 3 if we have a relationship between the diffusions. Hopefully we can fix the diffusions using something anchored with physical meaning</p>
+<p>Not all points in the parameter space produce dynamically interesting patterns</p>
+</section>
+<section id="what-can-happen">
+<h2>What can happen?<a class="headerlink" href="#what-can-happen" title="Link to this heading">#</a></h2>
+<p>Types of behaviour/global patterns:</p>
+<ul class="simple">
+<li><p>stationary states: (<span class="math notranslate nohighlight">\(\dot{A}=0, \dot{B}=0\)</span>) unmoving in time and space</p></li>
+</ul>
+<!-- For example, consider the situation where there are no B particles. Then B cannot be generated. We can also consider stability of this solution with respect to small perturbations. And consider the types of bifurcations we go through as we move over the parameter space. -->
+<ul class="simple">
+<li><p>oscillatory solutions</p></li>
+<li><p>spatio-temporal chaos (turbulence)</p></li>
+<li><p>instabilities: even in regions that would exhibit stable stationary states in a well-mixed system, the diffusion in the system can destabilise the uniform state by the Turing mechanism and spatial structure spontaneously emerges</p></li>
+<li><p>bifurcations: The complexity of the patterns of the Gray-Scott model emerges because in a narrow range in parameter space a Hopf bifurcation, a saddle node bifurcation and Turing instabilities are entangled.</p></li>
+</ul>
+<!-- With more morphogens we may see more complex patterns such as travelling waves -->
+<p>Many of the patterns this simple model produces are familiar</p>
+<!-- Turing proposed that the interaction of the morphogens is able to produce six different scenarios upon reaching a stable, constant state
+
+Case I: Uniform, stationary state. All cells are the same, behaving as if each were in isolation. Eg, mixing two food colorings to a cup of water changes the water to a single hue of color.
+Case II: Uniform, oscillating state. Similar to case I, except that the cells depart from equilibrium in an oscillatory manner. Eg, cycles of flowers closing and opening in plants.
+Case III: Salt-and-pepper formation. Cells that have changed or “differentiated” inhibit neighboring cells from differentiating. Eg, garden plot of sunflowers where spacing between adjacent plants is determined by the ability of the plants to inhibit growth of one another due to factors such as competition for nutrients and water.
+Case IV: Oscillation of salt-and-pepper state.
+Case V: Traveling wave formation. This scenario requires at least three morphogens, as two morphogens may only result in a stationary pattern (Figure 3B-C). Eg, movement of a slinky at one end propagates itself until it reaches the opposite end.
+Case VI: Stationary wave formation (Turing patterns). A wave pattern is maintained by a system that has reached dynamic equilibrium (where the morphogens continue to move and react but there is no net change in the overall state). The pattern’s wavelength (the distance between the “peaks” of the wave) is determined by how the molecules react and rates at which they diffuse (Figure 4).
+ -->
+<p>Stability analysis lets us find the regimes of <span class="math notranslate nohighlight">\(f\)</span> and <span class="math notranslate nohighlight">\(k\)</span> where interesting things happen. (Some of this will be familiar from MATH3021 but if it isn’t don’t worry, the intuitive understanding of these types of behaviour is sufficient)</p>
+</section>
+<section id="putting-all-of-this-together-into-a-complete-picture-of-the-model">
+<h2>Putting all of this together into a complete picture of the model<a class="headerlink" href="#putting-all-of-this-together-into-a-complete-picture-of-the-model" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Have you seen the Complexity Explorables yet? Warning: You may lose a big part of your day visiting this website! <a class="reference external" href="https://www.complexity-explorables.org/explorables/hopfed-turingles/">https://www.complexity-explorables.org/explorables/hopfed-turingles/</a></p></li>
+<li><p>Another really nice one if you want to play around a bit more: <a class="reference external" href="https://visualpde.com/nonlinear-physics/gray-scott.html">https://visualpde.com/nonlinear-physics/gray-scott.html</a></p></li>
+<li><p>And the ‘original’ here: <a class="reference external" href="http://web.archive.org/web/19981206145216/http://www.ccsf.caltech.edu/ismap/image.html">http://web.archive.org/web/19981206145216/http://www.ccsf.caltech.edu/ismap/image.html</a></p></li>
+</ul>
+<section id="extensions">
+<h3>Extensions<a class="headerlink" href="#extensions" title="Link to this heading">#</a></h3>
+<p>The reaction-diffusion system can be modulated by other factors</p>
+<p>These influence the formation of the patterns but require extending (and complicating) the model:</p>
+<ul class="simple">
+<li><p>Orientation: diffusion can occur faster in one direction than another to give an orientation to the results.</p></li>
+<li><p>‘Style Map’: the feed and kill rates can vary across the grid to give different patterns in different areas.</p></li>
+<li><p>Flow: the chemicals can flow across the grid under the influence of an external force to give various dynamic effects.</p></li>
+<li><p>Size: the scale of the pattern changes when the reaction rate is sped up or slowed down relative to the diffusion rate.</p></li>
+<li><p>External influences</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="so-why-does-a-cheetah-have-spots">
+<h1>So why does a cheetah have spots?<a class="headerlink" href="#so-why-does-a-cheetah-have-spots" title="Link to this heading">#</a></h1>
+<p>Diverse anatomies from similar genes. There are countless varieties of stripes, spots and scales - each species surely can’t all have their own personal blueprint</p>
+<p>Understanding why a zebra has stripes and a cheetah has spots may come down to understanding how the animal shape influences the reaction and diffusion of the relevant morphogens</p>
+<center>
+ <img src="Cheetah_leopard_jaguar.pdf" width="400"/>
+</center>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="returning-to-understanding-a-zebra-s-or-sand-dune-s-stripes">
+<h1>Returning to understanding a zebra’s or sand-dune’s stripes<a class="headerlink" href="#returning-to-understanding-a-zebra-s-or-sand-dune-s-stripes" title="Link to this heading">#</a></h1>
+<p>deposition of wind-blown grains.</p>
+<p>Formation of ripple is self-enhancing because it captures more sand the bigger it gets (positive i.e. self-reinforcing feedback). Meanwhile depleting the air of sand grains suppressing another ripple for some distance downwind</p>
+<p>Pigmentation of zebra skin</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="biology-benefiting-from-a-reductive-physicists-approach">
+<h1>Biology benefiting from a reductive ‘physicist’s’ approach.<a class="headerlink" href="#biology-benefiting-from-a-reductive-physicists-approach" title="Link to this heading">#</a></h1>
+<p>More mathematical approaches to biology now take account of the physical forces and constraints on an organism’s development</p>
+<p>Biology is messy and complicated, with many confounding factors, which makes it difficult to demonstrate experimentally that a pattern results from a Turing mechanism</p>
+<p>Synthetic biological systems are playgrounds to explore basic mechanisms of biology in a controlled environment.</p>
+<!-- Turing’s original model, and many subsequent papers, have only explored the case of two interacting morphogens, but we now know that developmental processes involve hundreds of distinct chemical compounds interacting across a complex and heterogeneous environment. 
+
+The challenge is pinpointing the precise mechanisms serving in the activator and inhibitor roles. 
+
+Population migration, infection outbreaks, chemical reactions, BZ reaction, pattern formation and morphogenesis, neural activity in brain, electrical patterns in heart, **signalling patterns of slime mould**. -->
+<section id="animal-patterns">
+<h2>Animal patterns:<a class="headerlink" href="#animal-patterns" title="Link to this heading">#</a></h2>
+<!-- Labyrinthine patterns on giant pufferfish:  -->
+<center>
+    <img src="Pufferfish.png" width="200">
+</center>
+<!-- <div style="text-align: right"> Image source: https://en.wikipedia.org/wiki/Mbu_pufferfish </div> -->
+<!-- 'Rosettes' of a leopard: -->
+<center>
+<img src="Leopard.jpg" width="200">
+</center>
+<!-- <div style="text-align: right"> Image source: https://en.wikipedia.org/wiki/Leopard </div> -->
+<!-- *Theorem 1:* Snakes always have striped (ring) patterns, but not spotted patterns. 
+Why might this be? Why are the stripes rings and not running from head to tail?
+<!-- The stripes should be rings around the body. In a domain with very small aspect ratio, many wave lengths are allowed along the long axis but fewer wave lengths along the shorter axis. This is not consistent with stripes from head to tail, which correspond to a single long wave length along the long axis (from head to tail) and a much smaller wave length around the body (separating the different stripes). -->
+<!-- Snake stripes:  -->
+<center>
+<img src="Snake.png" width="400">
+</center>
+<!-- <div style="text-align: right"> Image source: https://en.wikipedia.org/wiki/Kingsnake  -->
+<!-- <div style="text-align: right"> Image source: https://en.wikipedia.org/wiki/Thamnophis_saurita </div> -->
+<!-- *Theorem 2:* There is no animal with striped body and spotted tail, but there is animal with spotted body and
+striped tail. 
+<!-- The body is always wider than the tail. The same reaction-diffusion mechanism should be responsible for the patterns on both body and tail. Then if the body is striped, and the parameters are similar for tail and body, then the tail must also be striped since the narrower geometry is easier to produce stripes.  -->
+<!-- weather systems, the distribution of vegetation across landscapes and even the constellations of galaxies,  and even human communities, suggesting that phenomena such as crime hotspots can arise from social feedbacks on behaviour and movement that are similar to the push-me-pull-you process Turing identified. --><p>So can patterns emerge from particles:
+Zebrafish</p>
+<p>These patterns are formed by the arrangement of pigments, usually packaged in specialised cells.
+stripes are made up of thousands of small and distinct dots of colour. Each dot is a single pigment cell. The three cell types that produce the pattern are black melanophores, yellow xanthophores and silver and blue iridophores.</p>
+<p>Kit Yates’ study aimed to find out which biological phenomena are crucial for pattern formation and which are just incidental. These sorts of questions can be answered with mathematical modelling</p>
+<p>“And then comes the really exciting part. The beauty of mathematical modelling is that once you’re confident your model captures the biology you can start to play around with it and ask biological questions that are difficult to answer through experiments alone.” They were able to explain why the stripes are horizontal instead of vertical like a zebra-mammal. <a class="reference external" href="https://theconversation.com/how-mutant-zebrafish-helped-unlock-the-secret-to-their-stripes-new-research-141460">https://theconversation.com/how-mutant-zebrafish-helped-unlock-the-secret-to-their-stripes-new-research-141460</a></p>
+<p>Mice digits as a model for human fingerprints</p>
+<p>“If you have any two processes that act [as activator and inhibitor], you can always get periodic patterns out of them,” said Green, pointing to the ripples that form on sand dunes as an example. “Clearly there are no diffusing morphogens at work there. It’s just that the processes have a property you can represent using a diffusion function.</p>
+</section>
+<section id="turing-like-mechanisms">
+<h2>Turing-like mechanisms<a class="headerlink" href="#turing-like-mechanisms" title="Link to this heading">#</a></h2>
+<p>The the molecular mechanisms behind Turing remain difficult to validate experimentally, as many of the kinetic parameters cannot be reliably assessed in biological tissues</p>
+<p>Turing-like features in the distribution of species in ecological systems, such as the predator-prey model, in which the prey function as activators, seeking to reproduce and increase their numbers while the predators act as inhibitors, keeping the population in check. Neurons, too, can be described mathematically as activators or inhibitors, encouraging or dampening the firing of other, nearby neurons in the brain.</p>
+<p>it is challenging to move from identifying the behavior of a system that seems to follow a Turing mechanism to identifying the specific physical processes that act as activator and inhibitor.</p>
+<p>Scientists have tried to apply this basic concept to many different kinds of systems. For instance, neurons in the brain could serve as activators and inhibitors, depending on whether they amplify or dampen the firing of other nearby neurons—possibly the reason why we see certain patterns when we hallucinate. There is evidence for Turing mechanisms at work in zebra-fish stripes, the spacing between hair follicles in mice, feather buds on a bird’s skin, the ridges on a mouse’s palate, as well as the digits on a mouse’s paw.The scientists discovered that in mouse embryos, a molecule called FGF, or fibroblast growth factor, acts as a ridge activator, and SHH, or sonic hedgehog, acts as an inhibitor.</p>
+<p>Certain species of Mediterranean ants will pile the dead bodies of ants into structures that seem to exhibit Turing patterns, and there is evidence of Turing patterns in the movement of Azteca ant colonies on coffee farms in Mexico.</p>
+<p>Stumbling block: “no one has yet identified the molecules that work for a Turing mechanism in development.”</p>
+<p>It might be best to consider Turing’s model as playing a specific development role within the context of a larger biological system, in concert with other factors, rather than as a standalone mechanism. “The Turing process is a piece of the puzzle in understanding how multiple morphogens work together,</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="i-ve-sort-of-lied-to-you">
+<h1>I’ve sort of lied to you…<a class="headerlink" href="#i-ve-sort-of-lied-to-you" title="Link to this heading">#</a></h1>
+<p>The reaction-diffusion system we described involves a huge number of particles</p>
+<p>Tracking each individual particle’s movement for many many generations is enormously computationally expensive</p>
+<p>It can be done (with an agent-based modelling framework like what we will see in a few weeks) but it’s ridiculously complicated (which is why statistical physics aggregates all the particles into average/global properties like temperature).</p>
+<p>More importantly, it isn’t necessary to reproduce the observed behaviour.</p>
+<section id="remember">
+<h2>Remember…<a class="headerlink" href="#remember" title="Link to this heading">#</a></h2>
+<p>The modeller’s purpose is absolutely, definitely <strong>not</strong> to reproduce the system exactly</p>
+<p>Instead, we want:</p>
+<ol class="arabic simple">
+<li><p>to capture the essence of a system</p></li>
+<li><p>for simulations to run “quickly”</p></li>
+<li><p>for the model to scale well to larger inputs</p></li>
+</ol>
+<centre> 
+    <img src="Turing_ModelQuote.png" width="600"/>
+</centre>
+<p>(The first paragraph of Turing’s paper on morphogenesis)</p>
+<p>The solutions you saw in the Complexity Explorable were actually the result of a ‘coarse-grained’ model where instead of caring about the individual particles we will lump many of them together into cells and track the cell concentration instead.</p>
+<p>We’ll dig into this more in the next session.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="how-does-it-fit-in-with-complex-systems-generally">
+<h1>How does it fit in with ‘complex systems’ generally?<a class="headerlink" href="#how-does-it-fit-in-with-complex-systems-generally" title="Link to this heading">#</a></h1>
+<section id="previous-topics">
+<h2>Previous topics<a class="headerlink" href="#previous-topics" title="Link to this heading">#</a></h2>
+<p><em>Fractals</em></p>
+<ul class="simple">
+<li><p>When the reaction and diffusion processes in the system are appropriately balanced, it can lead to the formation of self-replicating or self-repeating structures at different scales and fractal-like characteristics.</p></li>
+</ul>
+</section>
+<section id="upcoming-topics">
+<h2>Upcoming topics<a class="headerlink" href="#upcoming-topics" title="Link to this heading">#</a></h2>
+<p><em>Networks and synchronisation</em></p>
+<ul class="simple">
+<li><p>We’ve looked at physical stuff reacting and diffusing in a continuous physical space but the same methods and thinking can be applied to more abstract situations such as information reacting and diffusing on a social network.</p></li>
+<li><p>The interactions and coupling between chemical species can lead to the emergence of synchronised oscillations or pattern formation, where different regions or elements of the system exhibit coordinated behaviour.</p></li>
+<li><p>On the other hand, the coupling between individual oscillators in such systems can be described through diffusion-like processes by considering the spread or transmission of information/influence between the oscillators</p></li>
+</ul>
+<p><em>Cellular automata</em></p>
+<ul class="simple">
+<li><p>Expand Wolfram’s principles for classification to continuous real-valued systems to encompass the sorts of patterns you have discovered by varying parameters and initial conditions of the Gray Scott model.</p></li>
+<li><p>The Gray Scott model that we implemented is effectively a cellular automata used to simulate coarse grained reaction diffusion dynamics.</p></li>
+</ul>
+<p><em>Agent-based models</em></p>
+<ul class="simple">
+<li><p>Can incorporate reaction-diffusion processes as a component of an agent’s behaviour or as a mechanism influencing agent interactions, allowing exploration of individual behaviour that is influenced by spatially distributed processes.</p></li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="explore-and-play">
+<h1>Explore and play<a class="headerlink" href="#explore-and-play" title="Link to this heading">#</a></h1>
+<p><a class="reference external" href="https://visualpde.com">https://visualpde.com</a>
+<a class="reference external" href="http://www.karlsims.com/rdtool.html:">http://www.karlsims.com/rdtool.html:</a> Karl Sims had an exhibit in the Museum of Science in Boston that was based on this tool, see:  <a class="reference external" href="http://www.karlsims.com/rd-exhibit.html">http://www.karlsims.com/rd-exhibit.html</a></p>
+<p><strong>Explorables:</strong>
+<a class="reference external" href="https://www.complexity-explorables.org/explorables/come-together/">https://www.complexity-explorables.org/explorables/come-together/</a>
+<a class="reference external" href="https://www.complexity-explorables.org/explorables/particularly-stuck/">https://www.complexity-explorables.org/explorables/particularly-stuck/</a>
+<a class="reference external" href="https://www.complexity-explorables.org/explorables/albert-and-carl-friedrich/">https://www.complexity-explorables.org/explorables/albert-and-carl-friedrich/</a>
+<a class="reference external" href="https://www.complexity-explorables.org/explorables/scotts-world/">https://www.complexity-explorables.org/explorables/scotts-world/</a>
+<a class="reference external" href="https://www.complexity-explorables.org/explorables/baristas-secret/">https://www.complexity-explorables.org/explorables/baristas-secret/</a></p>
+<section id="ode-definition-revision">
+<h2>ODE definition (revision)<a class="headerlink" href="#ode-definition-revision" title="Link to this heading">#</a></h2>
+<p>Recall that an ordinary differential equation (ODE) of order <span class="math notranslate nohighlight">\(n\)</span></p>
+<p><span class="math notranslate nohighlight">\(F\)</span> is a function of <span class="math notranslate nohighlight">\(x, y\)</span>, and the derivatives of <span class="math notranslate nohighlight">\(y\)</span>
+$<span class="math notranslate nohighlight">\(F\left(x,y,y',\ldots ,y^{(n-1)}\right)=y^{(n)}\)</span>$</p>
+<!-- 
+Or implicit:
+$F\left(x,y,y',y'',\ \ldots ,\ y^{(n)}\right)=0$ -->
+<!-- And of course F and all of the y's may be vectors if we are working with a system of ODEs. -->
+<p>The derivatives here are typically time derivatives and so ODEs can describe how the concentrations change with time assuming a well-mixed system</p>
+<p>But this is insufficient to model the reaction diffusion system because they do not account for spatial variations, i.e. change is not just in time but in space too.</p>
+<p>The spatial distribution and interaction of the substances involved is crucial for understanding the system’s behaviour and emergent patterns. Therefore we must use PDEs.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">YouTubeVideo</span>
+<span class="n">display</span><span class="p">(</span><span class="n">YouTubeVideo</span><span class="p">(</span><span class="s2">&quot;miT1-tBapt0&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">400</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">YouTubeVideo</span><span class="p">(</span><span class="s2">&quot;8dTmUr5qKvI&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">400</span><span class="p">))</span>
+
+<span class="c1"># https://www.youtube.com/watch?v=8dTmUr5qKvI</span>
+<span class="c1">#      https://www.youtube.com/watch?v=miT1-tBapt0&amp;t=15s</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+        <iframe
+            width="400"
+            height="300"
+            src="https://www.youtube.com/embed/miT1-tBapt0"
+            frameborder="0"
+            allowfullscreen
+            
+        ></iframe>
+        </div><div class="output text_html">
+        <iframe
+            width="400"
+            height="300"
+            src="https://www.youtube.com/embed/8dTmUr5qKvI"
+            frameborder="0"
+            allowfullscreen
+            
+        ></iframe>
+        </div></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="1_Fractals.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Euclidean geometry</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">How the cheetah got his spots</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-pattern">What is a pattern?</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-they-form">How do they form?</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#alan-turing">Alan Turing</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-chemical-basis-of-morphogenesis">The chemical basis of morphogenesis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#morphogenesis">Morphogenesis</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#reaction-diffusion-systems">Reaction-diffusion systems</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#competing-interests">Competing interests</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activator">Activator</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inhibitor-of-the-activator">Inhibitor (of the activator)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reaction">Reaction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffusion">Diffusion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#brownian-motion">Brownian motion</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#random-walks">Random walks</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#turing-instabilities">Turing instabilities</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regulation">Regulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#putting-it-all-together">Putting it all together</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#so-what-happens-in-this-system">So what happens in this system?</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-s-important-in-our-simulations">What’s important in our simulations?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-can-happen">What can happen?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#putting-all-of-this-together-into-a-complete-picture-of-the-model">Putting all of this together into a complete picture of the model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extensions">Extensions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#so-why-does-a-cheetah-have-spots">So why does a cheetah have spots?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#returning-to-understanding-a-zebra-s-or-sand-dune-s-stripes">Returning to understanding a zebra’s or sand-dune’s stripes</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#biology-benefiting-from-a-reductive-physicists-approach">Biology benefiting from a reductive ‘physicist’s’ approach.</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#animal-patterns">Animal patterns:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#turing-like-mechanisms">Turing-like mechanisms</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#i-ve-sort-of-lied-to-you">I’ve sort of lied to you…</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remember">Remember…</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-it-fit-in-with-complex-systems-generally">How does it fit in with ‘complex systems’ generally?</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#previous-topics">Previous topics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#upcoming-topics">Upcoming topics</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-and-play">Explore and play</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ode-definition-revision">ODE definition (revision)</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

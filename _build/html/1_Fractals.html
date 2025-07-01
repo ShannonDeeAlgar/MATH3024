@@ -1,0 +1,1167 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Euclidean geometry &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '1_Fractals';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="How the cheetah got his spots" href="1_ReactionDiffusion.html" />
+    <link rel="prev" title="Welcome to MATH3024: Complex Systems" href="1_Introduction_to_complex_systems.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_Introduction_to_complex_systems.html">Welcome to MATH3024: Complex Systems</a></li>
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Euclidean geometry</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="1_ReactionDiffusion.html">How the cheetah got his spots</a></li>
+
+
+
+
+
+
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F1_Fractals.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/1_Fractals.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Euclidean geometry</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Euclidean geometry</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#size">Size</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symmetries">Symmetries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-first-fractal-was-a-fourier-series">The first fractal was a Fourier series</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-most-famous-fractal">The most famous fractal</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#fractal-geometry">Fractal geometry</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fractal-properties">Fractal properties</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-fractals">Types of fractals</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strict-fractals">Strict fractals</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cantor-set">Cantor set:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sierpinski-triangle">Sierpiński triangle:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#self-similarity-zoom-symmetry">Self-similarity (zoom symmetry)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#infinite-complexity">Infinite complexity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fractal-dimension">Fractal dimension</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dimension">Dimension</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#topological-dimension-if-you-re-interested">Topological dimension (if you’re interested)</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#power-laws">Power laws</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#self-similarity-dimension">Self-similarity dimension</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Cantor set</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Sierpiński triangle</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-possible-fourth-property">A possible fourth property</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#why-do-we-care-about-these-mathematical-monsters">Why do we care about these mathematical monsters?</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cantor-set-and-sierpinski-triangle-applications">Cantor set and Sierpiński triangle applications</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#fractals-in-nature">Fractals in nature</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-do-fractal-patterns-so-often-appear-in-nature">Why do fractal patterns so often appear in nature?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recursion">Recursion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-it-fit-in-with-complex-systems-generally">How does it fit in with ‘Complex Systems’ generally?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#fun-stuff">Fun stuff</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fractal-tech">Fractal tech</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fractal-antenna">Fractal antenna</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fractal-compression">Fractal compression</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fractal-distributors">Fractal distributors</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fractal-universe-fractal-forgeries">Fractal universe/Fractal forgeries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fractal-landscapes">Fractal landscapes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fractal-biology-medicine">Fractal biology + medicine</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fractals-in-popular-culture">Fractals in popular culture</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#music">Music</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#art">Art</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#literature">Literature</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="euclidean-geometry">
+<h1>Euclidean geometry<a class="headerlink" href="#euclidean-geometry" title="Link to this heading">#</a></h1>
+<p>Geometry: Ancient Greek words, “geo” meaning “earth” and “metron” meaning “measurement”</p>
+<!-- Euclidean geometry is a branch of mathematics that deals with the study of geometric shapes and their properties -->
+<p>Based on a small set of assumptions (postulates or axioms) detailed in Euclid’s book the ‘Elements’</p>
+<!-- Elements is one of the most important books in history, quantifying a new way to think - logic, deductive reasoning and proof. Uncovers rules that govern the world from assumptions. Combined geometrical theorem into a coherent framework and the basis of modern science. -->
+<!-- 5 key axioms: line between two points, line can go indefinitely, circle can be drawn with any centre and radii, all right angles are equal, non-paralell lines must meet -->
+<!-- Euclidean geometry has many limitations (e.g. only works on flat surfaces) -->
+<p>Euclidean geometry deals with the plane and solids that can be defined by their <em>shape, location and size</em>. These properties are considered absolute because under the paradigm of Euclidean geometry, everything is measurable, no matter how big or small</p>
+<p>Euclidean solids are also smooth and have integer dimension</p>
+<center>
+<img src="Euclid.jpg" width="150">
+</center>
+<!-- <div style="text-align: right"> Euclid - the 'father of geometry'. His work "Elements" laid the foundation for the study of geometry </div> -->
+<p>Euclid - the ‘father of geometry’. His work “Elements” laid the foundation for the study of geometry</p>
+<!-- Perhaps this is the only version of geometry you know, and for a long time it was simply called 'geometry'. But over time other 'non-Euclidean' geometries were required (typically departing from some of the assumptions made in Euclidean geometry's parallel postulate).  -->
+<!-- Hyperbolic geometry
+Elliptic geometry
+Spherical geometry
+Parabolic geometry
+Discrete geometry
+Hilbert geometry --><section id="size">
+<h2>Size<a class="headerlink" href="#size" title="Link to this heading">#</a></h2>
+<p>Euclidean objects have a natural size, e.g.:</p>
+<ul class="simple">
+<li><p>circles and spheres have diameters</p></li>
+<li><p>squares have side lengths</p></li>
+</ul>
+<p>Zooming in on these objects changes them (a large circle looks like a line to a tiny ant walking along it)</p>
+<p>Euclidean geometry measures size at one particular scale characteristic of the shape</p>
+<p>If the shape is scale-free or involves all scales then Euclidean measurement isn’t possible</p>
+<p>For example, <em>‘How long is the British coastline?’</em></p>
+</section>
+<section id="symmetries">
+<h2>Symmetries<a class="headerlink" href="#symmetries" title="Link to this heading">#</a></h2>
+<p>The idea of a symmetry is to perform an operation that leaves a shape undetectably different in shape and form.</p>
+<p>Classic symmetries (the so-called Euclidean motions):</p>
+<ul class="simple">
+<li><p>translational</p></li>
+<li><p>reflection</p></li>
+<li><p>rotation</p></li>
+</ul>
+<p>If you close your eyes you won’t know if I have translated, reflected, rotated these shapes, i.e. their geometrical properties (lengths of sides, interior angles, etc) haven’t changed.</p>
+<p>But there is another type of symmetry…</p>
+<ul class="simple">
+<li><p>symmetry under magnification such that zooming in on an object leaves the shape approximately unaltered</p></li>
+</ul>
+<p>Classical Euclidean geometry fails entirely when trying to describe shapes that have this feature… and there are a lot of these shapes! The regular shapes are rare in the natural world but ‘irregular shapes’ abound.</p>
+<section id="the-first-fractal-was-a-fourier-series">
+<h3>The first fractal was a Fourier series<a class="headerlink" href="#the-first-fractal-was-a-fourier-series" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+\color{white}{f(x)= \sum_{n=0}^{\infty} a^n \cos(b^n \pi x)} \]</div>
+<p>where <span class="math notranslate nohighlight">\(ab&gt;1+3/2\pi\)</span></p>
+<!-- ab must be large enough to balance the decay of amplitudes with the increase in frequency, ensuring the Weierstrass function is continuous and nowhere differentiable, with fractal dimension $D = 2 + ln(a)/ln(b)$.-->
+<center>
+<img src="WeierstrassFunction.png" width="400">
+</center>
+(Figure from Wikipedia)
+<p>In the 1800s Karl Weierstrass a German mathematician created a fractal shape that has no flat surfaces - it is only corners!</p>
+<p>Traditional geometry says this is impossible.</p>
+<!-- 'It is impossible to print a fractal on a piece of paper' -->
+<!-- And so on ad infinitum -->
+<!-- the infinite zoom that prevents a local derivative from existing --></section>
+<section id="the-most-famous-fractal">
+<h3>The most famous fractal<a class="headerlink" href="#the-most-famous-fractal" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><p><em>“The thumb print of god”</em> - ?</p>
+</div></blockquote>
+<!-- It has an organic feel to it and tends to remind people of real things. Has been said to look like a man, a cactus, a cockroach, ...? There is a connection here to the way that nature operates.
+
+Julia was working on this idea in 1917 but it wasn't until the advent of modern computers that this was invented/discovered because millions/billions of iterations are required to be computed before the patterns are seen. -->
+<!-- Iterative map: $z_{n+1} = z_n^2 + c$ --><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A very simple nonlinear transformation gives the most famous of all fractals.... The Mandelbrot set.</span>
+<span class="c1"># (This is generated with complex numbers). Each point in the complex plane is coloured based on how long it takes to “escape” off the page. </span>
+<span class="c1"># Mandelbrot worked at computing giant IBM and had access to enormous (for the time) computing power.</span>
+<span class="c1">#Mandelbrot zoom...</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">YouTubeVideo</span>
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s2">&quot;b005iHf8Z3g&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="c1"># https://www.youtube.com/watch?v=b005iHf8Z3g</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+        <iframe
+            width="1000"
+            height="300"
+            src="https://www.youtube.com/embed/b005iHf8Z3g"
+            frameborder="0"
+            allowfullscreen
+            
+        ></iframe>
+        </div></div>
+</div>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="fractal-geometry">
+<h1>Fractal geometry<a class="headerlink" href="#fractal-geometry" title="Link to this heading">#</a></h1>
+<blockquote>
+<div><p>“<em>Many patterns of nature are so irregular and fragmented that, compared with Euclid … Nature exhibits not simply a higher degree but an altogether different level of complexity.”</em> - Benoit Mandelbrot, The Fractal Geometry of Nature</p>
+</div></blockquote>
+<blockquote>
+<div><p>“<em>A rebellion against calculus</em>” - Grant Sanderson, 3Blue1Brown</p>
+</div></blockquote>
+<!-- Calculus: central assumption is that things tend to look smooth if you zoom in enough -->
+<p>To describe something like the Mandelbrot set, a new type of geometry was required</p>
+<!-- Work by Cantor, Peano, von Koch and Sierpinski created a crisis in geometry as mathematicians struggled to rescue concepts of dimensionality -->
+<p>Like the British coastline, the Mandelbrot set is complicated and irregular (Mandelbrot called it rough). It’s the sort of shape that mathematicians used to shy away from in favour of regular ones, like spheres, which could be tamed with equations</p>
+<p>Fractals provide a systematic method to capture the “roughness” of some objects.</p>
+<!-- Because the length of the coastline is sort of a dumb question -->
+<p>Benoit Mandelbrot was the first to call them <em>‘fractals’</em> from the Latin noun <em>”fractus”</em>, meaning ”to break”.</p>
+<!-- <center>
+<img src="FractalGeometry_DesmondPaulHenry.png" width="600">
+</center>
+<div style="text-align: right"> - style of Desmond Paul Henry </div> --><section id="fractal-properties">
+<h2>Fractal properties<a class="headerlink" href="#fractal-properties" title="Link to this heading">#</a></h2>
+<p>The definition of a fractal is not so clear. They tend to be defined by their properties</p>
+<p>Fractals are shapes containing detailed structure and <strong>self-similarity</strong>, often in a recursive or iterative manner</p>
+<p>Zooming in on the fractal’s detail can happen to arbitrarily small scales, which results in geometric object that has an <strong>infinite complexity</strong></p>
+<p>Fractals will typically have a <strong>fractal dimension</strong>.</p>
+</section>
+<section id="types-of-fractals">
+<h2>Types of fractals<a class="headerlink" href="#types-of-fractals" title="Link to this heading">#</a></h2>
+<p>In terms of these properties we classify fractals as:</p>
+<ol class="arabic simple">
+<li><p>Classic/strict/mathematical fractals</p>
+<ul class="simple">
+<li><p>nice toy models</p></li>
+<li><p>e.g. Cantor dust (1883), Koch curve (1904), and Sierpinski carpet (1915)</p></li>
+<li><p>exact self-similarity</p></li>
+<li><p>infinite scaling range</p></li>
+</ul>
+</li>
+</ol>
+<section id="strict-fractals">
+<h3>Strict fractals<a class="headerlink" href="#strict-fractals" title="Link to this heading">#</a></h3>
+<p>We’ll spend a lot of time with these two canonical examples (once considered mathematical “monsters”):</p>
+<ol class="arabic simple">
+<li><p>the Cantor set, named after German mathematician Georg Cantor, who introduced it in 1883</p></li>
+<li><p>the Sierpiński triangle, named after Polish mathematician Wacław Sierpiński, who introduced it in 1915.</p></li>
+</ol>
+<section id="cantor-set">
+<h4>Cantor set:<a class="headerlink" href="#cantor-set" title="Link to this heading">#</a></h4>
+<center>
+<img src="Cantor_set_iterations.png" width="500" height="200">
+</center></section>
+<section id="sierpinski-triangle">
+<h4>Sierpiński triangle:<a class="headerlink" href="#sierpinski-triangle" title="Link to this heading">#</a></h4>
+<center>
+<img src="Sierpinski_triangle_iterations.png" width="600">
+</center>
+<!-- Towers of Hanoi https://en.wikipedia.org/wiki/Tower_of_Hanoi
+Also the limiting shape of Pascal's triangle modulo 2.
+Shape is changing less and less with each iteration... converging to a limiting shape --><p>How are these objects created?</p>
+<!-- We'll see lots of alternative ways of generating them in the following lecture. --><ol class="arabic simple" start="2">
+<li><p>Statistical fractals</p>
+<ul class="simple">
+<li><p>much broader conception</p></li>
+<li><p>e.g. coastlines and cauliflower</p></li>
+<li><p>found in nature</p></li>
+<li><p><em>fractal-like</em> objects because they differ from the mathematical examples in two important ways:</p>
+<ul>
+<li><p>the self-similarity of natural fractals is approximate or statistical (environmental perturbations, scuplt and grow over time with history dependence).</p></li>
+<li><p>this self-similarity extends over only a limited range of scales (e.g. Planck length).</p></li>
+</ul>
+</li>
+<li><p>This is because nothing is really infinite in nature (size scales in nature can go only from around <span class="math notranslate nohighlight">\(10^9\)</span> meters to <span class="math notranslate nohighlight">\(10^{-12}\)</span> meters before you hit either the size of the earth or the size of an atom.) Hence, the self-similarity ends after a few orders of magnitude of zooming in</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+</section>
+<section id="self-similarity-zoom-symmetry">
+<h2>Self-similarity (zoom symmetry)<a class="headerlink" href="#self-similarity-zoom-symmetry" title="Link to this heading">#</a></h2>
+<p>As you zoom in on a fractal, you can observe smaller copies or repetitions of the overall shape or pattern.</p>
+<p>A consequence of this self-similarity across scales is scale ambiguity (fractals have no natural size).</p>
+<!-- What are we looking at here?... -->
+<center>
+<img src="Happisburgh_Footprints_Cropped.png" width="350">
+</center><center>
+<img src="Happisburgh_Footprints.png" width="350">
+</center>
+<p>(Image source: <a class="reference external" href="https://en.wikipedia.org/wiki/Happisburgh_footprints">https://en.wikipedia.org/wiki/Happisburgh_footprints</a>)</p>
+<p>Scale ambiguity is why photos in nature will often include another Euclidean object such as a lens cap (see for example here: <a class="reference external" href="http://www.palaeogeography.net/blog/a-guide-to-taking-geological-field-photos">http://www.palaeogeography.net/blog/a-guide-to-taking-geological-field-photos</a>)</p>
+<!-- What are we looking at here...? -->
+<center>
+<img src="Cauliflower_without_scale.png" width="400">
+</center><center>
+<img src="Cauliflower_with_scale.png" width="400">
+</center>
+<p>Figure from: H.-O. Peitgen, J. Jürgens, and D. Saupe, Chaos and Fractals: New Frontiers of Science</p>
+<!-- Have you ever seen Romanesco broccoli? It's such a perfect fractal it almost looks like one shouldn't be eating it! --></section>
+<section id="infinite-complexity">
+<h2>Infinite complexity<a class="headerlink" href="#infinite-complexity" title="Link to this heading">#</a></h2>
+<p>The question Mandelbrot famously asked was <em>‘how long is the coast of Britain?’</em></p>
+<p>Much like the question, ‘how long is a piece of string?’ the answer is that it depends…</p>
+<p>In particular, it depends on how long your ruler is and as your ruler gets smaller and smaller, the coast line becomes longer and longer approaching an infinite length</p>
+<center>
+<img src="Britain-fractal-coastline-combined.jpg" width="350">
+</center>
+<p>(Image source: <a class="reference external" href="https://en.wikipedia.org/wiki/Coastline_paradox">https://en.wikipedia.org/wiki/Coastline_paradox</a>)</p>
+<!-- Note that this isn't the case for Euclidean objects - halving a ruler would mean we needed twice as many of them to cover the perimeter of a square -->
+<!--'Infinite' coastline zoom: https://www.youtube.com/watch?v=2YtCm8s4w9w (A GIF but it gives the right idea) -->
+<p>In 2D and 3D, this notion can be extended to a measuring pixel or voxel of increasingly small size</p>
+<p>The point, for objects like a coastline, is that it isn’t the length that matters (indeed we can’t answer that question). What matters is its <em>complexity</em>.</p>
+</section>
+<section id="fractal-dimension">
+<h2>Fractal dimension<a class="headerlink" href="#fractal-dimension" title="Link to this heading">#</a></h2>
+<p>The fractal dimension is <em>a</em> measure that quantifies the complexity (aka roughness) of an object</p>
+<!-- You could also think of the dimension as being like the weight of an object
+ -->
+<p>It tells us something about how wiggly a curve is, how crinkled a surface is, or how porous a complex volume is, etc.</p>
+<p>And it doesn’t have to be an integer</p>
+<!-- this isn't just mathematicians making things up (any more than the rest of maths). It makes sense -->
+<p>Before we try and understand fractal dimension, let’s make sure we understand dimension generally…</p>
+<section id="dimension">
+<h3>Dimension<a class="headerlink" href="#dimension" title="Link to this heading">#</a></h3>
+<p>The dimensions we are familiar with are (probably) 0, 1, 2 and 3. A dot is zero-dimensional, a line is one-dimensional, squares are 2D and cubes are 3D. In each case, to articulate a particular location within the object would require an amount of information equal to the dimension, <span class="math notranslate nohighlight">\(d\)</span>. e.g. I’ll meet you at <span class="math notranslate nohighlight">\(X=(x_1, x_2, \ldots, x_d)\)</span> would be sufficient to ensure you could understand my message with no uncertainty.</p>
+<p>i.e. Points are designated by coordinates/dynamical variables with one for each ‘dimension’. Or, if you prefer, a space is <span class="math notranslate nohighlight">\(d\)</span>-dimensional if locally it ‘looks like’ a patch of <span class="math notranslate nohighlight">\(\mathbb{R}^d\)</span>. Note that there are many different (but consistent) mathematical definitions of dimension.</p>
+<!-- Where by looks like we mean diffeomorphic to -->
+<p>Perhaps, you’re a physicist or a computer scientist and dimension can be much larger than this (4, 5, … , 100000,…). As long as we are thinking of dimension as ‘amount of information required to specify the location of a point in the space precisely’ then increasing dimension like this is perfectly sensible.</p>
+<p>What we are calling ‘dimension’ here is often referred to as the <em>‘topological dimension’</em> but there are some subtleties involved.</p>
+<section id="topological-dimension-if-you-re-interested">
+<h4>Topological dimension (if you’re interested)<a class="headerlink" href="#topological-dimension-if-you-re-interested" title="Link to this heading">#</a></h4>
+<p>We said we need no information to describe a point. How much information do we need to describe 2 points? or 100 or any countable number of points? Our previous definition suggests that a collection of points is one-dimensional, which we definitely aren’t comfortable with.</p>
+<p>Dimension is a zoo.</p>
+<p>Some ‘formal hand-waving’ for an alternative perspective…</p>
+<p>By definition, the null set (and only the null set) has a dimension equal to -1.</p>
+<p>The topological dimension of a space is determined by the highest local dimension within the space. The local dimension is one more than the dimension of the lowest-dimensional object capable of dividing any neighbourhood of the space into two distinct parts.</p>
+<ul class="simple">
+<li><p>any countable set has a dimension of 0 (-1 + 1 = 0)</p></li>
+<li><p>a line has dimension 1 as it can be separated by a point (0 + 1 = 1)</p></li>
+<li><p>a plane has dimension 2 since it can be separated by a line (1 + 1 = 2)</p></li>
+<li><p>a volume has dimension 3 since it can be separated by a plane (2 + 1 = 3).</p></li>
+</ul>
+<p>Topological properties are invariant under continuous, one-to-one transformations (i.e. smooth deformations or homeomorphisms) but the topological dimension is a very crude measure of the local size of a space</p>
+<!-- And we take the dimension the space of interest is immersed in to be the minimal one -->
+<p>But there’s another way to think about dimension…</p>
+<p>Scaling an object effectively changes the amount of stuff (mass/volume/length/amount of ink used to draw it/whatever is relevant)</p>
+<p>Let’s look at how these classical objects of different dimensions scale as we divide them:</p>
+<center>
+<img src="Dimension.png" width="300">
+<!-- <img src="Dimension_scaling_B.png" width="300"> -->
+</center>
+<p>Cutting the side length of a square in half produces <span class="math notranslate nohighlight">\(N=4\)</span> <strong>small copies of the original</strong> square. Similarly, <span class="math notranslate nohighlight">\(N=9\)</span> with scaling factor <span class="math notranslate nohighlight">\(r=1/3\)</span></p>
+<p>Note also that we could continue this process… cutting the length of each of the newly created 4 small squares in half to give 4 sets of 4 small squares, so <span class="math notranslate nohighlight">\(N=4\)</span> again and <span class="math notranslate nohighlight">\(r=1/2\)</span> if we compare with the previous level or <span class="math notranslate nohighlight">\(N=16\)</span> and <span class="math notranslate nohighlight">\(r=1/4\)</span> if we compare with the original single square i.e. it doesn’t matter which two levels you work with when understanding how <span class="math notranslate nohighlight">\(N\)</span> changes with <span class="math notranslate nohighlight">\(r\)</span>.</p>
+<p>Generalising, if we consider <span class="math notranslate nohighlight">\(N\)</span> small copies of the original object, that are scaled copies by a factor <span class="math notranslate nohighlight">\(r\)</span> we see that <span class="math notranslate nohighlight">\(N\)</span> and <span class="math notranslate nohighlight">\(r\)</span> are related by:
+$<span class="math notranslate nohighlight">\(
+N=r^{-D}
+\)</span><span class="math notranslate nohighlight">\(
+where \)</span>D=-\frac{\log N}{\log r}$ is the <strong>dimension</strong>.</p>
+<p>This is the first of many power laws we will see</p>
+<p>The line, square and cube are all self similar, while other Euclidean objects like a circle clearly are not. However, if you’re happy with a square then you should be ok with everything that is topologically equivalent to it.</p>
+<section id="power-laws">
+<h5>Power laws<a class="headerlink" href="#power-laws" title="Link to this heading">#</a></h5>
+<p>This is the first of many power laws we will see with a relationship between scales and details (either strict or statistical) that can be expressed as:
+$<span class="math notranslate nohighlight">\(y = x^{-\alpha}\)</span><span class="math notranslate nohighlight">\( where \)</span>\alpha$ is called the power law exponent.</p>
+<p>They arise because as one variable decreases exponentially another increases exponentially e.g. with the square: decreasing the scale exponentially (for example by one-third: 1, 1/3, 1/9, and 1/27), causes the number of small copies to increase exponentially (by 9 times: 1, 9, 81, and 729)</p>
+<p>In essence, power laws tell us that there are far more small things than large ones.</p>
+</section>
+</section>
+</section>
+<section id="self-similarity-dimension">
+<h3>Self-similarity dimension<a class="headerlink" href="#self-similarity-dimension" title="Link to this heading">#</a></h3>
+<p>Recall:
+$<span class="math notranslate nohighlight">\(D=-\frac{\log N}{\log r}\)</span>$</p>
+<p>For our standard objects <span class="math notranslate nohighlight">\(D\)</span> is equal to the topological dimension but it need not be an integer and we can generalise this logic (of looking at the number of scaled copies for a given magnification) to work with other objects such as with geometric fractals</p>
+<p>We now call <span class="math notranslate nohighlight">\(D\)</span> the <em>self-similarity dimension</em></p>
+<p>Note that fractals still have an integer topological dimension, but in terms of the amount of space they take up, it behaves like a higher-dimensional space</p>
+<p>These values are not unique descriptors and many fractal objects may be constructed with the same scaling relationship but have vastly different appearances.</p>
+<section id="id1">
+<h4>Cantor set<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<p>To generate the (standard middle third) Cantor set we cut the line into thirds, such that <span class="math notranslate nohighlight">\(r=\frac{1}{3}\)</span> and remove the middle third, leaving <span class="math notranslate nohighlight">\(N=2\)</span> copies of the original line.</p>
+<p>Hence,
+$<span class="math notranslate nohighlight">\(D=-\frac{\log 2}{\log 1/3}\approx0.631\)</span>$</p>
+<p>i.e. the Cantor set is less than a line but more complex than a point.</p>
+</section>
+<section id="id2">
+<h4>Sierpiński triangle<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
+<p>To generate the Sierpiński triangle we cut the triangle into 4 replicas and remove the one, leaving <span class="math notranslate nohighlight">\(N=3\)</span> copies of the original triangle. These replicas are smaller by a factor of <span class="math notranslate nohighlight">\(r=1/2\)</span> the size of the original.
+Hence,
+$<span class="math notranslate nohighlight">\(D=-\frac{\log 3}{\log 1/2}\approx 1.585\)</span>$</p>
+<p>i.e. the Sierpiński triangle is less than a complete triangle but more complex than a line.</p>
+</section>
+</section>
+</section>
+<section id="a-possible-fourth-property">
+<h2>A possible fourth property<a class="headerlink" href="#a-possible-fourth-property" title="Link to this heading">#</a></h2>
+<p>Complexity emerges from simplicity</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="why-do-we-care-about-these-mathematical-monsters">
+<h1>Why do we care about these mathematical monsters?<a class="headerlink" href="#why-do-we-care-about-these-mathematical-monsters" title="Link to this heading">#</a></h1>
+<p>Of course there are no such thing as monsters and so we have nothing to fear</p>
+<center>
+<img src="DisneyMonster.png" width="600">
+</center>
+<p>Mathematics is fortified by the study of monsters and not destroyed by them. These fractals can be deeply explored for proper and complete understanding (zero and the complex numbers were once scary too and now they are very natural concepts)</p>
+<!-- What doesn't kill you makes you stronger -->
+<p>Remember our goal is to model complex systems… If those complex systems are naturally occurring they are likely to be fractal</p>
+<p>Fractal mathematics allows us to begin modelling the shapes of nature. Fractal dimension is a core differentiator between manmade objects and the shapes in nature.</p>
+<section id="cantor-set-and-sierpinski-triangle-applications">
+<h2>Cantor set and Sierpiński triangle applications<a class="headerlink" href="#cantor-set-and-sierpinski-triangle-applications" title="Link to this heading">#</a></h2>
+<p>…TO BE INCLUDED FOR NEXT ITERATION</p>
+<img src="Sierpinski_FractalTree.gif" width="350" align="center">
+<p>By Rafael Ruggiero - Own work, CC BY-SA 4.0, <a class="reference external" href="https://commons.wikimedia.org/w/index.php?curid=63863683">https://commons.wikimedia.org/w/index.php?curid=63863683</a></p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="fractals-in-nature">
+<h1>Fractals in nature<a class="headerlink" href="#fractals-in-nature" title="Link to this heading">#</a></h1>
+<blockquote>
+<div><p><em>“I find the ideas in the fractals, both as a body of knowledge and as a metaphor, an incredibly important way of looking at the world.”</em> Vice President of the United States of America and Nobel Laureate Al Gore, New York Times, Wednesday, June 21, 2000, discussing some of the “big think” questions that intrigue him.</p>
+</div></blockquote>
+<p>Once you start looking for fractals you will see them everywhere!</p>
+<center>
+<img src="NatureFractals_Combined.png" width="800">
+</center>
+<p>All images taken from Wiki Commons</p>
+<!-- <center>
+<img src="Samambaia_fern.jpg" width="400">
+</center>
+
+<center>
+<img src="Soap.jpg" width="400">
+</center>
+
+<center>
+<img src="Snowflake_macro_photography_1.jpg" width="400">
+</center>
+
+<center>
+<img src="NautilusCutawayLogarithmicSpiral.jpg" width="400">
+</center>
+
+<center>
+<img src="Vortex-street-1.jpg" width="400">
+</center>
+
+<table><tr>
+<td> <img src="Staccoto_Lightning.jpg" alt="Drawing" style="width: 250px;"/> </td>
+<td> <img src="Samambaia_fern.jpg" alt="Drawing" style="width: 250px;"/> </td>
+<td> <img src="Soap.jpg" alt="Drawing" style="width: 250px;"/> </td>
+<td> <img src="Snowflake_macro_photography_1.jpg" alt="Drawing" style="width: 250px;"/> </td>
+<td> <img src="NautilusCutawayLogarithmicSpiral.jpg" alt="Drawing" style="width: 250px;"/> </td>
+<td> <img src="Vortex-street-1.jpg" alt="Drawing" style="width: 250px;"/> </td>
+</tr></table> -->
+<!-- Lightning: By Griffinstorm - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=37874129
+Fern: By Jml3 - Own work, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=17823361
+Soap: By I, Malene, CC BY 2.5, https://commons.wikimedia.org/w/index.php?curid=90085224
+Snowflake: By Alexey Kljatov - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=39993014
+Shell: By Chris 73 / Wikimedia Commons, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=19711
+Clouds: By Robert Cahalan, NASA/GSFC - http://earthobservatory.nasa.gov/Newsroom/NewImages/images.php3?img_id=3328, Archive linkOriginal JPEG, Archive JPEG, Public Domain, https://commons.wikimedia.org/w/index.php?curid=87336 -->
+<!-- found in various natural phenomena, such as branching structures of trees, river deltas, lightening, mountain ridges, cloud formations, coastlines, and even in the structure of the human lungs and blood vessels. etc etc 
+
+Foam an example of gap filling (Apollian gasket)--><section id="why-do-fractal-patterns-so-often-appear-in-nature">
+<h2>Why do fractal patterns so often appear in nature?<a class="headerlink" href="#why-do-fractal-patterns-so-often-appear-in-nature" title="Link to this heading">#</a></h2>
+<p>In a 1904 letter to Emile Bernard, Paul Cézanne wrote</p>
+<blockquote>
+<div><p><em>“everything in nature is modeled according to the sphere, the cone, and the cylinder. You have to learn to paint with reference to these simple shapes; then you can do anything.”</em> Doran, M., ed., Conversations with Cézanne, Univ. of California Press, 2001, pg 63.</p>
+</div></blockquote>
+<p>But…</p>
+<blockquote>
+<div><p><em>“Clouds are not spheres, mountains are not cones, coastlines are not circles, and bark is not smooth, nor does lightning travel in a straight line.”</em> - Mandelbrot</p>
+</div></blockquote>
+<p>Similar structures are seen in vastly different systems and scales</p>
+<section id="recursion">
+<h3>Recursion<a class="headerlink" href="#recursion" title="Link to this heading">#</a></h3>
+<p>i.e. doing the same thing on different scales, is easy from an evolution perspective and we don’t need a blueprint with all the detail</p>
+<p>Growth processes will frequently lead to fractals</p>
+<p>Fractals are hyper-efficient in their construction and this allows for example, plants to maximise their exposure to sunlight and efficiently transport nutritious throughout their cellular structure (your lungs have as much surface area as a tennis court, your blood vessels can wrap around the planet 2.5 times etc…)</p>
+<p>After relatively few iterations of self-similarity we begin to converge on an attractor.</p>
+<p>Can also occur in man-made structures: e.g. the roads leading to Rome.</p>
+<center>
+<img src="All_roads_lead_to_rome.jpeg" width="400">
+</center>
+<p>(Image from: <a class="reference external" href="https://www.bloomberg.com/news/articles/2015-12-11/all-roads-lead-to-rome-according-to-new-map-from-moovel-lab">https://www.bloomberg.com/news/articles/2015-12-11/all-roads-lead-to-rome-according-to-new-map-from-moovel-lab</a>)</p>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="how-does-it-fit-in-with-complex-systems-generally">
+<h1>How does it fit in with ‘Complex Systems’ generally?<a class="headerlink" href="#how-does-it-fit-in-with-complex-systems-generally" title="Link to this heading">#</a></h1>
+<p><strong>Previous topics:</strong></p>
+<ul class="simple">
+<li><p>why are fractals a complex system? Fractals and fractal properties appear in vastly different systems and scales. From simplicity (such as ‘iteratively remove middle third of lines’) we get complexity.</p></li>
+<li><p>think about the systems examples we’ve seen so far, where are the fractals?</p></li>
+</ul>
+<p><strong>Upcoming topics:</strong></p>
+<ul class="simple">
+<li><p>other measures of complexity in Information Theory</p></li>
+<li><p>fractal objects emerge with Cellular Automata and Diffusion Limited Aggregation</p></li>
+<li><p>fractal landscapes can be incorporated into Agent-based models</p></li>
+<li><p>…</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="fun-stuff">
+<h1>Fun stuff<a class="headerlink" href="#fun-stuff" title="Link to this heading">#</a></h1>
+<p>Fractal geometry isn’t just about shapes</p>
+<p>It also provides a way to understand complexity in “systems” and help describe the unpredictable.</p>
+<ul class="simple">
+<li><p>timing and sizes of earthquakes</p></li>
+<li><p>variation in a person’s heartbeat</p></li>
+<li><p>prevalence of diseases</p></li>
+<li><p>financial markets (this is where Mandelbrot first gained insight into the mathematics of complexity while working as a researcher for IBM during the 1960s).</p></li>
+</ul>
+<p>Below is a verrrrrry select few examples.</p>
+<p>Go explore whatever interests you - it’s probably fractal somehow!</p>
+<section id="fractal-tech">
+<h2>Fractal tech<a class="headerlink" href="#fractal-tech" title="Link to this heading">#</a></h2>
+<section id="fractal-antenna">
+<h3>Fractal antenna<a class="headerlink" href="#fractal-antenna" title="Link to this heading">#</a></h3>
+<p>Sierpinski carpet is used as a fractal antenna (very high performing)
+accommodate multiple frequencies, whilst being small. They are also easy to fabricate and smaller than conventional antennas of similar performance, thus being optimal for pocket-sized mobile phones. (see here: <a class="reference external" href="http://www.fractenna.com/our/our.html#otherfractaltechnology">http://www.fractenna.com/our/our.html#otherfractaltechnology</a>)</p>
+</section>
+<section id="fractal-compression">
+<h3>Fractal compression<a class="headerlink" href="#fractal-compression" title="Link to this heading">#</a></h3>
+<p>Since fractals allow us to convey seemingly random patterns with little data, working with image resolution and even 3D model creation becomes hugely data-efficient using fractal image coding (FIC) and other applications.</p>
+</section>
+<section id="fractal-distributors">
+<h3>Fractal distributors<a class="headerlink" href="#fractal-distributors" title="Link to this heading">#</a></h3>
+<p>Engineered fractal With the use of fractals, the random characteristics of the turbulent cascade can be replaced with symmetries, providing precise control of fluid scaling and distribution. This results in energy savings, process size reduction and reaction homogeneity.</p>
+<p><a class="reference external" href="https://www.arifractal.net/technologies/fractal-fluid-control/">https://www.arifractal.net/technologies/fractal-fluid-control/</a></p>
+</section>
+</section>
+<section id="fractal-universe-fractal-forgeries">
+<h2>Fractal universe/Fractal forgeries<a class="headerlink" href="#fractal-universe-fractal-forgeries" title="Link to this heading">#</a></h2>
+<p>Creating digital worlds that remind us of our own.</p>
+<p>Videogames are now regularly be created with fractals, because they allow for small amounts of storage as all the details aren’t required only the simple fractal rules.
+Fractal algorithms such as the diamond-square or Perlin noise can be employed to generate terrain or resource distributions that exhibit fractal properties. No Man’s Sky is a game with 18 quintillion planets to explore (they call it ‘procedural’ but its a deterministic fractal)</p>
+<p>Star Trek II was first to do this in Wrath of Khan and this was the start of Pixar (Steve Jobs bought out Wrath of Khan animators)</p>
+<section id="fractal-landscapes">
+<h3>Fractal landscapes<a class="headerlink" href="#fractal-landscapes" title="Link to this heading">#</a></h3>
+<img src="Animated_fractal_mountain.gif" width="350" align="center">
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Fractal_landscape">https://en.wikipedia.org/wiki/Fractal_landscape</a></p>
+<table><tr>
+<td> <img src="FractalLandscape1.jpg" alt="Drawing" style="width: 280px;"/> </td>
+<td> <img src="FractalLandscape2.jpg" alt="Drawing" style="width: 250px;"/> </td>
+<td> <img src="FractalLandscape3.jpg" alt="Drawing" style="width: 250px;"/> </td>
+</tr></table>
+<p>By The Ostrich - Own work, CC BY 3.0, <a class="reference external" href="https://commons.wikimedia.org/w/index.php?curid=4716597">https://commons.wikimedia.org/w/index.php?curid=4716597</a>, By Stevo-88 - Own work, used Adobe Photoshop for Perlin noise creation and Terragen for rendering., Public Domain, <a class="reference external" href="https://commons.wikimedia.org/w/index.php?curid=2208011">https://commons.wikimedia.org/w/index.php?curid=2208011</a>, By Gary R. Huber, 3D Nature, LLC - <a class="reference external" href="http://www.3dnworld.com/gallery.php?user=GHuber">http://www.3dnworld.com/gallery.php?user=GHuber</a>, CC BY-SA 2.5, <a class="reference external" href="https://commons.wikimedia.org/w/index.php?curid=1790607">https://commons.wikimedia.org/w/index.php?curid=1790607</a></p>
+</section>
+</section>
+<section id="fractal-biology-medicine">
+<h2>Fractal biology + medicine<a class="headerlink" href="#fractal-biology-medicine" title="Link to this heading">#</a></h2>
+<center>
+<img src="HeartFractal.png" width="200">
+</center>
+<p>Figure and many other nice examples from here: <a class="reference external" href="https://iternal.us/what-is-a-fractal/">https://iternal.us/what-is-a-fractal/</a></p>
+<ul class="simple">
+<li><p>Medical diagnoses such as cancer: healthy blood vessel cells grow in an orderly fractal pattern but cancerous cells grow in an abnormal fashion.</p></li>
+<li><p>lungs are about 2.97 dimensional: they pack lots of surface area (apparently few tennis courts) into a small volume (a few tennis balls). This gives them the ability to extract enough oxygen in a highly efficient way.</p></li>
+</ul>
+<p>Our lungs, our circulatory system, our brains are like trees
+Fractal geometry allows bounded curves of infinite length, and closed surfaces with infinite area. It even allows curves with positive volume, and arbitrarily large groups of shapes with exactly the same boundary. This is exactly how our lungs manage to maximize their surface area.
+Lungs have surace area &gt;100m^2 efficiently absorb oxygen. Our lungs cram the area of a tennis court into the area of just a few tennis balls.</p>
+<p>Nuerons are interconnected fractally</p>
+<p>Our arteries, which account for just 3 per cent of our bodies by volume, can reach every cell in our bodies with nutrients. In the kidneys and lungs, our arteries, veins, and bronchioles all manage to intertwine around a common boundary.
+The arteries that deliver the blood, and the veins that take it away, need to share a common interface with the surface of the lungs, in order to aerate the blood. The arteries must provide every cell in our body with nutrients, using the minimum amount of blood
+complex protein surfaces fold up and wrinkle around towards three-dimensional space in a dimension that is around 2.4. Antibodies bind to a virus through their compatibility with the specific fractal dimension of the surface of the cell with which they intend to react.</p>
+<p>receptor molecules on the surfaces of all viruses and bacteria are fractal. Their positioning techniques, the methods they use to determine the chemistry of the body they have invaded and how they will interfere with that body’s chemistry, and their binding functions, emerge mathematically by way of the deterministic rules of fractal geometry.</p>
+</section>
+<section id="fractals-in-popular-culture">
+<h2>Fractals in popular culture<a class="headerlink" href="#fractals-in-popular-culture" title="Link to this heading">#</a></h2>
+<section id="music">
+<h3>Music<a class="headerlink" href="#music" title="Link to this heading">#</a></h3>
+<p><em>Pathological monsters! cried the terrified mathematician</em></p>
+<p><em>Every one of them a splinter in my eye</em></p>
+<p><em>I hate the Peano Space and the Koch Curve</em></p>
+<p>*I fear the Cantor Ternary Set</p>
+<p><em>The Sierpinski Gasket makes me wanna cry</em></p>
+<p><em>And a million miles away a butterfly flapped its wings</em></p>
+<p><em>On a cold November day a man named Benoit Mandelbrot was born”</em></p>
+<p>(Jonathan Coulton, lyrics from “Mandelbrot Set” <a class="reference external" href="https://open.spotify.com/track/1KOV7p4LBEFkTitQ0vcmgy">https://open.spotify.com/track/1KOV7p4LBEFkTitQ0vcmgy</a>)</p>
+<p>The equations in the lyrics actually describe Julia set (not Mandelbrot set), and apparently Coulton is accutely aware of this thanks to the many mathematicians the like to point it out to him.</p>
+<!-- See here: Really nice Mandelbrot code: Mandelbrot code from: https://github.com/vassilikitsios/fractals/blob/master/fractals.ipynb for some really nice Manelbrot code.
+ -->
+</section>
+<section id="art">
+<h3>Art<a class="headerlink" href="#art" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://users.math.yale.edu/public_html/People/frame/Fractals/Panorama/">https://users.math.yale.edu/public_html/People/frame/Fractals/Panorama/</a></p>
+</section>
+<section id="literature">
+<h3>Literature<a class="headerlink" href="#literature" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://users.math.yale.edu/public_html/People/frame/Fractals/Panorama/Literature/Lit/Literature.html">https://users.math.yale.edu/public_html/People/frame/Fractals/Panorama/Literature/Lit/Literature.html</a></p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="1_Introduction_to_complex_systems.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Welcome to MATH3024: Complex Systems</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="1_ReactionDiffusion.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">How the cheetah got his spots</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Euclidean geometry</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#size">Size</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symmetries">Symmetries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-first-fractal-was-a-fourier-series">The first fractal was a Fourier series</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-most-famous-fractal">The most famous fractal</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#fractal-geometry">Fractal geometry</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fractal-properties">Fractal properties</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-fractals">Types of fractals</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strict-fractals">Strict fractals</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cantor-set">Cantor set:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sierpinski-triangle">Sierpiński triangle:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#self-similarity-zoom-symmetry">Self-similarity (zoom symmetry)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#infinite-complexity">Infinite complexity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fractal-dimension">Fractal dimension</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dimension">Dimension</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#topological-dimension-if-you-re-interested">Topological dimension (if you’re interested)</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#power-laws">Power laws</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#self-similarity-dimension">Self-similarity dimension</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Cantor set</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Sierpiński triangle</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-possible-fourth-property">A possible fourth property</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#why-do-we-care-about-these-mathematical-monsters">Why do we care about these mathematical monsters?</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cantor-set-and-sierpinski-triangle-applications">Cantor set and Sierpiński triangle applications</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#fractals-in-nature">Fractals in nature</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-do-fractal-patterns-so-often-appear-in-nature">Why do fractal patterns so often appear in nature?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recursion">Recursion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-it-fit-in-with-complex-systems-generally">How does it fit in with ‘Complex Systems’ generally?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#fun-stuff">Fun stuff</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fractal-tech">Fractal tech</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fractal-antenna">Fractal antenna</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fractal-compression">Fractal compression</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fractal-distributors">Fractal distributors</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fractal-universe-fractal-forgeries">Fractal universe/Fractal forgeries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fractal-landscapes">Fractal landscapes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fractal-biology-medicine">Fractal biology + medicine</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fractals-in-popular-culture">Fractals in popular culture</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#music">Music</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#art">Art</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#literature">Literature</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
