@@ -9,7 +9,7 @@ chapters:
 #- file: markdown-notebooks
 - file: notebooks/week00/Getting_Started.ipynb 
 - file: notebooks/week01/L_Introduction_to_complex_systems.ipynb
-#- file: notebooks/week02/L_Fractals.ipynb
+- file: notebooks/week02/L_Fractals.ipynb
 #- file: notebooks/week03/L_Reaction_diffusion_systems.ipynb
 #- file: notebooks/week04/L_Cellular_automata.ipynb
 #- file: notebooks/week05/L_Agent_based_modelling.ipynb
