@@ -62,7 +62,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/week02/L_Fractals';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="prev" title="Welcome to MATH3024: (Modelling) Complex Systems" href="../week01/L_Introduction_to_complex_systems.html" />
+    <link rel="next" title="Week 3: Reaction-diffusion systems" href="../week03/L_Reaction_diffusion.html" />
+    <link rel="prev" title="Week 1: Welcome to MATH3024: (modelling) Complex Systems" href="../week01/L_Introduction_to_complex_systems.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -177,13 +178,25 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../week00/Getting_Started.html">Getting Started</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="../week01/L_Introduction_to_complex_systems.html">Welcome to MATH3024: (Modelling) Complex Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week01/L_Introduction_to_complex_systems.html">Week 1: Welcome to MATH3024: (modelling) Complex Systems</a></li>
 
 
 
 
 
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Week 2: Fractals</a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../week03/L_Reaction_diffusion.html">Week 3: Reaction-diffusion systems</a></li>
+
+
+
+
+
 
 
 
@@ -672,10 +685,10 @@ A rebellion against calculus.   </div>
 </div>
 <p>Not a fractal:</p>
 <img src="images/baby_not_a_fractal_ChatGPT.png" alt="" width="50%">
-<p>Fig from: ChatGPT with prompt 1: “image of doll that is holding it’s detached arm. Image shouldn’t be creepy”,</p>
+<p>Fig from: ChatGPT with prompt 1: <em>“image of doll that is holding it’s detached arm. Image shouldn’t be creepy”</em></p>
 <p>Not quite a fractal:</p>
 <img src="images/baby_not_quite_a_fractal_ChatGPT.png" alt="" width="50%">
-<p>Fig from: ChatGPT with prompt 2: “Now I want the exact same image but instead of holding the arm in it’s right hand, it should hold a replica of itself (armless)”.</p>
+<p>Fig from: ChatGPT with prompt 2: <em>“Now I want the exact same image but instead of holding the arm in it’s right hand, it should hold a replica of itself (armless)”</em></p>
 <p>Actually a fractal:</p>
 <img src="images/Fractal_hands.jpg" alt="" width="50%">
 <p>Fig from: <a class="reference external" href="https://drmrehorst.blogspot.com/2018/10/fractal-hand.html">Mark Rehorst’s Tech Topics</a></p>
@@ -910,7 +923,10 @@ Algorithms like <em>Perlin noise</em> or <em>diamond-square</em> are behind the 
 <!-- <center>
 <img src="images/Sierpinski_initiator_generator.png" width="400">
 </center> --><p>To construct it we iteratively remove central triangles. The standard form uses an equilateral triangle of length <span class="math notranslate nohighlight">\(L\)</span> as the initiator and the generator is the rule to divide into 4 congruent replicas and remove the central replica (here the upside down triangle).</p>
-</section>
+<div style="border-left: 4px solid #1e70bf; padding: 0.75em; background-color: #eaf3fb; margin-bottom: 1em;">
+  <strong>Practice:</strong><br>
+What is the initiator and the generator of the Koch curve?
+</div></section>
 </section>
 <section id="option-2-iterated-function-systems-ifs">
 <h2>Option 2: Iterated Function Systems (IFS)<a class="headerlink" href="#option-2-iterated-function-systems-ifs" title="Link to this heading">#</a></h2>
@@ -1006,9 +1022,7 @@ f_3(x) &amp;= \frac{x + P_3}{2}
 \end{split}\]</div>
 <p>For any point <span class="math notranslate nohighlight">\(x\in \mathbb{R}^2\)</span> each of these functions will map the point <span class="math notranslate nohighlight">\(x\)</span> to a point <span class="math notranslate nohighlight">\(f_i(x)\)</span> that is halfway to the relevant triangle vertex <span class="math notranslate nohighlight">\(P_i\)</span></p>
 <p>The IFS is the union of these functions, <span class="math notranslate nohighlight">\(f_1(x) \cup f_2(x) \cup f_3(x)\)</span> and the gasket is invariant under the simultaneous application of these three transformations (the set maps onto itself when at the limit).</p>
-<center>
-<img src="images/Sierpinski_IFS.gif" width="400">
-</center><p>Note that the Sierpiński gasket can be constructed in many equivalent ways:</p>
+<p>Note that the Sierpiński gasket can be constructed in many equivalent ways:</p>
 <ul>
 <li><p><strong>Starting from just the triangle’s vertices</strong>: <span class="math notranslate nohighlight">\(I_0 = \{P_1, P_2, P_3\}\)</span> (see this <a class="reference external" href="https://www.youtube.com/watch?v=nIIp-vo8rHg">visualisation by Leios Labs</a>), or</p></li>
 <li><p><strong>Using the entire filled triangle</strong>: where each point is written as a barycentric combination:<span class="math notranslate nohighlight">\(I_0 = \lambda_1 P_1 + \lambda_2 P_2 + \lambda_3 P_3\)</span>, with weights (barycentric coordinates) <span class="math notranslate nohighlight">\(\lambda_1, \lambda_2, \lambda_3\)</span> satisfying:</p>
@@ -1063,7 +1077,10 @@ x_{t+1} = f_i(x_t), \quad t \geq 0,
 <p>The sequence of points will very quickly get sucked onto the ‘strange attractor’ (the fractal) and will then stay on it forever.</p>
 <p>To generate a good visual approximation of the attractor, a large number of points is typically plotted, often discarding the first few (the “transient”) to ensure the orbit has settled onto the attractor.</p>
 <p>A useful design principle: the probability <span class="math notranslate nohighlight">\(p_i\)</span> of selecting function <span class="math notranslate nohighlight">\(f_i\)</span> should ideally reflect the <strong>relative size</strong> of the copy <span class="math notranslate nohighlight">\(f_i(A)\)</span> compared to the whole attractor <span class="math notranslate nohighlight">\(A\)</span>. However, for many well-known IFS fractals, simply choosing each map with <strong>equal probability</strong> produces good results.</p>
-</section>
+<div style="border-left: 4px solid #1e70bf; padding: 0.75em; background-color: #eaf3fb; margin-bottom: 1em;">
+  <strong>Practice:</strong><br>
+What is the IFS of the Koch curve?
+</div></section>
 </section>
 </section>
 <section id="option-3-lindenmayer-systems">
@@ -1142,7 +1159,10 @@ The string gets long fast, which is the point: each iteration adds geometric det
 <p><img alt="" src="../../_images/Sierpinski_iterations_Arrowhead.png" /></p>
 <p>Fig from: <a class="reference external" href="https://doi.org/10.3390/fractalfract8110655">https://doi.org/10.3390/fractalfract8110655</a></p>
 <p>A really nice complexity explorable here: <a class="reference external" href="https://www.complexity-explorables.org/explorables/hokus-fractus/">Hokus Fractus</a></p>
-</section>
+<div style="border-left: 4px solid #1e70bf; padding: 0.75em; background-color: #eaf3fb; margin-bottom: 1em;">
+  <strong>Practice:</strong><br>
+What is the L-system of the Koch curve?
+</div></section>
 </section>
 </section>
 </section>
@@ -1397,8 +1417,17 @@ N(\varepsilon) \sim \frac{1}{\varepsilon^d}
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Welcome to MATH3024: (Modelling) Complex Systems</p>
+        <p class="prev-next-title">Week 1: Welcome to MATH3024: (modelling) Complex Systems</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="../week03/L_Reaction_diffusion.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Week 3: Reaction-diffusion systems</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
