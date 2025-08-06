@@ -11,8 +11,13 @@ parse:
     remove_cell_tags:
       - presenter-notes
       - slides-only
-
-
+  myst_enable_extensions:
+    - colon_fence
+    - deflist
+    - dollarmath
+    - amsmath
+    - html_admonition
+    - html_image
 
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
