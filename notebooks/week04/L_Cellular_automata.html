@@ -1,0 +1,1667 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Week 4: Cellular automata &#8212; Unit Reader</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/week04/L_Cellular_automata';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="Week 3: Reaction-diffusion systems" href="../week03/L_Reaction_diffusion.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Unit Reader</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    MATH3024 Reader
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week00/Getting_Started.html">Getting Started</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../week01/L_Introduction_to_complex_systems.html">Week 1: Welcome to MATH3024: (modelling) Complex Systems</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../week02/L_Fractals.html">Week 2: Fractals</a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../week03/L_Reaction_diffusion.html">Week 3: Reaction-diffusion systems</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Week 4: Cellular automata</a></li>
+
+
+
+
+
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/week04/L_Cellular_automata.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Week 4: Cellular automata</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Week 4: Cellular automata</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#automaton-singular-automata-plural">Automaton (singular) Automata (plural)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#state">State</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rules">Rules</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#cellular-automata">Cellular automata</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-world">The world</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">State</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#network">Network</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distance">Distance</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#update-rule">Update rule</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#wolfram-s-elementary-ca">Wolfram’s elementary CA</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-model">The model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-unique-numerical-code-for-each-possible-rule-set">A unique numerical code for each possible rule set</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#an-aside-do-you-know-binary">An aside: Do you know binary?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#observing-the-dynamics">Observing the dynamics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sierpinski-triangle-rule-90">Sierpiński triangle: Rule 90</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#an-aside-do-you-know-modulo-arithmetic">An aside: Do you know modulo arithmetic?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#game-of-life">Game of Life</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">The model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#state-transition-rules">State-transition rules</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#game-of-life-is-full-of-surprises">(Game of) Life is full of surprises!</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#an-aside-do-you-know-what-a-turing-machine-is">An aside: Do you know what a Turing machine is?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#game-of-life-in-action">Game of Life in action</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#extensions">Extensions</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ca-in-the-real-world">CA in the real world</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-1d-rule-30">In 1D: Rule 30</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-2d">In 2D:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analysing-cellular-automata">Analysing cellular automata</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rule-space">Rule space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-space">Phase-space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classifying-behaviour">Classifying behaviour</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#class-1">Class 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#class-2">Class 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#class-3">Class 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#class-4">Class 4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cellular-automata-as-computers">Cellular automata as computers</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#an-aside-turing-complete-systems">An aside: Turing-complete systems</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#state-transition-diagrams">State-transition diagrams</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wolfram-state-transition-diagrams">Wolfram: State-transition diagrams</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reversability">Reversability</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wolfram">Wolfram</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Game of Life</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#garden-of-eden-states">Garden of Eden states</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Wolfram</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Game of Life</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-field-approximation">Mean field approximation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#is-the-universe-a-simulation">Is the universe a simulation?</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="week-4-cellular-automata">
+<h1>Week 4: Cellular automata<a class="headerlink" href="#week-4-cellular-automata" title="Link to this heading">#</a></h1>
+<div style="margin: 1.5em 0; border-right: 4px solid #888; padding-right: 1em; text-align: right;">
+  <div style="font-style: italic; font-family: 'Comic Neue', 'Segoe Script', cursive; font-size: 1.2em;">
+It always bothers me that according to the laws as we understand them today, it takes a computing machine an infinite number of logical operations to figure out what goes on in no matter how tiny a region of space, and no matter how tiny a region of time. How can all that be going on in that tiny space? Why should it take an infinite amount of logic to figure out what one tiny piece of space/time is going to do? So I have often made the hypothesis ultimately physics will not require a mathematical statement, that in the end the machinery will be revealed and the laws will turn out to be simple, like the chequer board with all its apparent complexities. But this is just speculation. 
+  </div>
+  <div style="font-style: normal; font-size: 0.95em; margin-top: 0.5em;">
+    — Richard Feynman, <em>The Character of Physical Law </em>, - Ch. 2
+  </div>
+</div><div style="margin: 1.5em 0; border-right: 4px solid #888; padding-right: 1em; text-align: right;">
+  <div style="font-style: italic; font-family: 'Comic Neue', 'Segoe Script', cursive; font-size: 1.2em;">
+    You don't educate people by telling them useful things, you educate people by showing them interesting things
+  </div>
+  <div style="font-style: normal; font-size: 0.95em; margin-top: 0.5em;">
+    — John Conway 
+  </div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="automaton-singular-automata-plural">
+<h1>Automaton (singular) Automata (plural)<a class="headerlink" href="#automaton-singular-automata-plural" title="Link to this heading">#</a></h1>
+<p>Automata are very simple machines (or systems) that change <strong>state</strong> in a <strong>rule-governed</strong> way.</p>
+<p><img alt="" src="../../_images/Mechanical_Pinochio.gif" /></p>
+<section id="state">
+<h2>State<a class="headerlink" href="#state" title="Link to this heading">#</a></h2>
+<p>Machines are fundamentally defined by their <strong>state</strong>, which is finite and discrete (usually).</p>
+<p>Automata are therefore often referred to as ‘finite state automata’/’finite state machines’ or simply ‘cells’.</p>
+</section>
+<section id="rules">
+<h2>Rules<a class="headerlink" href="#rules" title="Link to this heading">#</a></h2>
+<p>Machines update their state using a <strong>state-transition function</strong>, which depends on the cell’s current state and (usually) that of its neighbours.</p>
+<p>They are simple, local, deterministic rules for iterating an initial configuration of cells.</p>
+<p>They are often formed as “if-then” statements, which are inherently nonlinear.</p>
+<div style="border-left: 4px solid #1e70bf; padding: 0.75em; background-color: #eaf3fb; margin-bottom: 1em;">
+  <strong>Theoretical Question:</strong><br>
+    In physics, linear systems follow the superposition principle. Why doesn’t this principle work for cellular automata, and what does that tell us about the nature of their rules?
+</div><div class="toggle docutils container">
+<p>No Superposition Principle: In linear systems, the principle of superposition holds, meaning the combined effect of two inputs is simply the sum of their individual effects. In cellular automata, this principle doesn’t apply because the combined effect of neighboring cells cannot generally be decomposed into a simple sum of individual effects.</p>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="cellular-automata">
+<h1>Cellular automata<a class="headerlink" href="#cellular-automata" title="Link to this heading">#</a></h1>
+<p>Invented in 1940s by Stanislaw Ulam and John von Neumann, who were especially interested in logical requirements for machine self-replication</p>
+<p><img alt="" src="../../_images/Ulam_vonNeumann.png" /></p>
+<!-- von Neumann was interested in self-reporoduction in a biological context and Stanislaw Ulam suggested using a cell-based concept -->
+<p>John von Neumann sought to model machine self-reproduction, inspired by biology. At Stanislaw Ulam’s suggestion, he adopted a grid of interacting cells — a discrete framework that became the basis of cellular automata.</p>
+<p><img alt="" src="../../_images/self_replicating_machine.png" /></p>
+<p>He was thinking in the context of space exploration and hypothetical spacecraft that could land on a planet, harvest local materials, and build copies of themselves to continue exploring.</p>
+<p>The specific model had:</p>
+<ul class="simple">
+<li><p>many identical automata/cells were arranged uniformly on a lattice</p></li>
+<li><p>cells interacted/exchanged information with their 4 neighbouring cells (hence, this being named the von Neumann neighbourhood)</p></li>
+<li><p>29 possible states for each cell</p></li>
+<li><p>and many complicated rules for how a cell in one state would change to another</p></li>
+</ul>
+<p>He did all of this (for at least a few iterations) with pen and paper!</p>
+<p>This highlights two key points:</p>
+<ol class="arabic simple">
+<li><p>the simulations are extremely rudimentary</p></li>
+<li><p>yet highly complex behaviour can emerge.</p></li>
+</ol>
+<p>In general, cellular automata (CA) are spatially distributed dynamical systems with both space and time discretised.</p>
+<p>They are simple to define, straightforward to simulate, and widely used in Complex Systems modelling. Applications range from hydrodynamics to the growth and morphogenesis of living organisms, ecology, traffic flow, and social or economic dynamics.</p>
+<p>We’ll now look at the typical set-up. While there are common conventions, nothing is sacred when it comes to cellular automata.</p>
+<section id="the-world">
+<h2>The world<a class="headerlink" href="#the-world" title="Link to this heading">#</a></h2>
+<p>We must define the space the automata live in (one automata resides at each lattice site).</p>
+<p>In cellular automata, these discretisation choices — lattice type, initial conditions, and boundary rules — define the “world” in which the dynamics unfold and can profoundly shape the patterns that emerge.</p>
+<p><img alt="" src="../../_images/Regular_tilings.svg" /></p>
+<p><a class="reference external" href="https://mathworld.wolfram.com/Tessellation.html">Figure from Wolfram</a></p>
+<p>These are the typical (regular) tilings of the Euclidean plane but you could also dream up more exotic ones.</p>
+<p>When choosing a discretisation for a model, key features to consider include:</p>
+<ul class="simple">
+<li><p><strong>Dimension, size, and lattice type</strong>
+– e.g., squares, hexagons, triangles, or more irregular geometries.</p></li>
+<li><p><strong>Initial conditions</strong>
+– Simple, random, or domain-specific (structured/patterned).
+– Can strongly influence the system’s evolution and resulting dynamics.</p></li>
+<li><p><strong>Boundary conditions</strong>
+– No boundaries: Assume space is infinite.
+– Periodic boundaries: Space “wraps around” in each spatial direction (e.g., a ring in 1D, a torus in 2D).
+– Cut-off boundaries: Edge cells lack neighbours beyond the boundary.
+– Fixed boundaries: Edge cells are held in fixed states and do not update.</p></li>
+</ul>
+</section>
+<section id="id1">
+<h2>State<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>Each automaton is a dynamical state variable with a finite number of states available.</p>
+<p>The state is often simply binary (sometimes called ‘two-state cellular automata’):</p>
+<ul class="simple">
+<li><p>0, off, blank, white, dead, …</p></li>
+<li><p>1, on, filled, back, alive, …</p></li>
+</ul>
+<p>This state changes in time according to some rule.</p>
+<p>The state of all the cells (the pattern produced) is the <strong>configuration</strong>.</p>
+</section>
+<section id="network">
+<h2>Network<a class="headerlink" href="#network" title="Link to this heading">#</a></h2>
+<p>Which cells can a given cell see? (and use to make decisions).</p>
+<p>Same <em>local</em> neighbourhood template is used by all cells. It is typically centred at the cell of interest for some radius and some notion of distance.</p>
+<section id="distance">
+<h3>Distance<a class="headerlink" href="#distance" title="Link to this heading">#</a></h3>
+<p>The geometry of the lattice means the usual (Euclidean) distance function or metric isn’t sensible</p>
+<p>The typical neighbourhood templates consider all cells within a distance <span class="math notranslate nohighlight">\(d\)</span>:</p>
+<ul class="simple">
+<li><p>von Neumann (NESW) is an <span class="math notranslate nohighlight">\(L_1\)</span> norm (aka manhattan/taxicab distance):</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+d_1=\sum_i|x_i|
+\]</div>
+<ul class="simple">
+<li><p>Moore (includes corners) is an <span class="math notranslate nohighlight">\(L_{\infty}\)</span> norm
+$<span class="math notranslate nohighlight">\(
+d_{\infty}=\max_i|x_i|
+\)</span>$</p></li>
+</ul>
+<p>More exotic or more general option can also be considered:</p>
+<ul class="simple">
+<li><p>e.g. directional neighbourhoods or neighbourhoods that are a function of the state</p></li>
+<li><p>e.g. in general we could consider the adjacent vertices of a vertex to be the neighbourhood if we operated the CA on a complex network.</p></li>
+</ul>
+</section>
+</section>
+<section id="update-rule">
+<h2>Update rule<a class="headerlink" href="#update-rule" title="Link to this heading">#</a></h2>
+<p>The state of all cells within the neighbourhood feeds into the state-transition function, which provides the dynamics (defines the physics).</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+s_{t+1}(x) = F\left[s_{t}(x+x_{0}), s_{t}(x+x_{1}), \ldots, s_{t}(x+x_{n-1})\right],
+\end{equation*}\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(s_{t}(x)\)</span> is the state of the automaton located at <span class="math notranslate nohighlight">\(x\)</span> at time <span class="math notranslate nohighlight">\(t\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(F\)</span> is the state-transition function. It can be described lookup table, algorithm, mathematical formula, …</p></li>
+<li><p>and <span class="math notranslate nohighlight">\(N=\{x_{0}, x_{1}, \ldots, x_{n-1}\}\)</span> is the neighbourhood.</p></li>
+</ul>
+<p>Updating of all cells is usually synchronous in step with a universal clock.</p>
+<p>We will now explore the two most (in)famous examples:</p>
+<ol class="arabic simple">
+<li><p>Wolfram’s Elementary Cellular Automata; and</p></li>
+<li><p>Conway’s two-dimensional Game of Life.</p></li>
+</ol>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="wolfram-s-elementary-ca">
+<h1>Wolfram’s elementary CA<a class="headerlink" href="#wolfram-s-elementary-ca" title="Link to this heading">#</a></h1>
+<p>These are the simplest class of <em>one-dimensional cellular automata</em>.</p>
+<p>Wolfram has studied them extensively! His tomb <em>‘A new kind of science’</em> rubbed many people the wrong way and some of the reviews are far more entertaining than the book itself.</p>
+<p>Nevertheless, these CA are an important starting point for our studies.</p>
+<p>They weren’t the first CA though, even Game of Life came before them.</p>
+<section id="the-model">
+<h2>The model<a class="headerlink" href="#the-model" title="Link to this heading">#</a></h2>
+<p>To create a model we will need to define:</p>
+<ul class="simple">
+<li><p><strong>World:</strong> finite sequence of square automata arranged on a grid with periodic boundaries</p></li>
+<li><p><strong>States:</strong> each cell can be in one of two possible states</p></li>
+<li><p><strong>Initialisation:</strong> either a single black cell in the middle of a row of white cells, or a random state for all cells</p></li>
+<li><p><strong>Neighbourhood:</strong> consists of the cell itself and the cells to the left and right of it</p></li>
+<li><p><strong>Update rule:</strong> Rule <span class="math notranslate nohighlight">\(X\)</span>, where <span class="math notranslate nohighlight">\(X \in \{0,1,2,\ldots , 2^8-1\}\)</span>.</p></li>
+</ul>
+<section id="a-unique-numerical-code-for-each-possible-rule-set">
+<h3>A unique numerical code for each possible rule set<a class="headerlink" href="#a-unique-numerical-code-for-each-possible-rule-set" title="Link to this heading">#</a></h3>
+<p>There are 8 possible neighbourhood configurations: <span class="math notranslate nohighlight">\(000\)</span>, <span class="math notranslate nohighlight">\(001\)</span>, <span class="math notranslate nohighlight">\(010\)</span>, <span class="math notranslate nohighlight">\(011\)</span>, <span class="math notranslate nohighlight">\(100\)</span>, <span class="math notranslate nohighlight">\(101\)</span>, <span class="math notranslate nohighlight">\(110\)</span>, <span class="math notranslate nohighlight">\(111\)</span></p>
+<p>The particular rule is named based on the update for each of these 8 configurations (<em>in order</em>).</p>
+<p>For example, this is Rule 50:</p>
+<p><img alt="" src="../../_images/Rule50.png" /></p>
+<p>Fig from <a class="reference external" href="https://mathworld.wolfram.com/Rule50.html">Wolfram’s Mathworld</a></p>
+<p>Interpretting the outputs of each of the possible combinations as a single integer in base 2 where white is <span class="math notranslate nohighlight">\(0\)</span> and black is <span class="math notranslate nohighlight">\(1\)</span> i.e. <span class="math notranslate nohighlight">\(00110010\)</span> is binary for 50 .</p>
+<p>Wolfram explored every possible set of rules in great detail.</p>
+<section id="an-aside-do-you-know-binary">
+<h4>An aside: Do you know binary?<a class="headerlink" href="#an-aside-do-you-know-binary" title="Link to this heading">#</a></h4>
+<p>Base two system, i.e. there are only two digits: 0 and 1</p>
+<p>Each digit’s place value is a power of two</p>
+<p>e.g. <span class="math notranslate nohighlight">\(00110010_2=50_{10}\)</span> because <span class="math notranslate nohighlight">\(0\times 2^7 + 0\times 2^6 + 1\times 2^5 + 1\times 2^4 + \ldots +1\times 2^1 + 0\times 2^0 = 50_{10}\)</span></p>
+<p>Binary is efficient for computers as it aligns with the on/off states of electronic circuits</p>
+<p>(Whereas the decimal system is a base ten system with digits: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9. And each digit’s place value is a power of ten e.g. <span class="math notranslate nohighlight">\(50_{10}=5 \times 10^1 + 0\times 10^0\)</span>)</p>
+</section>
+</section>
+</section>
+<section id="observing-the-dynamics">
+<h2>Observing the dynamics<a class="headerlink" href="#observing-the-dynamics" title="Link to this heading">#</a></h2>
+<p>There is one more question we need to answer: how should we visualise the evolution?</p>
+<p>The most straightforward solution, given that we are working with one-dimensional data, is to include a separate axis for time.</p>
+<p>This is a space-time diagram. Each row of depicts the cells of the automaton for a particular time, with time increasing downwards.</p>
+<p>So what kinds of patterns do these rules produce?:</p>
+<p><a class="reference external" href="https://www.complexity-explorables.org/explorables/kelp/">Another Complexity Explorable</a></p>
+<div class="cell tag_hide-input tag_hide-output tag_reader-only docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="k">def</span><span class="w"> </span><span class="nf">wolfram_ca</span><span class="p">(</span><span class="n">rule</span><span class="p">,</span> <span class="n">num_steps</span><span class="p">,</span> <span class="n">initial_state</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate a Wolfram cellular automaton.</span>
+<span class="sd">    </span>
+<span class="sd">    INPUTS:</span>
+<span class="sd">        rule (int): Rule number for the cellular automaton.</span>
+<span class="sd">        num_steps (int): Number of steps or generations for the automaton.</span>
+<span class="sd">        initial_state (ndarray): Initial state of the automaton as a 1D array.</span>
+
+<span class="sd">    OUTPUTS:</span>
+<span class="sd">        ndarray: Array representing the cellular automaton with shape (num_steps, num_cells).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">num_cells</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">initial_state</span><span class="p">)</span>
+    <span class="n">automaton</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">num_steps</span><span class="p">,</span> <span class="n">num_cells</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+    <span class="n">automaton</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">initial_state</span>
+
+    <span class="c1"># Convert rule to binary representation and ensure it is represented as an 8-bit string</span>
+    <span class="n">binary_rule</span> <span class="o">=</span> <span class="nb">bin</span><span class="p">(</span><span class="n">rule</span><span class="p">)[</span><span class="mi">2</span><span class="p">:]</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+
+    <span class="c1"># Apply rule to generate new states</span>
+    <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_steps</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_cells</span><span class="p">):</span>
+            <span class="c1"># Determine the neighborhood states</span>
+            <span class="n">left</span> <span class="o">=</span> <span class="n">automaton</span><span class="p">[</span><span class="n">step</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">num_cells</span><span class="p">]</span> <span class="c1">#here the modulo operator % ensures that the indices wrap around to the opposite end of the automaton if they exceed the range of valid indices. </span>
+            <span class="n">center</span> <span class="o">=</span> <span class="n">automaton</span><span class="p">[</span><span class="n">step</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span>
+            <span class="n">right</span> <span class="o">=</span> <span class="n">automaton</span><span class="p">[</span><span class="n">step</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">num_cells</span><span class="p">]</span>
+            <span class="c1"># Convert neighborhood states to an integer between 0 and 7</span>
+            <span class="n">neighborhood</span> <span class="o">=</span> <span class="mi">7</span> <span class="o">-</span> <span class="p">(</span><span class="n">left</span> <span class="o">&lt;&lt;</span> <span class="mi">2</span> <span class="o">|</span> <span class="n">center</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span> <span class="o">|</span> <span class="n">right</span><span class="p">)</span>
+            <span class="c1"># Apply the rule to determine the new state of the cell</span>
+            <span class="n">automaton</span><span class="p">[</span><span class="n">step</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">binary_rule</span><span class="p">[</span><span class="n">neighborhood</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">automaton</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_ca</span><span class="p">(</span><span class="n">automaton</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Plot the cellular automaton.</span>
+<span class="sd">    </span>
+<span class="sd">    INPUTS: </span>
+<span class="sd">        automaton (ndarray): Array representing the cellular automaton.</span>
+
+<span class="sd">    OUTPUTS: </span>
+<span class="sd">        None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">num_steps</span><span class="p">,</span> <span class="n">num_cells</span> <span class="o">=</span> <span class="n">automaton</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">automaton</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;binary&#39;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Cell&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Step&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Elementary cellular automaton&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-input tag_reader-only docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rule_number</span> <span class="o">=</span> <span class="mi">110</span>
+<span class="n">steps</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">L</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">initial_state</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span> 
+<span class="n">initial_state</span><span class="p">[</span><span class="n">L</span><span class="o">//</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># initial_state = [random.randint(0, 1) for _ in range(L)]</span>
+
+<span class="n">automaton</span> <span class="o">=</span> <span class="n">wolfram_ca</span><span class="p">(</span><span class="n">rule_number</span><span class="p">,</span> <span class="n">steps</span><span class="p">,</span> <span class="n">initial_state</span><span class="p">)</span>
+<span class="n">plot_ca</span><span class="p">(</span><span class="n">automaton</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../../_images/f4d2bb0cd5606744bce0e410377ee31a4a5d31d7329c6cc8c5b0758a11da96ab.png" src="../../_images/f4d2bb0cd5606744bce0e410377ee31a4a5d31d7329c6cc8c5b0758a11da96ab.png" />
+</div>
+</div>
+<section id="sierpinski-triangle-rule-90">
+<h3>Sierpiński triangle: Rule 90<a class="headerlink" href="#sierpinski-triangle-rule-90" title="Link to this heading">#</a></h3>
+<p>Each cell’s state-transition function is the <em>exclusive or</em> of its two neighbours.</p>
+<p>Because this is equivalent to modulo-2 addition, this generates the modulo-2 version of Pascal’s triangle. The diagram has a 1 wherever Pascal’s triangle has an odd number, and a 0 wherever Pascal’s triangle has an even number.</p>
+<p>CA like this are sometimes referred to as replicators because the patterns are making copies of themselves</p>
+</section>
+<section id="an-aside-do-you-know-modulo-arithmetic">
+<h3>An aside: Do you know modulo arithmetic?<a class="headerlink" href="#an-aside-do-you-know-modulo-arithmetic" title="Link to this heading">#</a></h3>
+<p>Numbers “wrap around” at the modulus. This is often compared to the way hours wrap around on a clock (modulus <span class="math notranslate nohighlight">\(m=12\)</span>), days wrap around the week (modulus <span class="math notranslate nohighlight">\(m=7\)</span>) etc.</p>
+<ul class="simple">
+<li><p>The operation is written as <span class="math notranslate nohighlight">\(a \text{ mod } m\)</span>, where:</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(a\)</span> is the number you’re working with.</p></li>
+<li><p><span class="math notranslate nohighlight">\(m\)</span> is the modulus.</p></li>
+<li><p>the result is the remainder when <span class="math notranslate nohighlight">\(a\)</span> is divided by <span class="math notranslate nohighlight">\(m\)</span></p></li>
+</ul>
+</li>
+<li><p><span class="math notranslate nohighlight">\(17 \text{ mod } 5 \)</span> means you divide 17 by 5, which gives 3 with a remainder of 2. So, <span class="math notranslate nohighlight">\(17 \text{ mod } 5 = 2 \)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(25 \text{ mod } 7 \)</span> means you divide 25 by 7, which gives 3 with a remainder of 4. So, <span class="math notranslate nohighlight">\(25 \text{ mod } 7 = 4 \)</span></p></li>
+</ul>
+<div style="border-left: 4px solid #1e70bf; padding: 0.75em; background-color: #eaf3fb; margin-bottom: 1em;">
+  <strong>Theoretical Question:</strong><br>
+From a single cell initialisation Rules 18, 22, 26, 82, 146, 154, 210 and 218 also generate the Sierpiński triangle. Why?
+</div><div class="toggle docutils container">
+<p>All those rules are, in some sense, variations of Rule 90, so they generate the same underlying fractal pattern from a single-cell start, possibly with simple inversions or flips.</p>
+<p>Rule 90 is <strong>additive</strong>: the new state of a cell is just the XOR of its two neighbours:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> $$
+ s_i^{t+1} = s_{i-1}^t \oplus s_{i+1}^t
+ $$
+</pre></div>
+</div>
+<p>This linearity over the finite field <span class="math notranslate nohighlight">\(\mathrm{GF}(2)\)</span> means its evolution can be analysed as a kind of discrete Pascal’s triangle modulo 2 — which is exactly the Sierpiński triangle.</p>
+<p>Rules 18, 22, 26, 82, 146, 154, 210, and 218 are either additive rules themselves, just with different combinations of neighbour contributions, or equivalent to Rule 90 under symmetries (bit flip of 0↔1, left-right reflection, or both).</p>
+<p>Wolfram’s classification shows that many rules fall into <strong>equivalence classes</strong> under these simple transformations. Within a class, patterns from a single-seed start are identical up to flipping colours or mirroring.</p>
+<p>With a radius-1 CA (like the Wolfram rules), there are <span class="math notranslate nohighlight">\(2^3=8\)</span> possible neighbourhoods.
+But starting from a single black cell in a sea of white, most of those never appear.</p>
+<p>At <span class="math notranslate nohighlight">\(t=0\)</span>, you only have 000 100 000 patterns around the centre. As time evolves, only neighbourhoods containing at most two black cells appear in the active region (because additivity forbids “merging” into larger solid blocks from that starting seed).</p>
+<p>So the CA’s behaviour in this case is determined entirely by its outputs for just a small subset of the 8 neighbourhoods — specifically the ones that are shared by this set of rules.</p>
+</div>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="game-of-life">
+<h1>Game of Life<a class="headerlink" href="#game-of-life" title="Link to this heading">#</a></h1>
+<p>Conway’s Game of Life is one of the most well-known cellular automata (not the first but arguably the best). It was popularised by Martin Gardener in Scientific American.</p>
+<p><img alt="" src="../../_images/Conway_notes.png" /></p>
+<p><a class="reference external" href="https://www.nytimes.com/2020/12/28/science/math-conway-game-of-life.html">Figure from NY times (a great article that is unfortunately behind a paywall)</a></p>
+<p>It was first explored on a Go board in the Cambridge mathematics department’s tea room — though unlike in Go, where stones are placed on the grid’s vertices, the Game of Life assigns states to the grid’s squares.</p>
+<p>Pause for a moment to think about how all of the elements of our one-dimensional cellular automata might work in the context of a two-dimensional cellular automata…</p>
+<section id="id2">
+<h2>The model<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>World:</strong> 2D, square grid (i.e. a square lattice), period boundaries</p></li>
+<li><p><strong>States:</strong> binary</p></li>
+<li><p><strong>Initialisation:</strong> random</p></li>
+<li><p><strong>Neighbourhood:</strong> Moore neighbourhood (the 8 surrounding squares and self)</p></li>
+<li><p><strong>Rules:</strong> ???</p></li>
+<li><p><strong>Visualisation:</strong> To properly visualise the evolution of cells and any emergent patterns patterns we’ll need something more than an additional axis for time. In particular, we want an animation.</p></li>
+</ul>
+<section id="state-transition-rules">
+<h3>State-transition rules<a class="headerlink" href="#state-transition-rules" title="Link to this heading">#</a></h3>
+<p>The Wolfram-equivalent two-dimensional cellular automata would have:</p>
+<div class="math notranslate nohighlight">
+\[
+\underbrace{2^{\,\overbrace{2^{9}}^{\text{possible neighbourhoods}}}}_{\text{possible rules}} \;=\; 1.340781\times 10^{154}
+\]</div>
+<p>state-transition rules to define.</p>
+<p>Obviously that’s way too many to list them out explicitly.</p>
+<p>Simplification is often achieved via:</p>
+<ul class="simple">
+<li><p>Rotational symmetry (common if modelling physical phenomena)</p></li>
+<li><p><em>Totalistic</em> rules where the state-transition function depends only on the sum of the states
+(which are of course always rotationally symmetric).</p></li>
+</ul>
+<p>A cell can be alive or dead.</p>
+<p>Conway simplified things to be based (loosely) on real cell growth with the birth and death depending on population density.</p>
+<p>Rules:</p>
+<ul class="simple">
+<li><p><strong>Loneliness</strong>: alive cells (black) with fewer than 2 alive neighbours will die (turn white)</p></li>
+<li><p><strong>Overcrowding</strong>: alive cells with more than 3 alive neighbours will die</p></li>
+<li><p><strong>Happiness</strong>: alive cells with either 2 or 3 alive neighbours will continue living (stay black)</p></li>
+<li><p><strong>Reproduction</strong>: dead cells with exactly 3 alive neighbours will come alive</p></li>
+<li><p><strong>Dead</strong> cells stay dead.</p></li>
+</ul>
+</section>
+</section>
+<section id="game-of-life-is-full-of-surprises">
+<h2>(Game of) Life is full of surprises!<a class="headerlink" href="#game-of-life-is-full-of-surprises" title="Link to this heading">#</a></h2>
+<p>This very simple ‘game’ shows dynamic almost life-like behaviours, which are highly non-trivial and fascinating.</p>
+<p>Even though the simulation is very simple and completely determined, there is fundamentally no way to predict what will happen, other than running a specific simulation to find out. This is referred to as <em>irreducible computability</em>.</p>
+<p>Typically, we will see one of three things occur:</p>
+<ol class="arabic simple">
+<li><p>The cells die out or become stagnant and the simulation effectively ends</p></li>
+<li><p>The cells form into interesting small and stable structures that flip between two (or more) states</p></li>
+<li><p>The cells seem to come alive and start doing unusual things.</p></li>
+</ol>
+<ol class="arabic simple">
+<li><p><strong>Still lifes</strong></p></li>
+</ol>
+<p>e.g. <a class="reference external" href="https://conwaylife.com/wiki/Beehive">the beehive: </a></p>
+<!-- <center>
+<img src="images/Beehive.png" width="100">
+</center> -->
+<p><img alt="" src="../../_images/Beehive.png" /></p>
+<ol class="arabic simple" start="2">
+<li><p>The cells form into interesting small and stable structures that flip between two (or more) states</p></li>
+</ol>
+<p><strong>Oscillators</strong></p>
+<p>e.g. <a class="reference external" href="https://conwaylife.com/wiki/Toad">the toad is a period 2 oscillator</a></p>
+<!-- <center>
+<img src="images/Toad.png" width="200">
+</center> -->
+<p><img alt="" src="../../_images/Toad.png" /></p>
+<ol class="arabic simple" start="3">
+<li><p>The cells seem to come alive and start doing unusual things</p></li>
+</ol>
+<p><strong>Spaceships</strong> are moving oscillators that return to their starting position but shifted in space</p>
+<p>e.g. the <strong>glider</strong> is the simplest type of spaceship and the first to be discovered. They are oscillators with period 4, which appear to walk diagonally across the screen:</p>
+<p><img alt="" src="../../_images/Animated_glider_emblem.gif" /></p>
+<p>Remember: The squares don’t actually ‘move’! Humans are very good at seeing patterns, sometimes we are too good at it.</p>
+<p>Conway supposedly regrets calling them gliders as they are much more like ‘walkers’ or ‘crawlers’.</p>
+<p>The glider now has fairly widespread use as the <a class="reference external" href="http://www.catb.org/hacker-emblem/">emblem for hackers</a>.</p>
+<p>Remember: The squares don’t actually ‘move’! Humans are very good at seeing patterns, sometimes we are too good at it.</p>
+<p>Conway supposedly regrets calling them gliders as they are much more like ‘walkers’ or ‘crawlers’.</p>
+<p>The glider now has fairly widespread use as the <a class="reference external" href="http://www.catb.org/hacker-emblem/">emblem for hackers</a>.</p>
+<p><strong>Guns</strong></p>
+<p>Have parts that repeat periodically, like an oscillator, but they also periodically emit spaceships.</p>
+<p>e.g. Gosper’s glider gun (from Bill Gosper and a team at MIT), which produces recurrent streams of “organisms” spawned from digital “parents”</p>
+<p><img alt="" src="../../_images/Gospers_glider_gun.gif" /></p>
+<p><a class="reference external" href="https://commons.wikimedia.org/w/index.php?curid=101736">Fig By Lucas Vieira - Own work, CC BY-SA 3.0</a></p>
+<p>This object was discovered when Conway offered a \<span class="math notranslate nohighlight">\(50 prize (equivalent to \\\)</span>380 in 2022) for anyone who could prove/disprove whether the Game of Life could support a pattern that could grow forever (he originally conjectured that no pattern can grow indefinitely)</p>
+<p>It’s discovery eventually led to the proof that Conway’s Game of Life could function as a Turing machine.</p>
+<section id="an-aside-do-you-know-what-a-turing-machine-is">
+<h3>An aside: Do you know what a Turing machine is?<a class="headerlink" href="#an-aside-do-you-know-what-a-turing-machine-is" title="Link to this heading">#</a></h3>
+<p>Theoretical model of computation, introduced by Alan Turing in 1936</p>
+<p>It provides a simple but powerful way to capture the fundamental principles of computation and algorithm.</p>
+<p>A Turing machine consists of an infinite tape, a tape head, a finite set of states, and a set of rules (transition function). The tape serves as both the input and the working memory, with the head reading and writing symbols one at a time as follows:</p>
+<ul class="simple">
+<li><p>The machine reads the symbol under the tape head</p></li>
+<li><p>looks up the corresponding rule based on its current state</p></li>
+<li><p>writes a new symbol to the tape (or leaves it as is)</p></li>
+<li><p>moves the tape head left or right; and</p></li>
+<li><p>transitions to a new state.</p></li>
+<li><p>This process continues until the machine enters the halting state. What’s left on the tape is the answer</p></li>
+</ul>
+<p>Note that a Turing machine operates sequentially (one step at a time), whereas a cellular automaton operates in parallel (all cells update simultaneously).</p>
+<p><strong>Methuselas</strong></p>
+<p>From most initial conditions the Game of Life quickly reaches a stable state where the number of live cells is nearly constant (possibly with some oscillation).</p>
+<p>Other patterns are so long-lived, they are called “Methuselahs”. (Methuselah, Noah’s grandfather, had the longest lifespan of all those given in the Bible passing away at the grand old age of 969.)</p>
+<p>e.g. <a class="reference external" href="https://conwaylife.com/wiki/R-pentomino">the r-pentomino</a> is a Methuselah, which doesn’t stabilise until generation 1103!:</p>
+<p><img alt="" src="../../_images/r_pentomino.png" /></p>
+</section>
+<section id="game-of-life-in-action">
+<h3>Game of Life in action<a class="headerlink" href="#game-of-life-in-action" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.complexity-explorables.org/explorables/nah-dah-dah-nah-nah-opus-1984/">Explorable</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=C2vgICfQawE">Large-scale patterns</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=3NDAZ5g4EuU&amp;amp;t=13s">Clock</a></p></li>
+<li><p><a class="reference external" href="https://www.reddit.com/r/math/comments/fwujar/conways_game_of_life_forms_a_sierpi%C5%84ski_triangle/">Sierpiński triangle</a></p></li>
+<li><p><a class="reference external" href="https://link.springer.com/content/pdf/10.1007/978-1-84996-217-9.pdf">Everything you could ever hope to know about the Game of Life</a></p></li>
+</ul>
+<div style="border-left: 4px solid #1e70bf; padding: 0.75em; background-color: #eaf3fb; margin-bottom: 1em;">
+  <strong>Play:</strong><br>
+    Can you find an undiscovered emergent pattern like a glider gun or puffer train? 
+</div><div class="toggle docutils container">
+<p>Not easily… and that is not a coincidence.</p>
+<p>Conway chose the rules of Game of Life so that his conjecture (that no pattern can grow indefinitely) would not be obviously true or false.</p>
+<p>Of all possible rules for a 2D CA, most yield simple behaviour, i.e. most initial conditions stabilise quickly or grow unboundedly.</p>
+<p>By avoiding uninteresting CAs, Conway was also avoiding Wolfram’s Class 1 and Class 2 behaviour, and probably Class 3 as well (more on this in the next session).</p>
+<p>If you do happen to stumble across or design something that is yet to be named additional marks are up for grabs! (And naming these patterns is something people take very seriously: Boojum, the Snark, and the Bandersnatch) .</p>
+</div>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="extensions">
+<h1>Extensions<a class="headerlink" href="#extensions" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Cellular automata on networks</p></li>
+<li><p>Stochastic cellular automata - the state-transition function can be defined probablistically. For example, disease compartment changes state based on the probability of infection/recovery</p></li>
+<li><p>Multi-layer cellular automata - the cell state can be a vector not a scalar</p></li>
+<li><p>Asynchronous cellular automata - rather than all cells updating their states at once, cells can be chosen at random to update their state (cf. SIS voter model implementation)</p></li>
+<li><p>States can be oriented</p></li>
+<li><p>Can be combined with neural networks to guide the simulations towards desired outcomes. In recent years research in this area has been progressing, quickly with some astonishing results.</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="ca-in-the-real-world">
+<h1>CA in the real world<a class="headerlink" href="#ca-in-the-real-world" title="Link to this heading">#</a></h1>
+<p>The second law of thermodynamics says that things should move from order to disorder.</p>
+<p>But life seems to contradict this, self-organising from very simple rules and producing highly complex evolution (a consequence of not operating in equilibrium regimes).</p>
+<p>CA have been shown to directly correspond to processes generated by biological evolution.</p>
+<p>They capture and describe the transmission of information from one local node to another. Thus, any transmission problem, social or otherwise, can be modeled with a CA with appropriate transmission dynamics.</p>
+<section id="in-1d-rule-30">
+<h2>In 1D: Rule 30<a class="headerlink" href="#in-1d-rule-30" title="Link to this heading">#</a></h2>
+<div style="margin: 1.5em 0; border-right: 4px solid #888; padding-right: 1em; text-align: right;">
+  <div style="font-style: italic; font-family: 'Comic Neue', 'Segoe Script', cursive; font-size: 1.2em;">
+The Rule 30 automataon is the most surprising thing I've ever seen in science... It took me several years to absorb how important this was. But in the end, I realised that this one picture contains the clue to what's perhaps the most long-standing mystery in all of science: where, in the end, the complexity of the natural world comes from  </div>
+  <div style="font-style: normal; font-size: 0.95em; margin-top: 0.5em;">
+    — Stephen Wolfram (Quoted in Forbes)
+  </div>
+</div><p><em>Conus textile</em> (a venemous sea snail)</p>
+<p><img alt="" src="../../_images/Textile_cone.jpeg" /></p>
+<p>Wolfram patented this as a pseudo-random number generator and a few years ago put <a class="reference external" href="https://writings.stephenwolfram.com/2019/10/announcing-the-rule-30-prizes/">\$30,000 up as a prize for answering some as yet unanswered questions</a></p>
+</section>
+<section id="in-2d">
+<h2>In 2D:<a class="headerlink" href="#in-2d" title="Link to this heading">#</a></h2>
+<p><img alt="" src="../../_images/Lizard_cellular_automata.png" /></p>
+<p>Figure from the article: <a class="reference external" href="https://www.nature.com/articles/nature22031"><em>A living mesoscopic cellular automaton made of skin scales</em></a>.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="analysing-cellular-automata">
+<h1>Analysing cellular automata<a class="headerlink" href="#analysing-cellular-automata" title="Link to this heading">#</a></h1>
+<div style="margin: 1.5em 0; border-right: 4px solid #888; padding-right: 1em; text-align: right;">
+  <div style="font-style: italic; font-family: 'Comic Neue', 'Segoe Script', cursive; font-size: 1.2em;">
+People think that mathematics is complicated. Mathematics is the simple bit, it’s the stuff we CAN understand. It’s cats that are complicated.
+  </div>
+  <div style="font-style: normal; font-size: 0.95em; margin-top: 0.5em;">
+    — John Conway 
+  </div>
+</div>
+<section id="rule-space">
+<h2>Rule space<a class="headerlink" href="#rule-space" title="Link to this heading">#</a></h2>
+<p>CA models are discrete in time and space, and typically the states of the cells are also discrete.</p>
+<p>This means that the number of all possible neighbourhoods and responses to those neighbourhoods is finite and therefore countable… we can actually list out all possible state-transition functions with an exhaustive search if we want to (and are as crazy as Wolfram).</p>
+<p>Together, these form the <strong>rule-space</strong>.</p>
+<p>Let:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(D\)</span> be the dimension of the space</p></li>
+<li><p><span class="math notranslate nohighlight">\(r\)</span> be the radius of the neighbourhood</p></li>
+<li><p><span class="math notranslate nohighlight">\(k\)</span> be the number of possible states for a cell</p></li>
+</ul>
+<p>If using a Moore template the size of the neighbourhood will be <span class="math notranslate nohighlight">\(2r+1\)</span> neighbours in each dimension and hence the total number of neighbours <span class="math notranslate nohighlight">\(n=(2r+1)^D\)</span>.</p>
+<p>Each of the cells in a neighbourhood can be in one of <span class="math notranslate nohighlight">\(k\)</span> states. Hence the neighbourhood could be one of <span class="math notranslate nohighlight">\(c = k^n\)</span> and each of those neighbourhoods needs a state-transition:</p>
+<div class="math notranslate nohighlight">
+\[
+k^c=k^{k^n}=k^{k^{(2r+1)^D}}.
+\]</div>
+<p>This obviously gets very large, very quickly.</p>
+<p>We’ve seen how Wolfram’s elementary CA have <span class="math notranslate nohighlight">\(2^{2^3}\)</span> possible sets of ‘physics’, which was sort of manageable. Game of Life used a totalistic rule to reduce the size of the rule-space from <span class="math notranslate nohighlight">\(2^{2^9}\)</span> to a few simple entries in a lookup table</p>
+<div style="border-left: 4px solid #1e70bf; padding: 0.75em; background-color: #eaf3fb; margin-bottom: 1em;">
+  <strong> Check your understanding:</strong><br>
+What is the rule space of:
+i) Wolfram's elementary cellular automata; and
+ii) Game of life
+</div><div class="toggle docutils container">
+<p>Here’s the quick answer and the reasoning.</p>
+<p>i) <strong>Wolfram’s Elementary Cellular Automata (ECA)</strong></p>
+<ul class="simple">
+<li><p>Binary states, radius <span class="math notranslate nohighlight">\(r=1\)</span> (3-cell neighbourhood → <span class="math notranslate nohighlight">\(2^3=8\)</span> neighbourhoods).</p></li>
+<li><p>Each neighbourhood maps to 0 or 1 ⇒ number of rules <span class="math notranslate nohighlight">\(=2^{2^3}=2^{8}=256\)</span>.</p></li>
+</ul>
+<p>ii) All binary 2D Moore-neighbourhood rules without the outer-totalistic restriction, the rule space is <span class="math notranslate nohighlight">\(2^{2^{9}}=2^{512}\approx 1.34\times10^{154}\)</span>. This is because there are <span class="math notranslate nohighlight">\(2^9=512\)</span> possible 3×3 binary neighbourhoods (including the centre). A rule can assign 0/1 to <em>each</em> neighbourhood independently, i.e. a Boolean function <span class="math notranslate nohighlight">\(f:\{0,1\}^9\to\{0,1\}\)</span>. The number of such functions is <span class="math notranslate nohighlight">\(2^{512}\)</span>.</p>
+<p>The Game of Life restricts the rule (life-like, outer-totalistic) so the next state depends only on (a) whether the cell is currently dead/alive and (b) the count of live neighbours (0–8), not their arrangement.</p>
+<ul class="simple">
+<li><p>For a dead cell: choose the set <span class="math notranslate nohighlight">\(B\subseteq\{0,\dots,8\}\)</span> of neighbour counts that cause <strong>birth</strong> (that’s <span class="math notranslate nohighlight">\(2^9\)</span> possibilities).</p></li>
+<li><p>For a <strong>live</strong> cell: choose the set <span class="math notranslate nohighlight">\(S\subseteq\{0,\dots,8\}\)</span> of counts that allow <strong>survival</strong> (another <span class="math notranslate nohighlight">\(2^9\)</span> possibilities).
+Total: <span class="math notranslate nohighlight">\(2^9\cdot2^9=2^{18}=262{,}144\)</span>.</p></li>
+</ul>
+<p>i.e. <span class="math notranslate nohighlight">\(B=\{3\}, S=\{2,3\}\)</span>.</p>
+<p>So <span class="math notranslate nohighlight">\(2^{512}\)</span> counts all possible 3×3 binary rules; <span class="math notranslate nohighlight">\(2^{18}\)</span> counts the much smaller, but still really quite large, ‘life-like’ subset determined by birth/survival sets over neighbour counts.</p>
+</div>
+</section>
+<section id="phase-space">
+<h2>Phase-space<a class="headerlink" href="#phase-space" title="Link to this heading">#</a></h2>
+<p>The <strong>phase-space</strong>, on the other hand, contains all of the possible configurations - the parallel universes that can emerge from these rules.</p>
+<p>If the space is finite then we can list these too.</p>
+<p>Let:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(L\)</span> be the length of space in each dimension</p></li>
+</ul>
+<p>Then for a regular domain the total number of cells (volume) is <span class="math notranslate nohighlight">\(L^D\)</span> and each cell can be in one of <span class="math notranslate nohighlight">\(k\)</span> states hence we have <span class="math notranslate nohighlight">\(k^{L^D}\)</span> possible configurations.</p>
+<div style="border-left: 4px solid #1e70bf; padding: 0.75em; background-color: #eaf3fb; margin-bottom: 1em;">
+  <strong> Check your understanding:</strong><br>
+What is the phase space of:
+i) Wolfram's elementary cellular automata; and
+ii) Game of life
+</div><div class="toggle docutils container">
+<p>The phase space is the set of all global configurations (independent of the update rule).</p>
+<p>i) <strong>Elementary cellular automata (binary, 1D)</strong></p>
+<ul class="simple">
+<li><p>On a finite ring of length <span class="math notranslate nohighlight">\(L\)</span>: <span class="math notranslate nohighlight">\(\{0,1\}^L\)</span> with <span class="math notranslate nohighlight">\(|\text{phase space}|=2^{L}\)</span>.</p></li>
+<li><p>On an infinite line <span class="math notranslate nohighlight">\(\mathbb{Z}\)</span>: <span class="math notranslate nohighlight">\(\{0,1\}^{\mathbb{Z}}\)</span>, which has cardinality <span class="math notranslate nohighlight">\(2^{\aleph_0}\)</span> (uncountable).</p></li>
+</ul>
+<p>ii) <strong>Game of Life (binary, 2D, Moore neighbourhood)</strong></p>
+<ul>
+<li><p>On a finite <span class="math notranslate nohighlight">\(M\times N\)</span> torus (or any fixed finite boundary): <span class="math notranslate nohighlight">\(\{0,1\}^{MN}\)</span> with <span class="math notranslate nohighlight">\(|\text{phase space}|=2^{MN}\)</span>.</p></li>
+<li><p>On the infinite grid <span class="math notranslate nohighlight">\(\mathbb{Z}^2\)</span>: <span class="math notranslate nohighlight">\(\{0,1\}^{\mathbb{Z}^2}\)</span>, also of cardinality <span class="math notranslate nohighlight">\(2^{\aleph_0}\)</span>.</p>
+<p>(If you restrict to finite-support configurations, that subspace is countable.)</p>
+</li>
+</ul>
+</div>
+</section>
+<section id="classifying-behaviour">
+<h2>Classifying behaviour<a class="headerlink" href="#classifying-behaviour" title="Link to this heading">#</a></h2>
+<p>The emerging configurations can be classified (after some transient from a random initialisation).</p>
+<p>Wolfram classified each of the 256 CAs into four classes, numbered in order of increasing complexity, based on how they evolve from anything to their eventual patterns.</p>
+<p>Whilst it’s not exactly a useless classification, it is somewhat ill-defined, qualitative and not necessarily exhaustive or mutually exclusive. It also generalises poorly to other rule-spaces.</p>
+<section id="class-1">
+<h3>Class 1<a class="headerlink" href="#class-1" title="Link to this heading">#</a></h3>
+<p>Development of patterns tends towards vacuum - a stable uniform state</p>
+<p>e.g. rules 0 and 32.</p>
+<p><img alt="" src="../../_images/Class_1.png" /></p>
+<p>Fig from <a class="reference external" href="https://www.wolframscience.com/nks/p231--four-classes-of-behavior/">Wolfram</a></p>
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">wolfram_ca</span><span class="p">(</span><span class="n">rule</span><span class="p">,</span> <span class="n">num_steps</span><span class="p">,</span> <span class="n">initial_state</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate a Wolfram cellular automaton.</span>
+<span class="sd">    </span>
+<span class="sd">    INPUTS:</span>
+<span class="sd">        rule (int): Rule number for the cellular automaton.</span>
+<span class="sd">        num_steps (int): Number of steps or generations for the automaton.</span>
+<span class="sd">        initial_state (ndarray): Initial state of the automaton as a 1D array.</span>
+
+<span class="sd">    OUTPUTS:</span>
+<span class="sd">        ndarray: Array representing the cellular automaton with shape (num_steps, num_cells).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">num_cells</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">initial_state</span><span class="p">)</span>
+    <span class="n">automaton</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">num_steps</span><span class="p">,</span> <span class="n">num_cells</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+    <span class="n">automaton</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">initial_state</span>
+
+    <span class="c1"># Convert rule to binary representation and ensure it is represented as an 8-bit string</span>
+    <span class="n">binary_rule</span> <span class="o">=</span> <span class="nb">bin</span><span class="p">(</span><span class="n">rule</span><span class="p">)[</span><span class="mi">2</span><span class="p">:]</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+
+    <span class="c1"># Apply rule to generate new states</span>
+    <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_steps</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_cells</span><span class="p">):</span>
+            <span class="c1"># Determine the neighborhood states</span>
+            <span class="n">left</span> <span class="o">=</span> <span class="n">automaton</span><span class="p">[</span><span class="n">step</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">num_cells</span><span class="p">]</span> <span class="c1">#here the modulo operator % ensures that the indices wrap around to the opposite end of the automaton if they exceed the range of valid indices. </span>
+            <span class="n">center</span> <span class="o">=</span> <span class="n">automaton</span><span class="p">[</span><span class="n">step</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span>
+            <span class="n">right</span> <span class="o">=</span> <span class="n">automaton</span><span class="p">[</span><span class="n">step</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">num_cells</span><span class="p">]</span>
+            <span class="c1"># Convert neighborhood states to an integer between 0 and 7</span>
+            <span class="n">neighborhood</span> <span class="o">=</span> <span class="mi">7</span> <span class="o">-</span> <span class="p">(</span><span class="n">left</span> <span class="o">&lt;&lt;</span> <span class="mi">2</span> <span class="o">|</span> <span class="n">center</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span> <span class="o">|</span> <span class="n">right</span><span class="p">)</span>
+            <span class="c1"># Apply the rule to determine the new state of the cell</span>
+            <span class="n">automaton</span><span class="p">[</span><span class="n">step</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">binary_rule</span><span class="p">[</span><span class="n">neighborhood</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">automaton</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_ca</span><span class="p">(</span><span class="n">automaton</span><span class="p">,</span> <span class="n">rule</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Plot the cellular automaton.</span>
+<span class="sd">    </span>
+<span class="sd">    INPUTS: </span>
+<span class="sd">        automaton (ndarray): Array representing the cellular automaton.</span>
+
+<span class="sd">    OUTPUTS: </span>
+<span class="sd">        None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">automaton</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;binary&#39;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Cell&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Step&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Rule </span><span class="si">{</span><span class="n">rule</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-input tag_hide-output tag_reader-only docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#e.g. rules 0, 32, 160 ...</span>
+
+<span class="n">rule_number</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">steps</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">L</span> <span class="o">=</span> <span class="mi">100</span> 
+
+<span class="c1"># initial_state = np.zeros(L, dtype=np.uint8) </span>
+<span class="c1"># initial_state[L//2] = 1</span>
+
+<span class="n">initial_state</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">L</span><span class="p">)]</span>
+
+<span class="n">automaton</span> <span class="o">=</span> <span class="n">wolfram_ca</span><span class="p">(</span><span class="n">rule_number</span><span class="p">,</span> <span class="n">steps</span><span class="p">,</span> <span class="n">initial_state</span><span class="p">)</span>
+<span class="n">plot_ca</span><span class="p">(</span><span class="n">automaton</span><span class="p">,</span> <span class="n">rule_number</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<img alt="../../_images/5e6fdd50b2bad0ca69e8d93f5b01b142aa34f0e8f12c769a1a148db6eb4573d0.png" src="../../_images/5e6fdd50b2bad0ca69e8d93f5b01b142aa34f0e8f12c769a1a148db6eb4573d0.png" />
+</div>
+</details>
+</div>
+</section>
+<section id="class-2">
+<h3>Class 2<a class="headerlink" href="#class-2" title="Link to this heading">#</a></h3>
+<p>Patterns tends toward simple stationary – simple structures that either remain the same forever or repeat every few steps.</p>
+<p>e.g. rules 4 and 108</p>
+<p><img alt="" src="../../_images/Class_2.png" /></p>
+<p>Fig from <a class="reference external" href="https://www.wolframscience.com/nks/p231--four-classes-of-behavior/">Wolfram</a></p>
+<div class="cell tag_hide-input tag_hide-output tag_reader-only docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#e.g. rules 4, 108, 218...</span>
+
+<span class="n">rule_number</span> <span class="o">=</span> <span class="mi">108</span>
+<span class="n">steps</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">L</span> <span class="o">=</span> <span class="mi">100</span> 
+
+<span class="c1"># initial_state = np.zeros(L, dtype=np.uint8) </span>
+<span class="c1"># initial_state[L//2] = 1</span>
+
+<span class="n">initial_state</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">L</span><span class="p">)]</span>
+
+<span class="n">automaton</span> <span class="o">=</span> <span class="n">wolfram_ca</span><span class="p">(</span><span class="n">rule_number</span><span class="p">,</span> <span class="n">steps</span><span class="p">,</span> <span class="n">initial_state</span><span class="p">)</span>
+<span class="n">plot_ca</span><span class="p">(</span><span class="n">automaton</span><span class="p">,</span> <span class="n">rule_number</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<img alt="../../_images/4aeb6b482617c1b9cfc3a08f88d64ec7801fa22726159dc532fd6d40dd8ad756.png" src="../../_images/4aeb6b482617c1b9cfc3a08f88d64ec7801fa22726159dc532fd6d40dd8ad756.png" />
+</div>
+</details>
+</div>
+</section>
+<section id="class-3">
+<h3>Class 3<a class="headerlink" href="#class-3" title="Link to this heading">#</a></h3>
+<p><em>Appear</em> to generate randomness via intricate nested repeats and periodic patterns</p>
+<p>e.g. rule 30.</p>
+<p>The key word here is ‘appear’ - remember this is a deterministic rule so it’s not actually random and they are more like chaotic systems in this way. Real randomness does challenge determinism more seriously but it is nice, and perhaps surprising, to get apparent randomness from such simple deterministic computation</p>
+<p><img alt="" src="../../_images/Class_3.png" /></p>
+<p>Fig from <a class="reference external" href="https://www.wolframscience.com/nks/p231--four-classes-of-behavior/">Wolfram</a></p>
+<div class="cell tag_hide-input tag_hide-output tag_reader-only docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#e.g. rules 22, 30, 126, 150, 182...</span>
+
+<span class="n">rule_number</span> <span class="o">=</span> <span class="mi">126</span>
+<span class="n">steps</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">L</span> <span class="o">=</span> <span class="mi">200</span> 
+
+<span class="c1"># initial_state = np.zeros(L, dtype=np.uint8) </span>
+<span class="c1"># initial_state[L//2] = 1</span>
+
+<span class="n">initial_state</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">L</span><span class="p">)]</span>
+
+<span class="n">automaton</span> <span class="o">=</span> <span class="n">wolfram_ca</span><span class="p">(</span><span class="n">rule_number</span><span class="p">,</span> <span class="n">steps</span><span class="p">,</span> <span class="n">initial_state</span><span class="p">)</span>
+<span class="n">plot_ca</span><span class="p">(</span><span class="n">automaton</span><span class="p">,</span> <span class="n">rule_number</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<img alt="../../_images/012b6a94f3d45b0cefb3ddd91ad3ac1970744746adc54a643916f364e7381485.png" src="../../_images/012b6a94f3d45b0cefb3ddd91ad3ac1970744746adc54a643916f364e7381485.png" />
+</div>
+</details>
+</div>
+</section>
+<section id="class-4">
+<h3>Class 4<a class="headerlink" href="#class-4" title="Link to this heading">#</a></h3>
+<p>Sits at the border of chaos and stability, order and randomness.</p>
+<p>e.g. rule 110, Game of Life</p>
+<p>Creates complicated local and persistent structures that appear as disturbances to the regular background. It allows discussion of objects (spaceships) moving and proposals of information being passed with simple computations being carried out when objects collide. Rule 110 has been proved to be Turing-complete, or ‘Universal’, i.e. able to simulate any computer program and is arguably the simplest known Turing complete system.</p>
+<!-- <center>
+<img src="images/Class_4.png" width="300">
+</center> -->
+<p><img alt="" src="../../_images/Class_4.png" /></p>
+<p>Fig from <a class="reference external" href="https://www.wolframscience.com/nks/p231--four-classes-of-behavior/">Wolfram</a></p>
+<div class="cell tag_hide-input tag_reader-only tag_hide-output docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#e.g. rule 110...</span>
+
+<span class="n">rule_number</span> <span class="o">=</span> <span class="mi">110</span>
+<span class="n">steps</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="n">L</span> <span class="o">=</span> <span class="mi">1000</span> 
+
+<span class="c1"># initial_state = np.zeros(L, dtype=np.uint8) </span>
+<span class="c1"># initial_state[L//2] = 1</span>
+
+<span class="n">initial_state</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">L</span><span class="p">)]</span>
+
+<span class="n">automaton</span> <span class="o">=</span> <span class="n">wolfram_ca</span><span class="p">(</span><span class="n">rule_number</span><span class="p">,</span> <span class="n">steps</span><span class="p">,</span> <span class="n">initial_state</span><span class="p">)</span>
+<span class="n">plot_ca</span><span class="p">(</span><span class="n">automaton</span><span class="p">,</span> <span class="n">rule_number</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<img alt="../../_images/732a081628d1b325f8645ef52bec765294de1936287a81f309c7fcc89b7b5d58.png" src="../../_images/732a081628d1b325f8645ef52bec765294de1936287a81f309c7fcc89b7b5d58.png" />
+</div>
+</details>
+</div>
+</section>
+<section id="cellular-automata-as-computers">
+<h3>Cellular automata as computers<a class="headerlink" href="#cellular-automata-as-computers" title="Link to this heading">#</a></h3>
+<p>GoL and Wolfram’s Rule 110 support universal computation (moving particles in space and time transfer information from different spatial locations, stored in more regular structures and processed via collisions. Fine in principle, near-impossible in reality because it is slow  and hard).</p>
+<p>This behaviour mimics a logic gate, that is, an interaction which produces a 1 or 0, which is a critical aspect of the way our computers process information. Similarly, NAND gates can also be generated, which both computers and neurons use to trigger a signal only when a certain threshold is achieved</p>
+<p>If you don’t view CA as computers themselves then perhaps you see them as logical universes that computers can be embedded in…?</p>
+<section id="an-aside-turing-complete-systems">
+<h4>An aside: Turing-complete systems<a class="headerlink" href="#an-aside-turing-complete-systems" title="Link to this heading">#</a></h4>
+<p>Computation is simply information processing (input, stored, transfered, combined or processed, output) and an automata is memory and processor at the same time</p>
+<p>Universal computation (aka Turing machines) is a computer that can be programmed to compute any computable function. Only a small set of logical operation is needed to support universal computation</p>
+<p>They are ‘Turing complete’, in that eventually all possible states can be realised using certain rules and, therefore, any problem that is computable can be solved (assuming no limitations on time or space/memory)</p>
+<p>Requirements for Turing-completeness:</p>
+<ul class="simple">
+<li><p>Conditional Branching: ability to make decisions based on conditions (e.g., “if-then-else” statements)</p></li>
+<li><p>Repetition/Loops: ability to perform operations repeatedly (e.g., “for” or “while” loops)</p></li>
+<li><p>Memory Management: ability to read from and write to a memory store, such as variables or an equivalent data structure.</p></li>
+</ul>
+<p>From a visual inspection, the qualitative differences between Wolfram’s four classes are striking, making it easy to place most rules into their class at a glance.</p>
+<p><img alt="" src="../../_images/Classes.png" /></p>
+<p>Fig from <a class="reference external" href="https://www.wolframscience.com/nks/p231--four-classes-of-behavior/">Wolfram</a></p>
+<p>Some rules are trickier because their behaviour doesn’t fit neatly into a single Wolfram class, mixing features depending on the initial condition or the time scale you look at. e.g.:</p>
+<ul class="simple">
+<li><p>Rule 22: Often looks chaotic, but exhibits subtle, long-lived regularities buried in the noise.</p></li>
+<li><p>Rule 54: Supports glider-like structures in a mostly periodic background, blurring the line between Class II (periodic) and Class IV (complex).</p></li>
+<li><p>Rule 110: Class IV in Wolfram’s scheme, but can look chaotic or periodic depending on the seed and zoom level.</p></li>
+<li><p>Rule 126: Appears chaotic from many seeds, yet can produce large periodic regions from others.</p></li>
+</ul>
+<p>These borderline cases are where visual classification becomes unreliable and you need more quantitative measures, like entropy or compressibility, to properly comment on the emergent behaviour.</p>
+</section>
+</section>
+</section>
+<section id="state-transition-diagrams">
+<h2>State-transition diagrams<a class="headerlink" href="#state-transition-diagrams" title="Link to this heading">#</a></h2>
+<p>We can (try to) visualise the dynamics with a <strong>state-transition diagram</strong>, which unsurprisingly consists of states and transitions between states.</p>
+<p>Note: The state-transition functions refer to how the <strong>local</strong> configuration/state updates. A state-transition diagram refers to how the <strong>global</strong> configuration/state updates.</p>
+<p>By enumerating all the phase-space configurations and transitions as the configurations evolve, we obtain a list of connections between the discrete states. This can be thought of as aa network. The dynamics of the system can then be analysed e.g. the number of basins of attraction, their sizes, and the properties of the attractors can be explored, topology of the transition network etc…</p>
+<p>If the long-term behaviour of the CA ‘settles’ to a steady state then we could list the possible configurations and present them along with a histogram showing their likely appearance. We could construct this histogram using many Monte Carlo simulations.</p>
+<section id="wolfram-state-transition-diagrams">
+<h3>Wolfram: State-transition diagrams<a class="headerlink" href="#wolfram-state-transition-diagrams" title="Link to this heading">#</a></h3>
+<p>Applet available from Wolfram <a class="reference external" href="https://demonstrations.wolfram.com/CellularAutomatonStateTransitionDiagrams/">here</a></p>
+<p>Rule 110:
+<img alt="" src="../../_images/Rule110.png" /></p>
+<p>If the entire world was only three cells, then <span class="math notranslate nohighlight">\(L=3\)</span>:</p>
+<p><img alt="" src="../../_images/Rule110_state_transition_L3.png" /></p>
+<p>We can do this if the size of the global configuration isn’t too large (where by ‘too large’, I mean not very large at all!)</p>
+<p><span class="math notranslate nohighlight">\(L=5\)</span>:</p>
+<p><img alt="" src="../../_images/Rule110_state_transition_L5.png" /></p>
+<p>As the volume of cells gets bigger these diagrams become increasingly complex and direct enumeration becomes impractical.</p>
+<p><span class="math notranslate nohighlight">\(L=12\)</span>:</p>
+<p><img alt="" src="../../_images/Rule110_state_transition_L12.png" /></p>
+<p><a class="reference external" href="https://demonstrations.wolfram.com/CellularAutomatonStateTransitionDiagrams/">Figs from Wolfram</a></p>
+</section>
+</section>
+<section id="reversability">
+<h2>Reversability<a class="headerlink" href="#reversability" title="Link to this heading">#</a></h2>
+<p>State-transition diagrams map a configuration, <span class="math notranslate nohighlight">\(X\)</span>, to its <strong>successor</strong>, <span class="math notranslate nohighlight">\(Y\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(X\)</span> is the <strong>predecessor</strong> of <span class="math notranslate nohighlight">\(Y\)</span>.</p>
+<p>A configuration may have zero, one, or more predecessors, but will always have exactly one successor, i.e. known future, potentially unknown past.</p>
+<p>If every configuration has a <em>unique predecessor</em> then the CA is <strong>reversible</strong>.</p>
+<p>Hence reversible CA have bijective state-transition functions.</p>
+<p>Recall:</p>
+<p><img alt="" src="../../_images/Bijection.png" /></p>
+<ul class="simple">
+<li><p><strong>Failure of injectivity</strong>: information is lost</p></li>
+<li><p><strong>Failure of surjectivity</strong>: some states are unreachable</p></li>
+</ul>
+<p>Surjectivity and injectivity are independent in general — a CA can fail one, both, or neither.</p>
+<section id="wolfram">
+<h3>Wolfram<a class="headerlink" href="#wolfram" title="Link to this heading">#</a></h3>
+<p>Trivial rules are typically reversible. There are not many of these:</p>
+<ul class="simple">
+<li><p>cells remain unchanged, Rule 204</p></li>
+<li><p>cells flip state, Rule 51</p></li>
+<li><p>cells copy the state of a neighbouring cell, e.g. Rule 170</p></li>
+<li><p>cell’s next state is the XOR (exclusive OR) of its two neighbors, e.g. Rule 90, Rule 150</p></li>
+</ul>
+<p>There are no ‘nontrivial’ reversible elementary cellular automata.</p>
+<p>Rule 254 is an example that is <em>not</em> reversible.</p>
+</section>
+<section id="id3">
+<h3>Game of Life<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>Not reversible.</p>
+<p>Consider for instance, that:</p>
+<ul class="simple">
+<li><p>it has many patterns that die out completely (many predecessors)</p></li>
+<li><p>Garden of Eden patterns have been discovered (see below)</p></li>
+<li><p>the rules of the Game of Life involve a loss of information (the totalistic rule designed by Conway).</p></li>
+</ul>
+<p>Computationally universal CA, such as rule 110 and Game of Life, are often not reversible.</p>
+</section>
+</section>
+<section id="garden-of-eden-states">
+<h2>Garden of Eden states<a class="headerlink" href="#garden-of-eden-states" title="Link to this heading">#</a></h2>
+<p>An <em>‘orphan’</em> is a pattern with no predecessor (no preimage under the global map of the cellular automata).</p>
+<p>A <em>Garden of Eden</em> is a configuration that contains an orphan (perhaps the initial configuration but they cannot arise in any other way). i.e.:</p>
+<div class="math notranslate nohighlight">
+\[
+\text{There exists a state } c \text{ such that no } c' \text{ maps to it: } F(c') \ne c \text{ for all } c'
+\]</div>
+<p>This means the global function is <strong>not surjective</strong>: not every configuration has a preimage (<em>not all outputs are reachable</em> from some input).</p>
+<p>For reversible automata, no Garden of Eden states exist, while non-reversible automata might have such states.</p>
+<p>In 1-dimension Garden of Eden states can be found by an efficient algorithm but in higher dimensions it’s an undecidable problem.</p>
+<section id="id4">
+<h3>Wolfram<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>Garden of Eden states are the ‘leaves’ in the <a class="reference external" href="https://demonstrations.wolfram.com/CellularAutomatonStateTransitionDiagrams/">state-transition diagrams</a>.</p>
+<p>e.g. Rule 110 is irreversible, with many Garden of Eden states. Rule 240 is logically reversible.</p>
+<div style="border-left: 4px solid #1e70bf; padding: 0.75em; background-color: #eaf3fb; margin-bottom: 1em;">
+  <strong>Explore:</strong><br>
+Check if this is true for larger $L$ too.
+<p>Does that imply global reversibility for arbitrarily large <span class="math notranslate nohighlight">\(L\)</span>?</p>
+</div><div class="toggle docutils container">
+<p>To test global reversibility for arbitrary <span class="math notranslate nohighlight">\(L\)</span>, we can’t rely on exhaustively enumerating the transition graph once <span class="math notranslate nohighlight">\(L\)</span> gets large. Instead, we use algebraic or structural properties of the rule:</p>
+<p>For Rule 240, the update rule is:</p>
+<div class="math notranslate nohighlight">
+\[
+s_i(t+1)=s_{i-1}(t)
+\]</div>
+<p>It’s just a right shift, hence the diagonal stripes.</p>
+<p>So each state has a unique predecessor (a left shift), regardless of the boundary conditions or size <span class="math notranslate nohighlight">\(L\)</span>. Hence, Rule 240 is logically reversible for all <span class="math notranslate nohighlight">\(L\)</span>.</p>
+<p>For Rule 110, things are more complicated.</p>
+</div>
+</section>
+<section id="id5">
+<h3>Game of Life<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>An example of a Garden of Eden (from R. Banks in 1971):
+<img alt="" src="../../_images/Garden_of_Eden_pattern.png" /></p>
+<p>Reversible CAs thus bear some similarity to Newtonian mechanics, which is microscopically reversible, albeit with discrete time-steps, rather than continuous behaviour governed by differential equations.</p>
+<p>Life on the other hand is frequently irreversible on account of systems being dissipative (arrow of time is essential for life).</p>
+<p>In general it is undecidable (not just intractable) whether a CA is reversible i.e. no single algorithm that can take any configuration as input is guaranteed to terminate and find the correct answer of whether it is a Garden of Eden state.</p>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="mean-field-approximation">
+<h1>Mean field approximation<a class="headerlink" href="#mean-field-approximation" title="Link to this heading">#</a></h1>
+<p>When there are too many moving parts it’s important to think critically about the distinction between “wholes” and “parts”.</p>
+<p>Reformulating the dynamics in terms of the “average state” can reduce the dimensionality. e.g. The system’s state at iteration <span class="math notranslate nohighlight">\(n\)</span>, can be approximated just by one variable: the density of 1s, <span class="math notranslate nohighlight">\(\rho(n)\)</span>.</p>
+<p><img alt="" src="../../_images/GoL_meanfield.png" /></p>
+<p>This is a <strong>mean-field approximation</strong>.</p>
+<p>We then aim to understand how a cell interacts with this average state and how the average state itself changes over time, providing a macroscopic view of the behaviour.</p>
+<p>In general, the process is:</p>
+<ul class="simple">
+<li><p>Let <span class="math notranslate nohighlight">\(\rho_t=\Pr(\text{a random cell is alive at time }t)\)</span> (or equivalently the fraction of live cells at time <span class="math notranslate nohighlight">\(t\)</span>).</p></li>
+<li><p>Under a <strong>mean-field</strong> assumption (cells are well mixed; neighbours are independent with no spatial correlation and a live probability <span class="math notranslate nohighlight">\(\rho_t\)</span>).</p></li>
+<li><p>The expected live fraction at the next step is a <em>deterministic function</em> of <span class="math notranslate nohighlight">\(\rho_t\)</span>. Hence we derive the 1D deterministic map <span class="math notranslate nohighlight">\(\rho_{t+1}=F(\rho_t)\)</span>. A cell is alive at <span class="math notranslate nohighlight">\(t+1\)</span> if:</p>
+<ul>
+<li><p>it was <strong>dead</strong> and <span class="math notranslate nohighlight">\(K\in B=\{3\}\)</span>, or</p></li>
+<li><p>it was <strong>alive</strong> and <span class="math notranslate nohighlight">\(K\in S=\{2,3\}\)</span>.</p></li>
+</ul>
+</li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\rho_{t+1}
+&amp;=(1-\rho_t)\Pr(K=3)\;+\;\rho_t\big[\Pr(K=2)+\Pr(K=3)\big]\\[2mm]
+&amp;=(1-\rho_t)\!\sum_{k\in B}\binom{8}{k}\rho_t^{\,k}(1-\rho_t)^{8-k}
+\;+\;\rho_t\!\sum_{k\in S}\binom{8}{k}\rho_t^{\,k}(1-\rho_t)^{8-k}\\[2mm]
+&amp;=(1-\rho_t)\binom{8}{3}\rho_t^{3}(1-\rho_t)^{5}
+\;+\;\rho_t\!\left[\binom{8}{2}\rho_t^{2}(1-\rho_t)^{6}
++\binom{8}{3}\rho_t^{3}(1-\rho_t)^{5}\right]\\[2mm]
+&amp;=\binom{8}{3}\rho_t^{3}(1-\rho_t)^{5}
++\binom{8}{2}\rho_t^{3}(1-\rho_t)^{6}\\[1mm]
+&amp;=28\,\rho_t^{3}(1-\rho_t)^{5}(3-\rho_t).
+\end{aligned}
+\end{split}\]</div>
+<ul class="simple">
+<li><p>Find the fixed points by solving <span class="math notranslate nohighlight">\(\rho=F(\rho)\)</span>: besides <span class="math notranslate nohighlight">\(\rho=0\)</span>, there’s a nonzero fixed point at <span class="math notranslate nohighlight">\(\rho^*\approx 0.37\)</span> (mean-field prediction).</p></li>
+</ul>
+<p>Note mean-field approximation greatly overestimates sustained density. Real Game of Life does develop strong correlations (still lifes, oscillators, gliders), driving much lower long-run densities.</p>
+<p>Doing this, disregards any spatial relationships and treats every component as uniformly represented by a global average with the dynamics occurring probabilistically.</p>
+<p>But it means that dynamics can be described with a difference equation that can then be analysed with, for example, a cobweb diagram as per MATH3021 (see Sayama for details if you’re interested).</p>
+<p>Mean-field approximations can perform well in systems with complete or random connections among their components and they are used for all sorts of large-scale dynamical systems.</p>
+<p>Not a bad first step but you must take the results with a grain of salt when it comes to applying it to complex systems like CA because it’s ineffective when dealing with local or non-homogenous interactions, or systems that exhibit non-homogeneous patterns of states (i.e. everything we characteristic of a complex system!)</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="is-the-universe-a-simulation">
+<h1>Is the universe a simulation?<a class="headerlink" href="#is-the-universe-a-simulation" title="Link to this heading">#</a></h1>
+<p>Natural systems can be mimicked in the artificial programming universes of cellular automata, which means it’s very likely they hold some secrets to the nature of life itself.</p>
+<p>(But we must be careful: <em>‘similar pattern does not imply similar process’</em> - Prof. Sally Thompson, 2024)</p>
+<div class="cell tag_slides tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">YouTubeVideo</span>
+<span class="c1"># YouTubeVideo(&quot;video_id_here&quot;, width=400)</span>
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s2">&quot;iE46jKYcI4Y&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span> <span class="c1">#video from here: https://www.youtube.com/watch?v=iE46jKYcI4Y</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+        <iframe
+            width="1000"
+            height="300"
+            src="https://www.youtube.com/embed/iE46jKYcI4Y"
+            frameborder="0"
+            allowfullscreen
+            
+        ></iframe>
+        </div></div>
+</div>
+<p>Could the universe itself, at its deepest level, operate on the basis of similarly discrete digital rules and cascading green code? Such a scenario was speculated in the 1960s by Ed Fredkin, and later dubbed “It from Bit” by the accomplished physicist John Wheeler.</p>
+<p>The ‘simulation hypothesis’ has remained the focus of much debate surrounding the significance of cellular automata (it’s a rabbit hole if you have time you wish to kill).</p>
+<p>We probably haven’t even scratched the surface of what CA can do.</p>
+<div style="border-left: 4px solid #b22222; padding: 0.75em; background-color: #fdecea; margin-bottom: 1em;">
+  <strong>Tangential:</strong><br>
+<p>Read me: <a class="reference external" href="https://theconversation.com/do-we-live-in-a-computer-simulation-like-in-the-matrix-my-proposed-new-law-of-physics-backs-up-the-idea-215552">Do we live in a simulation?</a></p>
+<p>(re)watch the Matrix: the dystopian future in which humanity is unknowingly trapped inside the Matrix</p>
+</div></section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/week04"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../week03/L_Reaction_diffusion.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Week 3: Reaction-diffusion systems</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Week 4: Cellular automata</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#automaton-singular-automata-plural">Automaton (singular) Automata (plural)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#state">State</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rules">Rules</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#cellular-automata">Cellular automata</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-world">The world</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">State</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#network">Network</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distance">Distance</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#update-rule">Update rule</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#wolfram-s-elementary-ca">Wolfram’s elementary CA</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-model">The model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-unique-numerical-code-for-each-possible-rule-set">A unique numerical code for each possible rule set</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#an-aside-do-you-know-binary">An aside: Do you know binary?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#observing-the-dynamics">Observing the dynamics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sierpinski-triangle-rule-90">Sierpiński triangle: Rule 90</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#an-aside-do-you-know-modulo-arithmetic">An aside: Do you know modulo arithmetic?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#game-of-life">Game of Life</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">The model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#state-transition-rules">State-transition rules</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#game-of-life-is-full-of-surprises">(Game of) Life is full of surprises!</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#an-aside-do-you-know-what-a-turing-machine-is">An aside: Do you know what a Turing machine is?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#game-of-life-in-action">Game of Life in action</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#extensions">Extensions</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ca-in-the-real-world">CA in the real world</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-1d-rule-30">In 1D: Rule 30</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-2d">In 2D:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analysing-cellular-automata">Analysing cellular automata</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rule-space">Rule space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-space">Phase-space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classifying-behaviour">Classifying behaviour</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#class-1">Class 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#class-2">Class 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#class-3">Class 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#class-4">Class 4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cellular-automata-as-computers">Cellular automata as computers</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#an-aside-turing-complete-systems">An aside: Turing-complete systems</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#state-transition-diagrams">State-transition diagrams</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wolfram-state-transition-diagrams">Wolfram: State-transition diagrams</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reversability">Reversability</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wolfram">Wolfram</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Game of Life</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#garden-of-eden-states">Garden of Eden states</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Wolfram</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Game of Life</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-field-approximation">Mean field approximation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#is-the-universe-a-simulation">Is the universe a simulation?</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Shannon Algar
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
