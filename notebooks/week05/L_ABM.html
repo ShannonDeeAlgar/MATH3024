@@ -1,0 +1,1330 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Week 5: Agent-based modelling &#8212; Unit Reader</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/week05/L_ABM';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="Week 4: Cellular automata" href="../week04/L_Cellular_automata.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Unit Reader</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    MATH3024 Reader
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week00/Getting_Started.html">Getting Started</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../week01/L_Introduction_to_complex_systems.html">Week 1: Welcome to MATH3024: (modelling) Complex Systems</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../week02/L_Fractals.html">Week 2: Fractals</a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../week03/L_Reaction_diffusion.html">Week 3: Reaction-diffusion systems</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../week04/L_Cellular_automata.html">Week 4: Cellular automata</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Week 5: Agent-based modelling</a></li>
+
+
+
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/week05/L_ABM.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Week 5: Agent-based modelling</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Week 5: Agent-based modelling</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#collective-behaviour">Collective behaviour</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flocking">Flocking</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#background">Background</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling-flocks">Modelling flocks</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-model-examples">Standard model examples</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#humans-are-another-story">Humans are another story…</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#some-explorables">Some explorables</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#agent-based-modelling-abm">Agent-based modelling (ABM)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-create-a-model">To create a model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#takeaway">Takeaway</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#what-do-we-want-from-these-models">What do we want from these models?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#vicsek-model">Vicsek model</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#static-precursor-models">Static precursor models</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ising-model">Ising model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#xy-model">XY model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#heisenberg-model">Heisenberg model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#original-implementation">Original implementation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limiting-cases">Limiting cases</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#qualitative-analysis">Qualitative analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quantitative-analysis">Quantitative analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#parameter-sweeps">Parameter sweeps</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ensemble-runs">Ensemble runs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-considerations">Further considerations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-details">Integration details</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#noise">Noise</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#improving-our-models">Improving our models</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="week-5-agent-based-modelling">
+<h1>Week 5: Agent-based modelling<a class="headerlink" href="#week-5-agent-based-modelling" title="Link to this heading">#</a></h1>
+<p>We’ve already seen an agent-based model (ABM).</p>
+<p>In fact, we started this unit with one… Schelling segregation was one of the earliest agent-based models.</p>
+<p>Because what other options are there for modelling if we consider a system like this?!</p>
+<div style="border-left: 4px solid #1e70bf; padding: 0.75em; background-color: #eaf3fb; margin-bottom: 1em;">
+  <strong>Pause and consider:</strong><br>
+    Why is the Parable of the Polygons not a cellular automata?
+</div><div class="toggle docutils container">
+<p>The key reason Schelling’s segregation model is not a cellular automaton is that in a cellular automaton, the grid cells themselves are the entities (their state changes according to fixed, synchronous, rule-based updates from their neighbours). In Schelling’s model, the agents are the entities. The agents occupy cells, can move between them, and may leave a cell empty. The rules are about agent behaviour (satisfaction, movement), not about the cell’s own state changing in place.</p>
+<p>You might like to consider how you could reformulate Schelling’s segregation model into a cellular automaton by shifting the focus from agents to locations as the primary entities that update. How robust would the behaviour be to this change in modelling framework?</p>
+</div>
+<p>This week the question of ‘how to model complex systems’ will really come together for us.</p>
+<p>Many of the concepts have been raised already or apply to previous topics too but with ABMs we’ll see everything all together for the first time.</p>
+<p>At the end of this week you’ll be in a position to get stuck into your project!</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="collective-behaviour">
+<h1>Collective behaviour<a class="headerlink" href="#collective-behaviour" title="Link to this heading">#</a></h1>
+<p>When large numbers gather, unexpected and seemingly spontaneous events and behaviours can occur. This is a feature of many individuals responding to their local environment.</p>
+<p>With early roots in psychology, collective behaviour has had a role in explaining many destructive and negatively perceived events (e.g. contagion, collective conscious, groupthink, mob mentality and fads).</p>
+<div class="cell tag_slides tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">YouTubeVideo</span>
+<span class="n">display</span><span class="p">(</span><span class="n">YouTubeVideo</span><span class="p">(</span><span class="s2">&quot;HgM3W6gnJGg&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">400</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+        <iframe
+            width="400"
+            height="300"
+            src="https://www.youtube.com/embed/HgM3W6gnJGg"
+            frameborder="0"
+            allowfullscreen
+            
+        ></iframe>
+        </div></div>
+</div>
+<div style="border-left: 4px solid #b22222; padding: 0.75em; background-color: #fdecea; margin-bottom: 1em;">
+  <strong>Madness of crowds:</strong><br>
+https://www.youtube.com/watch?v=9fVPQ6X4Fw8
+</div><p>On the other hand, <strong>collective motion</strong>, a sub-class of collective behaviour, is often viewed in a positive light as the movement of many personally motivated individuals will often manifest in coordination and adaptability, tending to reinforce social norms rather than violating them.</p>
+<p>Collective motion occurs across many time and length scales e.g. microorganelles coalesce into biological building blocks, which grow, spread and self-assemble into organs, that form people, who in turn crowd and travel as part of wider societies.</p>
+<p>This nested organisation means the same underlying principles can emerge in vastly different contexts. Whether in the migration of cells repairing tissue, the flocking of birds avoiding predators, or commuters instinctively adjusting their pace in a busy station, the choreography of collective motion can enhance efficiency, safety, and resilience without any single individual directing the whole.</p>
+<section id="flocking">
+<h2>Flocking<a class="headerlink" href="#flocking" title="Link to this heading">#</a></h2>
+<p>Some of the most impressive and well-known examples of collective motion are displayed by flocks of birds.</p>
+<div class="cell tag_hide-input tag_slides docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">YouTubeVideo</span>
+
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s2">&quot;V4f_1_r80RY&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span> 
+<span class="c1"># https://www.youtube.com/watch?v=V4f_1_r80RY</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+        <iframe
+            width="1000"
+            height="300"
+            src="https://www.youtube.com/embed/V4f_1_r80RY"
+            frameborder="0"
+            allowfullscreen
+            
+        ></iframe>
+        </div></div>
+</div>
+<section id="background">
+<h3>Background<a class="headerlink" href="#background" title="Link to this heading">#</a></h3>
+<p>Starlings feed in the countryside during the day and return to the city centre just before sunset.</p>
+<p>Before descending on the trees for the night they spend around half an hour performing aerial maneuvers over their roost i.e. predictable time and place (good for scientists and for predators)</p>
+<p>Explanations of unified action that involve telepathy, military-like instruction and spread of impulse are theories of the past.</p>
+<p>Birds are individually motivated and making decisions based on a local environment. They aim to:</p>
+<ul class="simple">
+<li><p>stay close</p></li>
+<li><p>but not too close</p></li>
+<li><p>move in a similar direction to the birds surrounding them</p></li>
+</ul>
+<p>Western Australia has a ‘shoot to kill’ order in place for starlings. Instead, we have budgies…</p>
+<div class="cell tag_slides tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">YouTubeVideo</span>
+
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s2">&quot;wyfCMrqitWI&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span> 
+<span class="c1"># https://www.youtube.com/watch?v=wyfCMrqitWI</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+        <iframe
+            width="1000"
+            height="300"
+            src="https://www.youtube.com/embed/wyfCMrqitWI"
+            frameborder="0"
+            allowfullscreen
+            
+        ></iframe>
+        </div></div>
+</div>
+<div class="cell tag_slides tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">YouTubeVideo</span>
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s2">&quot;cUpGRQK7o78&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span> 
+
+<span class="c1"># https://www.youtube.com/watch?v=cUpGRQK7o78</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+        <iframe
+            width="1000"
+            height="300"
+            src="https://www.youtube.com/embed/cUpGRQK7o78"
+            frameborder="0"
+            allowfullscreen
+            
+        ></iframe>
+        </div></div>
+</div>
+<p>(To most people) A <strong>flock</strong> is the collective noun for a group of birds but each species also has it’s own:</p>
+<ul class="simple">
+<li><p>‘murmuration’ of starlings (<em>Sturnus vulgaris</em>)</p></li>
+<li><p>‘parliament’ of owls</p></li>
+<li><p>‘chatter’ of budgerigars etc…</p></li>
+</ul>
+<p>Mathematicians think slightly differently about this, typically considering a group to be a “flock” only when it is moving in concert with (at least) locally ordered collective motion.</p>
+<p>Hence, other animals, slime/bacteria, man-made colloids, robots and even cancer cells can ‘flock’.</p>
+<p>In each case, there is a sense that the flock is an entity on its own but the individuals themselves have no sense of the group as a whole.</p>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="modelling-flocks">
+<h1>Modelling flocks<a class="headerlink" href="#modelling-flocks" title="Link to this heading">#</a></h1>
+<p>The complexity of these systems is too great to be described by differential equations alone.</p>
+<p>But this isn’t really the point…</p>
+<p>More important, is that every individual has <strong>autonomy</strong> over its movement that <em>cannot be sufficiently captured</em> in a framework that smooths behaviour into a collective average.</p>
+<p>It is, however, straightforward to capture individually-defined properties such as agency, adaptivity and heterogeneity in decision-making ability of an individual with non-physical interactions and heuristic movement rules.</p>
+<p>Motion described in this way of course can’t be solved exactly but it can be numerically simulated.</p>
+<p>This bottom-up view is a very different modelling paradigm - and a very different way of looking at the world (perhaps it’s starting to feel natural after a few weeks of complex systems thinking?)</p>
+<section id="standard-model-examples">
+<h2>Standard model examples<a class="headerlink" href="#standard-model-examples" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>from a computer scientist: <a class="reference external" href="http://www.red3d.com/cwr/boids/">Craig Reynold’s, 1987, boids</a></p></li>
+<li><p>from a physicist: <a class="reference external" href="https://www.complexity-explorables.org/explorables/horde-of-the-flies/">Vicsek, 1995</a></p></li>
+<li><p>from a biologist: <a class="reference external" href="https://www.complexity-explorables.org/explorables/flockn-roll">Couzin, 2002</a></p></li>
+</ul>
+<p>Batman Returns: 1992 Tim Burton was the first to use boids</p>
+<!-- The 1992 Tim Burton film Batman Returns was the first. It contained computer simulated bat swarms and penguin flocks which were created with modified versions of the original boids software developed at Symbolics. Andy Kopra (then at VIFX, which later merged with Rhythm & Hues) produced realistic imagery of bat swarms. Andrea Losch (then at Boss Films) and Paul Ashdown created animation of an "army" of penguins marching through the streets of Gotham City. See Craig Reynold's page: http://www.red3d.com/cwr/boids/-->
+<div class="cell tag_slides tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">YouTubeVideo</span>
+
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s2">&quot;Mo_1rAaj7FE&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span> 
+<span class="c1"># https://www.youtube.com/watch?v=Mo_1rAaj7FE</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+        <iframe
+            width="1000"
+            height="300"
+            src="https://www.youtube.com/embed/Mo_1rAaj7FE"
+            frameborder="0"
+            allowfullscreen
+            
+        ></iframe>
+        </div></div>
+</div>
+<div style="margin: 1.5em 0; border-right: 4px solid #888; padding-right: 1em; text-align: right;">
+  <div style="font-style: italic; font-family: 'Comic Neue', 'Segoe Script', cursive; font-size: 1.2em;">
+    Bet you'll never look at birds the same way...  </div>
+  <div style="font-style: normal; font-size: 0.95em; margin-top: 0.5em;">
+    — Jurassic Park
+  </div>
+</div><div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">YouTubeVideo</span>
+
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s2">&quot;lvBmrMEd254&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span> 
+<span class="c1"># https://www.youtube.com/watch?v=lvBmrMEd254</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+        <iframe
+            width="1000"
+            height="300"
+            src="https://www.youtube.com/embed/lvBmrMEd254"
+            frameborder="0"
+            allowfullscreen
+            
+        ></iframe>
+        </div></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="humans-are-another-story">
+<h1>Humans are another story…<a class="headerlink" href="#humans-are-another-story" title="Link to this heading">#</a></h1>
+<div class="cell tag_hide-input tag_slides docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">YouTubeVideo</span>
+
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s2">&quot;LzjifmHavAQ&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span> 
+<span class="c1"># https://www.youtube.com/watch?app=desktop&amp;v=LzjifmHavAQ</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+        <iframe
+            width="1000"
+            height="300"
+            src="https://www.youtube.com/embed/LzjifmHavAQ"
+            frameborder="0"
+            allowfullscreen
+            
+        ></iframe>
+        </div></div>
+</div>
+<section id="some-explorables">
+<h2>Some explorables<a class="headerlink" href="#some-explorables" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Pedestrians: <a class="reference external" href="https://www.complexity-explorables.org/explorables/the-walking-head/">The walking head</a></p></li>
+<li><p>Traffic: <a class="reference external" href="https://www.complexity-explorables.org/explorables/berlin-8-am/">Berlin 8:00AM</a></p></li>
+<li><p>Disease spread: <a class="reference external" href="https://www.complexity-explorables.org/explorables/i-herd-you/">I herd you</a></p></li>
+</ul>
+<p>Birds, crowds and cars examples of <em>collective motion</em> but <em>collective behaviour</em> is more general than this and ABMs are just as well-suited when an agent state is not defined by its velocity.</p>
+<p>ABMs include cellular automata and dynamical networks as special cases with very constrained rules about movement, memory, and interaction.</p>
+<p><strong>Cellular automata</strong> can be seen as a special case of ABMs where the “agents”:</p>
+<ul class="simple">
+<li><p>are the cells</p></li>
+<li><p>occupy fixed positions on a grid</p></li>
+<li><p>have no memory beyond their current state</p></li>
+<li><p>update synchronously using purely local rules.</p></li>
+</ul>
+<p><strong>Dynamical networks</strong> can also be framed as ABMs where the “agents”:</p>
+<ul class="simple">
+<li><p>are the nodes</p></li>
+<li><p>states change according to interaction rules defined by the network edges (which may be fixed or evolve over time.)</p></li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="agent-based-modelling-abm">
+<h1>Agent-based modelling (ABM)<a class="headerlink" href="#agent-based-modelling-abm" title="Link to this heading">#</a></h1>
+<p>Agent-Based Models (ABMs) are one of the most general and open-ended frameworks for modelling complex systems, with applications across urban planning and transportation, economics and finance, computational biology, ecology, and the social sciences.</p>
+<p>They are the primary computational approach for studying system dynamics that emerge from the bottom up. ABMs are popular because they are flexible, allow straightforward adoption and adjustment of individual-level properties, operate naturally at a mesoscopic scale, and are often intuitive to interpret.</p>
+<p>ABMs are particularly valuable for exploring how individual decisions shape system-level behaviour, as they make it possible to incorporate information we know (or believe) influences those decisions.</p>
+<p>The “agents” in these models are not sub-atomic particles or billiard balls, whose behaviour is entirely dictated by physical forces. Instead, they represent people, animals, companies, or other autonomous entities that:
+i) perceive their environment;
+ii) make decisions; and
+iii) take actions.</p>
+<section id="to-create-a-model">
+<h2>To create a model<a class="headerlink" href="#to-create-a-model" title="Link to this heading">#</a></h2>
+<p>We need to define:</p>
+<ul class="simple">
+<li><p>the world and environment (including definition of dimension and any boundary conditions)</p></li>
+<li><p>the agents</p></li>
+<li><p>the possible states of the agents (aka attributes/properties such as age, knowledge, happiness, and location)</p></li>
+<li><p>the initial state</p></li>
+<li><p>the interaction network (typically local but not necessarily)</p></li>
+<li><p>the rules for updating the agent states, which evolve in time as a function of repeated interactions. The rules describe how an agent interacts:</p>
+<ul>
+<li><p>‘internally’</p></li>
+<li><p>with other agents via their networks</p></li>
+<li><p>with the environment (such as <em>stigmergy</em>, which allows for indirect interaction between agents as they communicate and coordinate their actions through informational signals encoded in the environment).</p></li>
+</ul>
+</li>
+</ul>
+<p>Except for the existence of agents none of these elements are strictly required</p>
+<div style="border-left: 4px solid #1e70bf; padding: 0.75em; background-color: #eaf3fb; margin-bottom: 1em;">
+  <strong>Pause and consider:</strong><br>
+What are each of these model elements for the example systems we've seen?
+<ul class="simple">
+<li><p>birds</p></li>
+<li><p>traffic</p></li>
+<li><p>disease</p></li>
+</ul>
+</div>
+<section id="takeaway">
+<h3>Takeaway<a class="headerlink" href="#takeaway" title="Link to this heading">#</a></h3>
+<p>Individual motivations may cause something that <em>appears</em> cooperative at the group-level to emerge.</p>
+<p>But cooperation per se was not necessarily the objective…</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">YouTubeVideo</span>
+
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s2">&quot;ofeYisqfOO8&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span> 
+<span class="c1"># https://www.youtube.com/watch?v=ofeYisqfOO8</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+        <iframe
+            width="1000"
+            height="300"
+            src="https://www.youtube.com/embed/ofeYisqfOO8"
+            frameborder="0"
+            allowfullscreen
+            
+        ></iframe>
+        </div></div>
+</div>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="what-do-we-want-from-these-models">
+<h1>What do we want from these models?<a class="headerlink" href="#what-do-we-want-from-these-models" title="Link to this heading">#</a></h1>
+<p>Recall from week one that there are two options to build a model:</p>
+<ol class="arabic simple">
+<li><p>using model assumptions that are derived from empirically observed phenomena, and then produce previously unknown collective behaviors by simulation.</p>
+<ul class="simple">
+<li><p>(micro-known to produce macro-unknown)</p></li>
+<li><p>we aim to make predictions using validated theories</p></li>
+</ul>
+</li>
+<li><p>using hypothetical model assumptions, and then reproduce empirically observed collective phenomena by simulation.</p>
+<ul class="simple">
+<li><p>(micro-unknown to reproduce macro-known)</p></li>
+<li><p>Schelling model used this approach</p></li>
+<li><p>we aim to explore and develop new explanations of empirically observed phenomena</p></li>
+</ul>
+</li>
+</ol>
+<p>To model the birds we are aiming to reproduce patterns qualitatively similar to what we observe in nature.</p>
+<p>ABMs are an interactive modeling experience and nice playgrounds for testing ‘what-if’ scenarios in a virtual world. For an ABM to also be good science and give us meaningful conclusions, we need to wrap the technical aspects of its design up with proper methodology and ensure we are considering the:</p>
+<ul class="simple">
+<li><p>specific problem to be solved by the ABM</p></li>
+<li><p>availability of data</p></li>
+<li><p>method of model validation</p></li>
+</ul>
+<p>Sayama notes that it is “generally not easy to conduct an elegant mathematical analysis of an ABM”, which is why his textbook has no “Analysis” chapter for them. On this, I disagree — I believe meaningful conclusions require proper analysis, even if that analysis is not mathematically “elegant” in the traditional sense.</p>
+<p>The Complexity Explorables are typically lacking in the analysis department.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="vicsek-model">
+<h1>Vicsek model<a class="headerlink" href="#vicsek-model" title="Link to this heading">#</a></h1>
+<div style="margin: 1.5em 0; border-right: 4px solid #888; padding-right: 1em; text-align: right;">
+  <div style="font-style: italic; font-family: 'Comic Neue', 'Segoe Script', cursive; font-size: 1.2em;">
+...I had designed the moving version of the Heisenberg model.  </div>
+  <div style="font-style: normal; font-size: 0.95em; margin-top: 0.5em;">
+    — Vicsek
+  </div>
+</div>
+<p>Quote from this wonderful article: <a class="reference external" href="https://doi.org/10.1038/529016a">The Physics of Life, Popkin, 2016</a></p>
+<p>This model was introduced by Tamás Vicsek (and colleagues not fortunate enough have the model named after them) in 1995 to simulate the collective motion of <strong>self-propelled particles</strong>.</p>
+<p>Vicsek’s particles (aka agents) adjusted their velocities to align with the average velocities of the neighbouring particles.</p>
+<p>That’s it. Nothing more, nothing less. And it is exactly this minimal nature that gives us a chance of mathematical analysis.</p>
+<p>The Vicsek model is the canonical example of an agent-based model of collective motion with influence defined locally and emergence analysed globally.</p>
+<p>Our understanding of emergent phenomena such as phase transitions and criticality, and the quest for universal laws and patterns of collective behaviour has gained enormous benefit from the study of simple models like this. Once this simple, abstract system is completely understood, we stand a chance of increasing the complexity to understand more biologically realistic systems.</p>
+<p>This model plays a prototypical role, similar to the one played by the Ising model for equilibrium ferromagnetism and has been adopted as the starting point for many generalisations and variations.</p>
+<section id="static-precursor-models">
+<h2>Static precursor models<a class="headerlink" href="#static-precursor-models" title="Link to this heading">#</a></h2>
+<section id="ising-model">
+<h3>Ising model<a class="headerlink" href="#ising-model" title="Link to this heading">#</a></h3>
+<p>A model of ferromagnetism in statistical mechanics.</p>
+<p><img alt="" src="../../_images/Ising_quench_b10.gif" /></p>
+<p><a class="reference external" href="https://commons.wikimedia.org/w/index.php?curid=37327967">By HeMath - Own work, CC BY-SA 4.0, </a></p>
+<p>The model consists of discrete variables that represent magnetic dipole moments of atomic “spins” that can be in one of two states (+1/-1, or “up”/“down”).</p>
+<p>Neighbouring spins that agree have a lower energy than those that disagree; the system tends to the lowest energy but heat disturbs this tendency, thus creating the possibility of different structural phases.</p>
+<p>The model allows the identification of <strong>phase transitions</strong> as a simplified model of reality.</p>
+</section>
+<section id="xy-model">
+<h3>XY model<a class="headerlink" href="#xy-model" title="Link to this heading">#</a></h3>
+<p>The XY model is a generalisation of the Ising model in which each spin can point in any direction within a plane, so its state is a continuous variable <span class="math notranslate nohighlight">\(\theta \in [0,2\pi)\)</span>.</p>
+<p><a class="reference external" href="https://www.complexity-explorables.org/explorables/if-you-ask-your-xy/">Complexity Explorable</a></p>
+<p>Neighbouring spins that are <em>more closely aligned</em> (i.e. the angle between neighbouring spins is smaller) in the plane have lower energy. As with the Ising model, the system tends to minimise its total energy by increasing alignment across the lattice. If the dipoles are initialised randomly, local interactions can lead to the emergence of large-scale order through gradual alignment.</p>
+</section>
+<section id="heisenberg-model">
+<h3>Heisenberg model<a class="headerlink" href="#heisenberg-model" title="Link to this heading">#</a></h3>
+<p>The Heisenberg model is a further generalisation in which each spin can point in any direction in three-dimensional space. Its state is given by two continuous angles <span class="math notranslate nohighlight">\((\theta, \phi)\)</span> describing a point on the unit sphere <span class="math notranslate nohighlight">\(S^2\)</span>.</p>
+<p>Neighbouring spins that are more closely aligned have lower energy, and the system tends to minimise its total energy — but thermal fluctuations can disrupt alignment, leading to different magnetic phases.</p>
+<p>This model is used to describe isotropic magnets where spins have no preferred axis or plane, such as many transition metal oxides, and can also be applied to other vector fields with full 3D orientation freedom.</p>
+</section>
+<section id="summary">
+<h3>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Model</p></th>
+<th class="head"><p>Degrees of Freedom</p></th>
+<th class="head"><p>State Space</p></th>
+<th class="head"><p>Typical Physical Situation / Example Materials</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Ising</strong></p></td>
+<td><p>1 (discrete)</p></td>
+<td><p><span class="math notranslate nohighlight">\( \{+1, -1\} \)</span></p></td>
+<td><p>Uniaxial ferromagnets (e.g., Fe with strong anisotropy); binary-state systems like lattice gas models or opinion dynamics</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>XY</strong></p></td>
+<td><p>1 (continuous)</p></td>
+<td><p><span class="math notranslate nohighlight">\( \theta \in [0, 2\pi) \)</span></p></td>
+<td><p>Planar magnets; thin superfluid helium-4 films; 2D superconductors (phase of order parameter)</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Heisenberg</strong></p></td>
+<td><p>2 (continuous)</p></td>
+<td><p><span class="math notranslate nohighlight">\((\theta, \phi)\)</span> on <span class="math notranslate nohighlight">\(S^2\)</span></p></td>
+<td><p>Isotropic magnets with freely orientable spins (no preferred axis), e.g., many transition metal oxides</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Inspired by the Heisenberg model, Vicsek and his team began to think about what it would mean for the spins in a ferromagnet to have the freedom to move (turning a static equilibrium spin model into a non-equilibrium model of collective motion).</p>
+</section>
+</section>
+<section id="original-implementation">
+<h2>Original implementation<a class="headerlink" href="#original-implementation" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Initialise the domain</strong> (the world/environment)</p></li>
+</ol>
+<ul class="simple">
+<li><p>Square 2D domain with <strong>periodic boundary conditions</strong> so agents effectively move on a torus.</p></li>
+<li><p>The environment has no state</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p><strong>Initialise <span class="math notranslate nohighlight">\(N\)</span> agents and their states/attributes</strong></p></li>
+</ol>
+<ul class="simple">
+<li><p>Agents are point particles</p></li>
+<li><p><strong>Position</strong>: <span class="math notranslate nohighlight">\(\mathbf{x}_i(t) = (x_i, y_i)\)</span> — coordinates at time <span class="math notranslate nohighlight">\(t\)</span>, with <span class="math notranslate nohighlight">\(\mathbf{x}_i(0)\)</span> set randomly</p></li>
+<li><p><strong>Velocity</strong>: <span class="math notranslate nohighlight">\(\mathbf{v}_i(t) = v \,(\cos\theta_i(t), \sin\theta_i(t))\)</span>, where <span class="math notranslate nohighlight">\(v\)</span> is constant and <span class="math notranslate nohighlight">\(\theta_i(t)\)</span> is the heading, with <span class="math notranslate nohighlight">\(\theta_i(0)\)</span> set randomly.</p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p><strong>Define the interaction network</strong></p></li>
+</ol>
+<ul class="simple">
+<li><p>An agent’s neighbours are all agents (including itself) within a circle of radius <span class="math notranslate nohighlight">\(r\)</span> centred at <span class="math notranslate nohighlight">\(\mathbf{x}_i(t)\)</span>.</p></li>
+<li><p>This is a <em>metric neighbourhood</em>.</p></li>
+</ul>
+<ol class="arabic simple" start="4">
+<li><p><strong>Compute the dynamics</strong></p></li>
+</ol>
+<ul class="simple">
+<li><p>Calculate <span class="math notranslate nohighlight">\(\langle \theta(t) \rangle_r\)</span> = average of all headings in the neighbourhood.</p></li>
+<li><p>Averaging is done using the vector sum of neighbour velocities to avoid issues with angular wrap-around.</p></li>
+</ul>
+<ol class="arabic simple" start="5">
+<li><p><strong>Update agent states</strong></p></li>
+</ol>
+<ul>
+<li><p>New heading is the average heading plus a noise term:</p>
+<div class="math notranslate nohighlight">
+\[
+     \theta_i(t+\Delta t) = \langle \theta_i(t) \rangle_r + \Delta\theta_i
+     \]</div>
+<p>where <span class="math notranslate nohighlight">\(\Delta\theta_i \sim U[-\eta/2, \eta/2]\)</span>.</p>
+</li>
+<li><p>New position is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+     \mathbf{x}_i(t+\Delta t) = \mathbf{x}_i(t) + \mathbf{v}_i(t)\,\Delta t
+     \]</div>
+</li>
+</ul>
+<ul class="simple">
+<li><p>Synchronous updates for all agents at each time step.</p></li>
+<li><p>Apply periodic boundary conditions after the move.</p></li>
+</ul>
+<p>Note this describes “overdamped dynamics” as the inertial effects are negligible, and the motion of the agents is primarily determined by the forces acting on them (change their relative position according to their velocity fluctuations), rather than by their own momentum. The system is far from equilibrium because the particles are self-propelled.</p>
+<p><strong>Time step <span class="math notranslate nohighlight">\(\Delta t\)</span></strong></p>
+<ul class="simple">
+<li><p>Usually set to <span class="math notranslate nohighlight">\(1\)</span> without loss of generality in simulations, so updates occur in discrete, synchronous steps.</p></li>
+</ul>
+<p><strong>Noise amplitude <span class="math notranslate nohighlight">\(\eta\)</span></strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\eta = 0\)</span>: perfectly deterministic alignment.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\eta = 2\pi\)</span>: maximum meaningful noise — headings become uniformly random in <span class="math notranslate nohighlight">\([-\pi, \pi)\)</span> at each time step, completely destroying alignment.</p></li>
+</ul>
+<p>In the original model:</p>
+<ul class="simple">
+<li><p>we choose a convenient set of space and time units, such that <span class="math notranslate nohighlight">\(\Delta t = r = 1\)</span></p></li>
+<li><p>set <span class="math notranslate nohighlight">\(\text{speed}=v=0.03\)</span>.</p></li>
+<li><p>model behaviour only depends on three control parameters: the noise amplitude <span class="math notranslate nohighlight">\(\eta\)</span> and total density of particles <span class="math notranslate nohighlight">\(N/V\)</span>.</p></li>
+</ul>
+<section id="limiting-cases">
+<h3>Limiting cases<a class="headerlink" href="#limiting-cases" title="Link to this heading">#</a></h3>
+<p>Limiting cases are often interesting and worth exploring as the model reduces to well-known models of equilibrium statistical physics</p>
+<p>e.g. in the limit, <span class="math notranslate nohighlight">\(v \rightarrow 0\)</span>, the interaction network is fixed and the individuals are just selecting a new direction without moving at each time step. The model reduces precisely to that of a two-dimensional XY model. We interpret he velocity of the individual as the local spin, the strength of the alignment interaction is proportional to the density like an external magnetic field and the noise is like temperature</p>
+<p>Other limiting cases:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(r\rightarrow 0\)</span>: non-interacting persistent random walkers with equilibrium distribution with some temperature given by the noise term</p></li>
+<li><p><span class="math notranslate nohighlight">\(r \rightarrow \infty\)</span>: long ranged interaction, system is globally coupled and the connectivity matrix is trivially static</p></li>
+<li><p><span class="math notranslate nohighlight">\(v \rightarrow \infty\)</span>: for <span class="math notranslate nohighlight">\(v &gt;&gt; L\)</span>, any small fluctuation in the orientation will push nearby particles infinitely apart. With periodic boundary conditions this is equivalent to random rewiring of interactions and hence motion decouples from alignment</p></li>
+</ul>
+<p>It is <em>not</em> possible in general to deduce properties of the Vicsek model in general from the study of the limiting cases.</p>
+</section>
+<section id="qualitative-analysis">
+<h3>Qualitative analysis<a class="headerlink" href="#qualitative-analysis" title="Link to this heading">#</a></h3>
+<p>The first thing we did with our model is to simulate it and play around, observing how the agents move over time and the group behaviour that emerges. This gives us a <em>qualitative</em> understanding of the behaviour of the collective and how it depends on the parameter settings for <span class="math notranslate nohighlight">\(L\)</span> (which is effectively density) and <span class="math notranslate nohighlight">\(\eta\)</span> (the amount of stochasticity).</p>
+<p>The simulations are nice for our understanding but they are typically relegated to supplementary material in publications in favour of snapshots in time or trajectories, e.g.:</p>
+<p><img alt="" src="../../_images/Vicsek_types_of_behaviour.png" /></p>
+<p>Fig from original <a class="reference external" href="https://journals.aps.org/prl/pdf/10.1103/PhysRevLett.75.1226">publication of Vicsek et al, 1995</a></p>
+<p>Again, we are seeing simple interactions among individuals leading to complex global patterns. The variety in behaviour is a consequence of the parameters:</p>
+<ul class="simple">
+<li><p>density via the size of the domain, <span class="math notranslate nohighlight">\(L\)</span>, with fixed particle number</p></li>
+<li><p>noise, <span class="math notranslate nohighlight">\(\eta\)</span></p></li>
+</ul>
+<p>There are other parameters in this model, such as the speed <span class="math notranslate nohighlight">\(v\)</span> but <em>‘According to our simulations, in a wide range of the velocities <span class="math notranslate nohighlight">\((0.003 &lt; v &lt; 0.3)\)</span>, the actual value of <span class="math notranslate nohighlight">\(v\)</span> does not affect the results’</em> - Vicsek et. al, 1995. Where, ‘the results’ refers to the physical properties of the emergent behaviour.</p>
+<p>Many other model variations are equally irrelevant:</p>
+<ul class="simple">
+<li><p>noise distributed according to a Gaussian</p></li>
+<li><p>small, short ranged repulsion force to account for volume exclusion</p></li>
+<li><p>position <span class="math notranslate nohighlight">\(x_i\)</span> at time <span class="math notranslate nohighlight">\(t + \Delta t\)</span> may be determined by the velocity at time <span class="math notranslate nohighlight">\(t+\Delta t\)</span> and not at time <span class="math notranslate nohighlight">\(t\)</span></p></li>
+<li><p>…</p></li>
+</ul>
+<p>We’d like a more general understanding of how these parameters influence the behaviour. In particular, we want answers to:</p>
+<ul class="simple">
+<li><p>Under what conditions are the different behaviours are happening?</p></li>
+<li><p>How do we transition from one behaviour to another?</p></li>
+</ul>
+<p>This requires a <em>quantitative</em> analysis.</p>
+</section>
+<section id="quantitative-analysis">
+<h3>Quantitative analysis<a class="headerlink" href="#quantitative-analysis" title="Link to this heading">#</a></h3>
+<p>We seek a generalisable and statistically reliable description of observations via appropriate metrics at the individual or group level.</p>
+<p>Flocking models lean heavily on methods and measures successfully used in statistical physics</p>
+<p><strong>Order parameters</strong> characterise how ordered the macroscopic state of the system is.</p>
+<p>In keeping with the spin-model analogy, the Vicsek model used the average normalised velocity as a <strong>polarisation order parameter</strong>, <span class="math notranslate nohighlight">\(\Phi\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\Phi = \frac{1}{Nv}\left| \sum_i^N \mathbf{v}_i \right|,
+\]</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(N\)</span> is the number of agents</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{v}_i\)</span> is the <span class="math notranslate nohighlight">\(i^\text{th}\)</span> agent’s velocity</p></li>
+<li><p><span class="math notranslate nohighlight">\(v\)</span> is the (constant) speed of all agents</p></li>
+</ul>
+<p>This is a value that ranges from 0 to 1, where 0 indicates no order and 1 indicates maximal order and coherent motion (this is why we can refer to it as an order parameter).</p>
+<p>It tells us something about the group behaviour.</p>
+<p>Note that in physics and complex systems the word <strong>“parameter”</strong> in <em>order parameter</em> does not mean an arbitrary input you choose (as in programming or mathematical modelling). An <strong>order parameter</strong> is a measurable quantity that <em>emerges from the system</em> and characterises its macroscopic state, e.g., magnetisation in the Ising model, density of aligned motion in the Vicsek model. In other contexts, the same role might be called a <strong>state variable</strong> or <strong>state descriptor</strong> — a value that summarises the system’s current condition.</p>
+<div style="border-left: 4px solid #1e70bf; padding: 0.75em; background-color: #eaf3fb; margin-bottom: 1em;">
+  <strong>Pause and consider:</strong><br>
+  Based on the behaviour regimes reported by Vicsek (see previous figure), what value would you expect for the order parameter $\Phi$ in each case?<br><br>
+  Can you think of scenarios that are <em>not</em> truly disordered, yet would still produce an order parameter close to zero? How might this be dealt with?
+</div><div class="toggle docutils container">
+<p>Expected values by regime:</p>
+<ul class="simple">
+<li><p>Disordered (high noise / low density): headings are uncorrelated, so <span class="math notranslate nohighlight">\(\Phi \approx 0\)</span> (with fluctuations of order 1/√N).</p></li>
+<li><p>Ordered flock (low noise / high density): near-global alignment, so <span class="math notranslate nohighlight">\(\Phi\)</span> is large, typically between 0.6 and 1, decreasing as noise increases.</p></li>
+<li><p>Band/coexistence regime (near the transition, especially with vectorial noise): alternating high-density aligned bands in a disordered background lead to instantaneous <span class="math notranslate nohighlight">\(\Phi\)</span> oscillating; the time-averaged <span class="math notranslate nohighlight">\(\Phi\)</span> can take an intermediate value, or the system may switch between <span class="math notranslate nohighlight">\(\Phi \approx 0\)</span> and <span class="math notranslate nohighlight">\(\Phi&gt;0\)</span> in finite domains.</p></li>
+</ul>
+<p>Some “Not disordered” scenarios with <span class="math notranslate nohighlight">\(\Phi \approx 0\)</span>:</p>
+<ul class="simple">
+<li><p>Counter-flows: two equally sized groups moving in opposite directions; local order is high but global vectors cancel.</p></li>
+<li><p>Vortex or milling: agents circulate around a common centre; headings cover all angles, giving a near-zero net vector.</p></li>
+<li><p>Multi-domain mosaic: large patches of alignment with different headings that balance out.</p></li>
+<li><p>Nematic order (head–tail symmetry): agents align along the same axis but half move in each direction; polar order <span class="math notranslate nohighlight">\(\Phi \approx 0\)</span> but nematic order is high.</p></li>
+<li><p>Oscillatory reversal: the entire group repeatedly reverses direction; instantaneous <span class="math notranslate nohighlight">\(\Phi\)</span> is large but time-averaged <span class="math notranslate nohighlight">\(\Phi\)</span> is near zero.</p></li>
+</ul>
+<p>These would require additional order parameters or metrics to properly capture the behaviour.</p>
+</div>
+<section id="parameter-sweeps">
+<h4>Parameter sweeps<a class="headerlink" href="#parameter-sweeps" title="Link to this heading">#</a></h4>
+<p>The phase transitions are bifurcations in the macroscopic properties, captured by changes in the relevant <em>state variables</em>.</p>
+<p>We track these properties as we vary the relevant parameters.</p>
+<p>For Vicsek, that means we compute the polarisation order parameter for each simulation as we vary the noise and/or density.</p>
+<p><img alt="" src="../../_images/Vicsek_parameter_sweeps.jpeg" /></p>
+<p>The Vicsek model exhibits a <strong>phase transition</strong> between a disordered state and an ordered, coherently moving state. It’s akin to a transition from solid to liquid to gas as temperature and pressure are varied.</p>
+<p>At high noise (or low density), agents move in uncorrelated directions and the system is <strong>disordered</strong> with <span class="math notranslate nohighlight">\(\Phi\approx 0\)</span>. At low noise (or high density), local alignment interactions propagate across the system, and agents move collectively in approximately the same direction — the system is <strong>ordered</strong>, with <span class="math notranslate nohighlight">\(\Phi\approx1\)</span>. The transition occurs at a <strong>critical noise amplitude</strong> <span class="math notranslate nohighlight">\(\eta_c\)</span> (for fixed density and speed) or, equivalently, at a <strong>critical density</strong> <span class="math notranslate nohighlight">\(\rho_c\)</span> (for fixed noise).</p>
+<p>The nature of the transition has been hotly debated. It depends on the noise implementation:</p>
+<ul class="simple">
+<li><p>With <strong>scalar (intrinsic) noise</strong>, the transition is generally <em>continuous</em> (first-order) in the thermodynamic limit.</p></li>
+<li><p>With <strong>vectorial (extrinsic) noise</strong>, it is typically <em>discontinuous</em>, (second-order) with coexistence of ordered and disordered phases near the threshold.</p></li>
+</ul>
+<p>Finite-size effects can blur this distinction, so careful scaling analysis is required to determine the transition type. See the original publication and the work of <a class="reference external" href="https://doi.org/10.1103/PhysRevE.80.050103">Baglietto and Albano, 2009</a> for more detail.</p>
+<p>Vicsek varied each parameter separately. A more common approach nowadays is to address everything at once.</p>
+<p>Here Couzin computes two different order parameters (polarisation and rotation) and shows the mean of 30 replicates:</p>
+<p><img alt="" src="../../_images/Couzin_phase_space.png" /></p>
+<p>Fig from <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0022519302930651?via%3Dihub">Couzin et al, 2002</a></p>
+<p>Another key difference in Couzin’s approach was to explore what happens without re-initialising the system when changing parameters between simulations. i.e., each new run began from the final state of the previous one.</p>
+<p>Under these conditions, interesting things can happen:</p>
+<p><img alt="" src="../../_images/Couzin_hysteresis.jpeg" /></p>
+<p>This effect is called <strong>hysteresis</strong>. It means that the state of the system depends on its history.</p>
+</section>
+<section id="ensemble-runs">
+<h4>Ensemble runs<a class="headerlink" href="#ensemble-runs" title="Link to this heading">#</a></h4>
+<p>To properly demonstrate phase transitions we must show that they occur in general, because a single simulation doesn’t tell you much (and may even be misleading).</p>
+<p>The ensemble of simulations is necessary to:</p>
+<ul class="simple">
+<li><p>capture the range of possible outcomes owing to variability (inherent randomness, stochastic processes, or sensitivity to initial conditions)</p></li>
+<li><p>explore effects of uncertainty, providing a distribution of possible outcomes</p></li>
+<li><p>reduce noisy or outlier results and identify (and estimate probability of) rare events</p></li>
+<li><p>give a better understanding of parameter sensitivities</p></li>
+<li><p>highlight emergent behaviour as consistent patterns or structures that emerge across different simulations</p></li>
+<li><p>validate the robustness of model predictions.</p></li>
+</ul>
+<p>This gives a more comprehensive and reliable picture of the system.</p>
+<p>The original paper by Vicsek runs five simulations at each parameter setting and states that the error bars are generally within the size of the symbol. If this wasn’t the case you’d need to show the variation (quartiles, extreme values, standard deviations,…).</p>
+</section>
+</section>
+</section>
+<section id="further-considerations">
+<h2>Further considerations<a class="headerlink" href="#further-considerations" title="Link to this heading">#</a></h2>
+<p>In the Vicsek model, each individual tends to align its direction of motion with that of its neighbours, while being perturbed by noise. Yet, as we will see, even within this seemingly simple rule there are many choices to make and those choices can shape the system’s behaviour in important ways. Indeed, there has been some controversy amongst researchers regarding the nature of the order-disorder transition in particular!</p>
+<section id="integration-details">
+<h3>Integration details<a class="headerlink" href="#integration-details" title="Link to this heading">#</a></h3>
+<p>This is a <strong>backward update</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{x}_i(t+\Delta t) = \mathbf{x}_i(t) + \mathbf{v}_i(t)\,\Delta t
+\]</div>
+<p>An alternative is to consider a <strong>forward update</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{x}_i(t+\Delta t) = \mathbf{x}_i(t) + \mathbf{v}_i(t+\Delta t)\,\Delta t
+\]</div>
+</section>
+<section id="noise">
+<h3>Noise<a class="headerlink" href="#noise" title="Link to this heading">#</a></h3>
+<p>The role of randomness in models of complex systems:</p>
+<ul class="simple">
+<li><p>account for uncertainties and the unpredictable nature of complex systems</p></li>
+<li><p>reflects the inherent variability in complex systems</p></li>
+<li><p>analagous to temperature in equilibrium systems (driving phase transitions)</p></li>
+<li><p>gives a more robust and realistic model, e.g. showing how coherent motion can emerge even in the presence of imperfections</p></li>
+</ul>
+<p>Different ways noise can be added in Vicsek-type models:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Noise type</p></th>
+<th class="head"><p>What it means</p></th>
+<th class="head"><p>Typical equation (2D case)</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Scalar (Intrinsic) noise</strong></p></td>
+<td><p>Each agent calculates the <em>perfect</em> average heading of its neighbours but moves in that direction with some error.</p></td>
+<td><p><span class="math notranslate nohighlight">\(\theta_i(t+1) = \langle \theta(t) \rangle_r + \Delta\theta_i\)</span> <span class="math notranslate nohighlight">\(\Delta\theta_i \sim U[-\eta/2, \eta/2]\)</span></p></td>
+<td><p>Models imperfect execution of movement. Implemented in the original Vicsek model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Angular Extrinsic noise</strong></p></td>
+<td><p>Each neighbour’s heading is computed with some error before computing the average heading.</p></td>
+<td><p><span class="math notranslate nohighlight">\(\theta_i(t+1) = \big\langle \theta_j(t) + \Delta\theta_j \big\rangle_r\)</span></p></td>
+<td><p>Represents errors in sensing/communication of neighbour directions.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Vectorial (Extrinsic) noise</strong></p></td>
+<td><p>Add a random vector to the average velocity vector before normalising.</p></td>
+<td><p><span class="math notranslate nohighlight">\(\mathbf{v}_i(t+1) = v_0 \frac{\langle \mathbf{v}(t) \rangle_r + \boldsymbol{\xi}_i}{|\langle \mathbf{v}(t) \rangle_r + \boldsymbol{\xi}_i|}\)</span> <span class="math notranslate nohighlight">\(\boldsymbol{\xi}_i\)</span> = random vector with magnitude related to <span class="math notranslate nohighlight">\(\eta\)</span></p></td>
+<td><p>Extends trivially to any spatial dimension because the noise is added in Cartesian components. Similar to scalar noise in that the agent “knows” the perfect average direction but the modelling assumption about where the error comes from is different.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Additive positional noise</strong></p></td>
+<td><p>Random displacement is added to the agent’s position after movement.</p></td>
+<td><p><span class="math notranslate nohighlight">\(\mathbf{x}_i(t+1) = \mathbf{x}_i(t) + \mathbf{v}_i(t+1)\Delta t + \boldsymbol{\zeta}_i\)</span></p></td>
+<td><p>Models environmental disturbances like turbulence or tracking error; does not directly affect heading. Also similar to vectorial noise - the difference is when and how the perturbation is applied in the update loop.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Noise in speed</strong></p></td>
+<td><p>Speed fluctuates randomly around a mean <span class="math notranslate nohighlight">\(v_0\)</span>.</p></td>
+<td><p><span class="math notranslate nohighlight">\(v_i(t+1) = v_0 + \delta v_i\)</span></p></td>
+<td><p>Captures agents whose propulsion is not perfectly constant (e.g., swimmers in a variable medium).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="border-left: 4px solid #1e70bf; padding: 0.75em; background-color: #eaf3fb; margin-bottom: 1em;">
+  <strong>Pause and consider:</strong><br>
+Extending the vectorial noise to any spatial dimension is straightforward, while scalar noise requires some more thought. Why is this?
+</div><div class="toggle docutils container">
+<ul class="simple">
+<li><p><strong>Vectorial noise</strong> perturbs the velocity vectors directly before normalising them. Since a vector can be defined in any spatial dimension, extending the method from 2D to 3D (or higher) is straightforward — you just add noise to each vector component.</p></li>
+<li><p><strong>Scalar noise</strong> perturbs the heading angle after computing the average direction. In 2D, this is a single angle <span class="math notranslate nohighlight">\(\theta\)</span>, so adding scalar noise is easy. In higher dimensions, though, “heading” isn’t described by a single scalar — in 3D you’d need two angles <span class="math notranslate nohighlight">\((\theta, \phi)\)</span> or an equivalent rotation representation, which makes adding noise consistently more complicated.</p></li>
+</ul>
+<ul class="simple">
+<li><p><strong>Vectorial noise:</strong> Noise is added directly to the velocity vector <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> before normalising. A vector can be defined in any number of spatial dimensions, so the same operation works in 2D, 3D, or higher without modification — you simply add a random vector to the average velocity.</p></li>
+<li><p><strong>Scalar noise:</strong> Noise is added to the heading <em>angle</em> after averaging directions. In 2D, the heading is described by a single scalar <span class="math notranslate nohighlight">\(\theta\)</span>, so adding noise is simple. In 3D, however, orientation requires two angles <span class="math notranslate nohighlight">\((\theta, \phi)\)</span> or another rotation representation (e.g., quaternions), and adding “noise” consistently across these coordinates is non-trivial.</p></li>
+</ul>
+</div>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="improving-our-models">
+<h1>Improving our models<a class="headerlink" href="#improving-our-models" title="Link to this heading">#</a></h1>
+<p>We have a complete understanding of the physical laws that lead all spins in a ferromagnet to self-organise and produce a spontaneous magnetisation but when it came to birds, until about 15 years ago we knew almost nothing.</p>
+<p>The simple rules of interaction assumed by Reynolds, Vicsek etc were just educated guesses, not established fact.</p>
+<p>Empirical insight came from Cavagna and Gardina’s work as part of the STARFLAG project, which used stereoscopic imaging reconstruct the precise 3D positions of starlings in murmurations over Italy. Their analysis of this data revealed that interactions are topological (each bird aligns with a fixed number of neighbours <span class="math notranslate nohighlight">\(\approx 7\)</span>).</p>
+<p>This finding contrasted sharply with the assumptions of earlier models, where interactions occurred within a fixed metric distance and the number of neighbours varied with flock density.</p>
+<p>While <strong>metric distance</strong> is the cornerstone of fundamental interactions in physics, <strong>topological distance</strong> is more typical in social and technological networks. In a topological interaction, the strength of interaction is independent of the physical separation between individuals. This makes the system significantly more robust when the flock is subjected to severe perturbations.</p>
+<p><img alt="" src="../../_images/Cavagna_robust_to_attack.png" /></p>
+<p>Incorporating this rule into agent-based models brought simulations into much closer agreement with observed flock dynamics, improving both realism and predictive power.
+ABMs are not just about simulation — they are a way of asking better questions. They let us test ideas, challenge assumptions, and connect the dots between theory and reality. Whether it’s birds in the sky, people in a crowd, or robots in a swarm, the same principles apply: local choices, global patterns, and the opportunity to understand and influence both.</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/week05"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../week04/L_Cellular_automata.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Week 4: Cellular automata</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Week 5: Agent-based modelling</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#collective-behaviour">Collective behaviour</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flocking">Flocking</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#background">Background</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling-flocks">Modelling flocks</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-model-examples">Standard model examples</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#humans-are-another-story">Humans are another story…</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#some-explorables">Some explorables</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#agent-based-modelling-abm">Agent-based modelling (ABM)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-create-a-model">To create a model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#takeaway">Takeaway</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#what-do-we-want-from-these-models">What do we want from these models?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#vicsek-model">Vicsek model</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#static-precursor-models">Static precursor models</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ising-model">Ising model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#xy-model">XY model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#heisenberg-model">Heisenberg model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#original-implementation">Original implementation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limiting-cases">Limiting cases</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#qualitative-analysis">Qualitative analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quantitative-analysis">Quantitative analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#parameter-sweeps">Parameter sweeps</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ensemble-runs">Ensemble runs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-considerations">Further considerations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-details">Integration details</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#noise">Noise</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#improving-our-models">Improving our models</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Shannon Algar
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
