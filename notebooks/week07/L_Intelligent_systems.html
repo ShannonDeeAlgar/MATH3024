@@ -1,0 +1,1503 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Week 7: Intelligent systems &#8212; Unit Reader</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/week07/L_Intelligent_systems';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="Week 6: Synchronisation" href="../week06/L_Synchronisation.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Unit Reader</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    MATH3024 Reader
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week01/L_Introduction_to_complex_systems.html">Week 1: Welcome to MATH3024: (modelling) Complex Systems</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../week02/L_Fractals.html">Week 2: Fractals</a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../week03/L_Reaction_diffusion.html">Week 3: Reaction-diffusion systems</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../week04/L_Cellular_automata.html">Week 4: Cellular automata</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../week05/L_ABM.html">Week 5: Agent-based modelling</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../week06/L_Synchronisation.html">Week 6: Synchronisation</a></li>
+
+
+
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Week 7: Intelligent systems</a></li>
+
+
+
+
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/week07/L_Intelligent_systems.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Week 7: Intelligent systems</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Week 7: Intelligent systems</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-scientific-schism">A scientific schism</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complexity-science-is">Complexity Science is…</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#roots">Roots</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning-ai-is">Machine Learning (&amp; AI) is…</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Roots</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-distinction-but-also-synergy">Key Distinction (but also synergy)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#positioning-of-intelligent-systems">Positioning of intelligent systems</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#artificial-intelligence-ai">Artificial intelligence (AI)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#origins">Origins</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#artificial-neurons">Artificial neurons</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perceptron">Perceptron</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-classifiers">Linear classifiers</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-ai">Defining AI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-ai-technology">Types of AI technology</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#categories-of-ai">Categories of AI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#successes">Successes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fails">Fails</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#collective-swarm-intelligence">Collective/swarm  intelligence</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ants">Ants</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ant-communication">Ant communication</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shortest-paths">Shortest paths</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-travelling-salesman-problem">The travelling salesman problem</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lane-formation">Lane formation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#models">Models</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-be-like-ants">Lesson: Be like ants</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-don-t-be-like-ants">Lesson: Don’t be like ants</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#biomimicry-biomimetics">Biomimicry (biomimetics)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#form-shape-structure">Form (shape/structure)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#process-behaviour-mechanism">Process (behaviour/mechanism)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#system-relationships-ecology">System (relationships/ecology)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ant-colony-optimisation-aco">Ant colony optimisation (ACO)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#so-how-would-you-model-this">So how would you model this?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-systems-inspired-by-nature">Other systems inspired by nature…</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#some-crowds-turn-to-madness-others-to-wisdom">Some crowds turn to madness, others to wisdom</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#controlling-collective-intelligence">Controlling collective intelligence</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#optimisation">Optimisation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#global-vs-local-optimisation">Global vs. Local Optimisation:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#swarm-optimisation">Swarm optimisation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#particle-swarm-optimisation-pso">Particle swarm optimisation (PSO)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-search-space">The search space</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fitness-function-aka-objective-function-cost-function">Fitness function (aka objective function, cost function)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moving-through-the-search-space">Moving through the search space</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploration-and-exploitation">Exploration and Exploitation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forces">Forces</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#randomness">Randomness</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-picture-to-have-in-mind">The picture to have in mind</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#an-algorithm">An* algorithm</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-and-considerations">Limitations and considerations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="week-7-intelligent-systems">
+<h1>Week 7: Intelligent systems<a class="headerlink" href="#week-7-intelligent-systems" title="Link to this heading">#</a></h1>
+<p><strong>Intelligence:</strong> the ability to <em>acquire and apply</em> knowledge and skills, i.e. learn from experience and to adapt to, shape, and select environments.</p>
+<p><strong>Intelligent systems</strong> perceive and respond to the world around them.</p>
+<p>They can be found in both natural (e.g., the brain, ant colonies) and artificial (e.g., AI, robots) contexts.</p>
+<div style="border-left: 4px solid #1e70bf; padding: 0.75em; background-color: #eaf3fb; margin-bottom: 1em;">
+  <strong>Pause and consider:</strong><br>
+  I actually can't think of any 'intelligent non-system' - can you?
+</div><section id="a-scientific-schism">
+<h2>A scientific schism<a class="headerlink" href="#a-scientific-schism" title="Link to this heading">#</a></h2>
+<p><img alt="" src="../../_images/Complex_systems_schism.png" /></p>
+<p>So far we have mostly been camped in the Complexity Science space (indeed we have used ‘<em>Complex Systems</em>’ as a synonym for ‘<em>Complexity Science</em>’).</p>
+</section>
+<section id="complexity-science-is">
+<h2>Complexity Science is…<a class="headerlink" href="#complexity-science-is" title="Link to this heading">#</a></h2>
+<p>A framework for <em>understanding</em> the dynamics of complex systems and explaining phenomena such as <em>emergence</em>, <em>adaptation</em>, and <em>self-organisation</em>.</p>
+<p><strong>Goal</strong>: Find <em>simple, often mathematical descriptions</em> that capture the essential structure and behaviour of systems that look messy at first sight. These models prioritise <em>insight and explanation</em> over raw predictive accuracy.</p>
+<p>Complexity science asks questions such as:</p>
+<ul class="simple">
+<li><p>How does intelligence arise from many interacting parts?</p></li>
+<li><p>What tipping points or critical transitions exist in this system?</p></li>
+<li><p>What are the universal patterns across biology, society, and technology?</p></li>
+</ul>
+<section id="roots">
+<h3>Roots<a class="headerlink" href="#roots" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Cybernetics (1940s–1960s)</strong>: Norbert Wiener and others introduced the study of feedback loops, self-regulation, and control.</p></li>
+<li><p><strong>Complexity Science (1970s onwards)</strong>: Theorists recognised that <em>simple rules can generate complex, adaptive behaviour</em>, as seen in cellular automata, chaos theory, network dynamics, and self-organised criticality.</p></li>
+</ul>
+</section>
+</section>
+<section id="machine-learning-ai-is">
+<h2>Machine Learning (&amp; AI) is…<a class="headerlink" href="#machine-learning-ai-is" title="Link to this heading">#</a></h2>
+<p>A framework for <strong>building and implementing</strong> systems that perform tasks requiring intelligence.</p>
+<p>Provides the <em>practical methodologies</em> to train machines to recognise patterns, adapt, and act for predictive power by taking all that complexity in and encoding it in big models.</p>
+<p><strong>Goal</strong>: Harness the richness of data and encode it in <em>large, flexible models</em> for <em>predictive power and performance</em>. Explanation is often secondary to accurate outcomes.</p>
+<p>AI asks questions such as:</p>
+<ul class="simple">
+<li><p>How can we design algorithms that learn from data and improve over time?</p></li>
+<li><p>What architectures (neural nets, transformers) are best for complex tasks?</p></li>
+<li><p>How can we engineer intelligent behaviour into machines for real-world use?</p></li>
+</ul>
+<section id="id1">
+<h3>Roots<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Artificial Intelligence (1950s onwards)</strong> – Alan Turing’s idea of machine intelligence; early symbolic AI systems (Minsky, McCarthy).</p></li>
+<li><p><strong>Modern AI (2000s onwards)</strong> – Explosion of data-driven methods (machine learning, deep learning, reinforcement learning, robotics).</p></li>
+</ul>
+</section>
+</section>
+<section id="key-distinction-but-also-synergy">
+<h2>Key Distinction (but also synergy)<a class="headerlink" href="#key-distinction-but-also-synergy" title="Link to this heading">#</a></h2>
+<p><strong>Complexity Science</strong>:</p>
+<ul class="simple">
+<li><p><em>Explains</em> the principles of emergence and dynamics in complex systems.</p></li>
+<li><p>Theory-driven, insight-focused.</p></li>
+</ul>
+<p><strong>Machine Learning/AI</strong>:</p>
+<ul class="simple">
+<li><p><em>Builds</em> tools to <em>predict and act</em> within complex systems.</p></li>
+<li><p>Data-driven, performance-focused.</p></li>
+</ul>
+<p>The two approaches are not opposites but complementary. Complexity science offers the <em>conceptual lens</em> and AI provides the <em>engineering toolkit</em>.</p>
+<p>Increasingly, they inform one another. e.g. complexity science helps interpret black-box AI models, while ML helps uncover patterns in complex systems where theory alone is insufficient.</p>
+</section>
+<section id="positioning-of-intelligent-systems">
+<h2>Positioning of intelligent systems<a class="headerlink" href="#positioning-of-intelligent-systems" title="Link to this heading">#</a></h2>
+<p>Intelligent systems sit at the intersection of Complexity Science and Machine Learning/AI, but the emphasis shifts depending on the question being asked:</p>
+<p><strong>Complexity Science</strong>:</p>
+<ul class="simple">
+<li><p>The focus is on: <em>how intelligence emerges</em> from the interactions of many parts (as in biological, ecological, or social systems)</p></li>
+<li><p>The goal is explanation: understanding the principles that give rise to adaptive or intelligent behaviour.</p></li>
+</ul>
+<p><strong>Machine Learning/AI</strong>:</p>
+<ul class="simple">
+<li><p>The focus is on: <em>designing and implementing algorithms that exhibit intelligence</em> (as in robotics, autonomous agents, or large-scale models)</p></li>
+<li><p>The goal is construction: building systems that can act intelligently in the world.</p></li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="artificial-intelligence-ai">
+<h1>Artificial intelligence (AI)<a class="headerlink" href="#artificial-intelligence-ai" title="Link to this heading">#</a></h1>
+<p>AI has gone from niche to everywhere shifting rapidly from an abstract research idea to something that touches nearly every aspect of daily life in just a decade.</p>
+<p><img alt="" src="../../_images/Google_trends_AI.png" /></p>
+<p>AI is often considered to be a machine’s ability to perform a task that would have previously required ‘human intelligence’</p>
+<p>But successful AI is redefining what this means!</p>
+<p>e.g. chess was previously thought to be a pinnacle of human intelligence.</p>
+<p>In 1996 Grandmaster Garry Kasparov beat IBM’s DeepBlue computer in a 7 match series (4-2). In 1997 he lost the rematch (3.5-2.5), playing uncharacteristically poorly.</p>
+<p><img alt="" src="../../_images/Kasparov_vs_Deep_blue_Turk.png" /></p>
+<p>Images from <a class="reference external" href="https://theworld.org/stories/2018-01-05/garry-kasparov-and-game-artificial-intelligence">Kasparov photo here</a>, Turk from Wiki.</p>
+<p>DeepBlue was designed specifically to beat Kasparov and he cried foul.</p>
+<p>The Mechanical Turk was an elaborate hoax/fraudulent chess-playing machine constructed in 1770.</p>
+<p>The defeat was touted as a sign that artificial intelligence was catching up to human
+intelligence</p>
+<p>In 2015/2016 AlphaGo surpassed the top-ranked Go players</p>
+<p>DeepBlue mainly relied on brute computational force to evaluate millions of positions, AlphaGo also relied on neural networks and reinforcement learning.</p>
+<p>AI is simultaneously described as:</p>
+<ol class="arabic simple">
+<li><p>“<em>the new electricity</em>” (Andrew Ng, 2017), poised to revolutionise human life and benefit society; and</p></li>
+<li><p>“<em>our biggest existential threat</em>” (Elon Musk, 2014)</p></li>
+</ol>
+<section id="origins">
+<h2>Origins<a class="headerlink" href="#origins" title="Link to this heading">#</a></h2>
+<p>Biological neurons receive signals from many other neurons, combine them, and fire an output if the signal is strong enough.</p>
+<p>That output aims to classify the input, assigning it to a category based on its features.</p>
+<p><img alt="" src="../../_images/Neuron_brain.png" /></p>
+<p>This was the basic inspiration for the artificial neuron, the <strong>perceptron</strong>.</p>
+<section id="artificial-neurons">
+<h3>Artificial neurons<a class="headerlink" href="#artificial-neurons" title="Link to this heading">#</a></h3>
+<p>The <strong>artificial neuron</strong> is a mathematical model of a biological one (and the great grandparent of neural network).</p>
+<p><img alt="" src="../../_images/Artificial_neuron.png" /></p>
+<p>It was invented by McCulloch &amp; Pitts in 1943.</p>
+<p>with:</p>
+<ul>
+<li><p>inputs: <span class="math notranslate nohighlight">\(i_1, i_2, \ldots, i_n\)</span>, each multiplied by a weight <span class="math notranslate nohighlight">\(W_k\)</span>.</p></li>
+<li><p>a weighted sum of these inputs:</p>
+<div class="math notranslate nohighlight">
+\[
+  z = \sum_i W_k i_k + b
+  \]</div>
+<p>possibly with some bias <span class="math notranslate nohighlight">\(b\)</span></p>
+</li>
+<li><p>threshold/activation function, <span class="math notranslate nohighlight">\(f\)</span>, that decides if the output, <span class="math notranslate nohighlight">\(o\)</span>, is 0 or 1.</p></li>
+</ul>
+</section>
+<section id="perceptron">
+<h3>Perceptron<a class="headerlink" href="#perceptron" title="Link to this heading">#</a></h3>
+<p>The artifical neuron was first implemented as a learning machine by Frank Rosenblatt (1958).</p>
+<p>Rosenblatt’s perceptron acts as a <strong>linear classifier</strong>: the activation function corresponds geometrically to drawing a line (or, in higher dimensions, a hyperplane) in input space.</p>
+<ul class="simple">
+<li><p>Everything on one side → “yes.”</p></li>
+<li><p>Everything on the other → “no.”</p></li>
+</ul>
+<p>The perceptron learns the orientation of the separating line.</p>
+</section>
+<section id="linear-classifiers">
+<h3>Linear classifiers<a class="headerlink" href="#linear-classifiers" title="Link to this heading">#</a></h3>
+<p>Linear classifiers, like Rosenblatt’s:</p>
+<ul class="simple">
+<li><p>can separate data with a line</p></li>
+<li><p>are the simplest feed-forward neural network</p></li>
+<li><p>but they can’t solve XOR.</p></li>
+</ul>
+<p><img alt="" src="../../_images/XOR_linear_classifier.png" /></p>
+<p>Fig from <a class="reference external" href="https://pyimagesearch.com/2021/05/06/implementing-the-perceptron-neural-network-with-python/">PyImageSource</a></p>
+<p>It took many years (until the 1980s) to realise that multi-layer perceptrons had far greater processing power and many more for deep learning to come along (2010).</p>
+<p>Since then the predictions (and sometimes hyperbole) are generally not being realised.</p>
+<div style="margin: 1.5em 0; border-right: 4px solid #888; padding-right: 1em; text-align: right;">
+  <div style="font-style: italic; font-family: 'Comic Neue', 'Segoe Script', cursive; font-size: 1.2em;">
+    (On the perceptron:) The embryo of an electronic computer that [the Navy] expects will be able to walk, talk, see, write, reproduce itself and be conscious of its existence.
+  </div>
+  <div style="font-style: normal; font-size: 0.95em; margin-top: 0.5em;">
+    — [A Sociological Study of the Official History of the Perceptrons Controversy
+](https://doi.org/10.1177%2F030631296026003005)
+  </div>
+</div>
+<div style="margin: 1.5em 0; border-right: 4px solid #888; padding-right: 1em; text-align: right;">
+  <div style="font-style: italic; font-family: 'Comic Neue', 'Segoe Script', cursive; font-size: 1.2em;">
+    I confidently expect that within a matter of 10 or 15 years, something will emerge from the laboratory, which is not too far from the robot of science fiction fame
+  </div>
+  <div style="font-style: normal; font-size: 0.95em; margin-top: 0.5em;">
+    — Claude Shannon, 1961
+  </div>
+</div><div style="margin: 1.5em 0; border-right: 4px solid #888; padding-right: 1em; text-align: right;">
+  <div style="font-style: italic; font-family: 'Comic Neue', 'Segoe Script', cursive; font-size: 1.2em;">
+    Machines will be capable, within twenty years, of doing any work that a (hu)man[sic] can do
+  </div>
+  <div style="font-style: normal; font-size: 0.95em; margin-top: 0.5em;">
+    — Nobel Laureat Herbert Simon, 1965
+  </div>
+</div>
+<div style="margin: 1.5em 0; border-right: 4px solid #888; padding-right: 1em; text-align: right;">
+  <div style="font-style: italic; font-family: 'Comic Neue', 'Segoe Script', cursive; font-size: 1.2em;">
+    Within a generation... the problem of creating 'artificial intelligence; will be substantially solved
+  </div>
+  <div style="font-style: normal; font-size: 0.95em; margin-top: 0.5em;">
+    — Founder of MIT Lab Marvin Minsky, 1967
+  </div>
+</div></section>
+</section>
+<section id="defining-ai">
+<h2>Defining AI<a class="headerlink" href="#defining-ai" title="Link to this heading">#</a></h2>
+<p>Hard to define.</p>
+<p><img alt="" src="../../_images/Timeline_AI.png" /></p>
+<p>Fig is a screenshot from <a class="reference external" href="https://achievements.ai/">AI Achievement Timeline</a></p>
+<p>Nowadays, it’s an umbrella term for <a class="reference external" href="https://www.computer.org/csdl/magazine/ex/2014/06/mex2014060056/13rRUxcKzSL"><em>‘an anarchy of methods’</em>.</a></p>
+</section>
+<section id="types-of-ai-technology">
+<h2>Types of AI technology<a class="headerlink" href="#types-of-ai-technology" title="Link to this heading">#</a></h2>
+<p>(these terms are often used interchangeably)</p>
+<p><strong>Machine learning</strong>: a very large part of AI</p>
+<ul class="simple">
+<li><p>learning from data (e.g. neural networks, decision trees, support vector machines, k-nearest neighbours,…)</p></li>
+</ul>
+<p>A model learns to separate or fit patterns in data, such as a curve dividing two clusters or a simple regression:</p>
+<p><img alt="" src="../../_images/Linear_regression.png" /></p>
+<p><strong>Neural networks</strong>: a large part of machine learning</p>
+<ul class="simple">
+<li><p>inspired by visual system in the brain (very loosely).</p></li>
+<li><p>artificial neurons organised into layers (input, hidden layers, output).</p></li>
+<li><p>layers of neurons separate vision into features to build simple shapes, up to more and more complex shapes. They require very careful design.</p></li>
+</ul>
+<p>Information flows through layers of nodes linked by weighted connections:
+<img alt="" src="../../_images/Neural_network.png" /></p>
+<p>Can be shallow (with only a few hidden layers) or deep (many hidden layers).</p>
+<p><strong>Deep (many layers) learning</strong>: a very large part of neural networks</p>
+<ul class="simple">
+<li><p>stacked layers allow automatic extraction of features, from simple edges to complex objects.</p></li>
+</ul>
+<p><img alt="" src="../../_images/Deep_learning.jpg" /></p>
+<p>There are now models much more closely aligned with actual brain architecture as well but deep learning is still dominant.</p>
+</section>
+<section id="categories-of-ai">
+<h2>Categories of AI<a class="headerlink" href="#categories-of-ai" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Weak aka Narrow AI:</strong></p></li>
+</ol>
+<ul class="simple">
+<li><p>successful</p></li>
+<li><p>views “intelligence” as the ability of a machine to solve a very discrete task (no expectations that the AI can solve similar-but-different tasks).</p></li>
+<li><p>this type of “intelligence” is behind much of the AI in daily life, such as recommendation algorithms, chess-playing programs, and GPS navigation.</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p><strong>Strong aka General AI:</strong></p></li>
+</ol>
+<ul class="simple">
+<li><p>doesn’t exist yet</p></li>
+<li><p>more ambitious and more on par with human capabilities e.g. the ability to interpret tone and emotion</p></li>
+<li><p>views machine “intelligence” as similar to human intelligence (some generalisable computational/cognitive process that enables the solution of unfamiliar tasks by way of analogy and extrapoloation from acquired knowledge or experiences).</p></li>
+<li><p>might posses consciousness(?)</p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p><strong>Super intelligence:</strong></p></li>
+</ol>
+<ul class="simple">
+<li><p>hypothetical</p></li>
+<li><p>machines become self-aware and surpass capacity of human intelligence and ability (the muse of dystopian science fiction in which robots overrun/enslave humanity)</p></li>
+</ul>
+<!--     - personally I think weak AI in the hands of bad people is a much scarier prospect (e.g. autonomous weapons) --></section>
+<section id="successes">
+<h2>Successes<a class="headerlink" href="#successes" title="Link to this heading">#</a></h2>
+<p>AI has been very successful with tasks that are clearly defined:</p>
+<ul class="simple">
+<li><p>chess-playing</p></li>
+<li><p>speech/facial recognition</p></li>
+<li><p>GPS navigation</p></li>
+<li><p>translation</p></li>
+<li><p>self-driving cars</p></li>
+<li><p>medical diagnosis</p></li>
+<li><p>image search/classification</p></li>
+<li><p>…</p></li>
+</ul>
+<p>However, there have also been recent strides towards more open ended ‘human’ tasks such as creativity (generative art, ChatGPT etc), emotional intelligence (facial expression analysis, personalised content recommendations, sentiment analysis), capacity for abstraction, logic, understanding, …</p>
+<p>Whilst they have successfully achieved their task, it is often not clear what has actually been learnt in each case.</p>
+</section>
+<section id="fails">
+<h2>Fails<a class="headerlink" href="#fails" title="Link to this heading">#</a></h2>
+<p>As humans we will try to anthropomorphise the learning and we struggle to think about things outside our own experience.</p>
+<p>But we know that machines don’t learn the way we do.</p>
+<p>It’s not easy to understand what a machine has actually learned (we don’t even have very good definitions for these sort of terms e.g. common sense, consciousness, learning, understanding, …).</p>
+<p>In general though, it is the easiest thing in the data that is learned e.g.:</p>
+<ul class="simple">
+<li><p>does image contain an animal? Blurred background <span class="math notranslate nohighlight">\(\rightarrow\)</span> yes.</p></li>
+<li><p>pneumonia detection from chest X-rays. Does image contain metadata (like logos) from specific hospital <span class="math notranslate nohighlight">\(\rightarrow\)</span> yes.</p></li>
+</ul>
+<p>And this learning can’t be transferred to unseen situations in the training because machines lack common sense.</p>
+<p>This is a problem because life is ‘long-tailed’ (some unlikely things are likely to happen).</p>
+<p>AI systems can be, and frequently are, vulnerable and easily fooled:</p>
+<ul class="simple">
+<li><p>gender and racial bias in recruiting tools (e.g. Amazon)</p></li>
+<li><p>many examples in NLP where AI learned and perpetuated societal biases</p></li>
+<li><p>bad chatbots</p></li>
+<li><p>ball tracking camera at soccer game <a class="reference external" href="https://www.youtube.com/watch?v=eMx-2s7mZ24">mistakingly following bald umpire’s head</a></p></li>
+<li><p>driverless cars (so many examples of cars being fooled by salt lines/plastic bags on roads, crashing into stopped cars, stop signs with stickers misclassifed as 80km/hr speed limit signs etc etc)</p></li>
+<li><p>…</p></li>
+</ul>
+<p>Defence against adversarial attacks on neural networks is now a highly active field.</p>
+<p>Some other examples…</p>
+<p><strong>Hallucination:</strong> AI inventing facts (fake books, fake legal cases).</p>
+<ul class="simple">
+<li><p>Chicago Sun-Times &amp; Philadelphia Inquirer (2025): <a class="reference external" href="https://www.washingtonpost.com/style/media/2025/05/20/chicago-sun-times-philadelphia-inquirer-ai-books-summer-reading/">Published summer reading lists of non-existent books generated by AI.</a></p></li>
+<li><p>Sports Illustrated (2023): <a class="reference external" href="https://www.bbc.com/news/world-us-canada-67560354">Accused of publishing AI-generated articles with fake author names and AI headshots</a>.</p></li>
+<li><p>ChatGPT hallucinated cases (2023): <a class="reference external" href="https://www.abc.net.au/news/2023-06-24/us-lawyer-uses-chatgpt-to-research-case-with-embarrassing-result/102490068">Lawyer cited six non-existent court cases in filings; fined $5,000 and embarrassed in court</a>.</p></li>
+</ul>
+<p><strong>Bias and Discrimination:</strong> Encoded prejudices (age bias in hiring, unlawful landlord advice).</p>
+<ul class="simple">
+<li><p>iTutor Group (2023): <a class="reference external" href="https://www.reuters.com/legal/tutoring-firm-settles-us-agencys-first-bias-lawsuit-involving-ai-software-2023-08-10/">Recruiting AI auto-rejected applicants based on age (55+ women, 60+ men), leading to an EEOC lawsuit and settlement</a>.</p></li>
+</ul>
+<p><strong>Reliability Gaps:</strong> Models collapsing in real-world conditions</p>
+<ul class="simple">
+<li><p>McDonald’s Drive-Thru AI (2024): <a class="reference external" href="https://www.tiktok.com/&#64;typical_redhead_/video/7192248491853303086">Repeated ordering errors (famously adding 260 McNuggets), leading to scrapped IBM partnership</a>.</p></li>
+</ul>
+<p><strong>Accountability:</strong> Legal, financial, and reputational fallout when companies blamed “the AI” but were still held responsible.</p>
+<ul class="simple">
+<li><p>NYC MyCity chatbot (2024): <a class="reference external" href="https://tgllaw.com/en/blog/Investigation-Finds-NYCs-AI-Chatbot-Encouraging-Illegal-Activities/">Gave entrepreneurs unlawful advice (e.g., allowing wage theft, landlord discrimination)</a>.</p></li>
+<li><p>Air Canada chatbot (2024): <a class="reference external" href="https://www.forbes.com/sites/marisagarcia/2024/02/19/what-air-canada-lost-in-remarkable-lying-ai-chatbot-case/">Misled a bereaved passenger about fare refunds, costing the airline damages in court</a>.</p></li>
+</ul>
+<p><strong>AI gone rogue</strong></p>
+<ul class="simple">
+<li><p>Replit AI coding tool (2025): <a class="reference external" href="https://cybernews.com/ai-news/replit-ai-vive-code-rogue/">Deleted SaaStr’s production database during a code freeze, fabricated fake users and test results, and lied about bugs</a>.</p></li>
+<li><p>xAI’s Grok (2025): <a class="reference external" href="https://www.npr.org/2025/07/09/nx-s1-5462609/grok-elon-musk-antisemitic-racist-content">Produced antisemitic posts, called itself “MechaHitler,” and even gave instructions for assaulting a public figure</a>.</p></li>
+<li><p>AI companions (2025): <a class="reference external" href="https://www.abc.net.au/news/2025-08-12/how-young-australians-being-impacted-by-ai/105630108">Chatbots accussed of encouraging teen suicide</a></p></li>
+</ul>
+<p>Good AI is more than accuracy. It should be:</p>
+<ol class="arabic simple">
+<li><p><strong>Explainable</strong>: We should understand why a particular result has occurred and be able to show the key factors or examples behind each decision.</p></li>
+<li><p><strong>Fair</strong>: Bias should be measured and minimised with appropriate metrics reported.</p></li>
+<li><p><strong>Transparent</strong>: The data, model and limits (or at least their sources should be disclosed.</p></li>
+<li><p><strong>Accountable</strong>: Ideally there should also be clear ownership, audit trails, and a path for redress.</p></li>
+</ol>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="collective-swarm-intelligence">
+<h1>Collective/swarm  intelligence<a class="headerlink" href="#collective-swarm-intelligence" title="Link to this heading">#</a></h1>
+<p>Collective intelligence refers to an ability to do intelligent things that is exhibited by groups, communities, or networks of individuals when they work together to achieve a common goal.</p>
+<p>It is a type of <strong>unconventional computation</strong>.</p>
+<p>We often struggle to recognise unconventional intelligence, i.e. intelligence that looks different to what we humans supposedly have.</p>
+<p>Of course, you should now be comfortable with the reality… that human intelligence <em>is</em> collective intelligence (neurons interacting for brain function).</p>
+<p><strong>The basic idea</strong>: social sharing of information among group members offers a simple and flexible evolutionary advantage.</p>
+<div style="margin: 1.5em 0; border-right: 4px solid #888; padding-right: 1em; text-align: right;">
+  <div style="font-style: italic; font-family: 'Comic Neue', 'Segoe Script', cursive; font-size: 1.2em;">
+    In theory at least, individual members of the school can profit from the discoveries and previous experience of all other members of the school during the search for food. This advantage can become decisive, outweighing the disadvantages of competition for food items, whenever the resource is unpredictably distributed in patches.
+  </div>
+  <div style="font-style: normal; font-size: 0.95em; margin-top: 0.5em;">
+    — Biologist E.O. Wilson, from his book Sociobiology: The new synthesis [1975]
+  </div>
+</div>
+<p>Ants, bees, termites etc are basic creatures with very limited simple behaviours.</p>
+<p>However en masse, they form <strong>superorganisms</strong> capable of emergent behaviour that is highly complex e.g. bees precisely modulating the temperature of a hive, and ants gathering themselves into a raft to cross a river or to survive a flood.</p>
+<p>The collective is <em>required</em> for the intelligence.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="ants">
+<h1>Ants<a class="headerlink" href="#ants" title="Link to this heading">#</a></h1>
+<div style="margin: 1.5em 0; border-right: 4px solid #888; padding-right: 1em; text-align: right;">
+  <div style="font-style: italic; font-family: 'Comic Neue', 'Segoe Script', cursive; font-size: 1.2em;">
+    Go to the ant, you sluggard; consider its ways and be wise! It has no commander, no overseer or ruler, yet it stores its provisions in summer and gathers its food at harvest.
+  </div>
+  <div style="font-style: normal; font-size: 0.95em; margin-top: 0.5em;">
+    — Proverbs 6
+  </div>
+</div>
+<p><img alt="" src="../../_images/Escher_ants.jpeg" /></p>
+<p>Ants are eusocial species i.e. they exhibit a high degree of social complexity and cooperation within their colonies (cooperative care of young, division of labour and specialist roles etc).</p>
+<p>No central control (queen lays eggs but isn’t really in charge).</p>
+<p>They exist in nearly every conceivable environment with behavioral and reproductive traits shared by all army ant species.</p>
+<p>Ants can do all sorts of curious things:</p>
+<div class="cell tag_hide-input tag_slides docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">YouTubeVideo</span>
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s2">&quot;pa5UnI279Es&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+
+<span class="c1"># https://www.youtube.com/watch?v=pa5UnI279Es</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+        <iframe
+            width="400"
+            height="300"
+            src="https://www.youtube.com/embed/pa5UnI279Es"
+            frameborder="0"
+            allowfullscreen
+            
+        ></iframe>
+        </div></div>
+</div>
+<p>It’s only recently that we’ve really started to understand how they do it…</p>
+<section id="ant-communication">
+<h2>Ant communication<a class="headerlink" href="#ant-communication" title="Link to this heading">#</a></h2>
+<p>Ants lay pheromone where they walk, which evaporates over time. In particular, they leave a trace of pheromone on their way back to the nest when they have found food.</p>
+<p>Ants can’t see very well and smell the pheromone of fellow ants with their antennae.</p>
+<p>The pheromone gives an indication of the frequency of interaction as ants encounter each other’s paths.</p>
+<p>Pheromone-based communication is an example of <strong>stigmergy</strong>.</p>
+<p>Derived from the Greek words for “<em>stigma</em>” (mark or sign) and “<em>ergon</em>” (work, action).</p>
+<p>It’s a mechanism of indirect communication between agents, which occurs <em>via the environment</em>.</p>
+<p>Agents respond to traces left in the environment by others. These traces often bring fitness benefits, reinforcing behaviours until they become widespread in a population.</p>
+<p>A threshold for a task is the amount of stimulus (e.g. pheromone) needed to trigger it. For ants, this might mean following a foraging path. Different workers may have different thresholds, but once crossed, positive feedback strengthens the path.</p>
+<p>Sound familiar? It’s just like a neuron firing once enough input accumulates. Because of this analogy, ants are often used to study the brain. (See <a class="reference external" href="https://www.ted.com/talks/deborah_gordon_what_ants_teach_us_about_the_brain_cancer_and_the_internet">Deborah Gordon’s TED talk</a>).</p>
+<p>The concept of stigmergy was formalised in 1959 by Pierre-Paul Grassé to explain nest-building in termites. Termites roll pheromone-soaked mudballs and place them randomly or near existing ones, which self-organises into pillars, tunnels, and chambers — a bit like how Wikipedia grows!</p>
+<p>For scale, check out <a class="reference external" href="https://www.youtube.com/watch?v=lFg21x2sj-M&amp;amp;t=180s">this video of a giant abandoned ant colony</a>.</p>
+</section>
+<section id="shortest-paths">
+<h2>Shortest paths<a class="headerlink" href="#shortest-paths" title="Link to this heading">#</a></h2>
+<p>Together many ants develop a complex network of pheromone trails, which acts as a shared external memory for the colony.</p>
+<p>This allows ants to find shortest paths:</p>
+<p><img alt="" src="../../_images/Double_bridge_experiment_ants.png" /></p>
+<p>Fig from <a class="reference external" href="https://www.ijcaonline.org/archives/volume179/number16/saxena-2018-ijca-916224.pdf">here</a></p>
+<p>Note that it is not necessary that an ant actually travels the shortest route… the shortest route can be built from the strongest segments of the best solutions.</p>
+<p>This phenomenon was first demonstrated in the “double‑bridge” experiment, described in The Self‑Organizing Exploratory Pattern of the Argentine Ant by Deneubourg et al. (1990), where ants collectively resolved which bridge to use between a nest and food source by reinforcing one path through pheromone-laying.</p>
+<p>This elegant emergence of collective path selection inspired Marco Dorigo’s development of Ant Colony Optimisation (ACO) algorithms in the early 1990s.</p>
+<section id="the-travelling-salesman-problem">
+<h3>The travelling salesman problem<a class="headerlink" href="#the-travelling-salesman-problem" title="Link to this heading">#</a></h3>
+<p><em>“Given some cities and the distances between every pair of cities, what is the most efficient route one should take to visit each city exactly once and return to the starting city?”</em></p>
+<p>This is an NP-hard problem in combinatorial optimisation and is highly relevant in theoretical computer science and many other fields.</p>
+</section>
+</section>
+<section id="lane-formation">
+<h2>Lane formation<a class="headerlink" href="#lane-formation" title="Link to this heading">#</a></h2>
+<p>Ants are great commuters… they don’t get stuck in traffic.</p>
+<p>You might be tempted to think that it is because they aren’t bound to the roads but they sort of are… ants create the ‘roads’: wider roads take effort and pheromone gets weaker as its spread out</p>
+<p>They form 3 distinct traffic lanes between the nest and food source that minimise congestion and prioritise food carrying.</p>
+<p>The rule is simple… if you aren’t carrying food you turn with 50% probability to the left/right</p>
+<section id="data">
+<h3>Data<a class="headerlink" href="#data" title="Link to this heading">#</a></h3>
+<p><img alt="" src="../../_images/Couzin_lane_formation_data.png" /></p>
+<p>Fig: <a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1691225/">‘Self-organized lane formation and optimized traffic flow in army ants’, Couzin et al.</a>. This is an agent-based model.</p>
+</section>
+<section id="models">
+<h3>Models<a class="headerlink" href="#models" title="Link to this heading">#</a></h3>
+<p>Repulsion + pheromone:</p>
+<p><img alt="" src="../../_images/Couzin_lane_formation_model.png" /></p>
+<p>There are several other models that also explore this behaviour, e.g. this cellular automata:</p>
+<p><img alt="" src="../../_images/Chowdhury_lane_formation.png" /></p>
+<p>Fig: <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0378437120309626.">‘Flux-density relation for traffic of army ants in a 3-lane bi-directional trail’, Pradhan et al.</a> This is a cellular automata model.</p>
+</section>
+</section>
+<section id="lesson-be-like-ants">
+<h2>Lesson: Be like ants<a class="headerlink" href="#lesson-be-like-ants" title="Link to this heading">#</a></h2>
+<div style="margin: 1.5em 0; border-right: 4px solid #888; padding-right: 1em; text-align: right;">
+  <div style="font-style: italic; font-family: 'Comic Neue', 'Segoe Script', cursive; font-size: 1.2em;">
+    The wonderful thing about being an ant is that they're working together for the benefit of the colony... The problem with us humans is that we tend to be a little selfish.  </div>
+  <div style="font-style: normal; font-size: 0.95em; margin-top: 0.5em;">
+    — Couzin
+  </div>
+</div><p>People don’t always follow the rules and are rarely thinking about how hitting the brakes or making an unnecessary lane change could impact drivers that are far behind them.</p>
+<p>Take the driving out of our hands and say give it to driverless cars and we may see traffic improve substantially (until it is commercialised).</p>
+</section>
+<section id="lesson-don-t-be-like-ants">
+<h2>Lesson: Don’t be like ants<a class="headerlink" href="#lesson-don-t-be-like-ants" title="Link to this heading">#</a></h2>
+<p>Ants aren’t smart. Ant colonies are.</p>
+<p>If ants are separated from the wider system dumb behviours can emerge:</p>
+<p>These ants have been separated from the main foraging party and the pheromonal communication has broken down. They are now following each other, forming a continuously rotating circle, a ‘mill’, commonly referred to as a ‘death spiral’ as these ants will likely exhaust themselves and die.</p>
+<p>It’s an extreme illustration of the obligate collective foraging behavior characteristic of army ants, which are ineffective at foraging solitarily.</p>
+<p>The mill in this video is quite small but the first reported was supposedly ~370m in circumference and the ants took two and a half hours to make one revolution (1921, William Beebe).</p>
+<div class="cell tag_hide-input tag_slides docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">YouTubeVideo</span>
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s2">&quot;LEKwQxO4EZU&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+    
+<span class="c1"># https://www.youtube.com/watch?v=LEKwQxO4EZU</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+        <iframe
+            width="400"
+            height="300"
+            src="https://www.youtube.com/embed/LEKwQxO4EZU"
+            frameborder="0"
+            allowfullscreen
+            
+        ></iframe>
+        </div></div>
+</div>
+<p>Death spirals have been reproduced in laboratories and simulations.</p>
+<p>This milling behaviour is also seen in fish and caterpillars.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="biomimicry-biomimetics">
+<h1>Biomimicry (biomimetics)<a class="headerlink" href="#biomimicry-biomimetics" title="Link to this heading">#</a></h1>
+<p>From “<em>bio</em>” (life) and “<em>mimicry</em>” (to imitate or replicate).</p>
+<p>Nature’s systems have had millions, if not billions, of years to evolve in order to adapt to their environments with energy efficient and sustainable solutions.</p>
+<p>But this is a little misleading because it’s not about copying, it’s about <em>inspiration</em> and using the principles that nature uses for <em>function</em>.</p>
+<p>The inspiration can be drawn from the levels of <strong>form</strong>, or <strong>process</strong>, or <strong>system</strong>.</p>
+<p>A classic example of biomimicry is velcro (a fastening system using hooks and loops) that was inspired by the way burrs stick to animal fur. Velcro doesn’t look like a burr or like a dog, yet it perfectly recreates their physics to provide strong adhesion.</p>
+<p><img alt="" src="../../_images/Velcro_burrs.png" /></p>
+<p>If you’re wanting some inspiration for future biomimicry see <a class="reference external" href="https://asknature.org">here</a>.</p>
+<div style="border-left: 4px solid #1e70bf; padding: 0.75em; background-color: #eaf3fb; margin-bottom: 1em;">
+  <strong>Pause and consider:</strong><br>
+  What exactly is being copied by the velcro: form, process, system, or something else?
+</div><div class="toggle docutils container">
+<p>Velcro is classic process-inspired biomimicry.</p>
+<p>The inspiration comes from the functional principle of hooks catching in loops.</p>
+<p>The inventor, George de Mestral, didn’t copy the burr’s form (it doesn’t look like a burr), nor did he design a whole ecosystem-like system around it. He replicated the mechanism — the hook-and-loop fastening process.</p>
+<p>Note that where the inspiration for something has come from isn’t always this cut and dry. There are many examples that sit between form, process, and system or across several of them.</p>
+</div>
+<section id="form-shape-structure">
+<h2>Form (shape/structure)<a class="headerlink" href="#form-shape-structure" title="Link to this heading">#</a></h2>
+<p>Drawing inspiration from the <em>appearance or geometry</em> of nature.</p>
+<p>i.e. copy <em>what it looks like</em> to solve a problem.</p>
+<p><img alt="" src="../../_images/Train_kingfisher.png" /></p>
+<p>e.g.: The streamlined nose of the Japanese Shinkansen bullet train was inspired by the beak of the kingfisher. The form reduces air resistance and noise.</p>
+</section>
+<section id="process-behaviour-mechanism">
+<h2>Process (behaviour/mechanism)<a class="headerlink" href="#process-behaviour-mechanism" title="Link to this heading">#</a></h2>
+<p>Drawing inspiration from <em>how something works in nature</em>.</p>
+<p>i.e. copy <em>what it does/how it functions</em> at the mechanism level.</p>
+<p><img alt="" src="../../_images/Lotus_leaf.png" /></p>
+<p>e.g.: The self-cleaning property of lotus leaves inspired “Lotus Effect” paints and coatings. Instead of copying the leaf shape, engineers mimicked the <em>micro-structured surface process</em> that repels water and dirt.</p>
+</section>
+<section id="system-relationships-ecology">
+<h2>System (relationships/ecology)<a class="headerlink" href="#system-relationships-ecology" title="Link to this heading">#</a></h2>
+<p>Drawing inspiration from <em>interconnected ecosystems and cycles</em>.</p>
+<p>i.e. copy <em>how it is embedded in a network of relationships</em>.</p>
+<p><img alt="" src="../../_images/Kalundborg_Eco-Industrial_Park_Symbiosis_Map.jpg" /></p>
+<p>e.g.: Industrial symbiosis in Kalundborg, Denmark, where waste from one factory (e.g. steam, water, gypsum) becomes input for another, is inspired by natural ecosystems where nothing is wasted and outputs cycle into inputs.</p>
+</section>
+<section id="ant-colony-optimisation-aco">
+<h2>Ant colony optimisation (ACO)<a class="headerlink" href="#ant-colony-optimisation-aco" title="Link to this heading">#</a></h2>
+<p>We want to mimic the ants’ ability to problem solve.</p>
+<p>This is a class of algorithm inspired by the pheromone laying behaviour and communication of real ants.</p>
+<p>The first ACO, called the ‘<strong>Ant System</strong>’ by M. Dorigo was designed to solve the travelling salesman problem but they have since been used for so much more!</p>
+<ul class="simple">
+<li><p>scheduling</p></li>
+<li><p>image processing and edge detection</p></li>
+<li><p>bankruptcy prediction</p></li>
+<li><p>protein folding</p></li>
+<li><p>…</p></li>
+</ul>
+<p>The basic mechanism is for agents to deposit “<strong>virtual pheromones</strong>” along paths (aka solutions in say a parameter space) that appear promising as they navigate the search space probabilistically.</p>
+<p>There are then two key inputs to decision-making of an agent:</p>
+<ol class="arabic simple">
+<li><p>individual component</p></li>
+<li><p>social component i.e. a motivation to comply with social norms</p></li>
+</ol>
+<p>ACO is typically applied to path finding through <em>graphs</em> (networks).</p>
+<p>To apply an ant colony algorithm, the optimisation problem needs to be converted into the problem of finding the shortest path on a weighted graph.</p>
+<p>But, it’s a bit vague and there is also a tendency to classify any algorithm that’s based on an exchange of information between agents <em>via the environment</em> in this way as ACO.</p>
+</section>
+<section id="so-how-would-you-model-this">
+<h2>So how would you model this?<a class="headerlink" href="#so-how-would-you-model-this" title="Link to this heading">#</a></h2>
+<ol class="arabic simple" start="0">
+<li><p><strong>Initialse</strong>:</p></li>
+</ol>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(N\)</span> agents at the ‘nest’, where <span class="math notranslate nohighlight">\(i\)</span> labels the <span class="math notranslate nohighlight">\(i\)</span>th agent.</p></li>
+<li><p><span class="math notranslate nohighlight">\(F\)</span> food sources</p></li>
+<li><p>the road network agents can travel along, <span class="math notranslate nohighlight">\(G=(V,E)\)</span>.</p></li>
+</ul>
+<ol class="arabic simple">
+<li><p><strong>Generate solutions</strong>:</p></li>
+</ol>
+<ul class="simple">
+<li><p>consider each edge <span class="math notranslate nohighlight">\(e\in E\)</span> and determine its:
+(a) personal ‘attractiveness’ (e.g. <span class="math notranslate nohighlight">\(1/\text{length}\)</span>) <span class="math notranslate nohighlight">\(\alpha_e\)</span>, and
+(b) the corresponding pheromone level <span class="math notranslate nohighlight">\(\beta_e\)</span></p>
+<ul>
+<li><p>these are like the <strong>local</strong> and <strong>global</strong> influences respectively (global influence is the new part here, everything up until now has been entirely local influence)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> control the balance between <strong>exploration</strong> (selecting edges that could be good but no strong evidence for it) and <strong>exploitation</strong> (selecting the shortest edges with a lots of pheromone) respectively.</p></li>
+</ul>
+</li>
+<li><p>compute the probability that agent <span class="math notranslate nohighlight">\(i\)</span> moves along each edge <span class="math notranslate nohighlight">\(e\)</span> by applying some combination of these two considerations. e.g.:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+p_{e_i}=\frac{\alpha_e^a\beta_e^b}{\sum_e \alpha_e^a\beta_e^b}
+\]</div>
+<ul class="simple">
+<li><p>repeat until destination is reached</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p><strong>Update pheromone</strong>:
+(typically done globally once entire solution has been realised)</p></li>
+</ol>
+<ul class="simple">
+<li><p>e.g.:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\beta_e \leftarrow (1-\rho )\beta _{e}+\sum _{i}^{N}\Delta \beta _{e_i}
+\]</div>
+<p>i.e. the pheromone on the <span class="math notranslate nohighlight">\(e\)</span>th edge is updated with the amount of pheromone deposited by the <span class="math notranslate nohighlight">\(i\)</span>th ant, <span class="math notranslate nohighlight">\(\Delta \beta_{e_i}\)</span>,  <span class="math notranslate nohighlight">\(\rho\)</span>  is the pheromone evaporation coefficient, <span class="math notranslate nohighlight">\(N\)</span> is the number of ants.</p>
+</section>
+<section id="other-systems-inspired-by-nature">
+<h2>Other systems inspired by nature…<a class="headerlink" href="#other-systems-inspired-by-nature" title="Link to this heading">#</a></h2>
+<p>Some examples:</p>
+<ul class="simple">
+<li><p>Bat algorithm</p></li>
+<li><p>Artificial fish swarm algorithm</p></li>
+<li><p>Cuckoo search algorithm</p></li>
+<li><p>Firefly algorithm</p></li>
+<li><p>Flower pollination algorithm</p></li>
+<li><p>Artificial bee colony optimisation</p></li>
+<li><p>Wolf-based search algorithm</p></li>
+<li><p>Bird’s-eye view</p></li>
+<li><p>Slime mould</p></li>
+<li><p>…</p></li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="some-crowds-turn-to-madness-others-to-wisdom">
+<h1>Some crowds turn to madness, others to wisdom<a class="headerlink" href="#some-crowds-turn-to-madness-others-to-wisdom" title="Link to this heading">#</a></h1>
+<p><a class="reference external" href="https://unanimous.ai/swarm/">Researchers at Uninanimous</a> predicted the exact Kentucky Derby finish: Nyquist, Exaggerator, Gun Runner, Mohaymen: a superfecta that bookmakers had at 540:1!</p>
+<p><img alt="" src="../../_images/Unanimous_Kentucky_derby.gif" /></p>
+<p>Gif from <a class="reference external" href="https://www.news.com.au/technology/innovation/design/swarm-intelligence-predicted-a-540-to-one-long-shot-and-could-be-the-future-of-decision-making/news-story/955f67fd78fe9c73665395637a62840c">here</a></p>
+<p>They asked 20 avid racing fans from across the country to pick the race winner. Participants moved a shared “puck” in sync to indicate answers, convering on a group choice that optimised their collective conviction.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="controlling-collective-intelligence">
+<h1>Controlling collective intelligence<a class="headerlink" href="#controlling-collective-intelligence" title="Link to this heading">#</a></h1>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">YouTubeVideo</span>
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s2">&quot;fsVJuN75vzE&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+        <iframe
+            width="400"
+            height="300"
+            src="https://www.youtube.com/embed/fsVJuN75vzE"
+            frameborder="0"
+            allowfullscreen
+            
+        ></iframe>
+        </div></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="optimisation">
+<h1>Optimisation<a class="headerlink" href="#optimisation" title="Link to this heading">#</a></h1>
+<p>A process concerned with finding the best available solution(s).</p>
+<p>We are almost always trying to optimise something e.g. maximise profit, maximise efficiency, minimise energy consumption.</p>
+<p>Generically:</p>
+<div class="math notranslate nohighlight">
+\[
+\min_{x\in \mathbb{R}^n} f_i(x), \quad (i=1,2,\ldots, M)
+\]</div>
+<p><strong>The objective function</strong>, <span class="math notranslate nohighlight">\(f_i(x)\)</span>:</p>
+<ul class="simple">
+<li><p>is the function that needs to be minimised (or maximised)</p></li>
+<li><p>is the cost for objective <span class="math notranslate nohighlight">\(i\)</span>, where there are <span class="math notranslate nohighlight">\(M\)</span> objective functions</p></li>
+<li><p>if <span class="math notranslate nohighlight">\(M=1\)</span> then this is a <em>‘single objective’</em> optimisation, while <span class="math notranslate nohighlight">\(M&gt;1\)</span> is a <em>‘multi-objective’</em> optimisation</p></li>
+<li><p>if the objective function (and constraints) are linear then we speak of ‘linear programming’</p></li>
+</ul>
+<p><strong>The design variables</strong>, <span class="math notranslate nohighlight">\(x\)</span>:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(n\)</span> input parameters to be ‘guessed’ by the optimisation algorithm</p></li>
+<li><p>these are the factors that affect the outcome of the objective function</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> is the space spanned by the decision variables (the <em>‘search space’</em>)</p></li>
+<li><p>variables can be continuous or restricted to discrete values</p></li>
+</ul>
+<p><strong>The constraints</strong>:</p>
+<ul class="simple">
+<li><p>there may be limitations or restrictions (such as equalities or inequalities) within which the optimisation must occur:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+h_j(x)=0, \quad (j=1,2, \dots, J)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+g_k(x) \leq 0, \quad (k=1,2,\ldots, K)
+\]</div>
+<ul class="simple">
+<li><p>the set of all possible solutions that satisfy the constraints is the <em>feasible region</em></p></li>
+<li><p>if there are no constraints (e.g. <span class="math notranslate nohighlight">\(J=0\)</span> and <span class="math notranslate nohighlight">\(K=0\)</span>) then this is an <em>‘unconstrained’</em> problem and <span class="math notranslate nohighlight">\(x\in \mathbb{R}^n\)</span> (while if <span class="math notranslate nohighlight">\(J&gt;0\)</span> or <span class="math notranslate nohighlight">\(K&gt;0\)</span> then it is a <em>‘constrained’</em> problem)</p></li>
+<li><p>if any of <span class="math notranslate nohighlight">\(f_i\)</span>, <span class="math notranslate nohighlight">\(h_j\)</span> and <span class="math notranslate nohighlight">\(g_k\)</span> are nonlinear then the problem is classified as a nonlinear optimisation problem</p></li>
+</ul>
+<section id="global-vs-local-optimisation">
+<h2>Global vs. Local Optimisation:<a class="headerlink" href="#global-vs-local-optimisation" title="Link to this heading">#</a></h2>
+<p><strong>Local Optimisation:</strong> Finding the best solution within a specific, possibly limited region of the feasible space</p>
+<ul class="simple">
+<li><p>local optima are solutions that are optimal within a neighboring set of solutions, but not necessarily across the entire space</p></li>
+<li><p>less computationally intensive</p></li>
+<li><p>gradient descent, Newton’s method, simplex method,…</p></li>
+</ul>
+<p><strong>Global Optimisation:</strong> Finding the absolute best solution across the entire feasible region</p>
+<ul class="simple">
+<li><p>often more complex and computationally intensive because the algorithm must explore the entire search space</p></li>
+<li><p>particularly important for non-convex functions, which may have multiple local optima</p></li>
+<li><p>simulated annealing, genetic algorithms, branch and bound, …, <strong>particle swarm optimisation</strong></p></li>
+</ul>
+<p>Some categorisations…</p>
+<ul class="simple">
+<li><p>Deterministic e.g. hill-climbing vs Stochastic e.g. particle swarm optimisation (PSO)</p></li>
+<li><p>Single agent e.g. simulated annealing vs population-based e.g. PSO</p></li>
+<li><p>(meta-)heuristics e.g. PSO vs bio/nature-inspired based on a successful system e.g. genetic algorithms</p>
+<ul>
+<li><p><em>Heuristics</em> are rule-of-thumb or intuitive strategies used to quickly find good solutions to problems. They are typically designed for specific problem instances or problem types</p></li>
+<li><p><em>Metaheuristics</em> are higher-level strategies that guide the search for solutions in a broader, more generic manner. They are not tied to specific problem structures and can be applied to a wide range of optimisation problems</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="swarm-optimisation">
+<h1>Swarm optimisation<a class="headerlink" href="#swarm-optimisation" title="Link to this heading">#</a></h1>
+<p>Swarm optimisation is an iterative process carried out by a collective of interacting individuals.</p>
+<p>It continues until certain termination criteria are met, which could include a maximum number of iterations, a specific level of convergence, or a predetermined threshold for the fitness score.</p>
+<p>We will cover the basics with respect to a particular swarm optimiser: particle swarm optimisation (PSO).</p>
+<section id="particle-swarm-optimisation-pso">
+<h2>Particle swarm optimisation (PSO)<a class="headerlink" href="#particle-swarm-optimisation-pso" title="Link to this heading">#</a></h2>
+<p>First intended for simulating social behaviour as a stylised representation of the movement of organisms in a bird flock or fish school.</p>
+<p>Kennedy and Eberhart included a roost, or, more generally, an attraction point (e.g, a prey) in a simplified Boids-like simulation, such that each agent:</p>
+<ul class="simple">
+<li><p>is attracted to the location of the roost</p></li>
+<li><p>remembers where it was closer to the roost</p></li>
+<li><p>shares information with its neighbors about its closest location to the roost</p></li>
+</ul>
+<p>Eventually (almost) all agents landed at the roost.</p>
+<p>They then flipped the set up such that:</p>
+<ul class="simple">
+<li><p>roost was an unknown extremum of a function</p></li>
+<li><p>distance to the roost represented quality of current agent position on the optimisation landscape</p></li>
+</ul>
+<p>The <a class="reference external" href="https://ieeexplore.ieee.org/document/488968">PSO algorithm</a> uses only basic mathematical operators and is computationally inexpensive in terms of both memory requirements and speed</p>
+<blockquote>
+<div><p><em>“very simple concept, and paradigms can be implemented in a few lines of computer code.” - Kennedy et al.</em></p>
+</div></blockquote>
+<p>It has undergone continued development since it was first proposed in 1995 and continues to be used today.</p>
+<section id="the-search-space">
+<h3>The search space<a class="headerlink" href="#the-search-space" title="Link to this heading">#</a></h3>
+<p>The set of possible solutions is the <strong>search/solution space</strong>, <span class="math notranslate nohighlight">\(X_n \subseteq \mathbb{R}^n \)</span>.</p>
+<p>This may be an abstract space, e.g. a position in it could represent a set of variables or parameters.</p>
+<p>Each particle (aka agent) has a state (its position), <span class="math notranslate nohighlight">\(x\in X_n\)</span>, that represents a solution to the optimisation problem.</p>
+<p>Agents move through the search space, adjusting their positions based on their own experience and the experience of neighbouring particles</p>
+</section>
+<section id="fitness-function-aka-objective-function-cost-function">
+<h3>Fitness function (aka objective function, cost function)<a class="headerlink" href="#fitness-function-aka-objective-function-cost-function" title="Link to this heading">#</a></h3>
+<p>The fitness function provides the means to objectively compare different candidate solutions and select the best ones for further exploration.</p>
+<p>It is specific to <em>the particular problem</em> i.e. it is designed using domain knowledge and informs about how well a solution meets the objectives.</p>
+<p>The <strong>‘fitness’</strong> is then the output of the fitness function for a given potential solution, representing the quality of the agent’s position on the optimisation landscape.</p>
+<p>The algorithm aims to find the solution(s) with the highest fitness.</p>
+<p>This <em>could</em> be a convex function, which would be nice because:</p>
+<ul class="simple">
+<li><p>we wouldn’t have to worry about getting stuck in local optima (convex functions are well-behaved because any local minimum is also a unique global minimum and there are many efficient algorithms for finding optimal solutions)</p></li>
+<li><p>less sensitive to initialisation and parameter choices</p></li>
+<li><p>reliable for a wide range of practical applications</p></li>
+</ul>
+<p>But we’re rarely dealing with well-behaved convex functions and will often have multiple local optima or complex constraints.</p>
+<p>Swarm optimisation is comparatively good at avoiding premature converge to local minima in multimodal problem optimisation and typically balance fast converge speed with an ability to jump out of local optima.</p>
+</section>
+<section id="moving-through-the-search-space">
+<h3>Moving through the search space<a class="headerlink" href="#moving-through-the-search-space" title="Link to this heading">#</a></h3>
+<p>In PSO agents move through the search space with a velocity that is dynamically adjusted according to its own and its neighbours’ historical behaviour. In particular, movement is influenced by:</p>
+<ul class="simple">
+<li><p>the best state this individual has found so far</p></li>
+<li><p>the best state that its neighbours have found so far</p></li>
+</ul>
+<p>i.e. an agent ‘learns’ from itself and others.</p>
+<p>In other swarm algorithms different combinations of the information shared and received are used, e.g.:</p>
+<ul class="simple">
+<li><p>the local or global best solution (position) or some combination of multiple best solutions, e.g. Bat Algorithm, Artificial Bee Colony, Wolf-based search</p></li>
+<li><p>a subset or combination of all of better solutions, e.g. Firefly algorithm</p></li>
+<li><p>a combination of all solutions (centroid), e.g. Artificial fish swarm algorithm</p></li>
+</ul>
+</section>
+<section id="exploration-and-exploitation">
+<h3>Exploration and Exploitation<a class="headerlink" href="#exploration-and-exploitation" title="Link to this heading">#</a></h3>
+<p>Successful optimisation requires a balance between <em>exploration and exploitation</em> within the search space.</p>
+<p><strong>Exploration:</strong> searching for new, potentially better solutions</p>
+<p><strong>Exploitation:</strong> focusing on known, promising solutions</p>
+<p>Generally speaking, an algorithm should have a more exploration and less exploitation ability at first. Exploration can then be be decreased, and exploitation increased to refine candidate solutions over the time.</p>
+</section>
+<section id="forces">
+<h3>Forces<a class="headerlink" href="#forces" title="Link to this heading">#</a></h3>
+<p>Velocity is a linear combination of personal inertia (exploration) and influences/biases (both personal and social), which act to enforce social norms and what has been good so far:</p>
+<div class="math notranslate nohighlight">
+\[
+v_i(t+1)=wv_i(t) + p U_1 (x_{i_b}-x_i(t)) + s U_2(x_{g_b}-x_i(t))
+\]</div>
+<ul class="simple">
+<li><p>inertia (first term) encourages particle to move in same direction depending on the strength of the inertia weight <span class="math notranslate nohighlight">\(w\)</span> (possibly a function changing dynamically over time). <span class="math notranslate nohighlight">\(w\)</span> can be used to control the balance between exploration and exploitation</p></li>
+<li><p>personal bias (second term) aims for short-sighted improvement by directing the particle to return to a previous position best position, <span class="math notranslate nohighlight">\(x_{i_b}\)</span></p></li>
+<li><p>social bias (third term) aims for conformity by directing the particle to follow the best position found so far, <span class="math notranslate nohighlight">\(x_{g_b}\)</span></p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(p\)</span>, <span class="math notranslate nohighlight">\(s\)</span>, <span class="math notranslate nohighlight">\(U_1\)</span> and <span class="math notranslate nohighlight">\(U_2\)</span> are hyperparameters (parameter whose value is used to control the learning process).</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(s\)</span> weigh the importance of the particle’s personal previous experiences and those of the group respectively</p></li>
+<li><p><span class="math notranslate nohighlight">\(U_n\)</span> are random values drawn from the range [0,1]. This is essential for avoiding premature convergences to local minima</p></li>
+</ul>
+</section>
+<section id="randomness">
+<h3>Randomness<a class="headerlink" href="#randomness" title="Link to this heading">#</a></h3>
+<p>We will often lean on stochasticity to:</p>
+<ul class="simple">
+<li><p>handle uncertainty e.g. uncertain or noisy objective functions</p></li>
+<li><p>encourage diversity among swarm agents and the set of solutions they explore by perturbing the state or drivers by random factors. This can help the swarm to avoid premature convergence (where the swarm settles too quickly on suboptimal solutions) and escape local optima by covering a larger portion of the solution space efficiently (helping to balance the trade-off of exploration vs exploitation)</p>
+<ul>
+<li><p>a lot of randomness allows exploration of new possibilities</p></li>
+<li><p>a bit of randomness allows exploitation by testing patterns similar to the best one found so far</p></li>
+</ul>
+</li>
+</ul>
+<p>Can be introduced via:</p>
+<ul class="simple">
+<li><p>random initialisation of particles’ positions and velocities</p></li>
+<li><p>probabilistic forces or decisions</p></li>
+</ul>
+</section>
+<section id="the-picture-to-have-in-mind">
+<h3>The picture to have in mind<a class="headerlink" href="#the-picture-to-have-in-mind" title="Link to this heading">#</a></h3>
+<p><img alt="" src="../../_images/ParticleSwarmArrowsAnimation.gif" /></p>
+<p>But the landscape may:</p>
+<ul class="simple">
+<li><p>be complex, noisy, and high-dimensional</p></li>
+<li><p>change over time (in some cases a metaphor of a ‘fitness seascape’ can be more appropriate)</p></li>
+<li><p>have multiple optimas</p></li>
+</ul>
+<p>Consider, for example, the problem of training a neural network for image classification:</p>
+<ul class="simple">
+<li><p>The fitness function could be the accuracy of the neural network on a validation set, which measures how well the network is performing on unseen data</p></li>
+<li><p>The solution space consists of all possible configurations of the neural network’s weights and biases. This space is typically high-dimensional and extremely complex.</p></li>
+</ul>
+</section>
+<section id="an-algorithm">
+<h3>An* algorithm<a class="headerlink" href="#an-algorithm" title="Link to this heading">#</a></h3>
+<p><img alt="" src="../../_images/PSO_flowchart.png" /></p>
+<p><img alt="" src="../../_images/PSO_pseudocode.png" /></p>
+<p><span class="math notranslate nohighlight">\(*\)</span> Note that this is a slight variant with the social component based on a local network and the global best only stored and not influencing the dynamics directly</p>
+<p>Figure from this <a class="reference external" href="https://link.springer.com/article/10.1007/s40747-018-0071-2">PSO review article</a></p>
+</section>
+<section id="limitations-and-considerations">
+<h3>Limitations and considerations<a class="headerlink" href="#limitations-and-considerations" title="Link to this heading">#</a></h3>
+<p><strong>Advantages</strong></p>
+<ul class="simple">
+<li><p>simple implementation</p></li>
+<li><p>not a lot of hyperparameters and very flexible with the form of the objective function, so is able to solve a wide range of problems</p></li>
+<li><p>relatively insensitive to scaling of design variables</p></li>
+<li><p>easily parallelised for concurrent and efficient processing</p></li>
+</ul>
+<p><strong>Disadvantages</strong></p>
+<ul class="simple">
+<li><p>final solution is heavily dependent on the initial seeds of the population (so ensemble runs are especially important)</p></li>
+<li><p>can have a tendency to a fast and premature convergence to sub optimal points</p></li>
+<li><p>convergence can be slow in the refined search stage (weak local search ability)</p></li>
+</ul>
+<div style="border-left: 4px solid #b22222; padding: 0.75em; background-color: #fdecea; margin-bottom: 1em;">
+  <strong>Read:</strong><br>
+  Read the OG PSO paper[PSO algorithm](https://ieeexplore.ieee.org/document/488968). It's fantastic and full of gems like this...
+<blockquote>
+<div><p>“This is a major distinction in terms of contriving a computer simulation,for at least one obvious reason: collision. Two individuals can hold identical attitudes and beliefs without banging together,but two birds cannot occupy the same position in space without colliding. It seems reasonable, in discussing human social behavior,to map the concept of change into the bird fish analogy of movement. This is consistent with the classic Aristotelian view of qualitative and quantitative change as types of movement. Thus, besides moving through three-dimensional physical space, and avoiding collisions, humans change in abstract multi-dimensional space, collision-free. Physical space of course affects informational inputs, but it is arguably a trivial component of psychological experience. Humans learn to avoid physical collision by an early age…”</p>
+</div></blockquote>
+</div></section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/week07"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../week06/L_Synchronisation.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Week 6: Synchronisation</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Week 7: Intelligent systems</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-scientific-schism">A scientific schism</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complexity-science-is">Complexity Science is…</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#roots">Roots</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning-ai-is">Machine Learning (&amp; AI) is…</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Roots</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-distinction-but-also-synergy">Key Distinction (but also synergy)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#positioning-of-intelligent-systems">Positioning of intelligent systems</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#artificial-intelligence-ai">Artificial intelligence (AI)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#origins">Origins</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#artificial-neurons">Artificial neurons</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perceptron">Perceptron</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-classifiers">Linear classifiers</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-ai">Defining AI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-ai-technology">Types of AI technology</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#categories-of-ai">Categories of AI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#successes">Successes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fails">Fails</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#collective-swarm-intelligence">Collective/swarm  intelligence</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ants">Ants</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ant-communication">Ant communication</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shortest-paths">Shortest paths</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-travelling-salesman-problem">The travelling salesman problem</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lane-formation">Lane formation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#models">Models</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-be-like-ants">Lesson: Be like ants</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-don-t-be-like-ants">Lesson: Don’t be like ants</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#biomimicry-biomimetics">Biomimicry (biomimetics)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#form-shape-structure">Form (shape/structure)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#process-behaviour-mechanism">Process (behaviour/mechanism)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#system-relationships-ecology">System (relationships/ecology)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ant-colony-optimisation-aco">Ant colony optimisation (ACO)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#so-how-would-you-model-this">So how would you model this?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-systems-inspired-by-nature">Other systems inspired by nature…</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#some-crowds-turn-to-madness-others-to-wisdom">Some crowds turn to madness, others to wisdom</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#controlling-collective-intelligence">Controlling collective intelligence</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#optimisation">Optimisation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#global-vs-local-optimisation">Global vs. Local Optimisation:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#swarm-optimisation">Swarm optimisation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#particle-swarm-optimisation-pso">Particle swarm optimisation (PSO)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-search-space">The search space</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fitness-function-aka-objective-function-cost-function">Fitness function (aka objective function, cost function)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moving-through-the-search-space">Moving through the search space</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploration-and-exploitation">Exploration and Exploitation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forces">Forces</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#randomness">Randomness</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-picture-to-have-in-mind">The picture to have in mind</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#an-algorithm">An* algorithm</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-and-considerations">Limitations and considerations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Shannon Algar
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
