@@ -435,8 +435,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-systems-inspired-by-nature">Other systems inspired by nature…</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#some-crowds-turn-to-madness-others-to-wisdom">Some crowds turn to madness, others to wisdom</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#controlling-collective-intelligence">Controlling collective intelligence</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#optimisation">Optimisation</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#global-vs-local-optimisation">Global vs. Local Optimisation:</a></li>
 </ul>
@@ -456,6 +454,8 @@ document.write(`
 </li>
 </ul>
 </li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#harnessing-collective-intelligence">Harnessing collective intelligence</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#controlling-collective-intelligence">Controlling collective intelligence</a></li>
 </ul>
 
             </nav>
@@ -812,7 +812,7 @@ intelligence</p>
 <p><img alt="" src="../../_images/Escher_ants.jpeg" /></p>
 <p>Ants are eusocial species i.e. they exhibit a high degree of social complexity and cooperation within their colonies (cooperative care of young, division of labour and specialist roles etc).</p>
 <p>No central control (queen lays eggs but isn’t really in charge).</p>
-<p>They exist in nearly every conceivable environment with behavioral and reproductive traits shared by all army ant species.</p>
+<p>They exist in nearly every conceivable environment with behavioural and reproductive traits shared by all army ant species.</p>
 <p>Ants can do all sorts of curious things:</p>
 <div class="cell tag_hide-input tag_slides docutils container">
 <details class="hide above-input">
@@ -907,7 +907,7 @@ intelligence</p>
 <p>Ants aren’t smart. Ant colonies are.</p>
 <p>If ants are separated from the wider system dumb behviours can emerge:</p>
 <p>These ants have been separated from the main foraging party and the pheromonal communication has broken down. They are now following each other, forming a continuously rotating circle, a ‘mill’, commonly referred to as a ‘death spiral’ as these ants will likely exhaust themselves and die.</p>
-<p>It’s an extreme illustration of the obligate collective foraging behavior characteristic of army ants, which are ineffective at foraging solitarily.</p>
+<p>It’s an extreme illustration of the obligate collective foraging behaviour characteristic of army ants, which are ineffective at foraging solitarily.</p>
 <p>The mill in this video is quite small but the first reported was supposedly ~370m in circumference and the ants took two and a half hours to make one revolution (1921, William Beebe).</p>
 <div class="cell tag_hide-input tag_slides docutils container">
 <details class="hide above-input">
@@ -1003,42 +1003,35 @@ intelligence</p>
 </section>
 <section id="so-how-would-you-model-this">
 <h2>So how would you model this?<a class="headerlink" href="#so-how-would-you-model-this" title="Link to this heading">#</a></h2>
-<ol class="arabic simple" start="0">
-<li><p><strong>Initialse</strong>:</p></li>
-</ol>
+<p><strong>Initialse</strong>:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(N\)</span> agents at the ‘nest’, where <span class="math notranslate nohighlight">\(i\)</span> labels the <span class="math notranslate nohighlight">\(i\)</span>th agent.</p></li>
 <li><p><span class="math notranslate nohighlight">\(F\)</span> food sources</p></li>
-<li><p>the road network agents can travel along, <span class="math notranslate nohighlight">\(G=(V,E)\)</span>.</p></li>
+<li><p>the road network agents can travel along connecting the nest to the food, <span class="math notranslate nohighlight">\(G=(V,E)\)</span>.</p></li>
 </ul>
+<p><strong>Generate solutions</strong>:</p>
 <ol class="arabic simple">
-<li><p><strong>Generate solutions</strong>:</p></li>
-</ol>
+<li><p>consider each edge <span class="math notranslate nohighlight">\(e\in E\)</span> and determine its:</p>
 <ul class="simple">
-<li><p>consider each edge <span class="math notranslate nohighlight">\(e\in E\)</span> and determine its:
-(a) personal ‘attractiveness’ (e.g. <span class="math notranslate nohighlight">\(1/\text{length}\)</span>) <span class="math notranslate nohighlight">\(\alpha_e\)</span>, and
-(b) the corresponding pheromone level <span class="math notranslate nohighlight">\(\beta_e\)</span></p>
-<ul>
-<li><p>these are like the <strong>local</strong> and <strong>global</strong> influences respectively (global influence is the new part here, everything up until now has been entirely local influence)</p></li>
-<li><p><span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> control the balance between <strong>exploration</strong> (selecting edges that could be good but no strong evidence for it) and <strong>exploitation</strong> (selecting the shortest edges with a lots of pheromone) respectively.</p></li>
+<li><p>personal ‘attractiveness’ (e.g. <span class="math notranslate nohighlight">\(1/\text{length}\)</span>) <span class="math notranslate nohighlight">\(\alpha_e\)</span>, and</p></li>
+<li><p>the corresponding pheromone level <span class="math notranslate nohighlight">\(\beta_e\)</span></p></li>
 </ul>
 </li>
+</ol>
+<p>These are like the <strong>local</strong> and <strong>global</strong> influences respectively (global influence is the new part here, everything up until now has been entirely local influence). <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> control the balance between <strong>exploration</strong> (selecting edges that could be good but no strong evidence for it) and <strong>exploitation</strong> (selecting the shortest edges with a lots of pheromone) respectively.</p>
+<ol class="arabic simple" start="2">
 <li><p>compute the probability that agent <span class="math notranslate nohighlight">\(i\)</span> moves along each edge <span class="math notranslate nohighlight">\(e\)</span> by applying some combination of these two considerations. e.g.:</p></li>
-</ul>
+</ol>
 <div class="math notranslate nohighlight">
 \[
 p_{e_i}=\frac{\alpha_e^a\beta_e^b}{\sum_e \alpha_e^a\beta_e^b}
 \]</div>
-<ul class="simple">
+<ol class="arabic simple" start="3">
 <li><p>repeat until destination is reached</p></li>
-</ul>
-<ol class="arabic simple" start="2">
-<li><p><strong>Update pheromone</strong>:
-(typically done globally once entire solution has been realised)</p></li>
 </ol>
-<ul class="simple">
-<li><p>e.g.:</p></li>
-</ul>
+<p><strong>Update pheromone</strong>:
+(typically done globally once entire solution has been realised)</p>
+<p>e.g.:</p>
 <div class="math notranslate nohighlight">
 \[
 \beta_e \leftarrow (1-\rho )\beta _{e}+\sum _{i}^{N}\Delta \beta _{e_i}
@@ -1061,41 +1054,6 @@ p_{e_i}=\frac{\alpha_e^a\beta_e^b}{\sum_e \alpha_e^a\beta_e^b}
 <li><p>…</p></li>
 </ul>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="some-crowds-turn-to-madness-others-to-wisdom">
-<h1>Some crowds turn to madness, others to wisdom<a class="headerlink" href="#some-crowds-turn-to-madness-others-to-wisdom" title="Link to this heading">#</a></h1>
-<p><a class="reference external" href="https://unanimous.ai/swarm/">Researchers at Uninanimous</a> predicted the exact Kentucky Derby finish: Nyquist, Exaggerator, Gun Runner, Mohaymen: a superfecta that bookmakers had at 540:1!</p>
-<p><img alt="" src="../../_images/Unanimous_Kentucky_derby.gif" /></p>
-<p>Gif from <a class="reference external" href="https://www.news.com.au/technology/innovation/design/swarm-intelligence-predicted-a-540-to-one-long-shot-and-could-be-the-future-of-decision-making/news-story/955f67fd78fe9c73665395637a62840c">here</a></p>
-<p>They asked 20 avid racing fans from across the country to pick the race winner. Participants moved a shared “puck” in sync to indicate answers, convering on a group choice that optimised their collective conviction.</p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="controlling-collective-intelligence">
-<h1>Controlling collective intelligence<a class="headerlink" href="#controlling-collective-intelligence" title="Link to this heading">#</a></h1>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">YouTubeVideo</span>
-<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s2">&quot;fsVJuN75vzE&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</details>
-<div class="cell_output docutils container">
-<div class="output text_html">
-        <iframe
-            width="400"
-            height="300"
-            src="https://www.youtube.com/embed/fsVJuN75vzE"
-            frameborder="0"
-            allowfullscreen
-            
-        ></iframe>
-        </div></div>
-</div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="optimisation">
 <h1>Optimisation<a class="headerlink" href="#optimisation" title="Link to this heading">#</a></h1>
@@ -1141,7 +1099,7 @@ g_k(x) \leq 0, \quad (k=1,2,\ldots, K)
 <h2>Global vs. Local Optimisation:<a class="headerlink" href="#global-vs-local-optimisation" title="Link to this heading">#</a></h2>
 <p><strong>Local Optimisation:</strong> Finding the best solution within a specific, possibly limited region of the feasible space</p>
 <ul class="simple">
-<li><p>local optima are solutions that are optimal within a neighboring set of solutions, but not necessarily across the entire space</p></li>
+<li><p>local optima are solutions that are optimal within a neighbouring set of solutions, but not necessarily across the entire space</p></li>
 <li><p>less computationally intensive</p></li>
 <li><p>gradient descent, Newton’s method, simplex method,…</p></li>
 </ul>
@@ -1176,14 +1134,18 @@ g_k(x) \leq 0, \quad (k=1,2,\ldots, K)
 <ul class="simple">
 <li><p>is attracted to the location of the roost</p></li>
 <li><p>remembers where it was closer to the roost</p></li>
-<li><p>shares information with its neighbors about its closest location to the roost</p></li>
+<li><p>shares information with the entire flock about its closest location to the roost (local-neighbourhood variants came later.)</p></li>
 </ul>
 <p>Eventually (almost) all agents landed at the roost.</p>
+<p>In this version, the attractor was fixed in space and distance to it was measurable: every agent knew where to fly, and the flock just converged. That’s why this version was only ever a metaphor for flocking, not an optimisation algorithm. In the original</p>
 <p>They then flipped the set up such that:</p>
 <ul class="simple">
-<li><p>roost was an unknown extremum of a function</p></li>
-<li><p>distance to the roost represented quality of current agent position on the optimisation landscape</p></li>
+<li><p>the “roost” is no longer fixed. Instead, the best positions discovered so far acted as <em>emergent attractors</em>.</p></li>
+<li><p>the quality of agent’s position was evaluated by a fitness function on the optimisation landscape.</p></li>
+<li><p>Each particle was pulled toward its own best position so far (pbest) and the best position found by the swarm (gbest).</p></li>
 </ul>
+<p>The novelty of PSO was not that agents move toward an attractor (that part is obvious). The key insight was removing the fixed attractor and <em>letting swarm dynamics create self-organising search</em> such that the “attractor” is no longer fixed but emerges dynamically from the swarm’s memory.</p>
+<p>This shift transformed a flocking simulation into a general optimisation algorithm.</p>
 <p>The <a class="reference external" href="https://ieeexplore.ieee.org/document/488968">PSO algorithm</a> uses only basic mathematical operators and is computationally inexpensive in terms of both memory requirements and speed</p>
 <blockquote>
 <div><p><em>“very simple concept, and paradigms can be implemented in a few lines of computer code.” - Kennedy et al.</em></p>
@@ -1192,16 +1154,15 @@ g_k(x) \leq 0, \quad (k=1,2,\ldots, K)
 <section id="the-search-space">
 <h3>The search space<a class="headerlink" href="#the-search-space" title="Link to this heading">#</a></h3>
 <p>The set of possible solutions is the <strong>search/solution space</strong>, <span class="math notranslate nohighlight">\(X_n \subseteq \mathbb{R}^n \)</span>.</p>
-<p>This may be an abstract space, e.g. a position in it could represent a set of variables or parameters.</p>
 <p>Each particle (aka agent) has a state (its position), <span class="math notranslate nohighlight">\(x\in X_n\)</span>, that represents a solution to the optimisation problem.</p>
-<p>Agents move through the search space, adjusting their positions based on their own experience and the experience of neighbouring particles</p>
+<p>Agents move through the search space (which could be abstract e.g. a position in it could represent a set of variables or parameters.), adjusting their positions based on their own experience and the experience of neighbouring particles.</p>
 </section>
 <section id="fitness-function-aka-objective-function-cost-function">
 <h3>Fitness function (aka objective function, cost function)<a class="headerlink" href="#fitness-function-aka-objective-function-cost-function" title="Link to this heading">#</a></h3>
 <p>The fitness function provides the means to objectively compare different candidate solutions and select the best ones for further exploration.</p>
-<p>It is specific to <em>the particular problem</em> i.e. it is designed using domain knowledge and informs about how well a solution meets the objectives.</p>
 <p>The <strong>‘fitness’</strong> is then the output of the fitness function for a given potential solution, representing the quality of the agent’s position on the optimisation landscape.</p>
 <p>The algorithm aims to find the solution(s) with the highest fitness.</p>
+<p>Fitness functions are specific to <em>the particular problem</em> i.e. it is designed using domain knowledge and informs about how well a solution meets the objectives.</p>
 <p>This <em>could</em> be a convex function, which would be nice because:</p>
 <ul class="simple">
 <li><p>we wouldn’t have to worry about getting stuck in local optima (convex functions are well-behaved because any local minimum is also a unique global minimum and there are many efficient algorithms for finding optimal solutions)</p></li>
@@ -1215,8 +1176,8 @@ g_k(x) \leq 0, \quad (k=1,2,\ldots, K)
 <h3>Moving through the search space<a class="headerlink" href="#moving-through-the-search-space" title="Link to this heading">#</a></h3>
 <p>In PSO agents move through the search space with a velocity that is dynamically adjusted according to its own and its neighbours’ historical behaviour. In particular, movement is influenced by:</p>
 <ul class="simple">
-<li><p>the best state this individual has found so far</p></li>
-<li><p>the best state that its neighbours have found so far</p></li>
+<li><p>the best state this individual has found so far (pbest)</p></li>
+<li><p>the best state the flock found so far (gbest)</p></li>
 </ul>
 <p>i.e. an agent ‘learns’ from itself and others.</p>
 <p>In other swarm algorithms different combinations of the information shared and received are used, e.g.:</p>
@@ -1275,7 +1236,7 @@ v_i(t+1)=wv_i(t) + p U_1 (x_{i_b}-x_i(t)) + s U_2(x_{g_b}-x_i(t))
 <p>But the landscape may:</p>
 <ul class="simple">
 <li><p>be complex, noisy, and high-dimensional</p></li>
-<li><p>change over time (in some cases a metaphor of a ‘fitness seascape’ can be more appropriate)</p></li>
+<li><p>change over time (‘fitness seascape’ can be more appropriate)</p></li>
 <li><p>have multiple optimas</p></li>
 </ul>
 <p>Consider, for example, the problem of training a neural network for image classification:</p>
@@ -1314,6 +1275,42 @@ v_i(t+1)=wv_i(t) + p U_1 (x_{i_b}-x_i(t)) + s U_2(x_{g_b}-x_i(t))
 </div></blockquote>
 </div></section>
 </section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="harnessing-collective-intelligence">
+<h1>Harnessing collective intelligence<a class="headerlink" href="#harnessing-collective-intelligence" title="Link to this heading">#</a></h1>
+<p>Some crowds turn to madness, others to wisdom.</p>
+<p><a class="reference external" href="https://unanimous.ai/swarm/">Researchers at Uninanimous</a> predicted the exact Kentucky Derby finish: Nyquist, Exaggerator, Gun Runner, Mohaymen: a superfecta that bookmakers had at 540:1!</p>
+<p><img alt="" src="../../_images/Unanimous_Kentucky_derby.gif" /></p>
+<p>Gif from <a class="reference external" href="https://www.news.com.au/technology/innovation/design/swarm-intelligence-predicted-a-540-to-one-long-shot-and-could-be-the-future-of-decision-making/news-story/955f67fd78fe9c73665395637a62840c">here</a></p>
+<p>They asked 20 avid racing fans from across the country to pick the race winner. Participants moved a shared “puck” in sync to indicate answers, convering on a group choice that optimised their collective conviction.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="controlling-collective-intelligence">
+<h1>Controlling collective intelligence<a class="headerlink" href="#controlling-collective-intelligence" title="Link to this heading">#</a></h1>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">YouTubeVideo</span>
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s2">&quot;fsVJuN75vzE&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+        <iframe
+            width="400"
+            height="300"
+            src="https://www.youtube.com/embed/fsVJuN75vzE"
+            frameborder="0"
+            allowfullscreen
+            
+        ></iframe>
+        </div></div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1424,8 +1421,6 @@ v_i(t+1)=wv_i(t) + p U_1 (x_{i_b}-x_i(t)) + s U_2(x_{g_b}-x_i(t))
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-systems-inspired-by-nature">Other systems inspired by nature…</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#some-crowds-turn-to-madness-others-to-wisdom">Some crowds turn to madness, others to wisdom</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#controlling-collective-intelligence">Controlling collective intelligence</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#optimisation">Optimisation</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#global-vs-local-optimisation">Global vs. Local Optimisation:</a></li>
 </ul>
@@ -1445,6 +1440,8 @@ v_i(t+1)=wv_i(t) + p U_1 (x_{i_b}-x_i(t)) + s U_2(x_{g_b}-x_i(t))
 </li>
 </ul>
 </li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#harnessing-collective-intelligence">Harnessing collective intelligence</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#controlling-collective-intelligence">Controlling collective intelligence</a></li>
 </ul>
 
   </nav></div>
