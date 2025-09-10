@@ -5,7 +5,7 @@
 <meta content="chrome=1" http-equiv="X-UA-Compatible"/>
 <meta content="yes" name="apple-mobile-web-app-capable"/>
 <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
-<title>L_IntelligentSystems slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
+<title>L_Intelligent_systems slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
   import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script>
@@ -8334,13 +8334,11 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<ol start="0">
-<li><strong>Initialse</strong>:</li>
-</ol>
+<p><strong>Initialse</strong>:</p>
 <ul>
 <li>$N$ agents at the 'nest', where $i$ labels the $i$th agent.</li>
 <li>$F$ food sources</li>
-<li>the road network agents can travel along, $G=(V,E)$.</li>
+<li>the road network agents can travel along connecting the nest to the food, $G=(V,E)$.</li>
 </ul>
 </div>
 </div>
@@ -8352,45 +8350,47 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
+<p><strong>Generate solutions</strong>:</p>
 <ol>
-<li><strong>Generate solutions</strong>:</li>
+<li>consider each edge $e\in E$ and determine its:<ul>
+<li>personal 'attractiveness' (e.g. $1/\text{length}$) $\alpha_e$, and</li>
+<li>the corresponding pheromone level $\beta_e$</li>
+</ul>
+</li>
 </ol>
-<ul>
-<li><p>consider each edge $e\in E$ and determine its:
-(a) personal 'attractiveness' (e.g. $1/\text{length}$) $\alpha_e$, and
-(b) the corresponding pheromone level $\beta_e$</p>
-<ul>
-<li>these are like the <strong>local</strong> and <strong>global</strong> influences respectively (global influence is the new part here, everything up until now has been entirely local influence)</li>
-<li>$\alpha$ and $\beta$ control the balance between <strong>exploration</strong> (selecting edges that could be good but no strong evidence for it) and <strong>exploitation</strong> (selecting the shortest edges with a lots of pheromone) respectively.</li>
-</ul>
-</li>
-<li><p>compute the probability that agent $i$ moves along each edge $e$ by applying some combination of these two considerations. e.g.:</p>
-</li>
-</ul>
-<p>$$
-p_{e_i}=\frac{\alpha_e^a\beta_e^b}{\sum_e \alpha_e^a\beta_e^b}
-$$</p>
-<ul>
-<li>repeat until destination is reached</li>
-</ul>
 </div>
 </div>
 </div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fb79a779">
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b6d74719-ee7c-4ed0-821a-a530a3e3a0e3">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
 <ol start="2">
-<li><strong>Update pheromone</strong>:
-(typically done globally once entire solution has been realised)</li>
+<li>compute the probability that agent $i$ moves along each edge $e$ by applying some combination of these two considerations. e.g.:</li>
 </ol>
-<ul>
-<li>e.g.:</li>
-</ul>
 <p>$$
+p_{e_i}=\frac{\alpha_e^a\beta_e^b}{\sum_e \alpha_e^a\beta_e^b}
+$$</p>
+<ol start="3">
+<li>repeat until destination is reached</li>
+</ol>
+</div>
+</div>
+</div>
+</div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fb79a779">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
+<p><strong>Update pheromone</strong>:
+(typically done globally once entire solution has been realised)</p>
+<p>e.g.:
+$$
 \beta_e \leftarrow (1-\rho )\beta _{e}+\sum _{i}^{N}\Delta \beta _{e_i}
 $$</p>
 <p>i.e. the pheromone on the $e$th edge is updated with the amount of pheromone deposited by the $i$th ant, $\Delta \beta_{e_i}$,  $\rho$  is the pheromone evaporation coefficient, $N$ is the number of ants.</p>
@@ -8421,43 +8421,6 @@ $$</p>
 </div>
 </div>
 </div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a9cd8ccb">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Some-crowds-turn-to-madness,-others-to-wisdom">Some crowds turn to madness, others to wisdom<a class="anchor-link" href="#Some-crowds-turn-to-madness,-others-to-wisdom">¶</a></h1><p><a href="https://unanimous.ai/swarm/">Researchers at Uninanimous</a> predicted the exact Kentucky Derby finish: Nyquist, Exaggerator, Gun Runner, Mohaymen: a superfecta that bookmakers had at 540:1!</p>
-<p><img alt="" src="images/Unanimous_Kentucky_derby.gif"/></p>
-<p>Gif from <a href="https://www.news.com.au/technology/innovation/design/swarm-intelligence-predicted-a-540-to-one-long-shot-and-could-be-the-future-of-decision-making/news-story/955f67fd78fe9c73665395637a62840c">here</a></p>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=51ad3691">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Controlling-collective-intelligence">Controlling collective intelligence<a class="anchor-link" href="#Controlling-collective-intelligence">¶</a></h1>
-</div>
-</div>
-</div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell celltag_hide-input" id="cell-id=872c458e">
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
-<iframe allowfullscreen="" frameborder="0" height="300" src="https://www.youtube.com/embed/fsVJuN75vzE" width="400"></iframe>
-</div>
-</div>
-</div>
-</div>
-</div></div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=04c038e0-a932-42a7-bef3-03b4c1d653a0">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8531,31 +8494,6 @@ $$</p>
 </div>
 </div>
 </div></div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0162ba80-d346-4ca2-9944-74f8618b951c">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p><strong>The constraints</strong>:</p>
-<ul>
-<li>there may be limitations or restrictions (such as equalities or inequalities) within which the optimisation must occur:</li>
-</ul>
-<p>$$
-h_j(x)=0, \quad (j=1,2, \dots, J)
-$$</p>
-<p>$$
-g_k(x) \leq 0, \quad (k=1,2,\ldots, K)
-$$</p>
-<ul>
-<li>the set of all possible solutions that satisfy the constraints is the <em>feasible region</em></li>
-<li>if there are no constraints (e.g. $J=0$ and $K=0$) then this is an <em>'unconstrained'</em> problem and $x\in \mathbb{R}^n$ (while if $J&gt;0$ or $K&gt;0$ then it is a <em>'constrained'</em> problem)</li>
-<li>if any of $f_i$, $h_j$ and $g_k$ are nonlinear then the problem is classified as a nonlinear optimisation problem</li>
-</ul>
-</div>
-</div>
-</div>
-</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=275c3eaa-ceeb-477d-bfeb-955e947549c0">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8563,11 +8501,6 @@ $$</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
 <h2 id="Global-vs.-Local-Optimisation:">Global vs. Local Optimisation:<a class="anchor-link" href="#Global-vs.-Local-Optimisation:">¶</a></h2><p><strong>Local Optimisation:</strong> Finding the best solution within a specific, possibly limited region of the feasible space</p>
-<ul>
-<li>local optima are solutions that are optimal within a neighboring set of solutions, but not necessarily across the entire space</li>
-<li>less computationally intensive</li>
-<li>gradient descent, Newton’s method, simplex method,...</li>
-</ul>
 </div>
 </div>
 </div>
@@ -8579,11 +8512,6 @@ $$</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
 <p><strong>Global Optimisation:</strong> Finding the absolute best solution across the entire feasible region</p>
-<ul>
-<li>often more complex and computationally intensive because the algorithm must explore the entire search space</li>
-<li>particularly important for non-convex functions, which may have multiple local optima</li>
-<li>simulated annealing, genetic algorithms, branch and bound, ..., <strong>particle swarm optimisation</strong></li>
-</ul>
 </div>
 </div>
 </div>
@@ -8612,9 +8540,8 @@ $$</p>
 <ul>
 <li>is attracted to the location of the roost</li>
 <li>remembers where it was closer to the roost</li>
-<li>shares information with its neighbors about its closest location to the roost</li>
+<li>shares information with the entire flock about its closest location to the roost (local-neighbourhood variants came later.)</li>
 </ul>
-<p>Eventually (almost) all agents landed at the roost.</p>
 </div>
 </div>
 </div>
@@ -8627,8 +8554,9 @@ $$</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
 <p>They then flipped the set up such that:</p>
 <ul>
-<li>roost was an unknown extremum of a function</li>
-<li>distance to the roost represented quality of current agent position on the optimisation landscape</li>
+<li>the “roost” is no longer fixed. Instead, the best positions discovered so far acted as <em>emergent attractors</em>.</li>
+<li>the quality of agent's position was evaluated by a fitness function on the optimisation landscape.</li>
+<li>Each particle was pulled toward its own best position so far (pbest) and the best position found by the swarm (gbest).</li>
 </ul>
 </div>
 </div>
@@ -8656,9 +8584,7 @@ $$</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
 <h3 id="The-search-space">The search space<a class="anchor-link" href="#The-search-space">¶</a></h3><p>The set of possible solutions is the <strong>search/solution space</strong>, $X_n \subseteq \mathbb{R}^n $.</p>
-<p>This may be an abstract space, e.g. a position in it could represent a set of variables or parameters.</p>
 <p>Each particle (aka agent) has a state (its position), $x\in X_n$, that represents a solution to the optimisation problem.</p>
-<p>Agents move through the search space, adjusting their positions based on their own experience and the experience of neighbouring particles</p>
 </div>
 </div>
 </div>
@@ -8670,27 +8596,7 @@ $$</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
 <h3 id="Fitness-function-(aka-objective-function,-cost-function)">Fitness function (aka objective function, cost function)<a class="anchor-link" href="#Fitness-function-(aka-objective-function,-cost-function)">¶</a></h3><p>The fitness function provides the means to objectively compare different candidate solutions and select the best ones for further exploration.</p>
-<p>It is specific to <em>the particular problem</em> i.e. it is designed using domain knowledge and informs about how well a solution meets the objectives.</p>
 <p>The <strong>'fitness'</strong> is then the output of the fitness function for a given potential solution, representing the quality of the agent's position on the optimisation landscape.</p>
-<p>The algorithm aims to find the solution(s) with the highest fitness.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d709e8f4-0030-4683-a35f-7d0eabc47e15">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>This <em>could</em> be a convex function, which would be nice because:</p>
-<ul>
-<li>we wouldn't have to worry about getting stuck in local optima (convex functions are well-behaved because any local minimum is also a unique global minimum and there are many efficient algorithms for finding optimal solutions)</li>
-<li>less sensitive to initialisation and parameter choices</li>
-<li>reliable for a wide range of practical applications</li>
-</ul>
-<p>But we're rarely dealing with well-behaved convex functions and will often have multiple local optima or complex constraints.</p>
-<p>Swarm optimisation is comparatively good at avoiding premature converge to local minima in multimodal problem optimisation and typically balance fast converge speed with an ability to jump out of local optima.</p>
 </div>
 </div>
 </div>
@@ -8703,8 +8609,8 @@ $$</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
 <h3 id="Moving-through-the-search-space">Moving through the search space<a class="anchor-link" href="#Moving-through-the-search-space">¶</a></h3><p>In PSO agents move through the search space with a velocity that is dynamically adjusted according to its own and its neighbours’ historical behaviour. In particular, movement is influenced by:</p>
 <ul>
-<li>the best state this individual has found so far</li>
-<li>the best state that its neighbours have found so far</li>
+<li>the best state this individual has found so far (pbest)</li>
+<li>the best state the flock found so far (gbest)</li>
 </ul>
 <p>i.e. an agent 'learns' from itself and others.</p>
 </div>
@@ -8720,7 +8626,6 @@ $$</p>
 <h3 id="Exploration-and-Exploitation">Exploration and Exploitation<a class="anchor-link" href="#Exploration-and-Exploitation">¶</a></h3><p>Successful optimisation requires a balance between <em>exploration and exploitation</em> within the search space.</p>
 <p><strong>Exploration:</strong> searching for new, potentially better solutions</p>
 <p><strong>Exploitation:</strong> focusing on known, promising solutions</p>
-<p>Generally speaking, an algorithm should have a more exploration and less exploitation ability at first. Exploration can then be be decreased, and exploitation increased to refine candidate solutions over the time.</p>
 </div>
 </div>
 </div>
@@ -8731,44 +8636,10 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h3 id="Forces">Forces<a class="anchor-link" href="#Forces">¶</a></h3><p>Velocity is a linear combination of personal inertia (exploration) and influences/biases (both personal and social), which act to enforce social norms and what has been good so far
-$$
+<h3 id="Forces">Forces<a class="anchor-link" href="#Forces">¶</a></h3><p>Velocity is a linear combination of personal inertia (exploration) and influences/biases (both personal and social), which act to enforce social norms and what has been good so far:</p>
+<p>$$
 v_i(t+1)=wv_i(t) + p U_1 (x_{i_b}-x_i(t)) + s U_2(x_{g_b}-x_i(t))
 $$</p>
-<ul>
-<li>inertia (first term) encourages particle to move in same direction depending on the strength of the inertia weight $w$ (possibly a function changing dynamically over time). $w$ can be used to control the balance between exploration and exploitation</li>
-<li>personal bias (second term) aims for short-sighted improvement by directing the particle to return to a previous position best position, $x_{i_b}$</li>
-<li>social bias (third term) aims for conformity by directing the particle to follow the best position found so far, $x_{g_b}$</li>
-</ul>
-<p>$p$, $s$, $U_1$ and $U_2$ are hyperparameters (parameter whose value is used to control the learning process).</p>
-<ul>
-<li>$p$ and $s$ weigh the importance of the particle's personal previous experiences and those of the group respectively</li>
-<li>$U_n$ are random values drawn from the range [0,1]. This is essential for avoiding premature convergences to local minima</li>
-</ul>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=69f2f51f-25d0-401d-b261-a1e14c8f468d">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h3 id="Randomness">Randomness<a class="anchor-link" href="#Randomness">¶</a></h3><p>We will often lean on stochasticity to:</p>
-<ul>
-<li>handle uncertainty e.g. uncertain or noisy objective functions</li>
-<li>encourage diversity among swarm agents and the set of solutions they explore by perturbing the state or drivers by random factors. This can help the swarm to avoid premature convergence (where the swarm settles too quickly on suboptimal solutions) and escape local optima by covering a larger portion of the solution space efficiently (helping to balance the trade-off of exploration vs exploitation)<ul>
-<li>a lot of randomness allows exploration of new possibilities</li>
-<li>a bit of randomness allows exploitation by testing patterns similar to the best one found so far</li>
-</ul>
-</li>
-</ul>
-<p>Can be introduced via:</p>
-<ul>
-<li>random initialisation of particles' positions and velocities</li>
-<li>probabilistic forces or decisions</li>
-</ul>
 </div>
 </div>
 </div>
@@ -8783,7 +8654,7 @@ $$</p>
 <p>But the landscape may:</p>
 <ul>
 <li>be complex, noisy, and high-dimensional</li>
-<li>change over time (in some cases a metaphor of a 'fitness seascape' can be more appropriate)</li>
+<li>change over time ('fitness seascape' can be more appropriate)</li>
 <li>have multiple optimas</li>
 </ul>
 </div>
@@ -8827,6 +8698,16 @@ $$</p>
 <li>relatively insensitive to scaling of design variables</li>
 <li>easily parallelised for concurrent and efficient processing</li>
 </ul>
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=00032b6d-ed99-46d9-92ab-ec1296f81393">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
 <p><strong>Disadvantages</strong></p>
 <ul>
 <li>final solution is heavily dependent on the initial seeds of the population (so ensemble runs are especially important)</li>
@@ -8836,7 +8717,62 @@ $$</p>
 </div>
 </div>
 </div>
-</div></section></section>
+</div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fc65c90d-42d7-447c-bfab-8add3d7ad963">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
+<h1 id="Harnessing-collective-intelligence">Harnessing collective intelligence<a class="anchor-link" href="#Harnessing-collective-intelligence">¶</a></h1><p>Some crowds turn to madness, others to wisdom.</p>
+<p><a href="https://unanimous.ai/swarm/">Researchers at Uninanimous</a> predicted the exact Kentucky Derby finish: Nyquist, Exaggerator, Gun Runner, Mohaymen: a superfecta that bookmakers had at 540:1!</p>
+<p><img alt="" src="images/Unanimous_Kentucky_derby.gif"/></p>
+<p>Gif from <a href="https://www.news.com.au/technology/innovation/design/swarm-intelligence-predicted-a-540-to-one-long-shot-and-could-be-the-future-of-decision-making/news-story/955f67fd78fe9c73665395637a62840c">here</a></p>
+<p>They asked 20 avid racing fans from across the country to pick the race winner. Participants moved a shared “puck” in sync to indicate answers, convering on a group choice that optimised their collective conviction.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=eff40d3d-d19f-460f-baa2-d3553d136a79">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_remove-cell" data-mime-type="text/markdown">
+<div style="background-color: #ffff88; padding: 1em; border-left: 5px solid #fff102;">
+For discussion...
+
+<p>Whether we follow the majority or trust experts is shaped by our networks. In general, more bridges allows for more diverse evidence and better collective decisions.</p>
+<p>Beyond <strong>Homo Economicus</strong>: People act under imperfect information and cognitive limits (bounded rationality). Decision strategies are context-dependent, not one-size-fits-all. Combining the</p>
+</div>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=51ad3691">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
+<h1 id="Controlling-collective-intelligence">Controlling collective intelligence<a class="anchor-link" href="#Controlling-collective-intelligence">¶</a></h1>
+</div>
+</div>
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell celltag_hide-input" id="cell-id=872c458e">
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<iframe allowfullscreen="" frameborder="0" height="300" src="https://www.youtube.com/embed/fsVJuN75vzE" width="400"></iframe>
+</div>
+</div>
+</div>
+</div>
+</div></div></section></section>
 </div>
 </div>
 </main>
