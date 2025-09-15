@@ -1,0 +1,1264 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Week 8: Critical behaviour &#8212; Unit Reader</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/week08/L_Critical_phenomena';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="Week 7: Intelligent systems" href="../week07/L_Intelligent_systems.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Unit Reader</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    MATH3024 Reader
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week01/L_Introduction_to_complex_systems.html">Week 1: Welcome to MATH3024: (modelling) Complex Systems</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../week02/L_Fractals.html">Week 2: Fractals</a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../week03/L_Reaction_diffusion.html">Week 3: Reaction-diffusion systems</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../week04/L_Cellular_automata.html">Week 4: Cellular automata</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../week05/L_ABM.html">Week 5: Agent-based modelling</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../week06/L_Synchronisation.html">Week 6: Synchronisation</a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../week07/L_Intelligent_systems.html">Week 7: Intelligent systems</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Week 8: Critical behaviour</a></li>
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/week08/L_Critical_phenomena.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Week 8: Critical behaviour</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Week 8: Critical behaviour</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation-vicsek-model">Motivation: Vicsek model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fig-2a-of-vicsek-1995">Fig. 2a of Vicsek, 1995</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-transition">Phase transition</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-order-phase-transitions">First-order phase transitions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#second-order-phase-transitions">Second-order phase transitions</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-battle-over-the-type-of-transition">The battle over the type of transition</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#critical-phenomena">Critical phenomena</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diverging-correlations-in">Diverging correlations in:</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation-length-xi">Correlation length, <span class="math notranslate nohighlight">\(\xi\)</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation-time-tau">Correlation time, <span class="math notranslate nohighlight">\(\tau\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#exponentials-and-power-laws-a-very-quick-review">Exponentials and Power laws: a very quick review</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#an-analogy">An Analogy</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#and-back-to-flocking">And back to flocking</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vicsek-and-correlations">Vicsek and correlations</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-size-effects">Finite-size effects</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-size-scaling">Finite-size scaling</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fig-3a-of-vicsek-1995">Fig. 3a of Vicsek, 1995</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#how-this-figure-was-produced">How this figure was produced</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-interpret-this-figure">How to interpret this figure</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fig-3b-of-vicsek-1995">Fig. 3b of Vicsek, 1995</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-familiar-example-the-ising-model">A familiar example: the Ising model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diverging-correlations">Diverging Correlations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scale-invariance-aka-scale-free-behaviour">Scale invariance (aka scale-free behaviour)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#power-law-scaling-and-critical-exponents">Power law scaling and critical exponents</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#percolation">Percolation</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#self-organised-criticality">Self-organised criticality</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sand-piles">Sand piles</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sand-pile-models">Sand pile models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-details">Model details</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perturbations">Perturbations</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-self-organising-critical-systems">Properties of self-organising critical systems</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fractals">Fractals?</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="week-8-critical-behaviour">
+<h1>Week 8: Critical behaviour<a class="headerlink" href="#week-8-critical-behaviour" title="Link to this heading">#</a></h1>
+<p>Last week we learnt about swarm optimisation with agent-based models.</p>
+<p>Today, we’ll return to cellular automata as the modelling framework to explore criticality.</p>
+<section id="motivation-vicsek-model">
+<h2>Motivation: Vicsek model<a class="headerlink" href="#motivation-vicsek-model" title="Link to this heading">#</a></h2>
+<p>We’ve already seen how to:</p>
+<ol class="arabic simple">
+<li><p>Define an order parameter for collective behaviour (the average velocity, <span class="math notranslate nohighlight">\(v_a\)</span>).</p></li>
+<li><p>Sweep parameters (noise, <span class="math notranslate nohighlight">\(\eta\)</span> and density, <span class="math notranslate nohighlight">\(\rho\)</span>).</p></li>
+<li><p>Average over ensembles.</p></li>
+</ol>
+<p>These steps produce curves that <em>suggest</em> a <strong>phase transition</strong>, where collective behaviour changes abruptly:</p>
+<p><img alt="" src="../../_images/Vicsek_results_Fig2a.png" /></p>
+<p>Fig 2a of the original <a class="reference external" href="https://doi.org/10.1103/PhysRevLett.75.1226">Vicsek model</a>.</p>
+<section id="fig-2a-of-vicsek-1995">
+<h3>Fig. 2a of Vicsek, 1995<a class="headerlink" href="#fig-2a-of-vicsek-1995" title="Link to this heading">#</a></h3>
+<p>Shows how the order parameter (the average velocity <span class="math notranslate nohighlight">\(v_a\)</span>) changes as the control parameter (noise strength <span class="math notranslate nohighlight">\(\eta\)</span>) is adjusted for different system sizes.</p>
+<p>When noise is high, the system is disordered: particles move in all directions with equal probability. This state has rotational symmetry (if you rotated the system, it would look the same on average).</p>
+<p>As noise decreases, particles align in a common direction.</p>
+<p>The equations don’t prescribe which direction — the system chooses one itself. This is <strong>spontaneous symmetry breaking</strong>: no external field or leader dictates the choice, yet once chosen, the direction is stable.</p>
+<p>But in statistical physics eyeballing a curve isn’t enough.</p>
+<p>We need to extract scaling laws and critical exponents… and Vicsek was a Statistical Physicist afterall:</p>
+<p><img alt="" src="../../_images/Vicsek_abstract.png" /></p>
+<p>This is the abstract of the original <a class="reference external" href="https://doi.org/10.1103/PhysRevLett.75.1226">Vicsek model</a>.</p>
+<p>Abstracts are short, and space is precious but the authors highlight the following details because they are <em>fundamental to understanding the behaviour of the system</em>:</p>
+<ol class="arabic simple">
+<li><p>The type of phase transition: continuous</p></li>
+<li><p>The power law scaling: <span class="math notranslate nohighlight">\((\eta_c-\eta)^\beta\)</span></p></li>
+<li><p>The critical exponent: <span class="math notranslate nohighlight">\(\beta\approx 0.45\)</span></p></li>
+</ol>
+</section>
+</section>
+<section id="phase-transition">
+<h2>Phase transition<a class="headerlink" href="#phase-transition" title="Link to this heading">#</a></h2>
+<p>A <strong>phase transition</strong> is when a system undergoes a sudden transformation from one state to another (e.g. order to chaos).</p>
+<p>These transformations matter because they produce qualitatively new patterns and behaviours.</p>
+<p>They arise from interactions and feedback loops, and are marked by sharp shifts in key properties.</p>
+<p>Phase transitions are often about ordering.</p>
+<p>For example, water molecules are disordered in liquid, but ordered in ice. Between these states there is a transition that we often describe a phase transition using an order parameter.</p>
+<p>Phase transitions are generally classified into two main types, distinguished by whether they exhibit smooth, continuous critical behaviour or abrupt, discontinuous jumps.</p>
+<section id="first-order-phase-transitions">
+<h3>First-order phase transitions<a class="headerlink" href="#first-order-phase-transitions" title="Link to this heading">#</a></h3>
+<p>A discontinuous jump in the order parameter, <span class="math notranslate nohighlight">\(\Phi\)</span>:</p>
+<p><img alt="" src="../../_images/First_order_transition.png" /></p>
+<p>e.g.: melting of ice, boiling of water, and ferromagnetic/paramagnetic transitions.</p>
+<ul class="simple">
+<li><p>Abrupt, discontinuous change: the system jumps sharply from one stable state to another.</p></li>
+<li><p>Thermodynamic signature: discontinuity in the first derivative of the free energy (e.g. entropy, volume), usually with latent heat absorbed or released.</p></li>
+</ul>
+</section>
+<section id="second-order-phase-transitions">
+<h3>Second-order phase transitions<a class="headerlink" href="#second-order-phase-transitions" title="Link to this heading">#</a></h3>
+<p>A more gradual smooth change:</p>
+<p><img alt="" src="../../_images/Second_order_transition.png" /></p>
+<p>e.g.: superconducting transition in metals, ferromagnetic transition in iron, and the superfluid transition in helium.</p>
+<ul class="simple">
+<li><p>Continuous transitions: change occurs smoothly, without abrupt jumps.</p></li>
+<li><p>Thermodynamic signature: first derivatives of free energy remain continuous, but second derivatives (e.g. specific heat, susceptibility) may diverge or show discontinuities (kinks may be present in this curve). No latent heat is involved.</p></li>
+<li><p>Beyond the critical point, the distinction between phases disappears and their properties converge.</p></li>
+</ul>
+<section id="the-battle-over-the-type-of-transition">
+<h4>The battle over the type of transition<a class="headerlink" href="#the-battle-over-the-type-of-transition" title="Link to this heading">#</a></h4>
+<p>For many years researchers argued about the nature of this transition:</p>
+<p><img alt="" src="../../_images/Gregoire_Chate_transition_type.png" /></p>
+<p>Fig from: Grégoire and Chaté’s analysis of the <a class="reference external" href="https://journals.aps.org/prl/pdf/10.1103/PhysRevLett.92.025702">Onset of Collective and Cohesive Motion</a></p>
+<p>Vicsek et al. (1995) argued it was continuous: as noise increased, order gradually declined towards disorder. Later work (notably Grégoire &amp; Chaté, mid-2000s) found signs of discontinuous behaviour with abrupt switching and coexistence between ordered and disordered phases.</p>
+<p>The difficulty lay in a few things:</p>
+<ul class="simple">
+<li><p>finite-size effects: in small simulations the transition looked smooth, whereas larger particle numbers show sharper transitions and only with very large system sizes did the discontinuous nature become clear.</p></li>
+<li><p>noise implementation: Vicsek used angular noise (random angle added to the average heading) but later work looked at vectorial noise (random vector added before normalisation). These two produce qualitatively different transitions: angular noise looks more continuous, vectorial noise more discontinuous.</p></li>
+</ul>
+<p>This back-and-forth illustrates some key points:</p>
+<ol class="arabic simple">
+<li><p>science is alive and full of debate. One of the simplest models in complex systems sparked years of disagreement!</p></li>
+<li><p>definitions and implementations matter and even simple models can hide complex truths that only reveal themselves when pushed to their limits.</p></li>
+<li><p>phase transitions are subtle.</p></li>
+<li><p>the order of the transition matters (continuous transitions are linked with critical phenomena, power laws, universality, etc., while discontinuous ones are more like “flips” between states).</p></li>
+</ol>
+<p>It is on this last point that we will now focus - the reason for the debate in the first place.</p>
+</section>
+</section>
+</section>
+<section id="critical-phenomena">
+<h2>Critical phenomena<a class="headerlink" href="#critical-phenomena" title="Link to this heading">#</a></h2>
+<p>If a phase transition occurs then there is a <strong>critical point (aka tipping point)</strong> between the phases where dramatic changes in behaviour and properties emerge.</p>
+<p>If a phase transition occurs, there is a critical boundary between phases.</p>
+<p>For continuous (second-order) transitions, this boundary is marked by dramatic changes and unexpected <strong>critical phenomena</strong> characterised by:</p>
+<ul class="simple">
+<li><p>Diverging correlations</p></li>
+<li><p>Scale-invariance</p></li>
+<li><p>Power laws everywhere.</p></li>
+</ul>
+<p>First-order transitions themselves don’t have critical phenomena because the change is abrupt, with a finite correlation length and latent heat, so there is no diverging scale or scale-invariance.</p>
+<p>And this is exactly why researchers were debating so much about whether the Vicsek model underwent a first- or second-order transition.</p>
+<p>If it is second-order (continuous) then we get genuine critical phenomena. This makes the flocking transition analogous to classical statistical physics transitions (Ising, percolation, etc.), which is theoretically powerful.</p>
+<p>If the transition is first-order (discontinuous) then none of that applies and we can’t meaningfully speak of “critical phenomena” in the usual sense. Instead we expect hysteresis, phase coexistence (e.g. ordered bands moving through disorder), and a jump in the order parameter.</p>
+<p>Remember: Vicsek was pretty excited to have invented the moving analogue of the Heisenberg model! A first-order transition directly challenges the idea of <em>flocking as a new universality class with critical behaviour</em>.</p>
+<section id="diverging-correlations-in">
+<h3>Diverging correlations in:<a class="headerlink" href="#diverging-correlations-in" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Space</strong>: correlation length diverges (everything becomes coupled).</p></li>
+<li><p><strong>Time</strong>: correlation time diverges (system takes forever to “forget” fluctuations).</p></li>
+</ul>
+<p>This means there is no characteristic space/time scale.</p>
+<section id="correlation-length-xi">
+<h4>Correlation length, <span class="math notranslate nohighlight">\(\xi\)</span><a class="headerlink" href="#correlation-length-xi" title="Link to this heading">#</a></h4>
+<p>Tells us how far information about local fluctuations “propagates” across the system.</p>
+<p><strong>Away from criticality</strong>: <span class="math notranslate nohighlight">\(\xi\)</span> is finite and short</p>
+<ul class="simple">
+<li><p>Correlations are local: disturbances don’t spread far, and distant regions fluctuate independently.</p></li>
+<li><p>Correlations in space decay <strong>exponentially</strong> with the characteristic scale <span class="math notranslate nohighlight">\(\xi\)</span>:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+C(r) \sim e^{-r/\xi}.
+\]</div>
+<p><strong>Near criticality</strong>: <span class="math notranslate nohighlight">\(\xi\)</span> grows large</p>
+<ul class="simple">
+<li><p>Correlations between different parts of the system become increasingly long-ranged.</p></li>
+<li><p>A small change in one part of the system can influence distant parts, leading to large-scale fluctuations (distant parts of the system begin to fluctuate together).</p></li>
+<li><p>System behaviour starts to depend strongly on system size, because correlations are approaching the system boundary.</p></li>
+</ul>
+<p><strong>At criticality</strong>: <span class="math notranslate nohighlight">\(\xi \to \infty\)</span></p>
+<ul class="simple">
+<li><p>There is no single spatial scale — correlations exist across all distances.</p></li>
+<li><p>The system becomes <strong>scale-free in space</strong>.</p></li>
+<li><p>The exponential decay breaks down and is replaced by a <strong>power law</strong>:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+C(r) \sim r^{-\eta}.
+\]</div>
+</section>
+<section id="correlation-time-tau">
+<h4>Correlation time, <span class="math notranslate nohighlight">\(\tau\)</span><a class="headerlink" href="#correlation-time-tau" title="Link to this heading">#</a></h4>
+<p>The temporal analogue of correlation length.</p>
+<p>Tells us how long information about a fluctuation “persists” before the system forgets it.</p>
+<p><strong>Away from criticality</strong>: <span class="math notranslate nohighlight">\(\tau\)</span> is finite and short</p>
+<ul class="simple">
+<li><p>Fluctuations die out quickly, the system relaxes fast, and successive measurements are nearly independent.</p></li>
+<li><p>Correlations in time decay exponentially with the characteristic (time) scale <span class="math notranslate nohighlight">\(\tau\)</span></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+C(t) \sim e^{-t/\tau}.
+\]</div>
+<p>where where larger <span class="math notranslate nohighlight">\(\tau\)</span> means slower decay (longer memory), and smaller <span class="math notranslate nohighlight">\(\tau\)</span> means faster decay (shorter memory).</p>
+<p><strong>Near criticality</strong>: <span class="math notranslate nohighlight">\(\tau\)</span> grows large</p>
+<ul class="simple">
+<li><p>Fluctuations persist for a long time; the system responds sluggishly to external perturbations and the time it takes the system to return to equilibrium after disturbance is long.</p></li>
+<li><p>This is <strong>critical slowing down</strong>.</p></li>
+</ul>
+<p><strong>At criticality</strong>: <span class="math notranslate nohighlight">\(\tau\)</span> diverges (<span class="math notranslate nohighlight">\(\to \infty\)</span>).</p>
+<ul class="simple">
+<li><p>There is no single relaxation scale.</p></li>
+<li><p>The system becomes <strong>scale-free in time</strong>: fluctuations exist on all timescales.</p></li>
+<li><p>The exponential decay breaks down and is replaced by a power law (a scale-free decay):</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+C(t) \sim t^{-\alpha}.
+\]</div>
+<section id="exponentials-and-power-laws-a-very-quick-review">
+<h5>Exponentials and Power laws: a very quick review<a class="headerlink" href="#exponentials-and-power-laws-a-very-quick-review" title="Link to this heading">#</a></h5>
+<p><strong>Exponential decay</strong> (with characteristic timescale <span class="math notranslate nohighlight">\(\tau\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[
+C(t)\sim e^{-t/\tau}
+\]</div>
+<p>This form has a <em>built-in scale</em>. On linear axes the curve looks flat at short times and drops rapidly to zero at long times. On a log–log plot, it bends — the “knee” marks the characteristic scale <span class="math notranslate nohighlight">\(\tau\)</span>.</p>
+<p><strong>Power law decay</strong> (no characteristic timescale):</p>
+<div class="math notranslate nohighlight">
+\[
+y \;\sim\; x^{\alpha},
+\]</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(y\)</span> is the dependent variable,</p></li>
+<li><p><span class="math notranslate nohighlight">\(x\)</span> is the independent variable (often distance, time, or the deviation from criticality),</p></li>
+<li><p><span class="math notranslate nohighlight">\(\alpha\)</span> is the <strong>power law exponent</strong> (can be positive or negative).</p></li>
+</ul>
+<p>Here the decay is <em>scale-free</em>. This is evident from the fact that power laws appear as straight lines on log–log plots, with the slope equal to the exponent, <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+y = A\,x^{\alpha}
+\]</div>
+<p>becomes</p>
+<div class="math notranslate nohighlight">
+\[
+\log y = \log A + \alpha \log x,
+\]</div>
+<p>Rescaling the time axis simply shifts the line without changing its slope. In other words, the decay has the same form at all scales. This is <strong>scale invariance</strong>. In general, scale invariance means patterns or statistical properties look the same at different scales. Formally, a function <span class="math notranslate nohighlight">\(f(x)\)</span> is scale invariant if for any constant <span class="math notranslate nohighlight">\(c&gt;0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+f(cx)\propto f(x).
+\]</div>
+<div style="border-left: 4px solid #1e70bf; padding: 0.75em; background-color: #eaf3fb; margin-bottom: 1em;">
+  <strong>Proof:</strong><br>
+  Convince yourself that power laws are indeed scale free.
+</div><div class="toggle docutils container">
+<p>Take a power law:</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = A x^{-\alpha}.
+\]</div>
+<p>If you rescale the argument <span class="math notranslate nohighlight">\(x \mapsto c x\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+f(c x) = A (c x)^{-\alpha} = c^{-\alpha} f(x).
+\]</div>
+<p>So it’s not <em>exactly equal</em> to <span class="math notranslate nohighlight">\(f(x)\)</span>, but it has the <em>same functional form</em>, multiplied by a constant factor <span class="math notranslate nohighlight">\(c^{-\alpha}\)</span>.</p>
+<p>That counts as scale invariance because rescaling has just rescaled the vertical axis by a constant leaving the shape unchanged.</p>
+<p>Contrast this with exponentials, where rescaling the axis changes the shape of the function (introduces a new timescale).</p>
+</div>
+<p>Power laws are <strong>heavy-tailed</strong>. This means that the part of the distribution representing extreme values decays <em>more slowly than an exponential distribution</em>.</p>
+<p><img alt="" src="../../_images/Tails_comparison.png" /></p>
+<p>This means that:</p>
+<ul class="simple">
+<li><p><strong>Extreme events are common</strong>: very large earthquakes, financial crashes, or highly connected network hubs occur far more often than in light-tailed distributions. If you wait long enough, a “big one” will eventually arrive.</p></li>
+<li><p><strong>Robust yet fragile</strong>: systems with heavy-tailed structure (e.g. scale-free networks) are resilient to random small failures but highly vulnerable to targeted attacks on hubs.</p></li>
+<li><p><strong>Statistical challenges</strong>: extreme values are so frequent that standard summary measures fail. In many cases:</p>
+<ul>
+<li><p>The mean may diverge or be dominated by a few large events.</p></li>
+<li><p>Averages are therefore not representative or meaningful. Nor are any other characteristic length of an observable property because the distribution remains the same regardless of the scale at which you observe it.</p></li>
+<li><p>Special statistical tools (e.g. tail exponents, quantile methods, log-log plots) are needed for proper analysis.</p></li>
+</ul>
+</li>
+</ul>
+<p>Empirically, we will rarely see true power laws for all values but we will consider the system to be governed by a power law if it follows a <em>power law in the tail</em> (heavy tail).</p>
+<ul class="simple">
+<li><p>e.g. Gutenberg-Richter Law relating the magnitude and number of earthquakes:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+N(M) = 10^{a-bM}
+\]</div>
+<p>The critical system in this case is the Earth’s crust.</p>
+<p><img alt="" src="../../_images/Earthquake_heavy_tail.png" /></p>
+<p>Power laws also appear outside strict thermodynamic critical points (in networks, biology, economics etc).</p>
+<ul class="simple">
+<li><p>e.g. scale-free networks with power law degree distribution:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+p(k) \propto k^{-\gamma}.
+\]</div>
+<p><img alt="" src="../../_images/Degree_distribution_for_BA_network.png" /></p>
+<p>The noisy tail is something you’ll almost always see, on account of sampling limits (very few nodes at high degree) and real-world constraints (finite size, cutoffs, costs on connections).</p>
+<p>We won’t go into much detail other than plotting on a log-log scale and fitting a straight line to estimate the scaling exponent. If you’re interested see Clauset’s SIAM review on <a class="reference external" href="https://doi.org/10.1137/070710111">Power-Law Distributions in Empirical Data</a>:</p>
+<p><img alt="" src="../../_images/Clauset_recipe_for_analysing_power_laws.png" /></p>
+<p>Fig from Clauset’s review.</p>
+</section>
+<section id="an-analogy">
+<h5>An Analogy<a class="headerlink" href="#an-analogy" title="Link to this heading">#</a></h5>
+<p>Consider a stadium crowd responding to a clap.</p>
+<ul class="simple">
+<li><p>How far the clap spreads is the correlation length (<span class="math notranslate nohighlight">\(\xi\)</span>).</p></li>
+<li><p>How long it lingers is the correlation time (<span class="math notranslate nohighlight">\(\tau\)</span>).</p></li>
+</ul>
+<p><strong>Away from criticality</strong>:</p>
+<ul class="simple">
+<li><p><strong><span class="math notranslate nohighlight">\(\xi\)</span> is local:</strong> one clap affects only nearby seats.</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(\tau\)</span> is short:</strong> clap fades instantly.</p></li>
+</ul>
+<p><strong>Near criticality</strong>:</p>
+<ul class="simple">
+<li><p><strong><span class="math notranslate nohighlight">\(\xi\)</span> is large:</strong> a wave sweeps across much of the stadium.</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(\tau\)</span> is long:</strong> clap echoes and lingers, system is slow to settle.</p></li>
+</ul>
+<p><strong>At criticality</strong>:</p>
+<ul class="simple">
+<li><p><strong><span class="math notranslate nohighlight">\(\xi \to \infty\)</span>:</strong> Whole stadium moves as one; disturbance spreads everywhere.</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(\tau \to \infty\)</span>:</strong> No single settling time; ripples persist on all timescales.</p></li>
+</ul>
+</section>
+<section id="and-back-to-flocking">
+<h5>And back to flocking<a class="headerlink" href="#and-back-to-flocking" title="Link to this heading">#</a></h5>
+<p>Let’s now make sure we understand the meaning of the correlation length and time in terms of flocking…</p>
+<p><strong>Away from criticality</strong>:</p>
+<ol class="arabic simple">
+<li><p>In the ordered phase (low noise):</p></li>
+</ol>
+<ul class="simple">
+<li><p><strong>Length:</strong> the system self-organises into large, coherent flocks. The correlation length is essentially the size of a flock (particles within a flock are strongly aligned, but different flocks can move in different directions).</p></li>
+<li><p><strong>Time:</strong> fluctuations relax quickly; the correlation time is how long it takes a perturbation to return to the mean alignment (a few update steps).</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>In the disordered phase (high noise):</p></li>
+</ol>
+<ul class="simple">
+<li><p><strong>Length:</strong> the characteristic length is on the order of the interaction radius (the neighbourhood size each particle aligns with), because beyond that, orientations are uncorrelated.</p></li>
+<li><p><strong>Time:</strong> orientations randomise almost every step, so correlations vanish rapidly and the timescale is again short.</p></li>
+</ul>
+<p>i.e. away from criticality, we can identify a typical length and there’s a well-defined, finite relaxation time.</p>
+<p><strong>At the critical point</strong></p>
+<ul class="simple">
+<li><p><strong>Length:</strong> flocks of all sizes emerge and there is no typical flock size.</p></li>
+<li><p><strong>Time:</strong> fluctuations persist on all timescales and there is no typical relaxation time.</p></li>
+</ul>
+</section>
+</section>
+<section id="vicsek-and-correlations">
+<h4>Vicsek and correlations<a class="headerlink" href="#vicsek-and-correlations" title="Link to this heading">#</a></h4>
+<p>Vicsek didn’t actually measure correlation functions directly.</p>
+<p>Instead, they inferred the divergence of the correlation length from the finite-size scaling of the order parameter (Fig. 2) and the resulting scaling collapse (Fig. 3).</p>
+<p>Later studies (by Vicsek &amp; Czirók, and independently by Chate and by Toner–Tu) explicitly measured velocity correlations and confirmed the scaling picture.</p>
+</section>
+<section id="finite-size-effects">
+<h4>Finite-size effects<a class="headerlink" href="#finite-size-effects" title="Link to this heading">#</a></h4>
+<p>True criticality requires an infinite system such that the correlation length can diverge at the critical point.</p>
+<p>In a finite system, however, the correlation length <span class="math notranslate nohighlight">\(\xi\)</span> cannot exceed the system size, <span class="math notranslate nohighlight">\(L\)</span>.</p>
+<p>In such cases, <span class="math notranslate nohighlight">\(\xi\)</span> grows only up to <span class="math notranslate nohighlight">\(L\)</span>, near criticality the entire system becomes correlated, and observables depend on both the control parameter <span class="math notranslate nohighlight">\(p\)</span> and the system size <span class="math notranslate nohighlight">\(L\)</span>.</p>
+<p>We got a hint of this behaviour from doing parameter sweeps with different system sizes:</p>
+<p><img alt="" src="../../_images/Vicsek_results_Fig2a.png" /></p>
+<p>Fig. 2a: The transition sharpens with increasing <span class="math notranslate nohighlight">\(N\)</span>. If correlations are long or short-ranged, size doesn’t matter much for the overall behaviour. In the transition region, dependence on <span class="math notranslate nohighlight">\(N\)</span> shows <span class="math notranslate nohighlight">\(\xi\)</span> is growing towards <span class="math notranslate nohighlight">\(L\)</span> and what looks like a wide band of criticality is really just finite-size rounding of an underlying sharp transition.</p>
+</section>
+<section id="finite-size-scaling">
+<h4>Finite-size scaling<a class="headerlink" href="#finite-size-scaling" title="Link to this heading">#</a></h4>
+<p>Many real-world systems (e.g. bird flocks, fish schools, power grids) are finite yet still show <em>quasi-critical behaviour</em>:</p>
+<ul class="simple">
+<li><p>large fluctuations</p></li>
+<li><p>approximate scale-free behaviour over a finite range (the transition “band” displays a range of intermediate order-parameter values)</p></li>
+</ul>
+<p><strong>Finite-size effects</strong> are deviations from true criticality caused by the limit imposed by <span class="math notranslate nohighlight">\(L\)</span>. They matter because they let us infer critical behaviour from simulations or experiments where system size is necessarily finite.</p>
+<p><strong>Finite-size scaling</strong> turns this limitation into a tool: by studying how observables depend on <span class="math notranslate nohighlight">\(L\)</span>, we can reconstruct the critical behaviour that would occur in the thermodynamic limit <span class="math notranslate nohighlight">\(N\rightarrow \infty\)</span>.</p>
+<p>Because the apparent critical noise <span class="math notranslate nohighlight">\(\eta_c\)</span> shifts slightly with system size <span class="math notranslate nohighlight">\(L\)</span>, Vicsek accounted for this finite-size effect by plotting results in terms of <span class="math notranslate nohighlight">\(\eta_c(L)\)</span>. This adjustment allows curves from different system sizes to collapse onto the same scaling law.</p>
+<p>With this correction, we can formally test for critical behaviour. In the ordered phase, the order parameter is expected to vanish near the transition as a power law:</p>
+<div class="math notranslate nohighlight">
+\[
+v_a \sim \left(\frac{\eta_c - \eta}{\eta_c}\right)^{\beta}.
+\]</div>
+<p>If this scaling holds, then a log–log plot of <span class="math notranslate nohighlight">\(v_a\)</span> versus the reduced distance from the critical noise should yield a straight line, with slope equal to the critical exponent <span class="math notranslate nohighlight">\(\beta\)</span>.</p>
+</section>
+<section id="fig-3a-of-vicsek-1995">
+<h4>Fig. 3a of Vicsek, 1995<a class="headerlink" href="#fig-3a-of-vicsek-1995" title="Link to this heading">#</a></h4>
+<p>Shows the scaling collapse for the noise-driven transition:</p>
+<p><img alt="" src="../../_images/Vicsek_results_Fig3a.png" /></p>
+<p>Fig. 3a: Rescaling with critical exponents collapses the curves. Collapse is only possible if correlations diverge and system size sets the cutoff.</p>
+<p>A straight line indicates that the order parameter <span class="math notranslate nohighlight">\(v_a\)</span> vanishes near the transition as a power law in the distance from critical noise. The slope gives the critical exponent <span class="math notranslate nohighlight">\(\beta\approx 0.45\)</span>, which quantifies how quickly collective order disappears as the system approaches <span class="math notranslate nohighlight">\(\eta_c\)</span>.</p>
+<section id="how-this-figure-was-produced">
+<h5>How this figure was produced<a class="headerlink" href="#how-this-figure-was-produced" title="Link to this heading">#</a></h5>
+<p><span class="math notranslate nohighlight">\(\eta_c(L)\)</span> is the pseudo-critical noise identified from Figure 2 for each system size <span class="math notranslate nohighlight">\(L\)</span>. (this is done for e.g. using the steepest slope of or Binder cumulants, which we don’t cover explicitly in this unit).</p>
+<p>Near the transition, the finite-size scaling ansatz is:</p>
+<div class="math notranslate nohighlight">
+\[
+v_a(\eta, L) \sim (\eta_c(L) - \eta)^\beta,
+\]</div>
+<p>valid for <span class="math notranslate nohighlight">\(\eta &lt; \eta_c(L)\)</span>.</p>
+<p>We can then define the scaled “distance from criticality”:</p>
+<div class="math notranslate nohighlight">
+\[
+x = \frac{\eta_c(L) - \eta}{\eta_c(L)}.
+\]</div>
+<p>This is the x-axis in the figure.</p>
+<p>When rescaled appropriately as distance from the critical noise <span class="math notranslate nohighlight">\((\eta_c(L) - \eta)/\eta_c(L)\)</span>, the curves for different system sizes line up on a single straight line in log–log space. The slope (<span class="math notranslate nohighlight">\(\beta \approx 0.45\)</span>) is the <strong>critical exponent</strong>.</p>
+<p>Note that in practice, you don’t assume the exponents and then magically see a collapse.
+Instead, you adjust <span class="math notranslate nohighlight">\(\beta\)</span> until the data for different system sizes fall on top of one another.</p>
+<p>The values that give the best collapse are then reported as the measured critical exponents.</p>
+<p>To summarise the process:</p>
+<ol class="arabic simple">
+<li><p>Hypothesise finite-size scaling form.</p></li>
+<li><p>Rescale using trial exponents.</p></li>
+<li><p>Adjust exponents until curves collapse.</p></li>
+<li><p>Read off those exponents as the estimates.</p></li>
+</ol>
+</section>
+<section id="how-to-interpret-this-figure">
+<h5>How to interpret this figure<a class="headerlink" href="#how-to-interpret-this-figure" title="Link to this heading">#</a></h5>
+<p>The straight line in the log–log plot of</p>
+<div class="math notranslate nohighlight">
+\[
+v_a \quad \text{vs.} \quad \frac{\eta_c(L)-\eta}{\eta_c(L)} \quad (0 &lt; \eta &lt; \eta_c)
+\]</div>
+<p>is the fingerprint of a power law. The order parameter doesn’t just vanish as noise increases; it follows</p>
+<div class="math notranslate nohighlight">
+\[
+v_a \sim \left(\frac{\eta_c(L)-\eta}{\eta_c(L)}\right)^{\beta},
+\]</div>
+<p>with the slope of the line giving the exponent <span class="math notranslate nohighlight">\(\beta\)</span>. This slow, scale-free decline is the hallmark of criticality, very different from a sharp, first-order jump.</p>
+<p>In practice, the neatest collapse is not seen <em>right at</em> <span class="math notranslate nohighlight">\(\eta_c\)</span>, but slightly away from it. In a finite system, <span class="math notranslate nohighlight">\(\xi\)</span> cannot grow beyond <span class="math notranslate nohighlight">\(L\)</span>, so extremely close to the transition the scaling form breaks down. Finite-size rounding and critical slowing down add further noise. The most reliable scaling region is the intermediate regime: close enough to feel criticality, but not so close that finite-size effects dominate.</p>
+<p>Also note: here we only see the ordered side (<span class="math notranslate nohighlight">\(\eta &lt; \eta_c\)</span>) because the order parameter vanishes to zero in the disordered phase. To probe scaling there, a different observable is needed (typically the <strong>susceptibility</strong>).</p>
+<p>This is the standard recipe across statistical physics (Ising, percolation, etc.): order parameter on the ordered side, susceptibility on the disordered side, and correlation length across both.</p>
+</section>
+</section>
+<section id="fig-3b-of-vicsek-1995">
+<h4>Fig. 3b of Vicsek, 1995<a class="headerlink" href="#fig-3b-of-vicsek-1995" title="Link to this heading">#</a></h4>
+<p>Shows the critical exponents beyond <span class="math notranslate nohighlight">\(\beta\)</span>:</p>
+<p><img alt="" src="../../_images/Vicsek_results_Fig3b.png" /></p>
+<p>Fig 3b of the original <a class="reference external" href="https://doi.org/10.1103/PhysRevLett.75.1226">Vicsek model</a>.</p>
+<ul class="simple">
+<li><p>They also measured other exponents (e.g. <span class="math notranslate nohighlight">\(\delta \approx 0.35\)</span>) from how <span class="math notranslate nohighlight">\(v_a\)</span> changes with density at fixed noise.</p></li>
+<li><p>Shows that <em>multiple exponents</em> can characterise different aspects of criticality. Both are needed to fully describe the behaviour of the Vicsek model near the transition.</p></li>
+</ul>
+<p>Critical exponents matter because they are often universal: the same numbers reappear in very different systems such as magnets, fluids, even flocking birds.</p>
+</section>
+</section>
+</section>
+<section id="a-familiar-example-the-ising-model">
+<h2>A familiar example: the Ising model<a class="headerlink" href="#a-familiar-example-the-ising-model" title="Link to this heading">#</a></h2>
+<p>To help reinforce what we have just covered, here is another system you are familiar with…</p>
+<p>The Ising model is a canonical example of critical behaviour and phase transitions in statistical mechanics. It describes magnetic spins on a lattice that can point up or down.</p>
+<p>Temperature, <span class="math notranslate nohighlight">\(T\)</span> is the control parameter with a critical value at <span class="math notranslate nohighlight">\(T_c\)</span>.</p>
+<ul class="simple">
+<li><p><strong>Below <span class="math notranslate nohighlight">\(T_c\)</span>:</strong> <em>ferromagnetic (ordered)</em> with spins tending to align, forming large domains.</p></li>
+<li><p><strong>Above <span class="math notranslate nohighlight">\(T_c\)</span>:</strong> <em>paramagnetic (disordered)</em> with spins randomised by thermal fluctuations, with only short-range correlations.</p></li>
+<li><p><strong>At <span class="math notranslate nohighlight">\(T_c\)</span>:</strong> correlations diverge, the system becomes scale-free, and critical phenomena appear.</p></li>
+</ul>
+<section id="diverging-correlations">
+<h3>Diverging Correlations<a class="headerlink" href="#diverging-correlations" title="Link to this heading">#</a></h3>
+<p><strong>Ordered phase (<span class="math notranslate nohighlight">\(T &lt; T_c\)</span>)</strong>
+Spins align into domains. Correlations are finite but extended: spins inside a domain are highly correlated, but domains themselves have a characteristic size.</p>
+<div class="math notranslate nohighlight">
+\[
+C(r) \sim e^{-r/\xi}, \qquad \xi \ \text{finite}.
+\]</div>
+<p><strong>Critical point (<span class="math notranslate nohighlight">\(T = T_c\)</span>)</strong>
+Correlations become <em>scale-free</em>. The correlation length diverges (<span class="math notranslate nohighlight">\(\xi \to \infty\)</span>), and fluctuations occur on all length scales.</p>
+<div class="math notranslate nohighlight">
+\[
+  C(r) \sim r^{-\eta}.
+  \]</div>
+<p>Note that in the Vicsek model, <span class="math notranslate nohighlight">\(\eta\)</span> is a control parameter, whereas here it is the critical exponent describing correlation decay at <span class="math notranslate nohighlight">\(T_c\)</span> (same symbol, very different meaning).</p>
+<p><strong>Disordered phase (<span class="math notranslate nohighlight">\(T &gt; T_c\)</span>)</strong>
+Thermal fluctuations dominate. Correlations are short-ranged: a spin only influences its immediate neighbours.</p>
+<div class="math notranslate nohighlight">
+\[
+C(r) \sim e^{-r/\xi}, \qquad \xi \ \text{small}.
+\]</div>
+</section>
+<section id="scale-invariance-aka-scale-free-behaviour">
+<h3>Scale invariance (aka scale-free behaviour)<a class="headerlink" href="#scale-invariance-aka-scale-free-behaviour" title="Link to this heading">#</a></h3>
+<p>Near <span class="math notranslate nohighlight">\(T_c\)</span>, the system becomes <strong>scale-free</strong>: there is no typical size for correlated regions of spins.</p>
+<ul class="simple">
+<li><p>Clusters of aligned spins appear on all length scales.</p></li>
+<li><p>The distribution of cluster sizes follows a <strong>power law</strong>.</p></li>
+<li><p>Large and small clusters look statistically similar — the system is self-similar across scales.</p></li>
+</ul>
+<p>This is the <strong>consequence</strong> of the diverging correlation length, and its fingerprint is the emergence of power law behaviour.</p>
+</section>
+<section id="power-law-scaling-and-critical-exponents">
+<h3>Power law scaling and critical exponents<a class="headerlink" href="#power-law-scaling-and-critical-exponents" title="Link to this heading">#</a></h3>
+<p><strong>Magnetisation (order parameter)</strong></p>
+<div class="math notranslate nohighlight">
+\[
+M(T) \propto (T_c - T)^{\beta}, \qquad T \to T_c^{-}
+\]</div>
+<ul class="simple">
+<li><p>Measures the net alignment of spins.</p></li>
+<li><p>Vanishes as <span class="math notranslate nohighlight">\(T \to T_c\)</span> from below.</p></li>
+<li><p>2D Ising: <span class="math notranslate nohighlight">\(\beta = \tfrac{1}{8}\)</span>.</p></li>
+<li><p>3D Ising: <span class="math notranslate nohighlight">\(\beta \approx 0.326\)</span>.</p></li>
+</ul>
+<p><strong>Magnetic susceptibility</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\chi(T) \propto |T - T_c|^{-\gamma}
+\]</div>
+<ul class="simple">
+<li><p>Measures the response to an external magnetic field.</p></li>
+<li><p>Diverges near <span class="math notranslate nohighlight">\(T_c\)</span>.</p></li>
+<li><p>2D Ising: <span class="math notranslate nohighlight">\(\gamma = \tfrac{7}{4}\)</span>.</p></li>
+</ul>
+<p><strong>Correlation length</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\xi(T) \propto |T - T_c|^{-\nu}
+\]</div>
+<ul class="simple">
+<li><p>Measures the typical distance over which spins are correlated.</p></li>
+<li><p>Diverges near <span class="math notranslate nohighlight">\(T_c\)</span>.</p></li>
+<li><p>2D Ising: <span class="math notranslate nohighlight">\(\nu = 1\)</span>.</p></li>
+</ul>
+</section>
+</section>
+<section id="percolation">
+<h2>Percolation<a class="headerlink" href="#percolation" title="Link to this heading">#</a></h2>
+<p>Percolation is another very prominent statistical physics model for criticality.</p>
+<p>It is a process where fluid flows through a semi-porous material e.g. oil in rock formations, hydrogen gas in micropores or water through coffee grounds:</p>
+<p><a class="reference external" href="http://www.complexity-explorables.org/explorables/baristas-secret/">The barista’s secret Complexity Explorable</a>.</p>
+<p>Three different initialisations with the porosity, <span class="math notranslate nohighlight">\(p=59.22\%&lt;p_c\)</span>:
+<img alt="" src="../../_images/Baristas_secret_screenshots.png" /></p>
+<p>The system’s response shows a sharp transition at a certain porosity. This is the <strong>percolation threshold</strong>, <span class="math notranslate nohighlight">\(p_c\)</span>, which is a critical value:</p>
+<ul class="simple">
+<li><p>Below <span class="math notranslate nohighlight">\(p_c\)</span> no percolation occurs</p></li>
+<li><p>As the control parameter approaches the percolation threshold, <span class="math notranslate nohighlight">\(p_c\)</span>, critical behaviours can be observed (diverging correlation, cluster size follows a power law, spanning cluster appears with universal fractal dimension)</p></li>
+<li><p>Near <span class="math notranslate nohighlight">\(p_c\)</span> the system is very sensitive to small perturbation</p></li>
+<li><p>Above <span class="math notranslate nohighlight">\(p_c\)</span> percolation occurs</p></li>
+</ul>
+<p>Computing the percolation threshold, <span class="math notranslate nohighlight">\(p_c\)</span>, can be tricky in general.</p>
+<p>Some options:</p>
+<ul class="simple">
+<li><p>Numerical experiments</p></li>
+<li><p>Finite-size scaling theory is used to extrapolate the behaviour of an infinitely large system based on data from finite-sized systems</p></li>
+<li><p>Theoretical mean-field models</p></li>
+<li><p>Other theoretical approaches based on concepts from statistical physics, percolation theory, or graph theory.</p></li>
+</ul>
+<p>In this unit we are primarily concerned with numerical experiments.</p>
+<p>The image of a liquid seeping through a porous material is just one metaphor for percolation. Other applications for spatial contact processes:</p>
+<ul class="simple">
+<li><p>spread of infectious disease in which the liquid becomes an infectious disease, empty sites are susceptible individuals and occupied sites are immune. In this case the percolation threshold is the epidemic threshold</p>
+<ul>
+<li><p><a class="reference external" href="https://www.complexity-explorables.org/explorables/critical-hexsirsize/">Critical hexSIRSize</a>: stochastic, spatial SIRS model. Pattern formation in an epidemic model near its critical point</p></li>
+</ul>
+</li>
+<li><p>dynamics of forest fires in which the liquid is a fire that expands across an area of vegetation and the porosity is equivalent to the density of trees</p>
+<ul>
+<li><p><a class="reference external" href="https://www.complexity-explorables.org/explorables/critically-inflammatory/">Critically inflammatory</a>: A forest fire model. Spatial patterns, dynamics and criticality in forest fire dynamics</p></li>
+</ul>
+</li>
+</ul>
+<div style="border-left: 4px solid #1e70bf; padding: 0.75em; background-color: #eaf3fb; margin-bottom: 1em;">
+  <strong>Pause and consider:</strong><br>
+  Critical points are usually unstable, so why do we see critical behaviour everywhere?
+</div></section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="self-organised-criticality">
+<h1>Self-organised criticality<a class="headerlink" href="#self-organised-criticality" title="Link to this heading">#</a></h1>
+<p>Ising, percolation and Vicsek models display criticality: they require an external control parameter (temperature, density, noise or density respectively).</p>
+<p>The Vicsek model is <strong>self-organising</strong> because the global flocking emerges from simple local rules without any external field or central control. However, self-organisation alone does not guarantee that the system reaches a critical state.</p>
+<p><strong>Self-organised criticality</strong> (SOC) is the idea that some systems naturally evolve toward a critical state, without external tuning.</p>
+<p>In the critical state these systems are poised on the edge of instability, allowing them to:</p>
+<ul class="simple">
+<li><p>efficiently distribute energy or resources</p></li>
+<li><p>maintain robustness and adaptability</p></li>
+</ul>
+<!-- i.e. balance stability and responsiveness to adapt to changes in the environment -->
+<p>SOC is a very active and influential research area because we still don’t have answers to some of the biggest questions:</p>
+<ul class="simple">
+<li><p>how does self-organised criticality work? (we know there is usually a slow drive and highly non-linear interaction nut not much else is known…)</p></li>
+<li><p>is it ubiquitous?</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="sand-piles">
+<h1>Sand piles<a class="headerlink" href="#sand-piles" title="Link to this heading">#</a></h1>
+<div style="margin: 1.5em 0; border-right: 4px solid #888; padding-right: 1em; text-align: right;">
+  <div style="font-style: italic; font-family: 'Comic Neue', 'Segoe Script', cursive; font-size: 1.2em;">
+    How do we know that the creations of worlds are not determined by falling grains of sand?
+  </div>
+  <div style="font-style: normal; font-size: 0.95em; margin-top: 0.5em;">
+    — Victor Hugo, Les Miserables 1862
+  </div>
+</div>
+<p>Consider a pile of sand  formed by dropping one sand grain on top of another over time. These piles form pyramid-like shapes of a certain slope.</p>
+<p>If we continue to add sand grains then they slide down the slopes of the pyramid causing mini avalanches and the slope of the pyramid stays at the same angle. This is the <em>angle of repose</em>. A pyramid of sand with a larger slope than the angle of repose will create avalanches until the slope is again the angle of repose. The pyramid is in a critical state, and any departure from this state causes sequences of avalanches of different sizes to return to the critical state.</p>
+<p><img alt="" src="../../_images/Sandpile_Matemateca_22_screenshot.png" /></p>
+<p>Video of sandpile <a class="reference external" href="https://en.wikipedia.org/wiki/Angle_of_repose">here</a></p>
+<section id="sand-pile-models">
+<h2>Sand pile models<a class="headerlink" href="#sand-pile-models" title="Link to this heading">#</a></h2>
+<p>Bak et al. proposed a sandpile model in 1987 to emulate this and demonstrate self-organised criticality. It is sometimes referred to as the Abelian sand pile model*.</p>
+<p>It’s not meant to be a realistic model of a sand pile - it’s an abstraction, i.e. a simple example of a broad category of models for self-organised criticality.</p>
+<p>The idea we aim to capture: how the addition of grains of sand to a ‘metastable state’ can trigger local motion causing the sand to rearrange itself via avalanches that span the entire pile.</p>
+<p>In the self-organised critical state chain reactions can trigger avalanches of all sizes</p>
+<ul class="simple">
+<li><p><strong>“Critical”</strong> because a single local event can impact the entire system</p></li>
+<li><p><strong>“Self-organised”</strong> because the global state/pattern/dynamics has emerged spontaneously (no top-down control/invisible hand imposing order).</p></li>
+</ul>
+<p>*The term Abelian comes from group theory, where a group is called Abelian if the order of operations does not matter (i.e., the group is commutative), i.e. the order in which you combine its elements (via a binary operation like addition or multiplication) does not affect the result. For example, in ordinary arithmetic, addition is commutative because:</p>
+<div class="math notranslate nohighlight">
+\[
+a + b = b + a
+\]</div>
+<p>In the sandpile model, regardless of the sequence of topplings, the final distribution of sand is the same, making the model an example of an Abelian system.</p>
+<p>The commutative property in the Abelian Sandpile Model makes it a more tractable and mathematically interesting system to study.</p>
+<div style="border-left: 4px solid #1e70bf; padding: 0.75em; background-color: #eaf3fb; margin-bottom: 1em;">
+  <strong>Pause and consider:</strong><br>
+  With everything you have learnt so far... How will we model this?
+</div><p>Other seemingly non-negotiable quotes when one works in sandpiles:</p>
+<div style="margin: 1.5em 0; border-right: 4px solid #888; padding-right: 1em; text-align: right;">
+  <div style="font-style: italic; font-family: 'Comic Neue', 'Segoe Script', cursive; font-size: 1.2em;">
+    To see a World in a Grain of Sand
+  </div>
+  <div style="font-style: normal; font-size: 0.95em; margin-top: 0.5em;">
+    — William Blake, Auguries of Innocence
+  </div>
+</div></section>
+<section id="model-details">
+<h2>Model details<a class="headerlink" href="#model-details" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>2D cellular automata</p></li>
+<li><p>state of each cell, <span class="math notranslate nohighlight">\(z(x,y)\)</span>, represents the slope of a part of the sand pile (or equivalently the number of grains)</p></li>
+<li><p>boundary of grid: state is kept at 0 i.e. as sand is distributed outwards, excess will ‘fall off the edge’</p></li>
+<li><p>dynamics:</p>
+<ol class="arabic simple">
+<li><p>randomly select cell and increment state by 1 (add sand to it)</p></li>
+<li><p>if cell state exceeds a critical value of <span class="math notranslate nohighlight">\(K_c\)</span> then it ‘topples’ and redistributes sand to 4 neighbouring cells (-4 to the cell that topples and +1 to its von Neumann neighbours)</p></li>
+<li><p>once all sites are stable again return to step 1</p></li>
+</ol>
+</li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+z(x,y) \mapsto z(x,y) - 4,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+z(x\pm 1,y) \mapsto z(x\pm 1,y) + 1,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+z(x,y\pm 1) \mapsto z(x, y\pm 1) + 1.
+\]</div>
+<p>Note that we usually choose <span class="math notranslate nohighlight">\(K_c=4\)</span>.</p>
+</section>
+<section id="perturbations">
+<h2>Perturbations<a class="headerlink" href="#perturbations" title="Link to this heading">#</a></h2>
+<p>Most of the time, dropping a single grain causes no cells to topple</p>
+<p>Occasionally a single grain can cause an avalanche affecting a substantial fraction of the grid</p>
+<p>To investigate this behaviour we initialise as:</p>
+<ul class="simple">
+<li><p>option A (more common): all cells are initialised randomly with integer values <span class="math notranslate nohighlight">\(z&gt;K_c\)</span>, and the model is run until it stabilises. This state is then used as an initialisation</p></li>
+<li><p>option B: build up a sand pile by adding a grains at a random lattice point <span class="math notranslate nohighlight">\((x,y)\)</span> and then running the dynamics</p></li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="properties-of-self-organising-critical-systems">
+<h1>Properties of self-organising critical systems<a class="headerlink" href="#properties-of-self-organising-critical-systems" title="Link to this heading">#</a></h1>
+<p>The idea of SOC is intuitive but definitions are typically vague and involve presence of properties. We will focus on a few of these properties:</p>
+<ol class="arabic simple">
+<li><p>Fractal Geometry - non-regular geometric shape containing the same degree of non-regularity on all scales, i.e. scale invariance</p></li>
+<li><p>Heavy-tailed distributions - probability distribution whose tails are not exponentially bounded (a looser condition than the power law but intended to capture the same behaviour)</p></li>
+<li><p>Pink noise - exhibited through variations in time where low frequency components have more power than high frequency components. The power for a particular frequency <span class="math notranslate nohighlight">\(f\)</span> will decay at a rate of <span class="math notranslate nohighlight">\(1/f\)</span> ‘Self-Organized Criticality: An Explanation of 1/f Noise’</p></li>
+</ol>
+<section id="fractals">
+<h2>Fractals?<a class="headerlink" href="#fractals" title="Link to this heading">#</a></h2>
+<p>Binarised sand piles for <span class="math notranslate nohighlight">\(z=\{0,1,2,3\}\)</span>:</p>
+<p><img alt="" src="../../_images/Downey_sand_fractals.png" /></p>
+<p>Image from <a class="reference external" href="https://greenteapress.com/wp/think-complexity-2e/">Allen Downey’s Think Complexity</a>.</p>
+<p><strong>Q:</strong> It looks fractal… but is it?</p>
+<p><strong>A:</strong> To be sure we’ll need to estimate the fractal dimension</p>
+<p>Box-counting dimension:</p>
+<ol class="arabic simple">
+<li><p>count number of cells with sand in it for varying box sizes</p></li>
+<li><p>On a log-log scale, the cell counts form nearly straight lines, which indicates that we are measuring fractal dimension over a valid range of box sizes.</p></li>
+</ol>
+<p><img alt="" src="../../_images/Downey_sand_fractals_box_counting.png" /></p>
+<p>Image from <a class="reference external" href="https://greenteapress.com/wp/think-complexity-2e/">Allen Downey’s Think Complexity</a>.</p>
+<div style="border-left: 4px solid #1e70bf; padding: 0.75em; background-color: #eaf3fb; margin-bottom: 1em;">
+  <strong>Theoretical Question:</strong><br>
+  It's certainly not a square with dimension equal to 2 but ask yourself what if it's random? What would you expect the box-counting dimension to tell you for a random distribution of sand?
+</div></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/week08"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../week07/L_Intelligent_systems.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Week 7: Intelligent systems</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Week 8: Critical behaviour</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation-vicsek-model">Motivation: Vicsek model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fig-2a-of-vicsek-1995">Fig. 2a of Vicsek, 1995</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-transition">Phase transition</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-order-phase-transitions">First-order phase transitions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#second-order-phase-transitions">Second-order phase transitions</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-battle-over-the-type-of-transition">The battle over the type of transition</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#critical-phenomena">Critical phenomena</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diverging-correlations-in">Diverging correlations in:</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation-length-xi">Correlation length, <span class="math notranslate nohighlight">\(\xi\)</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation-time-tau">Correlation time, <span class="math notranslate nohighlight">\(\tau\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#exponentials-and-power-laws-a-very-quick-review">Exponentials and Power laws: a very quick review</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#an-analogy">An Analogy</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#and-back-to-flocking">And back to flocking</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vicsek-and-correlations">Vicsek and correlations</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-size-effects">Finite-size effects</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-size-scaling">Finite-size scaling</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fig-3a-of-vicsek-1995">Fig. 3a of Vicsek, 1995</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#how-this-figure-was-produced">How this figure was produced</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-interpret-this-figure">How to interpret this figure</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fig-3b-of-vicsek-1995">Fig. 3b of Vicsek, 1995</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-familiar-example-the-ising-model">A familiar example: the Ising model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diverging-correlations">Diverging Correlations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scale-invariance-aka-scale-free-behaviour">Scale invariance (aka scale-free behaviour)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#power-law-scaling-and-critical-exponents">Power law scaling and critical exponents</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#percolation">Percolation</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#self-organised-criticality">Self-organised criticality</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sand-piles">Sand piles</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sand-pile-models">Sand pile models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-details">Model details</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perturbations">Perturbations</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-self-organising-critical-systems">Properties of self-organising critical systems</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fractals">Fractals?</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Shannon Algar
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
