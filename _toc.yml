@@ -12,6 +12,6 @@ chapters:
 - file: notebooks/week05/L_ABM.ipynb
 - file: notebooks/week06/L_Synchronisation.ipynb
 - file: notebooks/week07/L_Intelligent_systems.ipynb
-#- file: notebooks/week08/L_Self_organised_criticality.ipynb
+- file: notebooks/week08/L_Self_organised_criticality.ipynb
 #- file: notebooks/week09/L_Entropy.ipynb
 #- file: notebooks/week10/L_Game_theory.ipynb
