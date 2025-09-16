@@ -31,8 +31,8 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-['#Chaos game for Sierpinski triangle (animation)... NOT QUITE WORKING AS EXPECTED', '', 'import matplotlib.pyplot as plt', 'import matplotlib.animation as animation', '%matplotlib inline ']
+['#animate...', '', 't_steps = 300', '', 'def update(frame):']
 ...
-['# Display the animation', 'HTML(anim.to_jshtml())', '', '# Save animation', "anim.save('animation_Sierpinski_chaos_game.gif', writer='ffmpeg')"]
+['# Create the animation', 'anim = animation.FuncAnimation(fig, update, frames=t_steps, interval=200)', '', '# Display the animation as a video', 'HTML(anim.to_html5_video())']
 -------------------
 
