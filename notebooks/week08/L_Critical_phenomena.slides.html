@@ -26197,23 +26197,6 @@ YQAAAAEAAAAATGF2ZjU4LjQ1LjEwMA==
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d9689493-fe6d-4c11-98e4-7cb1ecfc711e">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p><strong>Box-counting dimension</strong>:</p>
-<ol>
-<li>Count number of cells with sand in it for varying box sizes</li>
-<li>On a log-log scale, the cell counts form nearly straight lines, which indicates that we are measuring fractal dimension over a valid range of box sizes.</li>
-</ol>
-<p><img alt="" src="images/Downey_sand_fractals_box_counting.png"/></p>
-<p>Image from <a href="https://greenteapress.com/wp/think-complexity-2e/">Allen Downey's Think Complexity</a>.</p>
-</div>
-</div>
-</div>
-</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3cdcf36d-eddc-4976-973b-e53a589762af">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -26448,6 +26431,34 @@ $$</p>
 </div>
 </div>
 </div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6d9eb663-a3e9-4661-86d3-0ca14962879f">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
+<h4 id="Renormalisation">Renormalisation<a class="anchor-link" href="#Renormalisation">¶</a></h4><p>To coarse-grain the cellular automaton, we divide the system into blocks. Each block is replaced with a simplified variable that describes whether clusters of trees inside it are connected or disconnected. At each renormalisation step, we update this description at a larger scale.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li><p><strong>Define a property measurable at any scale.</strong></p>
+<ul>
+<li>Probability $P(s)$ that a fire can spread across a block of size $s$</li>
+</ul>
+</li>
+<li><p><strong>Calculate the property at the smallest scale.</strong></p>
+<ul>
+<li>For a single cell, fire spreads only if a tree is present</li>
+<li>Typically obtainable directly from a model parameter:</li>
+</ul>
+<p>$$
+  P_1 = q.
+  $$</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d647c09e-b920-416c-ad02-8bc0839dbc98">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -26455,23 +26466,14 @@ $$</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
 <ol start="3">
-<li><strong>Relate scales with a recurrence.</strong></li>
+<li><strong>Relate scales with a recurrence.</strong>
+i.e. Derive a relationship between the property at the smallest scale and the property at the next larger scale:</li>
 </ol>
-<ul>
-<li><p>Derive a relationship between the property at the smallest scale and the property at the next larger scale:</p>
 <p>$$
-P_{2} = \Phi\!\left[P_{1}\right].
-$$</p>
+  P_{2} = \Phi\!\left[P_{1}\right].
+  $$</p>
 <ul>
-<li>For a $2 \times 2$ block, we calculate the probability that fire can percolate across the block. By considering all possibilities, this occurs if:<ul>
-<li>all 4 cells have trees,</li>
-<li>any of the 4 combinations where 3 cells have trees,</li>
-<li>or any of the 4 arrangements where 2 cells have trees.</li>
-</ul>
-</li>
-<li>Adding these cases gives:</li>
-</ul>
-</li>
+<li>For a $2 \times 2$ block, we calculate the probability that fire can percolate across the block.</li>
 </ul>
 </div>
 </div>
