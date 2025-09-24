@@ -1,104 +1,38 @@
 Traceback (most recent call last):
-  File "/opt/miniconda3/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 154, in wrapped
+  File "/opt/miniconda3/envs/math3024/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 154, in wrapped
     asyncio.get_running_loop()
-    ~~~~~~~~~~~~~~~~~~~~~~~~^^
 RuntimeError: no running event loop
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/opt/miniconda3/lib/python3.13/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+  File "/opt/miniconda3/envs/math3024/lib/python3.11/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
-    ~~~~~~~~~^
-        nb,
-        ^^^
-    ...<4 lines>...
-        **kwargs,
-        ^^^^^^^^^
-    )
-    ^
-  File "/opt/miniconda3/lib/python3.13/site-packages/nbclient/client.py", line 1319, in execute
+  File "/opt/miniconda3/envs/math3024/lib/python3.11/site-packages/nbclient/client.py", line 1319, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "/opt/miniconda3/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 158, in wrapped
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/math3024/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 158, in wrapped
     return loop.run_until_complete(inner)
-           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
-  File "/opt/miniconda3/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/math3024/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
     return future.result()
-           ~~~~~~~~~~~~~^^
-  File "/opt/miniconda3/lib/python3.13/site-packages/nbclient/client.py", line 709, in async_execute
+           ^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/math3024/lib/python3.11/site-packages/nbclient/client.py", line 709, in async_execute
     await self.async_execute_cell(
-        cell, index, execution_count=self.code_cells_executed + 1
-    )
-  File "/opt/miniconda3/lib/python3.13/site-packages/nbclient/client.py", line 1062, in async_execute_cell
-    await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "/opt/miniconda3/lib/python3.13/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
-    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
-nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
-------------------
-#animate...
-
-t_steps = 200
-
-def update(frame):
-    # Perform one stabilisation step and update the plot
-    model_step(grid, topple_threshold)
-    im.set_array(grid)
-    ax.set_title(f"Timestep: {frame+1}/{t_steps}")
-    return im
-
-# Create the sand pile grid
-grid_size = 20
-topple_threshold = 4 #K_c
-
-# Select initialisation of sand
-# grid = initialise_grid(grid_size, topple_threshold=4, init_type="random")
-grid = initialise_grid(grid_size, topple_threshold=4, init_type="full_random")
-# grid = initialise_grid(grid_size, topple_threshold=4, init_type="full_constant")
-
-# Set up discrete colormap and norm
-cmap = plt.cm.Greys
-max_val = grid.max()
-bounds = list(range(max_val + 1))  # integers from 0 up to observed max
-norm = colors.BoundaryNorm(boundaries=bounds, ncolors=cmap.N, clip=True)
-
-# Set up the figure and axis for plotting
-fig, ax = plt.subplots()
-im = ax.imshow(grid, cmap=cmap, norm=norm, interpolation='nearest')
-cbar = plt.colorbar(im, ticks=bounds)
-cbar.ax.set_yticklabels([str(b) for b in bounds])
-
-plt.close()
-
-# Create the animation
-anim = animation.FuncAnimation(fig, update, frames=t_steps, interval=200)
-
-# Display the animation as a video
-HTML(anim.to_html5_video())
-------------------
-
-
-[31m---------------------------------------------------------------------------[39m
-[31mRuntimeError[39m                              Traceback (most recent call last)
-[36mCell[39m[36m [39m[32mIn[3][39m[32m, line 39[39m
-[32m     36[39m anim = animation.FuncAnimation(fig, update, frames=t_steps, interval=[32m200[39m)
-[32m     38[39m [38;5;66;03m# Display the animation as a video[39;00m
-[32m---> [39m[32m39[39m HTML([43manim[49m[43m.[49m[43mto_html5_video[49m[43m([49m[43m)[49m)
-
-[36mFile [39m[32m/opt/miniconda3/lib/python3.13/site-packages/matplotlib/animation.py:1302[39m, in [36mAnimation.to_html5_video[39m[34m(self, embed_limit)[39m
-[32m   1299[39m path = Path(tmpdir, [33m"[39m[33mtemp.m4v[39m[33m"[39m)
-[32m   1300[39m [38;5;66;03m# We create a writer manually so that we can get the[39;00m
-[32m   1301[39m [38;5;66;03m# appropriate size for the tag[39;00m
-[32m-> [39m[32m1302[39m Writer = [43mwriters[49m[43m[[49m[43mmpl[49m[43m.[49m[43mrcParams[49m[43m[[49m[33;43m'[39;49m[33;43manimation.writer[39;49m[33;43m'[39;49m[43m][49m[43m][49m
-[32m   1303[39m writer = Writer(codec=[33m'[39m[33mh264[39m[33m'[39m,
-[32m   1304[39m                 bitrate=mpl.rcParams[[33m'[39m[33manimation.bitrate[39m[33m'[39m],
-[32m   1305[39m                 fps=[32m1000.[39m / [38;5;28mself[39m._interval)
-[32m   1306[39m [38;5;28mself[39m.save([38;5;28mstr[39m(path), writer=writer)
-
-[36mFile [39m[32m/opt/miniconda3/lib/python3.13/site-packages/matplotlib/animation.py:121[39m, in [36mMovieWriterRegistry.__getitem__[39m[34m(self, name)[39m
-[32m    119[39m [38;5;28;01mif[39;00m [38;5;28mself[39m.is_available(name):
-[32m    120[39m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m._registered[name]
-[32m--> [39m[32m121[39m [38;5;28;01mraise[39;00m [38;5;167;01mRuntimeError[39;00m([33mf[39m[33m"[39m[33mRequested MovieWriter ([39m[38;5;132;01m{[39;00mname[38;5;132;01m}[39;00m[33m) not available[39m[33m"[39m)
-
-[31mRuntimeError[39m: Requested MovieWriter (ffmpeg) not available
+  File "/opt/miniconda3/envs/math3024/lib/python3.11/site-packages/nbclient/client.py", line 1005, in async_execute_cell
+    exec_reply = await self.task_poll_for_reply
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/math3024/lib/python3.11/site-packages/nbclient/client.py", line 806, in _async_poll_for_reply
+    error_on_timeout_execute_reply = await self._async_handle_timeout(timeout, cell)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/math3024/lib/python3.11/site-packages/nbclient/client.py", line 856, in _async_handle_timeout
+    raise CellTimeoutError.error_from_timeout_and_cell(
+nbclient.exceptions.CellTimeoutError: A cell timed out while it was being executed, after 30 seconds.
+The message was: Cell execution timed out.
+Here is a preview of the cell contents:
+-------------------
+['#animate...', '', 't_steps = 300', '', 'def update(frame):']
+...
+['# Create the animation', 'anim = animation.FuncAnimation(fig, update, frames=t_steps, interval=200)', '', '# Display the animation as a video', 'HTML(anim.to_html5_video())']
+-------------------
 

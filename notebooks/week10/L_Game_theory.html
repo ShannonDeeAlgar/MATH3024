@@ -1,0 +1,984 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Week 10: Game theory &#8212; Unit Reader</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/week10/L_Game_theory';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="Week 9: Information Theory" href="../week09/L_InformationTheory.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Unit Reader</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    MATH3024 Reader
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week01/L_Introduction_to_complex_systems.html">Week 1: Welcome to MATH3024: (modelling) Complex Systems</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../week02/L_Fractals.html">Week 2: Fractals</a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../week03/L_Reaction_diffusion.html">Week 3: Reaction-diffusion systems</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../week04/L_Cellular_automata.html">Week 4: Cellular automata</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../week05/L_ABM.html">Week 5: Agent-based modelling</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../week06/L_Synchronisation.html">Week 6: Synchronisation</a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../week07/L_Intelligent_systems.html">Week 7: Intelligent systems</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../week08/L_Critical_phenomena.html">Week 8: Critical behaviour</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../week09/L_InformationTheory.html">Week 9: Information Theory</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Week 10: Game theory</a></li>
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/week10/L_Game_theory.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Week 10: Game theory</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Week 10: Game theory</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#games">Games</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions">Assumptions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling-games">Modelling games</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strategy-space">Strategy space</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#payoff-functions">Payoff functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#payoff-matrix-normal-form">Payoff matrix (normal form)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outcomes">Outcomes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nash-equilibrium">Nash equilibrium</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#prisoner-s-dilemma">Prisoner’s dilemma</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#framed-as-a-game">Framed as a game</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-rules-of-the-game">The rules of the game</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#payoff-structure">Payoff structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Payoff matrix (normal form)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#payoff-plane">Payoff plane</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#so-what-actions-should-the-players-choose">So what actions should the players choose?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Nash equilibrium</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pareto-optimum">Pareto optimum</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-about-the-greater-good">What about the greater good?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generalising-the-payoff">Generalising the payoff</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prisoner-s-dilemmas-outside-of-the-prison">Prisoner’s dilemmas outside of the prison</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#reality">Reality</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="week-10-game-theory">
+<h1>Week 10: Game theory<a class="headerlink" href="#week-10-game-theory" title="Link to this heading">#</a></h1>
+<p>Game theory was first formalised by John von Neumann and Oskar Morgenstern in their landmark 1944 book <em>Theory of Games and Economic Behavior</em>. It gained prominence during the Cold War, when strategists sought mathematical tools to analyse conflict, negotiation, and deterrence.</p>
+<p>At its heart, game theory is the quantitative study of strategic interaction. It provides a framework for situations with multiple decision makers, or players, where the outcome for each individual depends not only on their own choices but also on the choices of others. This makes game theory a natural companion to the study of complex systems, many of which involve interacting agents (people, organisms, firms, or institutions etc) whose local decisions shape collective behaviour.</p>
+<p>Game theoretic models shed light on why rational self-interest often leads to tension between what is best for the individual and what is best for the group. Traditionally, they have focused on small, stylised settings with only a few players, making the mathematics manageable and the strategic logic clear. With greater computing power and advances in complex systems theory, game-theoretic insights about incentives and stability can now be embedded within large-scale models, linking clear strategic reasoning to rich collective dynamics.</p>
+<p>We’ll use the <strong>Prisoner’s Dilemma</strong> to explore the basics of game theory.</p>
+<p>It’s the most famous example in the field. First discussed in the 1950s, it captures the paradox at the heart of many complex systems — that rational choices at the individual level can undermine the collective good.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="games">
+<h1>Games<a class="headerlink" href="#games" title="Link to this heading">#</a></h1>
+<p>A “game” is not about entertainment but a carefully designed representation of strategic decision-making.</p>
+<p>It is defined by three key ingredients: who makes the decision, <span class="math notranslate nohighlight">\(P\)</span>, what decision they make, <span class="math notranslate nohighlight">\(A\)</span>, and what reward they get as a result of the decision of <em>all</em> players, <span class="math notranslate nohighlight">\(U\)</span>.</p>
+<p>Formally:</p>
+<div class="math notranslate nohighlight">
+\[
+G = \{P, A, U\}.
+\]</div>
+<p><span class="math notranslate nohighlight">\(P\)</span>: players</p>
+<ul class="simple">
+<li><p>A set of decision makers in a game <span class="math notranslate nohighlight">\(\{p_1, p_2, \ldots, p_n\}\)</span> (this is an n-player game)</p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(A\)</span>: actions</p>
+<ul class="simple">
+<li><p>A set that tells us what each player can do in the game <span class="math notranslate nohighlight">\(\{a_1,a_2, \ldots, a_n\}\)</span></p></li>
+<li><p>e.g. the actions of player 1 <span class="math notranslate nohighlight">\(a_1=\{\text{up}, \text{down}\}\)</span></p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(U\)</span>: utility/payoff</p>
+<ul class="simple">
+<li><p>A set of rewards (or punishments) <span class="math notranslate nohighlight">\(\{u_1, u_2, \ldots, u_n\}\)</span></p></li>
+<li><p>Each element is a function for each player</p></li>
+<li><p>e.g. the utility of player 1 in a 2-player game if <span class="math notranslate nohighlight">\(p_1\)</span> plays the action <span class="math notranslate nohighlight">\(\text{up}\)</span> and <span class="math notranslate nohighlight">\(p_2\)</span> plays the action <span class="math notranslate nohighlight">\(\text{down}\)</span> is <span class="math notranslate nohighlight">\(u_1(\text{up}, \text{down})=2\)</span></p></li>
+</ul>
+<section id="assumptions">
+<h2>Assumptions<a class="headerlink" href="#assumptions" title="Link to this heading">#</a></h2>
+<p>Game theory hinges on some critical assumptions.</p>
+<p>The players are <strong>rational utility maximisers</strong>.</p>
+<ul class="simple">
+<li><p><strong>Rational</strong> means they don’t make mistakes when they choose the action.</p></li>
+<li><p><strong>Utility maximiser</strong> means they always choose the action that’s best for them.</p></li>
+</ul>
+<p>Within this major assumption are the following:</p>
+<ul class="simple">
+<li><p>All players understand the game</p></li>
+<li><p>Players prefer the better payoff</p></li>
+<li><p>No other considerations (e.g. reputation, loyalty, opportunity for retribution)</p></li>
+<li><p>No communication (no negotiating, making promises or threats)</p></li>
+</ul>
+<p>Behavioural Game Theory relaxes these assumptions but we don’t get into that in this unit.</p>
+</section>
+<section id="modelling-games">
+<h2>Modelling games<a class="headerlink" href="#modelling-games" title="Link to this heading">#</a></h2>
+<section id="strategy-space">
+<h3>Strategy space<a class="headerlink" href="#strategy-space" title="Link to this heading">#</a></h3>
+<p>The <strong>strategy space</strong> is the set of all possible action profiles across players:</p>
+<div class="math notranslate nohighlight">
+\[
+S = A_1 \times A_2 \times \cdots \times A_n,
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(A_i\)</span> is the action set of player <span class="math notranslate nohighlight">\(p_i\)</span>.</p>
+<p>Each element <span class="math notranslate nohighlight">\(s \in S\)</span> is a tuple <span class="math notranslate nohighlight">\((a_1,a_2,\ldots,a_n)\)</span> describing one possible combination of actions.</p>
+</section>
+<section id="payoff-functions">
+<h3>Payoff functions<a class="headerlink" href="#payoff-functions" title="Link to this heading">#</a></h3>
+<p>For each profile <span class="math notranslate nohighlight">\(s \in S\)</span> we assign a <strong>payoff function</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+u_i : S \to \mathbb{R},
+\]</div>
+<p>which gives the utility (reward/cost) for player <span class="math notranslate nohighlight">\(p_i\)</span>.</p>
+</section>
+<section id="payoff-matrix-normal-form">
+<h3>Payoff matrix (normal form)<a class="headerlink" href="#payoff-matrix-normal-form" title="Link to this heading">#</a></h3>
+<p>For 2-player games, it is convenient to represent the payoff structure with a matrix:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{c|c|c|}
+ &amp; \text{Player 2: } \beta_1 &amp; \text{Player 2: } \beta_2 \\
+\hline
+\text{Player 1: } \alpha_1 &amp; (u_1(\alpha_1,\beta_1), u_2(\alpha_1,\beta_1)) 
+                           &amp; (u_1(\alpha_1,\beta_2), u_2(\alpha_1,\beta_2)) \\
+\hline
+\text{Player 1: } \alpha_2 &amp; (u_1(\alpha_2,\beta_1), u_2(\alpha_2,\beta_1)) 
+                           &amp; (u_1(\alpha_2,\beta_2), u_2(\alpha_2,\beta_2)) \\
+\hline
+\end{array}
+\end{split}\]</div>
+<ul class="simple">
+<li><p>Player 1’s actions label the rows.</p></li>
+<li><p>Player 2’s actions label the columns.</p></li>
+<li><p>Each cell of the matrix corresponds to one strategy profile <span class="math notranslate nohighlight">\(s\in S\)</span>, and the entries show the utilities <span class="math notranslate nohighlight">\((u_1,u_2)\)</span> corresponding to that action pair.</p></li>
+</ul>
+<p>This compact form is called the <strong>normal form</strong> of a game.</p>
+</section>
+</section>
+<section id="outcomes">
+<h2>Outcomes<a class="headerlink" href="#outcomes" title="Link to this heading">#</a></h2>
+<p>Although the models are stylised, they are powerful. By treating decisions as part of a deterministic dynamical system, game theory adds rigour to the study of human behaviour.</p>
+<p>When analysing a game, we care about the properties of outcomes (not just individual strategies). Solutions focus on whether outcomes are <em>stable</em> (such as Nash equilibria) and whether they are <em>efficient</em> (such as Pareto optimal outcomes).</p>
+<p><strong>Pareto Optimality</strong>:
+An outcome is Pareto optimal if no player can be made better off without making at least one other player worse off. These outcomes form the <strong>Pareto frontier</strong>.</p>
+<p><strong>Dominant Strategy</strong>:
+A strategy is dominant if it gives a player at least as good a payoff as any other, regardless of what others do. If it is <em>strictly better</em> in every case, it is a <strong>strictly dominant strategy</strong>.</p>
+<p><strong>Dominated Strategy</strong>:
+A strategy is dominated if there is always another strategy that does at least as well, and sometimes better. Rational players should never play dominated strategies.</p>
+<p><strong>Social Optimum</strong>:
+The outcome that maximises the <strong>sum of payoffs</strong> across all players (sometimes called utilitarian efficiency). This is different from Pareto optimality as it may not be stable.
+(The outcome that maximises <span class="math notranslate nohighlight">\(u_1 + u_2\)</span> across the whole payoff matrix).</p>
+<section id="nash-equilibrium">
+<h3>Nash equilibrium<a class="headerlink" href="#nash-equilibrium" title="Link to this heading">#</a></h3>
+<p>The Nash equilibrium (named for Nobel Laureate John Nash) is often phrased as <em>‘no player has an incentive to unilaterally deviate’</em>, i.e. there’s nothing to gain by changing personal strategy and the situation is stable.</p>
+<p>‘Unilaterally’ <span class="math notranslate nohighlight">\(\implies \)</span> a player can only change their own strategy (not that of others).</p>
+<p>The other way to think about this is having played the game, no player wishes they’d played differently.</p>
+<p>Formally:</p>
+<p>Let the actions of <span class="math notranslate nohighlight">\(p_1\)</span> and <span class="math notranslate nohighlight">\(p_2\)</span> be <span class="math notranslate nohighlight">\(a_1=\{\alpha_1,\alpha_2, \ldots \alpha_n\}\)</span> and <span class="math notranslate nohighlight">\(a_2=\{\beta_1,\beta_2, \ldots \beta_n\}\)</span> respectively.</p>
+<p>Then <span class="math notranslate nohighlight">\((\alpha^*, \beta^*)\)</span> is a Nash equilibrium if:</p>
+<div class="math notranslate nohighlight">
+\[
+u_1(\alpha^*,\beta^*)\geq u_1(\alpha',\beta^*) \quad \forall \alpha'\in a_1
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+u_2(\alpha^*,\beta^*)\geq u_2(\alpha^*,\beta') \quad \forall \beta' \in a_2.
+\]</div>
+<p>Note that for it to not to be a Nash equilibrium only one player needs an incentive to deviate. The “greater than or equal to” allows for cases where a player is indifferent between sticking with the equilibrium strategy and switching to another. Equality means the player has no incentive to deviate, but also no strict gain from staying. This outcome is still a Nash equilibrium because there is nothing to be gained by moving away.</p>
+<p>We use the asterisk to denote the stable equilibrium (similar to fixed points in nonlinear dynamics).</p>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="prisoner-s-dilemma">
+<h1>Prisoner’s dilemma<a class="headerlink" href="#prisoner-s-dilemma" title="Link to this heading">#</a></h1>
+<p><em>Two criminals are caught by the police, but there isn’t enough evidence for the full charge. They are interrogated separately.</em></p>
+<p>Each must decide whether to:</p>
+<ul class="simple">
+<li><p><strong>Cooperate (C):</strong> stay silent and protect the other.</p></li>
+<li><p><strong>Defect (D):</strong> betray the other by confessing.</p></li>
+</ul>
+<p>The outcome determines how many years each spends in jail.</p>
+<section id="framed-as-a-game">
+<h2>Framed as a game<a class="headerlink" href="#framed-as-a-game" title="Link to this heading">#</a></h2>
+<p>Using the formal definition of a game, <span class="math notranslate nohighlight">\(G = \{P, A, U\}\)</span>:</p>
+<ul class="simple">
+<li><p><strong>Players</strong>: <span class="math notranslate nohighlight">\(P=\{p_1, p_2\}\)</span></p></li>
+<li><p><strong>Actions</strong>: <span class="math notranslate nohighlight">\(A=\{A_1, A_2\}\)</span>, where <span class="math notranslate nohighlight">\(A_1=\{C,D\}\)</span>, <span class="math notranslate nohighlight">\(A_2=\{C,D\}\)</span></p></li>
+<li><p><strong>Utilities (payoffs)</strong>: <span class="math notranslate nohighlight">\(U=\{u_1,u_2\}\)</span> for chosen actions <span class="math notranslate nohighlight">\(a_1\in A_1\)</span> and <span class="math notranslate nohighlight">\(a_2\in A_2\)</span></p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(u_1(a_1,a_2)\)</span> = -(years in jail) for <span class="math notranslate nohighlight">\(p_1\)</span> given actions <span class="math notranslate nohighlight">\((a_1,a_2)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(u_2(a_1,a_2)\)</span> = -(years in jail) for <span class="math notranslate nohighlight">\(p_2\)</span></p></li>
+<li><p>We define <strong>utility = −(years in jail)</strong> (think of it as years of life lost) in order to keep “higher is better” consistent with the formal definition of Nash equilibrium (which we will see shortly).</p></li>
+</ul>
+</li>
+</ul>
+<p>The outcome determines how many years each spends in jail.</p>
+<p><em>Note</em>: Sometimes the actions are labelled as <em>confess</em> (C) vs. <em>don’t confess</em> (D), and payoffs can also be framed as <em>time served</em> rather than <em>time saved</em> so care needs to be taken in interpretting the situation.</p>
+</section>
+<section id="the-rules-of-the-game">
+<h2>The rules of the game<a class="headerlink" href="#the-rules-of-the-game" title="Link to this heading">#</a></h2>
+<p>The police offer the prisoners a <strong>“Faustian bargain”</strong> (Faust traded his soul for knowledge and power):</p>
+<p>If one betrays while the other stays silent:</p>
+<ul class="simple">
+<li><p>The betrayer goes free.</p></li>
+<li><p>The silent one serves 3 years.</p></li>
+</ul>
+<p>If both betray:</p>
+<ul class="simple">
+<li><p>Each serves 2 years.</p></li>
+</ul>
+<p>If both stay silent:</p>
+<ul class="simple">
+<li><p>Each serves only 1 year.</p></li>
+</ul>
+<p>This makes the situation <strong>symmetric</strong>: both players face the same set of consequences.</p>
+</section>
+<section id="payoff-structure">
+<h2>Payoff structure<a class="headerlink" href="#payoff-structure" title="Link to this heading">#</a></h2>
+<p>We can now assign payoffs formally:</p>
+<div class="math notranslate nohighlight">
+\[
+u_1(D,C)=0, \quad u_1(C,D)=3, \quad u_1(D,D)=2, \quad u_1(C,C)=1
+\]</div>
+<p>By symmetry:</p>
+<div class="math notranslate nohighlight">
+\[
+u_2(C,D)=0, \quad u_2(D,C)=3, \quad u_2(D,D)=2, \quad u_2(C,C)=1
+\]</div>
+<p>Hence the possible action pairs, <span class="math notranslate nohighlight">\((u_1,u_2)\)</span> are:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\((C,C)\)</span>: both cooperate then each serves 1 year.</p></li>
+<li><p><span class="math notranslate nohighlight">\((D,C)\)</span>: Player 1 betrays then they go free, Player 2 serves 3 years.</p></li>
+<li><p><span class="math notranslate nohighlight">\((C,D)\)</span>: Player 1 silent then they will serve 3 years, Player 2 goes free.</p></li>
+<li><p><span class="math notranslate nohighlight">\((D,D)\)</span>: both betray then each serves 2 years.</p></li>
+</ul>
+<p>The <strong>strategy space</strong> is the set of all possible action pairs:</p>
+<div class="math notranslate nohighlight">
+\[
+S=\{C,D\}\times\{C,D\}=\{(C,C),(C,D),(D,C),(D,D)\}.
+\]</div>
+<p>For each element of <span class="math notranslate nohighlight">\(S\)</span>, the payoff functions <span class="math notranslate nohighlight">\(u_1\)</span> and <span class="math notranslate nohighlight">\(u_2\)</span> tell us the outcome (years in jail).</p>
+</section>
+<section id="id1">
+<h2>Payoff matrix (normal form)<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p><img alt="" src="../../_images/Payoff_matrix_pictures_PD.png" /></p>
+<ul class="simple">
+<li><p>Player 1 chooses rows.</p></li>
+<li><p>Player 2 chooses columns.</p></li>
+<li><p>Each cell shows the utility <span class="math notranslate nohighlight">\((u_1, u_2)\)</span>.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{c|c|c|}
+ &amp; C &amp; D \\
+\hline
+C &amp; (-1,-1) &amp; (-3,0) \\
+\hline
+D &amp; (0,-3) &amp; (-2,-2) \\
+\hline
+\end{array}
+\end{split}\]</div>
+</section>
+<section id="payoff-plane">
+<h2>Payoff plane<a class="headerlink" href="#payoff-plane" title="Link to this heading">#</a></h2>
+<p>In the normal form, rows and columns correspond to <em>actions</em>.</p>
+<p>Alternatively, we can represent the two player game with <strong>“payoff plane”</strong> where the focus is on the <em>set of achievable payoffs</em> and the trade-offs between players. The utilities themselves become the coordinates, and each action profile corresponds to a point in this plane.</p>
+<p>This representation is sometimes called the <strong>dual of the normal form</strong>:</p>
+<p><img alt="" src="../../_images/Payoff_plane_PD.png" /></p>
+<p>For the Prisoner’s Dilemma, these points are:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\((1,1)\)</span> for both cooperating.</p></li>
+<li><p><span class="math notranslate nohighlight">\((0,3)\)</span> and <span class="math notranslate nohighlight">\((3,0)\)</span> for unilateral defection.</p></li>
+<li><p><span class="math notranslate nohighlight">\((2,2)\)</span> for mutual defection.</p></li>
+</ul>
+<p>The lines connect outcomes that are available through one player’s unilateral choice, holding the other player’s choice fixed. e.g., the line connecting <span class="math notranslate nohighlight">\((0,3)\)</span> and <span class="math notranslate nohighlight">\((2,2)\)</span> represents Player 1’s two possible payoffs when Player 2 defects. Similarly, the line connecting <span class="math notranslate nohighlight">\((1,1)\)</span> and <span class="math notranslate nohighlight">\((3,0)\)</span> represents Player 1’s two possible payoffs when Player 2 cooperates.</p>
+</section>
+<section id="so-what-actions-should-the-players-choose">
+<h2>So what actions should the players choose?<a class="headerlink" href="#so-what-actions-should-the-players-choose" title="Link to this heading">#</a></h2>
+<p>Assuming that the prisoners are rational utility maximisers, i.e. they are only concerned with the immediate goal of minimising their own sentence…</p>
+<p>What should <span class="math notranslate nohighlight">\(p_1\)</span> do?</p>
+<p><img alt="" src="../../_images/Payoff_matrix_PD.png" /></p>
+<p>Analysing the payoff matrix. We assume a particular set of actions (position of the normal form) and assess whether a player would opt to change their mind when informed what the other player has chosen.</p>
+<p>From <span class="math notranslate nohighlight">\(p_1\)</span>’s perspective:</p>
+<p><strong>If <span class="math notranslate nohighlight">\(p_2\)</span> cooperates</strong>: <span class="math notranslate nohighlight">\(u_1(D,C) = 0 \geq u_1(C,C) = -1\)</span></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\therefore p_1\)</span> is better off defecting; she would go free rather than serve 1 year</p></li>
+</ul>
+<p><strong>If <span class="math notranslate nohighlight">\(p_2\)</span> defects</strong>: <span class="math notranslate nohighlight">\(u_1(D,D) = -2 \geq u_1(C,D) = -3\)</span></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\therefore p_1\)</span> is still better off defecting; she would serve only 2 years rather than 3</p></li>
+</ul>
+</section>
+<section id="id2">
+<h2>Nash equilibrium<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>No matter what <span class="math notranslate nohighlight">\(p_2\)</span> does, <span class="math notranslate nohighlight">\(p_1\)</span> is better off defecting.</p>
+<p>Same goes for <span class="math notranslate nohighlight">\(p_2\)</span> from symmetry.</p>
+<p>Defecting is the best choice in all cases! It is the (strictly) <strong>‘dominant strategy’</strong> and the <strong>Nash equilibrium</strong> i.e. once both defect, neither regrets it — even though they don’t like the outcome!</p>
+<p>Here the inequalities are strict in each comparison, so defection strictly dominates cooperation for both players.</p>
+<div style="border-left: 4px solid #1e70bf; padding: 0.75em; background-color: #eaf3fb; margin-bottom: 1em;">
+  <strong>Question:</strong><br>
+  Show working to support that player 2 should defect.
+</div><div class="toggle docutils container">
+<p><strong>If <span class="math notranslate nohighlight">\(p_1\)</span> cooperates</strong>: <span class="math notranslate nohighlight">\(u_2(C,D) = 0 \geq u_2(C,C) = -1\)</span></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\therefore p_2\)</span> best responds with <span class="math notranslate nohighlight">\(D\)</span></p></li>
+</ul>
+<p><strong>If <span class="math notranslate nohighlight">\(p_2\)</span> defects</strong>: <span class="math notranslate nohighlight">\(u_2(D,D) = -2 \geq u_2(D,C) = -3\)</span></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\therefore p_2\)</span> best responds with <span class="math notranslate nohighlight">\(D\)</span></p></li>
+</ul>
+</div>
+</section>
+<section id="pareto-optimum">
+<h2>Pareto optimum<a class="headerlink" href="#pareto-optimum" title="Link to this heading">#</a></h2>
+<p>The point <span class="math notranslate nohighlight">\((1,1)\)</span> is Pareto-superior to <span class="math notranslate nohighlight">\((2,2)\)</span> because both players would prefer this option. But the incentives of each player make it unstable.</p>
+<p>The geometry of the payoff space makes these tensions visually obvious. Especially when lines are replaced with arrows:</p>
+<p><img alt="" src="../../_images/Payoff_plane_analysed_PD.png" /></p>
+</section>
+<section id="what-about-the-greater-good">
+<h2>What about the greater good?<a class="headerlink" href="#what-about-the-greater-good" title="Link to this heading">#</a></h2>
+<p>There is nothing the prisoners can do to achieve the outcome they both want (the <strong>Pareto optimal</strong> outcome). Mutual cooperation is preferable to mutual defection and yet rational self-interest pushes each to defect - a situation that is worse for both prisoners.</p>
+<p>This highlights a central irony of the Prisoner’s Dilemma: By acting purely in self-interest, players end up <em>hurting themselves when they’re actually only thinking about themselves</em>.</p>
+<p>The dilemma illustrates how the pursuit of individual rationality can undermine the collective good. logic extends far beyond two criminals in a cell. Many real-world situations echo the same tension:</p>
+<ul class="simple">
+<li><p><strong>Tragedy of the commons</strong>: shared resources like fisheries, forests, or the atmosphere are overused because each individual gains by exploiting them, even though collective restraint would leave everyone better off.</p></li>
+<li><p><strong>Public goods</strong>: everyone benefits from clean air, vaccination, or infrastructure, but each individual has an incentive to free-ride rather than contribute.</p></li>
+</ul>
+</section>
+<section id="generalising-the-payoff">
+<h2>Generalising the payoff<a class="headerlink" href="#generalising-the-payoff" title="Link to this heading">#</a></h2>
+<p><img alt="" src="../../_images/General_PD.png" /></p>
+<p>We define each of the possible utilities as:</p>
+<ul class="simple">
+<li><p><strong>Reward:</strong> <span class="math notranslate nohighlight">\(R = u_1(C, C)\)</span> (payoff to a cooperator when both cooperate)</p></li>
+<li><p><strong>Temptation:</strong> <span class="math notranslate nohighlight">\(T = u_1(D, C)\)</span> (payoff to a defector against a cooperator)</p></li>
+<li><p><strong>Penalty:</strong> <span class="math notranslate nohighlight">\(P = u_1(D, D)\)</span> (payoff to a defector when both defect)</p></li>
+<li><p><strong>Sucker:</strong> <span class="math notranslate nohighlight">\(S = u_1(C, D)\)</span> (payoff to a cooperator against a defector)</p></li>
+</ul>
+<p>By symmetry, the same definitions apply to Player 2.</p>
+<p>In general, if:</p>
+<div class="math notranslate nohighlight">
+\[
+S&lt;P&lt;R&lt;T
+\]</div>
+<p>then the game is classified as a Prisoner’s Dilemma.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(R&gt;P\)</span> implies that mutual cooperation is superior to mutual defection.</p></li>
+<li><p><span class="math notranslate nohighlight">\(T&gt;R\)</span> and <span class="math notranslate nohighlight">\(P&gt;S\)</span> imply that defection is the dominant strategy for both agents.</p></li>
+</ul>
+<p>Note: ‘<span class="math notranslate nohighlight">\(&gt;\)</span>’ here implies ‘better’, which will depend on the question context (e.g. if the utility is time in jail vs time spared from jail).</p>
+</section>
+<section id="prisoner-s-dilemmas-outside-of-the-prison">
+<h2>Prisoner’s dilemmas outside of the prison<a class="headerlink" href="#prisoner-s-dilemmas-outside-of-the-prison" title="Link to this heading">#</a></h2>
+<p>Many social interactions can be modeled as variations on the Prisoner’s Dilemma</p>
+<p>Some classic examples include:</p>
+<ul class="simple">
+<li><p>Business competition between two companies deciding whether to lower their prices to attract more customers or keep prices high to maximise profits</p></li>
+<li><p>Environmental conservation between neighbouring countries that share a common water resource</p></li>
+<li><p>Arms race between countries building up their military capabilities</p></li>
+<li><p>Traffic congestion: https://www.youtube.com/watch?v=cALezV_Fwi0</p></li>
+<li><p>International diplomacy</p></li>
+<li><p>Common-pool resource management</p></li>
+<li><p>…</p></li>
+</ul>
+<p>And if it doesn’t fit the Prisoner’s Dilemma framework then there is another game it will fit!</p>
+<p><img alt="" src="../../_images/2x2games-topology_page1.jpg" /></p>
+<p><img alt="" src="../../_images/2x2games-topology_page4.jpg" /></p>
+<p>[Topology of 2x2 Ordinal Games with Payoff Families]
+(https://upload.wikimedia.org/wikipedia/commons/3/32/2x2chart110602.pdf)</p>
+<p>A systematic approach to (strict/indifferent ordinal) <span class="math notranslate nohighlight">\(2\times 2\)</span> games was provided by Robinson and Goforth, 2005.</p>
+<p>Payoffs are strictly ordinal so each player has <span class="math notranslate nohighlight">\(4!=24\)</span> ways to assign the outcomes.</p>
+<p>Since the rankings of Player 1 and Player 2 are independent, the total number of possible strict ordinal 2x2 games is <span class="math notranslate nohighlight">\(24\times 24=576\)</span>.</p>
+<p>Many games are essentially the same when considering symmetries:</p>
+<ul class="simple">
+<li><p>No swaps (original game)</p></li>
+<li><p>Swap Player 1’s strategies (flip rows)</p></li>
+<li><p>Swap Player 2’s strategies (flip columns)</p></li>
+<li><p>Swap both Player 1 and Player 2’s strategies (flip both rows and columns).</p></li>
+</ul>
+<p>Hence, there is factor 4 reduction and the number of distinct games is <span class="math notranslate nohighlight">\(576/4=144\)</span> strict ordinal 2x2 games.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="reality">
+<h1>Reality<a class="headerlink" href="#reality" title="Link to this heading">#</a></h1>
+<p>Game theory tells us what a perfectly rational agent <em>should</em> do.</p>
+<p>It is much harder to predict what real people <em>actually</em> do.</p>
+<p>See this ‘real life’ example, the Golden Balls:</p>
+<div class="cell tag_slides tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">YouTubeVideo</span>
+<span class="n">display</span><span class="p">(</span><span class="n">YouTubeVideo</span><span class="p">(</span><span class="s2">&quot;S0qjK3TWZE8&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">400</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+        <iframe
+            width="400"
+            height="300"
+            src="https://www.youtube.com/embed/S0qjK3TWZE8"
+            frameborder="0"
+            allowfullscreen
+            
+        ></iframe>
+        </div></div>
+</div>
+<div class="cell tag_slides tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Lectures completed successfully!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lectures completed successfully!
+</pre></div>
+</div>
+</div>
+</div>
+<div style="margin: 1.5em 0; border-right: 4px solid #888; padding-right: 1em; text-align: right;">
+  <div style="font-style: italic; font-family: 'Comic Neue', 'Segoe Script', cursive; font-size: 1.2em;">
+    Tiger got to hunt, bird got to fly; Man got to sit and wonder 'why, why, why?' Tiger got to sleep, bird got to land; Man got to tell himself he understand.
+  </div>
+  <div style="font-style: normal; font-size: 0.95em; margin-top: 0.5em;">
+    — Kurt Vonnegut
+  </div>
+</div>
+<p>I hope that you’ve enjoyed this unit and that you think about it and what you have learned as you go into the next phase of your working life and education</p>
+<p>Good luck for the upcoming Test and your final Project submissions :)</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/week10"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../week09/L_InformationTheory.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Week 9: Information Theory</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Week 10: Game theory</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#games">Games</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions">Assumptions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling-games">Modelling games</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strategy-space">Strategy space</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#payoff-functions">Payoff functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#payoff-matrix-normal-form">Payoff matrix (normal form)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outcomes">Outcomes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nash-equilibrium">Nash equilibrium</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#prisoner-s-dilemma">Prisoner’s dilemma</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#framed-as-a-game">Framed as a game</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-rules-of-the-game">The rules of the game</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#payoff-structure">Payoff structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Payoff matrix (normal form)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#payoff-plane">Payoff plane</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#so-what-actions-should-the-players-choose">So what actions should the players choose?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Nash equilibrium</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pareto-optimum">Pareto optimum</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-about-the-greater-good">What about the greater good?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generalising-the-payoff">Generalising the payoff</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prisoner-s-dilemmas-outside-of-the-prison">Prisoner’s dilemmas outside of the prison</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#reality">Reality</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Shannon Algar
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

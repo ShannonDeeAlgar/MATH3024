@@ -62,6 +62,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/week09/L_InformationTheory';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Week 10: Game theory" href="../week10/L_Game_theory.html" />
     <link rel="prev" title="Week 8: Critical behaviour" href="../week08/L_Critical_phenomena.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -245,6 +246,10 @@
 
 
 
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../week10/L_Game_theory.html">Week 10: Game theory</a></li>
 
 
 
@@ -593,8 +598,8 @@ document.write(`
 <p>At its core, it is the mathematics of inference (encoding, decoding, probability, and statistics) especially under conditions of uncertainty.</p>
 <p>Shannon’s key insight was that messages aren’t random strings though. Some symbols/words are more probable than others. e.g.:</p>
 <ul class="simple">
-<li><p>In English text, E is much more likely than Z.</p></li>
-<li><p>The digram TH is far more likely than XZ.</p></li>
+<li><p>In English text, <em>E</em> is much more likely than <em>Z</em>.</p></li>
+<li><p>The digram <em>TH</em> is far more likely than <em>XZ</em>.</p></li>
 <li><p>Whole words like “the” occur with very high frequency.</p></li>
 </ul>
 <p>So instead of assuming equal probabilities (each symbol would carry <span class="math notranslate nohighlight">\(\log_2 27 \approx 4.75\)</span> bits), he measured (or estimated) them from language statistics.</p>
@@ -784,22 +789,15 @@ H_{\text{exponential}} = -\log(\lambda) + 1
 <div style="border-left: 4px solid #1e70bf; padding: 0.75em; background-color: #eaf3fb; margin-bottom: 1em;">
   <strong>Pause and consider:</strong><br>
 Order the behavioural regimes of a Couzin model in terms of their entropy.
-</div><div class="cell tag_reader-only docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="err">```</span><span class="p">{</span><span class="n">toggle</span><span class="p">}</span>
-
-<span class="err">```</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-    <span class="err">```</span><span class="p">{</span><span class="n">toggle</span><span class="p">}</span>
-    <span class="o">^</span>
-<span class="ne">SyntaxError</span>: invalid syntax
-</pre></div>
-</div>
-</div>
+</div><div class="toggle docutils container">
+<p>We need to be clear about what variable the entropy is over.</p>
+<p>If we measure entropy of heading angles at a snapshot <span class="math notranslate nohighlight">\(H(\Theta)\)</span>:</p>
+<ul class="simple">
+<li><p>Highest: Random (uniform over <span class="math notranslate nohighlight">\([0,2\pi)\)</span>) and also rotational milling (headings wrap uniformly around the ring)</p></li>
+<li><p>Middle: Dynamic polarised (unimodal but broad around a mean)</p></li>
+<li><p>Lowest: Highly polarised order (tight spike around one direction)</p></li>
+</ul>
+<p>To capture the difference between the random state and the ordered milling we would need to also consider the spatial structure, say with <span class="math notranslate nohighlight">\(H(X, \Theta)\)</span>. Or perhaps we could instead consider something like relative angles locally?</p>
 </div>
 </section>
 </section>
@@ -1044,6 +1042,15 @@ T_{X\rightarrow Y} = I(X_t, Y_{t+1}|Y_t).
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">Week 8: Critical behaviour</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="../week10/L_Game_theory.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Week 10: Game theory</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
