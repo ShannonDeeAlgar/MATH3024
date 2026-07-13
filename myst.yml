@@ -1,0 +1,13 @@
+version: 1
+project:
+  title: Unit Reader
+  authors:
+    - name: Shannon Algar
+  toc:
+    - file: intro.md
+    - file: notebooks/week00/Getting_Started.ipynb
+    - file: notebooks/week01/L_Introduction_to_complex_systems.ipynb
+site:
+  options:
+    folders: true
+  template: book-theme
