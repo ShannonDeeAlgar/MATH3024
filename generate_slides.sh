@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 # Generates a reveal.js slide deck from a lecture notebook, excluding cells
-# tagged reader-only/slides-only (kept for the Reader, not for slides), and
-# hiding code-cell input/output tagged hide-input/hide-output.
+# tagged reader-only (kept for the Reader, not for slides) -- slides-only
+# cells are exactly the opposite (only for slides) so they must NOT be
+# stripped here, and hiding code-cell input/output tagged
+# hide-input/hide-output.
 # presenter-notes cells are left alone here: they're handled via
 # slide_type=notes and rendered as hidden speaker notes instead.
 #
@@ -16,7 +18,7 @@ fi
 
 jupyter nbconvert --to slides "$1" \
     --TagRemovePreprocessor.enabled=True \
-    --TagRemovePreprocessor.remove_cell_tags='["reader-only", "slides-only"]' \
+    --TagRemovePreprocessor.remove_cell_tags='["reader-only"]' \
     --TagRemovePreprocessor.remove_input_tags='["hide-input"]' \
     --TagRemovePreprocessor.remove_all_outputs_tags='["hide-output"]' \
     --SlidesExporter.reveal_scroll=True
