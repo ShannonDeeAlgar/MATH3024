@@ -1,18 +1,55 @@
-/* Reader style guide v1: teal accent.
+/* Reader style guide v2 direction C "Plate" (supersedes v1 teal and the
+   ink-red v2 draft). No accent colour at all -- links/quotes/quote-borders
+   are just ink, matching the notebook components' monochrome treatment.
    Overrides Tailwind Typography's --tw-prose-* variables (the documented
    theming hook for MyST's book-theme), rather than fighting utility
-   classes directly. .prose-invert is the class the theme swaps in for
-   dark mode, so it needs its own override, not just --tw-prose-invert-*. */
+   classes directly. book-theme's dark mode toggles a .dark class on an
+   ancestor and remaps --tw-prose-* via `.article:is(.dark *)` -- there is
+   no literal .prose-invert class applied anywhere, so overrides need to
+   target `.dark .article` to actually take effect (a .prose-invert rule
+   here would be silently dead). */
 
 .prose,
 .article {
-  --tw-prose-links: #146B69;
-  --tw-prose-quotes: #146B69;
-  --tw-prose-quote-borders: #146B69;
+  --tw-prose-links: #111110;
+  --tw-prose-quotes: #111110;
+  --tw-prose-quote-borders: #111110;
+  --reader-ink: #111110;
+  --reader-ink-soft: #5B5B58;
+  --reader-line: #CFCFC9;
 }
 
-.prose-invert {
-  --tw-prose-links: #4FD1C5;
-  --tw-prose-quotes: #4FD1C5;
-  --tw-prose-quote-borders: #4FD1C5;
+.dark .prose,
+.dark .article {
+  --tw-prose-links: #EDEDEA;
+  --tw-prose-quotes: #EDEDEA;
+  --tw-prose-quote-borders: #EDEDEA;
+  --reader-ink: #EDEDEA;
+  --reader-ink-soft: #9A9A94;
+  --reader-line: #333331;
+}
+
+/* book-theme doesn't expose typography-plugin font-family variables --
+   the --tw-prose-* hooks above only carry colour. Headings/body copy
+   default to the theme's ui-sans-serif stack unless set explicitly here,
+   scoped to .article so the site chrome (nav, sidebar, buttons) is
+   untouched. */
+
+.article h1,
+.article h2,
+.article h3,
+.article h4,
+.article h5,
+.article h6 {
+  font-family: "Big Caslon", Baskerville, Georgia, serif;
+  font-style: normal;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.article p,
+.article li,
+.article blockquote {
+  font-family: Baskerville, Georgia, serif;
 }
