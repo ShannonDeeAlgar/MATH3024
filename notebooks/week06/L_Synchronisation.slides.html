@@ -7752,66 +7752,6 @@ $$</p>
 </div>
 </div>
 </div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell celltag_hide-input celltag_slides" id="cell-id=a5526170-d518-4698-920a-7ab15d9ba029">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [29]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-
-<span class="c1"># Parameters</span>
-<span class="n">sampling_rate</span> <span class="o">=</span> <span class="mi">44100</span>  <span class="c1"># Sampling rate in Hz</span>
-<span class="n">duration</span> <span class="o">=</span> <span class="mi">5</span>  <span class="c1"># Duration of the simulation in seconds</span>
-<span class="n">frequency_1</span> <span class="o">=</span> <span class="mi">440</span>  <span class="c1"># Frequency of the first oscillator in Hz (within human hearing range)</span>
-<span class="n">frequency_2</span> <span class="o">=</span> <span class="mi">442</span>  <span class="c1"># Frequency of the second oscillator in Hz</span>
-
-<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">sr</span><span class="o">*</span><span class="n">duration</span><span class="p">),</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-<span class="c1"># Oscillator signals</span>
-<span class="n">signal_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">frequency_1</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>
-<span class="n">signal_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">frequency_2</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>
-
-<span class="c1"># Combined signal (beat phenomenon)</span>
-<span class="n">combined_signal</span> <span class="o">=</span> <span class="n">signal_1</span> <span class="o">+</span> <span class="n">signal_2</span>
-
-<span class="c1"># Plotting</span>
-<span class="c1"># Plotting (zoom in on first 0.2 seconds)</span>
-<span class="n">xmax</span> <span class="o">=</span> <span class="mf">0.03</span>   <span class="c1"># seconds to show</span>
-<span class="n">mask</span> <span class="o">=</span> <span class="n">t</span> <span class="o">&lt;=</span> <span class="n">xmax</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">mask</span><span class="p">],</span> <span class="n">signal_1</span><span class="p">[</span><span class="n">mask</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Oscillator 1'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Time (s)'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Amplitude'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">'upper right'</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">0.99</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">))</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">mask</span><span class="p">],</span> <span class="n">signal_2</span><span class="p">[</span><span class="n">mask</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Oscillator 2'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'orange'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Time (s)'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Amplitude'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">'upper right'</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">0.99</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">))</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">combined_signal</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Linearly combined signals'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'green'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Time (s)'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Amplitude'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">'upper right'</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">0.99</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">))</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
@@ -7825,27 +7765,6 @@ $$</p>
 </div>
 </div>
 </div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell celltag_hide-input" id="cell-id=f0408150-a908-49ea-b642-650d7f0c0e25">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [23]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># --- Audio widgets with labels ---</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"🔹 Tone 1 (440 Hz)"</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="n">Audio</span><span class="p">(</span><span class="n">signal_1</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="n">sampling_rate</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">"🔸 Tone 2 (442 Hz)"</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="n">Audio</span><span class="p">(</span><span class="n">signal_2</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="n">sampling_rate</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">"💚 Combined signal (beats)"</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="n">Audio</span><span class="p">(</span><span class="n">combined_signal</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="n">sampling_rate</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
@@ -8017,40 +7936,6 @@ $$</p>
 </div>
 </div>
 </div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell celltag_hide-input" id="cell-id=be4ef1ff-9275-4984-b220-56d2135635df">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Parameters</span>
-<span class="n">amplitude1</span> <span class="o">=</span> <span class="mf">1.0</span>
-<span class="n">amplitude2</span> <span class="o">=</span> <span class="mf">0.6</span>
-<span class="n">frequency</span> <span class="o">=</span> <span class="mf">0.1</span>
-<span class="n">phase_shift</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#np.pi /4  # Example phase shift of pi/4 radians (45 degrees)</span>
-
-<span class="c1"># Time vector</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>  <span class="c1"># Adjust the range and number of time points as needed</span>
-
-<span class="c1"># Generate oscillator 1 (sine wave)</span>
-<span class="n">oscillator1</span> <span class="o">=</span> <span class="n">amplitude1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">frequency</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>
-
-<span class="c1"># Generate oscillator 2 (shifted sine wave)</span>
-<span class="n">oscillator2</span> <span class="o">=</span> <span class="n">amplitude2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">frequency</span> <span class="o">*</span> <span class="n">t</span> <span class="o">+</span> <span class="n">phase_shift</span><span class="p">)</span>
-
-<span class="c1"># Plot </span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">oscillator1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Oscillator 1'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">oscillator2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Oscillator 2'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Time'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Amplitude'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
@@ -8078,40 +7963,6 @@ $$</p>
 </div>
 </div>
 </div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell celltag_hide-input" id="cell-id=ae266f9e-3ba2-4c03-a9e4-30649b39a961">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Parameters</span>
-<span class="n">amplitude1</span> <span class="o">=</span> <span class="mf">1.0</span>
-<span class="n">amplitude2</span> <span class="o">=</span> <span class="mf">1.0</span>
-<span class="n">frequency</span> <span class="o">=</span> <span class="mf">0.1</span>
-<span class="n">phase_shift</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span><span class="mi">4</span>  <span class="c1"># Example phase shift of pi/4 radians (45 degrees)</span>
-
-<span class="c1"># Time vector</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>  <span class="c1"># Adjust the range and number of time points as needed</span>
-
-<span class="c1"># Generate oscillator 1 (sine wave)</span>
-<span class="n">oscillator1</span> <span class="o">=</span> <span class="n">amplitude1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">frequency</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>
-
-<span class="c1"># Generate oscillator 2 (shifted sine wave)</span>
-<span class="n">oscillator2</span> <span class="o">=</span> <span class="n">amplitude2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">frequency</span> <span class="o">*</span> <span class="n">t</span> <span class="o">+</span> <span class="n">phase_shift</span><span class="p">)</span>
-
-<span class="c1"># Plot </span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">oscillator1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Oscillator 1'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">oscillator2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Oscillator 2'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Time'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Amplitude'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
@@ -8139,40 +7990,6 @@ $$</p>
 </div>
 </div>
 </div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell celltag_hide-input" id="cell-id=223d6186-84cd-4d9d-b4ae-6191e5ecd051">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Parameters</span>
-<span class="n">amplitude1</span> <span class="o">=</span> <span class="mf">1.0</span>
-<span class="n">amplitude2</span> <span class="o">=</span> <span class="mf">1.0</span>
-<span class="n">frequency</span> <span class="o">=</span> <span class="mf">0.1</span>
-<span class="n">phase_shift</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span><span class="mi">1</span>  <span class="c1"># Example phase shift of pi/4 radians (45 degrees)</span>
-
-<span class="c1"># Time vector</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>  <span class="c1"># Adjust the range and number of time points as needed</span>
-
-<span class="c1"># Generate oscillator 1 (sine wave)</span>
-<span class="n">oscillator1</span> <span class="o">=</span> <span class="n">amplitude1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">frequency</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>
-
-<span class="c1"># Generate oscillator 2 (shifted sine wave)</span>
-<span class="n">oscillator2</span> <span class="o">=</span> <span class="n">amplitude2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">frequency</span> <span class="o">*</span> <span class="n">t</span> <span class="o">+</span> <span class="n">phase_shift</span><span class="p">)</span>
-
-<span class="c1"># Plot </span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">oscillator1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Oscillator 1'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">oscillator2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Oscillator 2'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Time'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Amplitude'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">'upper right'</span><span class="p">)</span>  <span class="c1"># Specify the location of the legend (e.g., upper right)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
@@ -8427,7 +8244,7 @@ require(
         Reveal.addEventListener('slidechanged', update);
 
         function setScrollingSlide() {
-            var scroll = false
+            var scroll = true
             if (scroll === true) {
               var h = $('.reveal').height() * 0.95;
               $('section.present').find('section')
