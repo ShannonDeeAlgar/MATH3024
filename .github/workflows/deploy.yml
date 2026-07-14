@@ -42,6 +42,8 @@ jobs:
         run: pip install -r requirements.txt
       - name: Install Jupyter Book (via myst)
         run: npm install -g jupyter-book
+      - name: Stage reader-only notebook copies
+        run: python prepare_reader_build.py
       - name: Build HTML Assets
         run: jupyter-book build --html --execute
       - name: Upload artifact
