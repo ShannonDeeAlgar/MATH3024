@@ -1,0 +1,18 @@
+/* Reader style guide v1: teal accent.
+   Overrides Tailwind Typography's --tw-prose-* variables (the documented
+   theming hook for MyST's book-theme), rather than fighting utility
+   classes directly. .prose-invert is the class the theme swaps in for
+   dark mode, so it needs its own override, not just --tw-prose-invert-*. */
+
+.prose,
+.article {
+  --tw-prose-links: #146B69;
+  --tw-prose-quotes: #146B69;
+  --tw-prose-quote-borders: #146B69;
+}
+
+.prose-invert {
+  --tw-prose-links: #4FD1C5;
+  --tw-prose-quotes: #4FD1C5;
+  --tw-prose-quote-borders: #4FD1C5;
+}

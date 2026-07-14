@@ -19,4 +19,5 @@ project:
 site:
   options:
     folders: true
+    style: style.css
   template: book-theme
