@@ -15,4 +15,5 @@ fi
 
 jupyter nbconvert --to slides "$1" \
     --TagRemovePreprocessor.enabled=True \
-    --TagRemovePreprocessor.remove_cell_tags='["reader-only", "slides-only"]'
+    --TagRemovePreprocessor.remove_cell_tags='["reader-only", "slides-only"]' \
+    --SlidesExporter.reveal_scroll=True
