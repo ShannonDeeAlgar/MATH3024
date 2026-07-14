@@ -7430,6 +7430,28 @@ main {
     </script>
 <!-- End of mathjax configuration --><!-- Reveal Theme -->
 <link href="https://unpkg.com/reveal.js@4.0.2/dist/theme/simple.css" id="theme" rel="stylesheet"/>
+<style>
+/* Injected by inject_slide_typography.py -- keeps slide typography in
+   sync with style.css's Reader typography. Do not edit directly. */
+.jp-MarkdownOutput h1,
+.jp-MarkdownOutput h2,
+.jp-MarkdownOutput h3,
+.jp-MarkdownOutput h4,
+.jp-MarkdownOutput h5,
+.jp-MarkdownOutput h6 {
+  font-family: "Big Caslon", Baskerville, Georgia, serif;
+  font-style: normal;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.jp-MarkdownOutput p,
+.jp-MarkdownOutput li,
+.jp-MarkdownOutput blockquote {
+  font-family: Baskerville, Georgia, serif;
+}
+</style>
 </head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 <main>
@@ -7597,7 +7619,7 @@ $$</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only celltag_remove-cell" data-mime-type="text/markdown">
 <!-- Figure sized for slides -->
 <h3 id="Segregation">Segregation<a class="anchor-link" href="#Segregation">¶</a></h3><p><strong>Schelling's observation:</strong><br/>
-<img alt="No description has been provided for this image" src="images/Chicago_map_2016.jpg" style="width: 60%; max-width: 600px;"/></p>
+<img alt="No description has been provided for this image" src="images/Chicago_map_2016.jpg" width="60%"/></p>
 <p><strong>The model:</strong> What's the general principle? What's the differential equation we can sit down and solve with a pen?</p>
 </div>
 </div>
@@ -7630,15 +7652,15 @@ Chicago_map_2016 image details:<br/><br/>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only celltag_remove-cell" data-mime-type="text/markdown">
 <!-- Figure sized for slides -->
 <h4>We'll need a different approach...</h4>
-<div style="margin: 1.5em 0; border-right: 4px solid #146B69; padding-right: 1em; text-align: right;">
-<div style="font-style: italic; font-family: 'Comic Neue', 'Segoe Script', cursive; font-size: 1.2em;">
+<div style="border-left: 1px solid var(--reader-ink, #111110); padding-left: 1.2em; margin: 1.5em 0;">
+<div style="font-style: italic; font-family: Baskerville, Georgia, serif; font-size: 1.15em; color: var(--reader-ink, #111110);">
     This is a story of how harmless choices can make a harmful world.
   </div>
-<div style="font-style: normal; font-size: 0.95em; margin-top: 0.5em;">
-    — <a href="https://ncase.me/polygons/" style="text-decoration: none; color: inherit;" target="_blank">Parable of the Polygons</a> by Vi Hart and Nicky Case.
+<div style="font-family: 'American Typewriter', 'Courier New', monospace; font-size: 0.75em; text-transform: uppercase; letter-spacing: 0.05em; color: var(--reader-ink-soft, #5B5B58); margin-top: 0.6em;">
+    — <a href="https://ncase.me/polygons/" style="color: var(--reader-ink-soft, #5B5B58);" target="_blank">Parable of the Polygons</a> by Vi Hart and Nicky Case
   </div>
 </div>
-<img alt="No description has been provided for this image" src="images/Parable_of_the_Polygons_Meh_characters.svg.png" style="width: 60%; max-width: 600px;"/>
+<img alt="No description has been provided for this image" src="images/Parable_of_the_Polygons_Meh_characters.svg.png" width="60%"/>
 </div>
 </div>
 </div>
@@ -7667,11 +7689,11 @@ Outcome of Schelling models...<br/><br/>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Complex-Systems">Complex Systems<a class="anchor-link" href="#Complex-Systems">¶</a></h1><div style="margin: 1.5em 0; border-right: 4px solid #146B69; padding-right: 1em; text-align: right;">
-<div style="font-style: italic; font-family: 'Comic Neue', 'Segoe Script', cursive; font-size: 1.2em;">
+<h1 id="Complex-Systems">Complex Systems<a class="anchor-link" href="#Complex-Systems">¶</a></h1><div style="border-left: 1px solid var(--reader-ink, #111110); padding-left: 1.2em; margin: 1.5em 0;">
+<div style="font-style: italic; font-family: Baskerville, Georgia, serif; font-size: 1.15em; color: var(--reader-ink, #111110);">
     I think the next (21st) century will be the century of complexity.
   </div>
-<div style="font-style: normal; font-size: 0.95em; margin-top: 0.5em;">
+<div style="font-family: 'American Typewriter', 'Courier New', monospace; font-size: 0.75em; text-transform: uppercase; letter-spacing: 0.05em; color: var(--reader-ink-soft, #5B5B58); margin-top: 0.6em;">
     — Stephen Hawking
   </div>
 </div>
@@ -7705,7 +7727,7 @@ Both Science and engineering are *understanding systems*
 <!-- Figure sized for slides -->
 <h2 id="Complex-Systems-(the-field)">Complex Systems (the field)<a class="anchor-link" href="#Complex-Systems-(the-field)">¶</a></h2><p>aka called Complexity Science. The interdisciplinary study of how interactions give rise to emergent behaviour in systems across nature, society, and technology.</p>
 <p>This is essentially a diverse and adaptable toolkit for dealing with complex systems.</p>
-<img alt="No description has been provided for this image" src="images/Complex_systems_organizational_map.jpg" style="width: 50%; max-width: 600px;"/>
+<img alt="No description has been provided for this image" src="images/Complex_systems_organizational_map.jpg" width="50%"/>
 </div>
 </div>
 </div>
@@ -7718,7 +7740,7 @@ Both Science and engineering are *understanding systems*
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only celltag_remove-cell" data-mime-type="text/markdown">
 <!-- Figure sized for slides -->
 <p><strong>Complexity</strong> comes from the Latin word <em>“plexus”</em>, which indicates non-separability of components</p>
-<img alt="No description has been provided for this image" src="images/David_Krakauer_complexity_plane.png" style="width: 80%; max-width: 600px;"/>
+<img alt="No description has been provided for this image" src="images/David_Krakauer_complexity_plane.png" width="80%"/>
 </div>
 </div>
 </div>
@@ -7772,7 +7794,7 @@ Both Science and engineering are *understanding systems*
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only celltag_remove-cell" data-mime-type="text/markdown">
 <!-- Figure sized for slides -->
 <h4>Complex Systems Thinkers see things differently</h4>
-<img alt="No description has been provided for this image" src="images/Complex_systems_thinkers_see_things_differently.png" style="width: 60%; max-width: 600px;"/>
+<img alt="No description has been provided for this image" src="images/Complex_systems_thinkers_see_things_differently.png" width="60%"/>
 <p>Fig: <em>An Introduction to Complex Systems Science and Its Applications by A F. Siegenfeld</em>, [2020])</p>
 </div>
 </div>
@@ -7797,11 +7819,11 @@ I'd like to redo this figure because I don't exactly agree with the examples the
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Let's-model!">Let's model!<a class="anchor-link" href="#Let's-model!">¶</a></h1><div style="margin: 1.5em 0; border-right: 4px solid #146B69; padding-right: 1em; text-align: right;">
-<div style="font-style: italic; font-family: 'Comic Neue', 'Segoe Script', cursive; font-size: 1.2em;">
+<h1 id="Let's-model!">Let's model!<a class="anchor-link" href="#Let's-model!">¶</a></h1><div style="border-left: 1px solid var(--reader-ink, #111110); padding-left: 1.2em; margin: 1.5em 0;">
+<div style="font-style: italic; font-family: Baskerville, Georgia, serif; font-size: 1.15em; color: var(--reader-ink, #111110);">
     All models are wrong, but some are useful.
   </div>
-<div style="font-style: normal; font-size: 0.95em; margin-top: 0.5em;">
+<div style="font-family: 'American Typewriter', 'Courier New', monospace; font-size: 0.75em; text-transform: uppercase; letter-spacing: 0.05em; color: var(--reader-ink-soft, #5B5B58); margin-top: 0.6em;">
     — George Box, 1976
   </div>
 </div>
@@ -7816,12 +7838,11 @@ I'd like to redo this figure because I don't exactly agree with the examples the
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
 <h3 id="Assumptions">Assumptions<a class="anchor-link" href="#Assumptions">¶</a></h3><p>Occam's razor: the principle of parsimony.</p>
-<div style="margin: 1.5em 0; border-right: 4px solid #146B69; padding-right: 1em; text-align: right;">
-<div style="font-style: italic; font-family: 'Comic Neue', 'Segoe Script', cursive; font-size: 1.2em;">
-    Entities must not be multiplied beyond necessity.<br/><br/>
-      All thing being equal, the simplest explanation is the best one.
+<div style="border-left: 1px solid var(--reader-ink, #111110); padding-left: 1.2em; margin: 1.5em 0;">
+<div style="font-style: italic; font-family: Baskerville, Georgia, serif; font-size: 1.15em; color: var(--reader-ink, #111110);">
+    Entities must not be multiplied beyond necessity.<br/><br/>All thing being equal, the simplest explanation is the best one.
   </div>
-<div style="font-style: normal; font-size: 0.95em; margin-top: 0.5em;">
+<div style="font-family: 'American Typewriter', 'Courier New', monospace; font-size: 0.75em; text-transform: uppercase; letter-spacing: 0.05em; color: var(--reader-ink-soft, #5B5B58); margin-top: 0.6em;">
     — William of Ockham (English philosopher)
   </div>
 </div>
@@ -7835,11 +7856,11 @@ I'd like to redo this figure because I don't exactly agree with the examples the
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h3 id="What-goes-in-to-a-model?">What goes in to a model?<a class="anchor-link" href="#What-goes-in-to-a-model?">¶</a></h3><div style="margin: 1.5em 0; border-right: 4px solid #146B69; padding-right: 1em; text-align: right;">
-<div style="font-style: italic; font-family: 'Comic Neue', 'Segoe Script', cursive; font-size: 1.2em;">
+<h3 id="What-goes-in-to-a-model?">What goes in to a model?<a class="anchor-link" href="#What-goes-in-to-a-model?">¶</a></h3><div style="border-left: 1px solid var(--reader-ink, #111110); padding-left: 1.2em; margin: 1.5em 0;">
+<div style="font-style: italic; font-family: Baskerville, Georgia, serif; font-size: 1.15em; color: var(--reader-ink, #111110);">
     There are laws of physics and there are rules of life — and rules are meant to be broken.
   </div>
-<div style="font-style: normal; font-size: 0.95em; margin-top: 0.5em;">
+<div style="font-family: 'American Typewriter', 'Courier New', monospace; font-size: 0.75em; text-transform: uppercase; letter-spacing: 0.05em; color: var(--reader-ink-soft, #5B5B58); margin-top: 0.6em;">
     — David Krakauer, <em>Foundational Papers in Complexity Science</em>, Vol. 1, p. 6
   </div>
 </div>
@@ -7972,7 +7993,7 @@ I'd like to redo this figure because I don't exactly agree with the examples the
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only celltag_remove-cell" data-mime-type="text/markdown">
-<img alt="No description has been provided for this image" src="simulation2.gif" style="width: 60%;"/>
+<img alt="No description has been provided for this image" src="simulation2.gif" width="60%"/>
 But this is only a gif... We want direct and interactive control of the independent variable (time).
 
 
@@ -8239,8 +8260,8 @@ $$</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
 <p>Time for us to have a break, and our machines to go to work.</p>
-<div style="background-color: #DCEDEA; border-left: 6px solid #0D4F4D; padding: 1.5em; margin: 2em 0; text-align: center; font-size: 1.1em; border-radius: 6px; line-height: 1.6;">
-<strong>This is why you must get started on your Projects early!</strong>
+<div style="border-top: 1px solid var(--reader-line, #CFCFC9); border-bottom: 1px solid var(--reader-line, #CFCFC9); padding: 1em; margin: 2em 0; text-align: center;">
+<p style="font-family: 'Big Caslon', Georgia, serif; font-weight: bold; font-size: 1.3em; color: var(--reader-ink, #111110); margin: 0;">This is why you must get started on your Projects early!</p>
 </div>
 </div>
 </div>
