@@ -22,3 +22,9 @@ jupyter nbconvert --to slides "$1" \
     --TagRemovePreprocessor.remove_input_tags='["hide-input"]' \
     --TagRemovePreprocessor.remove_all_outputs_tags='["hide-output"]' \
     --SlidesExporter.reveal_scroll=True
+
+# nbconvert's slides output is fully self-contained (no external
+# stylesheet), so the Reader's typography from style.css never reaches it
+# on its own -- inject it here, derived from style.css so it can't drift.
+slides_html="${1%.ipynb}.slides.html"
+python3 "$(dirname "$0")/inject_slide_typography.py" "$slides_html"
