@@ -26,7 +26,8 @@ jupyter nbconvert --to slides "$1" \
     --SlidesExporter.reveal_height=720
 
 # nbconvert's slides output is fully self-contained (no external
-# stylesheet), so the Reader's typography from style.css never reaches it
-# on its own -- inject it here, derived from style.css so it can't drift.
+# stylesheet), so the Reader's typography and .reader-* component
+# styles from style.css never reach it on their own -- inject them
+# here, derived from style.css so they can't drift.
 slides_html="${1%.ipynb}.slides.html"
-python3 "$(dirname "$0")/inject_slide_typography.py" "$slides_html"
+python3 "$(dirname "$0")/inject_slide_styles.py" "$slides_html"

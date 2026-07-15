@@ -53,3 +53,82 @@
 .article blockquote {
   font-family: Baskerville, Georgia, serif;
 }
+
+/* ---- Reader components: Voice / Prompt / Emphasis (Direction C) ----
+   Used as literal class="..." on raw HTML in notebook cells, not just
+   the Reader -- generate_slides.sh's inject_slide_styles.py copies
+   these rules verbatim into standalone slides too, so a single edit
+   here covers both. class survives MyST's HTML sanitizer (confirmed:
+   style is also preserved on <div>, unlike on <img> where it's
+   stripped -- see fix_image_sizing.py), so no inline styles needed.
+   Colour reads through var(--reader-ink, #hex): the fallback hex is
+   what applies in slides, where --reader-ink is never defined. */
+
+.reader-voice {
+  border-left: 1px solid var(--reader-ink, #111110);
+  padding-left: 1.2em;
+  margin: 1.5em 0;
+  color: var(--reader-ink, #111110);
+}
+.reader-voice-quote {
+  font-style: italic;
+  font-family: Baskerville, Georgia, serif;
+  font-size: 1.15em;
+}
+.reader-voice-attr {
+  font-family: "American Typewriter", "Courier New", monospace;
+  font-size: 0.75em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--reader-ink-soft, #5B5B58);
+  margin-top: 0.6em;
+}
+.reader-voice-attr a {
+  color: var(--reader-ink-soft, #5B5B58);
+}
+
+.reader-prompt {
+  border-top: 1px solid var(--reader-line, #CFCFC9);
+  border-bottom: 1px solid var(--reader-line, #CFCFC9);
+  padding: 0.9em 0;
+  margin: 1.25em 0;
+  color: var(--reader-ink, #111110);
+}
+.reader-prompt a {
+  color: var(--reader-ink, #111110);
+}
+.reader-prompt-label {
+  font-family: "American Typewriter", "Courier New", monospace;
+  font-size: 0.72em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.5em;
+}
+.reader-prompt-body.italic {
+  font-style: italic;
+}
+.reader-prompt-footnote {
+  font-size: 0.85em;
+  color: var(--reader-ink-soft, #5B5B58);
+  margin-top: 1em;
+  padding-top: 0.75em;
+  border-top: 1px solid var(--reader-line, #CFCFC9);
+}
+.reader-prompt-footnote a {
+  color: var(--reader-ink-soft, #5B5B58);
+}
+
+.reader-emphasis {
+  border-top: 1px solid var(--reader-line, #CFCFC9);
+  border-bottom: 1px solid var(--reader-line, #CFCFC9);
+  padding: 1em;
+  margin: 2em 0;
+  text-align: center;
+}
+.reader-emphasis p {
+  font-family: "Big Caslon", Georgia, serif;
+  font-weight: bold;
+  font-size: 1.3em;
+  color: var(--reader-ink, #111110);
+  margin: 0;
+}

@@ -6,7 +6,7 @@
 <meta content="yes" name="apple-mobile-web-app-capable"/>
 <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
 <title>L_Introduction_to_complex_systems slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
-  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.0/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script>
 <!-- General and theme style sheets -->
@@ -7431,8 +7431,8 @@ main {
 <!-- End of mathjax configuration --><!-- Reveal Theme -->
 <link href="https://unpkg.com/reveal.js@4.0.2/dist/theme/simple.css" id="theme" rel="stylesheet"/>
 <style>
-/* Injected by inject_slide_typography.py -- keeps slide typography in
-   sync with style.css's Reader typography. Do not edit directly. */
+/* Injected by inject_slide_styles.py -- keeps slide styling in
+   sync with style.css. Do not edit directly. */
 .jp-MarkdownOutput h1,
 .jp-MarkdownOutput h2,
 .jp-MarkdownOutput h3,
@@ -7450,6 +7450,84 @@ main {
 .jp-MarkdownOutput li,
 .jp-MarkdownOutput blockquote {
   font-family: Baskerville, Georgia, serif;
+}
+
+.reader-voice {
+  border-left: 1px solid var(--reader-ink, #111110);
+  padding-left: 1.2em;
+  margin: 1.5em 0;
+  color: var(--reader-ink, #111110);
+}
+
+.reader-voice-quote {
+  font-style: italic;
+  font-family: Baskerville, Georgia, serif;
+  font-size: 1.15em;
+}
+
+.reader-voice-attr {
+  font-family: "American Typewriter", "Courier New", monospace;
+  font-size: 0.75em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--reader-ink-soft, #5B5B58);
+  margin-top: 0.6em;
+}
+
+.reader-voice-attr a {
+  color: var(--reader-ink-soft, #5B5B58);
+}
+
+.reader-prompt {
+  border-top: 1px solid var(--reader-line, #CFCFC9);
+  border-bottom: 1px solid var(--reader-line, #CFCFC9);
+  padding: 0.9em 0;
+  margin: 1.25em 0;
+  color: var(--reader-ink, #111110);
+}
+
+.reader-prompt a {
+  color: var(--reader-ink, #111110);
+}
+
+.reader-prompt-label {
+  font-family: "American Typewriter", "Courier New", monospace;
+  font-size: 0.72em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.5em;
+}
+
+.reader-prompt-body.italic {
+  font-style: italic;
+}
+
+.reader-prompt-footnote {
+  font-size: 0.85em;
+  color: var(--reader-ink-soft, #5B5B58);
+  margin-top: 1em;
+  padding-top: 0.75em;
+  border-top: 1px solid var(--reader-line, #CFCFC9);
+}
+
+.reader-prompt-footnote a {
+  color: var(--reader-ink-soft, #5B5B58);
+}
+
+.reader-emphasis {
+  border-top: 1px solid var(--reader-line, #CFCFC9);
+  border-bottom: 1px solid var(--reader-line, #CFCFC9);
+  padding: 1em;
+  margin: 2em 0;
+  text-align: center;
+}
+
+.reader-emphasis p {
+  font-family: "Big Caslon", Georgia, serif;
+  font-weight: bold;
+  font-size: 1.3em;
+  color: var(--reader-ink, #111110);
+  margin: 0;
 }
 </style>
 </head>
@@ -7618,8 +7696,8 @@ $$</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only celltag_remove-cell" data-mime-type="text/markdown">
 <!-- Figure sized for slides -->
-<h3 id="Segregation">Segregation<a class="anchor-link" href="#Segregation">¶</a></h3><p><strong>Schelling's observation:</strong><br/>
-<img alt="No description has been provided for this image" src="images/Chicago_map_2016.jpg" width="60%"/></p>
+<h3 id="Segregation">Segregation<a class="anchor-link" href="#Segregation">¶</a></h3><p><strong>Schelling's observation:</strong><br>
+<img alt="No description has been provided for this image" src="images/Chicago_map_2016.jpg" width="60%"/></br></p>
 <p><strong>The model:</strong> What's the general principle? What's the differential equation we can sit down and solve with a pen?</p>
 </div>
 </div>
@@ -7652,12 +7730,12 @@ Chicago_map_2016 image details:<br/><br/>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only celltag_remove-cell" data-mime-type="text/markdown">
 <!-- Figure sized for slides -->
 <h4>We'll need a different approach...</h4>
-<div style="border-left: 1px solid var(--reader-ink, #111110); padding-left: 1.2em; margin: 1.5em 0;">
-<div style="font-style: italic; font-family: Baskerville, Georgia, serif; font-size: 1.15em; color: var(--reader-ink, #111110);">
+<div class="reader-voice">
+<div class="reader-voice-quote">
     This is a story of how harmless choices can make a harmful world.
   </div>
-<div style="font-family: 'American Typewriter', 'Courier New', monospace; font-size: 0.75em; text-transform: uppercase; letter-spacing: 0.05em; color: var(--reader-ink-soft, #5B5B58); margin-top: 0.6em;">
-    — <a href="https://ncase.me/polygons/" style="color: var(--reader-ink-soft, #5B5B58);" target="_blank">Parable of the Polygons</a> by Vi Hart and Nicky Case
+<div class="reader-voice-attr">
+    — <a href="https://ncase.me/polygons/" target="_blank">Parable of the Polygons</a> by Vi Hart and Nicky Case
   </div>
 </div>
 <img alt="No description has been provided for this image" src="images/Parable_of_the_Polygons_Meh_characters.svg.png" width="60%"/>
@@ -7689,11 +7767,11 @@ Outcome of Schelling models...<br/><br/>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Complex-Systems">Complex Systems<a class="anchor-link" href="#Complex-Systems">¶</a></h1><div style="border-left: 1px solid var(--reader-ink, #111110); padding-left: 1.2em; margin: 1.5em 0;">
-<div style="font-style: italic; font-family: Baskerville, Georgia, serif; font-size: 1.15em; color: var(--reader-ink, #111110);">
+<h1 id="Complex-Systems">Complex Systems<a class="anchor-link" href="#Complex-Systems">¶</a></h1><div class="reader-voice">
+<div class="reader-voice-quote">
     I think the next (21st) century will be the century of complexity.
   </div>
-<div style="font-family: 'American Typewriter', 'Courier New', monospace; font-size: 0.75em; text-transform: uppercase; letter-spacing: 0.05em; color: var(--reader-ink-soft, #5B5B58); margin-top: 0.6em;">
+<div class="reader-voice-attr">
     — Stephen Hawking
   </div>
 </div>
@@ -7819,11 +7897,11 @@ I'd like to redo this figure because I don't exactly agree with the examples the
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Let's-model!">Let's model!<a class="anchor-link" href="#Let's-model!">¶</a></h1><div style="border-left: 1px solid var(--reader-ink, #111110); padding-left: 1.2em; margin: 1.5em 0;">
-<div style="font-style: italic; font-family: Baskerville, Georgia, serif; font-size: 1.15em; color: var(--reader-ink, #111110);">
+<h1 id="Let's-model!">Let's model!<a class="anchor-link" href="#Let's-model!">¶</a></h1><div class="reader-voice">
+<div class="reader-voice-quote">
     All models are wrong, but some are useful.
   </div>
-<div style="font-family: 'American Typewriter', 'Courier New', monospace; font-size: 0.75em; text-transform: uppercase; letter-spacing: 0.05em; color: var(--reader-ink-soft, #5B5B58); margin-top: 0.6em;">
+<div class="reader-voice-attr">
     — George Box, 1976
   </div>
 </div>
@@ -7838,11 +7916,11 @@ I'd like to redo this figure because I don't exactly agree with the examples the
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
 <h3 id="Assumptions">Assumptions<a class="anchor-link" href="#Assumptions">¶</a></h3><p>Occam's razor: the principle of parsimony.</p>
-<div style="border-left: 1px solid var(--reader-ink, #111110); padding-left: 1.2em; margin: 1.5em 0;">
-<div style="font-style: italic; font-family: Baskerville, Georgia, serif; font-size: 1.15em; color: var(--reader-ink, #111110);">
+<div class="reader-voice">
+<div class="reader-voice-quote">
     Entities must not be multiplied beyond necessity.<br/><br/>All thing being equal, the simplest explanation is the best one.
   </div>
-<div style="font-family: 'American Typewriter', 'Courier New', monospace; font-size: 0.75em; text-transform: uppercase; letter-spacing: 0.05em; color: var(--reader-ink-soft, #5B5B58); margin-top: 0.6em;">
+<div class="reader-voice-attr">
     — William of Ockham (English philosopher)
   </div>
 </div>
@@ -7856,11 +7934,11 @@ I'd like to redo this figure because I don't exactly agree with the examples the
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h3 id="What-goes-in-to-a-model?">What goes in to a model?<a class="anchor-link" href="#What-goes-in-to-a-model?">¶</a></h3><div style="border-left: 1px solid var(--reader-ink, #111110); padding-left: 1.2em; margin: 1.5em 0;">
-<div style="font-style: italic; font-family: Baskerville, Georgia, serif; font-size: 1.15em; color: var(--reader-ink, #111110);">
+<h3 id="What-goes-in-to-a-model?">What goes in to a model?<a class="anchor-link" href="#What-goes-in-to-a-model?">¶</a></h3><div class="reader-voice">
+<div class="reader-voice-quote">
     There are laws of physics and there are rules of life — and rules are meant to be broken.
   </div>
-<div style="font-family: 'American Typewriter', 'Courier New', monospace; font-size: 0.75em; text-transform: uppercase; letter-spacing: 0.05em; color: var(--reader-ink-soft, #5B5B58); margin-top: 0.6em;">
+<div class="reader-voice-attr">
     — David Krakauer, <em>Foundational Papers in Complexity Science</em>, Vol. 1, p. 6
   </div>
 </div>
@@ -8260,8 +8338,8 @@ $$</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
 <p>Time for us to have a break, and our machines to go to work.</p>
-<div style="border-top: 1px solid var(--reader-line, #CFCFC9); border-bottom: 1px solid var(--reader-line, #CFCFC9); padding: 1em; margin: 2em 0; text-align: center;">
-<p style="font-family: 'Big Caslon', Georgia, serif; font-weight: bold; font-size: 1.3em; color: var(--reader-ink, #111110); margin: 0;">This is why you must get started on your Projects early!</p>
+<div class="reader-emphasis">
+<p>This is why you must get started on your Projects early!</p>
 </div>
 </div>
 </div>
