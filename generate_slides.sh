@@ -21,7 +21,9 @@ jupyter nbconvert --to slides "$1" \
     --TagRemovePreprocessor.remove_cell_tags='["reader-only"]' \
     --TagRemovePreprocessor.remove_input_tags='["hide-input"]' \
     --TagRemovePreprocessor.remove_all_outputs_tags='["hide-output"]' \
-    --SlidesExporter.reveal_scroll=True
+    --SlidesExporter.reveal_scroll=True \
+    --SlidesExporter.reveal_width=1280 \
+    --SlidesExporter.reveal_height=720
 
 # nbconvert's slides output is fully self-contained (no external
 # stylesheet), so the Reader's typography from style.css never reaches it
