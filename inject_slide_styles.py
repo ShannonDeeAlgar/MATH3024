@@ -19,6 +19,15 @@ kinds of rule directly from style.css:
   through var(--reader-ink, #hex); the fallback hex is what applies
   here, since --reader-ink is never defined outside `.article`.
 
+A third block below is hardcoded here rather than derived from
+style.css: jp-OutputArea/jp-OutputPrompt are nbconvert/Jupyter-only
+classes with no Reader equivalent to keep in sync with (the Reader
+uses MyST's {iframe} directive for embeds instead, which has no
+jp-OutputArea wrapper at all), so there's nothing for style.css to
+define. It hides the literal "Out[1]:" prompt label and centers any
+code-cell output that contains an iframe (YouTube embeds), scoped with
+:has() so it doesn't affect other outputs like matplotlib figures.
+
 Usage: inject_slide_styles.py <slides.html>
 Called from generate_slides.sh after the nbconvert step.
 """
@@ -31,6 +40,18 @@ STYLE_CSS = ROOT / "style.css"
 
 COMMENT_RE = re.compile(r"/\*.*?\*/", re.DOTALL)
 RULE_RE = re.compile(r"([^{}]+)\{([^{}]*)\}")
+
+SLIDES_ONLY_RULES = """
+.jp-OutputArea-child:has(iframe) .jp-OutputPrompt,
+.jp-Cell-outputWrapper:has(iframe) .jp-OutputCollapser {
+  display: none;
+}
+
+.jp-Cell-outputWrapper:has(iframe) {
+  display: flex;
+  justify-content: center;
+}
+""".strip()
 
 
 def extract_rules(css_text: str) -> str:
@@ -64,7 +85,8 @@ def main():
         "<style>\n"
         "/* Injected by inject_slide_styles.py -- keeps slide styling in\n"
         "   sync with style.css. Do not edit directly. */\n"
-        f"{rules}\n"
+        f"{rules}\n\n"
+        f"{SLIDES_ONLY_RULES}\n"
         "</style>\n"
     )
 

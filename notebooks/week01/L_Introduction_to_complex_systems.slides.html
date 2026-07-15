@@ -6,7 +6,7 @@
 <meta content="yes" name="apple-mobile-web-app-capable"/>
 <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
 <title>L_Introduction_to_complex_systems slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
-  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script>
 <!-- General and theme style sheets -->
@@ -7529,6 +7529,16 @@ main {
   color: var(--reader-ink, #111110);
   margin: 0;
 }
+
+.jp-OutputArea-child:has(iframe) .jp-OutputPrompt,
+.jp-Cell-outputWrapper:has(iframe) .jp-OutputCollapser {
+  display: none;
+}
+
+.jp-Cell-outputWrapper:has(iframe) {
+  display: flex;
+  justify-content: center;
+}
 </style>
 </head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
@@ -7696,8 +7706,8 @@ $$</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only celltag_remove-cell" data-mime-type="text/markdown">
 <!-- Figure sized for slides -->
-<h3 id="Segregation">Segregation<a class="anchor-link" href="#Segregation">¶</a></h3><p><strong>Schelling's observation:</strong><br>
-<img alt="No description has been provided for this image" src="images/Chicago_map_2016.jpg" width="60%"/></br></p>
+<h3 id="Segregation">Segregation<a class="anchor-link" href="#Segregation">¶</a></h3><p><strong>Schelling's observation:</strong><br/>
+<img alt="No description has been provided for this image" src="images/Chicago_map_2016.jpg" width="60%"/></p>
 <p><strong>The model:</strong> What's the general principle? What's the differential equation we can sit down and solve with a pen?</p>
 </div>
 </div>
@@ -7850,7 +7860,7 @@ Both Science and engineering are *understanding systems*
 </div>
 </div>
 </div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell celltag_hide-input celltag_slides" id="cell-id=f9a995a9-0b0c-433b-b0bf-9d3f92b587f1">
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell celltag_hide-input celltag_slides-only celltag_remove-cell" id="cell-id=f9a995a9-0b0c-433b-b0bf-9d3f92b587f1">
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
@@ -7858,7 +7868,7 @@ Both Science and engineering are *understanding systems*
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[1]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
-<iframe allowfullscreen="" frameborder="0" height="300" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/XqRR7H9sjI4" width="400"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="540" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/XqRR7H9sjI4" width="960"></iframe>
 </div>
 </div>
 </div>
@@ -8355,7 +8365,7 @@ $$</p>
 </div>
 </div>
 </div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell celltag_slides celltag_hide-input" id="cell-id=952712ac-3d3c-4af3-9080-f172de826c1a">
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell celltag_hide-input celltag_slides-only celltag_remove-cell" id="cell-id=952712ac-3d3c-4af3-9080-f172de826c1a">
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
@@ -8363,7 +8373,7 @@ $$</p>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[36]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
-<iframe allowfullscreen="" frameborder="0" height="300" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/BCxiABGoPP4" width="400"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="540" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/BCxiABGoPP4" width="960"></iframe>
 </div>
 </div>
 </div>
