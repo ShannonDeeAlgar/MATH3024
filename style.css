@@ -1,6 +1,7 @@
-/* Reader style guide v2 direction C "Plate" (supersedes v1 teal and the
-   ink-red v2 draft). No accent colour at all -- links/quotes/quote-borders
-   are just ink, matching the notebook components' monochrome treatment.
+/* Reader style guide v3 "Blue Period" (supersedes v2 direction C "Plate",
+   the teal v1, and the ink-red v2 draft). Same monochrome-plus-one-ink
+   system as v2, just re-tinted: the ink is Picasso Blue Period indigo
+   instead of near-black, and headings go back to italic (not uppercase).
    Overrides Tailwind Typography's --tw-prose-* variables (the documented
    theming hook for MyST's book-theme), rather than fighting utility
    classes directly. book-theme's dark mode toggles a .dark class on an
@@ -11,22 +12,22 @@
 
 .prose,
 .article {
-  --tw-prose-links: #111110;
-  --tw-prose-quotes: #111110;
-  --tw-prose-quote-borders: #111110;
-  --reader-ink: #111110;
-  --reader-ink-soft: #5B5B58;
-  --reader-line: #CFCFC9;
+  --tw-prose-links: #1B2A4C;
+  --tw-prose-quotes: #1B2A4C;
+  --tw-prose-quote-borders: #1B2A4C;
+  --reader-ink: #1B2A4C;
+  --reader-ink-soft: #5A6685;
+  --reader-line: #C7CEDC;
 }
 
 .dark .prose,
 .dark .article {
-  --tw-prose-links: #EDEDEA;
-  --tw-prose-quotes: #EDEDEA;
-  --tw-prose-quote-borders: #EDEDEA;
-  --reader-ink: #EDEDEA;
-  --reader-ink-soft: #9A9A94;
-  --reader-line: #333331;
+  --tw-prose-links: #A9B7D6;
+  --tw-prose-quotes: #A9B7D6;
+  --tw-prose-quote-borders: #A9B7D6;
+  --reader-ink: #A9B7D6;
+  --reader-ink-soft: #8A93B0;
+  --reader-line: #3A4560;
 }
 
 /* book-theme doesn't expose typography-plugin font-family variables --
@@ -42,10 +43,9 @@
 .article h5,
 .article h6 {
   font-family: "Big Caslon", Baskerville, Georgia, serif;
-  font-style: normal;
+  font-style: italic;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
+  color: var(--reader-ink, #1B2A4C);
 }
 
 .article p,
@@ -54,7 +54,7 @@
   font-family: Baskerville, Georgia, serif;
 }
 
-/* ---- Reader components: Voice / Prompt / Emphasis (Direction C) ----
+/* ---- Reader components: Voice / Prompt / Emphasis ----
    Used as literal class="..." on raw HTML in notebook cells, not just
    the Reader -- generate_slides.sh's inject_slide_styles.py copies
    these rules verbatim into standalone slides too, so a single edit
@@ -65,10 +65,10 @@
    what applies in slides, where --reader-ink is never defined. */
 
 .reader-voice {
-  border-left: 1px solid var(--reader-ink, #111110);
+  border-left: 1px solid var(--reader-ink, #1B2A4C);
   padding-left: 1.2em;
   margin: 1.5em 0;
-  color: var(--reader-ink, #111110);
+  color: var(--reader-ink, #1B2A4C);
 }
 .reader-voice-quote {
   font-style: italic;
@@ -80,22 +80,22 @@
   font-size: 0.75em;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--reader-ink-soft, #5B5B58);
+  color: var(--reader-ink-soft, #5A6685);
   margin-top: 0.6em;
 }
 .reader-voice-attr a {
-  color: var(--reader-ink-soft, #5B5B58);
+  color: var(--reader-ink-soft, #5A6685);
 }
 
 .reader-prompt {
-  border-top: 1px solid var(--reader-line, #CFCFC9);
-  border-bottom: 1px solid var(--reader-line, #CFCFC9);
+  border-top: 1px solid var(--reader-line, #C7CEDC);
+  border-bottom: 1px solid var(--reader-line, #C7CEDC);
   padding: 0.9em 0;
   margin: 1.25em 0;
-  color: var(--reader-ink, #111110);
+  color: var(--reader-ink, #1B2A4C);
 }
 .reader-prompt a {
-  color: var(--reader-ink, #111110);
+  color: var(--reader-ink, #1B2A4C);
 }
 .reader-prompt-label {
   font-family: "American Typewriter", "Courier New", monospace;
@@ -109,26 +109,46 @@
 }
 .reader-prompt-footnote {
   font-size: 0.85em;
-  color: var(--reader-ink-soft, #5B5B58);
+  color: var(--reader-ink-soft, #5A6685);
   margin-top: 1em;
   padding-top: 0.75em;
-  border-top: 1px solid var(--reader-line, #CFCFC9);
+  border-top: 1px solid var(--reader-line, #C7CEDC);
 }
 .reader-prompt-footnote a {
-  color: var(--reader-ink-soft, #5B5B58);
+  color: var(--reader-ink-soft, #5A6685);
 }
 
 .reader-emphasis {
-  border-top: 1px solid var(--reader-line, #CFCFC9);
-  border-bottom: 1px solid var(--reader-line, #CFCFC9);
+  border-top: 1px solid var(--reader-line, #C7CEDC);
+  border-bottom: 1px solid var(--reader-line, #C7CEDC);
   padding: 1em;
   margin: 2em 0;
   text-align: center;
 }
 .reader-emphasis p {
   font-family: "Big Caslon", Georgia, serif;
+  font-style: italic;
   font-weight: bold;
   font-size: 1.3em;
-  color: var(--reader-ink, #111110);
+  color: var(--reader-ink, #1B2A4C);
   margin: 0;
+}
+
+/* ---- Sidebar nav: bring book-theme's default sans/blue-highlight
+   left-nav in line with the in-chapter styling instead of leaving it
+   untouched. .myst-toc-item is book-theme's own class for each link;
+   "active" is added to whichever one matches the current page. */
+
+.myst-primary-sidebar .myst-toc-item {
+  font-family: Baskerville, Georgia, serif;
+}
+
+.myst-primary-sidebar .myst-toc-item.active {
+  background-color: var(--reader-ink, #1B2A4C);
+  color: #FFFFFF;
+}
+
+.dark .myst-primary-sidebar .myst-toc-item.active {
+  background-color: var(--reader-ink, #A9B7D6);
+  color: #1B2A4C;
 }
