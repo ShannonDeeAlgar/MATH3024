@@ -65,8 +65,8 @@
    what applies in slides, where --reader-ink is never defined. */
 
 .reader-voice {
-  border-left: 1px solid var(--reader-ink, #1B2A4C);
-  padding-left: 1.2em;
+  border-right: 1px solid var(--reader-ink, #1B2A4C);
+  padding-right: 1.2em;
   margin: 1.5em 0;
   color: var(--reader-ink, #1B2A4C);
 }
@@ -76,12 +76,12 @@
   font-size: 1.15em;
 }
 .reader-voice-attr {
-  font-family: "American Typewriter", "Courier New", monospace;
-  font-size: 0.75em;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  font-family: Optima, "Segoe UI", "Century Gothic", sans-serif;
+  font-size: 0.74em;
+  letter-spacing: 0.06em;
   color: var(--reader-ink-soft, #5A6685);
-  margin-top: 0.6em;
+  margin-top: 0.7em;
+  text-align: right;
 }
 .reader-voice-attr a {
   color: var(--reader-ink-soft, #5A6685);
