@@ -39,6 +39,18 @@ style.css, since neither has a Reader equivalent to keep in sync with:
   projector's viewing distance without blowing up h1 past a sane title
   size (105px at 28px base vs 75px at 20px).
 
+- img max-height caps figures so they don't push slide content past
+  the 1280x720 canvas. Figures are generated at dpi=150, so a
+  figsize=(12,5) figure alone is already 1800x750px -- taller than the
+  whole slide before any heading/text above it. 350px was picked by
+  headlessly walking every slide in week01 and measuring actual
+  overflow: the worst offenders (Segregation, Complex Systems (the
+  field)) needed the figure at or below ~358px to fit, so 350px clears
+  that with a small margin. This is in px, not vh: reveal.js scales the
+  whole 1280x720 canvas via a CSS transform, and vh inside a transformed
+  box resolves against the real browser viewport, not the logical slide
+  coordinate space, so it wouldn't reliably mean "% of slide height."
+
 Usage: inject_slide_styles.py <slides.html>
 Called from generate_slides.sh after the nbconvert step.
 """
@@ -65,6 +77,12 @@ SLIDES_ONLY_RULES = """
 
 :root {
   --jp-content-font-size1: 28px !important;
+}
+
+.reveal .slides section img {
+  max-height: 350px;
+  width: auto;
+  height: auto;
 }
 """.strip()
 
