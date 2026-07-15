@@ -19,14 +19,25 @@ kinds of rule directly from style.css:
   through var(--reader-ink, #hex); the fallback hex is what applies
   here, since --reader-ink is never defined outside `.article`.
 
-A third block below is hardcoded here rather than derived from
-style.css: jp-OutputArea/jp-OutputPrompt are nbconvert/Jupyter-only
-classes with no Reader equivalent to keep in sync with (the Reader
-uses MyST's {iframe} directive for embeds instead, which has no
-jp-OutputArea wrapper at all), so there's nothing for style.css to
-define. It hides the literal "Out[1]:" prompt label and centers any
-code-cell output that contains an iframe (YouTube embeds), scoped with
-:has() so it doesn't affect other outputs like matplotlib figures.
+Two more blocks below are hardcoded here rather than derived from
+style.css, since neither has a Reader equivalent to keep in sync with:
+
+- jp-OutputArea/jp-OutputPrompt are nbconvert/Jupyter-only classes (the
+  Reader uses MyST's {iframe} directive for embeds instead, which has
+  no jp-OutputArea wrapper at all). Hides the literal "Out[1]:" prompt
+  label and centers any code-cell output that contains an iframe
+  (YouTube embeds), scoped with :has() so it doesn't affect other
+  outputs like matplotlib figures.
+
+- --jp-content-font-size1 is nbconvert's own base size for all rendered
+  markdown (headings/body/lists all derive from it via fixed em
+  multipliers -- confirmed live: bumping this one variable scaled h1
+  through h5, body text, and list items all proportionally). nbconvert
+  already sets it to 20px (up from Jupyter's own 14px default) for
+  static HTML export, which was still too small read from the back of
+  a lecture theatre. 28px was chosen empirically: legible at a
+  projector's viewing distance without blowing up h1 past a sane title
+  size (105px at 28px base vs 75px at 20px).
 
 Usage: inject_slide_styles.py <slides.html>
 Called from generate_slides.sh after the nbconvert step.
@@ -50,6 +61,10 @@ SLIDES_ONLY_RULES = """
 .jp-Cell-outputWrapper:has(iframe) {
   display: flex;
   justify-content: center;
+}
+
+:root {
+  --jp-content-font-size1: 28px !important;
 }
 """.strip()
 
