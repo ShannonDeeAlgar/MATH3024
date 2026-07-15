@@ -14,8 +14,8 @@ Because `build_reader.sh` reverts `notebooks/` on exit (even mid-session, includ
 
 **`./generate_slides.sh <notebook.ipynb>`** builds a reveal.js deck from a lecture notebook (excluding `reader-only` cells, hiding `hide-input`/`hide-output` cells), at a 16:9 canvas so it fills widescreen displays. It also injects the Reader's typography and `.reader-*` component styles (Voice/Prompt/Emphasis) from `style.css` into the generated slide deck (via `inject_slide_styles.py`), since standalone nbconvert output doesn't load any external stylesheet on its own.
 
+**Always view a generated deck with `./present_slides.sh <notebook.slides.html>`, never by double-clicking the file.** It serves the deck over local HTTP and opens it there. Opening a `.slides.html` file directly (`file://`) gives it a null origin, which breaks every YouTube embed with Error 153 ("Video player configuration error") regardless of `referrerpolicy` — this isn't fixable from the embed side, only by not using `file://`.
+
 ## Changing the visual style
 
 Colours, fonts, and the Voice/Prompt/Emphasis component boxes are all defined once in **`style.css`** — notebook cells use `class="reader-voice"` / `"reader-prompt"` / `"reader-emphasis"` etc. rather than inline styles (confirmed: MyST's HTML sanitizer preserves `class` and `style` on `<div>`, unlike on `<img>` where `style` is stripped — see `fix_image_sizing.py`). `generate_slides.sh` copies the relevant rules out of `style.css` into each generated slide deck automatically, so a single edit there covers both the Reader and slides — no notebook changes needed to restyle. Only week01 has been re-skinned to this system so far; weeks 2–10 still carry the old teal styling.
-
-**`./present_slides.sh <notebook.slides.html>`** serves a generated deck over local HTTP and opens it — opening a `.slides.html` file directly (`file://`) breaks YouTube embeds (null origin rejected by YouTube).
