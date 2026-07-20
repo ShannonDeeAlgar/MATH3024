@@ -10,7 +10,26 @@ ROOT = Path(__file__).resolve().parents[1]
 TARGET = ROOT / "notebooks/week01/WS_Introduction_to_complex_systems.ipynb"
 
 
+# Keep workshop markers self-contained. Students are commonly given only the
+# notebook, so these must not depend on image files or the Reader stylesheet.
+MARKERS = {
+    "{{LADDER_MARKER}}": """<svg viewBox="0 0 90 120" role="img" aria-label="Ladder of abstraction" style="width:24px;height:32px;flex:0 0 24px" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="#1B2A4C" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M28 20v80M62 20v80"/><path d="M28 32h34M28 50h34M28 68h34M28 86h34"/><path d="M14 34V14m0 0L6 23m8-9 8 9"/><path d="M76 86v20m0 0-8-9m8 9 8-9"/></g></svg>""",
+    "{{DISCUSSION_MARKER}}": """<svg viewBox="0 0 64 64" role="img" aria-label="Discussion prompt" style="width:30px;height:30px;flex:0 0 30px" xmlns="http://www.w3.org/2000/svg"><path d="M11 14h31a8 8 0 0 1 8 8v13a8 8 0 0 1-8 8H27L16 52l2-9h-7a8 8 0 0 1-8-8V22a8 8 0 0 1 8-8Z" fill="none" stroke="#1B2A4C" stroke-width="3" stroke-linejoin="round"/><circle cx="19" cy="29" r="2.6" fill="#EDCC55" stroke="#1B2A4C" stroke-width="1.5"/><circle cx="29" cy="29" r="2.6" fill="#5879AA" stroke="#1B2A4C" stroke-width="1.5"/><circle cx="39" cy="29" r="2.6" fill="#EDCC55" stroke="#1B2A4C" stroke-width="1.5"/></svg>""",
+    "{{CHOICE_MARKER}}": """<svg viewBox="0 0 64 64" role="img" aria-label="Modelling choice" style="width:29px;height:29px;flex:0 0 29px" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="#1B2A4C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 48C24 46 27 38 31 31C35 23 41 17 53 16"/><path d="M31 31C38 35 44 41 51 50"/><circle cx="12" cy="48" r="5" fill="#1B2A4C"/><circle cx="53" cy="16" r="5"/><circle cx="51" cy="50" r="5"/></g></svg>""",
+}
+
+MARKER_STYLE = (
+    'style="display:flex;align-items:center;gap:.65rem;margin:.8rem 0;'
+    'color:#1B2A4C;line-height:1.35"'
+)
+
+
 def md(source: str, cell_id: str):
+    source = source.replace('<div class="ladder-marker">', f'<div class="ladder-marker" {MARKER_STYLE}>')
+    source = source.replace('<div class="discussion-marker">', f'<div class="discussion-marker" {MARKER_STYLE}>')
+    source = source.replace('<div class="choice-marker">', f'<div class="choice-marker" {MARKER_STYLE}>')
+    for placeholder, svg in MARKERS.items():
+        source = source.replace(placeholder, svg)
     cell = nbf.v4.new_markdown_cell(source.strip() + "\n")
     cell["id"] = cell_id
     return cell
@@ -57,7 +76,7 @@ At each checkpoint: **predict first**, run the smallest useful test, inspect wha
 
 In the lecture we built a two-dimensional model to expose the modelling choices. Here we deliberately move to one dimension. The simpler geometry lets us inspect every neighbourhood and test every part of the algorithm.
 
-<div class="ladder-marker"><img src="images/ladder_marker.svg" alt="Ladder of abstraction"><span><strong>Down the ladder:</strong> reduce the geometry so that one update can be checked by hand. <strong>Up the ladder:</strong> recover trajectories, observables, and ensembles.</span></div>
+<div class="ladder-marker">{{LADDER_MARKER}}<span><strong>Down the ladder:</strong> reduce the geometry so that one update can be checked by hand. <strong>Up the ladder:</strong> recover trajectories, observables, and ensembles.</span></div>
 
 This implementation is inspired by Schelling's one-dimensional model, but it uses the lecture update rule: a randomly selected dissatisfied agent moves to a randomly selected empty site. Schelling's original 1971 rule used no empty sites and moved agents in a prescribed order to the nearest acceptable location. These are different models.
 
@@ -67,7 +86,7 @@ Original source: T. C. Schelling, [“Dynamic Models of Segregation”](https://
         md(r"""
 ## What goes into our model?
 
-<div class="discussion-marker"><img src="images/discussion_marker.svg" alt="Discussion prompt"><span>Which entries are states, parameters, rules, and observables?</span></div>
+<div class="discussion-marker">{{DISCUSSION_MARKER}}<span>Which entries are states, parameters, rules, and observables?</span></div>
 
 | Ingredient | Choice for this workshop |
 |---|---|
@@ -81,13 +100,15 @@ Original source: T. C. Schelling, [“Dynamic Models of Segregation”](https://
 | Stopping condition | No dissatisfied agents, no empty sites, or the time budget is exhausted |
 | System observables | Mean similarity ratio and fraction dissatisfied |
 
-<div class="choice-marker"><img src="images/choice_marker.svg" alt="Modelling choice"><span>Every row is a modelling choice</span></div>
+<div class="choice-marker">{{CHOICE_MARKER}}<span>Every row is a modelling choice</span></div>
 """, "model-specification"),
 
         md(r"""
 ## Set up a reproducible experiment
 
 The random seed is part of the experimental record. We use `numpy.random.Generator` rather than global random state, so functions are reproducible without silently affecting one another.
+
+This notebook needs Python 3.10 or later, NumPy, Matplotlib, and IPython. It does not need the lecture repository or any separate image files. Run the cells in order from a fresh kernel before beginning an extension.
 """, "setup-intro"),
 
         code(r'''
@@ -95,6 +116,8 @@ from dataclasses import dataclass
 from typing import Optional, Sequence
 
 import json
+import sys
+import matplotlib
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap
@@ -114,13 +137,14 @@ COLOURS = ["white", "#EDCC55", "#5879AA"]
 CMAP = ListedColormap(COLOURS)
 
 rng = np.random.default_rng(SEED)
-print(f"NumPy {np.__version__} · seed {SEED}")
+print(f"Python {sys.version_info.major}.{sys.version_info.minor} · NumPy {np.__version__} · Matplotlib {matplotlib.__version__}")
+print(f"Reproducible baseline seed: {SEED}")
 ''', "imports-and-parameters"),
 
         md(r"""
 ### Initialisation
 
-<div class="discussion-marker"><img src="images/discussion_marker.svg" alt="Discussion prompt"><span>Before running: approximately how many empty, yellow, and blue sites do you expect?</span></div>
+<div class="discussion-marker">{{DISCUSSION_MARKER}}<span>Before running: approximately how many empty, yellow, and blue sites do you expect?</span></div>
 
 Changing the seed changes the particular initial state, not the probabilities that define the initialisation procedure.
 """, "initialisation-prompt"),
@@ -176,7 +200,7 @@ $$s_i=\frac{\text{similar occupied neighbours}}{\text{occupied neighbours}}.$$
 
 At a boundary the neighbourhood is truncated. If an occupied agent has no occupied neighbours, we assign similarity zero. That convention is another modelling choice.
 
-<div class="discussion-marker"><img src="images/discussion_marker.svg" alt="Discussion prompt"><span>What should an isolated agent's similarity ratio be? What would change if we used one instead of zero?</span></div>
+<div class="discussion-marker">{{DISCUSSION_MARKER}}<span>What should an isolated agent's similarity ratio be? What would change if we used one instead of zero?</span></div>
 """, "one-agent-intro"),
 
         code(r'''
@@ -258,7 +282,7 @@ plt.show()
 
 Our update selects from the dissatisfied agents directly. If everyone is satisfied, or if there is nowhere to move, it returns without changing the state.
 
-<div class="choice-marker"><img src="images/choice_marker.svg" alt="Modelling choice"><span>Random dissatisfied agent → random empty site</span></div>
+<div class="choice-marker">{{CHOICE_MARKER}}<span>Random dissatisfied agent → random empty site</span></div>
 """, "one-update-intro"),
 
         code(r'''
@@ -286,6 +310,16 @@ step_rng = np.random.default_rng(SEED + 1)
 line_after_one_step, move = update_once(initial_line, RADIUS, THRESHOLD, step_rng)
 print("move:", move)
 
+# An update may move an agent, but it must not mutate the supplied state or
+# change the numbers of empty, yellow, and blue sites.
+assert np.array_equal(initial_line, initialise_line(
+    N_SITES, STATE_PROBABILITIES, np.random.default_rng(SEED)
+))
+assert np.array_equal(
+    np.bincount(line_after_one_step, minlength=3),
+    np.bincount(initial_line, minlength=3),
+)
+
 fig, axes = plt.subplots(2, 1, figsize=(11, 2.5), sharex=True)
 plot_line(initial_line, axes[0], "Before", None if move is None else move[0])
 plot_line(line_after_one_step, axes[1], "After", None if move is None else move[1])
@@ -294,7 +328,7 @@ plt.show()
 ''', "one-update"),
 
         md(r"""
-<div class="discussion-marker"><img src="images/discussion_marker.svg" alt="Discussion prompt"><span>Did the move necessarily improve the destination neighbourhood? Is that assumed by our update rule?</span></div>
+<div class="discussion-marker">{{DISCUSSION_MARKER}}<span>Did the move necessarily improve the destination neighbourhood? Is that assumed by our update rule?</span></div>
 
 The lecture model moves a dissatisfied agent to a random empty site. It does **not** require the destination to make that agent satisfied. This is why aggregate quantities can oscillate.
 """, "one-update-discussion"),
@@ -362,6 +396,14 @@ def run_simulation(
 
 simulation_rng = np.random.default_rng(SEED + 2)
 result = run_simulation(initial_line, RADIUS, THRESHOLD, simulation_rng, MAX_STEPS)
+
+# The histories describe the same sequence and every relocation conserves the
+# population. These checks remain useful when you extend the model.
+assert len(result.frames) == len(result.moves) + 1
+assert len(result.frames) == len(result.msr) == len(result.dissatisfied_fraction)
+baseline_counts = np.bincount(result.frames[0], minlength=3)
+assert all(np.array_equal(np.bincount(frame, minlength=3), baseline_counts) for frame in result.frames)
+
 print(f"{len(result.moves)} steps · settled={result.settled} · final MSR={result.msr[-1]:.3f}")
 ''', "run-simulation"),
 
@@ -434,7 +476,7 @@ plt.show()
 ''', "one-run-observables"),
 
         md(r"""
-<div class="discussion-marker"><img src="images/discussion_marker.svg" alt="Discussion prompt"><span>Where does the aggregate curve hide individual agents? Find a time step worth inspecting in the player.</span></div>
+<div class="discussion-marker">{{DISCUSSION_MARKER}}<span>Where does the aggregate curve hide individual agents? Find a time step worth inspecting in the player.</span></div>
 
 - Did MSR increase monotonically?
 - Did the dissatisfied fraction decrease monotonically?
@@ -454,7 +496,7 @@ An ensemble contributes:
 - the probability of settling within a specified time budget;
 - evidence about whether a conclusion is robust to stochastic choices.
 
-<div class="ladder-marker"><img src="images/ladder_marker.svg" alt="Ladder of abstraction"><span><strong>Up the ladder:</strong> one history → a distribution over histories.</span></div>
+<div class="ladder-marker">{{LADDER_MARKER}}<span><strong>Up the ladder:</strong> one history → a distribution over histories.</span></div>
 """, "ensemble-intro"),
 
         code(r'''
@@ -489,11 +531,13 @@ print(f"settled within budget: {settled.mean():.0%}")
         md(r"""
 # Vary one modelling choice
 
-Now repeat the ensemble at several similarity thresholds. This is a **parameter sweep of ensembles**: each threshold receives its own collection of independent runs.
+Now repeat the ensemble at several similarity thresholds. This is a **parameter sweep of ensembles**: each threshold receives a collection of independent runs.
+
+We reuse the same list of seeds at every threshold. Run 0 at one threshold is therefore paired with Run 0 at every other threshold. This controls one source of random variation and makes differences between thresholds easier to interpret. The runs within each ensemble remain independent.
 
 For a responsive workshop, each threshold uses 12 runs and a 250-step budget. These computational choices affect the precision of our estimates and the meaning of “settled within budget”.
 
-<div class="discussion-marker"><img src="images/discussion_marker.svg" alt="Discussion prompt"><span>Predict the shape of each curve before running the sweep.</span></div>
+<div class="discussion-marker">{{DISCUSSION_MARKER}}<span>Predict the shape of each curve before running the sweep.</span></div>
 """, "parameter-sweep-intro"),
 
         code(r'''
@@ -534,7 +578,7 @@ plt.show()
         md(r"""
 ## Interpret, do not optimise
 
-<div class="discussion-marker"><img src="images/discussion_marker.svg" alt="Discussion prompt"><span>What does each panel contribute that the other two do not?</span></div>
+<div class="discussion-marker">{{DISCUSSION_MARKER}}<span>What does each panel contribute that the other two do not?</span></div>
 
 The sweep does not reveal a universally “best” threshold. The threshold represents an assumed preference. A best value exists only after an objective and acceptable trade-offs have been specified.
 
@@ -582,7 +626,7 @@ In three sentences:
 2. Describe one system-level pattern or observable it affected.
 3. Explain why an ensemble supported a stronger claim than a single run.
 
-<div class="ladder-marker"><img src="images/ladder_marker.svg" alt="Ladder of abstraction"><span>Agent → update rule → trajectory → observable → ensemble.</span></div>
+<div class="ladder-marker">{{LADDER_MARKER}}<span>Agent → update rule → trajectory → observable → ensemble.</span></div>
 """, "exit-ticket"),
     ]
 
