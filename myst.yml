@@ -7,6 +7,8 @@ project:
     - file: intro.md
     - file: notebooks/week00/Getting_Started.ipynb
     - file: notebooks/week01/L_Introduction_to_complex_systems.ipynb
+      children:
+        - file: notebooks/week01/WS_Introduction_to_complex_systems.ipynb
     - file: notebooks/week02/L_Fractals.ipynb
     - file: notebooks/week03/L_Reaction_diffusion.ipynb
     - file: notebooks/week04/L_Cellular_automata.ipynb

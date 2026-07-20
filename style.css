@@ -42,7 +42,7 @@
 .article h4,
 .article h5,
 .article h6 {
-  font-family: "Big Caslon", Baskerville, Georgia, serif;
+  font-family: Baskerville, Georgia, serif;
   font-style: italic;
   font-weight: 700;
   color: var(--reader-ink, #1B2A4C);
@@ -65,54 +65,106 @@
    what applies in slides, where --reader-ink is never defined. */
 
 .reader-voice {
-  border-right: 1px solid var(--reader-ink, #1B2A4C);
-  padding-right: 1.2em;
-  margin: 1.5em 0;
+  display: grid;
+  grid-template-columns: 1.05em minmax(0, 1fr);
+  column-gap: 0.65em;
+  border: 0;
+  padding: 0;
+  margin: 1.25em 0 1.5em;
   color: var(--reader-ink, #1B2A4C);
 }
+.reader-voice::before {
+  content: "“";
+  grid-column: 1;
+  grid-row: 1 / 3;
+  align-self: stretch;
+  display: flex;
+  align-items: flex-start;
+  height: auto;
+  margin: 0;
+  color: var(--reader-ink-soft, #5A6685);
+  font-family: Baskerville, Georgia, serif;
+  font-size: 3.4em;
+  line-height: 0.72;
+}
 .reader-voice-quote {
-  font-style: italic;
+  grid-column: 2;
+  font-style: normal;
   font-family: Baskerville, Georgia, serif;
   font-size: 1.15em;
+  line-height: 1.28;
+}
+.reader-voice-quote::after {
+  content: "”";
+  display: inline;
+  margin-left: 0.2em;
+  color: var(--reader-ink-soft, #5A6685);
+  font-family: Baskerville, Georgia, serif;
+  font-size: 1.7em;
+  line-height: 0;
+  vertical-align: -0.14em;
 }
 .reader-voice-attr {
-  font-family: Optima, "Segoe UI", "Century Gothic", sans-serif;
+  grid-column: 2;
+  display: table;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.74em;
   letter-spacing: 0.06em;
   color: var(--reader-ink-soft, #5A6685);
-  margin-top: 0.7em;
-  text-align: right;
+  margin-top: 0.85em;
+  padding-top: 0.55em;
+  border-top: 1px solid var(--reader-line, #C7CEDC);
+  text-align: left;
 }
 .reader-voice-attr a {
   color: var(--reader-ink-soft, #5A6685);
 }
 
 .reader-prompt {
-  border-top: 1px solid var(--reader-line, #C7CEDC);
-  border-bottom: 1px solid var(--reader-line, #C7CEDC);
-  padding: 0.9em 0;
-  margin: 1.25em 0;
+  position: relative;
+  border: 0;
+  border-left: 2px solid var(--reader-line, #C7CEDC);
+  padding: 0.15em 0 0.15em 3.2em;
+  margin: 1.1em 0;
   color: var(--reader-ink, #1B2A4C);
+}
+.reader-prompt::before {
+  content: "→";
+  position: absolute;
+  left: 0.65em;
+  top: 50%;
+  width: 1.45em;
+  height: 1.45em;
+  transform: translateY(-50%);
+  border: 0;
+  display: grid;
+  place-items: center;
+  font-family: Baskerville, Georgia, serif;
+  font-size: 1.05em;
+  font-style: normal;
 }
 .reader-prompt a {
   color: var(--reader-ink, #1B2A4C);
 }
 .reader-prompt-label {
-  font-family: "American Typewriter", "Courier New", monospace;
-  font-size: 0.72em;
-  letter-spacing: 0.08em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.62em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.35em;
+  color: var(--reader-ink-soft, #5A6685);
 }
+.reader-prompt-body { font-size: 0.92em; line-height: 1.3; }
 .reader-prompt-body.italic {
   font-style: italic;
 }
 .reader-prompt-footnote {
-  font-size: 0.85em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.68em;
   color: var(--reader-ink-soft, #5A6685);
   margin-top: 1em;
-  padding-top: 0.75em;
-  border-top: 1px solid var(--reader-line, #C7CEDC);
+  padding-top: 0.2em;
+  border-top: 0;
 }
 .reader-prompt-footnote a {
   color: var(--reader-ink-soft, #5A6685);
@@ -126,12 +178,407 @@
   text-align: center;
 }
 .reader-emphasis p {
-  font-family: "Big Caslon", Georgia, serif;
+  font-family: Baskerville, Georgia, serif;
   font-style: italic;
   font-weight: bold;
   font-size: 1.3em;
   color: var(--reader-ink, #1B2A4C);
   margin: 0;
+}
+
+/* A compact process-map used at the start of each chapter and workshop. */
+.reader-route {
+  border-left: 1px solid var(--reader-ink, #1B2A4C);
+  padding: 0.25em 0 0.25em 1em;
+  margin: 1.5em 0 2em;
+}
+.reader-route-label {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.7em;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--reader-ink-soft, #5A6685);
+  margin-bottom: 0.45em;
+}
+.reader-route-body {
+  font-family: Baskerville, Georgia, serif;
+  color: var(--reader-ink, #1B2A4C);
+}
+
+/* Week 1 Country acknowledgement: generous image, quiet supporting text. */
+.country-map {
+  display: block;
+  max-height: 430px;
+  width: auto;
+  margin: 0.35em auto 0.6em;
+}
+.country-slide-grid {
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.65fr);
+}
+.country-slide-grid .country-map {
+  width: 100%;
+  max-height: 470px;
+  object-fit: contain;
+}
+.country-map-large {
+  display: block;
+  width: 96% !important;
+  max-height: 505px !important;
+  object-fit: contain;
+  margin: 0 auto !important;
+}
+.group-slide-grid {
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 0.75fr);
+  align-items: center;
+}
+.group-slide-grid .group-photo {
+  width: 100%;
+  max-height: 475px;
+  object-fit: cover;
+  object-position: center;
+  margin: 0 auto;
+}
+.group-slide-grid .group-logo {
+  width: 100%;
+  max-height: 245px;
+  object-fit: contain;
+  margin: 0 auto 0.75em;
+}
+.figure-reference {
+  margin-top: 0.45em;
+  color: var(--reader-ink-soft, #5A6685);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.62em;
+  line-height: 1.25;
+}
+.unit-essentials {
+  width: 78%;
+  margin: 0.5em auto;
+}
+.unit-essentials > div {
+  display: grid;
+  grid-template-columns: 8em 1fr;
+  gap: 1em;
+  padding: 0.34em 0;
+  border-bottom: 1px solid var(--reader-line, #C7CEDC);
+}
+.unit-essentials span {
+  text-align: right;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.64em;
+  color: var(--reader-ink-soft, #5A6685);
+}
+.unit-essentials strong {
+  text-align: left;
+  font-weight: 400;
+}
+.model-specification {
+  margin-top: 0.55em;
+}
+.model-specification > div {
+  display: grid;
+  grid-template-columns: 10.5em 1fr;
+  gap: 0.8em;
+  padding: 0.25em 0;
+  border-bottom: 1px solid var(--reader-line, #C7CEDC);
+  font-size: 0.86em;
+}
+.model-specification strong { text-align: right; }
+.aggregate-definitions { margin-top: 0.35em; }
+.aggregate-definitions > div {
+  display: grid;
+  grid-template-columns: 10.5em minmax(0, 1fr);
+  align-items: center;
+  gap: 0.9em;
+  padding: 0.38em 0;
+  border-bottom: 1px solid var(--reader-line, #C7CEDC);
+}
+.aggregate-definitions strong { text-align: right; }
+.aggregate-definitions p { margin: 0; }
+.parameter-outcomes-layout { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); }
+
+/* Notebook editors do not load the slide stylesheet. Explicit dimensions on
+   marker images provide the fallback there; these rules remain authoritative. */
+.article .choice-marker img,
+.article .discussion-marker img { max-width: 36px !important; }
+.article .ladder-marker img { max-width: 30px !important; }
+.process-note {
+  margin-top: 0.8em;
+  color: var(--reader-ink-soft, #5A6685);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.62em;
+}
+.system-title span {
+  display: inline;
+  margin-left: 0.28em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.48em;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.025em;
+  color: var(--reader-ink-soft, #5A6685);
+}
+.system-title span::before { content: ": "; }
+.planet-process { display: block; }
+.process-sequence { max-width: 49em; }
+.process-step {
+  display: grid;
+  grid-template-columns: 1.7em 1fr;
+  gap: 0.55em;
+  align-items: start;
+  margin: 0.08em 0;
+}
+.process-step > span {
+  width: 1.45em;
+  height: 1.45em;
+  border: 1px solid var(--reader-ink, #1B2A4C);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.7em;
+}
+.process-step p { margin: 0; font-size: 0.72em; line-height: 1.16; }
+.process-step.qed { margin-top: 0.28em; padding-top: 0.28em; border-top: 1px solid var(--reader-line, #C7CEDC); }
+.variable-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.28em 0.9em;
+  margin-top: 0.45em;
+  padding-top: 0.38em;
+  border-top: 1px solid var(--reader-line, #C7CEDC);
+  color: var(--reader-ink-soft, #5A6685);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.46em;
+  line-height: 1.25;
+}
+.variable-strip strong { grid-column: 1 / -1; text-transform: uppercase; letter-spacing: 0.08em; }
+.analysis-perspectives {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
+  margin: 0.75em 0;
+}
+.analysis-perspectives > div {
+  border: 1px solid var(--reader-line, #C7CEDC);
+  padding: 0.75em;
+}
+.analysis-perspectives strong {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.68em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.analysis-perspectives p { font-size: 0.88em; line-height: 1.3; }
+.analysis-perspectives.ensemble-comparison > div {
+  min-height: 0;
+  padding: 0.62em 0.72em;
+}
+.analysis-perspectives.ensemble-comparison p {
+  margin: 0.35em 0 0;
+  font-size: 0.75em;
+  line-height: 1.2;
+}
+.meaning-panel ul,
+.evidence-layout .meaning-panel ul {
+  margin: 0.2em 0 0.55em;
+  padding-left: 1.1em;
+}
+.meaning-panel li,
+.evidence-layout .meaning-panel li {
+  padding-left: 0.08em;
+  margin: 0.2em 0;
+}
+.group-caption {
+  text-align: center;
+  margin-top: 0.35em;
+  font-family: Baskerville, Georgia, serif;
+  font-size: 1em;
+  line-height: 1.25;
+  font-weight: 400;
+  font-style: italic;
+}
+.country-acknowledgement {
+  max-width: 46em;
+  margin: 0.5em auto;
+  text-align: left;
+  font-family: Baskerville, Georgia, serif;
+  color: var(--reader-ink, #1B2A4C);
+}
+
+.slide-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 1.6em;
+  align-items: center;
+  text-align: left;
+}
+.slide-columns .column-image {
+  display: block;
+  width: 100%;
+  max-height: 430px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+.assumption-reveal {
+  position: relative;
+  border: 1px solid var(--reader-line, #C7CEDC);
+  margin-top: 1em;
+  padding: 0.7em 0.9em 0.7em 4em;
+  color: var(--reader-ink, #1B2A4C);
+}
+.assumption-reveal::before {
+  content: "";
+  position: absolute;
+  left: 0.8em;
+  top: 0.75em;
+  width: 2.25em;
+  height: 2.25em;
+  background: center / contain no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%231b2a4c' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 48C24 46 27 38 31 31C35 23 41 17 53 16M31 31C38 35 44 41 51 50'/%3E%3Ccircle cx='12' cy='48' r='5' fill='%231b2a4c'/%3E%3Ccircle cx='53' cy='16' r='5'/%3E%3Ccircle cx='51' cy='50' r='5'/%3E%3C/g%3E%3C/svg%3E");
+}
+.choice-marker {
+  display: flex;
+  align-items: center;
+  gap: 0.55em;
+  margin: 0.65em 0;
+  color: var(--reader-ink-soft, #5A6685);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.62em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.choice-marker img { width: 34px !important; height: 34px !important; margin: 0 !important; }
+
+.discussion-marker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0.15rem 0 0.55rem;
+  color: var(--reader-ink, #1B2A4C);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.62em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.discussion-marker img { width: 36px !important; height: 36px !important; margin: 0 !important; }
+.discussion-prompt { border-left-color: #EDCC55; }
+.qa-grid { margin-top: 0.55em; }
+.qa-row {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  gap: 1.1em;
+  align-items: start;
+  padding: 0.42em 0;
+  border-bottom: 1px solid var(--reader-line, #C7CEDC);
+}
+.qa-question { text-align: right; font-weight: 700; }
+.qa-answer { color: var(--reader-ink, #1B2A4C); }
+.qa-row p { margin: 0; font-size: 0.82em; line-height: 1.24; }
+.initialisation-layout { grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr); gap: 1em; }
+.initialisation-layout .qa-row { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); }
+.initialisation-layout .column-image { max-height: 330px; }
+
+.article iframe {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.evidence-layout {
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 1.25em;
+  align-items: stretch;
+}
+.evidence-panel,
+.meaning-panel {
+  border: 1px solid var(--reader-line, #C7CEDC);
+  padding: 0.8em;
+  min-width: 0;
+  align-self: stretch;
+}
+.evidence-panel img {
+  display: block;
+  width: 100%;
+  max-height: 430px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+.meaning-panel p,
+.meaning-panel li {
+  font-size: 0.92em;
+}
+.ladder-marker {
+  display: flex;
+  align-items: center;
+  gap: 0.65em;
+  border-top: 1px solid var(--reader-line, #C7CEDC);
+  margin-top: 0.8em;
+  padding-top: 0.55em;
+  color: var(--reader-ink-soft, #5A6685);
+  font-family: Baskerville, Georgia, serif;
+  font-size: 0.68em;
+}
+.ladder-marker img {
+  width: 30px !important;
+  height: 40px !important;
+  margin: 0 !important;
+  flex: 0 0 auto;
+}
+
+/* Keep only the closing transfer exercise within one slide frame. */
+.reveal section:has(.transfer-slide) h1 {
+  font-size: 2.65em;
+  margin-bottom: 0.05em;
+}
+.reveal section:has(.transfer-slide) h2 {
+  font-size: 1.45em;
+  margin: 0 0 0.35em;
+}
+.reveal section:has(.transfer-slide) p,
+.reveal section:has(.transfer-slide) li {
+  font-size: 0.9em;
+  line-height: 1.25;
+}
+.reveal section:has(.transfer-slide) .ladder-marker {
+  margin-top: 0.45em;
+  padding-top: 0.35em;
+}
+
+.schelling-interactive {
+  display: block;
+  width: 100%;
+  height: 475px;
+  margin: 0 auto;
+  border: 0;
+}
+.schelling-interactive.compact-simulation {
+  width: 88%;
+  height: 390px;
+}
+.simulation-preview {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  margin: 0 auto;
+  border: 0;
+}
+
+/* Reader figures retain their natural aspect ratio. The book theme otherwise
+   lets some legacy width attributes compress images vertically. */
+.article img {
+  height: auto;
+  object-fit: contain;
+}
+
+.article .reader-map {
+  display: block;
+  width: min(100%, 900px);
+  height: auto !important;
+  object-fit: contain;
+  margin: 1rem auto 0.5rem;
 }
 
 /* ---- Sidebar nav: bring book-theme's default sans/blue-highlight

@@ -63,6 +63,35 @@ STYLE_CSS = ROOT / "style.css"
 
 COMMENT_RE = re.compile(r"/\*.*?\*/", re.DOTALL)
 RULE_RE = re.compile(r"([^{}]+)\{([^{}]*)\}")
+SHARED_COMPONENT_PREFIXES = (
+    ".reader-",
+    ".country-",
+    ".slide-",
+    ".assumption-",
+    ".evidence-",
+    ".meaning-",
+    ".ladder-",
+    ".group-",
+    ".schelling-",
+    ".figure-",
+    ".unit-",
+    ".model-",
+    ".choice-",
+    ".discussion-",
+    ".process-",
+    ".planet-",
+    ".variable-",
+    ".system-",
+    ".qa-",
+    ".simulation-",
+    ".initialisation-",
+    ".planet-",
+    ".analysis-",
+    ".aggregate-",
+    ".parameter-",
+    ".two-",
+    ".transfer-",
+)
 
 SLIDES_ONLY_RULES = """
 .jp-OutputArea-child:has(iframe) .jp-OutputPrompt,
@@ -77,6 +106,86 @@ SLIDES_ONLY_RULES = """
 
 :root {
   --jp-content-font-size1: 28px !important;
+  --reader-ink: #1B2A4C;
+  --reader-ink-soft: #5A6685;
+  --reader-line: #C7CEDC;
+}
+
+.reveal,
+.reveal .slides,
+.reveal .slides section {
+  background: #fff;
+  color: var(--reader-ink);
+}
+
+.reveal .jp-MarkdownOutput p,
+.reveal .jp-MarkdownOutput li,
+.reveal .jp-MarkdownOutput td,
+.reveal .jp-MarkdownOutput th {
+  font-family: Baskerville, Georgia, serif;
+  line-height: 1.28;
+}
+
+.reveal .slides section h1 {
+  font-size: 2.35em;
+  line-height: 1.05;
+}
+
+.reveal .slides section h2,
+.reveal .slides section h3,
+.reveal .slides section h4,
+.reveal .slides section h5 {
+  font-size: 1.45em;
+  line-height: 1.12;
+}
+
+.reveal .slides section h1,
+.reveal .slides section h2,
+.reveal .slides section h3,
+.reveal .slides section h4,
+.reveal .slides section h5 {
+  margin-top: 0;
+  margin-bottom: 0.55em;
+  color: var(--reader-ink);
+}
+
+.reveal .slides section h3,
+.reveal .slides section h4,
+.reveal .slides section h5 {
+  font-size: 1.15em;
+}
+
+.reveal .slides section a {
+  color: var(--reader-ink);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.12em;
+}
+
+.reveal .slides section table {
+  border-collapse: collapse;
+  margin: 0.7em auto;
+  font-size: 0.82em;
+}
+
+.reveal .slides section th,
+.reveal .slides section td {
+  border-bottom: 1px solid var(--reader-line);
+  padding: 0.3em 0.55em;
+}
+
+.reveal .slides section figcaption,
+.reveal .slides section .figure-caption,
+.reveal .slides section p:has(> em:first-child:last-child) {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.58em;
+  line-height: 1.25;
+  color: var(--reader-ink-soft);
+}
+
+.reveal .slides section pre,
+.reveal .slides section code,
+.reveal .jp-CodeCell {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
 }
 
 .reveal .slides section img {
@@ -97,7 +206,7 @@ def extract_rules(css_text: str) -> str:
         if ".article" in selector and "font-family" in body:
             new_selector = selector.replace(".article", ".jp-MarkdownOutput")
             blocks.append(f"{new_selector.strip()} {{{body}}}")
-        elif ".reader-" in selector:
+        elif any(prefix in selector for prefix in SHARED_COMPONENT_PREFIXES):
             blocks.append(f"{selector} {{{body}}}")
     return "\n\n".join(blocks)
 

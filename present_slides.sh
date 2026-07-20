@@ -27,7 +27,9 @@ SERVER_PID=$!
 trap 'kill $SERVER_PID 2>/dev/null' EXIT
 
 sleep 1
-open "http://localhost:$PORT/$NAME"
+VERSION="$(date +%s)"
+URL="http://localhost:$PORT/$NAME?v=$VERSION"
+open "$URL"
 
-echo "Serving at http://localhost:$PORT/$NAME -- press Ctrl+C to stop."
+echo "Serving at $URL -- press Ctrl+C to stop."
 wait $SERVER_PID

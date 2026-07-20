@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90 120" role="img" aria-labelledby="title">
+  <title id="title">Ladder of abstraction marker</title>
+  <g fill="none" stroke="#1B2A4C" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M28 20v80M62 20v80"/>
+    <path d="M28 32h34M28 50h34M28 68h34M28 86h34"/>
+    <path d="M14 34V14m0 0L6 23m8-9 8 9"/>
+    <path d="M76 86v20m0 0-8-9m8 9 8-9"/>
+  </g>
+</svg>
