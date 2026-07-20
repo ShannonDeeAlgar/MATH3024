@@ -46,6 +46,8 @@ jobs:
         run: python prepare_reader_build.py
       - name: Build HTML Assets
         run: jupyter-book build --html --execute
+      - name: Add standalone lecture slides
+        run: ./stage_slides.sh _build/html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

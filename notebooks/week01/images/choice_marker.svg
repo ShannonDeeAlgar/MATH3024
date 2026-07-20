@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Modelling choice</title>
+  <g fill="none" stroke="#1b2a4c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 48 C24 46 27 38 31 31 C35 23 41 17 53 16"/>
+    <path d="M31 31 C38 35 44 41 51 50"/>
+    <circle cx="12" cy="48" r="5" fill="#1b2a4c"/>
+    <circle cx="53" cy="16" r="5"/>
+    <circle cx="51" cy="50" r="5"/>
+  </g>
+</svg>

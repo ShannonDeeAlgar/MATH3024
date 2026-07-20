@@ -10,8 +10,9 @@ the published Reader. This modifies notebooks/*.ipynb directly before
 (keeping page URLs stable).
 
 In CI this runs in a throwaway checkout, so no restoration is needed. For
-local use, run via build_reader.sh instead of calling this directly -- it
-restores the real notebooks afterward with `git checkout -- notebooks/`.
+local use, run via build_reader.sh instead of calling this directly. The
+wrapper creates a temporary project copy and runs this script there, leaving
+the working notebooks untouched.
 """
 import json
 from pathlib import Path
@@ -19,7 +20,7 @@ from pathlib import Path
 ROOT = Path(__file__).parent
 SRC = ROOT / "notebooks"
 
-TAGS_TO_STRIP = {"slides-only", "presenter-notes"}
+TAGS_TO_STRIP = {"slides-only", "presenter-notes", "archive-only"}
 
 
 def filter_notebook(path: Path) -> int:

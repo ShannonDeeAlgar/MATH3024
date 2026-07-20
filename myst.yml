@@ -7,7 +7,10 @@ project:
     - file: intro.md
     - file: notebooks/week00/Getting_Started.ipynb
     - file: notebooks/week01/L_Introduction_to_complex_systems.ipynb
+      children:
+        - file: notebooks/week01/WS_Introduction_to_complex_systems.ipynb
 site:
   options:
     folders: true
+    style: style.css
   template: book-theme

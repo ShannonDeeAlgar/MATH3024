@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root { --ink:#1b2a4c; --muted:#5a6685; --line:#c7cedc; --yellow:#edcc55; --blue:#5879aa; }
+  * { box-sizing:border-box; }
+  body { margin:0; color:var(--ink); background:#fff; font-family:Baskerville,Georgia,serif; }
+  main { display:grid; grid-template-columns:minmax(300px,1fr) minmax(300px,.9fr); gap:24px; padding:18px; }
+  canvas { width:min(100%,520px); aspect-ratio:1; border:1px solid var(--line); background:#fff; }
+  .controls { border:1px solid var(--line); padding:20px; align-self:start; }
+  h2 { margin:0 0 8px; font-size:28px; font-style:italic; font-weight:500; }
+  p { margin:6px 0 18px; font-size:18px; line-height:1.35; }
+  .row { display:grid; grid-template-columns:95px 1fr 64px; gap:10px; align-items:center; margin:18px 0; }
+  label { font-size:17px; }
+  output { text-align:right; font-variant-numeric:tabular-nums; }
+  input[type=range] { width:100%; accent-color:var(--ink); }
+  button { border:1px solid var(--ink); background:#fff; color:var(--ink); padding:9px 18px; font:17px Baskerville,Georgia,serif; cursor:pointer; }
+  button:hover, button[aria-pressed=true] { background:var(--ink); color:#fff; }
+  .status { border-top:1px solid var(--line); margin-top:18px; padding-top:14px; color:var(--muted); font-size:17px; line-height:1.45; }
+  .legend { display:flex; gap:18px; margin-top:9px; font-size:15px; }
+  .key::before { content:""; display:inline-block; width:13px; height:13px; margin-right:6px; vertical-align:-1px; background:var(--c); border:1px solid var(--line); }
+  body.minimal main { display:block; padding:0; }
+  body.minimal .controls, body.minimal .legend { display:none; }
+  body.minimal canvas { display:block; width:100%; max-width:none; }
+  body.compact main { grid-template-columns:minmax(260px,.85fr) minmax(280px,.9fr); gap:16px; padding:8px; max-width:940px; margin:0 auto; }
+  body.compact canvas { display:block; width:min(100%,390px); margin:0 auto; }
+  body.compact .controls { padding:14px; }
+  body.compact h2 { font-size:23px; margin-bottom:5px; }
+  body.compact p { font-size:15px; margin:4px 0 10px; }
+  body.compact .row { grid-template-columns:72px 1fr 58px; gap:8px; margin:11px 0; }
+  body.compact label, body.compact button, body.compact .status { font-size:15px; }
+  body.compact .status { margin-top:11px; padding-top:9px; }
+  body.compact .legend { font-size:13px; margin-top:5px; }
+  @media(max-width:760px){ main{grid-template-columns:1fr;} }
+  @media(max-width:760px){
+    body.compact main { grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:8px; padding:4px; }
+    body.compact canvas { max-width:190px; }
+    body.compact .controls { padding:7px; }
+    body.compact h2 { font-size:17px; }
+    body.compact p { font-size:11px; line-height:1.15; margin-bottom:5px; }
+    body.compact button { padding:4px 8px; font-size:12px; }
+    body.compact .row { grid-template-columns:38px 1fr 42px; gap:3px; margin:5px 0; }
+    body.compact label, body.compact output, body.compact .status { font-size:11px; }
+    body.compact .status { margin-top:5px; padding-top:5px; line-height:1.25; }
+    body.compact .legend { gap:7px; font-size:9px; }
+    body.compact .key::before { width:8px; height:8px; margin-right:3px; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <div>
+    <canvas id="grid" width="600" height="600" aria-label="Interactive Schelling segregation grid"></canvas>
+    <div class="legend">
+      <span class="key" style="--c:#fff">Empty</span>
+      <span class="key" style="--c:#edcc55">Group 1</span>
+      <span class="key" style="--c:#5879aa">Group 2</span>
+      <span>× dissatisfied</span>
+    </div>
+  </div>
+  <section class="controls">
+    <h2>Control time directly</h2>
+    <p>Pause, slow down, or scrub backwards to inspect one relocation.</p>
+    <button id="play" type="button" aria-pressed="false">Play</button>
+    <div class="row">
+      <label for="time">Time</label>
+      <input id="time" type="range" min="0" value="0" step="1">
+      <output id="timeOut">0</output>
+    </div>
+    <div class="row">
+      <label for="delay">Delay</label>
+      <input id="delay" type="range" min="100" max="2000" value="500" step="100">
+      <output id="delayOut">0.5 s</output>
+    </div>
+    <div class="status" id="status"></div>
+  </section>
+</main>
+<script>
+const params=new URLSearchParams(location.search);
+const N=5, threshold=Number(params.get('threshold')||.5), colours=['#fff','#edcc55','#5879aa'];
+if(params.get('minimal')==='1') document.body.classList.add('minimal');
+if(params.get('compact')==='1') document.body.classList.add('compact');
+let seed=Number(params.get('seed')||8);
+function random(){ seed=(seed*1664525+1013904223)>>>0; return seed/4294967296; }
+function initial(){ return Array.from({length:N},()=>Array.from({length:N},()=>{const r=random();return r<.15?0:r<.575?1:2;})); }
+function copy(g){ return g.map(r=>r.slice()); }
+function neighbours(g,i,j){ let same=0,occupied=0; for(let di=-1;di<=1;di++)for(let dj=-1;dj<=1;dj++){if(!di&&!dj)continue;const a=i+di,b=j+dj;if(a>=0&&a<N&&b>=0&&b<N&&g[a][b]){occupied++;if(g[a][b]===g[i][j])same++;}} return {same,occupied}; }
+function unhappy(g){ const out=[]; for(let i=0;i<N;i++)for(let j=0;j<N;j++)if(g[i][j]){const n=neighbours(g,i,j);if(n.occupied&&n.same/n.occupied<threshold)out.push([i,j]);} return out; }
+function msr(g){ let total=0,count=0; for(let i=0;i<N;i++)for(let j=0;j<N;j++)if(g[i][j]){const n=neighbours(g,i,j);if(n.occupied){total+=n.same/n.occupied;count++;}} return count?total/count:0; }
+function build(){ let g=initial(), frames=[{g:copy(g),move:null}]; for(let k=0;k<200;k++){const bad=unhappy(g);if(!bad.length)break;const from=bad[Math.floor(random()*bad.length)];const empty=[];for(let i=0;i<N;i++)for(let j=0;j<N;j++)if(!g[i][j])empty.push([i,j]);if(!empty.length)break;const to=empty[Math.floor(random()*empty.length)], next=copy(g);next[to[0]][to[1]]=next[from[0]][from[1]];next[from[0]][from[1]]=0;g=next;frames.push({g:copy(g),move:{from,to}});} return frames; }
+const frames=build(), canvas=document.getElementById('grid'), ctx=canvas.getContext('2d');
+const time=document.getElementById('time'), delay=document.getElementById('delay'), play=document.getElementById('play');
+time.max=frames.length-1; let timer=null;
+function draw(k){const f=frames[k],cell=canvas.width/N;ctx.clearRect(0,0,canvas.width,canvas.height);ctx.lineWidth=1;for(let i=0;i<N;i++)for(let j=0;j<N;j++){ctx.fillStyle=colours[f.g[i][j]];ctx.fillRect(j*cell,i*cell,cell,cell);ctx.strokeStyle='#c7cedc';ctx.strokeRect(j*cell,i*cell,cell,cell);}ctx.strokeStyle='#1b2a4c';ctx.lineWidth=7;for(const [i,j] of unhappy(f.g)){const x=j*cell,y=i*cell,p=cell*.3;ctx.beginPath();ctx.moveTo(x+p,y+p);ctx.lineTo(x+cell-p,y+cell-p);ctx.moveTo(x+cell-p,y+p);ctx.lineTo(x+p,y+cell-p);ctx.stroke();}document.getElementById('timeOut').value=`${k}/${frames.length-1}`;document.getElementById('status').innerHTML=`Similarity threshold: <strong>${Math.round(threshold*100)}%</strong><br><strong>${unhappy(f.g).length}</strong> dissatisfied individuals<br><strong>${msr(f.g).toFixed(3)}</strong> mean similarity ratio`;}
+function stop(){clearInterval(timer);timer=null;play.textContent='Play';play.setAttribute('aria-pressed','false');}
+function start(){stop();play.textContent='Pause';play.setAttribute('aria-pressed','true');timer=setInterval(()=>{let k=+time.value;if(k>=frames.length-1){stop();return;}time.value=k+1;draw(k+1);},+delay.value);}
+play.addEventListener('click',()=>timer?stop():start());
+time.addEventListener('input',()=>draw(+time.value));
+delay.addEventListener('input',()=>{document.getElementById('delayOut').value=(delay.value/1000).toFixed(1)+' s';if(timer)start();});
+draw(0);
+if(params.get('autoplay')==='1') {
+  delay.value=params.get('speed')||'350';
+  document.getElementById('delayOut').value=(delay.value/1000).toFixed(1)+' s';
+  setTimeout(start,300);
+}
+</script>
+</body>
+</html>
