@@ -14,7 +14,9 @@ TARGET = ROOT / "notebooks/week01/WS_Introduction_to_complex_systems.ipynb"
 # notebook, so these must not depend on image files or the Reader stylesheet.
 MARKERS = {
     "{{LADDER_MARKER}}": """<svg viewBox="0 0 90 120" role="img" aria-label="Ladder of abstraction" style="width:24px;height:32px;flex:0 0 24px" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="#1B2A4C" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M28 20v80M62 20v80"/><path d="M28 32h34M28 50h34M28 68h34M28 86h34"/><path d="M14 34V14m0 0L6 23m8-9 8 9"/><path d="M76 86v20m0 0-8-9m8 9 8-9"/></g></svg>""",
-    "{{DISCUSSION_MARKER}}": """<svg viewBox="0 0 64 64" role="img" aria-label="Discussion prompt" style="width:30px;height:30px;flex:0 0 30px" xmlns="http://www.w3.org/2000/svg"><path d="M11 14h31a8 8 0 0 1 8 8v13a8 8 0 0 1-8 8H27L16 52l2-9h-7a8 8 0 0 1-8-8V22a8 8 0 0 1 8-8Z" fill="none" stroke="#1B2A4C" stroke-width="3" stroke-linejoin="round"/><circle cx="19" cy="29" r="2.6" fill="#EDCC55" stroke="#1B2A4C" stroke-width="1.5"/><circle cx="29" cy="29" r="2.6" fill="#5879AA" stroke="#1B2A4C" stroke-width="1.5"/><circle cx="39" cy="29" r="2.6" fill="#EDCC55" stroke="#1B2A4C" stroke-width="1.5"/></svg>""",
+    # A styled text mark survives JupyterLab's untrusted-notebook sanitiser;
+    # embedded SVGs may disappear until the student explicitly trusts the file.
+    "{{DISCUSSION_MARKER}}": """<span role="img" aria-label="Discussion prompt" style="display:inline-flex;align-items:center;justify-content:center;min-width:30px;height:23px;padding:0 5px;border:2px solid #1B2A4C;border-radius:8px;color:#1B2A4C;font:700 13px/1 Arial,sans-serif;box-sizing:border-box">•••</span>""",
     "{{CHOICE_MARKER}}": """<svg viewBox="0 0 64 64" role="img" aria-label="Modelling choice" style="width:29px;height:29px;flex:0 0 29px" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="#1B2A4C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 48C24 46 27 38 31 31C35 23 41 17 53 16"/><path d="M31 31C38 35 44 41 51 50"/><circle cx="12" cy="48" r="5" fill="#1B2A4C"/><circle cx="53" cy="16" r="5"/><circle cx="51" cy="50" r="5"/></g></svg>""",
 }
 
@@ -410,7 +412,14 @@ print(f"{len(result.moves)} steps · settled={result.settled} · final MSR={resu
         md(r"""
 ## Pause the process
 
-Use play/pause and the time slider to inspect individual state changes. The player is deliberately separate from the model logic, so changing the visualisation cannot change the simulation.
+Use play/pause and the time slider to inspect individual state changes. This serves two purposes:
+
+- **Understand the model:** connect one local judgement and relocation to the changing system-level pattern.
+- **Debug and validate the implementation:** check that the selected agent really is dissatisfied, the destination was empty, only the intended sites changed, and the recorded observables agree with the displayed state.
+
+The player is deliberately separate from the model logic, so changing the visualisation cannot change the simulation. When something looks surprising, pause at the first unexpected frame and inspect that transition before trusting a long run or an aggregate plot.
+
+<div class="ladder-marker">{{LADDER_MARKER}}<span><strong>Stay low:</strong> a correct-looking final pattern is not enough. Verify the mechanism one state transition at a time.</span></div>
 """, "player-intro"),
 
         code(r'''
@@ -460,11 +469,11 @@ time = np.arange(len(result.frames))
 
 axes[0].plot(time, result.dissatisfied_fraction, color="#1B2A4C", linewidth=2)
 axes[0].set_ylabel("Dissatisfied\nfraction")
-axes[0].set_ylim(0, 1)
+axes[0].set_ylim(-0.03, 1.03)
 
 axes[1].plot(time, result.msr, color="#1B2A4C", linewidth=2)
 axes[1].axhline(0.5, color="#5A6685", linestyle="--", linewidth=1, label="random 50:50 benchmark")
-axes[1].set(xlabel="Simulation time step", ylabel="MSR", ylim=(0, 1))
+axes[1].set(xlabel="Simulation time step", ylabel="MSR", ylim=(-0.03, 1.03))
 axes[1].legend(frameon=False)
 
 for ax in axes:
@@ -485,18 +494,54 @@ plt.show()
 """, "one-run-discussion"),
 
         md(r"""
-# One run is not enough
+# Vary one modelling choice
 
-An **ensemble** repeats the same model and parameter values with independent initial states and random update sequences. It replaces one possible history with a distribution of possible histories.
+First hold the initial state and random update stream fixed, then run the model once at each similarity threshold. This is a **parameter sweep**.
 
-An ensemble contributes:
+Using the same seeds makes the comparison deliberately controlled. Differences between trajectories can then be attributed more directly to the threshold, although each curve still represents only one possible history.
 
-- an estimate of typical behaviour;
-- run-to-run variation;
-- the probability of settling within a specified time budget;
-- evidence about whether a conclusion is robust to stochastic choices.
+<div class="discussion-marker">{{DISCUSSION_MARKER}}<span>Predict how increasing the similarity threshold will change MSR, dissatisfaction, and whether the system settles.</span></div>
+""", "parameter-sweep-intro"),
 
-<div class="ladder-marker">{{LADDER_MARKER}}<span><strong>Up the ladder:</strong> one history → a distribution over histories.</span></div>
+        code(r'''
+thresholds = np.array([0.2, 0.35, 0.5, 0.65, 0.8])
+single_sweep = []
+
+for threshold in thresholds:
+    initial_rng = np.random.default_rng(SEED)
+    update_rng = np.random.default_rng(SEED + 10_000)
+    initial = initialise_line(N_SITES, STATE_PROBABILITIES, initial_rng)
+    single_sweep.append(
+        run_simulation(initial, RADIUS, threshold, update_rng, SWEEP_MAX_STEPS)
+    )
+
+fig, ax = plt.subplots(figsize=(9, 4.5))
+for threshold, run in zip(thresholds, single_sweep):
+    ax.plot(run.msr, label=f"{threshold:.0%}")
+
+ax.set(xlabel="Simulation time step", ylabel="MSR", ylim=(-0.03, 1.03))
+ax.spines[["top", "right"]].set_visible(False)
+ax.grid(axis="y", color="#C7CEDC", linewidth=0.6, alpha=0.6)
+ax.legend(title="Similarity threshold", frameon=False, ncol=3)
+plt.show()
+''', "single-parameter-sweep"),
+
+        md(r"""
+### Inspect before generalising
+
+Choose two thresholds with qualitatively different trajectories. Return to their states and local values before treating the curves as an explanation.
+
+<div class="ladder-marker">{{LADDER_MARKER}}<span><strong>Across the parameter axis, then back down:</strong> vary one choice, locate a change in behaviour, and inspect the mechanism.</span></div>
+""", "inspect-sweep"),
+
+        md(r"""
+# One run per threshold is not enough
+
+The sweep reveals how this particular initialisation and random update sequence responded to the parameter. An **ensemble** repeats the model at fixed parameter values with independent initial states and random update sequences.
+
+An ensemble contributes an estimate of typical behaviour, run-to-run variation, the probability of settling within a stated time budget, and evidence that a conclusion is robust to stochastic choices.
+
+<div class="ladder-marker">{{LADDER_MARKER}}<span><strong>Up the ladder:</strong> one trajectory at each threshold → a distribution of trajectories at each threshold.</span></div>
 """, "ensemble-intro"),
 
         code(r'''
@@ -517,28 +562,15 @@ def run_ensemble(
         initial = initialise_line(n_sites, probabilities, initial_rng)
         ensemble.append(run_simulation(initial, radius, threshold, update_rng, max_steps))
     return ensemble
-
-
-ensemble = run_ensemble(THRESHOLD, seeds=range(ENSEMBLE_SIZE))
-final_msr = np.array([run.msr[-1] for run in ensemble])
-settled = np.array([run.settled for run in ensemble])
-
-print(f"mean final MSR: {final_msr.mean():.3f}")
-print(f"middle 50%: {np.quantile(final_msr, [0.25, 0.75])}")
-print(f"settled within budget: {settled.mean():.0%}")
 ''', "run-ensemble"),
 
         md(r"""
-# Vary one modelling choice
+## Repeat the sweep as ensembles
 
-Now repeat the ensemble at several similarity thresholds. This is a **parameter sweep of ensembles**: each threshold receives a collection of independent runs.
+Now each threshold receives 12 independent runs rather than one. We reuse the same seed list at every threshold so that Run 0 is paired across thresholds, while the runs within each ensemble remain independent.
 
-We reuse the same list of seeds at every threshold. Run 0 at one threshold is therefore paired with Run 0 at every other threshold. This controls one source of random variation and makes differences between thresholds easier to interpret. The runs within each ensemble remain independent.
-
-For a responsive workshop, each threshold uses 12 runs and a 250-step budget. These computational choices affect the precision of our estimates and the meaning of “settled within budget”.
-
-<div class="discussion-marker">{{DISCUSSION_MARKER}}<span>Predict the shape of each curve before running the sweep.</span></div>
-""", "parameter-sweep-intro"),
+<div class="discussion-marker">{{DISCUSSION_MARKER}}<span>Which features of the single-run sweep persist, and where does the ensemble reveal that one curve was atypical?</span></div>
+""", "ensemble-sweep-intro"),
 
         code(r'''
 thresholds = np.array([0.2, 0.35, 0.5, 0.65, 0.8])
@@ -567,13 +599,13 @@ axes[2].plot(thresholds, settled_fraction, "o-", color="#1B2A4C")
 axes[2].set_ylabel("Fraction of runs settled")
 
 for ax in axes:
-    ax.set(xlabel="Similarity threshold", ylim=(0, 1))
+    ax.set(xlabel="Similarity threshold", ylim=(-0.03, 1.03))
     ax.spines[["top", "right"]].set_visible(False)
     ax.grid(axis="y", color="#C7CEDC", linewidth=0.6, alpha=0.6)
 
 fig.tight_layout()
 plt.show()
-''', "parameter-sweep"),
+''', "ensemble-parameter-sweep"),
 
         md(r"""
 ## Interpret, do not optimise

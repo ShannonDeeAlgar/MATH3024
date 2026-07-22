@@ -4,7 +4,7 @@ Each weekly topic is explored through a canonical model across three connected r
 
 - **Unit essentials, announcements, assessment, and weekly resource links:** LMS
 - **Reader:** this site
-- **Lecture slides:** the relevant LMS weekly module; published decks are stored with this site
+- **Lecture slides:** use the clearly labelled **Lecture slides** child beneath each week
 - **Workshop notebooks:** download the weekly file beginning `WS_` from LMS
 
 Start with [Getting Started](notebooks/week00/Getting_Started.ipynb) for the weekly learning rhythm, notebook setup, and direct access links.

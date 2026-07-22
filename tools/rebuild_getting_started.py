@@ -57,20 +57,16 @@ These are not three repetitions of the same material. They are three passes thro
 |---|---|
 | **Unit essentials, announcements, assessment, and weekly links** | LMS is the authoritative location. |
 | **Reader** | [shannondeealgar.github.io/MATH3024](https://shannondeealgar.github.io/MATH3024/) |
-| **Lecture slides** | Open the link in the relevant LMS weekly module. Published decks are stored with the Reader. For example, [Week 1 slides](https://shannondeealgar.github.io/MATH3024/slides/week01/L_Introduction_to_complex_systems.slides.html). |
+| **Lecture slides** | Use the clearly labelled **Lecture slides** link beneath the relevant week in this Reader. |
 | **Workshop notebooks** | Download the file beginning `WS_` from the relevant LMS weekly module. Download any support files listed beside it. |
 | **Source repository** | [github.com/ShannonDeeAlgar/MATH3024](https://github.com/ShannonDeeAlgar/MATH3024). This is available for transparency, but students do not need Git or GitHub to complete the unit. |
 
 If an LMS instruction and an older downloaded file disagree, follow the current LMS instruction and download the file again.
+
 """, "resource-locations"),
 
         markdown(r"""
 ## A useful weekly rhythm
-
-### Before the lecture
-
-- Open the week's Reader chapter and skim its route, headings, and figures.
-- Note unfamiliar language without trying to master everything in advance.
 
 ### During the lecture
 
@@ -78,13 +74,24 @@ If an LMS instruction and an older downloaded file disagree, follow the current 
 - Record modelling choices and assumptions, not only final equations.
 - Mark places where the behaviour conflicts with your expectation.
 
-### After the lecture and during the workshop
+### After the lecture
+
+- Open the newly published Reader chapter while the lecture is still fresh.
+- Use it to reconstruct the argument, fill gaps in your notes, and follow evidence or references that interest you.
+- Revisit any prediction that differed from the model behaviour and explain what changed your mind.
+
+### Before and during the workshop
 
 - Revisit the relevant Reader section.
 - Download the weekly `WS_...ipynb` file and any stated support files from LMS.
 - Run it from the beginning in order.
 - Use the workshop to reconstruct, test, and challenge the canonical model.
 - Finish by connecting a local modelling choice to a system-level result.
+
+### After the workshop
+
+- Record which conclusions survived your computational tests and which depended on a modelling choice.
+- Keep your annotated notebook. It is part of your working account of the weekly topic.
 
 The Week 1 workshop notebook is self-contained. If a later workshop needs images or data, they will be supplied with it on LMS. You do **not** need GitHub access or any accompanying `.py` build scripts. Those scripts maintain the teaching materials and are not part of the student exercise.
 """, "weekly-rhythm"),
@@ -93,6 +100,14 @@ The Week 1 workshop notebook is self-contained. If a later workshop needs images
 # Running workshop notebooks
 
 Jupyter notebooks combine explanatory text, equations, executable code, figures, and your own observations in one `.ipynb` file.
+
+## Python throughout the unit
+
+All computational work in MATH3024 is done in **Python**. We use it to implement models, inspect individual updates, run simulations, vary parameters, construct ensembles, and visualise results. You are not expected to arrive as a Python expert. The aim is to make the code sufficiently clear and testable that it supports your mathematical reasoning.
+
+<img src="images/python_comic.png" alt="XKCD comic in which Python makes programming feel unexpectedly powerful" style="display:block;max-width:520px;width:100%;margin:1rem auto">
+
+<div style="text-align:center;font-size:.82em;color:#5A6685">Randall Munroe, <a href="https://xkcd.com/353/">“Python”</a>, xkcd 353, licensed under CC BY-NC 2.5.</div>
 
 ## Option 1: run locally
 

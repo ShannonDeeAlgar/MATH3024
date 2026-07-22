@@ -7577,10 +7577,23 @@ main {
   color: var(--reader-ink-soft, #5A6685);
 }
 
-.reader-prompt-body { font-size: 0.92em; line-height: 1.3; }
+.reader-prompt-body {
+  font-family: Baskerville, Georgia, serif;
+  font-size: 1em;
+  font-style: normal;
+  line-height: 1.38;
+}
 
 .reader-prompt-body.italic {
-  font-style: italic;
+  font-style: normal;
+}
+
+.jp-MarkdownOutput summary.myst-dropdown-header,
+.jp-MarkdownOutput .myst-dropdown-header-title {
+  font-family: Baskerville, Georgia, serif;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0;
 }
 
 .reader-prompt-footnote {
@@ -7962,6 +7975,31 @@ main {
 
 .initialisation-layout .column-image { max-height: 330px; }
 
+.schelling-embed div[style*="padding-bottom"] {
+  padding-bottom: 34% !important;
+}
+
+.schelling-embed {
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto 0.75em;
+}
+
+.schelling-embed > div,
+.schelling-embed > div > div[style*="padding-bottom"],
+.schelling-embed > div iframe {
+  width: 100% !important;
+  height: 215px !important;
+  padding-bottom: 0 !important;
+}
+
+.reveal .schelling-embed,
+.reveal .schelling-embed iframe {
+  width: 74% !important;
+  height: 285px !important;
+  margin-inline: auto;
+}
+
 .evidence-layout {
   grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
   gap: 1.25em;
@@ -8039,7 +8077,12 @@ main {
 
 .schelling-interactive.compact-simulation {
   width: 88%;
-  height: 390px;
+  height: 350px;
+}
+
+.reader-event-layout .evidence-panel > img {
+  width: min(100%, 420px);
+  margin-inline: auto;
 }
 
 .simulation-preview {
@@ -8270,7 +8313,7 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="Simplify-first">Simplify first<a class="anchor-link" href="#Simplify-first">¶</a></h2><div class="choice-marker"><img alt="Modelling choice" src="images/choice_marker.svg"/><span>Modelling choices</span></div>
+<h3 id="Simplify-first">Simplify first<a class="anchor-link" href="#Simplify-first">¶</a></h3><div class="choice-marker"><img alt="Modelling choice" src="images/choice_marker.svg"/><span>Modelling choices</span></div>
 <p>Treat the Sun and planet as point masses. Ignore other planets and relativistic effects.</p>
 <p>Then combine two familiar laws:</p>
 <p>$$
@@ -8289,7 +8332,7 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only celltag_remove-cell" data-mime-type="text/markdown">
-<h2 id="Solve-and-conclude">Solve and conclude<a class="anchor-link" href="#Solve-and-conclude">¶</a></h2><div class="planet-process">
+<h3 id="Solve-and-conclude">Solve and conclude<a class="anchor-link" href="#Solve-and-conclude">¶</a></h3><div class="planet-process">
 <div class="process-sequence">
 <div class="process-step"><span>1</span><p><strong>Choose the evolving state.</strong><br/>$\vec r(t)$ is the planet's position relative to the Sun. Its magnitude $r(t)$ is the orbital radius.</p></div>
 <div class="process-step"><span>2</span><p><strong>Change variables.</strong><br/>Use polar angle $\theta$ instead of time and define $u(\theta)=1/r(\theta)$.</p></div>
@@ -8733,7 +8776,7 @@ I'd like to redo this figure because I don't exactly agree with the examples the
 <div class="choice-marker"><img alt="Modelling choice" height="36" src="images/choice_marker.svg" width="36"/><span>Choose a local judgement and update rule</span></div>
 <div class="qa-grid">
 <div class="qa-row"><p class="qa-question">Who counts as a neighbour?</p><p class="qa-answer fragment">The Moore neighbourhood, excluding the focal agent.</p></div>
-<div class="qa-row"><p class="qa-question">How does an agent judge its environment?</p><p class="qa-answer fragment">Its local similarity is $r_i=n_{s,i}/n_i$. Define unhappiness by $h_i=1$ when $r_i&lt;\theta_r$, and $h_i=0$ otherwise. Initially $\theta_r=50\%$.</p></div>
+<div class="qa-row"><p class="qa-question">How does an agent judge its environment?</p><p class="qa-answer fragment">Its local similarity is $s_i=n_{s,i}/n_i$. Define unhappiness by $h_i=1$ when $s_i&lt;\theta_s$, and $h_i=0$ otherwise. Initially $\theta_s=50\%$.</p></div>
 <div class="qa-row"><p class="qa-question">What happens when it is dissatisfied?</p><p class="qa-answer fragment">Select one dissatisfied agent at random and move it to a random empty site.</p></div>
 </div>
 </div>
@@ -8752,12 +8795,12 @@ I'd like to redo this figure because I don't exactly agree with the examples the
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only celltag_remove-cell" data-mime-type="text/markdown">
-<h3 id="Qualitative-analysis">Qualitative analysis<a class="anchor-link" href="#Qualitative-analysis">¶</a></h3><div class="slide-columns evidence-layout">
-<div class="evidence-panel"><iframe class="simulation-preview" src="interactive_schelling.html?autoplay=1&amp;minimal=1&amp;speed=350" title="Schelling simulation evolving through time"></iframe></div>
+<h3 id="Watch-the-process">Watch the process<a class="anchor-link" href="#Watch-the-process">¶</a></h3><div class="slide-columns evidence-layout">
+<div class="evidence-panel"><img alt="Schelling simulation evolving at a fixed pace" src="simulation2.gif" style="display:block;max-height:480px;width:auto;margin:0 auto"/></div>
 <div class="meaning-panel">
-<div class="reader-prompt-label">One relocation step</div>
-<ol><li>Find the dissatisfied agents.</li><li>Select one at random.</li><li>Move it to a random empty site.</li><li>Recalculate every affected neighbourhood.</li></ol>
-<p>Location is part of state. Movement changes the interaction network.</p>
+<p>Animation makes the changing pattern visible.</p>
+<p>But its clock controls us. A surprising transition is gone before we can inspect it.</p>
+<p><strong>We want direct control of time.</strong></p>
 </div>
 </div>
 </div>
@@ -8770,8 +8813,8 @@ I'd like to redo this figure because I don't exactly agree with the examples the
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only celltag_remove-cell" data-mime-type="text/markdown">
-<h3 id="Pause-the-process">Pause the process<a class="anchor-link" href="#Pause-the-process">¶</a></h3><iframe class="schelling-interactive compact-simulation" src="interactive_schelling.html?compact=1" title="Interactive Schelling simulation with time and speed controls"></iframe>
-<div class="ladder-marker"><img alt="Ladder of abstraction" src="images/ladder_marker.svg"/><span><strong>Stay low:</strong> slow the model down and explain exactly what changes in one step.</span></div>
+<h3 id="Pause-the-process">Pause the process<a class="anchor-link" href="#Pause-the-process">¶</a></h3><div class="schelling-embed"><iframe class="schelling-interactive compact-simulation" src="interactive_schelling.html?compact=1&amp;slide=1" title="Interactive Schelling simulation with time and speed controls"></iframe></div>
+<div class="ladder-marker"><img alt="Ladder of abstraction" src="images/ladder_marker.svg"/><span><strong>Down the ladder:</strong> slow the model down and explain exactly what changes in one step.</span></div>
 </div>
 </div>
 </div>
@@ -8822,12 +8865,12 @@ I'd like to redo this figure because I don't exactly agree with the examples the
 <div class="evidence-panel"><img alt="The same Schelling grid shown as agent types and as local similarity ratios, with dissatisfied agents crossed" src="images/schelling_local_similarity.png"/></div>
 <div class="meaning-panel">
 <p>For occupied square $i$, define</p>
-    $$r_i=\frac{n_{s,i}}{n_i}.$$
+    $$s_i=\frac{n_{s,i}}{n_i}.$$
     <p>$n_{s,i}$ counts similar occupied neighbours and $n_i$ counts all occupied neighbours.</p>
 <p>The colour and number belong to one agent. This is a <strong>local similarity ratio</strong>, not yet the MSR.</p>
 </div>
 </div>
-<div class="ladder-marker"><img alt="Ladder of abstraction" height="40" src="images/ladder_marker.svg" width="30"/><span><strong>Abstract over neighbours:</strong> replace one agent's neighbourhood with the scalar $r_i$.</span></div>
+<div class="ladder-marker"><img alt="Ladder of abstraction" height="40" src="images/ladder_marker.svg" width="30"/><span><strong>Up the ladder over neighbours:</strong> replace one agent's neighbourhood with the scalar $s_i$.</span></div>
 </div>
 </div>
 </div>
@@ -8841,10 +8884,10 @@ I'd like to redo this figure because I don't exactly agree with the examples the
 <h3 id="From-local-judgement-to-collective-behaviour">From local judgement to collective behaviour<a class="anchor-link" href="#From-local-judgement-to-collective-behaviour">¶</a></h3><div class="discussion-marker"><img alt="Discussion prompt" height="36" src="images/discussion_marker.svg" width="36"/><span>How could we move up the ladder from individual happiness to describe the collective?</span></div>
 <div class="aggregate-definitions">
 <div><strong>Dissatisfaction</strong><p>Sum the already-defined local indicators: $\displaystyle D=\sum_{i=1}^{N}h_i$. The model stops when $D=0$.</p></div>
-<div><strong>Local similarity</strong><p>Average the local ratios: $\displaystyle \mathcal{MSR}=\frac{1}{N}\sum_{i=1}^{N}r_i$. This is one possible measure of segregation.</p></div>
+<div><strong>Local similarity</strong><p>Average the local ratios: $\displaystyle \mathcal{MSR}=\frac{1}{N}\sum_{i=1}^{N}s_i$. This is one possible measure of segregation.</p></div>
 </div>
 <div class="choice-marker"><img alt="Modelling choice" height="36" src="images/choice_marker.svg" width="36"/><span>The dissatisfied count follows the update rule; MSR is an additional observable chosen to describe the spatial pattern.</span></div>
-<div class="ladder-marker"><img alt="Ladder of abstraction" height="40" src="images/ladder_marker.svg" width="30"/><span><strong>Abstract over agents:</strong> combine $N$ local values into one system-level number at a fixed time.</span></div>
+<div class="ladder-marker"><img alt="Ladder of abstraction" height="40" src="images/ladder_marker.svg" width="30"/><span><strong>Up the ladder over agents:</strong> combine $N$ local values into one system-level number at a fixed time.</span></div>
 </div>
 </div>
 </div>
@@ -8867,6 +8910,7 @@ I'd like to redo this figure because I don't exactly agree with the examples the
 </div>
 </div>
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_hide-input celltag_hide-output" id="cell-id=6cc63f19-b6ab-46fe-8e76-46a6b871b424">
 </div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=week01-rank-grids-reveal">
 <div class="jp-Cell-inputWrapper" tabindex="0">
@@ -8890,8 +8934,8 @@ I'd like to redo this figure because I don't exactly agree with the examples the
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h3 id="Stage-4:-track-system-level-quantities">Stage 4: track system-level quantities<a class="anchor-link" href="#Stage-4:-track-system-level-quantities">¶</a></h3><img alt="Dissatisfied agent count and mean similarity ratio over simulation time" src="images/schelling_time_series.png" width="72%"/>
-<div class="ladder-marker"><img alt="Ladder of abstraction" height="40" src="images/ladder_marker.svg" width="30"/><span><strong>Abstract over agents, retain time:</strong> at each time step, compress the grid into two system-level observables. The time series does not average over time.</span></div>
+<h3 id="Track-system-level-quantities">Track system-level quantities<a class="anchor-link" href="#Track-system-level-quantities">¶</a></h3><img alt="Dissatisfied agent count and mean similarity ratio over simulation time" src="images/schelling_time_series.png" width="72%"/>
+<div class="ladder-marker"><img alt="Ladder of abstraction" height="40" src="images/ladder_marker.svg" width="30"/><span><strong>Up the ladder over agents, retaining time:</strong> at each time step, compress the grid into two system-level observables. The time series does not average over time.</span></div>
 </div>
 </div>
 </div>
@@ -8902,8 +8946,18 @@ I'd like to redo this figure because I don't exactly agree with the examples the
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h3 id="A-different-seed,-an-unsettled-trajectory">A different seed, an unsettled trajectory<a class="anchor-link" href="#A-different-seed,-an-unsettled-trajectory">¶</a></h3><img alt="Oscillatory mean similarity ratio with dissatisfied agents remaining" src="images/schelling_frustrated_time_series.png" width="78%"/>
+<h3 id="A-different-seed,-an-unsettled-trajectory">A different seed, an unsettled trajectory<a class="anchor-link" href="#A-different-seed,-an-unsettled-trajectory">¶</a></h3><div class="slide-columns evidence-layout">
+<div class="evidence-panel">
+<img alt="Oscillatory mean similarity ratio with dissatisfied agents remaining" src="images/schelling_frustrated_time_series.png"/>
 <div class="ladder-marker"><img alt="Ladder of abstraction" height="40" src="images/ladder_marker.svg" width="30"/><span><strong>Down the ladder:</strong> return to the agents and inspect what prevents the trajectory from settling.</span></div>
+</div>
+<div class="meaning-panel">
+<p><strong>Previous run:</strong> 12 time steps.</p>
+<p><strong>This run:</strong> a different initialisation followed for 100 steps at the same 50% threshold.</p>
+<p><strong>Point colour:</strong> the number of dissatisfied agents. Pale points mean fewer agents remain dissatisfied.</p>
+<p>MSR fluctuates near a plateau while dissatisfaction persists. The aggregate curve tells us that something remains unresolved, but not why.</p>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -8914,8 +8968,8 @@ I'd like to redo this figure because I don't exactly agree with the examples the
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only celltag_remove-cell" data-mime-type="text/markdown">
-<h3 id="Inspect-the-unsettled-run">Inspect the unsettled run<a class="anchor-link" href="#Inspect-the-unsettled-run">¶</a></h3><iframe class="schelling-interactive" src="interactive_schelling.html?seed=2&amp;autoplay=1&amp;speed=180" title="Interactive unsettled Schelling simulation"></iframe>
-<div class="ladder-marker"><img alt="Ladder of abstraction" height="40" src="images/ladder_marker.svg" width="30"/><span><strong>Stay low:</strong> pause, scrub backwards, and identify which local moves recreate dissatisfaction.</span></div>
+<h3 id="Inspect-the-unsettled-run">Inspect the unsettled run<a class="anchor-link" href="#Inspect-the-unsettled-run">¶</a></h3><div class="schelling-embed"><iframe class="schelling-interactive compact-simulation" src="interactive_schelling.html?seed=2&amp;autoplay=1&amp;speed=180&amp;compact=1&amp;slide=1" title="Interactive unsettled Schelling simulation"></iframe></div>
+<div class="ladder-marker"><img alt="Ladder of abstraction" height="40" src="images/ladder_marker.svg" width="30"/><span><strong>Down the ladder:</strong> pause, scrub backwards, and identify which local moves recreate dissatisfaction.</span></div>
 </div>
 </div>
 </div>
@@ -8937,18 +8991,6 @@ I'd like to redo this figure because I don't exactly agree with the examples the
 </div>
 </div>
 </div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=24d40c94-9e93-4839-9c55-a1163db0f562">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h3 id="One-run-is-not-enough">One run is not enough<a class="anchor-link" href="#One-run-is-not-enough">¶</a></h3><p>Was this trajectory typical, or did the initial state and random moves make it unusual?</p>
-<div class="ladder-marker"><img alt="Ladder of abstraction" height="40" src="images/ladder_marker.svg" width="30"/><span>Inspect another trajectory. <strong>Then up:</strong> compare an ensemble of runs.</span></div>
-</div>
-</div>
-</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_hide-input celltag_hide-output" id="cell-id=4764082c-7506-4beb-ad04-8e1ee70167d3">
 </div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0b11763d-2cdf-41e8-ba71-1530cd1e843d">
@@ -8958,7 +9000,7 @@ I'd like to redo this figure because I don't exactly agree with the examples the
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
 <h1 id="Generalise-across-parameters-and-ensembles">Generalise across parameters and ensembles<a class="anchor-link" href="#Generalise-across-parameters-and-ensembles">¶</a></h1><p>One trajectory is one initial condition and one random sequence of moves. We now ask which conclusions survive changes in parameters and initial conditions.</p>
-<div class="ladder-marker"><img alt="Ladder of abstraction" height="40" src="images/ladder_marker.svg" width="30"/><span>One run → an ensemble → a parameter sweep of ensembles.</span></div>
+<div class="ladder-marker"><img alt="Ladder of abstraction" height="40" src="images/ladder_marker.svg" width="30"/><span><strong>Up, then across:</strong> replace one run with a distribution of runs, then repeat that comparison across parameter values.</span></div>
 </div>
 </div>
 </div>
@@ -8972,8 +9014,9 @@ I'd like to redo this figure because I don't exactly agree with the examples the
 <h3 id="Vary-an-important-parameter">Vary an important parameter<a class="anchor-link" href="#Vary-an-important-parameter">¶</a></h3><div class="choice-marker"><img alt="Modelling choice" height="36" src="images/choice_marker.svg" width="36"/><span>Interrogate a modelling choice</span></div>
 <p>Why is the similarity threshold 50%? It is a modelling choice, and it may control the behaviour.</p>
 <p>We now sweep across threshold values and compare the resulting trajectories.</p>
-<div class="ladder-marker"><img alt="Ladder of abstraction" height="40" src="images/ladder_marker.svg" width="30"/><span><strong>Up the ladder:</strong> abstract over a parameter instead of following one run.</span></div>
+<div class="ladder-marker"><img alt="Ladder of abstraction" height="40" src="images/ladder_marker.svg" width="30"/><span><strong>Up the ladder over the parameter:</strong> compare a family of trajectories to reveal how behaviour changes across this modelling choice.</span></div>
 <p>This is called a <strong>parameter sweep</strong>.</p>
+<p>When feedback is fast enough, expose an important parameter as an interactive control. For slow or stochastic models, a reproducible sweep is usually more informative.</p>
 </div>
 </div>
 </div>
@@ -8990,7 +9033,7 @@ I'd like to redo this figure because I don't exactly agree with the examples the
 <p>Hold the initial seed and update sequence fixed. Change only the similarity threshold.</p>
 <p>Each line is one run, so the figure exposes how the parameter changes the trajectory without yet showing run-to-run variation.</p>
 <p>The comparison is useful, but any one line could be atypical.</p>
-<div class="ladder-marker"><img alt="Ladder of abstraction" src="images/ladder_marker.svg"/><span><strong>Across the ladder:</strong> retain time while varying one modelling choice.</span></div>
+<div class="ladder-marker"><img alt="Ladder of abstraction" src="images/ladder_marker.svg"/><span><strong>Up the ladder over the parameter:</strong> compare a family of trajectories to reveal how behaviour changes across this modelling choice.</span></div>
 </div>
 </div>
 </div>
@@ -9024,8 +9067,20 @@ I'd like to redo this figure because I don't exactly agree with the examples the
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only celltag_remove-cell" data-mime-type="text/markdown">
-<h3 id="Inspect-the-frustrated-80%25-run">Inspect the frustrated 80% run<a class="anchor-link" href="#Inspect-the-frustrated-80%25-run">¶</a></h3><iframe class="schelling-interactive compact-simulation" src="interactive_schelling.html?threshold=0.8&amp;seed=1&amp;autoplay=1&amp;speed=450&amp;compact=1" title="Interactive Schelling simulation at an eighty percent similarity threshold"></iframe>
-<div class="ladder-marker"><img alt="Ladder of abstraction" src="images/ladder_marker.svg"/><span><strong>Back down the ladder:</strong> follow individual agents. Some remain dissatisfied but cannot find an empty site that meets the demanding threshold, so movement continues and MSR need not settle at a plateau.</span></div>
+<h3 id="Inspect-the-frustrated-80%25-run">Inspect the frustrated 80% run<a class="anchor-link" href="#Inspect-the-frustrated-80%25-run">¶</a></h3><div class="schelling-embed"><iframe class="schelling-interactive compact-simulation" src="interactive_schelling.html?threshold=0.8&amp;seed=1&amp;autoplay=1&amp;speed=450&amp;compact=1&amp;slide=1" title="Interactive Schelling simulation at an eighty percent similarity threshold"></iframe></div>
+<div class="ladder-marker"><img alt="Ladder of abstraction" src="images/ladder_marker.svg"/><span><strong>Down the ladder:</strong> follow individual agents. Some remain dissatisfied but cannot find an empty site that meets the demanding threshold, so movement continues and MSR need not settle at a plateau.</span></div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=24d40c94-9e93-4839-9c55-a1163db0f562">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
+<h3 id="One-run-is-not-enough">One run is not enough<a class="anchor-link" href="#One-run-is-not-enough">¶</a></h3><p>Was this trajectory typical, or did the initial state and random moves make it unusual?</p>
+<div class="ladder-marker"><img alt="Ladder of abstraction" height="40" src="images/ladder_marker.svg" width="30"/><span><strong>Down, then up:</strong> inspect another concrete trajectory, then compare a distribution of possible runs.</span></div>
 </div>
 </div>
 </div>
@@ -9065,7 +9120,7 @@ I'd like to redo this figure because I don't exactly agree with the examples the
 <h3 id="Repeat-the-ensemble-at-every-threshold">Repeat the ensemble at every threshold<a class="anchor-link" href="#Repeat-the-ensemble-at-every-threshold">¶</a></h3><div class="slide-columns evidence-layout">
 <div class="evidence-panel">
 <img alt="Mean MSR trajectories and middle fifty percent bands for an ensemble at each threshold" src="images/schelling_ensemble_trajectories.png"/>
-<div class="ladder-marker"><img alt="Ladder of abstraction" src="images/ladder_marker.svg"/><span><strong>Back up the ladder as we abstract over time:</strong> replace each trajectory with a small set of outcome statistics.</span></div>
+<div class="ladder-marker"><img alt="Ladder of abstraction" src="images/ladder_marker.svg"/><span><strong>Up the ladder over time:</strong> replace each trajectory with a small set of outcome statistics.</span></div>
 </div>
 <div class="meaning-panel">
 <ul>
@@ -9089,7 +9144,7 @@ I'd like to redo this figure because I don't exactly agree with the examples the
 <h3 id="Compare-outcomes-across-thresholds">Compare outcomes across thresholds<a class="anchor-link" href="#Compare-outcomes-across-thresholds">¶</a></h3><div class="slide-columns evidence-layout parameter-outcomes-layout">
 <div class="evidence-panel">
 <img alt="Ensemble mean final MSR and dissatisfied fraction across similarity thresholds" src="images/schelling_parameter_ensemble.png"/>
-<div class="ladder-marker"><img alt="Ladder of abstraction" src="images/ladder_marker.svg"/><span><strong>Abstract over time and random runs:</strong> replace each trajectory with its outcome after 100 steps, then summarise across runs. The threshold remains on the horizontal axis.</span></div>
+<div class="ladder-marker"><img alt="Ladder of abstraction" src="images/ladder_marker.svg"/><span><strong>Up the ladder over time and random runs:</strong> replace each trajectory with its outcome after 100 steps, then summarise across runs. The threshold remains on the horizontal axis.</span></div>
 </div>
 <div class="meaning-panel">
 <p><strong>Top:</strong> final local similarity rises through intermediate thresholds, then falls when demanding preferences keep the system moving.</p>
@@ -9110,7 +9165,7 @@ I'd like to redo this figure because I don't exactly agree with the examples the
 <h3 id="When-does-the-outcome-emerge?">When does the outcome emerge?<a class="anchor-link" href="#When-does-the-outcome-emerge?">¶</a></h3><div class="slide-columns evidence-layout">
 <div class="evidence-panel">
 <img alt="Time of maximum similarity and time until settling across thresholds" src="images/schelling_time_summaries.png"/>
-<div class="ladder-marker"><img alt="Ladder of abstraction" src="images/ladder_marker.svg"/><span><strong>Abstract over time:</strong> replace a trajectory with an event time, then abstract over random runs.</span></div>
+<div class="ladder-marker"><img alt="Ladder of abstraction" src="images/ladder_marker.svg"/><span><strong>Up the ladder over time:</strong> replace a trajectory with an event time, then summarise across random runs.</span></div>
 </div>
 <div class="meaning-panel">
 <p><strong>Top:</strong> the simulation time step at which each run first reaches its maximum MSR.</p>
