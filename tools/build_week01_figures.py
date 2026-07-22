@@ -133,7 +133,7 @@ def save_local_similarity(initial, threshold=0.5):
     fig, axes = plt.subplots(1, 2, figsize=(8.8, 4.2), dpi=180)
     draw_grid(axes[0], initial, "Agent state")
     image = axes[1].imshow(ratios, cmap=similarity_cmap, vmin=0, vmax=1)
-    axes[1].set_title(r"Local similarity $r_i=n_{s,i}/n_i$", color=INK, fontsize=15, pad=10)
+    axes[1].set_title(r"Local similarity $s_i=n_{s,i}/n_i$", color=INK, fontsize=15, pad=10)
     axes[1].set_xticks([])
     axes[1].set_yticks([])
     axes[1].set_xticks(np.arange(-0.5, initial.shape[1], 1), minor=True)
@@ -156,7 +156,7 @@ def save_local_similarity(initial, threshold=0.5):
     colourbar = fig.colorbar(image, ax=axes[1], fraction=0.046, pad=0.04)
     colourbar.set_label("local similarity", color=INK)
     colourbar.set_ticks([0, 0.5, 1])
-    fig.text(0.73, 0.015, r"×  dissatisfied when $r_i<0.5$",
+    fig.text(0.73, 0.015, r"×  dissatisfied when $s_i<0.5$",
              ha="center", color=INK, fontsize=11)
     fig.tight_layout(rect=[0, 0.055, 1, 1], w_pad=2.0)
     fig.savefig(OUT / "schelling_local_similarity.png", facecolor="white",

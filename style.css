@@ -154,9 +154,25 @@
   margin-bottom: 0.35em;
   color: var(--reader-ink-soft, #5A6685);
 }
-.reader-prompt-body { font-size: 0.92em; line-height: 1.3; }
+.reader-prompt-body {
+  font-family: Baskerville, Georgia, serif;
+  font-size: 1em;
+  font-style: normal;
+  line-height: 1.38;
+}
 .reader-prompt-body.italic {
-  font-style: italic;
+  font-style: normal;
+}
+
+/* MyST dropdown headings are interface elements by default and therefore
+   inherit a heavy UI sans-serif. In the Reader these headings continue the
+   surrounding question-and-response prose, so use the body face instead. */
+.article summary.myst-dropdown-header,
+.article .myst-dropdown-header-title {
+  font-family: Baskerville, Georgia, serif;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0;
 }
 .reader-prompt-footnote {
   font-family: Arial, Helvetica, sans-serif;
@@ -487,6 +503,30 @@
   margin-right: auto;
 }
 
+/* MyST's default iframe wrapper is much taller than the compact Schelling
+   control, leaving a large blank region below the visible simulation. */
+.schelling-embed div[style*="padding-bottom"] {
+  padding-bottom: 34% !important;
+}
+.schelling-embed {
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto 0.75em;
+}
+.schelling-embed > div,
+.schelling-embed > div > div[style*="padding-bottom"],
+.schelling-embed > div iframe {
+  width: 100% !important;
+  height: 215px !important;
+  padding-bottom: 0 !important;
+}
+.reveal .schelling-embed,
+.reveal .schelling-embed iframe {
+  width: 74% !important;
+  height: 285px !important;
+  margin-inline: auto;
+}
+
 .evidence-layout {
   grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
   gap: 1.25em;
@@ -556,7 +596,11 @@
 }
 .schelling-interactive.compact-simulation {
   width: 88%;
-  height: 390px;
+  height: 350px;
+}
+.reader-event-layout .evidence-panel > img {
+  width: min(100%, 420px);
+  margin-inline: auto;
 }
 .simulation-preview {
   display: block;
