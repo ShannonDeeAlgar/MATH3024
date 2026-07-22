@@ -11,6 +11,10 @@ SLIDE_ROOT="$SITE_ROOT/slides/week01"
 mkdir -p "$SLIDE_ROOT"
 cp notebooks/week01/L_Introduction_to_complex_systems.slides.html "$SLIDE_ROOT/"
 cp notebooks/week01/interactive_schelling.html "$SLIDE_ROOT/"
+# MyST does not copy loose HTML assets referenced by Reader pages.
+mkdir -p "$SITE_ROOT/notebooks/week01"
+cp notebooks/week01/interactive_schelling.html \
+    "$SITE_ROOT/notebooks/week01/interactive_schelling.html"
 cp notebooks/week01/simulation2.gif "$SLIDE_ROOT/"
 rm -rf "$SLIDE_ROOT/images"
 cp -R notebooks/week01/images "$SLIDE_ROOT/images"
