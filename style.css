@@ -260,7 +260,9 @@
   object-fit: contain;
   margin: 0 auto 0.75em;
 }
-.figure-reference {
+.figure-reference,
+.figure-caption,
+figcaption {
   margin-top: 0.45em;
   color: var(--reader-ink-soft, #5A6685);
   font-family: Arial, Helvetica, sans-serif;
@@ -302,6 +304,9 @@
   font-size: 0.86em;
 }
 .model-specification strong { text-align: right; }
+.wide-description-table > div {
+  grid-template-columns: 14em minmax(0, 1fr);
+}
 .aggregate-definitions { margin-top: 0.35em; }
 .aggregate-definitions > div {
   display: grid;
@@ -377,9 +382,29 @@
   gap: 1em;
   margin: 0.75em 0;
 }
+.analysis-perspectives.three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.analysis-perspectives.four {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.analysis-perspectives.three img,
+.analysis-perspectives.four img {
+  display: block;
+  width: 100%;
+  height: 9rem;
+  object-fit: cover;
+  margin: 0 0 0.6rem;
+}
+@media (max-width: 900px) {
+  .analysis-perspectives.three,
+  .analysis-perspectives.four {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
 .analysis-perspectives > div {
   border: 1px solid var(--reader-line, #C7CEDC);
-  padding: 0.75em;
+  padding: 0.58em 0.64em;
 }
 .analysis-perspectives strong {
   font-family: Arial, Helvetica, sans-serif;
@@ -387,7 +412,7 @@
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
-.analysis-perspectives p { font-size: 0.88em; line-height: 1.3; }
+.analysis-perspectives p { font-size: 0.76em; line-height: 1.22; margin: 0.3em 0; }
 .analysis-perspectives.ensemble-comparison > div {
   min-height: 0;
   padding: 0.62em 0.72em;
@@ -437,6 +462,37 @@
   max-height: 430px;
   object-fit: contain;
   margin: 0 auto;
+}
+.lsystem-layout {
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  gap: 1em;
+}
+.lsystem-specification {
+  border: 1px solid var(--reader-line, #C7CEDC);
+  padding: 0.55em 0.7em;
+}
+.lsystem-specification p {
+  margin: 0.18em 0;
+  font-size: 0.76em;
+  line-height: 1.2;
+}
+.lsystem-specification strong {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.compact-equation {
+  margin: 0.2em 0 0;
+  text-align: center;
+  font-size: 0.72em;
+}
+.scaling-variables {
+  color: var(--reader-ink-soft, #5D6D8D);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.72em;
+  line-height: 1.35;
+}
+.scaling-variables p,
+.scaling-variables em {
+  font: inherit;
 }
 .assumption-reveal {
   position: relative;
@@ -535,7 +591,7 @@
 .evidence-panel,
 .meaning-panel {
   border: 1px solid var(--reader-line, #C7CEDC);
-  padding: 0.8em;
+  padding: 0.58em 0.64em;
   min-width: 0;
   align-self: stretch;
 }
@@ -546,9 +602,88 @@
   object-fit: contain;
   margin: 0 auto;
 }
+.meaning-panel > img {
+  display: block;
+  width: 100%;
+  height: 135px;
+  object-fit: contain;
+  margin: 0 auto 0.35em;
+}
+.evidence-panel p,
 .meaning-panel p,
 .meaning-panel li {
-  font-size: 0.92em;
+  font-size: 0.76em;
+  line-height: 1.22;
+}
+.evidence-panel > strong,
+.meaning-panel > strong {
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.68em;
+  line-height: 1.15;
+  min-height: 2.3em;
+  margin: 0.25em 0;
+}
+.article .reader-figure {
+  width: min(100%, 620px);
+  margin: 1.2rem auto;
+}
+.article .reader-figure.reader-figure-small {
+  width: min(100%, 360px);
+}
+.article .reader-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+.article table.standard-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Baskerville, Georgia, serif;
+  font-size: 0.95rem;
+  line-height: 1.3;
+}
+.article table.standard-table th,
+.article table.standard-table td {
+  padding: 0.42rem 0.55rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--reader-line, #C7CEDC);
+}
+.article table.standard-table tbody tr:nth-child(even) {
+  background: transparent;
+}
+.reveal .slides table,
+.reveal .slides .model-specification,
+.reveal .slides .qa-grid {
+  font-size: 0.72em;
+  line-height: 1.2;
+}
+.reveal .slides table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.reveal .slides th,
+.reveal .slides td {
+  padding: 0.3em 0.48em;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--reader-line, #C7CEDC);
+}
+.reveal .slides tbody tr:nth-child(even) {
+  background: transparent;
+}
+.reveal .slides .model-specification > div {
+  grid-template-columns: minmax(8.5em, 0.72fr) minmax(0, 1.6fr);
+  font-size: 1em;
+  padding: 0.28em 0;
+}
+.reveal .slides .model-specification strong {
+  text-align: left;
+}
+.reveal .slides .wide-description-table > div {
+  grid-template-columns: minmax(12.5em, 0.95fr) minmax(0, 1.45fr);
 }
 .ladder-marker {
   display: flex;
@@ -617,6 +752,17 @@
   object-fit: contain;
 }
 
+/* MyST's generic article-image rule appears after the card rules above.
+   Reassert a shared card image frame so different source aspect ratios do
+   not push titles into the images or produce uneven cards. */
+.article .meaning-panel > img {
+  display: block;
+  width: 100%;
+  height: 135px;
+  object-fit: contain;
+  margin: 0 auto 0.35em;
+}
+
 .article .reader-map {
   display: block;
   width: min(100%, 900px);
@@ -642,4 +788,38 @@
 .dark .myst-primary-sidebar .myst-toc-item.active {
   background-color: var(--reader-ink, #A9B7D6);
   color: #1B2A4C;
+}
+.canonical-model-marker {
+  display: inline-flex;
+  gap: 0.55rem;
+  align-items: baseline;
+  max-width: 92%;
+  margin-top: 1rem;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid #aebbd0;
+  border-left: 5px solid #1b2a4c;
+  background: #f7f9fc;
+  color: #1b2a4c;
+  text-align: left;
+}
+.canonical-model-marker span {
+  font-family: Arial, sans-serif;
+  font-size: 0.5em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.canonical-model-marker strong {
+  font-family: Baskerville, Georgia, serif;
+  font-size: 0.76em;
+  line-height: 1.15;
+}
+.image-label-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.3em;
+  margin-top: 0.25em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.58em;
+  text-align: center;
 }

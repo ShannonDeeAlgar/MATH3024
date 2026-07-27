@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="330" viewBox="0 0 1000 330">
+<rect width="1000" height="330" fill="white"/>
+<text x="22" y="62" font-family="Arial, sans-serif" font-size="24" fill="#64789B">k = 0</text>
+<line x1="110.00" y1="55" x2="970.00" y2="55" stroke="#111111" stroke-width="12" stroke-linecap="butt"/>
+<text x="22" y="132" font-family="Arial, sans-serif" font-size="24" fill="#64789B">k = 1</text>
+<line x1="110.00" y1="125" x2="396.67" y2="125" stroke="#111111" stroke-width="12" stroke-linecap="butt"/>
+<line x1="683.33" y1="125" x2="970.00" y2="125" stroke="#111111" stroke-width="12" stroke-linecap="butt"/>
+<text x="22" y="202" font-family="Arial, sans-serif" font-size="24" fill="#64789B">k = 2</text>
+<line x1="110.00" y1="195" x2="205.56" y2="195" stroke="#111111" stroke-width="12" stroke-linecap="butt"/>
+<line x1="301.11" y1="195" x2="396.67" y2="195" stroke="#111111" stroke-width="12" stroke-linecap="butt"/>
+<line x1="683.33" y1="195" x2="778.89" y2="195" stroke="#111111" stroke-width="12" stroke-linecap="butt"/>
+<line x1="874.44" y1="195" x2="970.00" y2="195" stroke="#111111" stroke-width="12" stroke-linecap="butt"/>
+<text x="22" y="272" font-family="Arial, sans-serif" font-size="24" fill="#64789B">k = 3</text>
+<line x1="110.00" y1="265" x2="141.85" y2="265" stroke="#111111" stroke-width="12" stroke-linecap="butt"/>
+<line x1="173.70" y1="265" x2="205.56" y2="265" stroke="#111111" stroke-width="12" stroke-linecap="butt"/>
+<line x1="301.11" y1="265" x2="332.96" y2="265" stroke="#111111" stroke-width="12" stroke-linecap="butt"/>
+<line x1="364.81" y1="265" x2="396.67" y2="265" stroke="#111111" stroke-width="12" stroke-linecap="butt"/>
+<line x1="683.33" y1="265" x2="715.19" y2="265" stroke="#111111" stroke-width="12" stroke-linecap="butt"/>
+<line x1="747.04" y1="265" x2="778.89" y2="265" stroke="#111111" stroke-width="12" stroke-linecap="butt"/>
+<line x1="874.44" y1="265" x2="906.30" y2="265" stroke="#111111" stroke-width="12" stroke-linecap="butt"/>
+<line x1="938.15" y1="265" x2="970.00" y2="265" stroke="#111111" stroke-width="12" stroke-linecap="butt"/>
+</svg>

@@ -78,6 +78,7 @@ SHARED_COMPONENT_PREFIXES = (
     ".model-",
     ".choice-",
     ".discussion-",
+    ".canonical-",
     ".process-",
     ".planet-",
     ".variable-",
@@ -171,6 +172,10 @@ SLIDES_ONLY_RULES = """
 .reveal .slides section td {
   border-bottom: 1px solid var(--reader-line);
   padding: 0.3em 0.55em;
+}
+
+.reveal .slides section tbody tr:nth-child(even) {
+  background: transparent;
 }
 
 .reveal .slides section figcaption,

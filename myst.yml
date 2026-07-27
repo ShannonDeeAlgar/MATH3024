@@ -1,8 +1,6 @@
 version: 1
 project:
   title: Unit Reader
-  authors:
-    - name: Shannon Algar
   toc:
     - file: intro.md
     - file: notebooks/week00/Getting_Started.ipynb
@@ -10,6 +8,10 @@ project:
       children:
         - file: notebooks/week01/Slides.md
         - file: notebooks/week01/WS_Introduction_to_complex_systems.ipynb
+    - file: notebooks/week02/L_Fractals.ipynb
+      children:
+        - file: notebooks/week02/Slides.md
+        - file: notebooks/week02/WS_Fractals.ipynb
 site:
   options:
     folders: true

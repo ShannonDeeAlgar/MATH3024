@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" role="img" aria-labelledby="title desc">
+  <title id="title">Estimated coastline fractal dimensions for selected countries</title>
+  <desc id="desc">A horizontal dot plot comparing Norway, Ireland, Finland, the United Kingdom, New Zealand, Australia and South Africa using one exploratory dataset.</desc>
+  <rect width="900" height="500" fill="#fff"/>
+  <g font-family="Arial, sans-serif" fill="#1b2a4c">
+    <text x="450" y="38" text-anchor="middle" font-size="25" font-weight="700">One method, seven coastlines</text>
+    <text x="450" y="66" text-anchor="middle" font-size="17" fill="#64789b">estimated box-counting dimension</text>
+    <g font-size="19" text-anchor="end"><text x="185" y="120">Norway</text><text x="185" y="170">Ireland</text><text x="185" y="220">Finland</text><text x="185" y="270">United Kingdom</text><text x="185" y="320">New Zealand</text><text x="185" y="370">Australia</text><text x="185" y="420">South Africa</text></g>
+  </g>
+  <g stroke="#d5dce7" stroke-width="2"><path d="M220 90v350M390 90v350M560 90v350M730 90v350"/></g>
+  <g stroke="#1b2a4c" stroke-width="3"><path d="M220 445h510"/></g>
+  <g font-family="Arial, sans-serif" font-size="17" fill="#59677f" text-anchor="middle"><text x="220" y="475">1.0</text><text x="390" y="475">1.15</text><text x="560" y="475">1.30</text><text x="730" y="475">1.45</text></g>
+  <g fill="#64789b" stroke="#1b2a4c" stroke-width="2">
+    <circle cx="642" cy="114" r="10"/><circle cx="522" cy="164" r="10"/><circle cx="491" cy="214" r="10"/><circle cx="464" cy="264" r="10"/><circle cx="457" cy="314" r="10"/><circle cx="376" cy="364" r="10"/><circle cx="260" cy="414" r="10"/>
+  </g>
+  <g font-family="Arial, sans-serif" font-size="17" fill="#1b2a4c"><text x="660" y="120">1.37</text><text x="540" y="170">1.27</text><text x="509" y="220">1.24</text><text x="482" y="270">1.22</text><text x="475" y="320">1.21</text><text x="394" y="370">1.14</text><text x="278" y="420">1.04</text></g>
+</svg>
