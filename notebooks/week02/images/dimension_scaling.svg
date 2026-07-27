@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">Euclidean dimension as a scaling count</title>
+  <desc id="desc">A line, square, and cube subdivided by factors two and three. Each diagram occupies an equal panel and has its count below it.</desc>
+  <rect width="1200" height="680" fill="#fff"/>
+  <g font-family="Arial, sans-serif" fill="#1b2a4c">
+    <g font-size="28" font-weight="700" text-anchor="middle">
+      <text x="285" y="54">Line</text><text x="620" y="54">Square</text><text x="955" y="54">Cube</text>
+      <text x="285" y="84" font-size="20" fill="#647089">d = 1</text>
+      <text x="620" y="84" font-size="20" fill="#647089">d = 2</text>
+      <text x="955" y="84" font-size="20" fill="#647089">d = 3</text>
+    </g>
+    <g font-size="22" font-weight="700" text-anchor="start">
+      <text x="30" y="215">m = 2</text><text x="30" y="510">m = 3</text>
+    </g>
+    <g font-size="18" fill="#647089" text-anchor="start">
+      <text x="30" y="242">r = 1/2</text><text x="30" y="537">r = 1/3</text>
+    </g>
+  </g>
+
+  <g fill="none" stroke="#1b2a4c" stroke-width="4" stroke-linejoin="round">
+    <!-- m = 2 -->
+    <path d="M185 185H385M285 171V199"/>
+    <rect x="520" y="120" width="200" height="200"/><path d="M620 120V320M520 220H720"/>
+    <path d="M850 145H1010V305H850zM850 145l44-38h160l-44 38M1010 145l44-38v160l-44 38M930 145v160M850 225h160M872 126h160M1032 126v160"/>
+
+    <!-- m = 3 -->
+    <path d="M185 480H385M251.7 466V494M318.3 466V494"/>
+    <rect x="520" y="415" width="200" height="200"/><path d="M586.7 415V615M653.3 415V615M520 481.7H720M520 548.3H720"/>
+    <path d="M850 440H1010V600H850zM850 440l44-38h160l-44 38M1010 440l44-38v160l-44 38M903.3 440v160M956.7 440v160M850 493.3h160M850 546.7h160M864.7 427.3h160M879.3 414.7h160M1024.7 427.3v160M1039.3 414.7v160"/>
+  </g>
+
+  <g font-family="Arial, sans-serif" text-anchor="middle" fill="#1b2a4c" font-size="23" font-weight="700">
+    <text x="285" y="350">N = 2 = 2¹</text><text x="620" y="350">N = 4 = 2²</text><text x="955" y="350">N = 8 = 2³</text>
+    <text x="285" y="650">N = 3 = 3¹</text><text x="620" y="650">N = 9 = 3²</text><text x="955" y="650">N = 27 = 3³</text>
+  </g>
+</svg>

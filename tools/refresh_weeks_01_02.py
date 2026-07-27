@@ -176,6 +176,9 @@ Before you leave, complete these three sentences:
 
 def set_markdown(cells, cell_id, source, tags=None, slide_type=None):
     cell = next(c for c in cells if c.get("id") == cell_id)
+    cell["cell_type"] = "markdown"
+    cell.pop("outputs", None)
+    cell.pop("execution_count", None)
     cell["source"] = source.splitlines(keepends=True)
     if tags is not None:
         cell.setdefault("metadata", {})["tags"] = tags
@@ -185,6 +188,9 @@ def set_markdown(cells, cell_id, source, tags=None, slide_type=None):
 
 def set_code(cells, cell_id, source, tags=None, slide_type=None, clear_output=False):
     cell = next(c for c in cells if c.get("id") == cell_id)
+    cell["cell_type"] = "code"
+    cell.setdefault("outputs", [])
+    cell.setdefault("execution_count", None)
     cell["source"] = source.splitlines(keepends=True)
     if tags is not None:
         cell.setdefault("metadata", {})["tags"] = tags
@@ -268,7 +274,7 @@ All of science relies on models.
 
 **Newton's question:** Can familiar mathematical principles explain Kepler's empirical law?
 """, ["slides"], "subslide")
-    insert_after_id(cells, "e36db449-7e49-4a35-82f0-29c66512be9d", "week01-planet-assumptions", md(r"""## Simplify first
+    insert_after_id(cells, "e36db449-7e49-4a35-82f0-29c66512be9d", "week01-planet-assumptions", md(r"""### Simplify first
 
 <div class="choice-marker"><img src="images/choice_marker.svg" alt="Modelling choice" width="36" height="36"><span>Modelling choices</span></div>
 
@@ -288,8 +294,8 @@ $$
     planet_assumptions_source = "".join(planet_assumptions["source"])
     if "choice-marker" not in planet_assumptions_source:
         planet_assumptions_source = planet_assumptions_source.replace(
-            "## Simplify first\n",
-            "## Simplify first\n\n<div class=\"choice-marker\"><img src=\"images/choice_marker.svg\" alt=\"Modelling choice\"><span>Modelling choices</span></div>\n",
+            "### Simplify first\n",
+            "### Simplify first\n\n<div class=\"choice-marker\"><img src=\"images/choice_marker.svg\" alt=\"Modelling choice\"><span>Modelling choices</span></div>\n",
             1,
         )
         planet_assumptions["source"] = planet_assumptions_source.splitlines(keepends=True)
@@ -309,7 +315,7 @@ $$
 
 For $0<e<1$, this is an ellipse. Observation explained. QED.
 """, ["slides"], "subslide", "week01-planet-solve"))
-    set_markdown(cells, "week01-planet-solve", r"""## Solve and conclude
+    set_markdown(cells, "week01-planet-solve", r"""### Solve and conclude
 
 <div class="planet-process">
   <div class="process-sequence">
@@ -477,7 +483,7 @@ Before exploring a large system, we build a $5\times5$ version that we can inspe
 
 <div class="qa-grid">
   <div class="qa-row"><p class="qa-question">Who counts as a neighbour?</p><p class="qa-answer fragment">The Moore neighbourhood, excluding the focal agent.</p></div>
-  <div class="qa-row"><p class="qa-question">How does an agent judge its environment?</p><p class="qa-answer fragment">Its local similarity is $r_i=n_{s,i}/n_i$. Define unhappiness by $h_i=1$ when $r_i&lt;\theta_r$, and $h_i=0$ otherwise. Initially $\theta_r=50\%$.</p></div>
+  <div class="qa-row"><p class="qa-question">How does an agent judge its environment?</p><p class="qa-answer fragment">Its local similarity is $s_i=n_{s,i}/n_i$. Define unhappiness by $h_i=1$ when $s_i&lt;\theta_s$, and $h_i=0$ otherwise. Initially $\theta_s=50\%$.</p></div>
   <div class="qa-row"><p class="qa-question">What happens when it is dissatisfied?</p><p class="qa-answer fragment">Select one dissatisfied agent at random and move it to a random empty site.</p></div>
 </div>
 """, ["slides"], "subslide")
@@ -572,19 +578,14 @@ controls = widgets.VBox([
 ])
 display(out, controls)
 ''')
-    insert_after_id(cells, "562ed9ae-fec2-4387-86b9-6ff3ddefae84", "week01-dynamics-panel", md("""### Qualitative analysis
+    insert_after_id(cells, "562ed9ae-fec2-4387-86b9-6ff3ddefae84", "week01-dynamics-panel", md("""### Watch the process
 
 <div class="slide-columns evidence-layout">
-  <div class="evidence-panel"><iframe src="interactive_schelling.html?autoplay=1&amp;minimal=1&amp;speed=350" title="Schelling simulation evolving through time" class="simulation-preview"></iframe></div>
+  <div class="evidence-panel"><img src="simulation2.gif" alt="Schelling simulation evolving at a fixed pace" style="display:block;max-height:300px;width:auto;margin:0 auto"></div>
   <div class="meaning-panel">
-    <div class="reader-prompt-label">One relocation step</div>
-    <ol>
-      <li>Find the dissatisfied agents.</li>
-      <li>Select one at random.</li>
-      <li>Move it to a random empty site.</li>
-      <li>Recalculate every affected neighbourhood.</li>
-    </ol>
-    <p>Location is part of state. Movement changes the interaction network.</p>
+    <p>Animation makes the changing pattern visible.</p>
+    <p>But its clock controls us. A surprising transition is gone before we can inspect it.</p>
+    <p><strong>We want direct control of time.</strong></p>
   </div>
 </div>
 """, ["slides"], "subslide", "week01-dynamics-panel"))
@@ -592,9 +593,9 @@ display(out, controls)
     cells[:] = [c for c in cells if c.get("id") != "week01-interactive-time"]
     insert_after_id(cells, "week01-dynamics-panel", "week01-interactive-time", md("""### Pause the process
 
-<iframe src="interactive_schelling.html?compact=1" title="Interactive Schelling simulation with time and speed controls" class="schelling-interactive compact-simulation"></iframe>
+<div class="schelling-embed"><iframe src="interactive_schelling.html?compact=1&amp;slide=1" title="Interactive Schelling simulation with time and speed controls" class="schelling-interactive compact-simulation"></iframe></div>
 
-<div class="ladder-marker"><img src="images/ladder_marker.svg" alt="Ladder of abstraction"><span><strong>Stay low:</strong> slow the model down and explain exactly what changes in one step.</span></div>
+<div class="ladder-marker"><img src="images/ladder_marker.svg" alt="Ladder of abstraction"><span><strong>Down the ladder:</strong> slow the model down and explain exactly what changes in one step.</span></div>
 """, ["slides"], "subslide", "week01-interactive-time"))
 
     set_markdown(cells, "752e1cdd-2806-4794-ac28-bfb085d3e53c", """### Qualitative analysis
@@ -686,17 +687,26 @@ For a large random 50:50 mixture, MSR is usually near 0.5. Zero is a mathematica
 """, ["slides"], "subslide", "week01-rank-grids-reveal"))
 
     set_code(cells, "b3d1ae4f-07a6-4d8c-b817-b391784b9d97", "# Static teaching panel generated by tools/build_week01_figures.py\n", ["hide-input", "reader-only"], "", clear_output=True)
-    insert_after_id(cells, "b3d1ae4f-07a6-4d8c-b817-b391784b9d97", "week01-time-series-panel", md("""### Stage 4: track system-level quantities
+    insert_after_id(cells, "b3d1ae4f-07a6-4d8c-b817-b391784b9d97", "week01-time-series-panel", md("""### Track system-level quantities
 
 <img src="images/schelling_time_series.png" alt="Dissatisfied agent count and mean similarity ratio over simulation time" width="72%">
 
-<div class="ladder-marker"><img src="images/ladder_marker.svg" alt="Ladder of abstraction" width="30" height="40"><span><strong>Abstract over agents, retain time:</strong> at each time step, compress the grid into two system-level observables. The time series does not average over time.</span></div>
+<div class="ladder-marker"><img src="images/ladder_marker.svg" alt="Ladder of abstraction" width="30" height="40"><span><strong>Up the ladder over agents, retaining time:</strong> at each time step, compress the grid into two system-level observables. The time series does not average over time.</span></div>
 """, ["slides"], "subslide", "week01-time-series-panel"))
     insert_after_id(cells, "week01-time-series-panel", "week01-single-run-msr", md("""### A different seed, an unsettled trajectory
 
-<img src="images/schelling_frustrated_time_series.png" alt="Oscillatory mean similarity ratio with dissatisfied agents remaining" width="78%">
-
-<div class="ladder-marker"><img src="images/ladder_marker.svg" alt="Ladder of abstraction" width="30" height="40"><span><strong>Down the ladder:</strong> return to the agents and inspect what prevents the trajectory from settling.</span></div>
+<div class="slide-columns evidence-layout">
+  <div class="evidence-panel">
+    <img src="images/schelling_frustrated_time_series.png" alt="Oscillatory mean similarity ratio with dissatisfied agents remaining">
+    <div class="ladder-marker"><img src="images/ladder_marker.svg" alt="Ladder of abstraction" width="30" height="40"><span><strong>Down the ladder:</strong> return to the agents and inspect what prevents the trajectory from settling.</span></div>
+  </div>
+  <div class="meaning-panel">
+    <p><strong>Previous run:</strong> 12 time steps.</p>
+    <p><strong>This run:</strong> a different initialisation followed for 100 steps at the same 50% threshold.</p>
+    <p><strong>Point colour:</strong> the number of dissatisfied agents. Pale points mean fewer agents remain dissatisfied.</p>
+    <p>MSR fluctuates near a plateau while dissatisfaction persists. The aggregate curve tells us that something remains unresolved, but not why.</p>
+  </div>
+</div>
 """, ["slides"], "subslide", "week01-single-run-msr"))
     set_markdown(cells, "31ef076a-40f2-4535-8411-48bd478b7db1", """### Read two different observables together
 
@@ -713,13 +723,13 @@ One trajectory describes one initial condition and one random sequence of moves.
 
 Was this trajectory typical, or did the initial state and random moves make it unusual?
 
-<div class="ladder-marker"><img src="images/ladder_marker.svg" alt="Ladder of abstraction" width="30" height="40"><span>Inspect another trajectory. <strong>Then up:</strong> compare an ensemble of runs.</span></div>
+<div class="ladder-marker"><img src="images/ladder_marker.svg" alt="Ladder of abstraction" width="30" height="40"><span><strong>Down, then up:</strong> inspect another concrete trajectory, then compare a distribution of possible runs.</span></div>
 """, ["slides"], "subslide")
     insert_after_id(cells, "24d40c94-9e93-4839-9c55-a1163db0f562", "week01-frustrated-run", md("""### Inspect the unsettled run
 
-<iframe src="interactive_schelling.html?seed=2&amp;autoplay=1&amp;speed=180" title="Interactive unsettled Schelling simulation" class="schelling-interactive"></iframe>
+<div class="schelling-embed"><iframe src="interactive_schelling.html?seed=2&amp;autoplay=1&amp;speed=180&amp;compact=1&amp;slide=1" title="Interactive unsettled Schelling simulation" class="schelling-interactive compact-simulation"></iframe></div>
 
-<div class="ladder-marker"><img src="images/ladder_marker.svg" alt="Ladder of abstraction" width="30" height="40"><span><strong>Stay low:</strong> pause, scrub backwards, and identify which local moves recreate dissatisfaction.</span></div>
+<div class="ladder-marker"><img src="images/ladder_marker.svg" alt="Ladder of abstraction" width="30" height="40"><span><strong>Down the ladder:</strong> pause, scrub backwards, and identify which local moves recreate dissatisfaction.</span></div>
 """, ["slides"], "subslide", "week01-frustrated-run"))
 
     # Explicitly refresh inserted cells, whose stable ids otherwise preserve older wording.
@@ -735,23 +745,32 @@ Was this trajectory typical, or did the initial state and random moves make it u
   </div>
 </div>
 """, ["slides"], "subslide")
-    set_markdown(cells, "week01-time-series-panel", """### Stage 4: track system-level quantities
+    set_markdown(cells, "week01-time-series-panel", """### Track system-level quantities
 
 <img src="images/schelling_time_series.png" alt="Dissatisfied agent count and mean similarity ratio over simulation time" width="72%">
 
-<div class="ladder-marker"><img src="images/ladder_marker.svg" alt="Ladder of abstraction" width="30" height="40"><span><strong>Abstract over agents, retain time:</strong> at each time step, compress the grid into two system-level observables. The time series does not average over time.</span></div>
+<div class="ladder-marker"><img src="images/ladder_marker.svg" alt="Ladder of abstraction" width="30" height="40"><span><strong>Up the ladder over agents, retaining time:</strong> at each time step, compress the grid into two system-level observables. The time series does not average over time.</span></div>
 """, ["slides"], "subslide")
     set_markdown(cells, "week01-single-run-msr", """### A different seed, an unsettled trajectory
 
-<img src="images/schelling_frustrated_time_series.png" alt="Oscillatory mean similarity ratio with dissatisfied agents remaining" width="78%">
-
-<div class="ladder-marker"><img src="images/ladder_marker.svg" alt="Ladder of abstraction" width="30" height="40"><span><strong>Down the ladder:</strong> return to the agents and inspect what prevents the trajectory from settling.</span></div>
+<div class="slide-columns evidence-layout">
+  <div class="evidence-panel">
+    <img src="images/schelling_frustrated_time_series.png" alt="Oscillatory mean similarity ratio with dissatisfied agents remaining">
+    <div class="ladder-marker"><img src="images/ladder_marker.svg" alt="Ladder of abstraction" width="30" height="40"><span><strong>Down the ladder:</strong> return to the agents and inspect what prevents the trajectory from settling.</span></div>
+  </div>
+  <div class="meaning-panel">
+    <p><strong>Previous run:</strong> 12 time steps.</p>
+    <p><strong>This run:</strong> a different initialisation followed for 100 steps at the same 50% threshold.</p>
+    <p><strong>Point colour:</strong> the number of dissatisfied agents. Pale points mean fewer agents remain dissatisfied.</p>
+    <p>MSR fluctuates near a plateau while dissatisfaction persists. The aggregate curve tells us that something remains unresolved, but not why.</p>
+  </div>
+</div>
 """, ["slides"], "subslide")
     set_markdown(cells, "week01-frustrated-run", """### Inspect the unsettled run
 
-<iframe src="interactive_schelling.html?seed=2&amp;autoplay=1&amp;speed=180" title="Interactive unsettled Schelling simulation" class="schelling-interactive"></iframe>
+<div class="schelling-embed"><iframe src="interactive_schelling.html?seed=2&amp;autoplay=1&amp;speed=180&amp;compact=1&amp;slide=1" title="Interactive unsettled Schelling simulation" class="schelling-interactive compact-simulation"></iframe></div>
 
-<div class="ladder-marker"><img src="images/ladder_marker.svg" alt="Ladder of abstraction" width="30" height="40"><span><strong>Stay low:</strong> pause, scrub backwards, and identify which local moves recreate dissatisfaction.</span></div>
+<div class="ladder-marker"><img src="images/ladder_marker.svg" alt="Ladder of abstraction" width="30" height="40"><span><strong>Down the ladder:</strong> pause, scrub backwards, and identify which local moves recreate dissatisfaction.</span></div>
 """, ["slides"], "subslide")
 
     # Put the concrete animation immediately after the oscillatory trajectory it explains.
@@ -816,7 +835,7 @@ For a large random 50:50 mixture, MSR is usually near 0.5. Zero is a mathematica
 
 One trajectory is one initial condition and one random sequence of moves. We now ask which conclusions survive changes in parameters and initial conditions.
 
-<div class="ladder-marker"><img src="images/ladder_marker.svg" alt="Ladder of abstraction" width="30" height="40"><span>One run → an ensemble → a parameter sweep of ensembles.</span></div>
+<div class="ladder-marker"><img src="images/ladder_marker.svg" alt="Ladder of abstraction" width="30" height="40"><span><strong>Up, then across:</strong> replace one run with a distribution of runs, then repeat that comparison across parameter values.</span></div>
 """, ["slides"], "slide")
 
     set_markdown(cells, "069229ca-29bb-41c0-ac2c-08014f009791", """## Pause and compute
@@ -833,13 +852,13 @@ Time for us to have a break, and our machines to go to work.
   <div class="evidence-panel"><img src="images/schelling_local_similarity.png" alt="The same Schelling grid shown as agent types and as local similarity ratios, with dissatisfied agents crossed"></div>
   <div class="meaning-panel">
     <p>For occupied square $i$, define</p>
-    $$r_i=\frac{n_{s,i}}{n_i}.$$
+    $$s_i=\frac{n_{s,i}}{n_i}.$$
     <p>$n_{s,i}$ counts similar occupied neighbours and $n_i$ counts all occupied neighbours.</p>
     <p>The colour and number belong to one agent. This is a <strong>local similarity ratio</strong>, not yet the MSR.</p>
   </div>
 </div>
 
-<div class="ladder-marker"><img src="images/ladder_marker.svg" alt="Ladder of abstraction" width="30" height="40"><span><strong>Abstract over neighbours:</strong> replace one agent's neighbourhood with the scalar $r_i$.</span></div>
+<div class="ladder-marker"><img src="images/ladder_marker.svg" alt="Ladder of abstraction" width="30" height="40"><span><strong>Up the ladder over neighbours:</strong> replace one agent's neighbourhood with the scalar $s_i$.</span></div>
 """, ["slides"], "subslide", "week01-local-similarity"))
 
     set_markdown(cells, "88dc7a87-2adb-417c-adce-33daacb8db0f", r"""### From local judgement to collective behaviour
@@ -848,12 +867,12 @@ Time for us to have a break, and our machines to go to work.
 
 <div class="aggregate-definitions">
   <div><strong>Dissatisfaction</strong><p>Sum the already-defined local indicators: $\displaystyle D=\sum_{i=1}^{N}h_i$. The model stops when $D=0$.</p></div>
-  <div><strong>Local similarity</strong><p>Average the local ratios: $\displaystyle \mathcal{MSR}=\frac{1}{N}\sum_{i=1}^{N}r_i$. This is one possible measure of segregation.</p></div>
+  <div><strong>Local similarity</strong><p>Average the local ratios: $\displaystyle \mathcal{MSR}=\frac{1}{N}\sum_{i=1}^{N}s_i$. This is one possible measure of segregation.</p></div>
 </div>
 
 <div class="choice-marker"><img src="images/choice_marker.svg" alt="Modelling choice" width="36" height="36"><span>The dissatisfied count follows the update rule; MSR is an additional observable chosen to describe the spatial pattern.</span></div>
 
-<div class="ladder-marker"><img src="images/ladder_marker.svg" alt="Ladder of abstraction" width="30" height="40"><span><strong>Abstract over agents:</strong> combine $N$ local values into one system-level number at a fixed time.</span></div>
+<div class="ladder-marker"><img src="images/ladder_marker.svg" alt="Ladder of abstraction" width="30" height="40"><span><strong>Up the ladder over agents:</strong> combine $N$ local values into one system-level number at a fixed time.</span></div>
 """, ["slides"], "subslide")
 
     aggregate_cell = next(c for c in cells if c.get("id") == "88dc7a87-2adb-417c-adce-33daacb8db0f")
@@ -894,9 +913,11 @@ Why is the similarity threshold 50%? It is a modelling choice, and it may contro
 
 We now sweep across threshold values and compare the resulting trajectories.
 
-<div class="ladder-marker"><img src="images/ladder_marker.svg" alt="Ladder of abstraction" width="30" height="40"><span><strong>Up the ladder:</strong> abstract over a parameter instead of following one run.</span></div>
+<div class="ladder-marker"><img src="images/ladder_marker.svg" alt="Ladder of abstraction" width="30" height="40"><span><strong>Up the ladder over the parameter:</strong> compare a family of trajectories to reveal how behaviour changes across this modelling choice.</span></div>
 
 This is called a **parameter sweep**.
+
+When feedback is fast enough, expose an important parameter as an interactive control. For slow or stochastic models, a reproducible sweep is usually more informative.
 """, ["slides"], "subslide")
 
     parameter_intro_id = "19a55b90-0ef6-4afc-807c-9a88d2531b17" if any(c.get("id") == "19a55b90-0ef6-4afc-807c-9a88d2531b17" for c in cells) else "19a55b90-0ef6-4afc-8072-417fe7905334"
@@ -998,15 +1019,15 @@ An **ensemble** repeats the same model and parameters with independent initial s
     }]
     insert_after_id(cells, "week01-parameter-examples", "week01-threshold-80-simulation", md("""### Inspect the frustrated 80% run
 
-<iframe src="interactive_schelling.html?threshold=0.8&amp;seed=1&amp;autoplay=1&amp;speed=450&amp;compact=1" title="Interactive Schelling simulation at an eighty percent similarity threshold" class="schelling-interactive compact-simulation"></iframe>
+<div class="schelling-embed"><iframe src="interactive_schelling.html?threshold=0.8&amp;seed=1&amp;autoplay=1&amp;speed=450&amp;compact=1&amp;slide=1" title="Interactive Schelling simulation at an eighty percent similarity threshold" class="schelling-interactive compact-simulation"></iframe></div>
 
-<div class="ladder-marker"><img src="images/ladder_marker.svg" alt="Ladder of abstraction"><span><strong>Back down the ladder:</strong> follow individual agents. Some remain dissatisfied but cannot find an empty site that meets the demanding threshold, so movement continues and MSR need not settle at a plateau.</span></div>
+<div class="ladder-marker"><img src="images/ladder_marker.svg" alt="Ladder of abstraction"><span><strong>Down the ladder:</strong> follow individual agents. Some remain dissatisfied but cannot find an empty site that meets the demanding threshold, so movement continues and MSR need not settle at a plateau.</span></div>
 """, ["slides-only", "remove-cell"], "subslide", "week01-threshold-80-simulation"))
     insert_after_id(cells, "week01-threshold-80-simulation", "week01-threshold-80-reader", md("""### Inspect the frustrated 80% run
 
-<iframe src="../interactive_schelling.html?threshold=0.8&amp;seed=1&amp;autoplay=1&amp;speed=450&amp;compact=1" title="Interactive Schelling simulation at an eighty percent similarity threshold" class="schelling-interactive compact-simulation"></iframe>
+<div class="schelling-embed"><iframe src="../interactive_schelling.html?threshold=0.8&amp;seed=1&amp;autoplay=1&amp;speed=450&amp;compact=1" title="Interactive Schelling simulation at an eighty percent similarity threshold" class="schelling-interactive compact-simulation"></iframe></div>
 
-<div class="ladder-marker"><img src="images/ladder_marker.svg" alt="Ladder of abstraction"><span><strong>Back down the ladder:</strong> follow individual agents. Some remain dissatisfied but cannot find an empty site that meets the demanding threshold, so movement continues and MSR need not settle at a plateau.</span></div>
+<div class="ladder-marker"><img src="images/ladder_marker.svg" alt="Ladder of abstraction"><span><strong>Down the ladder:</strong> follow individual agents. Some remain dissatisfied but cannot find an empty site that meets the demanding threshold, so movement continues and MSR need not settle at a plateau.</span></div>
 
 This run reveals a plausible mechanism. It does not yet establish a general pattern. We next use an ensemble to ask whether the same unsettled behaviour appears across independently generated initial states and random update sequences.
 """, ["reader-only"], marker="week01-threshold-80-reader"))
@@ -1015,7 +1036,7 @@ This run reveals a plausible mechanism. It does not yet establish a general patt
 <div class="slide-columns evidence-layout">
   <div class="evidence-panel">
     <img src="images/schelling_ensemble_trajectories.png" alt="Mean MSR trajectories and middle fifty percent bands for an ensemble at each threshold">
-    <div class="ladder-marker"><img src="images/ladder_marker.svg" alt="Ladder of abstraction"><span><strong>Back up the ladder as we abstract over time:</strong> replace each trajectory with a small set of outcome statistics.</span></div>
+    <div class="ladder-marker"><img src="images/ladder_marker.svg" alt="Ladder of abstraction"><span><strong>Up the ladder over time:</strong> replace each trajectory with a small set of outcome statistics.</span></div>
   </div>
   <div class="meaning-panel">
     <ul>
@@ -1037,7 +1058,7 @@ This run reveals a plausible mechanism. It does not yet establish a general patt
     <p>Hold the initial seed and update sequence fixed. Change only the similarity threshold.</p>
     <p>Each line is one run, so the figure exposes how the parameter changes the trajectory without yet showing run-to-run variation.</p>
     <p>The comparison is useful, but any one line could be atypical.</p>
-    <div class="ladder-marker"><img src="images/ladder_marker.svg" alt="Ladder of abstraction"><span><strong>Across the ladder:</strong> retain time while varying one modelling choice.</span></div>
+    <div class="ladder-marker"><img src="images/ladder_marker.svg" alt="Ladder of abstraction"><span><strong>Up the ladder over the parameter:</strong> compare a family of trajectories to reveal how behaviour changes across this modelling choice.</span></div>
   </div>
 </div>
 """, ["slides"], "subslide", "week01-parameter-trajectories"))
@@ -1046,7 +1067,7 @@ This run reveals a plausible mechanism. It does not yet establish a general patt
 <div class="slide-columns evidence-layout parameter-outcomes-layout">
   <div class="evidence-panel">
     <img src="images/schelling_parameter_ensemble.png" alt="Ensemble mean final MSR and dissatisfied fraction across similarity thresholds">
-    <div class="ladder-marker"><img src="images/ladder_marker.svg" alt="Ladder of abstraction"><span><strong>Abstract over time and random runs:</strong> replace each trajectory with its outcome after 100 steps, then summarise across runs. The threshold remains on the horizontal axis.</span></div>
+    <div class="ladder-marker"><img src="images/ladder_marker.svg" alt="Ladder of abstraction"><span><strong>Up the ladder over time and random runs:</strong> replace each trajectory with its outcome after 100 steps, then summarise across runs. The threshold remains on the horizontal axis.</span></div>
   </div>
   <div class="meaning-panel">
     <p><strong>Top:</strong> final local similarity rises through intermediate thresholds, then falls when demanding preferences keep the system moving.</p>
@@ -1134,6 +1155,13 @@ Modelling is an interactive process. We move down to inspect individual componen
 Neither view is sufficient by itself. A high-level pattern needs a mechanism, while a local mechanism needs a view of its collective consequences. We will repeatedly move between the two.
 """, ["reader-only"], "")
 
+    # Introduce the ladder at the point where it first drives a modelling
+    # decision: moving down to the small Parable construction.
+    ladder_cell = next(c for c in cells if c.get("id") == "2c7a4ca7-fb5b-4b53-9e87-19b84603f109")
+    cells.remove(ladder_cell)
+    parable_index = next(i for i, c in enumerate(cells) if c.get("id") == "c717f021-8b82-42e3-8972-f18050210d0f")
+    cells.insert(parable_index, ladder_cell)
+
     reader_replacements = {
         "week01-planet-solve-reader": ("week01-planet-solve", r"""### Solve and conclude
 
@@ -1173,24 +1201,23 @@ One time step applies a local judgement and an update rule.
 - **Local similarity:** for agent $i$, let
 
   $$
-  r_i=\frac{n_{s,i}}{n_i},
+  s_i=\frac{n_{s,i}}{n_i},
   $$
 
   where $n_{s,i}$ is the number of similar occupied neighbours and $n_i$ is the number of occupied neighbours.
-- **Unhappiness:** define $h_i=1$ when $r_i<\theta_r$, and $h_i=0$ otherwise. We begin with $\theta_r=50\%$.
+- **Unhappiness:** define $h_i=1$ when $s_i<\theta_s$, and $h_i=0$ otherwise. We begin with $\theta_s=50\%$.
 - **Update:** choose one dissatisfied agent at random and move it to a random empty site.
 """),
         "week01-local-similarity-reader": ("week01-local-similarity", r"""### Give every agent a local value
 
-![Agent states beside each occupied agent's local similarity ratio](images/schelling_local_similarity.png)
-
-For each occupied square $i$, the local similarity ratio is
-
-$$
-r_i=\frac{n_{s,i}}{n_i}.
-$$
-
-This number compresses one neighbourhood into one local observable. It belongs to an individual agent. It is not yet a measure of the whole society.
+<div class="slide-columns evidence-layout">
+  <div class="evidence-panel"><img src="images/schelling_local_similarity.png" alt="Agent states beside each occupied agent's local similarity ratio"></div>
+  <div class="meaning-panel">
+    <p>For each occupied square $i$, the local similarity ratio is</p>
+    <p>$$s_i=\frac{n_{s,i}}{n_i}.$$</p>
+    <p>This number compresses one neighbourhood into one local observable. It belongs to an individual agent. It is not yet a measure of the whole society.</p>
+  </div>
+</div>
 """),
         "week01-collective-reader": ("88dc7a87-2adb-417c-adce-33daacb8db0f", r"""### From local judgement to collective behaviour
 
@@ -1207,7 +1234,7 @@ This quantity belongs to the update rule. The model stops when $D=0$.
 The mean similarity ratio is
 
 $$
-\mathcal{MSR}=\frac{1}{N}\sum_{i=1}^{N}r_i.
+\mathcal{MSR}=\frac{1}{N}\sum_{i=1}^{N}s_i.
 $$
 
 MSR is an additional observable chosen to summarise the spatial pattern. It is one possible measure of segregation, not a quantity forced on us by the model.
@@ -1228,15 +1255,26 @@ MSR is an additional observable chosen to summarise the spatial pattern. It is o
     cells[:] = [c for c in cells if c.get("id") not in {
         "week01-reader-interactive", "week01-reader-unsettled"
     }]
-    insert_after_id(cells, "week01-dynamics-reader", "week01-reader-interactive", md("""### Observe the process
+    insert_after_id(cells, "week01-dynamics-reader", "week01-reader-interactive", md("""### Watch the process
 
-<iframe src="../interactive_schelling.html?compact=1" title="Interactive Schelling simulation" class="schelling-interactive compact-simulation"></iframe>
+<div class="slide-columns evidence-layout">
+  <div class="evidence-panel"><img src="simulation2.gif" alt="Schelling simulation evolving at a fixed pace" style="display:block;max-width:300px;width:100%;margin:0 auto"></div>
+  <div class="meaning-panel">
+    <p>The animation reveals how the pattern changes through time.</p>
+    <p>But its clock controls us. A surprising transition can disappear before we understand it.</p>
+    <p><strong>Next, we take direct control of time.</strong></p>
+  </div>
+</div>
 
-Pause the simulation, slow it down, or scrub backwards. Inspect individual transitions before moving up the ladder to system-level summaries.
+### Pause the process
+
+<div class="schelling-embed"><iframe src="../interactive_schelling.html?compact=1" title="Interactive Schelling simulation" class="schelling-interactive compact-simulation"></iframe></div>
+
+Now take control of time. Pause the simulation, slow it down, or scrub backwards. Inspect individual transitions before moving up the ladder to system-level summaries.
 """, ["reader-only"], marker="week01-reader-interactive"))
     insert_after_id(cells, "week01-single-run-msr", "week01-reader-unsettled", md("""### Inspect the unsettled run
 
-<iframe src="../interactive_schelling.html?seed=2&amp;autoplay=1&amp;speed=180" title="Interactive unsettled Schelling simulation" class="schelling-interactive"></iframe>
+<div class="schelling-embed"><iframe src="../interactive_schelling.html?seed=2&amp;autoplay=1&amp;speed=180&amp;compact=1" title="Interactive unsettled Schelling simulation" class="schelling-interactive compact-simulation"></iframe></div>
 
 Return to the agents and inspect which local moves recreate dissatisfaction.
 """, ["reader-only"], marker="week01-reader-unsettled"))
@@ -1263,7 +1301,7 @@ Return to the agents and inspect which local moves recreate dissatisfaction.
 <div class="slide-columns evidence-layout">
   <div class="evidence-panel">
     <img src="images/schelling_time_summaries.png" alt="Time of maximum similarity and time until settling across thresholds">
-    <div class="ladder-marker"><img src="images/ladder_marker.svg" alt="Ladder of abstraction"><span><strong>Abstract over time:</strong> replace a trajectory with an event time, then abstract over random runs.</span></div>
+    <div class="ladder-marker"><img src="images/ladder_marker.svg" alt="Ladder of abstraction"><span><strong>Up the ladder over time:</strong> replace a trajectory with an event time, then summarise across random runs.</span></div>
   </div>
   <div class="meaning-panel">
     <p><strong>Top:</strong> the simulation time step at which each run first reaches its maximum MSR.</p>
@@ -1275,11 +1313,17 @@ Return to the agents and inspect which local moves recreate dissatisfaction.
 
     insert_after_id(cells, "week01-time-summaries", "week01-time-summaries-reader", md("""### When does the outcome emerge?
 
-![Time of maximum similarity and time until settling across thresholds](images/schelling_time_summaries.png)
-
-The top panel records when each run first reaches its maximum MSR. The bottom panel records when movement stops because no agents remain dissatisfied. A run that is still active is capped at the 100-step simulation budget.
-
-These are different event times. Maximum similarity can occur before movement stops. Each trajectory is first compressed into an event time, then the event times are summarised across independent runs.
+<div class="slide-columns evidence-layout reader-event-layout">
+  <div class="evidence-panel">
+    <img src="images/schelling_time_summaries.png" alt="Time of maximum similarity and time until settling across thresholds" width="420">
+    <div class="ladder-marker"><img src="images/ladder_marker.svg" alt="Ladder of abstraction"><span><strong>Up the ladder over time:</strong> replace each trajectory with an event time, then summarise those times across independent runs.</span></div>
+  </div>
+  <div class="meaning-panel">
+    <p><strong>Top:</strong> when each run first reaches its maximum MSR.</p>
+    <p><strong>Bottom:</strong> when movement stops because no agents remain dissatisfied. Runs still active are capped at the 100-step budget.</p>
+    <p>These are different event times. Maximum similarity can occur before movement stops.</p>
+  </div>
+</div>
 """, ["reader-only"], marker="week01-time-summaries-reader"))
 
     # Earlier reordering moves the parameter-outcome cell. Keep the two time
@@ -1291,12 +1335,13 @@ These are different event times. Maximum similarity can occur before movement st
         index = next(i for i, c in enumerate(cells) if c.get("id") == after)
         cells.insert(index + 1, moving)
 
-    # Teach the parameter mechanism before introducing ensemble statistics.
+    # Teach the parameter mechanism before introducing why an ensemble is needed.
     ordered_parameter_cells = [
         next(c for c in cells if c.get("id") == marker)
         for marker in (
             "week01-parameter-trajectories", "week01-parameter-examples",
             "week01-threshold-80-simulation", "week01-threshold-80-reader",
+            "24d40c94-9e93-4839-9c55-a1163db0f562",
             "week01-ensemble-definition",
             "week01-ensemble-trajectories", "week01-parameter-ensemble",
             "week01-time-summaries", "week01-time-summaries-reader",

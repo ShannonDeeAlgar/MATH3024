@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 430" role="img" aria-labelledby="title desc">
+  <title id="title">Building dimensions by dragging into a new direction</title>
+  <desc id="desc">A point is dragged horizontally to make a line. The line is dragged vertically to make a square. The square is dragged diagonally into a third independent direction to make a cube.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0l10 5-10 5z" fill="#64789b"/></marker>
+  </defs>
+  <rect width="1200" height="430" fill="#fff"/>
+  <g fill="none" stroke="#1b2a4c" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="85" cy="210" r="10" fill="#1b2a4c"/>
+    <path d="M315 210h150"/>
+    <rect x="625" y="135" width="150" height="150"/>
+    <path d="M930 160h140v140H930zM930 160l45-42h140l-45 42M1070 160l45-42v140l-45 42"/>
+  </g>
+  <g fill="none" stroke="#aeb9ca" stroke-width="4" stroke-dasharray="9 8">
+    <path d="M315 210h150" transform="translate(0,-75)"/>
+    <rect x="930" y="160" width="140" height="140" transform="translate(45,-42)"/>
+  </g>
+  <g fill="none" stroke="#64789b" stroke-width="4" marker-end="url(#arrow)">
+    <path d="M105 210h145"/>
+    <path d="M390 195V105"/>
+    <path d="M775 205l105-75"/>
+  </g>
+  <g font-family="Arial, sans-serif" text-anchor="middle" fill="#1b2a4c">
+    <g font-size="27" font-weight="700"><text x="85" y="355">Point</text><text x="390" y="355">Line</text><text x="700" y="355">Square</text><text x="1025" y="355">Cube</text></g>
+    <g font-size="21" fill="#59677f"><text x="85" y="390">0 directions</text><text x="390" y="390">1 direction</text><text x="700" y="390">2 directions</text><text x="1025" y="390">3 directions</text></g>
+    <g font-size="18" font-weight="700" fill="#64789b"><text x="178" y="192">drag sideways</text><text x="390" y="82">drag upward</text><text x="845" y="106">drag in a new direction</text></g>
+  </g>
+</svg>
