@@ -5,6 +5,8 @@ from pathlib import Path
 
 import nbformat as nbf
 
+from finalise_week02_current import apply_current_week02
+
 
 ROOT = Path(__file__).resolve().parents[1]
 TARGET = ROOT / "notebooks/week02/L_Fractals.ipynb"
@@ -1624,6 +1626,9 @@ References for these connections: Grassberger and Procaccia, [strange-attractor 
         raise ValueError(f"Week 2 teaching order mismatch. Missing={missing}; unplaced={unplaced}")
     notebook.cells = [cells_by_id[cell_id] for cell_id in teaching_order]
 
+    # Preserve the latest approved Week 2 additions, reader-only material, and
+    # teaching order after this broader legacy rebuild has done its work.
+    apply_current_week02(notebook)
     nbf.write(notebook, TARGET)
     print(f"Wrote {TARGET} ({len(notebook.cells)} cells)")
 
