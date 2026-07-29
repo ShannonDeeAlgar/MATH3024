@@ -6,6 +6,8 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+from finalise_week02_current import apply_current_week02
+
 
 ROOT = Path(__file__).resolve().parents[1]
 NOTEBOOK = ROOT / "notebooks/week02/L_Fractals.ipynb"
@@ -275,6 +277,9 @@ For Euclidean objects, $N=m^d=r^{-d}$.
             + ", ".join(str(cell_id) for cell_id in remaining_inline)
         )
 
+    # Reapply the latest approved Week 2 content after these older mechanical
+    # formatting transformations so this script cannot restore retired slides.
+    apply_current_week02(notebook)
     NOTEBOOK.write_text(json.dumps(notebook, indent=1, ensure_ascii=False) + "\n")
 
 
