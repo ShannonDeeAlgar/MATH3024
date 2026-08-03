@@ -165,7 +165,8 @@ SLIDES_ONLY_RULES = """
 .reveal .slides section table {
   border-collapse: collapse;
   margin: 0.7em auto;
-  font-size: 0.82em;
+  font-size: 0.68em;
+  line-height: 1.16;
 }
 
 .reveal .slides section th,
@@ -176,6 +177,54 @@ SLIDES_ONLY_RULES = """
 
 .reveal .slides section tbody tr:nth-child(even) {
   background: transparent;
+}
+
+.reveal .slides section .analysis-perspectives.three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.65em;
+}
+
+.reveal .slides section .coat-cards img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.reveal .slides section .coat-cards .coat-image-frame {
+  height: 230px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 0.25em;
+}
+
+.reveal .slides section .coat-cards > div {
+  padding: 0.42em 0.48em;
+}
+
+.reveal .slides section .coat-cards p {
+  margin: 0.18em 0;
+}
+
+.reveal .slides section .compact-panels .text-panel { padding: 0.45em 0.65em; }
+.reveal .slides section .compact-panels p { margin: 0; }
+.reveal .slides section .small-note {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.62em;
+  line-height: 1.28;
+  color: var(--reader-ink-soft);
+}
+
+.reveal .slides section .canonical-model-marker strong small {
+  display: block;
+  margin-top: 0.22em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.68em;
+  font-style: normal;
+  font-weight: 400;
+  color: var(--reader-ink-soft);
 }
 
 .reveal .slides section figcaption,
