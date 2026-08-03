@@ -59,6 +59,29 @@ canvas. Captions and references use the smaller sans-serif role. If a slide
 needs more than the shared cap allows, split the teaching beat rather than
 shrinking all of its text.
 
+### Non-negotiable slide constraints
+
+- A projected slide must fit the 1280 × 720 canvas without vertical scrolling.
+- Reveal hierarchy carries meaning: a horizontal move (right arrow) begins a genuinely new conceptual section; a vertical move (down arrow) develops, exemplifies, or calculates within the current section. Historical context, successive steps in one model, and worked detail should not become separate horizontal sections.
+- Use one main teaching claim per slide. Move derivations, qualifications, and
+  extended history to the Reader or presenter notes.
+- A live question must not share a slide with its answer. Use a following slide
+  when staged fragments are not being used.
+- Use a table or equal-height cards for repeated comparisons. Body text inside
+  figures, cards, and tables uses the shared compact role rather than ad hoc
+  inline font sizes.
+- The ladder points **up** when trajectories, states, runs, parameters, or
+  spatial detail are compressed to reveal a broader relationship. It points
+  **down** when returning to an individual, local update, grid cell, mechanism,
+  or debugging example. A change of visual encoding alone is not a ladder move.
+- `choice-marker` labels an assumption or modelling decision;
+  `discussion-marker` labels a genuine live prompt. Neither is decorative.
+- Use lowercase symbols for fields and uppercase symbols for named chemical
+  species. For Week 3, $U,V$ are species, $u(\mathbf x,t),v(\mathbf x,t)$ are
+  concentration fields, and $u^n_{i,j},v^n_{i,j}$ are numerical values.
+- Do not edit generated `.slides.html` files. Correct the notebook or shared
+  stylesheet and regenerate the deck.
+
 ## Week 1 — Modelling complex systems
 
 **Conceptual spine:** models are purposeful abstractions; local rules can produce unexpected collective outcomes.
@@ -105,6 +128,38 @@ Suggested live beats:
 Likely misconception: “Fractal dimension is how visually complicated something looks.” Return to the measured scaling relationship and distinguish exact mathematical fractals from statistical natural ones.
 
 The workshop is intentionally broad. Students should follow one generative route deeply before attempting extensions; completing every cell is not the goal.
+
+## Week 3 — Reaction–diffusion
+
+**Canonical model:** Gray–Scott reaction–diffusion. Random-walk diffusion is a
+supporting model, not a second equal-weight canonical model.
+
+**Modelling core:** diffusion as a change of representation. Reaction–diffusion
+is the framework through which the representation problem is studied.
+
+### Session 1 · How can a uniform system create a pattern?
+
+- Use a compact gallery to separate visual resemblance from shared mechanism.
+- Introduce Turing's biological question and general reaction–diffusion model.
+- State the essential Turing condition: the homogeneous equilibrium is stable
+  without diffusion and unstable to a spatial mode with unequal diffusion.
+- Bridge explicitly from Turing's general framework to the concrete Gray–Scott
+  canonical model.
+- Explore the Gray–Scott parameter space. Do not imply that every Gray–Scott
+  pattern is a classical Turing pattern.
+
+### Session 2 · Which representation should we compute?
+
+- Move from individual random walks to ensemble spreading and concentration
+  fields, then down to a numerical grid.
+- Keep the particle-level story conceptually real but computationally distinct
+  from the concentration-field simulation.
+- Pause at one Laplacian stencil and one Euler update before generalising.
+- End by revisiting what each representation preserves and hides.
+
+Turing's wider life belongs in the Reader. Slides retain only enough historical
+context to motivate the assessable mechanism. The workshop supplies correct
+baseline code and asks students to test, refine, measure, and interrogate it.
 
 ## Before teaching or publishing
 

@@ -48,6 +48,14 @@ cp -R "$BUILD_ROOT/_build/html" _build/html
 # the book builder because they are not Markdown assets.
 cp notebooks/week01/interactive_schelling.html \
     _build/html/notebooks/week01/interactive_schelling.html
+
+# MyST preserves image URLs used inside raw HTML and notebook Markdown, but it
+# does not always copy those files beside the nested Reader route. Keep the
+# Week 3 Reader self-contained so its paired concentration-field figures work
+# in the local preview and on GitHub Pages.
+mkdir -p _build/html/notebooks/week03/l-reaction-diffusion/images
+cp -R notebooks/week03/images/. \
+    _build/html/notebooks/week03/l-reaction-diffusion/images/
 ./stage_slides.sh _build/html
 
 echo "Reader ready at: $(pwd)/_build/html/index.html"

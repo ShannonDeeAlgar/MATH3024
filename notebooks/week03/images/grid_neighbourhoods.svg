@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 405" role="img" aria-labelledby="title desc">
+  <title id="title">Von Neumann and Moore grid neighbourhoods</title>
+  <desc id="desc">Two five by five grids. The von Neumann neighbourhood highlights four edge-sharing neighbours. The Moore neighbourhood also highlights four diagonal neighbours.</desc>
+  <style>
+    .label{font:700 25px Arial,sans-serif;fill:#1b2a4c}.small{font:18px Arial,sans-serif;fill:#52617f}
+    .cell{fill:#fff;stroke:#c9d3e3;stroke-width:2}.focus{fill:#f1d255;stroke:#1b2a4c;stroke-width:3}
+    .edge{fill:#5f80b2;stroke:#1b2a4c;stroke-width:2}.diag{fill:#b8c7df;stroke:#1b2a4c;stroke-width:2}
+  </style>
+  <text class="label" x="220" y="35" text-anchor="middle">Von Neumann</text>
+  <text class="small" x="220" y="62" text-anchor="middle">four edge-sharing neighbours</text>
+  <text class="label" x="700" y="35" text-anchor="middle">Moore</text>
+  <text class="small" x="700" y="62" text-anchor="middle">eight surrounding neighbours</text>
+  <g transform="translate(95 85)">
+    <g id="gridA">
+      <rect class="cell" x="0" y="0" width="50" height="50"/><rect class="cell" x="50" y="0" width="50" height="50"/><rect class="cell" x="100" y="0" width="50" height="50"/><rect class="cell" x="150" y="0" width="50" height="50"/><rect class="cell" x="200" y="0" width="50" height="50"/>
+      <rect class="cell" x="0" y="50" width="50" height="50"/><rect class="cell" x="50" y="50" width="50" height="50"/><rect class="edge" x="100" y="50" width="50" height="50"/><rect class="cell" x="150" y="50" width="50" height="50"/><rect class="cell" x="200" y="50" width="50" height="50"/>
+      <rect class="cell" x="0" y="100" width="50" height="50"/><rect class="edge" x="50" y="100" width="50" height="50"/><rect class="focus" x="100" y="100" width="50" height="50"/><rect class="edge" x="150" y="100" width="50" height="50"/><rect class="cell" x="200" y="100" width="50" height="50"/>
+      <rect class="cell" x="0" y="150" width="50" height="50"/><rect class="cell" x="50" y="150" width="50" height="50"/><rect class="edge" x="100" y="150" width="50" height="50"/><rect class="cell" x="150" y="150" width="50" height="50"/><rect class="cell" x="200" y="150" width="50" height="50"/>
+      <rect class="cell" x="0" y="200" width="50" height="50"/><rect class="cell" x="50" y="200" width="50" height="50"/><rect class="cell" x="100" y="200" width="50" height="50"/><rect class="cell" x="150" y="200" width="50" height="50"/><rect class="cell" x="200" y="200" width="50" height="50"/>
+    </g>
+  </g>
+  <g transform="translate(575 85)">
+    <use href="#gridA"/>
+    <rect class="diag" x="50" y="50" width="50" height="50"/><rect class="diag" x="150" y="50" width="50" height="50"/>
+    <rect class="diag" x="50" y="150" width="50" height="50"/><rect class="diag" x="150" y="150" width="50" height="50"/>
+  </g>
+  <rect class="focus" x="350" y="365" width="22" height="22"/><text class="small" x="380" y="383">focal cell</text>
+  <rect class="edge" x="495" y="365" width="22" height="22"/><text class="small" x="525" y="383">edge</text>
+  <rect class="diag" x="605" y="365" width="22" height="22"/><text class="small" x="635" y="383">diagonal</text>
+</svg>

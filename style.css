@@ -657,8 +657,8 @@ figcaption {
 .reveal .slides table,
 .reveal .slides .model-specification,
 .reveal .slides .qa-grid {
-  font-size: 0.72em;
-  line-height: 1.2;
+  font-size: 0.68em;
+  line-height: 1.16;
 }
 .reveal .slides table {
   width: 100%;
@@ -673,6 +673,34 @@ figcaption {
 }
 .reveal .slides tbody tr:nth-child(even) {
   background: transparent;
+}
+.reveal .slides .analysis-perspectives.three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.65em;
+}
+.reveal .slides .coat-cards img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.reveal .slides .coat-cards .coat-image-frame {
+  height: 230px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 0.25em;
+}
+.reveal .slides .coat-cards > div { padding: 0.42em 0.48em; }
+.reveal .slides .coat-cards p { margin: 0.18em 0; }
+.reveal .slides .compact-panels .text-panel { padding: 0.45em 0.65em; }
+.reveal .slides .compact-panels p { margin: 0; }
+.reveal .slides .small-note {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.62em;
+  line-height: 1.28;
+  color: var(--reader-ink-soft, #5D6D8D);
 }
 .reveal .slides .model-specification > div {
   grid-template-columns: minmax(8.5em, 0.72fr) minmax(0, 1.6fr);
@@ -813,6 +841,15 @@ figcaption {
   font-family: Baskerville, Georgia, serif;
   font-size: 0.76em;
   line-height: 1.15;
+}
+.canonical-model-marker strong small {
+  display: block;
+  margin-top: 0.22em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.68em;
+  font-style: normal;
+  font-weight: 400;
+  color: var(--reader-ink-soft, #5D6D8D);
 }
 .image-label-row {
   display: grid;

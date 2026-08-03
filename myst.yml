@@ -12,6 +12,10 @@ project:
       children:
         - file: notebooks/week02/Slides.md
         - file: notebooks/week02/WS_Fractals.ipynb
+    - file: notebooks/week03/L_Reaction_diffusion.ipynb
+      children:
+        - file: notebooks/week03/Slides.md
+        - file: notebooks/week03/WS_Reaction_diffusion.ipynb
 site:
   options:
     folders: true

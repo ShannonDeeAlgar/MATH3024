@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="520" viewBox="0 0 960 520">
+  <style>
+    text { font-family: Arial, Helvetica, sans-serif; fill: #1b2a4c; }
+    .title { font-size: 29px; font-weight: 700; }
+    .label { font-size: 23px; font-weight: 700; }
+    .small { font-size: 19px; }
+    .state { font-family: Georgia, 'Times New Roman', serif; font-size: 23px; }
+    .cell { stroke: #c9d3e6; stroke-width: 2; }
+    .focus { stroke: #f1c84b; stroke-width: 6; }
+  </style>
+  <text x="480" y="38" text-anchor="middle" class="title">One spatial grid, two concentration fields</text>
+
+  <text x="260" y="82" text-anchor="middle" class="label">U concentration</text>
+  <text x="700" y="82" text-anchor="middle" class="label">V concentration</text>
+
+  <g transform="translate(90,105)">
+    <rect class="cell" x="0" y="0" width="85" height="85" fill="#f7fbff"/><rect class="cell" x="85" y="0" width="85" height="85" fill="#deebf7"/><rect class="cell" x="170" y="0" width="85" height="85" fill="#c6dbef"/><rect class="cell" x="255" y="0" width="85" height="85" fill="#9ecae1"/>
+    <rect class="cell" x="0" y="85" width="85" height="85" fill="#deebf7"/><rect class="cell" x="85" y="85" width="85" height="85" fill="#9ecae1"/><rect class="cell focus" x="170" y="85" width="85" height="85" fill="#4292c6"/><rect class="cell" x="255" y="85" width="85" height="85" fill="#6baed6"/>
+    <rect class="cell" x="0" y="170" width="85" height="85" fill="#c6dbef"/><rect class="cell" x="85" y="170" width="85" height="85" fill="#6baed6"/><rect class="cell" x="170" y="170" width="85" height="85" fill="#2171b5"/><rect class="cell" x="255" y="170" width="85" height="85" fill="#4292c6"/>
+    <rect class="cell" x="0" y="255" width="85" height="85" fill="#deebf7"/><rect class="cell" x="85" y="255" width="85" height="85" fill="#9ecae1"/><rect class="cell" x="170" y="255" width="85" height="85" fill="#4292c6"/><rect class="cell" x="255" y="255" width="85" height="85" fill="#9ecae1"/>
+  </g>
+
+  <g transform="translate(530,105)">
+    <rect class="cell" x="0" y="0" width="85" height="85" fill="#fff7ec"/><rect class="cell" x="85" y="0" width="85" height="85" fill="#fee8c8"/><rect class="cell" x="170" y="0" width="85" height="85" fill="#fdd49e"/><rect class="cell" x="255" y="0" width="85" height="85" fill="#fdbb84"/>
+    <rect class="cell" x="0" y="85" width="85" height="85" fill="#fee8c8"/><rect class="cell" x="85" y="85" width="85" height="85" fill="#fdbb84"/><rect class="cell focus" x="170" y="85" width="85" height="85" fill="#e34a33"/><rect class="cell" x="255" y="85" width="85" height="85" fill="#fc8d59"/>
+    <rect class="cell" x="0" y="170" width="85" height="85" fill="#fdd49e"/><rect class="cell" x="85" y="170" width="85" height="85" fill="#fc8d59"/><rect class="cell" x="170" y="170" width="85" height="85" fill="#b30000"/><rect class="cell" x="255" y="170" width="85" height="85" fill="#e34a33"/>
+    <rect class="cell" x="0" y="255" width="85" height="85" fill="#fee8c8"/><rect class="cell" x="85" y="255" width="85" height="85" fill="#fdbb84"/><rect class="cell" x="170" y="255" width="85" height="85" fill="#e34a33"/><rect class="cell" x="255" y="255" width="85" height="85" fill="#fdbb84"/>
+  </g>
+
+  <path d="M345 248 C430 248, 440 248, 530 248" fill="none" stroke="#1b2a4c" stroke-width="3" stroke-dasharray="8 7"/>
+  <rect x="360" y="213" width="240" height="70" rx="10" fill="white" stroke="#c9d3e6" stroke-width="2"/>
+  <text x="480" y="240" text-anchor="middle" class="small">same cell and time</text>
+  <text x="480" y="269" text-anchor="middle" class="state">(<tspan font-style="italic">U</tspan><tspan baseline-shift="super" font-size="15" font-style="italic">n</tspan><tspan baseline-shift="sub" font-size="15" font-style="italic">i,j</tspan>, <tspan font-style="italic">V</tspan><tspan baseline-shift="super" font-size="15" font-style="italic">n</tspan><tspan baseline-shift="sub" font-size="15" font-style="italic">i,j</tspan>)</text>
+
+  <text x="480" y="485" text-anchor="middle" class="small">The colours are two views of the state, not two different spatial systems.</text>
+</svg>
