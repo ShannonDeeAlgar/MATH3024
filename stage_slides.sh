@@ -6,8 +6,14 @@ set -euo pipefail
 
 cd "$(dirname "$0")"
 SITE_ROOT="${1:-_build/html}"
-for WEEK in week01 week02 week03 week04 week05 week06; do
-    SOURCE_ROOT="notebooks/$WEEK"
+
+# Discover every week containing a rendered lecture deck. This avoids the
+# recurring failure where a new week exists but is omitted from deployment.
+for SOURCE_ROOT in notebooks/week*; do
+    [[ -d "$SOURCE_ROOT" ]] || continue
+    compgen -G "$SOURCE_ROOT/L_*.slides.html" >/dev/null || continue
+
+    WEEK="$(basename "$SOURCE_ROOT")"
     SLIDE_ROOT="$SITE_ROOT/slides/$WEEK"
 
     mkdir -p "$SLIDE_ROOT"
