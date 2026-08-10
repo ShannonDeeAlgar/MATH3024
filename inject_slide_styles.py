@@ -210,6 +210,41 @@ SLIDES_ONLY_RULES = """
 
 .reveal .slides section .compact-panels .text-panel { padding: 0.45em 0.65em; }
 .reveal .slides section .compact-panels p { margin: 0; }
+.reveal .slides section .two-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0.8em;
+  align-items: center;
+  width: 100%;
+}
+.reveal .slides section .two-panel.wide-left {
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
+}
+.reveal .slides section .three-panel {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.65em;
+  align-items: stretch;
+  width: 100%;
+}
+.reveal .slides section .two-panel > *,
+.reveal .slides section .three-panel > * { min-width: 0; }
+.reveal .slides section .two-panel .image-panel,
+.reveal .slides section .three-panel .image-panel,
+.reveal .slides section .two-panel .text-panel,
+.reveal .slides section .three-panel .text-panel {
+  box-sizing: border-box;
+  width: 100%;
+}
+.reveal .slides section .two-panel .image-panel img,
+.reveal .slides section .three-panel .image-panel img {
+  display: block;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+}
 .reveal .slides section .small-note {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.62em;
