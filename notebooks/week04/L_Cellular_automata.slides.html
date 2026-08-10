@@ -6,7 +6,7 @@
 <meta content="yes" name="apple-mobile-web-app-capable"/>
 <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
 <title>L_Cellular_automata slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
-  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.0/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script>
 <!-- General and theme style sheets -->
@@ -7430,43 +7430,1719 @@ main {
     </script>
 <!-- End of mathjax configuration --><!-- Reveal Theme -->
 <link href="https://unpkg.com/reveal.js@4.0.2/dist/theme/simple.css" id="theme" rel="stylesheet"/>
+<style>
+/* Injected by inject_slide_styles.py -- keeps slide styling in
+   sync with style.css. Do not edit directly. */
+.jp-MarkdownOutput h1,
+.jp-MarkdownOutput h2,
+.jp-MarkdownOutput h3,
+.jp-MarkdownOutput h4,
+.jp-MarkdownOutput h5,
+.jp-MarkdownOutput h6 {
+  font-family: Baskerville, Georgia, serif;
+  font-style: italic;
+  font-weight: 700;
+  color: var(--reader-ink, #1B2A4C);
+}
+
+.jp-MarkdownOutput p,
+.jp-MarkdownOutput li,
+.jp-MarkdownOutput blockquote {
+  font-family: Baskerville, Georgia, serif;
+}
+
+.reader-voice {
+  display: grid;
+  grid-template-columns: 1.05em minmax(0, 1fr);
+  column-gap: 0.65em;
+  border: 0;
+  padding: 0;
+  margin: 1.25em 0 1.5em;
+  color: var(--reader-ink, #1B2A4C);
+}
+
+.reader-voice::before {
+  content: "“";
+  grid-column: 1;
+  grid-row: 1 / 3;
+  align-self: stretch;
+  display: flex;
+  align-items: flex-start;
+  height: auto;
+  margin: 0;
+  color: var(--reader-ink-soft, #5A6685);
+  font-family: Baskerville, Georgia, serif;
+  font-size: 3.4em;
+  line-height: 0.72;
+}
+
+.reader-voice-quote {
+  grid-column: 2;
+  font-style: normal;
+  font-family: Baskerville, Georgia, serif;
+  font-size: 1.15em;
+  line-height: 1.28;
+}
+
+.reader-voice-quote::after {
+  content: "”";
+  display: inline;
+  margin-left: 0.2em;
+  color: var(--reader-ink-soft, #5A6685);
+  font-family: Baskerville, Georgia, serif;
+  font-size: 1.7em;
+  line-height: 0;
+  vertical-align: -0.14em;
+}
+
+.reader-voice-attr {
+  grid-column: 2;
+  display: table;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.74em;
+  letter-spacing: 0.06em;
+  color: var(--reader-ink-soft, #5A6685);
+  margin-top: 0.85em;
+  padding-top: 0.55em;
+  border-top: 1px solid var(--reader-line, #C7CEDC);
+  text-align: left;
+}
+
+.reader-voice-attr a {
+  color: var(--reader-ink-soft, #5A6685);
+}
+
+.reader-prompt {
+  position: relative;
+  border: 0;
+  border-left: 2px solid var(--reader-line, #C7CEDC);
+  padding: 0.15em 0 0.15em 3.2em;
+  margin: 1.1em 0;
+  color: var(--reader-ink, #1B2A4C);
+}
+
+.reader-prompt::before {
+  content: "→";
+  position: absolute;
+  left: 0.65em;
+  top: 50%;
+  width: 1.45em;
+  height: 1.45em;
+  transform: translateY(-50%);
+  border: 0;
+  display: grid;
+  place-items: center;
+  font-family: Baskerville, Georgia, serif;
+  font-size: 1.05em;
+  font-style: normal;
+}
+
+.reader-prompt a {
+  color: var(--reader-ink, #1B2A4C);
+}
+
+.reader-prompt-label {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.62em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.35em;
+  color: var(--reader-ink-soft, #5A6685);
+}
+
+.reader-prompt-body {
+  font-family: Baskerville, Georgia, serif;
+  font-size: 1em;
+  font-style: normal;
+  line-height: 1.38;
+}
+
+.reader-prompt-body.italic {
+  font-style: normal;
+}
+
+.jp-MarkdownOutput summary.myst-dropdown-header,
+.jp-MarkdownOutput .myst-dropdown-header-title {
+  font-family: Baskerville, Georgia, serif;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.reader-prompt-footnote {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.68em;
+  color: var(--reader-ink-soft, #5A6685);
+  margin-top: 1em;
+  padding-top: 0.2em;
+  border-top: 0;
+}
+
+.reader-prompt-footnote a {
+  color: var(--reader-ink-soft, #5A6685);
+}
+
+.reader-emphasis {
+  border-top: 1px solid var(--reader-line, #C7CEDC);
+  border-bottom: 1px solid var(--reader-line, #C7CEDC);
+  padding: 1em;
+  margin: 2em 0;
+  text-align: center;
+}
+
+.reader-emphasis p {
+  font-family: Baskerville, Georgia, serif;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 1.3em;
+  color: var(--reader-ink, #1B2A4C);
+  margin: 0;
+}
+
+.reader-route {
+  border-left: 1px solid var(--reader-ink, #1B2A4C);
+  padding: 0.25em 0 0.25em 1em;
+  margin: 1.5em 0 2em;
+}
+
+.reader-route-label {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.7em;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--reader-ink-soft, #5A6685);
+  margin-bottom: 0.45em;
+}
+
+.reader-route-body {
+  font-family: Baskerville, Georgia, serif;
+  color: var(--reader-ink, #1B2A4C);
+}
+
+.country-map {
+  display: block;
+  max-height: 430px;
+  width: auto;
+  margin: 0.35em auto 0.6em;
+}
+
+.country-slide-grid {
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.65fr);
+}
+
+.country-slide-grid .country-map {
+  width: 100%;
+  max-height: 470px;
+  object-fit: contain;
+}
+
+.country-map-large {
+  display: block;
+  width: 96% !important;
+  max-height: 505px !important;
+  object-fit: contain;
+  margin: 0 auto !important;
+}
+
+.group-slide-grid {
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 0.75fr);
+  align-items: center;
+}
+
+.group-slide-grid .group-photo {
+  width: 100%;
+  max-height: 475px;
+  object-fit: cover;
+  object-position: center;
+  margin: 0 auto;
+}
+
+.group-slide-grid .group-logo {
+  width: 100%;
+  max-height: 245px;
+  object-fit: contain;
+  margin: 0 auto 0.75em;
+}
+
+.figure-reference,
+.figure-caption,
+figcaption {
+  margin-top: 0.45em;
+  color: var(--reader-ink-soft, #5A6685);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.62em;
+  line-height: 1.25;
+}
+
+.unit-essentials {
+  width: 78%;
+  margin: 0.5em auto;
+}
+
+.unit-essentials > div {
+  display: grid;
+  grid-template-columns: 8em 1fr;
+  gap: 1em;
+  padding: 0.34em 0;
+  border-bottom: 1px solid var(--reader-line, #C7CEDC);
+}
+
+.unit-essentials span {
+  text-align: right;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.64em;
+  color: var(--reader-ink-soft, #5A6685);
+}
+
+.unit-essentials strong {
+  text-align: left;
+  font-weight: 400;
+}
+
+.model-specification {
+  margin-top: 0.55em;
+}
+
+.model-specification > div {
+  display: grid;
+  grid-template-columns: 10.5em 1fr;
+  gap: 0.8em;
+  padding: 0.25em 0;
+  border-bottom: 1px solid var(--reader-line, #C7CEDC);
+  font-size: 0.86em;
+}
+
+.model-specification strong { text-align: right; }
+
+.aggregate-definitions { margin-top: 0.35em; }
+
+.aggregate-definitions > div {
+  display: grid;
+  grid-template-columns: 10.5em minmax(0, 1fr);
+  align-items: center;
+  gap: 0.9em;
+  padding: 0.38em 0;
+  border-bottom: 1px solid var(--reader-line, #C7CEDC);
+}
+
+.aggregate-definitions strong { text-align: right; }
+
+.aggregate-definitions p { margin: 0; }
+
+.parameter-outcomes-layout { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); }
+
+.article .choice-marker img,
+.article .discussion-marker img { max-width: 36px !important; }
+
+.article .ladder-marker img { max-width: 30px !important; }
+
+.process-note {
+  margin-top: 0.8em;
+  color: var(--reader-ink-soft, #5A6685);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.62em;
+}
+
+.system-title span {
+  display: inline;
+  margin-left: 0.28em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.48em;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.025em;
+  color: var(--reader-ink-soft, #5A6685);
+}
+
+.system-title span::before { content: ": "; }
+
+.planet-process { display: block; }
+
+.process-sequence { max-width: 49em; }
+
+.process-step {
+  display: grid;
+  grid-template-columns: 1.7em 1fr;
+  gap: 0.55em;
+  align-items: start;
+  margin: 0.08em 0;
+}
+
+.process-step > span {
+  width: 1.45em;
+  height: 1.45em;
+  border: 1px solid var(--reader-ink, #1B2A4C);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.7em;
+}
+
+.process-step p { margin: 0; font-size: 0.72em; line-height: 1.16; }
+
+.process-step.qed { margin-top: 0.28em; padding-top: 0.28em; border-top: 1px solid var(--reader-line, #C7CEDC); }
+
+.variable-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.28em 0.9em;
+  margin-top: 0.45em;
+  padding-top: 0.38em;
+  border-top: 1px solid var(--reader-line, #C7CEDC);
+  color: var(--reader-ink-soft, #5A6685);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.46em;
+  line-height: 1.25;
+}
+
+.variable-strip strong { grid-column: 1 / -1; text-transform: uppercase; letter-spacing: 0.08em; }
+
+.analysis-perspectives {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
+  margin: 0.75em 0;
+}
+
+.analysis-perspectives.three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.analysis-perspectives.four {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.analysis-perspectives.three img,
+.analysis-perspectives.four img {
+  display: block;
+  width: 100%;
+  height: 9rem;
+  object-fit: cover;
+  margin: 0 0 0.6rem;
+}
+
+.analysis-perspectives.three,
+  .analysis-perspectives.four {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+.analysis-perspectives > div {
+  border: 1px solid var(--reader-line, #C7CEDC);
+  padding: 0.58em 0.64em;
+}
+
+.analysis-perspectives strong {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.68em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.analysis-perspectives p { font-size: 0.76em; line-height: 1.22; margin: 0.3em 0; }
+
+.analysis-perspectives.ensemble-comparison > div {
+  min-height: 0;
+  padding: 0.62em 0.72em;
+}
+
+.analysis-perspectives.ensemble-comparison p {
+  margin: 0.35em 0 0;
+  font-size: 0.75em;
+  line-height: 1.2;
+}
+
+.meaning-panel ul,
+.evidence-layout .meaning-panel ul {
+  margin: 0.2em 0 0.55em;
+  padding-left: 1.1em;
+}
+
+.meaning-panel li,
+.evidence-layout .meaning-panel li {
+  padding-left: 0.08em;
+  margin: 0.2em 0;
+}
+
+.group-caption {
+  text-align: center;
+  margin-top: 0.35em;
+  font-family: Baskerville, Georgia, serif;
+  font-size: 1em;
+  line-height: 1.25;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.country-acknowledgement {
+  max-width: 46em;
+  margin: 0.5em auto;
+  text-align: left;
+  font-family: Baskerville, Georgia, serif;
+  color: var(--reader-ink, #1B2A4C);
+}
+
+.slide-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 1.6em;
+  align-items: center;
+  text-align: left;
+}
+
+.slide-columns .column-image {
+  display: block;
+  width: 100%;
+  max-height: 430px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.assumption-reveal {
+  position: relative;
+  border: 1px solid var(--reader-line, #C7CEDC);
+  margin-top: 1em;
+  padding: 0.7em 0.9em 0.7em 4em;
+  color: var(--reader-ink, #1B2A4C);
+}
+
+.assumption-reveal::before {
+  content: "";
+  position: absolute;
+  left: 0.8em;
+  top: 0.75em;
+  width: 2.25em;
+  height: 2.25em;
+  background: center / contain no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%231b2a4c' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 48C24 46 27 38 31 31C35 23 41 17 53 16M31 31C38 35 44 41 51 50'/%3E%3Ccircle cx='12' cy='48' r='5' fill='%231b2a4c'/%3E%3Ccircle cx='53' cy='16' r='5'/%3E%3Ccircle cx='51' cy='50' r='5'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.choice-marker {
+  display: flex;
+  align-items: center;
+  gap: 0.55em;
+  margin: 0.65em 0;
+  color: var(--reader-ink-soft, #5A6685);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.62em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.choice-marker img { width: 34px !important; height: 34px !important; margin: 0 !important; }
+
+.discussion-marker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0.15rem 0 0.55rem;
+  color: var(--reader-ink, #1B2A4C);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.62em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.discussion-marker img { width: 36px !important; height: 36px !important; margin: 0 !important; }
+
+details.reader-answer {
+  margin: 0.8rem 0 1.2rem 3.2rem;
+  border: 1px solid #c7cedc;
+  border-radius: 6px;
+  background: var(--pst-color-surface, #f7f8fa);
+  font-family: var(--pst-font-family-base);
+}
+
+details.reader-answer summary {
+  cursor: pointer;
+  padding: 0.7rem 1rem;
+  color: #1d315b;
+  font-family: var(--pst-font-family-base);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+details.reader-answer > div {
+  padding: 0 1rem 0.9rem;
+}
+
+.discussion-prompt { border-left-color: #EDCC55; }
+
+.qa-grid { margin-top: 0.55em; }
+
+.qa-row {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  gap: 1.1em;
+  align-items: start;
+  padding: 0.42em 0;
+  border-bottom: 1px solid var(--reader-line, #C7CEDC);
+}
+
+.qa-question { text-align: right; font-weight: 700; }
+
+.qa-answer { color: var(--reader-ink, #1B2A4C); }
+
+.qa-row p { margin: 0; font-size: 0.82em; line-height: 1.24; }
+
+.initialisation-layout { grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr); gap: 1em; }
+
+.initialisation-layout .qa-row { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); }
+
+.initialisation-layout .column-image { max-height: 330px; }
+
+.schelling-embed div[style*="padding-bottom"] {
+  padding-bottom: 34% !important;
+}
+
+.schelling-embed {
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto 0.75em;
+}
+
+.schelling-embed > div,
+.schelling-embed > div > div[style*="padding-bottom"],
+.schelling-embed > div iframe {
+  width: 100% !important;
+  height: 215px !important;
+  padding-bottom: 0 !important;
+}
+
+.reveal .schelling-embed,
+.reveal .schelling-embed iframe {
+  width: 74% !important;
+  height: 285px !important;
+  margin-inline: auto;
+}
+
+.evidence-layout {
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 1.25em;
+  align-items: stretch;
+}
+
+.evidence-panel,
+.meaning-panel {
+  border: 1px solid var(--reader-line, #C7CEDC);
+  padding: 0.58em 0.64em;
+  min-width: 0;
+  align-self: stretch;
+}
+
+.evidence-panel img {
+  display: block;
+  width: 100%;
+  max-height: 430px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.meaning-panel > img {
+  display: block;
+  width: 100%;
+  height: 135px;
+  object-fit: contain;
+  margin: 0 auto 0.35em;
+}
+
+.evidence-panel p,
+.meaning-panel p,
+.meaning-panel li {
+  font-size: 0.76em;
+  line-height: 1.22;
+}
+
+.evidence-panel > strong,
+.meaning-panel > strong {
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.68em;
+  line-height: 1.15;
+  min-height: 2.3em;
+  margin: 0.25em 0;
+}
+
+.article .reader-figure {
+  width: min(100%, 620px);
+  margin: 1.2rem auto;
+}
+
+.article .reader-figure.reader-figure-small {
+  width: min(100%, 360px);
+}
+
+.article .reader-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+.jp-MarkdownOutput table.standard-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Baskerville, Georgia, serif;
+  font-size: 0.95rem;
+  line-height: 1.3;
+}
+
+.reveal .slides table,
+.reveal .slides .model-specification,
+.reveal .slides .qa-grid {
+  font-size: 0.68em;
+  line-height: 1.16;
+}
+
+.reveal .slides .analysis-perspectives.three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.65em;
+}
+
+.reveal .slides .two-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0.8em;
+  align-items: center;
+  width: 100%;
+}
+
+.reveal .slides .two-panel.wide-left {
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
+}
+
+.reveal .slides .two-panel > *,
+.reveal .slides .three-panel > * { min-width: 0; }
+
+.reveal .slides .two-panel .image-panel,
+.reveal .slides .three-panel .image-panel,
+.reveal .slides .two-panel .text-panel,
+.reveal .slides .three-panel .text-panel {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.reveal .slides .two-panel .image-panel img,
+.reveal .slides .three-panel .image-panel img {
+  display: block;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.reveal .slides .model-specification > div {
+  grid-template-columns: minmax(8.5em, 0.72fr) minmax(0, 1.6fr);
+  font-size: 1em;
+  padding: 0.28em 0;
+}
+
+.reveal .slides .model-specification strong {
+  text-align: left;
+}
+
+.ladder-marker {
+  display: flex;
+  align-items: center;
+  gap: 0.65em;
+  border-top: 1px solid var(--reader-line, #C7CEDC);
+  margin-top: 0.8em;
+  padding-top: 0.55em;
+  color: var(--reader-ink-soft, #5A6685);
+  font-family: Baskerville, Georgia, serif;
+  font-size: 0.68em;
+}
+
+.ladder-marker img {
+  width: 30px !important;
+  height: 40px !important;
+  margin: 0 !important;
+  flex: 0 0 auto;
+}
+
+.reveal section:has(.transfer-slide) h1 {
+  font-size: 2.65em;
+  margin-bottom: 0.05em;
+}
+
+.reveal section:has(.transfer-slide) h2 {
+  font-size: 1.45em;
+  margin: 0 0 0.35em;
+}
+
+.reveal section:has(.transfer-slide) p,
+.reveal section:has(.transfer-slide) li {
+  font-size: 0.9em;
+  line-height: 1.25;
+}
+
+.reveal section:has(.transfer-slide) .ladder-marker {
+  margin-top: 0.45em;
+  padding-top: 0.35em;
+}
+
+.schelling-interactive {
+  display: block;
+  width: 100%;
+  height: 475px;
+  margin: 0 auto;
+  border: 0;
+}
+
+.schelling-interactive.compact-simulation {
+  width: 88%;
+  height: 350px;
+}
+
+.reader-event-layout .evidence-panel > img {
+  width: min(100%, 420px);
+  margin-inline: auto;
+}
+
+.simulation-preview {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  margin: 0 auto;
+  border: 0;
+}
+
+.article .meaning-panel > img {
+  display: block;
+  width: 100%;
+  height: 135px;
+  object-fit: contain;
+  margin: 0 auto 0.35em;
+}
+
+.article .reader-map {
+  display: block;
+  width: min(100%, 900px);
+  height: auto !important;
+  object-fit: contain;
+  margin: 1rem auto 0.5rem;
+}
+
+.canonical-model-marker {
+  display: inline-flex;
+  gap: 0.55rem;
+  align-items: baseline;
+  max-width: 92%;
+  margin-top: 1rem;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid #aebbd0;
+  border-left: 5px solid #1b2a4c;
+  background: #f7f9fc;
+  color: #1b2a4c;
+  text-align: left;
+}
+
+.canonical-model-marker span {
+  font-family: Arial, sans-serif;
+  font-size: 0.5em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.canonical-model-marker strong {
+  font-family: Baskerville, Georgia, serif;
+  font-size: 0.76em;
+  line-height: 1.15;
+}
+
+.canonical-model-marker strong small {
+  display: block;
+  margin-top: 0.22em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.68em;
+  font-style: normal;
+  font-weight: 400;
+  color: var(--reader-ink-soft, #5D6D8D);
+}
+
+.jp-OutputArea-child:has(iframe) .jp-OutputPrompt,
+.jp-Cell-outputWrapper:has(iframe) .jp-OutputCollapser {
+  display: none;
+}
+
+.jp-Cell-outputWrapper:has(iframe) {
+  display: flex;
+  justify-content: center;
+}
+
+:root {
+  --jp-content-font-size1: 28px !important;
+  --reader-ink: #1B2A4C;
+  --reader-ink-soft: #5A6685;
+  --reader-line: #C7CEDC;
+}
+
+.reveal,
+.reveal .slides,
+.reveal .slides section {
+  background: #fff;
+  color: var(--reader-ink);
+}
+
+.reveal .jp-MarkdownOutput p,
+.reveal .jp-MarkdownOutput li,
+.reveal .jp-MarkdownOutput td,
+.reveal .jp-MarkdownOutput th {
+  font-family: Baskerville, Georgia, serif;
+  line-height: 1.28;
+}
+
+.reveal .slides section h1 {
+  font-size: 2.35em;
+  line-height: 1.05;
+}
+
+.reveal .slides section h2,
+.reveal .slides section h3,
+.reveal .slides section h4,
+.reveal .slides section h5 {
+  font-size: 1.45em;
+  line-height: 1.12;
+}
+
+.reveal .slides section h1,
+.reveal .slides section h2,
+.reveal .slides section h3,
+.reveal .slides section h4,
+.reveal .slides section h5 {
+  margin-top: 0;
+  margin-bottom: 0.55em;
+  color: var(--reader-ink);
+}
+
+.reveal .slides section h3,
+.reveal .slides section h4,
+.reveal .slides section h5 {
+  font-size: 1.15em;
+}
+
+.reveal .slides section a {
+  color: var(--reader-ink);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.12em;
+}
+
+.reveal .slides section table {
+  border-collapse: collapse;
+  margin: 0.7em auto;
+  font-size: 0.68em;
+  line-height: 1.16;
+}
+
+.reveal .slides section th,
+.reveal .slides section td {
+  border-bottom: 1px solid var(--reader-line);
+  padding: 0.3em 0.55em;
+}
+
+.reveal .slides section tbody tr:nth-child(even) {
+  background: transparent;
+}
+
+.reveal .slides section .analysis-perspectives.three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.65em;
+}
+
+.reveal .slides section .coat-cards img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.reveal .slides section .coat-cards .coat-image-frame {
+  height: 230px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 0.25em;
+}
+
+.reveal .slides section .coat-cards > div {
+  padding: 0.42em 0.48em;
+}
+
+.reveal .slides section .coat-cards p {
+  margin: 0.18em 0;
+}
+
+.reveal .slides section .compact-panels .text-panel { padding: 0.45em 0.65em; }
+.reveal .slides section .compact-panels p { margin: 0; }
+.reveal .slides section .two-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0.8em;
+  align-items: center;
+  width: 100%;
+}
+.reveal .slides section .two-panel.wide-left {
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
+}
+.reveal .slides section .three-panel {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.65em;
+  align-items: stretch;
+  width: 100%;
+}
+.reveal .slides section .two-panel > *,
+.reveal .slides section .three-panel > * { min-width: 0; }
+.reveal .slides section .two-panel .image-panel,
+.reveal .slides section .three-panel .image-panel,
+.reveal .slides section .two-panel .text-panel,
+.reveal .slides section .three-panel .text-panel {
+  box-sizing: border-box;
+  width: 100%;
+}
+.reveal .slides section .two-panel .image-panel img,
+.reveal .slides section .three-panel .image-panel img {
+  display: block;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+}
+.reveal .slides section .small-note {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.62em;
+  line-height: 1.28;
+  color: var(--reader-ink-soft);
+}
+
+.reveal .slides section .canonical-model-marker strong small {
+  display: block;
+  margin-top: 0.22em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.68em;
+  font-style: normal;
+  font-weight: 400;
+  color: var(--reader-ink-soft);
+}
+
+.reveal .slides section figcaption,
+.reveal .slides section .figure-caption,
+.reveal .slides section p:has(> em:first-child:last-child) {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.58em;
+  line-height: 1.25;
+  color: var(--reader-ink-soft);
+}
+
+.reveal .slides section pre,
+.reveal .slides section code,
+.reveal .jp-CodeCell {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+
+.reveal .slides section img {
+  max-height: 350px;
+  width: auto;
+  height: auto;
+}
+</style>
 </head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 <main>
 <div class="reveal">
 <div class="slides"><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5c1ee512-304b-4976-99bf-2f1c9ecd6ac4">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=46c1eead-2e35-4c71-8a2d-58fb0e477a3d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<div style="margin: 1.5em 0; border-right: 4px solid #888; padding-right: 1em; text-align: right;">
-<div style="font-style: italic; font-family: 'Comic Neue', 'Segoe Script', cursive; font-size: 1.2em;">
-It always bothers me that according to the laws as we understand them today, it takes a computing machine an infinite number of logical operations to figure out what goes on in no matter how tiny a region of space, and no matter how tiny a region of time. How can all that be going on in that tiny space? Why should it take an infinite amount of logic to figure out what one tiny piece of space/time is going to do? So I have often made the hypothesis ultimately physics will not require a mathematical statement, that in the end the machinery will be revealed and the laws will turn out to be simple, like the chequer board with all its apparent complexities. But this is just speculation. 
-  </div>
-<div style="font-style: normal; font-size: 0.95em; margin-top: 0.5em;">
-    — Richard Feynman, <em>The Character of Physical Law </em>, - Ch. 2
-  </div>
+<h1 id="Cellular-automata">Cellular automata<a class="anchor-link" href="#Cellular-automata">¶</a></h1><h2 id="MATH3024-%C2%B7-Week-4">MATH3024 · Week 4<a class="anchor-link" href="#MATH3024-%C2%B7-Week-4">¶</a></h2><div class="canonical-model-marker"><span>Canonical models</span><strong>Elementary cellular automata and Conway's Game of Life</strong></div>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w4-automaton">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h1 id="A-machine-with-a-state">A machine with a state<a class="anchor-link" href="#A-machine-with-a-state">¶</a></h1><div class="two-panel equal-panels compact-panels">
+<div class="image-panel"><img alt="Von Neumann's self-replicating machine construction" src="images/self_replicating_machine.png" style="max-height:330px"/></div>
+<div class="text-panel">
+<p>An <strong>automaton</strong> is a system whose state changes according to a rule.</p>
+<p>A <strong>cellular automaton</strong> places many such systems on a regular lattice and couples them through local neighbourhoods.</p>
+<p>Von Neumann's original self-reproducing automaton used 29 cell states. Later canonical models deliberately use much smaller state sets.</p>
+</div>
 </div>
 </div>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5f9c8f91-62a0-4f4b-9a84-51fc481cb760">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w4-history">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<div style="margin: 1.5em 0; border-right: 4px solid #888; padding-right: 1em; text-align: right;">
-<div style="font-style: italic; font-family: 'Comic Neue', 'Segoe Script', cursive; font-size: 1.2em;">
-    You don't educate people by telling them useful things, you educate people by showing them interesting things
-  </div>
-<div style="font-style: normal; font-size: 0.95em; margin-top: 0.5em;">
-    — John Conway 
-  </div>
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Why-cellular-automata?">Why cellular automata?<a class="anchor-link" href="#Why-cellular-automata?">¶</a></h2><div class="two-panel equal-panels compact-panels">
+<div class="image-panel"><img alt="Stanislaw Ulam and John von Neumann" src="images/Ulam_vonNeumann.png" style="max-height:360px"/></div>
+<div class="text-panel">
+<p>John von Neumann asked what a machine would require in order to reproduce itself.</p>
+<p>Stanislaw Ulam suggested replacing continuous space with a lattice of interacting cells.</p>
+<p>The result became a framework for asking how complicated organisation can arise from simple local rules.</p>
 </div>
+</div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w4-four-choices">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Specify-the-cellular-automaton">Specify the cellular automaton<a class="anchor-link" href="#Specify-the-cellular-automaton">¶</a></h2><table>
+<thead>
+<tr>
+<th>Choice</th>
+<th>Question</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>World</td>
+<td>Where do cells exist?</td>
+</tr>
+<tr>
+<td>State</td>
+<td>What finite information does each cell retain?</td>
+</tr>
+<tr>
+<td>Neighbourhood or network</td>
+<td>Which cells can influence the focal cell?</td>
+</tr>
+<tr>
+<td>Boundary</td>
+<td>What happens at the edge of the world?</td>
+</tr>
+<tr>
+<td>Update rule</td>
+<td>How is the next state determined?</td>
+</tr>
+<tr>
+<td>Clock</td>
+<td>Are updates synchronous or asynchronous?</td>
+</tr>
+</tbody>
+</table>
+<div class="choice-marker"><img alt="Modelling choice" src="images/choice_marker.svg"/><span>A cellular automaton is specified by this complete set of choices, not by its update rule alone.</span></div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w4-local-global">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="One-local-rule,-applied-everywhere">One local rule, applied everywhere<a class="anchor-link" href="#One-local-rule,-applied-everywhere">¶</a></h2><p><strong>Local:</strong> a cell reads only its neighbourhood.</p>
+<p><strong>Homogeneous:</strong> every cell uses the same rule.</p>
+<p><strong>Discrete:</strong> space, time and state are represented by finite steps.</p>
+<p><strong>Synchronous:</strong> all next states are calculated from the same current configuration.</p>
+<p>The global pattern is generated by repeating the local update; it is not drawn in advance.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w4-family-resemblance">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="A-family-resemblance-across-earlier-weeks">A family resemblance across earlier weeks<a class="anchor-link" href="#A-family-resemblance-across-earlier-weeks">¶</a></h2><table>
+<thead>
+<tr>
+<th>Earlier example</th>
+<th>What carries over</th>
+<th>Is it a standard cellular automaton?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cantor dust</td>
+<td>repeated local geometric replacement</td>
+<td>no: the construction rescales nested sets rather than updating finite cell states on one fixed lattice</td>
+</tr>
+<tr>
+<td>Rule 90</td>
+<td>binary states, a fixed line of cells and one local synchronous rule</td>
+<td>yes: its space--time history from a single seed forms a Sierpiński pattern</td>
+</tr>
+<tr>
+<td>Discretised Gray--Scott</td>
+<td>a fixed grid and synchronous local updates</td>
+<td>not usually: each cell stores continuous concentrations, so it is better described as a continuous-state lattice model</td>
+</tr>
+</tbody>
+</table>
+<p>This week makes the strict cellular-automaton ingredients explicit: a fixed lattice, finite states, discrete time and a local transition rule.</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w4-eca">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h1 id="Wolfram's-elementary-cellular-automata">Wolfram's elementary cellular automata<a class="anchor-link" href="#Wolfram's-elementary-cellular-automata">¶</a></h1><p>Wolfram restricted the general framework to a family that can be searched exhaustively:</p>
+<table>
+<thead>
+<tr>
+<th>Choice</th>
+<th>Elementary cellular automaton</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>World</td>
+<td>a one-dimensional line</td>
+</tr>
+<tr>
+<td>State</td>
+<td>binary: $0$ or $1$</td>
+</tr>
+<tr>
+<td>Neighbourhood</td>
+<td>left, focal and right cells</td>
+</tr>
+<tr>
+<td>Clock and rule</td>
+<td>synchronous and deterministic</td>
+</tr>
+</tbody>
+</table>
+<p>The eight possible neighbourhoods require eight binary outputs, giving $2^8=256$ rules.</p>
+<p>His 2002 <em>A New Kind of Science</em> contains about 800 pages of main text and nearly 400 pages of notes. Elementary cellular automata are the small test bed used repeatedly to study how simple programs generate complicated behaviour.</p>
+<p class="media-credit">Wolfram, S. (2002), <a href="https://www.wolframscience.com/nks/"><em>A New Kind of Science</em></a>.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w4-rule90-sierpinski">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Rule-90-reconnects-to-Sierpi%C5%84ski">Rule 90 reconnects to Sierpiński<a class="anchor-link" href="#Rule-90-reconnects-to-Sierpi%C5%84ski">¶</a></h2><div class="two-panel equal-panels compact-panels">
+<div class="image-panel"><img alt="Rule 90 space-time history forming a Sierpiński triangle pattern" src="images/rule_90_plot.png" style="max-height:410px"/></div>
+<div class="text-panel">
+<p>Rule 90 updates the focal cell using the exclusive-or of its left and right neighbours:</p>
+<p>$$x_i^{t+1}=x_{i-1}^{t}\mathbin{\mathrm{XOR}}x_{i+1}^{t}.$$</p>
+<p>From one live seed, its space--time history reproduces the Sierpiński pattern seen in Week 2.</p>
+<p>The fractal is now generated dynamically on a fixed lattice.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w4-rule-number">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Read-Rule-30-from-its-rule-number">Read Rule 30 from its rule number<a class="anchor-link" href="#Read-Rule-30-from-its-rule-number">¶</a></h2><table>
+<thead>
+<tr>
+<th>Neighbourhood</th>
+<th style="text-align:right">111</th>
+<th style="text-align:right">110</th>
+<th style="text-align:right">101</th>
+<th style="text-align:right">100</th>
+<th style="text-align:right">011</th>
+<th style="text-align:right">010</th>
+<th style="text-align:right">001</th>
+<th style="text-align:right">000</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rule 30 output</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">0</td>
+</tr>
+</tbody>
+</table>
+<p>For Rule 30, reading the eight outputs as a binary number gives</p>
+<p>$$00011110_2=30_{10}.$$</p>
+<div class="discussion-marker"><img alt="Discussion prompt" src="images/discussion_marker.svg"/><span>For Rule 30, which three cells form the neighbourhood, and what output should the focal cell take for neighbourhood 011?</span></div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w4-rule50">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Rule-50:-read-a-complete-trajectory">Rule 50: read a complete trajectory<a class="anchor-link" href="#Rule-50:-read-a-complete-trajectory">¶</a></h2><div class="two-panel wide-left compact-panels">
+<div class="image-panel"><img alt="Space-time history generated by elementary cellular automaton Rule 50" src="images/Rule50.png" style="max-height:430px"/></div>
+<div class="text-panel">
+<p>One row is the state of the whole line.</p>
+<p>The next row is produced by applying Rule 50 simultaneously at every site.</p>
+<p>Repeating motifs and their boundaries are clearer in the space--time history than in one configuration.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w4-space-time">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Turn-time-into-a-second-spatial-axis">Turn time into a second spatial axis<a class="anchor-link" href="#Turn-time-into-a-second-spatial-axis">¶</a></h2><div class="two-panel equal-panels compact-panels">
+<div class="image-panel"><img alt="Space-time diagram for an irregular elementary cellular automaton" src="images/Class_3.png" style="max-height:420px"/></div>
+<div class="text-panel">
+<p>Each row is one complete configuration.</p>
+<p>The row below is obtained by applying the same local rule once.</p>
+<p>This representation compresses the trajectory into one image and makes growth, repetition and irregularity visible.</p>
+</div>
+</div>
+<div class="ladder-marker"><img alt="Ladder of abstraction" src="images/ladder_marker.svg"/><span><strong>Up the ladder over time:</strong> stack successive states to reveal a system-level pattern.</span></div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w4-kelp">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Explore-a-one-dimensional-cellular-automaton">Explore a one-dimensional cellular automaton<a class="anchor-link" href="#Explore-a-one-dimensional-cellular-automaton">¶</a></h2><div class="two-panel wide-left compact-panels">
+<div class="image-panel"><iframe src="https://www.complexity-explorables.org/explorables/kelp/" style="width:100%; height:430px; border:1px solid #C7CEDC;" title="Kelp one-dimensional cellular automaton explorable"></iframe></div>
+<div class="text-panel">
+<p><strong>Kelp</strong> grows a two-dimensional record from a one-dimensional local rule.</p>
+<p>The resulting branching form also reconnects this week to fractals: repeated local updates create structure across several visible scales.</p>
+<p><a href="https://www.complexity-explorables.org/explorables/kelp/" rel="noopener" target="_blank">Open the explorable in a new tab</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w4-gol">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h1 id="Conway's-Game-of-Life">Conway's Game of Life<a class="anchor-link" href="#Conway's-Game-of-Life">¶</a></h1><div class="two-panel equal-panels compact-panels">
+<div class="image-panel"><img alt="John Conway's notes for the Game of Life" src="images/Conway_notes.webp" style="max-height:390px"/></div>
+<div class="text-panel">
+<p><strong>World:</strong> a two-dimensional square lattice.</p>
+<p><strong>State:</strong> dead or alive.</p>
+<p><strong>Neighbourhood:</strong> eight surrounding cells.</p>
+<p><strong>Clock:</strong> synchronous discrete updates.</p>
+</div>
+</div>
+<div class="discussion-marker"><img alt="Discussion prompt" src="images/discussion_marker.svg"/><span>Eight binary neighbours have $2^8=256$ possible arrangements. Including the focal cell gives $2^9=512$ local configurations. How might Conway compress that rule table?</span></div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w4-gol-rule">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="The-update-rule-%C2%B7-B3/S23">The update rule · B3/S23<a class="anchor-link" href="#The-update-rule-%C2%B7-B3/S23">¶</a></h2><table>
+<thead>
+<tr>
+<th>Current state</th>
+<th style="text-align:right">Live neighbours</th>
+<th>Next state</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dead</td>
+<td style="text-align:right">exactly 3</td>
+<td>alive: birth</td>
+</tr>
+<tr>
+<td>Alive</td>
+<td style="text-align:right">2 or 3</td>
+<td>alive: survival</td>
+</tr>
+<tr>
+<td>Any other case</td>
+<td style="text-align:right">otherwise</td>
+<td>dead</td>
+</tr>
+</tbody>
+</table>
+<p>The shorthand B3/S23 records the birth and survival counts.</p>
+<p>This is an <strong>outer-totalistic</strong> rule: only the focal cell's current state and the number of live neighbours matter, not their arrangement.</p>
+<div class="discussion-marker"><img alt="Discussion prompt" src="images/discussion_marker.svg"/><span>Predict the next state of one small configuration before running the model.</span></div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w4-opus">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Explore-a-two-dimensional-cellular-automaton">Explore a two-dimensional cellular automaton<a class="anchor-link" href="#Explore-a-two-dimensional-cellular-automaton">¶</a></h2><div class="two-panel wide-left compact-panels">
+<div class="image-panel"><iframe src="https://www.complexity-explorables.org/explorables/nah-dah-dah-nah-nah-opus-1984/" style="width:100%; height:430px; border:1px solid #C7CEDC;" title="Opus 1984 two-dimensional cellular automaton explorable"></iframe></div>
+<div class="text-panel">
+<p>Opus 1984 provides an interactive two-dimensional cellular automaton.</p>
+<p><a href="https://www.complexity-explorables.org/explorables/nah-dah-dah-nah-nah-opus-1984/" rel="noopener" target="_blank">Open the explorable in a new tab</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w4-gol-objects">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="A-small-rule-supports-several-kinds-of-object">A small rule supports several kinds of object<a class="anchor-link" href="#A-small-rule-supports-several-kinds-of-object">¶</a></h2><table>
+<thead>
+<tr>
+<th>Object</th>
+<th>Example</th>
+<th>Behaviour</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Still life</td>
+<td><img alt="A stable beehive pattern" src="images/Beehive.png" style="height:105px"/></td>
+<td>unchanged</td>
+</tr>
+<tr>
+<td>Oscillator</td>
+<td><img alt="A period-two toad oscillator" src="images/Toad.png" style="height:105px"/></td>
+<td>repeats in place</td>
+</tr>
+<tr>
+<td>Spaceship</td>
+<td><img alt="A moving glider" src="images/Animated_glider_emblem.gif" style="height:105px"/></td>
+<td>repeats after translating</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w4-gol-computation">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Interactions-create-computation">Interactions create computation<a class="anchor-link" href="#Interactions-create-computation">¶</a></h2><div class="two-panel equal-panels compact-panels">
+<div class="image-panel"><img alt="Gosper glider gun producing gliders" src="images/Gospers_glider_gun.gif" style="max-height:390px"/></div>
+<div class="text-panel">
+<p>A glider gun periodically emits moving structures.</p>
+<p>Signals can collide, persist, disappear or redirect one another.</p>
+<p>Carefully constructed glider streams and collisions can implement logic gates and memory. That controllable information processing, not visual complexity alone, makes the Game of Life computationally universal.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w4-methuselah">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="A-long-transient-from-a-tiny-seed">A long transient from a tiny seed<a class="anchor-link" href="#A-long-transient-from-a-tiny-seed">¶</a></h2><div class="two-panel equal-panels compact-panels">
+<div class="image-panel"><img alt="The R-pentomino initial pattern" src="images/r_pentomino.png" style="max-height:300px"/></div>
+<div class="text-panel">
+<p>The R-pentomino contains only five live cells but takes 1,103 generations to stabilise.</p>
+<p>Small initial differences can therefore create long, difficult-to-predict transients.</p>
+<p>Local simplicity does not imply short or transparent global behaviour.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w4-real-rule30">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h1 id="Cellular-automata-in-empirical-systems">Cellular automata in empirical systems<a class="anchor-link" href="#Cellular-automata-in-empirical-systems">¶</a></h1><div class="two-panel equal-panels compact-panels">
+<div class="image-panel"><img alt="Rule 30 space-time evolution" src="images/Class_3.png"/><p><strong>Rule 30:</strong> each new row is produced from a one-dimensional local rule.</p></div>
+<div class="image-panel"><img alt="Pattern on a textile cone snail" src="images/Textile_cone.jpeg"/><p><strong>Textile cone:</strong> each new band of shell records pigment activity along a one-dimensional growing edge.</p></div>
+</div>
+<p>The representation is biologically meaningful, but resemblance does not establish that the animal uses Rule 30 or the same local mechanism.</p>
+<p class="media-credit">Kusch, I. and Markus, M. (1996), <a href="https://doi.org/10.1006/jtbi.1996.0029">“Mollusc shell pigmentation”</a>, <em>Journal of Theoretical Biology</em> 178, 333–340.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w4-shell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_remove-cell" data-mime-type="text/markdown">
+<h2 id="A-shell-records-its-growth-history">A shell records its growth history<a class="anchor-link" href="#A-shell-records-its-growth-history">¶</a></h2><div class="two-panel equal-panels compact-panels">
+<div class="image-panel"><img alt="Pigmentation pattern on a textile cone shell" src="images/Textile_cone.jpeg" style="max-height:390px"/></div>
+<div class="text-panel">
+<p>New shell is laid down along the growing edge. The finished surface is therefore a space–time record of pigment activity along that edge.</p>
+<p>Cellular automata can reproduce shell-like bands, waves and irregular motifs. Rule 30 is a useful comparison, not an identified biological rule.</p>
+</div>
+</div>
+<p class="media-credit">Kusch, I. and Markus, M. (1996), <a href="https://doi.org/10.1006/jtbi.1996.0029">“Mollusc shell pigmentation: cellular automaton simulations and evidence for undecidability”</a>, <em>Journal of Theoretical Biology</em> 178, 333–340; Boettiger, A. N., Ermentrout, B. and Oster, G. (2009), <a href="https://doi.org/10.1073/pnas.0810311106">“The neural origins of shell structure and pattern in aquatic mollusks”</a>, <em>PNAS</em> 106, 6837–6842.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w4-traffic-rule">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Traffic-on-one-lane">Traffic on one lane<a class="anchor-link" href="#Traffic-on-one-lane">¶</a></h2><p>The Nagel–Schreckenberg model represents a <strong>single lane as a one-dimensional periodic lattice</strong>. Each site is empty or contains one car with an integer speed.</p>
+<table>
+<thead>
+<tr>
+<th>Synchronous step</th>
+<th>Local rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Accelerate</td>
+<td>increase speed towards $v_{\max}$</td>
+</tr>
+<tr>
+<td>Avoid collision</td>
+<td>limit speed to the empty gap ahead</td>
+</tr>
+<tr>
+<td>Brake randomly</td>
+<td>reduce a positive speed by one with probability $p$</td>
+</tr>
+<tr>
+<td>Move</td>
+<td>advance by the updated speed</td>
+</tr>
+</tbody>
+</table>
+<p>There is no overtaking, lane changing or interaction across lanes in the original model.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w4-traffic-original">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="The-original-space%E2%80%93time-diagrams">The original space–time diagrams<a class="anchor-link" href="#The-original-space%E2%80%93time-diagrams">¶</a></h2><div class="two-panel wide-left compact-panels">
+<div class="image-panel"><img alt="Character-based space-time diagrams from Nagel and Schreckenberg" src="images/nagel_schreckenberg_original_excerpt.png" style="max-height:430px"/></div>
+<div class="text-panel">
+<p>Each row is the road one step later. A dot is empty road; a digit is a car's speed.</p>
+<p>The encoding exposes individual updates, but the jam boundary and aggregate change are difficult to compare by eye.</p>
+</div>
+</div>
+<p class="media-credit">Nagel, K. and Schreckenberg, M. (1992), <a href="https://doi.org/10.1051/jp1:1992277">“A cellular automaton model for freeway traffic”</a>, <em>Journal de Physique I</em> 2, 2221–2229, Figures 1–2.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w4-traffic-redesign">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Replot-the-same-model">Replot the same model<a class="anchor-link" href="#Replot-the-same-model">¶</a></h2><div class="two-panel wide-left compact-panels">
+<div class="image-panel"><img alt="Modern space-time and flow-density visualisations of the Nagel-Schreckenberg model" src="images/nagel_schreckenberg_redesign.png" style="max-height:430px"/></div>
+<div class="text-panel">
+<p><strong>Site state:</strong> empty or occupied.</p>
+<p><strong>Density:</strong> the fraction of all road sites occupied.</p>
+<p><strong>Flow:</strong> cars passing a location per time step.</p>
+<p>The local view reveals backward-moving jams; the aggregate view reveals the capacity peak.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w4-lizard">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="A-cellular-automaton-in-living-skin">A cellular automaton in living skin<a class="anchor-link" href="#A-cellular-automaton-in-living-skin">¶</a></h2><div class="two-panel equal-panels compact-panels">
+<div class="image-panel"><img alt="Cellular-automaton-like dynamics in ocellated lizard skin" src="images/Lizard_cellular_automata.png" style="max-height:390px"/></div>
+<div class="text-panel">
+<p>Ocellated-lizard scales switch colour as the animal develops.</p>
+<p>A discrete scale-level model can reproduce the observed neighbourhood-dependent dynamics.</p>
+<p>The cells of the model are scales, not biological cells.</p>
+</div>
+</div>
+<p class="media-credit">Manukyan, L. et al. (2017), <a href="https://doi.org/10.1038/nature22031">“A living mesoscopic cellular automaton made of skin scales”</a>, <em>Nature</em> 544, 173–179.</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w4-two-spaces">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h1 id="Two-spaces-organise-the-analysis">Two spaces organise the analysis<a class="anchor-link" href="#Two-spaces-organise-the-analysis">¶</a></h1><div class="two-panel equal-panels compact-panels">
+<div class="text-panel">
+<h3>Rule space</h3>
+<p>All possible local update rules for a chosen state set and neighbourhood.</p>
+<p>For elementary CA: 256 rules.</p>
+</div>
+<div class="text-panel">
+<h3>State space</h3>
+<p>All possible global configurations for a chosen finite world.</p>
+<p>For $L$ binary cells: $2^L$ states.</p>
+</div>
+</div>
+<p>For $k$ states and a neighbourhood of $n$ cells, rule space has $k^{k^n}$ deterministic rules. A finite $D$-dimensional world of side length $L$ has $k^{L^D}$ global states.</p>
+<p>Changing the local rule moves through rule space. Evolving one chosen rule moves through state space.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w4-transition">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="A.-Small-1D-worlds-%C2%B7-state-transition-diagrams">A. Small 1D worlds · state-transition diagrams<a class="anchor-link" href="#A.-Small-1D-worlds-%C2%B7-state-transition-diagrams">¶</a></h2><div class="two-panel equal-panels compact-panels">
+<div class="image-panel"><img alt="State-transition diagram for Rule 110 on five cells" src="images/Rule110_state_transition_L5.png" style="max-height:390px"/></div>
+<div class="text-panel">
+<p>Each node is a complete configuration.</p>
+<p>Each arrow points to its unique successor.</p>
+<p>A state may have zero, one or several predecessors.</p>
+<p>Cycles, basins and unreachable states become visible.</p>
+</div>
+</div>
+<div class="ladder-marker"><img alt="Ladder of abstraction" src="images/ladder_marker.svg"/><span><strong>Up the ladder over configurations:</strong> replace individual trajectories with the architecture of the whole state space.</span></div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w4-reversibility">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="B.-Game-of-Life-%C2%B7-reversibility">B. Game of Life · reversibility<a class="anchor-link" href="#B.-Game-of-Life-%C2%B7-reversibility">¶</a></h2><div class="two-panel equal-panels compact-panels">
+<div class="text-panel">
+<p>A global update is <strong>reversible</strong> only when every state has exactly one predecessor.</p>
+<p>Most interesting cellular automata merge histories and are therefore irreversible.</p>
+</div>
+<div class="image-panel"><img alt="A Garden of Eden pattern in Conway's Game of Life" src="images/Garden_of_Eden_pattern.png" style="max-height:300px"/><p>A <strong>Garden of Eden</strong> state has no predecessor.</p></div>
+</div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w4-classes">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Classify-behaviour-when-enumeration-fails">Classify behaviour when enumeration fails<a class="anchor-link" href="#Classify-behaviour-when-enumeration-fails">¶</a></h2><div class="two-panel equal-panels compact-panels">
+<div class="image-panel"><img alt="Examples of the four Wolfram behaviour classes" src="images/All_classes.png" style="max-height:420px"/></div>
+<div class="text-panel">
+<p><strong>Class 1:</strong> approaches a uniform state.</p>
+<p><strong>Class 2:</strong> settles into fixed or periodic structures.</p>
+<p><strong>Class 3:</strong> produces persistent irregularity.</p>
+<p><strong>Class 4:</strong> supports long-lived local structures and interactions.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w4-mean-field">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Coarse-grain-the-Game-of-Life">Coarse-grain the Game of Life<a class="anchor-link" href="#Coarse-grain-the-Game-of-Life">¶</a></h2><p>Let $p_t$ be the fraction of cells alive at time $t$. If neighbours were independent, the probability of exactly $k$ live neighbours would be binomial. A mean-field update is</p>
+<p>$$
+p_{t+1}=(1-p_t)\binom83p_t^3(1-p_t)^5
++p_t\!\left[\binom82p_t^2(1-p_t)^6+\binom83p_t^3(1-p_t)^5\right].
+$$</p>
+<p>The spatial grid has been replaced by one average density.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w4-mean-field-loss">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="What-did-the-average-remove?">What did the average remove?<a class="anchor-link" href="#What-did-the-average-remove?">¶</a></h2><div class="two-panel equal-panels compact-panels">
+<div class="image-panel"><img alt="Mean-field approximation compared with Game of Life simulation" src="images/GoL_meanfield.png" style="max-height:390px"/></div>
+<div class="text-panel">
+<p>The approximation can describe a population-level tendency.</p>
+<p>It cannot represent gliders, oscillators, collisions or spatial correlations.</p>
+<p>Coarse-graining is useful only when the discarded structure is not needed for the question.</p>
+</div>
+</div>
+<div class="ladder-marker"><img alt="Ladder of abstraction" src="images/ladder_marker.svg"/><span><strong>Up the ladder over cells:</strong> replace the configuration with an average. <strong>Down:</strong> return to local structure when the average fails.</span></div>
 </div>
 </div>
 </div>
@@ -7485,19 +9161,7 @@ It always bothers me that according to the laws as we understand them today, it 
 </div>
 </div>
 </div>
-</aside></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0df9920e">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Automaton-(singular)-Automata-(plural)">Automaton (singular) Automata (plural)<a class="anchor-link" href="#Automaton-(singular)-Automata-(plural)">¶</a></h1><p>Automata are very simple machines (or systems) that change <strong>state</strong> in a <strong>rule-governed</strong> way.</p>
-<p><img alt="" src="images/Mechanical_Pinochio.gif"/></p>
-</div>
-</div>
-</div>
-</div><aside class="notes">
+</aside><aside class="notes">
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b3c05bd4-616d-4bf8-8595-8655b59de4e0">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7511,71 +9175,7 @@ It always bothers me that according to the laws as we understand them today, it 
 </div>
 </div>
 </div>
-</aside></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=aeb107aa">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="State">State<a class="anchor-link" href="#State">¶</a></h2><p>Machines are fundamentally defined by their <strong>state</strong>, which is finite and discrete (usually).</p>
-<p>Automata are therefore often referred to as 'finite state automata'/'finite state machines' or simply 'cells'.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c38ca9df">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="Rules">Rules<a class="anchor-link" href="#Rules">¶</a></h2><p>Machines update their state using a <strong>state-transition function</strong>, which depends on the cell's current state and (usually) that of its neighbours.</p>
-<p>They are simple, local, deterministic rules for iterating an initial configuration of cells.</p>
-<p>They are often formed as "if-then" statements, which are inherently nonlinear.</p>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0624ee38">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Cellular-automata">Cellular automata<a class="anchor-link" href="#Cellular-automata">¶</a></h1><p>Invented in 1940s by Stanislaw Ulam and John von Neumann, who were especially interested in logical requirements for machine self-replication</p>
-<p><img alt="" src="images/Ulam_vonNeumann.png"/></p>
-<!-- von Neumann was interested in self-reporoduction in a biological context and Stanislaw Ulam suggested using a cell-based concept -->
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=469ee4d7-cc6a-4e8d-bbcb-13e81e53c6b6">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>John von Neumann sought to model machine self-reproduction, inspired by biology. At Stanislaw Ulam’s suggestion, he adopted a grid of interacting cells — a discrete framework that became the basis of cellular automata.</p>
-<p><img alt="" src="images/self_replicating_machine.png"/></p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1cbd1b11-3b96-4022-b1c7-73f5dde32168">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="The-world">The world<a class="anchor-link" href="#The-world">¶</a></h2><p>We must define the space the automata live in (one automata resides at each lattice site).</p>
-<p>In cellular automata, these discretisation choices — lattice type, initial conditions, and boundary rules — define the “world” in which the dynamics unfold and can profoundly shape the patterns that emerge.</p>
-<p><img alt="" src="images/Regular_tilings.svg"/></p>
-<p><a href="https://mathworld.wolfram.com/Tessellation.html">Figure from Wolfram</a></p>
-</div>
-</div>
-</div>
-</div><aside class="notes">
+</aside><aside class="notes">
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b70624c0-c008-4f97-8bcf-4f2cf0c374dd">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7599,307 +9199,7 @@ $V−E+F=0$ in the infinite tiling limit leads to the same constraint.)</p>
 </div>
 </div>
 </div>
-</aside></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6a0f0425-68f9-4ee2-a169-69f49e48bf15">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="State">State<a class="anchor-link" href="#State">¶</a></h2><p>Each automaton is a dynamical state variable with a finite number of states available.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=36d6c344-f73f-4ef4-bc91-0735a524724c">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="Network">Network<a class="anchor-link" href="#Network">¶</a></h2><p>Which cells can a given cell see? (and use to make decisions).</p>
-<p>Same <em>local</em> neighbourhood template is used by all cells. It is typically centred at the cell of interest for some radius and some notion of distance.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8931ea53">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="Update-rule">Update rule<a class="anchor-link" href="#Update-rule">¶</a></h2><p>The state of all cells within the neighbourhood feeds into the state-transition function, which provides the dynamics (defines the physics).</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=75f88545">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>We will now explore the two most (in)famous examples:</p>
-<ol>
-<li>Wolfram's Elementary Cellular Automata; and</li>
-<li>Conway's two-dimensional Game of Life.</li>
-</ol>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8429143f">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Wolfram's-elementary-CA">Wolfram's elementary CA<a class="anchor-link" href="#Wolfram's-elementary-CA">¶</a></h1><p>These are the simplest class of <em>one-dimensional cellular automata</em>.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a8b6969e">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="The-model">The model<a class="anchor-link" href="#The-model">¶</a></h2><p>To create a model we will need to define:</p>
-<ul>
-<li><strong>World:</strong> finite sequence of square automata arranged on a grid with periodic boundaries</li>
-<li><strong>States:</strong> each cell can be in one of two possible states</li>
-<li><strong>Initialisation:</strong> either a single black cell in the middle of a row of white cells, or a random state for all cells</li>
-<li><strong>Neighbourhood:</strong> consists of the cell itself and the cells to the left and right of it</li>
-<li><strong>Update rule:</strong> Rule $X$, where $X \in \{0,1,2,\ldots , 2^8-1\}$.</li>
-</ul>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=88433fd7">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h3 id="A-unique-numerical-code-for-each-possible-rule-set">A unique numerical code for each possible rule set<a class="anchor-link" href="#A-unique-numerical-code-for-each-possible-rule-set">¶</a></h3><p>There are 8 possible neighbourhood configurations: $000$, $001$, $010$, $011$, $100$, $101$, $110$, $111$</p>
-<p>The particular rule is named based on the update for each of these 8 configurations (<em>in order</em>).</p>
-<p>For example, this is Rule 50:</p>
-<p><img alt="" src="images/Rule50.png"/></p>
-<p>Fig from <a href="https://mathworld.wolfram.com/Rule50.html">Wolfram's Mathworld</a></p>
-<p>Interpretting the outputs of each of the possible combinations as a single integer in base 2 where white is $0$ and black is $1$ i.e. $00110010$ is binary for 50 .</p>
-<p>Wolfram explored every possible set of rules in great detail.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=887e1dc2-5f40-4bd1-8cd6-4b9430c12e3a">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="Observing-the-dynamics">Observing the dynamics<a class="anchor-link" href="#Observing-the-dynamics">¶</a></h2><p>There is one more question we need to answer: how should we visualise the evolution?</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6f71ca95">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>So what kinds of patterns do these rules produce?:</p>
-<p><a href="https://www.complexity-explorables.org/explorables/kelp/">Another Complexity Explorable</a></p>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=170c4d6e">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Game-of-Life">Game of Life<a class="anchor-link" href="#Game-of-Life">¶</a></h1><p>Conway's Game of Life is one of the most well-known cellular automata (not the first but arguably the best). It was popularised by Martin Gardener in Scientific American.</p>
-<p><img alt="" src="images/Conway_notes.png"/></p>
-<p><a href="https://www.nytimes.com/2020/12/28/science/math-conway-game-of-life.html">Figure from NY times (a great article that is unfortunately behind a paywall)</a></p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fe670fb3">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>Pause for a moment to think about how all of the elements of our one-dimensional cellular automata might work in the context of a two-dimensional cellular automata...</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c334ecc3">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="The-model">The model<a class="anchor-link" href="#The-model">¶</a></h2><ul>
-<li><strong>World:</strong> 2D, square grid (i.e. a square lattice), period boundaries</li>
-<li><strong>States:</strong> binary</li>
-<li><strong>Initialisation:</strong> random</li>
-<li><strong>Neighbourhood:</strong> Moore neighbourhood (the 8 surrounding squares and self)</li>
-<li><strong>Rules:</strong> ???</li>
-<li><strong>Visualisation:</strong> To properly visualise the evolution of cells and any emergent patterns patterns we'll need something more than an additional axis for time. In particular, we want an animation.</li>
-</ul>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6609c75a">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="State-transition-rules">State-transition rules<a class="anchor-link" href="#State-transition-rules">¶</a></h3><p>The Wolfram-equivalent two-dimensional cellular automata would have:</p>
-<p>$$
-\underbrace{2^{\,\overbrace{2^{9}}^{\text{possible neighbourhoods}}}}_{\text{possible rules}} \;=\; 1.340781\times 10^{154}
-$$</p>
-<p>state-transition rules to define.</p>
-<p>Obviously that's way too many to list them out explicitly.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8e013a1c">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>A cell can be alive or dead.</p>
-<p>Conway simplified things to be based (loosely) on real cell growth with the birth and death depending on population density.</p>
-<p>Rules:</p>
-<ul>
-<li><strong>Loneliness</strong>: alive cells (black) with fewer than 2 alive neighbours will die (turn white)</li>
-<li><strong>Overcrowding</strong>: alive cells with more than 3 alive neighbours will die</li>
-<li><strong>Happiness</strong>: alive cells with either 2 or 3 alive neighbours will continue living (stay black)</li>
-<li><strong>Reproduction</strong>: dead cells with exactly 3 alive neighbours will come alive</li>
-<li><strong>Dead</strong> cells stay dead.</li>
-</ul>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4996463d">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="(Game-of)-Life-is-full-of-surprises!">(Game of) Life is full of surprises!<a class="anchor-link" href="#(Game-of)-Life-is-full-of-surprises!">¶</a></h2><p>This very simple 'game' shows dynamic almost life-like behaviours, which are highly non-trivial and fascinating.</p>
-<p>Even though the simulation is very simple and completely determined, there is fundamentally no way to predict what will happen, other than running a specific simulation to find out. This is referred to as <em>irreducible computability</em>.</p>
-<p>Typically, we will see one of three things occur:</p>
-<ol>
-<li>The cells die out or become stagnant and the simulation effectively ends</li>
-<li>The cells form into interesting small and stable structures that flip between two (or more) states</li>
-<li>The cells seem to come alive and start doing unusual things.</li>
-</ol>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c3c0a83a">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<ol>
-<li><strong>Still lifes</strong></li>
-</ol>
-<p>e.g. <a href="https://conwaylife.com/wiki/Beehive">the beehive: </a></p>
-<!-- <center>
-<img src="images/Beehive.png" width="100">
-</center> -->
-<p><img alt="" src="images/Beehive.png"/></p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2891c782">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<ol start="2">
-<li>The cells form into interesting small and stable structures that flip between two (or more) states</li>
-</ol>
-<p><strong>Oscillators</strong></p>
-<p>e.g. <a href="https://conwaylife.com/wiki/Toad">the toad is a period 2 oscillator</a></p>
-<!-- <center>
-<img src="images/Toad.png" width="200">
-</center> -->
-<p><img alt="" src="images/Toad.png"/></p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8baedbd8">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<ol start="3">
-<li>The cells seem to come alive and start doing unusual things</li>
-</ol>
-<p><strong>Spaceships</strong> are moving oscillators that return to their starting position but shifted in space</p>
-<p>e.g. the <strong>glider</strong> is the simplest type of spaceship and the first to be discovered. They are oscillators with period 4, which appear to walk diagonally across the screen:</p>
-<p><img alt="" src="images/Animated_glider_emblem.gif"/></p>
-<p>Remember: The squares don't actually 'move'! Humans are very good at seeing patterns, sometimes we are too good at it.</p>
-<p>Conway supposedly regrets calling them gliders as they are much more like 'walkers' or 'crawlers'.</p>
-<p>The glider now has fairly widespread use as the <a href="http://www.catb.org/hacker-emblem/">emblem for hackers</a>.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=de3b94f5">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p><strong>Guns</strong></p>
-<p>Have parts that repeat periodically, like an oscillator, but they also periodically emit spaceships.</p>
-<p>e.g. Gosper's glider gun (from Bill Gosper and a team at MIT), which produces recurrent streams of “organisms” spawned from digital “parents”</p>
-<p><img alt="" src="images/Gospers_glider_gun.gif"/></p>
-<p><a href="https://commons.wikimedia.org/w/index.php?curid=101736">Fig By Lucas Vieira - Own work, CC BY-SA 3.0</a></p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1864e885">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p><strong>Methuselas</strong></p>
-<p>From most initial conditions the Game of Life quickly reaches a stable state where the number of live cells is nearly constant (possibly with some oscillation).</p>
-<p>Other patterns are so long-lived, they are called “Methuselahs”. (Methuselah, Noah's grandfather, had the longest lifespan of all those given in the Bible passing away at the grand old age of 969.)</p>
-<p>e.g. <a href="https://conwaylife.com/wiki/R-pentomino">the r-pentomino</a> is a Methuselah, which doesn't stabilise until generation 1103!:</p>
-<p><img alt="" src="images/r_pentomino.png"/></p>
-</div>
-</div>
-</div>
-</div><aside class="notes">
+</aside><aside class="notes">
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2fff3df9-01cd-4994-93d5-d4bd1d30257b">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7914,68 +9214,7 @@ $$</p>
 </div>
 </div>
 </div>
-</aside></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9d28cf15">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h5 id="Game-of-Life-in-action">Game of Life in action<a class="anchor-link" href="#Game-of-Life-in-action">¶</a></h5><ul>
-<li><a href="https://www.complexity-explorables.org/explorables/nah-dah-dah-nah-nah-opus-1984/">Explorable</a></li>
-<li><a href="https://www.youtube.com/watch?v=C2vgICfQawE">Large-scale patterns</a></li>
-<li><a href="https://www.youtube.com/watch?v=3NDAZ5g4EuU&amp;t=13s">Clock</a></li>
-<li><a href="https://www.reddit.com/r/math/comments/fwujar/conways_game_of_life_forms_a_sierpi%C5%84ski_triangle/">Sierpiński triangle</a></li>
-<li><a href="https://link.springer.com/content/pdf/10.1007/978-1-84996-217-9.pdf">Everything you could ever hope to know about the Game of Life</a></li>
-</ul>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7e950ceb">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="CA-in-the-real-world">CA in the real world<a class="anchor-link" href="#CA-in-the-real-world">¶</a></h1><p>The second law of thermodynamics says that things should move from order to disorder.</p>
-<p>But life seems to contradict this, self-organising from very simple rules and producing highly complex evolution (a consequence of not operating in equilibrium regimes).</p>
-<p>CA have been shown to directly correspond to processes generated by biological evolution.</p>
-<p>They capture and describe the transmission of information from one local node to another. Thus, any transmission problem, social or otherwise, can be modeled with a CA with appropriate transmission dynamics.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6eadd248-d1b7-4b08-8b5a-5c8e2036b66e">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="In-1D:-Rule-30">In 1D: Rule 30<a class="anchor-link" href="#In-1D:-Rule-30">¶</a></h2><div style="margin: 1.5em 0; border-right: 4px solid #888; padding-right: 1em; text-align: right;">
-<div style="font-style: italic; font-family: 'Comic Neue', 'Segoe Script', cursive; font-size: 1.2em;">
-The Rule 30 automataon is the most surprising thing I've ever seen in science... It took me several years to absorb how important this was. But in the end, I realised that this one picture contains the clue to what's perhaps the most long-standing mystery in all of science: where, in the end, the complexity of the natural world comes from  </div>
-<div style="font-style: normal; font-size: 0.95em; margin-top: 0.5em;">
-    — Stephen Wolfram (Quoted in Forbes)
-  </div>
-</div>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=cd252168">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p><em>Conus textile</em> (a venemous sea snail)</p>
-<p><img alt="" src="images/Textile_cone.jpeg"/></p>
-<p>Wolfram patented this as a pseudo-random number generator and a few years ago put <a href="https://writings.stephenwolfram.com/2019/10/announcing-the-rule-30-prizes/">\$30,000 up as a prize for answering some as yet unanswered questions</a></p>
-</div>
-</div>
-</div>
-</div><aside class="notes">
+</aside><aside class="notes">
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1206cfbb-e19c-4ed5-8b4e-deef02921750">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7989,48 +9228,7 @@ The Rule 30 automataon is the most surprising thing I've ever seen in science...
 </div>
 </div>
 </div>
-</aside></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3cd97a8a">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="In-2D:">In 2D:<a class="anchor-link" href="#In-2D:">¶</a></h2><p><img alt="" src="images/Lizard_cellular_automata.png"/></p>
-<p>Figure from the article: <a href="https://www.nature.com/articles/nature22031"><em>A living mesoscopic cellular automaton made of skin scales</em></a>.</p>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=46e27017-3fc4-48a7-ba83-f1afb712e754">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Analysing-cellular-automata">Analysing cellular automata<a class="anchor-link" href="#Analysing-cellular-automata">¶</a></h1>
-</div>
-</div>
-</div>
-</div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=139f8cc4-382f-4b5c-a5f4-cf2d770a417b">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<div style="margin: 1.5em 0; border-right: 4px solid #888; padding-right: 1em; text-align: right;">
-<div style="font-style: italic; font-family: 'Comic Neue', 'Segoe Script', cursive; font-size: 1.2em;">
-People think that mathematics is complicated. Mathematics is the simple bit, it’s the stuff we CAN understand. It’s cats that are complicated.
-  </div>
-<div style="font-style: normal; font-size: 0.95em; margin-top: 0.5em;">
-    — John Conway 
-  </div>
-</div>
-</div>
-</div>
-</div>
-</div><aside class="notes">
+</aside><aside class="notes">
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=62b5c01b">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8046,199 +9244,7 @@ People think that mathematics is complicated. Mathematics is the simple bit, it�
 </div>
 </div>
 </div>
-</aside></div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d0943696-a64e-4d50-82c3-bb84667c0be3">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="Rule-space">Rule space<a class="anchor-link" href="#Rule-space">¶</a></h2><p>CA models are discrete in time and space, and typically the states of the cells are also discrete.</p>
-<p>This means that the number of all possible neighbourhoods and responses to those neighbourhoods is finite and therefore countable... we can actually list out all possible state-transition functions with an exhaustive search if we want to (and are as crazy as Wolfram).</p>
-<p>Together, these form the <strong>rule-space</strong>.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=079918c5-7776-43ae-af9f-03bd78bc2ebb">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>Let:</p>
-<ul>
-<li>$D$ be the dimension of the space</li>
-<li>$r$ be the radius of the neighbourhood</li>
-<li>$k$ be the number of possible states for a cell</li>
-</ul>
-<p>If using a Moore template the size of the neighbourhood will be $2r+1$ neighbours in each dimension and hence the total number of neighbours $n=(2r+1)^D$.</p>
-<p>Each of the cells in a neighbourhood can be in one of $k$ states. Hence the neighbourhood could be one of $c = k^n$ and each of those neighbourhoods needs a state-transition:</p>
-<p>$$
-k^c=k^{k^n}=k^{k^{(2r+1)^D}}.
-$$</p>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=16dbb195-7733-4ed4-bf77-3adb37ac31aa">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="Phase-space">Phase-space<a class="anchor-link" href="#Phase-space">¶</a></h2><p>The <strong>phase-space</strong>, on the other hand, contains all of the possible configurations - the parallel universes that can emerge from these rules.</p>
-<p>If the space is finite then we can list these too.</p>
-<p>Let:</p>
-<ul>
-<li>$L$ be the length of space in each dimension</li>
-</ul>
-<p>Then for a regular domain the total number of cells (volume) is $L^D$ and each cell can be in one of $k$ states hence we have $k^{L^D}$ possible configurations.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=769902d2-d412-4bc9-8cee-560318b05ca1">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="Classifying-behaviour">Classifying behaviour<a class="anchor-link" href="#Classifying-behaviour">¶</a></h2><p>The emerging configurations can be classified (after some transient from a random initialisation).</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9fab7c50-ed05-482a-a086-60ed70b0ac0a">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h5 id="Class-1">Class 1<a class="anchor-link" href="#Class-1">¶</a></h5><p>Development of patterns tends towards vacuum - a stable uniform state</p>
-<p>e.g. rules 0 and 32.</p>
-<p><img alt="" src="images/Class_1.png"/></p>
-<p>Fig from <a href="https://www.wolframscience.com/nks/p231--four-classes-of-behavior/">Wolfram</a></p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_hide-input celltag_hide-output" id="cell-id=3aa63567-b0df-42e4-86dc-3da79a62914b">
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=48fbc5aa-a2b7-4fe1-bbe3-b48a347ac44c">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h5 id="Class-2">Class 2<a class="anchor-link" href="#Class-2">¶</a></h5><p>Patterns tends toward simple stationary -- simple structures that either remain the same forever or repeat every few steps.</p>
-<p>e.g. rules 4 and 108</p>
-<p><img alt="" src="images/Class_2.png"/></p>
-<p>Fig from <a href="https://www.wolframscience.com/nks/p231--four-classes-of-behavior/">Wolfram</a></p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=84735333-07aa-4267-9749-e42f30d8ee60">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h5 id="Class-3">Class 3<a class="anchor-link" href="#Class-3">¶</a></h5><p><em>Appear</em> to generate randomness via intricate nested repeats and periodic patterns</p>
-<p>e.g. rule 30.</p>
-<p>The key word here is 'appear' - remember this is a deterministic rule so it's not actually random and they are more like chaotic systems in this way. Real randomness does challenge determinism more seriously but it is nice, and perhaps surprising, to get apparent randomness from such simple deterministic computation</p>
-<p><img alt="" src="images/Class_3.png"/></p>
-<p>Fig from <a href="https://www.wolframscience.com/nks/p231--four-classes-of-behavior/">Wolfram</a></p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c48d3b6d-6298-43be-8613-1c075c68a78f">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h5 id="Class-4">Class 4<a class="anchor-link" href="#Class-4">¶</a></h5><p>Sits at the border of chaos and stability, order and randomness.</p>
-<p>e.g. rule 110, Game of Life</p>
-<p>Creates complicated local and persistent structures that appear as disturbances to the regular background. It allows discussion of objects (spaceships) moving and proposals of information being passed with simple computations being carried out when objects collide. Rule 110 has been proved to be Turing-complete, or 'Universal', i.e. able to simulate any computer program and is arguably the simplest known Turing complete system.</p>
-<!-- <center>
-<img src="images/Class_4.png" width="300">
-</center> -->
-<p><img alt="" src="images/Class_4.png"/></p>
-<p>Fig from <a href="https://www.wolframscience.com/nks/p231--four-classes-of-behavior/">Wolfram</a></p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c4990061-5320-457a-91fd-ae1131e28560">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>From a visual inspection, the qualitative differences between Wolfram’s four classes are striking, making it easy to place most rules into their class at a glance.</p>
-<p><img alt="" src="images/Classes.png"/></p>
-<p>Fig from <a href="https://www.wolframscience.com/nks/p231--four-classes-of-behavior/">Wolfram</a></p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fc8b2074-95a2-45e1-bbd0-b4dd5b407988">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="State-transition-diagrams">State-transition diagrams<a class="anchor-link" href="#State-transition-diagrams">¶</a></h2><p>We can (try to) visualise the dynamics with a <strong>state-transition diagram</strong>, which unsurprisingly consists of states and transitions between states.</p>
-<p>Note: The state-transition functions refer to how the <strong>local</strong> configuration/state updates. A state-transition diagram refers to how the <strong>global</strong> configuration/state updates.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4adaf0b1-27b0-4bb2-8c9b-71a33b7855ac">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h3 id="Wolfram:-State-transition-diagrams">Wolfram: State-transition diagrams<a class="anchor-link" href="#Wolfram:-State-transition-diagrams">¶</a></h3><p>Applet available from Wolfram <a href="https://demonstrations.wolfram.com/CellularAutomatonStateTransitionDiagrams/">here</a></p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=12df2958-9ff7-4d1f-8017-c3d1847e8984">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="Reversability">Reversability<a class="anchor-link" href="#Reversability">¶</a></h2><p>State-transition diagrams map a configuration, $X$, to its <strong>successor</strong>, $Y$.</p>
-<p>$X$ is the <strong>predecessor</strong> of $Y$.</p>
-<p>A configuration may have zero, one, or more predecessors, but will always have exactly one successor, i.e. known future, potentially unknown past.</p>
-<p>If every configuration has a <em>unique predecessor</em> then the CA is <strong>reversible</strong>.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c4aa8c50-fb05-448d-819d-c7b01e6dc1ef">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h3 id="Wolfram">Wolfram<a class="anchor-link" href="#Wolfram">¶</a></h3><p>Trivial rules are typically reversible. There are not many of these:</p>
-<ul>
-<li>cells remain unchanged, Rule 204</li>
-<li>cells flip state, Rule 51</li>
-<li>cells copy the state of a neighbouring cell, e.g. Rule 170</li>
-<li>cell's next state is the XOR (exclusive OR) of its two neighbors, e.g. Rule 90, Rule 150</li>
-</ul>
-<p>There are no 'nontrivial' reversible elementary cellular automata.</p>
-<p>Rule 254 is an example that is <em>not</em> reversible.</p>
-</div>
-</div>
-</div>
+</aside><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_hide-input celltag_hide-output" id="cell-id=3aa63567-b0df-42e4-86dc-3da79a62914b">
 </div><aside class="notes">
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=dd88a58c-d6c1-47d6-8ca8-06eb935d0f94">
 <div class="jp-Cell-inputWrapper" tabindex="0">
@@ -8255,66 +9261,7 @@ $$</p>
 </div>
 </div>
 </div>
-</aside></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=dc6f07ae-6bf6-41e7-adc1-3a63b1cb87c6">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h3 id="Game-of-Life">Game of Life<a class="anchor-link" href="#Game-of-Life">¶</a></h3><p>Not reversible.</p>
-<p>Consider for instance, that:</p>
-<ul>
-<li>it has many patterns that die out completely (many predecessors)</li>
-<li>Garden of Eden patterns have been discovered (see below)</li>
-<li>the rules of the Game of Life involve a loss of information (the totalistic rule designed by Conway).</li>
-</ul>
-<p>Computationally universal CA, such as rule 110 and Game of Life, are often not reversible.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=15ab5850-a40b-418f-b486-5685573c90e0">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="Garden-of-Eden-states">Garden of Eden states<a class="anchor-link" href="#Garden-of-Eden-states">¶</a></h2><p>An <em>'orphan'</em> is a pattern with no predecessor (no preimage under the global map of the cellular automata).</p>
-<p>A <em>Garden of Eden</em> is a configuration that contains an orphan (perhaps the initial configuration but they cannot arise in any other way). i.e.:</p>
-<p>$$
-\text{There exists a state } c \text{ such that no } c' \text{ maps to it: } F(c') \ne c \text{ for all } c'
-$$</p>
-<p>This means the global function is <strong>not surjective</strong>: not every configuration has a preimage (<em>not all outputs are reachable</em> from some input).</p>
-<p>For reversible automata, no Garden of Eden states exist, while non-reversible automata might have such states.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ee2cb8b8-aec9-4956-acf7-1b81d3ad346b">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h3 id="Wolfram">Wolfram<a class="anchor-link" href="#Wolfram">¶</a></h3><p>Garden of Eden states are the 'leaves' in the <a href="https://demonstrations.wolfram.com/CellularAutomatonStateTransitionDiagrams/">state-transition diagrams</a>.</p>
-<p>e.g. Rule 110 is irreversible, with many Garden of Eden states. Rule 240 is logically reversible.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a3c37991-63d8-4f09-b850-c8d533b61a10">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h3 id="Game-of-Life">Game of Life<a class="anchor-link" href="#Game-of-Life">¶</a></h3><p>An example of a Garden of Eden (from R. Banks in 1971):
-<img alt="" src="images/Garden_of_Eden_pattern.png"/></p>
-</div>
-</div>
-</div>
-</div><aside class="notes">
+</aside><aside class="notes">
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=100f56ce-a0fc-4a25-95ec-63c014425517">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8330,46 +9277,7 @@ $$</p>
 </div>
 </div>
 </div>
-</aside></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=cff953e9-1565-43b9-a324-c1f5b0bc669e">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Mean-field-approximation">Mean field approximation<a class="anchor-link" href="#Mean-field-approximation">¶</a></h1><p>When there are too many moving parts it's important to think critically about the distinction between “wholes” and “parts”.</p>
-<p>Reformulating the dynamics in terms of the “average state” can reduce the dimensionality. e.g. The system’s state at iteration $n$, can be approximated just by one variable: the density of 1s, $\rho(n)$.</p>
-<p><img alt="" src="images/GoL_meanfield.png"/></p>
-<p>This is a <strong>mean-field approximation</strong>.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8307784e-5171-45a1-add9-2cffdd82a470">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Is-the-universe-a-simulation?">Is the universe a simulation?<a class="anchor-link" href="#Is-the-universe-a-simulation?">¶</a></h1><p>Natural systems can be mimicked in the artificial programming universes of cellular automata, which means it’s very likely they hold some secrets to the nature of life itself.</p>
-<p>(But we must be careful: <em>'similar pattern does not imply similar process'</em> - Prof. Sally Thompson, 2024)</p>
-</div>
-</div>
-</div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell celltag_slides celltag_hide-input" id="cell-id=f1656c7d-d6a5-4dd7-9a21-b72a41ea7cba">
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
-<iframe allowfullscreen="" frameborder="0" height="300" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/iE46jKYcI4Y" width="1000"></iframe>
-</div>
-</div>
-</div>
-</div>
-</div></section></section>
+</aside></section></section>
 </div>
 </div>
 </main>
@@ -8395,8 +9303,8 @@ require(
             transition: "slide",
             slideNumber: "",
             plugins: [RevealNotes],
-            width: 960,
-			      height: 700,
+            width: 1280,
+			      height: 720,
 
         });
 

@@ -16,6 +16,10 @@ project:
       children:
         - file: notebooks/week03/Slides.md
         - file: notebooks/week03/WS_Reaction_diffusion.ipynb
+    - file: notebooks/week04/L_Cellular_automata.ipynb
+      children:
+        - file: notebooks/week04/Slides.md
+        - file: notebooks/week04/WS_Cellular_automata.ipynb
 site:
   options:
     folders: true

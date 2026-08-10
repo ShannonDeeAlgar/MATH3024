@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 330" role="img" aria-labelledby="title desc">
+  <title id="title">Injective, surjective and bijective mappings</title>
+  <desc id="desc">Three clean mapping diagrams comparing injective, surjective and bijective functions.</desc>
+  <style>
+    text{font-family:Arial,sans-serif;fill:#182b55} .h{font-size:28px;font-weight:700;text-anchor:middle}.s{font-size:20px;text-anchor:middle}
+    .set{fill:none;stroke:#aebbd2;stroke-width:3}.node{fill:#f4cd4d;stroke:#182b55;stroke-width:3}.target{fill:#5d80b4;stroke:#182b55;stroke-width:3}
+    .arrow{stroke:#182b55;stroke-width:3;fill:none;marker-end:url(#a)}
+  </style>
+  <defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#182b55"/></marker></defs>
+  <g transform="translate(0,0)"><text class="h" x="200" y="35">Injective</text><text class="s" x="200" y="62">different inputs have different outputs</text><ellipse class="set" cx="100" cy="190" rx="58" ry="105"/><ellipse class="set" cx="300" cy="190" rx="58" ry="125"/>
+    <circle class="node" cx="100" cy="125" r="14"/><circle class="node" cx="100" cy="190" r="14"/><circle class="node" cx="100" cy="255" r="14"/>
+    <circle class="target" cx="300" cy="105" r="14"/><circle class="target" cx="300" cy="160" r="14"/><circle class="target" cx="300" cy="215" r="14"/><circle class="target" cx="300" cy="270" r="14"/>
+    <path class="arrow" d="M115 125 L281 105"/><path class="arrow" d="M115 190 L281 160"/><path class="arrow" d="M115 255 L281 215"/></g>
+  <g transform="translate(400,0)"><text class="h" x="200" y="35">Surjective</text><text class="s" x="200" y="62">every output is reached</text><ellipse class="set" cx="100" cy="190" rx="58" ry="125"/><ellipse class="set" cx="300" cy="190" rx="58" ry="105"/>
+    <circle class="node" cx="100" cy="105" r="14"/><circle class="node" cx="100" cy="160" r="14"/><circle class="node" cx="100" cy="215" r="14"/><circle class="node" cx="100" cy="270" r="14"/>
+    <circle class="target" cx="300" cy="125" r="14"/><circle class="target" cx="300" cy="190" r="14"/><circle class="target" cx="300" cy="255" r="14"/>
+    <path class="arrow" d="M115 105 L281 125"/><path class="arrow" d="M115 160 L281 190"/><path class="arrow" d="M115 215 L281 190"/><path class="arrow" d="M115 270 L281 255"/></g>
+  <g transform="translate(800,0)"><text class="h" x="200" y="35">Bijective</text><text class="s" x="200" y="62">one-to-one and onto</text><ellipse class="set" cx="100" cy="190" rx="58" ry="105"/><ellipse class="set" cx="300" cy="190" rx="58" ry="105"/>
+    <circle class="node" cx="100" cy="125" r="14"/><circle class="node" cx="100" cy="190" r="14"/><circle class="node" cx="100" cy="255" r="14"/>
+    <circle class="target" cx="300" cy="125" r="14"/><circle class="target" cx="300" cy="190" r="14"/><circle class="target" cx="300" cy="255" r="14"/>
+    <path class="arrow" d="M115 125 L281 125"/><path class="arrow" d="M115 190 L281 190"/><path class="arrow" d="M115 255 L281 255"/></g>
+</svg>
