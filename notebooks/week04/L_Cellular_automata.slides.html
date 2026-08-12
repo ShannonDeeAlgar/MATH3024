@@ -8331,6 +8331,22 @@ details.reader-answer > div {
   text-underline-offset: 0.12em;
 }
 
+/* Notebook anchor glyphs are useful in the Reader but are visual noise in a
+   presentation heading. */
+.reveal .slides section .anchor-link {
+  display: none !important;
+}
+
+/* Old notebooks contain a few inline or inherited sans-serif declarations.
+   Body copy follows the common lecture type system; sans serif is reserved
+   for captions, labels and compact annotations below. */
+.reveal .slides section .jp-MarkdownOutput > p,
+.reveal .slides section .jp-MarkdownOutput > ul,
+.reveal .slides section .jp-MarkdownOutput > ol,
+.reveal .slides section .jp-MarkdownOutput > div:not(.small-note):not(.figure-caption) {
+  font-family: Baskerville, Georgia, serif;
+}
+
 .reveal .slides section table {
   border-collapse: collapse;
   margin: 0.7em auto;
@@ -8647,13 +8663,13 @@ details.reader-answer > div {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
-<h2 id="Rule-90-reconnects-to-Sierpi%C5%84ski">Rule 90 reconnects to Sierpiński<a class="anchor-link" href="#Rule-90-reconnects-to-Sierpi%C5%84ski">¶</a></h2><div class="two-panel equal-panels compact-panels">
-<div class="image-panel"><img alt="Rule 90 space-time history forming a Sierpiński triangle pattern" src="images/rule_90_plot.png" style="max-height:410px"/></div>
+<h2 id="Rule-90-reconnects-to-Sierpi%C5%84ski">Rule 90 reconnects to Sierpiński<a class="anchor-link" href="#Rule-90-reconnects-to-Sierpi%C5%84ski">¶</a></h2><div class="two-panel wide-left compact-panels">
+<div class="image-panel"><img alt="Rule 90 space-time history forming a Sierpiński triangle pattern" src="images/rule_90_plot.png" style="max-height:445px"/></div>
 <div class="text-panel">
-<p>Rule 90 updates the focal cell using the exclusive-or of its left and right neighbours:</p>
+<p>Rule 90 uses the exclusive-or of the left and right neighbours:</p>
 <p>$$x_i^{t+1}=x_{i-1}^{t}\mathbin{\mathrm{XOR}}x_{i+1}^{t}.$$</p>
-<p>From one live seed, its space--time history reproduces the Sierpiński pattern seen in Week 2.</p>
-<p>The fractal is now generated dynamically on a fixed lattice.</p>
+<p>From one live seed, successive rows reproduce the Sierpiński pattern from Week 2.</p>
+<p>The horizontal axis is space; the vertical axis is time.</p>
 </div>
 </div>
 </div>
@@ -8920,24 +8936,6 @@ details.reader-answer > div {
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w4-shell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_remove-cell" data-mime-type="text/markdown">
-<h2 id="A-shell-records-its-growth-history">A shell records its growth history<a class="anchor-link" href="#A-shell-records-its-growth-history">¶</a></h2><div class="two-panel equal-panels compact-panels">
-<div class="image-panel"><img alt="Pigmentation pattern on a textile cone shell" src="images/Textile_cone.jpeg" style="max-height:390px"/></div>
-<div class="text-panel">
-<p>New shell is laid down along the growing edge. The finished surface is therefore a space–time record of pigment activity along that edge.</p>
-<p>Cellular automata can reproduce shell-like bands, waves and irregular motifs. Rule 30 is a useful comparison, not an identified biological rule.</p>
-</div>
-</div>
-<p class="media-credit">Kusch, I. and Markus, M. (1996), <a href="https://doi.org/10.1006/jtbi.1996.0029">“Mollusc shell pigmentation: cellular automaton simulations and evidence for undecidability”</a>, <em>Journal of Theoretical Biology</em> 178, 333–340; Boettiger, A. N., Ermentrout, B. and Oster, G. (2009), <a href="https://doi.org/10.1073/pnas.0810311106">“The neural origins of shell structure and pattern in aquatic mollusks”</a>, <em>PNAS</em> 106, 6837–6842.</p>
-</div>
-</div>
-</div>
-</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w4-traffic-rule">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -9032,26 +9030,98 @@ details.reader-answer > div {
 </div>
 </div>
 </div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w4-classes">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h1 id="Wolfram's-four-qualitative-classes">Wolfram's four qualitative classes<a class="anchor-link" href="#Wolfram's-four-qualitative-classes">¶</a></h1><div class="two-panel wide-left compact-panels" style="grid-template-columns:1.35fr .65fr;align-items:start">
+<div class="image-panel">
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.45rem">
+<figure style="margin:0"><img alt="Class 1 example: Rule 0 approaches a homogeneous state" src="images/Class_1.png" style="width:100%;max-height:215px;object-fit:contain"/><figcaption><strong>Class 1 · Rule 0</strong></figcaption></figure>
+<figure style="margin:0"><img alt="Class 2 example: Rule 4 forms stable or periodic structures" src="images/Class_2.png" style="width:100%;max-height:215px;object-fit:contain"/><figcaption><strong>Class 2 · Rule 4</strong></figcaption></figure>
+<figure style="margin:0"><img alt="Class 3 example: Rule 30 has chaotic-looking evolution" src="images/Class_3.png" style="width:100%;max-height:215px;object-fit:contain"/><figcaption><strong>Class 3 · Rule 30</strong></figcaption></figure>
+<figure style="margin:0"><img alt="Class 4 example: Rule 110 supports persistent localised structures" src="images/Class_4.png" style="width:100%;max-height:215px;object-fit:contain"/><figcaption><strong>Class 4 · Rule 110</strong></figcaption></figure>
+</div>
+</div>
+<div class="text-panel">
+<p><strong>1:</strong> homogeneous.</p>
+<p><strong>2:</strong> stable or periodic.</p>
+<p><strong>3:</strong> chaotic-looking.</p>
+<p><strong>4:</strong> persistent localised structures.</p>
+<p class="small-note">Rule 110 is the standard elementary Class 4 example; Rules 124, 137 and 193 are symmetry-equivalent.</p>
+<p class="small-note">Black = 1; time runs downward.</p>
+</div>
+</div>
+<div class="discussion-marker"><img alt="Discussion prompt" src="images/discussion_marker.svg"/><span>Could two observers always assign the same class from a finite space--time diagram?</span></div>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w4-two-spaces">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
-<h1 id="Two-spaces-organise-the-analysis">Two spaces organise the analysis<a class="anchor-link" href="#Two-spaces-organise-the-analysis">¶</a></h1><div class="two-panel equal-panels compact-panels">
+<h1 id="From-visual-classes-to-analysis">From visual classes to analysis<a class="anchor-link" href="#From-visual-classes-to-analysis">¶</a></h1><p>Wolfram's classes describe what a space–time diagram looks like. We now ask what calculable structure supports that description.</p>
+<p>Two different spaces organise the analysis: the space of possible rules, and the space of configurations visited by one rule.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w4-rule-space">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Rule-space">Rule space<a class="anchor-link" href="#Rule-space">¶</a></h2><p>All local update rules allowed by a chosen state set and neighbourhood form the <strong>rule space</strong>.</p>
+<p>Let $q$ be the number of cell states and $m$ the number of cells read by the local rule. There are $q^m$ possible local configurations, so</p>
+<p>$$
+|\mathcal R|=q^{q^m}.
+$$</p>
+<p>For elementary cellular automata, $q=2$ and $m=3$, giving $|\mathcal R|=2^{2^3}=256$ rules.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w4-related-rules-slide">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Related-rules-are-not-new-dynamics">Related rules are not new dynamics<a class="anchor-link" href="#Related-rules-are-not-new-dynamics">¶</a></h2><div class="two-panel equal-panels compact-panels">
 <div class="text-panel">
-<h3>Rule space</h3>
-<p>All possible local update rules for a chosen state set and neighbourhood.</p>
-<p>For elementary CA: 256 rules.</p>
+<h3>Symmetry equivalence</h3>
+<p>Reflection, exchanging 0 and 1, or both can change the rule number while preserving the dynamics after the same transformation.</p>
+<p>Rules 30 and 86 are reflection partners.</p>
 </div>
 <div class="text-panel">
-<h3>State space</h3>
-<p>All possible global configurations for a chosen finite world.</p>
-<p>For $L$ binary cells: $2^L$ states.</p>
+<h3>Agreement for one seed</h3>
+<p>Two different rules can agree temporarily if the trajectory never visits a neighbourhood on which their lookup tables differ.</p>
+<p>One matching history does not establish rule equivalence.</p>
 </div>
 </div>
-<p>For $k$ states and a neighbourhood of $n$ cells, rule space has $k^{k^n}$ deterministic rules. A finite $D$-dimensional world of side length $L$ has $k^{L^D}$ global states.</p>
-<p>Changing the local rule moves through rule space. Evolving one chosen rule moves through state space.</p>
+<div class="ladder-marker"><img alt="Ladder of abstraction" src="images/ladder_marker.svg"/><span><strong>Up the ladder over rules:</strong> group rule numbers that differ only by a relabelling or reflection.</span></div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w4-state-space">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="State-space">State space<a class="anchor-link" href="#State-space">¶</a></h2><p>All global configurations of a chosen finite world form the <strong>state space</strong>.</p>
+<p>If the world has $N$ cells and each cell has $q$ states, then</p>
+<p>$$
+|\mathcal S|=q^N.
+$$</p>
+<p>For a binary line of length $L$, $q=2$ and $N=L$, so $|\mathcal S|=2^L$.</p>
 </div>
 </div>
 </div>
@@ -9062,7 +9132,7 @@ details.reader-answer > div {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
-<h2 id="A.-Small-1D-worlds-%C2%B7-state-transition-diagrams">A. Small 1D worlds · state-transition diagrams<a class="anchor-link" href="#A.-Small-1D-worlds-%C2%B7-state-transition-diagrams">¶</a></h2><div class="two-panel equal-panels compact-panels">
+<h2 id="A.-Elementary-CA-%C2%B7-state-transition-diagrams">A. Elementary CA · state-transition diagrams<a class="anchor-link" href="#A.-Elementary-CA-%C2%B7-state-transition-diagrams">¶</a></h2><div class="two-panel equal-panels compact-panels">
 <div class="image-panel"><img alt="State-transition diagram for Rule 110 on five cells" src="images/Rule110_state_transition_L5.png" style="max-height:390px"/></div>
 <div class="text-panel">
 <p>Each node is a complete configuration.</p>
@@ -9082,32 +9152,57 @@ details.reader-answer > div {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
-<h2 id="B.-Game-of-Life-%C2%B7-reversibility">B. Game of Life · reversibility<a class="anchor-link" href="#B.-Game-of-Life-%C2%B7-reversibility">¶</a></h2><div class="two-panel equal-panels compact-panels">
-<div class="text-panel">
-<p>A global update is <strong>reversible</strong> only when every state has exactly one predecessor.</p>
-<p>Most interesting cellular automata merge histories and are therefore irreversible.</p>
-</div>
-<div class="image-panel"><img alt="A Garden of Eden pattern in Conway's Game of Life" src="images/Garden_of_Eden_pattern.png" style="max-height:300px"/><p>A <strong>Garden of Eden</strong> state has no predecessor.</p></div>
-</div>
+<h2 id="B.-Reversibility-is-a-global-property">B. Reversibility is a global property<a class="anchor-link" href="#B.-Reversibility-is-a-global-property">¶</a></h2><p>For a finite world, the complete state-transition graph is reversible exactly when:</p>
+<ol>
+<li>every configuration has one successor;</li>
+<li>every configuration has exactly one predecessor; and</li>
+<li>the graph is therefore a disjoint union of cycles, with no merging transient branches.</li>
+</ol>
+<p>Finding a loop is not sufficient: every deterministic finite system eventually enters one.</p>
+<div class="discussion-marker"><img alt="Discussion prompt" src="images/discussion_marker.svg"/><span>Does checking one small world establish reversibility for every world size and boundary condition?</span></div>
 </div>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w4-classes">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w4-shift-rule254-slide">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
-<h2 id="Classify-behaviour-when-enumeration-fails">Classify behaviour when enumeration fails<a class="anchor-link" href="#Classify-behaviour-when-enumeration-fails">¶</a></h2><div class="two-panel equal-panels compact-panels">
-<div class="image-panel"><img alt="Examples of the four Wolfram behaviour classes" src="images/All_classes.png" style="max-height:420px"/></div>
+<h2 id="Shift-versus-Rule-254">Shift versus Rule 254<a class="anchor-link" href="#Shift-versus-Rule-254">¶</a></h2><div class="two-panel equal-panels compact-panels">
 <div class="text-panel">
-<p><strong>Class 1:</strong> approaches a uniform state.</p>
-<p><strong>Class 2:</strong> settles into fixed or periodic structures.</p>
-<p><strong>Class 3:</strong> produces persistent irregularity.</p>
-<p><strong>Class 4:</strong> supports long-lived local structures and interactions.</p>
+<h3>Periodic shift</h3>
+<p>Every old cell moves to exactly one new site.</p>
+<p>The opposite shift is an inverse, so the global map is one-to-one and onto.</p>
+<p>An open boundary can instead discard information.</p>
+</div>
+<div class="text-panel">
+<h3>Rule 254</h3>
+<p>The output is zero only for neighbourhood 000.</p>
+<p>All ones and ones containing one isolated zero both map to all ones.</p>
+<p>Distinct histories merge, so the rule is irreversible.</p>
 </div>
 </div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=damage-080a2acf">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="C.-Elementary-CA-%C2%B7-damage-spreading">C. Elementary CA · damage spreading<a class="anchor-link" href="#C.-Elementary-CA-%C2%B7-damage-spreading">¶</a></h2><div class="two-panel wide-left compact-panels">
+<div class="image-panel"><img alt="Damage spreading under elementary cellular automata Rules 0, 90 and 30" src="images/eca_damage_spreading.svg" style="max-height:410px"/></div>
+<div class="text-panel">
+<p>Run the same rule from two states that differ at one cell.</p>
+<p>The difference may disappear, propagate regularly, or spread irregularly.</p>
+<p><strong>Question:</strong> does a microscopic perturbation remain local or alter the macroscopic future?</p>
+</div>
+</div>
+<div class="ladder-marker"><img alt="Ladder of abstraction" src="images/ladder_marker.svg"/><span><strong>Down the ladder:</strong> change one cell. <strong>Up the ladder:</strong> track the fraction of cells whose futures differ.</span></div>
 </div>
 </div>
 </div>
@@ -9118,12 +9213,15 @@ details.reader-answer > div {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
-<h2 id="Coarse-grain-the-Game-of-Life">Coarse-grain the Game of Life<a class="anchor-link" href="#Coarse-grain-the-Game-of-Life">¶</a></h2><p>Let $p_t$ be the fraction of cells alive at time $t$. If neighbours were independent, the probability of exactly $k$ live neighbours would be binomial. A mean-field update is</p>
-<p>$$
-p_{t+1}=(1-p_t)\binom83p_t^3(1-p_t)^5
-+p_t\!\left[\binom82p_t^2(1-p_t)^6+\binom83p_t^3(1-p_t)^5\right].
-$$</p>
-<p>The spatial grid has been replaced by one average density.</p>
+<h2 id="D.-Game-of-Life-%C2%B7-mean-field-approximation">D. Game of Life · mean-field approximation<a class="anchor-link" href="#D.-Game-of-Life-%C2%B7-mean-field-approximation">¶</a></h2><div class="two-panel equal-panels compact-panels">
+<div class="image-panel"><img alt="A Game of Life configuration replaced by its live-cell density" src="images/GoL_meanfield.png" style="max-height:350px"/></div>
+<div class="text-panel">
+<p>Replace the complete arrangement by one number: the fraction $p_t$ of cells alive.</p>
+<p>This is useful when the question concerns average occupancy or a rapid population-level approximation.</p>
+<p>It is most plausible when spatial correlations are weak; it cannot retain gliders, oscillators or collisions.</p>
+</div>
+</div>
+<div class="ladder-marker"><img alt="Ladder of abstraction" src="images/ladder_marker.svg"/><span><strong>Up the ladder over cells:</strong> discard positions and retain the population density.</span></div>
 </div>
 </div>
 </div>
@@ -9134,15 +9232,17 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
-<h2 id="What-did-the-average-remove?">What did the average remove?<a class="anchor-link" href="#What-did-the-average-remove?">¶</a></h2><div class="two-panel equal-panels compact-panels">
-<div class="image-panel"><img alt="Mean-field approximation compared with Game of Life simulation" src="images/GoL_meanfield.png" style="max-height:390px"/></div>
-<div class="text-panel">
-<p>The approximation can describe a population-level tendency.</p>
-<p>It cannot represent gliders, oscillators, collisions or spatial correlations.</p>
-<p>Coarse-graining is useful only when the discarded structure is not needed for the question.</p>
-</div>
-</div>
-<div class="ladder-marker"><img alt="Ladder of abstraction" src="images/ladder_marker.svg"/><span><strong>Up the ladder over cells:</strong> replace the configuration with an average. <strong>Down:</strong> return to local structure when the average fails.</span></div>
+<h2 id="Derive-the-mean-field-map">Derive the mean-field map<a class="anchor-link" href="#Derive-the-mean-field-map">¶</a></h2><p>For one randomly selected focal cell,</p>
+<p>$$
+\rho_{t+1}
+=\underbrace{(1-\rho_t)\Pr(K=3)}_{\text{dead, then born}}
++\underbrace{\rho_t\big[\Pr(K=2)+\Pr(K=3)\big]}_{\text{alive, then survives}},
+$$</p>
+<p>where $K\sim\operatorname{Binomial}(8,\rho_t)$. Independence lets us multiply the focal-state probability by the neighbourhood probability.</p>
+<p>$$
+\rho_{t+1}=28\rho_t^3(1-\rho_t)^5(3-\rho_t).
+$$</p>
+<div class="discussion-marker"><img alt="Discussion prompt" src="images/discussion_marker.svg"/><span>When would average density answer the question, and when would the discarded spatial arrangement be essential?</span></div>
 </div>
 </div>
 </div>
@@ -9161,7 +9261,26 @@ $$</p>
 </div>
 </div>
 </div>
-</aside><aside class="notes">
+</aside></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w4-lenia-slide">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h1 id="Beyond-binary-cells-%C2%B7-Lenia">Beyond binary cells · Lenia<a class="anchor-link" href="#Beyond-binary-cells-%C2%B7-Lenia">¶</a></h1><div class="two-panel wide-left compact-panels">
+<div class="image-panel"><iframe allowfullscreen="" src="https://www.youtube.com/embed/iE46jKYcI4Y" style="width:100%; height:350px; border:0;" title="Lenia: Mathematical Life Forms"></iframe></div>
+<div class="text-panel">
+<p>Lenia generalises cellular automata using continuous states, space and time.</p>
+<p>Its local rules support moving, deforming and self-organising forms that resemble microscopic organisms.</p>
+<p>The extension changes the representation, but preserves the central question: what system-level behaviour can emerge from repeated local interaction?</p>
+</div>
+</div>
+<p class="media-credit">Bert Wang-Chak Chan, <a href="https://www.youtube.com/watch?v=iE46jKYcI4Y">“Lenia: Mathematical Life Forms”</a> (2018).</p>
+</div>
+</div>
+</div>
+</div><aside class="notes">
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b3c05bd4-616d-4bf8-8595-8655b59de4e0">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -9244,8 +9363,7 @@ $V−E+F=0$ in the infinite tiling limit leads to the same constraint.)</p>
 </div>
 </div>
 </div>
-</aside><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_hide-input celltag_hide-output" id="cell-id=3aa63567-b0df-42e4-86dc-3da79a62914b">
-</div><aside class="notes">
+</aside><aside class="notes">
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=dd88a58c-d6c1-47d6-8ca8-06eb935d0f94">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -9253,9 +9371,11 @@ $V−E+F=0$ in the infinite tiling limit leads to the same constraint.)</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_remove-cell celltag_presenter-notes" data-mime-type="text/markdown">
 <div style="background-color: #ffff88; padding: 1em; border-left: 5px solid #fff102;">
-<p>Demonstrate for Rule 254.</p>
-<p>Can check state-transition diagram if configurations can be enumerated. It is clear from small $L$ that there are states in the state-transition diagram that have multiple inputs. This is sufficient to state that the rule is irreversible.</p>
-<p>More generally, it is clear that any configuration that doesn’t contain 000 anywhere will map to all 1s.</p>
+<p>For a small finite world, draw the complete state-transition graph and compare two questions:</p>
+<ol>
+<li>Does the graph contain a loop? It must contain at least one.</li>
+<li>Does every node have exactly one incoming edge? Only then is the finite global update reversible.</li>
+</ol>
 </div>
 </div>
 </div>
