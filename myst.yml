@@ -20,6 +20,24 @@ project:
       children:
         - file: notebooks/week04/Slides.md
         - file: notebooks/week04/WS_Cellular_automata.ipynb
+    - file: notebooks/week05/L_ABM.ipynb
+      children:
+        - file: notebooks/week05/Slides.md
+    - file: notebooks/week06/L_Synchronisation.ipynb
+      children:
+        - file: notebooks/week06/Slides.md
+    - file: notebooks/week07/L_Intelligent_systems.ipynb
+      children:
+        - file: notebooks/week07/Slides.md
+    - file: notebooks/week08/L_Critical_phenomena.ipynb
+      children:
+        - file: notebooks/week08/Slides.md
+    - file: notebooks/week09/L_InformationTheory.ipynb
+      children:
+        - file: notebooks/week09/Slides.md
+    - file: notebooks/week10/L_Game_theory.ipynb
+      children:
+        - file: notebooks/week10/Slides.md
 site:
   options:
     folders: true
