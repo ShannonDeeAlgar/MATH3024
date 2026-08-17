@@ -39,3 +39,25 @@ for SOURCE_ROOT in notebooks/week*; do
 
     echo "Slides staged for $WEEK at: $SLIDE_ROOT"
 done
+
+# Fail the build if a Reader slide page and its deployed deck drift apart.
+# This catches missing weeks, filename changes, and links that accidentally
+# omit the /MATH3024 site prefix before GitHub Pages is published.
+for SLIDES_PAGE in notebooks/week*/Slides.md; do
+    [[ -f "$SLIDES_PAGE" ]] || continue
+    WEEK="$(basename "$(dirname "$SLIDES_PAGE")")"
+    EXPECTED_PREFIX="https://shannondeealgar.github.io/MATH3024/slides/$WEEK/"
+    LINK="$(sed -n 's/.*href="\([^"]*\.slides\.html\)".*/\1/p' "$SLIDES_PAGE" | head -n 1)"
+
+    if [[ -z "$LINK" || "$LINK" != "$EXPECTED_PREFIX"* ]]; then
+        echo "Invalid slide link in $SLIDES_PAGE: ${LINK:-<missing>}" >&2
+        echo "Expected a link beginning with $EXPECTED_PREFIX" >&2
+        exit 1
+    fi
+
+    DECK="${LINK##*/}"
+    if [[ ! -f "$SITE_ROOT/slides/$WEEK/$DECK" ]]; then
+        echo "Slide link target was not staged: $SITE_ROOT/slides/$WEEK/$DECK" >&2
+        exit 1
+    fi
+done
