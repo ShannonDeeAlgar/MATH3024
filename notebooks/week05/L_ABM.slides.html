@@ -6,7 +6,7 @@
 <meta content="yes" name="apple-mobile-web-app-capable"/>
 <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
 <title>L_ABM slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
-  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.0/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script>
 <!-- General and theme style sheets -->
@@ -7430,625 +7430,1668 @@ main {
     </script>
 <!-- End of mathjax configuration --><!-- Reveal Theme -->
 <link href="https://unpkg.com/reveal.js@4.0.2/dist/theme/simple.css" id="theme" rel="stylesheet"/>
+<style>
+/* Injected by inject_slide_styles.py -- keeps slide styling in
+   sync with style.css. Do not edit directly. */
+.jp-MarkdownOutput h1,
+.jp-MarkdownOutput h2,
+.jp-MarkdownOutput h3,
+.jp-MarkdownOutput h4,
+.jp-MarkdownOutput h5,
+.jp-MarkdownOutput h6 {
+  font-family: Baskerville, Georgia, serif;
+  font-style: italic;
+  font-weight: 700;
+  color: var(--reader-ink, #1B2A4C);
+}
+
+.jp-MarkdownOutput p,
+.jp-MarkdownOutput li,
+.jp-MarkdownOutput blockquote {
+  font-family: Baskerville, Georgia, serif;
+}
+
+.reader-voice {
+  display: grid;
+  grid-template-columns: 1.05em minmax(0, 1fr);
+  column-gap: 0.65em;
+  border: 0;
+  padding: 0;
+  margin: 1.25em 0 1.5em;
+  color: var(--reader-ink, #1B2A4C);
+}
+
+.reader-voice::before {
+  content: "“";
+  grid-column: 1;
+  grid-row: 1 / 3;
+  align-self: stretch;
+  display: flex;
+  align-items: flex-start;
+  height: auto;
+  margin: 0;
+  color: var(--reader-ink-soft, #5A6685);
+  font-family: Baskerville, Georgia, serif;
+  font-size: 3.4em;
+  line-height: 0.72;
+}
+
+.reader-voice-quote {
+  grid-column: 2;
+  font-style: normal;
+  font-family: Baskerville, Georgia, serif;
+  font-size: 1.15em;
+  line-height: 1.28;
+}
+
+.reader-voice-quote::after {
+  content: "”";
+  display: inline;
+  margin-left: 0.2em;
+  color: var(--reader-ink-soft, #5A6685);
+  font-family: Baskerville, Georgia, serif;
+  font-size: 1.7em;
+  line-height: 0;
+  vertical-align: -0.14em;
+}
+
+.reader-voice-attr {
+  grid-column: 2;
+  display: table;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.74em;
+  letter-spacing: 0.06em;
+  color: var(--reader-ink-soft, #5A6685);
+  margin-top: 0.85em;
+  padding-top: 0.55em;
+  border-top: 1px solid var(--reader-line, #C7CEDC);
+  text-align: left;
+}
+
+.reader-voice-attr a {
+  color: var(--reader-ink-soft, #5A6685);
+}
+
+.reader-prompt {
+  position: relative;
+  border: 0;
+  border-left: 2px solid var(--reader-line, #C7CEDC);
+  padding: 0.15em 0 0.15em 3.2em;
+  margin: 1.1em 0;
+  color: var(--reader-ink, #1B2A4C);
+}
+
+.reader-prompt::before {
+  content: "→";
+  position: absolute;
+  left: 0.65em;
+  top: 50%;
+  width: 1.45em;
+  height: 1.45em;
+  transform: translateY(-50%);
+  border: 0;
+  display: grid;
+  place-items: center;
+  font-family: Baskerville, Georgia, serif;
+  font-size: 1.05em;
+  font-style: normal;
+}
+
+.reader-prompt a {
+  color: var(--reader-ink, #1B2A4C);
+}
+
+.reader-prompt-label {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.62em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.35em;
+  color: var(--reader-ink-soft, #5A6685);
+}
+
+.reader-prompt-body {
+  font-family: Baskerville, Georgia, serif;
+  font-size: 1em;
+  font-style: normal;
+  line-height: 1.38;
+}
+
+.reader-prompt-body.italic {
+  font-style: normal;
+}
+
+.jp-MarkdownOutput summary.myst-dropdown-header,
+.jp-MarkdownOutput .myst-dropdown-header-title {
+  font-family: Baskerville, Georgia, serif;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.reader-prompt-footnote {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.68em;
+  color: var(--reader-ink-soft, #5A6685);
+  margin-top: 1em;
+  padding-top: 0.2em;
+  border-top: 0;
+}
+
+.reader-prompt-footnote a {
+  color: var(--reader-ink-soft, #5A6685);
+}
+
+.reader-emphasis {
+  border-top: 1px solid var(--reader-line, #C7CEDC);
+  border-bottom: 1px solid var(--reader-line, #C7CEDC);
+  padding: 1em;
+  margin: 2em 0;
+  text-align: center;
+}
+
+.reader-emphasis p {
+  font-family: Baskerville, Georgia, serif;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 1.3em;
+  color: var(--reader-ink, #1B2A4C);
+  margin: 0;
+}
+
+.reader-route {
+  border-left: 1px solid var(--reader-ink, #1B2A4C);
+  padding: 0.25em 0 0.25em 1em;
+  margin: 1.5em 0 2em;
+}
+
+.reader-route-label {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.7em;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--reader-ink-soft, #5A6685);
+  margin-bottom: 0.45em;
+}
+
+.reader-route-body {
+  font-family: Baskerville, Georgia, serif;
+  color: var(--reader-ink, #1B2A4C);
+}
+
+.country-map {
+  display: block;
+  max-height: 430px;
+  width: auto;
+  margin: 0.35em auto 0.6em;
+}
+
+.country-slide-grid {
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.65fr);
+}
+
+.country-slide-grid .country-map {
+  width: 100%;
+  max-height: 470px;
+  object-fit: contain;
+}
+
+.country-map-large {
+  display: block;
+  width: 96% !important;
+  max-height: 505px !important;
+  object-fit: contain;
+  margin: 0 auto !important;
+}
+
+.group-slide-grid {
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 0.75fr);
+  align-items: center;
+}
+
+.group-slide-grid .group-photo {
+  width: 100%;
+  max-height: 475px;
+  object-fit: cover;
+  object-position: center;
+  margin: 0 auto;
+}
+
+.group-slide-grid .group-logo {
+  width: 100%;
+  max-height: 245px;
+  object-fit: contain;
+  margin: 0 auto 0.75em;
+}
+
+.figure-reference,
+.figure-caption,
+figcaption {
+  margin-top: 0.45em;
+  color: var(--reader-ink-soft, #5A6685);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.62em;
+  line-height: 1.25;
+}
+
+.unit-essentials {
+  width: 78%;
+  margin: 0.5em auto;
+}
+
+.unit-essentials > div {
+  display: grid;
+  grid-template-columns: 8em 1fr;
+  gap: 1em;
+  padding: 0.34em 0;
+  border-bottom: 1px solid var(--reader-line, #C7CEDC);
+}
+
+.unit-essentials span {
+  text-align: right;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.64em;
+  color: var(--reader-ink-soft, #5A6685);
+}
+
+.unit-essentials strong {
+  text-align: left;
+  font-weight: 400;
+}
+
+.model-specification {
+  margin-top: 0.55em;
+}
+
+.model-specification > div {
+  display: grid;
+  grid-template-columns: 10.5em 1fr;
+  gap: 0.8em;
+  padding: 0.25em 0;
+  border-bottom: 1px solid var(--reader-line, #C7CEDC);
+  font-size: 0.86em;
+}
+
+.model-specification strong { text-align: right; }
+
+.aggregate-definitions { margin-top: 0.35em; }
+
+.aggregate-definitions > div {
+  display: grid;
+  grid-template-columns: 10.5em minmax(0, 1fr);
+  align-items: center;
+  gap: 0.9em;
+  padding: 0.38em 0;
+  border-bottom: 1px solid var(--reader-line, #C7CEDC);
+}
+
+.aggregate-definitions strong { text-align: right; }
+
+.aggregate-definitions p { margin: 0; }
+
+.parameter-outcomes-layout { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); }
+
+.article .choice-marker img,
+.article .discussion-marker img { max-width: 36px !important; }
+
+.article .ladder-marker img { max-width: 30px !important; }
+
+.process-note {
+  margin-top: 0.8em;
+  color: var(--reader-ink-soft, #5A6685);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.62em;
+}
+
+.system-title span {
+  display: inline;
+  margin-left: 0.28em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.48em;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.025em;
+  color: var(--reader-ink-soft, #5A6685);
+}
+
+.system-title span::before { content: ": "; }
+
+.planet-process { display: block; }
+
+.process-sequence { max-width: 49em; }
+
+.process-step {
+  display: grid;
+  grid-template-columns: 1.7em 1fr;
+  gap: 0.55em;
+  align-items: start;
+  margin: 0.08em 0;
+}
+
+.process-step > span {
+  width: 1.45em;
+  height: 1.45em;
+  border: 1px solid var(--reader-ink, #1B2A4C);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.7em;
+}
+
+.process-step p { margin: 0; font-size: 0.72em; line-height: 1.16; }
+
+.process-step.qed { margin-top: 0.28em; padding-top: 0.28em; border-top: 1px solid var(--reader-line, #C7CEDC); }
+
+.variable-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.28em 0.9em;
+  margin-top: 0.45em;
+  padding-top: 0.38em;
+  border-top: 1px solid var(--reader-line, #C7CEDC);
+  color: var(--reader-ink-soft, #5A6685);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.46em;
+  line-height: 1.25;
+}
+
+.variable-strip strong { grid-column: 1 / -1; text-transform: uppercase; letter-spacing: 0.08em; }
+
+.analysis-perspectives {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
+  margin: 0.75em 0;
+}
+
+.analysis-perspectives.three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.analysis-perspectives.four {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.analysis-perspectives.three img,
+.analysis-perspectives.four img {
+  display: block;
+  width: 100%;
+  height: 9rem;
+  object-fit: cover;
+  margin: 0 0 0.6rem;
+}
+
+.analysis-perspectives.three,
+  .analysis-perspectives.four {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+.analysis-perspectives > div {
+  border: 1px solid var(--reader-line, #C7CEDC);
+  padding: 0.58em 0.64em;
+}
+
+.analysis-perspectives strong {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.68em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.analysis-perspectives p { font-size: 0.76em; line-height: 1.22; margin: 0.3em 0; }
+
+.analysis-perspectives.ensemble-comparison > div {
+  min-height: 0;
+  padding: 0.62em 0.72em;
+}
+
+.analysis-perspectives.ensemble-comparison p {
+  margin: 0.35em 0 0;
+  font-size: 0.75em;
+  line-height: 1.2;
+}
+
+.meaning-panel ul,
+.evidence-layout .meaning-panel ul {
+  margin: 0.2em 0 0.55em;
+  padding-left: 1.1em;
+}
+
+.meaning-panel li,
+.evidence-layout .meaning-panel li {
+  padding-left: 0.08em;
+  margin: 0.2em 0;
+}
+
+.group-caption {
+  text-align: center;
+  margin-top: 0.35em;
+  font-family: Baskerville, Georgia, serif;
+  font-size: 1em;
+  line-height: 1.25;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.country-acknowledgement {
+  max-width: 46em;
+  margin: 0.5em auto;
+  text-align: left;
+  font-family: Baskerville, Georgia, serif;
+  color: var(--reader-ink, #1B2A4C);
+}
+
+.slide-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 1.6em;
+  align-items: center;
+  text-align: left;
+}
+
+.slide-columns .column-image {
+  display: block;
+  width: 100%;
+  max-height: 430px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.assumption-reveal {
+  position: relative;
+  border: 1px solid var(--reader-line, #C7CEDC);
+  margin-top: 1em;
+  padding: 0.7em 0.9em 0.7em 4em;
+  color: var(--reader-ink, #1B2A4C);
+}
+
+.assumption-reveal::before {
+  content: "";
+  position: absolute;
+  left: 0.8em;
+  top: 0.75em;
+  width: 2.25em;
+  height: 2.25em;
+  background: center / contain no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%231b2a4c' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 48C24 46 27 38 31 31C35 23 41 17 53 16M31 31C38 35 44 41 51 50'/%3E%3Ccircle cx='12' cy='48' r='5' fill='%231b2a4c'/%3E%3Ccircle cx='53' cy='16' r='5'/%3E%3Ccircle cx='51' cy='50' r='5'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.choice-marker {
+  display: flex;
+  align-items: center;
+  gap: 0.55em;
+  margin: 0.65em 0;
+  color: var(--reader-ink-soft, #5A6685);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.62em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.choice-marker img { width: 34px !important; height: 34px !important; margin: 0 !important; }
+
+.discussion-marker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0.15rem 0 0.55rem;
+  color: var(--reader-ink, #1B2A4C);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.62em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.discussion-marker img { width: 36px !important; height: 36px !important; margin: 0 !important; }
+
+details.reader-answer {
+  margin: 0.8rem 0 1.2rem 3.2rem;
+  border: 1px solid #c7cedc;
+  border-radius: 6px;
+  background: var(--pst-color-surface, #f7f8fa);
+  font-family: var(--pst-font-family-base);
+}
+
+details.reader-answer summary {
+  cursor: pointer;
+  padding: 0.7rem 1rem;
+  color: #1d315b;
+  font-family: var(--pst-font-family-base);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+details.reader-answer > div {
+  padding: 0 1rem 0.9rem;
+}
+
+.discussion-prompt { border-left-color: #EDCC55; }
+
+.qa-grid { margin-top: 0.55em; }
+
+.qa-row {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  gap: 1.1em;
+  align-items: start;
+  padding: 0.42em 0;
+  border-bottom: 1px solid var(--reader-line, #C7CEDC);
+}
+
+.qa-question { text-align: right; font-weight: 700; }
+
+.qa-answer { color: var(--reader-ink, #1B2A4C); }
+
+.qa-row p { margin: 0; font-size: 0.82em; line-height: 1.24; }
+
+.initialisation-layout { grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr); gap: 1em; }
+
+.initialisation-layout .qa-row { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); }
+
+.initialisation-layout .column-image { max-height: 330px; }
+
+.schelling-embed div[style*="padding-bottom"] {
+  padding-bottom: 34% !important;
+}
+
+.schelling-embed {
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto 0.75em;
+}
+
+.schelling-embed > div,
+.schelling-embed > div > div[style*="padding-bottom"],
+.schelling-embed > div iframe {
+  width: 100% !important;
+  height: 215px !important;
+  padding-bottom: 0 !important;
+}
+
+.reveal .schelling-embed,
+.reveal .schelling-embed iframe {
+  width: 74% !important;
+  height: 285px !important;
+  margin-inline: auto;
+}
+
+.evidence-layout {
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 1.25em;
+  align-items: stretch;
+}
+
+.evidence-panel,
+.meaning-panel {
+  border: 1px solid var(--reader-line, #C7CEDC);
+  padding: 0.58em 0.64em;
+  min-width: 0;
+  align-self: stretch;
+}
+
+.evidence-panel img {
+  display: block;
+  width: 100%;
+  max-height: 430px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.meaning-panel > img {
+  display: block;
+  width: 100%;
+  height: 135px;
+  object-fit: contain;
+  margin: 0 auto 0.35em;
+}
+
+.evidence-panel p,
+.meaning-panel p,
+.meaning-panel li {
+  font-size: 0.76em;
+  line-height: 1.22;
+}
+
+.evidence-panel > strong,
+.meaning-panel > strong {
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.68em;
+  line-height: 1.15;
+  min-height: 2.3em;
+  margin: 0.25em 0;
+}
+
+.article .reader-figure {
+  width: min(100%, 620px);
+  margin: 1.2rem auto;
+}
+
+.article .reader-figure.reader-figure-small {
+  width: min(100%, 360px);
+}
+
+.article .reader-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+.jp-MarkdownOutput table.standard-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Baskerville, Georgia, serif;
+  font-size: 0.95rem;
+  line-height: 1.3;
+}
+
+.reveal .slides table,
+.reveal .slides .model-specification,
+.reveal .slides .qa-grid {
+  font-size: 0.68em;
+  line-height: 1.16;
+}
+
+.reveal .slides .analysis-perspectives.three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.65em;
+}
+
+.reveal .slides .two-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0.8em;
+  align-items: center;
+  width: 100%;
+}
+
+.reveal .slides .two-panel.wide-left {
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
+}
+
+.reveal .slides .two-panel > *,
+.reveal .slides .three-panel > * { min-width: 0; }
+
+.reveal .slides .two-panel .image-panel,
+.reveal .slides .three-panel .image-panel,
+.reveal .slides .two-panel .text-panel,
+.reveal .slides .three-panel .text-panel {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.reveal .slides .two-panel .image-panel img,
+.reveal .slides .three-panel .image-panel img {
+  display: block;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.reveal .slides .model-specification > div {
+  grid-template-columns: minmax(8.5em, 0.72fr) minmax(0, 1.6fr);
+  font-size: 1em;
+  padding: 0.28em 0;
+}
+
+.reveal .slides .model-specification strong {
+  text-align: left;
+}
+
+.ladder-marker {
+  display: flex;
+  align-items: center;
+  gap: 0.65em;
+  border-top: 1px solid var(--reader-line, #C7CEDC);
+  margin-top: 0.8em;
+  padding-top: 0.55em;
+  color: var(--reader-ink-soft, #5A6685);
+  font-family: Baskerville, Georgia, serif;
+  font-size: 0.68em;
+}
+
+.ladder-marker img {
+  width: 30px !important;
+  height: 40px !important;
+  margin: 0 !important;
+  flex: 0 0 auto;
+}
+
+.reveal section:has(.transfer-slide) h1 {
+  font-size: 2.65em;
+  margin-bottom: 0.05em;
+}
+
+.reveal section:has(.transfer-slide) h2 {
+  font-size: 1.45em;
+  margin: 0 0 0.35em;
+}
+
+.reveal section:has(.transfer-slide) p,
+.reveal section:has(.transfer-slide) li {
+  font-size: 0.9em;
+  line-height: 1.25;
+}
+
+.reveal section:has(.transfer-slide) .ladder-marker {
+  margin-top: 0.45em;
+  padding-top: 0.35em;
+}
+
+.schelling-interactive {
+  display: block;
+  width: 100%;
+  height: 475px;
+  margin: 0 auto;
+  border: 0;
+}
+
+.schelling-interactive.compact-simulation {
+  width: 88%;
+  height: 350px;
+}
+
+.reader-event-layout .evidence-panel > img {
+  width: min(100%, 420px);
+  margin-inline: auto;
+}
+
+.simulation-preview {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  margin: 0 auto;
+  border: 0;
+}
+
+.article .meaning-panel > img {
+  display: block;
+  width: 100%;
+  height: 135px;
+  object-fit: contain;
+  margin: 0 auto 0.35em;
+}
+
+.article .reader-map {
+  display: block;
+  width: min(100%, 900px);
+  height: auto !important;
+  object-fit: contain;
+  margin: 1rem auto 0.5rem;
+}
+
+.canonical-model-marker {
+  display: inline-flex;
+  gap: 0.55rem;
+  align-items: baseline;
+  max-width: 92%;
+  margin-top: 1rem;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid #aebbd0;
+  border-left: 5px solid #1b2a4c;
+  background: #f7f9fc;
+  color: #1b2a4c;
+  text-align: left;
+}
+
+.canonical-model-marker span {
+  font-family: Arial, sans-serif;
+  font-size: 0.5em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.canonical-model-marker strong {
+  font-family: Baskerville, Georgia, serif;
+  font-size: 0.76em;
+  line-height: 1.15;
+}
+
+.canonical-model-marker strong small {
+  display: block;
+  margin-top: 0.22em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.68em;
+  font-style: normal;
+  font-weight: 400;
+  color: var(--reader-ink-soft, #5D6D8D);
+}
+
+.modelling-practice-marker {
+  display: inline-flex;
+  gap: 0.55rem;
+  align-items: baseline;
+  max-width: 92%;
+  margin-top: 0.45rem;
+  padding: 0.48rem 0.85rem;
+  border: 1px solid #d4c178;
+  border-left: 5px solid #c89b19;
+  background: #fffaf0;
+  color: #1b2a4c;
+  text-align: left;
+}
+
+.modelling-practice-marker span {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.5em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.modelling-practice-marker strong {
+  font-family: Baskerville, Georgia, serif;
+  font-size: 0.76em;
+  line-height: 1.15;
+}
+
+.dark .modelling-practice-marker {
+  border-color: #8f7f49;
+  border-left-color: #edcc55;
+  background: #292615;
+  color: #f7f1df;
+}
+
+.jp-OutputArea-child:has(iframe) .jp-OutputPrompt,
+.jp-Cell-outputWrapper:has(iframe) .jp-OutputCollapser {
+  display: none;
+}
+
+.jp-Cell-outputWrapper:has(iframe) {
+  display: flex;
+  justify-content: center;
+}
+
+:root {
+  --jp-content-font-size1: 28px !important;
+  --reader-ink: #1B2A4C;
+  --reader-ink-soft: #5A6685;
+  --reader-line: #C7CEDC;
+}
+
+.reveal,
+.reveal .slides,
+.reveal .slides section {
+  background: #fff;
+  color: var(--reader-ink);
+}
+
+.reveal .jp-MarkdownOutput p,
+.reveal .jp-MarkdownOutput li,
+.reveal .jp-MarkdownOutput td,
+.reveal .jp-MarkdownOutput th {
+  font-family: Baskerville, Georgia, serif;
+  line-height: 1.28;
+}
+
+.reveal .slides section h1 {
+  font-size: 2.35em;
+  line-height: 1.05;
+}
+
+.reveal .slides section h2,
+.reveal .slides section h3,
+.reveal .slides section h4,
+.reveal .slides section h5 {
+  font-size: 1.45em;
+  line-height: 1.12;
+}
+
+.reveal .slides section h1,
+.reveal .slides section h2,
+.reveal .slides section h3,
+.reveal .slides section h4,
+.reveal .slides section h5 {
+  margin-top: 0;
+  margin-bottom: 0.55em;
+  color: var(--reader-ink);
+}
+
+.reveal .slides section h3,
+.reveal .slides section h4,
+.reveal .slides section h5 {
+  font-size: 1.15em;
+}
+
+.reveal .slides section a {
+  color: var(--reader-ink);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.12em;
+}
+
+/* Notebook anchor glyphs are useful in the Reader but are visual noise in a
+   presentation heading. */
+.reveal .slides section .anchor-link {
+  display: none !important;
+}
+
+/* Old notebooks contain a few inline or inherited sans-serif declarations.
+   Body copy follows the common lecture type system; sans serif is reserved
+   for captions, labels and compact annotations below. */
+.reveal .slides section .jp-MarkdownOutput > p,
+.reveal .slides section .jp-MarkdownOutput > ul,
+.reveal .slides section .jp-MarkdownOutput > ol,
+.reveal .slides section .jp-MarkdownOutput > div:not(.small-note):not(.figure-caption) {
+  font-family: Baskerville, Georgia, serif;
+}
+
+.reveal .slides section table {
+  border-collapse: collapse;
+  margin: 0.7em auto;
+  font-size: 0.68em;
+  line-height: 1.16;
+}
+
+.reveal .slides section th,
+.reveal .slides section td {
+  border-bottom: 1px solid var(--reader-line);
+  padding: 0.3em 0.55em;
+}
+
+.reveal .slides section tbody tr:nth-child(even) {
+  background: transparent;
+}
+
+.reveal .slides section .analysis-perspectives.three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.65em;
+}
+
+.reveal .slides section .coat-cards img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.reveal .slides section .coat-cards .coat-image-frame {
+  height: 230px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 0.25em;
+}
+
+.reveal .slides section .coat-cards > div {
+  padding: 0.42em 0.48em;
+}
+
+.reveal .slides section .coat-cards p {
+  margin: 0.18em 0;
+}
+
+.reveal .slides section .compact-panels .text-panel { padding: 0.45em 0.65em; }
+.reveal .slides section .compact-panels p { margin: 0; }
+.reveal .slides section .two-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0.8em;
+  align-items: center;
+  width: 100%;
+}
+.reveal .slides section .two-panel.wide-left {
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
+}
+.reveal .slides section .three-panel {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.65em;
+  align-items: stretch;
+  width: 100%;
+}
+.reveal .slides section .two-panel > *,
+.reveal .slides section .three-panel > * { min-width: 0; }
+.reveal .slides section .two-panel .image-panel,
+.reveal .slides section .three-panel .image-panel,
+.reveal .slides section .two-panel .text-panel,
+.reveal .slides section .three-panel .text-panel {
+  box-sizing: border-box;
+  width: 100%;
+}
+.reveal .slides section .two-panel .image-panel img,
+.reveal .slides section .three-panel .image-panel img {
+  display: block;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+}
+.reveal .slides section .small-note {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.62em;
+  line-height: 1.28;
+  color: var(--reader-ink-soft);
+}
+
+.reveal .slides section .canonical-model-marker strong small {
+  display: block;
+  margin-top: 0.22em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.68em;
+  font-style: normal;
+  font-weight: 400;
+  color: var(--reader-ink-soft);
+}
+
+.reveal .slides section figcaption,
+.reveal .slides section .figure-caption,
+.reveal .slides section p:has(> em:first-child:last-child) {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.58em;
+  line-height: 1.25;
+  color: var(--reader-ink-soft);
+}
+
+.reveal .slides section pre,
+.reveal .slides section code,
+.reveal .jp-CodeCell {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+
+.reveal .slides section img {
+  max-height: 350px;
+  width: auto;
+  height: auto;
+}
+</style>
 </head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 <main>
 <div class="reveal">
 <div class="slides"><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3301e6a8">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=title">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>We've already seen an agent-based model (ABM).</p>
-<p>In fact, we started this unit with one... Schelling segregation was one of the earliest agent-based models.</p>
-<p>Because what other options are there for modelling if we consider a system like this?!</p>
+<h1 id="Agent-based-modelling">Agent-based modelling<a class="anchor-link" href="#Agent-based-modelling">¶</a></h1><h2 id="MATH3024-%C2%B7-Week-5">MATH3024 · Week 5<a class="anchor-link" href="#MATH3024-%C2%B7-Week-5">¶</a></h2><div class="canonical-model-marker"><span>Canonical model</span><strong>Vicsek flocking model</strong></div>
+<div class="modelling-practice-marker"><span>Modelling practice</span><strong>Stochastic implementation and noise</strong></div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ecae3568">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="Collective-behaviour-without-a-conductor">Collective behaviour without a conductor<a class="anchor-link" href="#Collective-behaviour-without-a-conductor">¶</a></h1><div class="two-panel wide-left compact-panels">
+<div class="image-panel"><img alt="Thousands of spectators moving onto the field around Lance Franklin" src="images/franklin_crowd_1000.jpg"/></div>
+<div class="text-panel">
+<h3>A crowd becomes the event</h3>
+<p>When Lance Franklin kicked his 1000th AFL goal in 2022, thousands of spectators moved onto the SCG almost at once.</p>
+<p>No one specified every path. Individuals responded to the milestone, nearby people, gaps, barriers and the motion already under way.</p>
+<p><a href="https://www.afl.com.au/video/726376/extraordinary-angles-of-the-crowd-swarm?videoId=726376" rel="noopener" target="_blank">Watch the AFL crowd-swarm footage</a></p>
+</div>
+</div>
+<div class="discussion-marker"><img alt="Discussion prompt" src="images/discussion_marker.svg"/><span>What would we need to retain to model the crowd: every person, the density of people, or both?</span></div>
+<p class="media-credit">Image and video: AFL, “Extraordinary angles of the crowd swarm”, 25 March 2022.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1f6ad0d0">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="When-is-a-group-a-flock?">When is a group a flock?<a class="anchor-link" href="#When-is-a-group-a-flock?">¶</a></h2><div class="two-panel wide-left compact-panels">
+<div class="image-panel"><iframe allowfullscreen="" src="https://www.youtube.com/embed/V4f_1_r80RY" style="width:100%;height:330px;border:0;" title="A starling murmuration"></iframe></div>
+<div class="text-panel">
+<p>Everyday language treats the group as an entity:</p>
+<table class="collective-nouns">
+<thead><tr><th>Group</th><th>Animals</th></tr></thead>
+<tbody>
+<tr><td>flock</td><td>birds</td></tr>
+<tr><td>murmuration</td><td>starlings</td></tr>
+<tr><td>parliament</td><td>owls</td></tr>
+<tr><td>chatter</td><td>budgerigars</td></tr>
+</tbody>
+</table>
+<p>For modelling, the useful feature is locally ordered collective motion, not the species name.</p>
+</div>
+</div>
+<div class="discussion-marker"><img alt="Discussion prompt" src="images/discussion_marker.svg"/><span>How can a flock look like one object when no bird can observe the whole group?</span></div>
+<p class="media-credit">Video: National Geographic, “Flight of the Starlings”.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=85c04c15">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Budgerigars-in-the-outback">Budgerigars in the outback<a class="anchor-link" href="#Budgerigars-in-the-outback">¶</a></h2><div class="two-panel wide-left compact-panels">
+<div class="image-panel"><img alt="A large flock of budgerigars gathering at an outback water source" src="images/outback_budgies.jpg"/></div>
+<div class="text-panel">
+<p>After favourable rain, budgerigar populations can increase rapidly. As the country dries, many smaller flocks converge on scarce water and food.</p>
+<p>The visible flock is therefore shaped by local interaction <em>and</em> a changing environment. Collective motion is not produced by alignment alone.</p>
+<p><a href="https://www.abc.net.au/news/2021-08-01/bumper-budgie-season-red-centre/100338202" rel="noopener" target="_blank">Read the ABC account</a></p>
+</div>
+</div>
+<p class="media-credit">Photograph: ABC Alice Springs / Emma Haskin, 2021.</p>
 </div>
 </div>
 </div>
 </div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2ec318c8">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=712307a3">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Collective-behaviour">Collective behaviour<a class="anchor-link" href="#Collective-behaviour">¶</a></h1><p>When large numbers gather, unexpected and seemingly spontaneous events and behaviours can occur. This is a feature of many individuals responding to their local environment.</p>
-<p>With early roots in psychology, collective behaviour has had a role in explaining many destructive and negatively perceived events (e.g. contagion, collective conscious, groupthink, mob mentality and fads).</p>
-</div>
-</div>
-</div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell celltag_slides celltag_hide-input" id="cell-id=a34a64cb-ba76-405b-969f-97fdb871dced">
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<iframe allowfullscreen="" frameborder="0" height="300" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/HgM3W6gnJGg" width="400"></iframe>
-</div>
-</div>
-</div>
-</div>
-</div></div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3a0e64d1">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="Flocking">Flocking<a class="anchor-link" href="#Flocking">¶</a></h2><p>Some of the most impressive and well-known examples of collective motion are displayed by flocks of birds.</p>
-</div>
-</div>
-</div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell celltag_hide-input celltag_slides" id="cell-id=b3b7b833">
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
-<iframe allowfullscreen="" frameborder="0" height="300" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/V4f_1_r80RY" width="1000"></iframe>
-</div>
-</div>
-</div>
-</div>
-</div></div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ccbb95fc-983b-4178-be69-de4d72508b4f">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>Western Australia has a 'shoot to kill' order in place for starlings. Instead, we have budgies...</p>
-</div>
-</div>
-</div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell celltag_slides celltag_hide-input" id="cell-id=7e4f9530">
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[13]:</div>
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
-<iframe allowfullscreen="" frameborder="0" height="300" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/wyfCMrqitWI" width="1000"></iframe>
-</div>
-</div>
-</div>
-</div>
-</div></div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell celltag_slides celltag_hide-input" id="cell-id=565115d9">
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
-<iframe allowfullscreen="" frameborder="0" height="300" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/cUpGRQK7o78" width="1000"></iframe>
-</div>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4a056a6f-99c1-4ac2-8b77-1d7f64c3e7a6">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>(To most people) A <strong>flock</strong> is the collective noun for a group of birds but each species also has it's own:</p>
-<ul>
-<li>'murmuration' of starlings (<em>Sturnus vulgaris</em>)</li>
-<li>'parliament' of owls</li>
-<li>'chatter' of budgerigars etc...</li>
-</ul>
-</div>
-</div>
-</div>
-</div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=94fc452c">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>Mathematicians think slightly differently about this, typically considering a group to be a "flock" only when it is moving in concert with (at least) locally ordered collective motion.</p>
-</div>
-</div>
-</div>
-</div></div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b6131aa2">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Modelling-flocks">Modelling flocks<a class="anchor-link" href="#Modelling-flocks">¶</a></h1><p>The complexity of these systems is too great to be described by differential equations alone.</p>
-<p>But this isn't really the point...</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b738940f">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="Standard-model-examples">Standard model examples<a class="anchor-link" href="#Standard-model-examples">¶</a></h2><ul>
-<li>from a computer scientist: <a href="http://www.red3d.com/cwr/boids/">Craig Reynold's, 1987, boids</a></li>
-<li>from a physicist: <a href="https://www.complexity-explorables.org/explorables/horde-of-the-flies/">Vicsek, 1995</a></li>
-<li>from a biologist: <a href="https://www.complexity-explorables.org/explorables/flockn-roll">Couzin, 2002</a></li>
-</ul>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0877f96c">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>Batman Returns: 1992 Tim Burton was the first to use boids</p>
-<!-- The 1992 Tim Burton film Batman Returns was the first. It contained computer simulated bat swarms and penguin flocks which were created with modified versions of the original boids software developed at Symbolics. Andy Kopra (then at VIFX, which later merged with Rhythm & Hues) produced realistic imagery of bat swarms. Andrea Losch (then at Boss Films) and Paul Ashdown created animation of an "army" of penguins marching through the streets of Gotham City. See Craig Reynold's page: http://www.red3d.com/cwr/boids/-->
-</div>
-</div>
-</div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell celltag_slides celltag_hide-input" id="cell-id=9e4ef0bf">
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[15]:</div>
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
-<iframe allowfullscreen="" frameborder="0" height="300" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/Mo_1rAaj7FE" width="1000"></iframe>
-</div>
-</div>
-</div>
-</div>
-</div></div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=be068b80">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<div style="margin: 1.5em 0; border-right: 4px solid #888; padding-right: 1em; text-align: right;">
-<div style="font-style: italic; font-family: 'Comic Neue', 'Segoe Script', cursive; font-size: 1.2em;">
-    Bet you'll never look at birds the same way...  </div>
-<div style="font-style: normal; font-size: 0.95em; margin-top: 0.5em;">
-    — Jurassic Park
-  </div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell celltag_hide-input" id="cell-id=99fb8ddd">
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[16]:</div>
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
-<iframe allowfullscreen="" frameborder="0" height="300" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/lvBmrMEd254" width="1000"></iframe>
-</div>
-</div>
-</div>
-</div>
-</div></div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9cb3bc80">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Humans-are-another-story...">Humans are another story...<a class="anchor-link" href="#Humans-are-another-story...">¶</a></h1>
-</div>
-</div>
-</div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell celltag_hide-input celltag_slides" id="cell-id=90a5b55e">
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[17]:</div>
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
-<iframe allowfullscreen="" frameborder="0" height="300" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/LzjifmHavAQ" width="1000"></iframe>
-</div>
-</div>
-</div>
-</div>
-</div></div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c279711b">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="Some-explorables">Some explorables<a class="anchor-link" href="#Some-explorables">¶</a></h2><ul>
-<li>Pedestrians: <a href="https://www.complexity-explorables.org/explorables/the-walking-head/">The walking head</a></li>
-<li>Traffic: <a href="https://www.complexity-explorables.org/explorables/berlin-8-am/">Berlin 8:00AM</a></li>
-<li>Disease spread: <a href="https://www.complexity-explorables.org/explorables/i-herd-you/">I herd you</a></li>
-</ul>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=399e66e7">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only celltag_remove-cell" data-mime-type="text/markdown">
-<h1 id="Agent-based-modelling-(ABM)">Agent-based modelling (ABM)<a class="anchor-link" href="#Agent-based-modelling-(ABM)">¶</a></h1><ul>
-<li>general and open-ended</li>
-<li>flexible</li>
-<li>intuitive</li>
-</ul>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=21c249bc">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="To-create-a-model">To create a model<a class="anchor-link" href="#To-create-a-model">¶</a></h2><p>We need to define:</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2775f375">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h5 id="Takeaway">Takeaway<a class="anchor-link" href="#Takeaway">¶</a></h5><p>Individual motivations may cause something that <em>appears</em> cooperative at the group-level to emerge.</p>
-<p>But cooperation per se was not necessarily the objective...</p>
-</div>
-</div>
-</div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell celltag_hide-input" id="cell-id=428ec7f0">
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[18]:</div>
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
-<iframe allowfullscreen="" frameborder="0" height="300" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/ofeYisqfOO8" width="1000"></iframe>
-</div>
-</div>
-</div>
-</div>
-</div></div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b20b647a-f190-468b-bb7c-f9dcdf8aa1ed">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Vicsek-model">Vicsek model<a class="anchor-link" href="#Vicsek-model">¶</a></h1><div style="margin: 1.5em 0; border-right: 4px solid #888; padding-right: 1em; text-align: right;">
-<div style="font-style: italic; font-family: 'Comic Neue', 'Segoe Script', cursive; font-size: 1.2em;">
-...I had designed the moving version of the Heisenberg model.  </div>
-<div style="font-style: normal; font-size: 0.95em; margin-top: 0.5em;">
-    — Vicsek
-  </div>
-</div>
-<p>Quote from this wonderful article: <a href="https://doi.org/10.1038/529016a">The Physics of Life, Popkin, 2016</a></p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c3db8fe2-0b95-41cc-8d60-2e6a74a2c3d9">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h3 id="Ising-model">Ising model<a class="anchor-link" href="#Ising-model">¶</a></h3><p>A model of ferromagnetism in statistical mechanics.</p>
-<p><img alt="" src="images/Ising_quench_b10.gif"/></p>
-<p><a href="https://commons.wikimedia.org/w/index.php?curid=37327967">By HeMath - Own work, CC BY-SA 4.0, </a></p>
-</div>
-</div>
-</div>
-</div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=cd2fa4df-44e5-4c1c-ad97-543038c080fa">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>The model allows the identification of <strong>phase transitions</strong> as a simplified model of reality.</p>
-</div>
-</div>
-</div>
-</div></div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8f26e23c-14bb-43e0-9621-0f4dedf897b2">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h3 id="XY-model">XY model<a class="anchor-link" href="#XY-model">¶</a></h3><p>The XY model is a generalisation of the Ising model in which each spin can point in any direction within a plane, so its state is a continuous variable $\theta \in [0,2\pi)$.</p>
-<p><a href="https://www.complexity-explorables.org/explorables/if-you-ask-your-xy/">Complexity Explorable</a></p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=de1ef74e-9fe9-454d-a469-da179a47975e">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h3 id="Heisenberg-model">Heisenberg model<a class="anchor-link" href="#Heisenberg-model">¶</a></h3><p>The Heisenberg model is a further generalisation in which each spin can point in any direction in three-dimensional space. Its state is given by two continuous angles $(\theta, \phi)$ describing a point on the unit sphere $S^2$.</p>
-</div>
-</div>
-</div>
-</div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ea570144-82b1-4e33-98f7-6ae923650ff4">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>Inspired by the Heisenberg model, Vicsek and his team began to think about what it would mean for the spins in a ferromagnet to have the freedom to move (turning a static equilibrium spin model into a non-equilibrium model of collective motion).</p>
-</div>
-</div>
-</div>
-</div></div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fdba81b8-d55b-402c-a1dd-2099c582af02">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="Original-implementation">Original implementation<a class="anchor-link" href="#Original-implementation">¶</a></h2>
-</div>
-</div>
-</div>
-</div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=48108d64-c8ea-444e-b3d1-fb8b323561f6">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<ul>
-<li><p>New heading is the average heading plus a noise term:</p>
-<p>$$
-   \theta_i(t+\Delta t) = \langle \theta_i(t) \rangle_r + \Delta\theta_i
-   $$</p>
-<p>where $\Delta\theta_i \sim U[-\eta/2, \eta/2]$.</p>
-</li>
-<li><p>New position is given by:</p>
-<p>$$
-   \mathbf{x}_i(t+\Delta t) = \mathbf{x}_i(t) + \mathbf{v}_i(t)\,\Delta t
-   $$</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div></div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=83dd5c09-35f9-4f7d-a797-f67aa3e3647b">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h3 id="Qualitative-analysis">Qualitative analysis<a class="anchor-link" href="#Qualitative-analysis">¶</a></h3>
-</div>
-</div>
-</div>
-</div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=cc9a5abc-7370-4fbb-a494-2fd0c11c6f3f">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>The simulations are nice for our understanding but they are typically relegated to supplementary material in publications in favour of snapshots in time or trajectories, e.g.:</p>
-<p><img alt="" src="images/Vicsek_types_of_behaviour.png"/></p>
-<p>Fig from original <a href="https://journals.aps.org/prl/pdf/10.1103/PhysRevLett.75.1226">publication of Vicsek et al, 1995</a></p>
-</div>
-</div>
-</div>
-</div></div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e890f1a8-4a44-4057-bb7b-f809ced6b610">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h3 id="Quantitative-analysis">Quantitative analysis<a class="anchor-link" href="#Quantitative-analysis">¶</a></h3>
-</div>
-</div>
-</div>
-</div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=26f2de33-c67c-4484-9464-4ddeaa101910">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p><strong>Order parameters</strong> characterise how ordered the macroscopic state of the system is.</p>
-<p>In keeping with the spin-model analogy, the Vicsek model used the average normalised velocity as a <strong>polarisation order parameter</strong>, $\Phi$:</p>
-<p>$$
-\Phi = \frac{1}{Nv}\left| \sum_i^N \mathbf{v}_i \right|,
-$$</p>
-<p>where:</p>
-<ul>
-<li>$N$ is the number of agents</li>
-<li>$\mathbf{v}_i$ is the $i^\text{th}$ agent's velocity</li>
-<li>$v$ is the (constant) speed of all agents</li>
-</ul>
-</div>
-</div>
-</div>
-</div></div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=52e53ce1-2e9c-4e13-a6ab-ff7eb698b04d">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h4 id="Parameter-sweeps">Parameter sweeps<a class="anchor-link" href="#Parameter-sweeps">¶</a></h4>
-</div>
-</div>
-</div>
-</div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=46909168-2cb3-4f43-b8f6-a6998825ecb1">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p><img alt="" src="images/Vicsek_parameter_sweeps.jpeg"/></p>
-</div>
-</div>
-</div>
-</div></div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2b70e7cc-cd2a-41cc-9a07-175c7b2fbeb1">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>Vicsek varied each parameter separately. A more common approach nowadays is to address everything at once.</p>
-<p>Here Couzin computes two different order parameters (polarisation and rotation) and shows the mean of 30 replicates:</p>
-<p><img alt="" src="images/Couzin_phase_space.png"/></p>
-<p>Fig from <a href="https://www.sciencedirect.com/science/article/pii/S0022519302930651?via%3Dihub">Couzin et al, 2002</a></p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=155da580-c2fd-4c46-aaef-ed4d18cc851c">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>Another key difference in Couzin’s approach was to explore what happens without re-initialising the system when changing parameters between simulations. i.e., each new run began from the final state of the previous one.</p>
-<p>Under these conditions, interesting things can happen:</p>
-<p><img alt="" src="images/Couzin_hysteresis.jpeg"/></p>
-<p>This effect is called <strong>hysteresis</strong>. It means that the state of the system depends on its history.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f68a39cc-a607-49db-a011-834c4fd30c85">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h4 id="Ensemble-runs">Ensemble runs<a class="anchor-link" href="#Ensemble-runs">¶</a></h4><p>To properly demonstrate phase transitions we must show that they occur in general, because a single simulation doesn't tell you much (and may even be misleading).</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2a75c951-76a1-4e47-aaac-e1c683405c90">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>Different ways noise can be added in Vicsek-type models:</p>
-<table>
+<h1 id="Three-modelling-purposes">Three modelling purposes<a class="anchor-link" href="#Three-modelling-purposes">¶</a></h1><table>
 <thead>
 <tr>
-<th>Noise type</th>
-<th>What it means</th>
-<th>Typical equation (2D case)</th>
-<th>Notes</th>
+<th>Route</th>
+<th>Motivation</th>
+<th>What counts as success?</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Scalar (Intrinsic) noise</strong></td>
-<td>Each agent calculates the <em>perfect</em> average heading of its neighbours but moves in that direction with some error.</td>
-<td>$\theta_i(t+1) = \langle \theta(t) \rangle_r + \Delta\theta_i$ $\Delta\theta_i \sim U[-\eta/2, \eta/2]$</td>
-<td>Models imperfect execution of movement. Implemented in the original Vicsek model.</td>
+<td>A · Reynolds (1987)</td>
+<td>Computer graphics</td>
+<td>Local rules produce controllable, believable motion.</td>
 </tr>
 <tr>
-<td><strong>Angular Extrinsic noise</strong></td>
-<td>Each neighbour’s heading is computed with some error before computing the average heading.</td>
-<td>$\theta_i(t+1) = \big\langle \theta_j(t) + \Delta\theta_j \big\rangle_r$</td>
-<td>Represents errors in sensing/communication of neighbour directions.</td>
+<td>B · Vicsek et al. (1995)</td>
+<td>Statistical physics</td>
+<td>A minimal model exposes collective order and its transition.</td>
 </tr>
 <tr>
-<td><strong>Vectorial (Extrinsic) noise</strong></td>
-<td>Add a random vector to the average velocity vector before normalising.</td>
-<td>$\mathbf{v}_i(t+1) = v_0 \frac{\langle \mathbf{v}(t) \rangle_r + \boldsymbol{\xi}_i}{\|\langle \mathbf{v}(t) \rangle_r + \boldsymbol{\xi}_i\|}$ $\boldsymbol{\xi}_i$ = random vector with magnitude related to $\eta$</td>
-<td>Extends trivially to any spatial dimension because the noise is added in Cartesian components. Similar to scalar noise in that the agent “knows” the perfect average direction but the modelling assumption about where the error comes from is different.</td>
-</tr>
-<tr>
-<td><strong>Additive positional noise</strong></td>
-<td>Random displacement is added to the agent’s position after movement.</td>
-<td>$\mathbf{x}_i(t+1) = \mathbf{x}_i(t) + \mathbf{v}_i(t+1)\Delta t + \boldsymbol{\zeta}_i$</td>
-<td>Models environmental disturbances like turbulence or tracking error; does not directly affect heading. Also similar to vectorial noise - the difference is when and how the perturbation is applied in the update loop.</td>
-</tr>
-<tr>
-<td><strong>Noise in speed</strong></td>
-<td>Speed fluctuates randomly around a mean $v_0$.</td>
-<td>$v_i(t+1) = v_0 + \delta v_i$</td>
-<td>Captures agents whose propulsion is not perfectly constant (e.g., swimmers in a variable medium).</td>
+<td>C · Couzin et al. (2002)</td>
+<td>Behavioural biology</td>
+<td>Assumptions connect to observations, mechanisms and function.</td>
 </tr>
 </tbody>
 </table>
+<p>The question determines what the model retains and how it should be analysed. We use Vicsek because it isolates alignment and noise most simply.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f5635d9b">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="A-%C2%B7-Computer-graphics-%E2%80%94-Reynolds-(1987)">A · Computer graphics — Reynolds (1987)<a class="anchor-link" href="#A-%C2%B7-Computer-graphics-%E2%80%94-Reynolds-(1987)">¶</a></h2><div class="two-panel equal-panels compact-panels">
+<div class="image-panel"><iframe allowfullscreen="" src="https://www.youtube.com/embed/Mo_1rAaj7FE" style="width:100%;height:275px;border:0;" title="Boid-like swarm effects in Batman Returns"></iframe><p><em>Batman Returns</em> (1992): modified boid software was used for computer-generated bat swarms and marching penguins.</p></div>
+<div class="image-panel"><iframe allowfullscreen="" src="https://www.youtube.com/embed/lvBmrMEd254" style="width:100%;height:275px;border:0;" title="Bird flock scene from Jurassic Park"></iframe><p><em>Jurassic Park</em> (1993): “Bet you'll never look at birds the same way.” The scene turns flocking into a clue about extinct collective behaviour.</p></div>
+</div>
+<div class="discussion-marker"><img alt="Discussion prompt" src="images/discussion_marker.svg"/><span>Does reproducing the motion explain the biological mechanism—or only show that the chosen rules are sufficient?</span></div>
+<p class="media-credit">Boids history: Craig Reynolds, <a href="https://www.red3d.com/cwr/boids/" rel="noopener" target="_blank">Boids</a>. Film excerpts are used for teaching and commentary.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ising-to-vicsek">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
+<h2 id="B-%C2%B7-Statistical-physics-%E2%80%94-Vicsek-et-al.-(1995)">B · Statistical physics — Vicsek et al. (1995)<a class="anchor-link" href="#B-%C2%B7-Statistical-physics-%E2%80%94-Vicsek-et-al.-(1995)">¶</a></h2><div class="two-panel wide-left compact-panels">
+<div class="image-panel"><iframe src="https://www.complexity-explorables.org/explorables/i-sing-well-tempered/" style="width:100%;height:350px;border:1px solid #C7CEDC;" title="Ising model explorable"></iframe></div>
+<div class="text-panel">
+<h3>Ising model</h3>
+<p>Each fixed site carries a binary spin, sᵢ ∈ {−1,+1}.</p>
+<p>Neighbour agreement lowers the interaction energy; temperature disrupts alignment.</p>
+<p>The competition produces ordered and disordered phases.</p>
+<p><a href="https://www.complexity-explorables.org/explorables/i-sing-well-tempered/" rel="noopener" target="_blank">Open I Sing Well-Tempered</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=xy-model">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
+<h3 id="From-Ising-to-the-XY-model">From Ising to the XY model<a class="anchor-link" href="#From-Ising-to-the-XY-model">¶</a></h3><div class="two-panel wide-left compact-panels">
+<div class="image-panel"><iframe src="https://www.complexity-explorables.org/explorables/if-you-ask-your-xy/" style="width:100%;height:350px;border:1px solid #C7CEDC;" title="XY model explorable"></iframe></div>
+<div class="text-panel">
+<p>The <strong>XY model</strong> replaces each binary spin by a continuous angle θᵢ.</p>
+<p>Equivalently, each site stores the unit vector (cos θᵢ, sin θᵢ).</p>
+<p>Neighbouring orientations tend to align, while temperature introduces disorder. Continuous orientation also permits vortices.</p>
+<p><a href="https://www.complexity-explorables.org/explorables/if-you-ask-your-xy/" rel="noopener" target="_blank">Open If You Ask Your XY</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=moving-xy-vicsek">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
+<h3 id="Let-the-orientations-move">Let the orientations move<a class="anchor-link" href="#Let-the-orientations-move">¶</a></h3><div class="two-panel wide-left compact-panels">
+<div class="image-panel"><iframe src="https://www.complexity-explorables.org/explorables/horde-of-the-flies/" style="width:100%;height:350px;border:1px solid #C7CEDC;" title="Vicsek flocking explorable"></iframe></div>
+<div class="text-panel">
+<p>Vicsek gives every orientation a position and lets it move in the direction it points.</p>
+<p>Alignment is now local in physical space, so motion continually rewires the interaction network.</p>
+<p>With vanishing speed and a fixed neighbourhood, the heading dynamics become XY-like. The moving, noisy Vicsek model is nevertheless a non-equilibrium system, not simply the equilibrium XY model.</p>
+<p><a href="https://www.complexity-explorables.org/explorables/horde-of-the-flies/" rel="noopener" target="_blank">Open Horde of the Flies</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=31bbd79c">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
+<h3 id="A-moving-spin-model">A moving spin model<a class="anchor-link" href="#A-moving-spin-model">¶</a></h3><div class="reader-voice">
+<div class="reader-voice-quote">...I had designed the moving version of the Heisenberg model.</div>
+<div class="reader-voice-attr">Tamás Vicsek (2016)</div>
+</div>
+<p>Fixed orientations become self-propelled particles whose interaction partners change as they move.</p>
+<p class="media-credit">Vicsek, T. (2016), <a href="https://www.nature.com/articles/529016a">“Universality in non-equilibrium systems”</a>, <em>Nature</em> 529, 16–17.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fb01d09e">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="C-%C2%B7-Behavioural-biology-%E2%80%94-Couzin-et-al.-(2002)">C · Behavioural biology — Couzin et al. (2002)<a class="anchor-link" href="#C-%C2%B7-Behavioural-biology-%E2%80%94-Couzin-et-al.-(2002)">¶</a></h2><div class="two-panel wide-left compact-panels">
+<div class="image-panel"><iframe allowfullscreen="" src="https://www.youtube.com/embed/LzjifmHavAQ" style="width:100%;height:300px;border:0;" title="Self-organised traffic in Hanoi"></iframe></div>
+<div class="text-panel">
+<h3>Explain local decisions</h3>
+<p><strong>Model:</strong> repulsion, alignment and attraction encode behavioural hypotheses.</p>
+<p><strong>Test:</strong> compare predicted group shape, movement and sorting with observations.</p>
+<p>People and vehicles are also agents, but require different perception and decision rules.</p>
+</div>
+</div>
+<p class="media-credit">Video: Yoav Ben-Dov, “Self-organization in Hanoi traffic”.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fbe5ef0b">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Behavioural-and-applied-explorables">Behavioural and applied explorables<a class="anchor-link" href="#Behavioural-and-applied-explorables">¶</a></h3><ul>
+<li><a href="https://www.complexity-explorables.org/explorables/the-walking-head/">The Walking Head</a> — pedestrian motion and local avoidance.</li>
+<li><a href="https://www.complexity-explorables.org/explorables/berlin-8-am/">Berlin 8:00 AM</a> — traffic flow and congestion.</li>
+<li><a href="https://www.complexity-explorables.org/explorables/i-herd-you/">I Herd You</a> — collective decisions and social influence.</li>
+<li><a href="https://www.complexity-explorables.org/explorables/flockn-roll/">Flock'n Roll</a> — zones of repulsion, alignment and attraction.</li>
+</ul>
+<p>Each Explorable changes a different mechanism or setting. Use them to identify the agents, retained state, interaction network, environment and system-level behaviour.</p>
 </div>
 </div>
 </div>
 </div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=463fed5a-fc9c-4189-803b-6f14a5247cfe">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=abm-ingredients">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Improving-our-models">Improving our models<a class="anchor-link" href="#Improving-our-models">¶</a></h1>
+<h1 id="What-goes-into-an-agent-based-model?">What goes into an agent-based model?<a class="anchor-link" href="#What-goes-into-an-agent-based-model?">¶</a></h1><table>
+<thead>
+<tr>
+<th>Ingredient</th>
+<th>Question</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>World and state</td>
+<td>Where can agents exist, and what does each retain?</td>
+</tr>
+<tr>
+<td>Interaction network</td>
+<td>Who can affect whom?</td>
+</tr>
+<tr>
+<td>Dynamics and clock</td>
+<td>How and when are states updated?</td>
+</tr>
+<tr>
+<td>Observable</td>
+<td>What collective behaviour will be recorded?</td>
+</tr>
+</tbody>
+</table>
+<div class="choice-marker"><img alt="Modelling choice" src="images/choice_marker.svg"/><span>Initialisation, boundaries and random variation are part of these choices too.</span></div>
 </div>
 </div>
 </div>
-</div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c6d1f0b3-c2ff-445e-ac44-b313dd330797">
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=vicsek-intro">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p><img alt="" src="images/Cavagna_robust_to_attack.png"/></p>
+<h1 id="Build-the-Vicsek-model">Build the Vicsek model<a class="anchor-link" href="#Build-the-Vicsek-model">¶</a></h1><p>Vicsek and colleagues asked what happens when self-propelled particles align with nearby particles while noise perturbs their headings.</p>
+<ul>
+<li><strong>Retain:</strong> positions, headings, local neighbours and noise.</li>
+<li><strong>Remove:</strong> aerodynamics, body shape, vision, memory, leadership and attraction.</li>
+</ul>
+<p>The model isolates local alignment as a possible mechanism for collective motion.</p>
 </div>
 </div>
 </div>
-</div><aside class="notes">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f63487e9-56c7-49dc-a1d4-aa3721e0f79f">
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=vicsek-initialise">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_remove-cell celltag_presenter-notes" data-mime-type="text/markdown">
-<div style="background-color: #ffff88; padding: 1em; border-left: 5px solid #fff102;">
-<p>Stereoscopy involves capturing two simultaneous images of the same scene from different positions in space, then reconstructing the exact 3D position of each object. It’s the same principle our eyes and brain use to perceive depth. One major challenge is the correspondence problem, i.e. matching individuals in the two images. With the cameras positioned 25 metres apart and roughly 100 metres from the birds, the flock appears noticeably different from each viewpoint, making this matching non-trivial. This technology made it possible to compare models with real flocks quantitatively rather than just qualitatively. The results were striking: each bird was found to interact with a fixed number of neighbours — about seven — regardless of physical distance.</p>
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
+<h2 id="1.-Initialise-the-world">1. Initialise the world<a class="anchor-link" href="#1.-Initialise-the-world">¶</a></h2><table>
+<thead>
+<tr>
+<th>Ingredient</th>
+<th>Choice</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>World</td>
+<td>periodic square of side length $L$</td>
+</tr>
+<tr>
+<td>Agents</td>
+<td>$N$ point particles with positions $\mathbf x_i$</td>
+</tr>
+<tr>
+<td>Motion</td>
+<td>constant speed $v$ and heading $\theta_i$</td>
+</tr>
+<tr>
+<td>Initial state</td>
+<td>random positions and headings</td>
+</tr>
+</tbody>
+</table>
+<div class="discussion-marker"><img alt="Discussion prompt" src="images/discussion_marker.svg"/><span>Which quantities evolve, and which remain fixed?</span></div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=vicsek-neighbours">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
+<h2 id="2.-Define-the-interaction-network">2. Define the interaction network<a class="anchor-link" href="#2.-Define-the-interaction-network">¶</a></h2><p>$$\mathcal N_i(t)=\{j:d_{\mathrm{torus}}(\mathbf x_i,\mathbf x_j)\le R\}.$$</p>
+<p>Agent $j$ influences agent $i$ when their periodic distance is at most $R$. The network changes as the agents move.</p>
+<div class="choice-marker"><img alt="Modelling choice" src="images/choice_marker.svg"/><span>Metric distance is one choice. Empirical flocks are often better described by a fixed number of nearest neighbours.</span></div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=vicsek-update">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
+<h2 id="3.-Apply-one-synchronous-update">3. Apply one synchronous update<a class="anchor-link" href="#3.-Apply-one-synchronous-update">¶</a></h2><p>$$
+\theta_i(t+\Delta t)
+=\operatorname{Arg}\!\left(\sum_{j\in\mathcal N_i(t)}e^{\mathrm i\theta_j(t)}\right)+\xi_i(t),
+\qquad \xi_i\sim U[-\eta/2,\eta/2].
+$$</p>
+<p>$$
+\mathbf x_i(t+\Delta t)
+=\mathbf x_i(t)+v\Delta t(\cos\theta_i(t),\sin\theta_i(t)).
+$$</p>
+<p>All new headings and positions are calculated from the same state at time $t$, then wrapped into the periodic square.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8e7f4295">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
+<h2 id="Where-is-the-noise-added?-%C2%B7-angular-noise">Where is the noise added? · angular noise<a class="anchor-link" href="#Where-is-the-noise-added?-%C2%B7-angular-noise">¶</a></h2><p>$$
+\theta_i'=\bar\theta_i+\xi_i,
+\qquad \xi_i\sim U[-\eta/2,\eta/2].
+$$</p>
+<p>The agent first estimates the local mean heading $\bar\theta_i$, then makes a turning error $\xi_i$. The parameter $\eta$ controls the width of the error distribution.</p>
+<p><strong>Interpretation:</strong> uncertainty enters while the agent executes a chosen direction.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=week05-vectorial-noise">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
+<h2 id="Where-is-the-noise-added?-%C2%B7-vectorial-noise">Where is the noise added? · vectorial noise<a class="anchor-link" href="#Where-is-the-noise-added?-%C2%B7-vectorial-noise">¶</a></h2><p>$$
+\theta_i'=\operatorname{Arg}\!\left(\mathbf m_i+\eta n_i e^{\mathrm i\chi_i}\right),
+\qquad
+\mathbf m_i=\sum_{j\in\mathcal N_i}e^{\mathrm i\theta_j}.
+$$</p>
+<table style="table-layout:fixed;width:100%;">
+<colgroup><col style="width:28%;"/><col style="width:72%;"/></colgroup>
+<thead><tr><th>Symbol</th><th>Meaning</th></tr></thead>
+<tbody>
+<tr><td>$\mathbf m_i$</td><td>local alignment signal</td></tr>
+<tr><td>$n_i$</td><td>number of neighbours</td></tr>
+<tr><td>$\eta$</td><td>relative noise strength</td></tr>
+<tr><td>$\chi_i\sim U(0,2\pi)$</td><td>random direction</td></tr>
+</tbody>
+</table>
+<p><strong>Interpretation:</strong> noise perturbs the sensed alignment signal before the agent chooses its direction.</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=qualitative">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
+<h1 id="Qualitative-analysis">Qualitative analysis<a class="anchor-link" href="#Qualitative-analysis">¶</a></h1><div class="two-panel equal-panels">
+<div class="image-panel"><img alt="Vicsek configurations at different density and noise values" src="images/Vicsek_types_of_behaviour.png"/></div>
+<div class="text-panel">
+<p>Simulation reveals coherent flocks, fragmented groups, and disordered motion.</p>
+<p>These images help us identify candidate behaviours, but visual judgement alone is difficult to compare across many runs.</p>
+</div>
+</div>
+<p><em>Figure adapted from Vicsek et al. (1995).</em></p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=polarisation">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
+<h2 id="Quantify-collective-alignment">Quantify collective alignment<a class="anchor-link" href="#Quantify-collective-alignment">¶</a></h2><p>$$
+\Phi(t)=\frac1N\left|\sum_{i=1}^{N}e^{\mathrm i\theta_i(t)}\right|.
+$$</p>
+<div class="two-panel equal-panels compact-panels">
+<div class="text-panel"><p>$\Phi\approx0$: headings cancel.</p></div>
+<div class="text-panel"><p>$\Phi\approx1$: agents move in nearly the same direction.</p></div>
+</div>
+<div class="ladder-marker"><img alt="Ladder of abstraction" src="images/ladder_marker.svg"/><span>Up the ladder over agents: replace all individual headings by one system-level measure of alignment.</span></div>
+<div class="discussion-marker"><img alt="Discussion prompt" src="images/discussion_marker.svg"/><span>Can a visibly organised state still have low polarisation?</span></div>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=parameter-sweep">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
+<h1 id="First-sweep-the-noise">First sweep the noise<a class="anchor-link" href="#First-sweep-the-noise">¶</a></h1><img alt="Vicsek order parameter as noise and density change" src="images/Vicsek_parameter_sweeps.jpeg" style="max-height:430px"/>
+<div class="ladder-marker"><img alt="Ladder of abstraction" src="images/ladder_marker.svg"/><span>Up the ladder again: compare the system-level order parameter across noise values to reveal a transition.</span></div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=321c0f4a">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
+<h2 id="Then-repeat-each-condition">Then repeat each condition<a class="anchor-link" href="#Then-repeat-each-condition">¶</a></h2><ol>
+<li>One run at fixed $\eta$: one possible stochastic history.</li>
+<li>An ensemble at fixed $\eta$: a distribution of outcomes, summarised by a mean and variation.</li>
+<li>A parameter sweep of ensembles: a comparison across $\eta$ that separates systematic change from run-to-run randomness.</li>
+</ol>
+<p>A sweep containing only one run per noise value can mistake stochastic variation for a parameter effect.</p>
+<div class="ladder-marker"><img alt="Ladder of abstraction" src="images/ladder_marker.svg"/><span>Up the ladder over random histories: replace individual trajectories by an estimated response and its uncertainty at each parameter value.</span></div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=970b238f">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
+<h2 id="Continuous-or-discontinuous?">Continuous or discontinuous?<a class="anchor-link" href="#Continuous-or-discontinuous?">¶</a></h2><div class="two-panel wide-left compact-panels">
+<div class="image-panel"><img alt="Order parameter against noise for angular and vectorial noise conventions" src="images/pimentel_2008_noise_transitions.png"/></div>
+<div class="text-panel">
+<p><strong>(a) Angular noise:</strong> the finite simulation appears smooth.</p>
+<p><strong>(b) Vectorial noise:</strong> the order parameter shows a clear jump.</p>
+<p>The curves are evidence about these implementations and this finite system, not a universal verdict. Larger angular-noise simulations can also reveal discontinuity and travelling bands.</p>
+</div>
+</div>
+<p class="media-credit">Pimentel et al. (2008), <a href="https://arxiv.org/abs/0802.3879">“Intrinsic and extrinsic noise effects on the phase transition of swarming systems and related network models”</a>, Fig. 1. $N=20{,}000$, $L=32$, $R=0.4$, $v=0.05$.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2c3bbdaa">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
+<h2 id="What-changed-the-answer?">What changed the answer?<a class="anchor-link" href="#What-changed-the-answer?">¶</a></h2><ol>
+<li>Noise before or after taking the mean direction represents different uncertainty.</li>
+<li>Density bands require enough space and time to form and travel.</li>
+<li>Boundaries, initialisation and sampling affect what the finite simulation reveals.</li>
+</ol>
+<p>The debate was not merely about numerical precision. It was about which model had been implemented and whether a finite simulation justified the asymptotic claim.</p>
+<div class="discussion-marker"><img alt="Discussion prompt" src="images/discussion_marker.svg"/><span>What evidence would distinguish a steep continuous transition from a small discontinuous jump?</span></div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=63dc140a">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
+<h2 id="The-Vicsek-model-became-a-family">The Vicsek model became a family<a class="anchor-link" href="#The-Vicsek-model-became-a-family">¶</a></h2><table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Question exposed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Metric → topological neighbours</td>
+<td>Do animals respond within a distance or to a fixed number of neighbours?</td>
+</tr>
+<tr>
+<td>Add attraction and repulsion</td>
+<td>When does an open group remain cohesive and avoid collisions?</td>
+</tr>
+<tr>
+<td>Add informed or heterogeneous agents</td>
+<td>How do leadership and individual differences affect collective decisions?</td>
+</tr>
+<tr>
+<td>Add delay, inertia, obstacles or variable speed</td>
+<td>Which physical and sensory constraints change the collective state?</td>
+</tr>
+</tbody>
+</table>
+<p>The minimal model is a baseline. Each extension should be motivated by a mechanism or observation, not by a desire for visual complexity.</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=hysteresis">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
+<h1 id="History-can-matter">History can matter<a class="anchor-link" href="#History-can-matter">¶</a></h1><div class="two-panel equal-panels">
+<div class="image-panel"><img alt="Hysteresis in a collective-motion model" src="images/Couzin_hysteresis.png"/></div>
+<div class="text-panel">
+<p>If a parameter is changed without reinitialising, the next run begins from the previous final state.</p>
+<p>The observed state may then depend on the direction in which the parameter was changed. This is <strong>hysteresis</strong>.</p>
+</div>
+</div>
+<p><em>Figure adapted from Couzin et al. (2002).</em></p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=improving">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
+<h2 id="What-does-the-model-establish?">What does the model establish?<a class="anchor-link" href="#What-does-the-model-establish?">¶</a></h2><div class="two-panel equal-panels compact-panels">
+<div class="image-panel"><img alt="Empirical topological interaction network in a starling flock" src="images/Cavagna_robust_to_attack.png" style="max-height:390px"/></div>
+<div class="text-panel">
+<p>The Vicsek model shows that alignment plus noise can generate collective motion.</p>
+<p>It does not establish that real birds use metric-distance alignment.</p>
+<p>Starling data instead support interaction with a roughly fixed number of neighbours.</p>
 </div>
 </div>
 </div>
 </div>
 </div>
-</aside></div></section></section>
+</div></section></section>
 </div>
 </div>
 </main>
@@ -8074,8 +9117,8 @@ require(
             transition: "slide",
             slideNumber: "",
             plugins: [RevealNotes],
-            width: 960,
-			      height: 700,
+            width: 1280,
+			      height: 720,
 
         });
 
