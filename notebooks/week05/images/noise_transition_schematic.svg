@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 755" role="img" aria-labelledby="title desc">
+  <title id="title">Continuous and discontinuous transition schematics</title>
+  <desc id="desc">Two order parameter curves against noise. The upper curve decreases smoothly; the lower curve remains ordered and then drops abruptly.</desc>
+  <style>
+    .axis { stroke: #17284f; stroke-width: 4; fill: none; }
+    .guide { stroke: #d6deeb; stroke-width: 2; }
+    .curve { stroke: #17284f; stroke-width: 8; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .jump { stroke: #d95f3d; stroke-width: 8; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .label { fill: #17284f; font: 32px Arial, sans-serif; }
+    .panel { fill: #17284f; font: 700 34px Arial, sans-serif; }
+    .note { fill: #526789; font: 25px Arial, sans-serif; }
+  </style>
+  <g transform="translate(115 75)">
+    <text class="panel" x="0" y="0">(a) Smooth finite-size curve</text>
+    <line class="guide" x1="0" y1="70" x2="820" y2="70"/>
+    <line class="guide" x1="0" y1="250" x2="820" y2="250"/>
+    <path class="axis" d="M0 40 V285 H840"/>
+    <path class="curve" d="M10 52 C165 55 285 82 390 120 C520 167 610 235 820 278"/>
+    <text class="label" x="-65" y="65">1</text>
+    <text class="label" x="-42" y="290">0</text>
+    <text class="label" transform="translate(-80 225) rotate(-90)">order, Φ</text>
+    <text class="note" x="525" y="105">gradual decrease</text>
+  </g>
+  <g transform="translate(115 395)">
+    <text class="panel" x="0" y="0">(b) Discontinuous transition</text>
+    <line class="guide" x1="0" y1="70" x2="820" y2="70"/>
+    <line class="guide" x1="0" y1="250" x2="820" y2="250"/>
+    <path class="axis" d="M0 40 V285 H840"/>
+    <path class="jump" d="M10 52 C240 54 430 65 610 105 L655 115 L655 265 C705 276 755 279 820 280"/>
+    <line x1="655" y1="105" x2="655" y2="265" stroke="#d95f3d" stroke-width="3" stroke-dasharray="10 9"/>
+    <text class="label" x="-65" y="65">1</text>
+    <text class="label" x="-42" y="290">0</text>
+    <text class="label" transform="translate(-80 225) rotate(-90)">order, Φ</text>
+    <text class="note" x="675" y="150">jump</text>
+  </g>
+  <text class="label" x="485" y="742">noise, η</text>
+</svg>
