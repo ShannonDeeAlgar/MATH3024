@@ -41,17 +41,17 @@ for SOURCE_ROOT in notebooks/week*; do
 done
 
 # Fail the build if a Reader slide page and its deployed deck drift apart.
-# This catches missing weeks, filename changes, and links that accidentally
-# omit the /MATH3024 site prefix before GitHub Pages is published.
+# Reader links are deliberately relative so the same page opens the freshly
+# built local deck during preview and the staged deck on GitHub Pages.
 for SLIDES_PAGE in notebooks/week*/Slides.md; do
     [[ -f "$SLIDES_PAGE" ]] || continue
     WEEK="$(basename "$(dirname "$SLIDES_PAGE")")"
-    EXPECTED_PREFIX="https://shannondeealgar.github.io/MATH3024/slides/$WEEK/"
+    EXPECTED_PREFIX="../../slides/$WEEK/"
     LINK="$(sed -n 's/.*href="\([^"]*\.slides\.html\)".*/\1/p' "$SLIDES_PAGE" | head -n 1)"
 
     if [[ -z "$LINK" || "$LINK" != "$EXPECTED_PREFIX"* ]]; then
         echo "Invalid slide link in $SLIDES_PAGE: ${LINK:-<missing>}" >&2
-        echo "Expected a link beginning with $EXPECTED_PREFIX" >&2
+        echo "Expected a relative link beginning with $EXPECTED_PREFIX" >&2
         exit 1
     fi
 
