@@ -41,17 +41,22 @@ for SOURCE_ROOT in notebooks/week*; do
 done
 
 # Fail the build if a Reader slide page and its deployed deck drift apart.
-# Reader links are deliberately relative so the same page opens the freshly
-# built local deck during preview and the staged deck on GitHub Pages.
+# Relative links are preferred because they work in both local previews and
+# on GitHub Pages. Accept the older absolute GitHub Pages form during the
+# transition so one updated week cannot break deployment for every other week.
 for SLIDES_PAGE in notebooks/week*/Slides.md; do
     [[ -f "$SLIDES_PAGE" ]] || continue
     WEEK="$(basename "$(dirname "$SLIDES_PAGE")")"
-    EXPECTED_PREFIX="../../slides/$WEEK/"
+    RELATIVE_PREFIX="../../slides/$WEEK/"
+    ABSOLUTE_PREFIX="https://shannondeealgar.github.io/MATH3024/slides/$WEEK/"
     LINK="$(sed -n 's/.*href="\([^"]*\.slides\.html\)".*/\1/p' "$SLIDES_PAGE" | head -n 1)"
 
-    if [[ -z "$LINK" || "$LINK" != "$EXPECTED_PREFIX"* ]]; then
+    if [[ -z "$LINK" ]] || \
+       { [[ "$LINK" != "$RELATIVE_PREFIX"* ]] && \
+         [[ "$LINK" != "$ABSOLUTE_PREFIX"* ]]; }; then
         echo "Invalid slide link in $SLIDES_PAGE: ${LINK:-<missing>}" >&2
-        echo "Expected a relative link beginning with $EXPECTED_PREFIX" >&2
+        echo "Expected a link beginning with $RELATIVE_PREFIX" >&2
+        echo "or $ABSOLUTE_PREFIX" >&2
         exit 1
     fi
 
