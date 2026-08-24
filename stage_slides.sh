@@ -24,6 +24,30 @@ for SOURCE_ROOT in notebooks/week*; do
         cp -R "$SOURCE_ROOT/images" "$SLIDE_ROOT/images"
     fi
 
+    # Keep locally embedded lecture media with the deployed deck. Previously
+    # only images were staged, so Week 6's Kuramoto animation worked in the
+    # notebook directory but disappeared from the Reader and GitHub Pages.
+    if [[ -d "$SOURCE_ROOT/videos" ]]; then
+        rm -rf "$SLIDE_ROOT/videos"
+        cp -R "$SOURCE_ROOT/videos" "$SLIDE_ROOT/videos"
+        # The full Reader can embed the same local media. MyST currently
+        # leaves raw HTML video sources unresolved, so stage them beside the
+        # generated Reader page as well.
+        READER_MEDIA_ROOT="$SITE_ROOT/notebooks/$WEEK/videos"
+        mkdir -p "$(dirname "$READER_MEDIA_ROOT")"
+        rm -rf "$READER_MEDIA_ROOT"
+        cp -R "$SOURCE_ROOT/videos" "$READER_MEDIA_ROOT"
+    fi
+
+    if [[ -d "$SOURCE_ROOT/audio" ]]; then
+        rm -rf "$SLIDE_ROOT/audio"
+        cp -R "$SOURCE_ROOT/audio" "$SLIDE_ROOT/audio"
+        READER_AUDIO_ROOT="$SITE_ROOT/notebooks/$WEEK/audio"
+        mkdir -p "$(dirname "$READER_AUDIO_ROOT")"
+        rm -rf "$READER_AUDIO_ROOT"
+        cp -R "$SOURCE_ROOT/audio" "$READER_AUDIO_ROOT"
+    fi
+
     # Week 1 uses this local interactive from within the slide deck.
     if [[ -f "$SOURCE_ROOT/interactive_schelling.html" ]]; then
         cp "$SOURCE_ROOT/interactive_schelling.html" "$SLIDE_ROOT/"
