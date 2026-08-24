@@ -24,6 +24,10 @@ project:
       children:
         - file: notebooks/week05/Slides.md
         - file: notebooks/week05/WS_ABM.ipynb
+    - file: notebooks/week06/L_Synchronisation.ipynb
+      children:
+        - file: notebooks/week06/Slides.md
+        - file: notebooks/week06/WS_Synchronisation.ipynb
 site:
   options:
     folders: true
