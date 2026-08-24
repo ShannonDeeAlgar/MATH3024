@@ -65,22 +65,18 @@ for SOURCE_ROOT in notebooks/week*; do
 done
 
 # Fail the build if a Reader slide page and its deployed deck drift apart.
-# Relative links are preferred because they work in both local previews and
-# on GitHub Pages. Accept the older absolute GitHub Pages form during the
-# transition so one updated week cannot break deployment for every other week.
+# MyST rewrites source-relative links as domain-root links. On GitHub Pages
+# that drops the repository prefix (`/MATH3024`) and produces a 404. Require
+# the published address here so a newly added week cannot repeat that failure.
 for SLIDES_PAGE in notebooks/week*/Slides.md; do
     [[ -f "$SLIDES_PAGE" ]] || continue
     WEEK="$(basename "$(dirname "$SLIDES_PAGE")")"
-    RELATIVE_PREFIX="../../slides/$WEEK/"
     ABSOLUTE_PREFIX="https://shannondeealgar.github.io/MATH3024/slides/$WEEK/"
     LINK="$(sed -n 's/.*href="\([^"]*\.slides\.html\)".*/\1/p' "$SLIDES_PAGE" | head -n 1)"
 
-    if [[ -z "$LINK" ]] || \
-       { [[ "$LINK" != "$RELATIVE_PREFIX"* ]] && \
-         [[ "$LINK" != "$ABSOLUTE_PREFIX"* ]]; }; then
+    if [[ -z "$LINK" ]] || [[ "$LINK" != "$ABSOLUTE_PREFIX"* ]]; then
         echo "Invalid slide link in $SLIDES_PAGE: ${LINK:-<missing>}" >&2
-        echo "Expected a link beginning with $RELATIVE_PREFIX" >&2
-        echo "or $ABSOLUTE_PREFIX" >&2
+        echo "Expected a link beginning with $ABSOLUTE_PREFIX" >&2
         exit 1
     fi
 
