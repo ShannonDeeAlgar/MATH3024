@@ -7947,6 +7947,27 @@ figcaption {
 
 .discussion-marker img { width: 36px !important; height: 36px !important; margin: 0 !important; }
 
+details.reader-answer {
+  margin: 0.8rem 0 1.2rem 3.2rem;
+  border: 1px solid #c7cedc;
+  border-radius: 6px;
+  background: var(--pst-color-surface, #f7f8fa);
+  font-family: var(--pst-font-family-base);
+}
+
+details.reader-answer summary {
+  cursor: pointer;
+  padding: 0.7rem 1rem;
+  color: #1d315b;
+  font-family: var(--pst-font-family-base);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+details.reader-answer > div {
+  padding: 0 1rem 0.9rem;
+}
+
 .discussion-prompt { border-left-color: #EDCC55; }
 
 .qa-grid { margin-top: 0.55em; }
@@ -8071,8 +8092,46 @@ figcaption {
 .reveal .slides table,
 .reveal .slides .model-specification,
 .reveal .slides .qa-grid {
-  font-size: 0.72em;
-  line-height: 1.2;
+  font-size: 0.68em;
+  line-height: 1.16;
+}
+
+.reveal .slides .analysis-perspectives.three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.65em;
+}
+
+.reveal .slides .two-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0.8em;
+  align-items: center;
+  width: 100%;
+}
+
+.reveal .slides .two-panel.wide-left {
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
+}
+
+.reveal .slides .two-panel > *,
+.reveal .slides .three-panel > * { min-width: 0; }
+
+.reveal .slides .two-panel .image-panel,
+.reveal .slides .three-panel .image-panel,
+.reveal .slides .two-panel .text-panel,
+.reveal .slides .three-panel .text-panel {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.reveal .slides .two-panel .image-panel img,
+.reveal .slides .three-panel .image-panel img {
+  display: block;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
 }
 
 .reveal .slides .model-specification > div {
@@ -8195,6 +8254,51 @@ figcaption {
   line-height: 1.15;
 }
 
+.canonical-model-marker strong small {
+  display: block;
+  margin-top: 0.22em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.68em;
+  font-style: normal;
+  font-weight: 400;
+  color: var(--reader-ink-soft, #5D6D8D);
+}
+
+.modelling-practice-marker {
+  display: inline-flex;
+  gap: 0.55rem;
+  align-items: baseline;
+  max-width: 92%;
+  margin-top: 0.45rem;
+  padding: 0.48rem 0.85rem;
+  border: 1px solid #d4c178;
+  border-left: 5px solid #c89b19;
+  background: #fffaf0;
+  color: #1b2a4c;
+  text-align: left;
+}
+
+.modelling-practice-marker span {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.5em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.modelling-practice-marker strong {
+  font-family: Baskerville, Georgia, serif;
+  font-size: 0.76em;
+  line-height: 1.15;
+}
+
+.dark .modelling-practice-marker {
+  border-color: #8f7f49;
+  border-left-color: #edcc55;
+  background: #292615;
+  color: #f7f1df;
+}
+
 .jp-OutputArea-child:has(iframe) .jp-OutputPrompt,
 .jp-Cell-outputWrapper:has(iframe) .jp-OutputCollapser {
   display: none;
@@ -8262,10 +8366,27 @@ figcaption {
   text-underline-offset: 0.12em;
 }
 
+/* Notebook anchor glyphs are useful in the Reader but are visual noise in a
+   presentation heading. */
+.reveal .slides section .anchor-link {
+  display: none !important;
+}
+
+/* Old notebooks contain a few inline or inherited sans-serif declarations.
+   Body copy follows the common lecture type system; sans serif is reserved
+   for captions, labels and compact annotations below. */
+.reveal .slides section .jp-MarkdownOutput > p,
+.reveal .slides section .jp-MarkdownOutput > ul,
+.reveal .slides section .jp-MarkdownOutput > ol,
+.reveal .slides section .jp-MarkdownOutput > div:not(.small-note):not(.figure-caption) {
+  font-family: Baskerville, Georgia, serif;
+}
+
 .reveal .slides section table {
   border-collapse: collapse;
   margin: 0.7em auto;
-  font-size: 0.82em;
+  font-size: 0.68em;
+  line-height: 1.16;
 }
 
 .reveal .slides section th,
@@ -8276,6 +8397,89 @@ figcaption {
 
 .reveal .slides section tbody tr:nth-child(even) {
   background: transparent;
+}
+
+.reveal .slides section .analysis-perspectives.three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.65em;
+}
+
+.reveal .slides section .coat-cards img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.reveal .slides section .coat-cards .coat-image-frame {
+  height: 230px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 0.25em;
+}
+
+.reveal .slides section .coat-cards > div {
+  padding: 0.42em 0.48em;
+}
+
+.reveal .slides section .coat-cards p {
+  margin: 0.18em 0;
+}
+
+.reveal .slides section .compact-panels .text-panel { padding: 0.45em 0.65em; }
+.reveal .slides section .compact-panels p { margin: 0; }
+.reveal .slides section .two-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0.8em;
+  align-items: center;
+  width: 100%;
+}
+.reveal .slides section .two-panel.wide-left {
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
+}
+.reveal .slides section .three-panel {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.65em;
+  align-items: stretch;
+  width: 100%;
+}
+.reveal .slides section .two-panel > *,
+.reveal .slides section .three-panel > * { min-width: 0; }
+.reveal .slides section .two-panel .image-panel,
+.reveal .slides section .three-panel .image-panel,
+.reveal .slides section .two-panel .text-panel,
+.reveal .slides section .three-panel .text-panel {
+  box-sizing: border-box;
+  width: 100%;
+}
+.reveal .slides section .two-panel .image-panel img,
+.reveal .slides section .three-panel .image-panel img {
+  display: block;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+}
+.reveal .slides section .small-note {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.62em;
+  line-height: 1.28;
+  color: var(--reader-ink-soft);
+}
+
+.reveal .slides section .canonical-model-marker strong small {
+  display: block;
+  margin-top: 0.22em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.68em;
+  font-style: normal;
+  font-weight: 400;
+  color: var(--reader-ink-soft);
 }
 
 .reveal .slides section figcaption,
@@ -8311,17 +8515,29 @@ figcaption {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
 <h1 id="Fractals">Fractals<a class="anchor-link" href="#Fractals">¶</a></h1><h2 id="MATH3024-%C2%B7-Week-2">MATH3024 · Week 2<a class="anchor-link" href="#MATH3024-%C2%B7-Week-2">¶</a></h2><div class="canonical-model-marker"><span>Canonical models</span><strong>Cantor set and Sierpiński triangle</strong></div>
+<div class="modelling-practice-marker"><span>Modelling practice</span><strong>Measurement, scaling ranges and finite resolution</strong></div>
 </div>
 </div>
 </div>
 </div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w2-motivation-banner">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
+<h1 id="Real-world-motivation">Real-world motivation<a class="anchor-link" href="#Real-world-motivation">¶</a></h1>
+</div>
+</div>
+</div>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=opening-song">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Listen-first-%C2%B7-%E2%80%9CMandelbrot-Set%E2%80%9D">Listen first · “Mandelbrot Set”<a class="anchor-link" href="#Listen-first-%C2%B7-%E2%80%9CMandelbrot-Set%E2%80%9D">¶</a></h1><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" height="450" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/nVIYiBdfGwE" style="display:block;max-width:100%;margin:0 auto" title="Jonathan Coulton's Mandelbrot Set song" width="800">
+<h2 id="Listen-first-%C2%B7-%E2%80%9CMandelbrot-Set%E2%80%9D">Listen first · “Mandelbrot Set”<a class="anchor-link" href="#Listen-first-%C2%B7-%E2%80%9CMandelbrot-Set%E2%80%9D">¶</a></h2><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" height="450" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/nVIYiBdfGwE" style="display:block;max-width:100%;margin:0 auto" title="Jonathan Coulton's Mandelbrot Set song" width="800">
 </iframe>
 <div class="discussion-marker"><img alt="" src="images/discussion_marker.svg"/><span>The recurrence sounds plausible. Which quantity labels the point in the picture, and where should its orbit begin?</span></div>
 <p class="figure-reference">Technical caveat: the song conflates the parameter <em>c</em> with the initial state <em>z</em><sub>0</sub>. The next slide gives the precise definition.</p>
@@ -8335,9 +8551,9 @@ figcaption {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
-<h1 id="The-Mandelbrot-set">The Mandelbrot set<a class="anchor-link" href="#The-Mandelbrot-set">¶</a></h1><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" height="450" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/b005iHf8Z3g" style="display:block;margin:0 auto" title="Fractal zoom" width="800">
+<h2 id="The-Mandelbrot-set">The Mandelbrot set<a class="anchor-link" href="#The-Mandelbrot-set">¶</a></h2><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" height="450" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/b005iHf8Z3g" style="display:block;margin:0 auto" title="Fractal zoom" width="800">
 </iframe>
-<p>$$z_{n+1}=z_n^2+c,\qquad z_0=0.$$</p>
+<p>$$z_{n+1}=z_n^2+c,\qquad z_0=0$$</p>
 <p>The Mandelbrot set contains the values $c$ for which this orbit remains bounded (black). Outside the set, colour usually records how quickly the orbit escapes: points with similar escape times receive similar colours.</p>
 </div>
 </div>
@@ -8358,27 +8574,38 @@ figcaption {
 </div>
 </div>
 </div>
-</aside></section></section><section><section>
+</aside></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=branching-contrast">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Our-generative-model-%C2%B7-A-local-branching-rule">Our generative model · A local branching rule<a class="anchor-link" href="#Our-generative-model-%C2%B7-A-local-branching-rule">¶</a></h1><img alt="Four fractal-like weeds generated from different repeated branching rules" src="images/fractal_weeds_public_domain.jpg" style="display:block;width:62%;max-height:340px;object-fit:contain;margin:0 auto"/>
+<h2 id="Our-generative-model-%C2%B7-A-local-branching-rule">Our generative model · A local branching rule<a class="anchor-link" href="#Our-generative-model-%C2%B7-A-local-branching-rule">¶</a></h2><img alt="Four fractal-like weeds generated from different repeated branching rules" src="images/fractal_weeds_public_domain.jpg" style="display:block;width:62%;max-height:340px;object-fit:contain;margin:0 auto"/>
 <div class="discussion-marker"><img alt="Discussion prompt" height="36" src="images/discussion_marker.svg" width="36"/><span>How does nature generate all these different forms of wheat?</span></div>
 <div class="figure-caption">Fractal-like weeds generated using an iterated branching system, Solkoll, Wikimedia Commons, public domain.</div>
 </div>
 </div>
 </div>
 </div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w2-explorable-banner">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h1 id="Explorable">Explorable<a class="anchor-link" href="#Explorable">¶</a></h1>
+</div>
+</div>
+</div>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=branching-explorable-slides">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
-<h1 id="Explore-branching">Explore branching<a class="anchor-link" href="#Explore-branching">¶</a></h1><h2 id="Weeds-&amp;-Trees">Weeds &amp; Trees<a class="anchor-link" href="#Weeds-&amp;-Trees">¶</a></h2><iframe frameborder="0" height="500" loading="lazy" src="https://www.complexity-explorables.org/explorables/weeds-and-trees/#cxpbox_weeds-and-trees_display" style="display:block;max-width:100%;margin:0 auto" title="Weeds and Trees branching growth explorable" width="960">
+<h2 id="Explore-branching">Explore branching<a class="anchor-link" href="#Explore-branching">¶</a></h2><h2 id="Weeds-&amp;-Trees">Weeds &amp; Trees<a class="anchor-link" href="#Weeds-&amp;-Trees">¶</a></h2><iframe frameborder="0" height="500" loading="lazy" src="https://www.complexity-explorables.org/explorables/weeds-and-trees/#cxpbox_weeds-and-trees_display" style="display:block;max-width:100%;margin:0 auto" title="Weeds and Trees branching growth explorable" width="960">
 </iframe>
 <div class="figure-caption">Interactive by Dirk Brockmann, Complexity Explorables, CC BY 2.0 DE.</div>
 </div>
@@ -8391,7 +8618,7 @@ figcaption {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Same-form,-different-systems">Same form, different systems<a class="anchor-link" href="#Same-form,-different-systems">¶</a></h1><div class="compact-card-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:.45rem;align-items:stretch">
+<h2 id="Same-form,-different-systems">Same form, different systems<a class="anchor-link" href="#Same-form,-different-systems">¶</a></h2><div class="compact-card-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:.45rem;align-items:stretch">
 <div class="meaning-panel"><img alt="A fern with repeated branching" src="images/Fern.png" style="width:100%;height:155px;object-fit:contain"/><strong>Fern</strong><p>Development from active tips.</p></div>
 <div class="meaning-panel"><img alt="Branching lightning channels" src="images/lightning_branches.jpg" style="width:100%;height:155px;object-fit:cover"/><strong>Lightning</strong><p>Propagation through an electric field.</p></div>
 <div class="meaning-panel"><img alt="Satellite image of the Mississippi River Delta" src="images/mississippi_delta_branching.jpg" style="width:100%;height:155px;object-fit:cover"/><strong>River delta</strong><p>Flow, deposition, and changing channels.</p></div>
@@ -8403,14 +8630,14 @@ figcaption {
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=dla-natural-comparison">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Another-route-to-fractal-like-growth">Another route to fractal-like growth<a class="anchor-link" href="#Another-route-to-fractal-like-growth">¶</a></h1><p>Material arrives from outside the growing structure.</p>
+<h2 id="Another-route-to-fractal-like-growth">Another route to fractal-like growth<a class="anchor-link" href="#Another-route-to-fractal-like-growth">¶</a></h2><p>Material arrives from outside the growing structure.</p>
 <div class="compact-card-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:.55rem;align-items:stretch">
 <div class="meaning-panel" style="display:grid;grid-template-rows:160px 2.6rem 1fr;text-align:left"><img alt="A simulated diffusion-limited aggregate" src="images/particularly_stuck_image1.png" style="display:block;width:100%;height:160px;object-fit:contain;margin:0"/><strong style="align-self:center">Diffusion-limited aggregation</strong><p style="margin:0">Randomly transported particles attach irreversibly. Exposed regions intercept more arrivals and screen the interior.</p></div>
 <div class="meaning-panel" style="display:grid;grid-template-rows:160px 2.6rem 1fr;text-align:left"><img alt="Dendritic copper formed by electrodeposition" src="images/copper_electrodeposition_dendrite.png" style="display:block;width:100%;height:160px;object-fit:contain;margin:0"/><strong style="align-self:center">Electrodeposition</strong><p style="margin:0">Ions travel through solution and deposit preferentially at exposed tips.</p></div>
@@ -8421,14 +8648,14 @@ figcaption {
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=cezanne-mandelbrot-contrast">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="From-ideal-forms-to-natural-complexity">From ideal forms to natural complexity<a class="anchor-link" href="#From-ideal-forms-to-natural-complexity">¶</a></h1><div class="reader-voice">
+<h2 id="From-ideal-forms-to-natural-complexity">From ideal forms to natural complexity<a class="anchor-link" href="#From-ideal-forms-to-natural-complexity">¶</a></h2><div class="reader-voice">
 <div class="reader-voice-quote">Everything in nature is modelled according to the sphere, the cone, and the cylinder. You have to learn to paint with reference to these simple shapes; then you can do anything.</div>
 <div class="reader-voice-attr">Paul Cézanne, letter to Émile Bernard (1904), in Michael Doran (ed.), <em>Conversations with Cézanne</em>, University of California Press (2001), p. 63</div>
 </div>
@@ -8440,14 +8667,14 @@ figcaption {
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=happisburgh-cropped">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
-<h1 id="What-are-we-looking-at-here?">What are we looking at here?<a class="anchor-link" href="#What-are-we-looking-at-here?">¶</a></h1><img alt="A cropped view of water-filled Happisburgh footprints" src="images/Happisburgh_footprints_cropped.jpg" style="display:block;width:78%;max-height:500px;object-fit:contain;margin:0 auto .45rem"/>
+<h2 id="What-are-we-looking-at-here?">What are we looking at here?<a class="anchor-link" href="#What-are-we-looking-at-here?">¶</a></h2><img alt="A cropped view of water-filled Happisburgh footprints" src="images/Happisburgh_footprints_cropped.jpg" style="display:block;width:78%;max-height:500px;object-fit:contain;margin:0 auto .45rem"/>
 <div class="discussion-marker" style="width:78%;margin:.25rem auto 0"><img alt="Discussion prompt" height="36" src="images/discussion_marker.svg" width="36"/><span><strong>What is the scale?</strong> Nanometres, centimetres, or kilometres?</span></div>
 </div>
 </div>
@@ -8459,7 +8686,7 @@ figcaption {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
-<h1 id="A-Euclidean-object-in-the-photo-helps">A Euclidean object in the photo helps<a class="anchor-link" href="#A-Euclidean-object-in-the-photo-helps">¶</a></h1><div class="slide-columns">
+<h2 id="A-Euclidean-object-in-the-photo-helps">A Euclidean object in the photo helps<a class="anchor-link" href="#A-Euclidean-object-in-the-photo-helps">¶</a></h2><div class="slide-columns">
 <img alt="Happisburgh footprints with a coin-sized reference object" class="column-image" src="images/Happisburgh_scale_coin.png"/>
 <div>
 <p>The photographer included a penny.</p>
@@ -8476,7 +8703,7 @@ figcaption {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
-<h1 id="I-lied">I lied<a class="anchor-link" href="#I-lied">¶</a></h1><div class="slide-columns">
+<h2 id="I-lied">I lied<a class="anchor-link" href="#I-lied">¶</a></h2><div class="slide-columns">
 <img alt="Happisburgh footprints with a dinner-plate reference object" class="column-image" src="images/Happisburgh_scale_plate.png"/>
 <div>
 <p>That was not a coin. It was a dinner plate.</p>
@@ -8494,7 +8721,7 @@ figcaption {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
-<h1 id="Now-the-truth">Now the truth<a class="anchor-link" href="#Now-the-truth">¶</a></h1><div class="slide-columns">
+<h2 id="Now-the-truth">Now the truth<a class="anchor-link" href="#Now-the-truth">¶</a></h2><div class="slide-columns">
 <img alt="Happisburgh footprints with a lens cap providing a reference scale" class="column-image" src="images/Happisburgh_footprints.jpg"/>
 <div>
 <p>The photographed object is a lens cap.</p>
@@ -8506,14 +8733,14 @@ figcaption {
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=scale-symmetry">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Symmetry-of-a-Euclidean-object">Symmetry of a Euclidean object<a class="anchor-link" href="#Symmetry-of-a-Euclidean-object">¶</a></h1><table class="standard-table">
+<h2 id="Symmetry-of-a-Euclidean-object">Symmetry of a Euclidean object<a class="anchor-link" href="#Symmetry-of-a-Euclidean-object">¶</a></h2><table class="standard-table">
 <colgroup><col style="width:50%"/><col style="width:50%"/></colgroup>
 <tbody>
 <tr><th>Reflect a circle through its centre</th><td>the image is unchanged</td></tr>
@@ -8526,14 +8753,14 @@ figcaption {
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fractal-scale-symmetry">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Symmetry-of-a-fractal-object">Symmetry of a fractal object<a class="anchor-link" href="#Symmetry-of-a-fractal-object">¶</a></h1><div class="slide-columns" style="grid-template-columns:.8fr 1.2fr;align-items:center">
+<h2 id="Symmetry-of-a-fractal-object">Symmetry of a fractal object<a class="anchor-link" href="#Symmetry-of-a-fractal-object">¶</a></h2><div class="slide-columns" style="grid-template-columns:.8fr 1.2fr;align-items:center">
 <img alt="The Mandelbrot set and a miniature copy found after deep magnification" class="column-image" src="images/mandelbrot_scale_symmetry.png" style="max-height:190px"/>
 <div><p><strong>Symmetry under magnification:</strong> after a large change in scale, related Mandelbrot organisation reappears. It is recognisable without being an identical copy of its entire neighbourhood.</p></div>
 </div>
@@ -8565,6 +8792,17 @@ figcaption {
 </div>
 </div>
 </div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w2-model-banner">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
+<h1 id="Model-details">Model details<a class="anchor-link" href="#Model-details">¶</a></h1>
+</div>
+</div>
+</div>
 </div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fractal-visual-test">
 <div class="jp-Cell-inputWrapper" tabindex="0">
@@ -8572,7 +8810,7 @@ figcaption {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Exact-fractals-and-fractal-like-forms">Exact fractals and fractal-like forms<a class="anchor-link" href="#Exact-fractals-and-fractal-like-forms">¶</a></h1><div class="compact-card-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:.55rem;align-items:stretch">
+<h2 id="Exact-fractals-and-fractal-like-forms">Exact fractals and fractal-like forms<a class="anchor-link" href="#Exact-fractals-and-fractal-like-forms">¶</a></h2><div class="compact-card-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:.55rem;align-items:stretch">
 <div class="meaning-panel"><img alt="Successive exact iterations of the Koch curve" src="images/Von_Koch_curve.gif" style="width:100%;height:135px;object-fit:contain"/><strong>Exact · Koch curve</strong><p>A precise rule continues without bound and its dimension can be calculated.</p></div>
 <div class="meaning-panel"><img alt="A finite recursive image of hands drawing hands" src="images/Fractal_hands.jpg" style="width:100%;height:135px;object-fit:contain"/><strong>Finite recursion</strong><p>Like a fern, motifs recur for only finitely many levels. A scaling claim needs measurements across that finite range.</p></div>
 <div class="meaning-panel"><img alt="Microscopy and scaling analysis of fractal-like wildfire soot aggregates" src="images/wildfire_soot_fractal_aggregates.jpg" style="width:100%;height:135px;object-fit:contain"/><strong>Statistical · soot aggregates</strong><p>Aggregate mass and radius obey an ensemble scaling law over a measured range; coating changes the estimated dimension.</p></div>
@@ -8581,14 +8819,14 @@ figcaption {
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fractal-properties-core">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Fractal-properties">Fractal properties<a class="anchor-link" href="#Fractal-properties">¶</a></h1><p>There is no single, universal definition of a fractal. Instead, fractals are typically recognised by a combination of distinctive properties:</p>
+<h2 id="Fractal-properties">Fractal properties<a class="anchor-link" href="#Fractal-properties">¶</a></h2><p>There is no single, universal definition of a fractal. Instead, fractals are typically recognised by a combination of distinctive properties:</p>
 <ol>
 <li><strong>Self-similarity:</strong> parts of the shape resemble the whole. They are made from smaller copies or related versions of itself, often through recursion or iteration.</li>
 <li><strong>Infinite complexity:</strong> in a mathematical fractal, detail persists at arbitrarily small scales.</li>
@@ -8598,14 +8836,14 @@ figcaption {
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fractal-properties-slide">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
-<h1 id="What-evidence-would-count?">What evidence would count?<a class="anchor-link" href="#What-evidence-would-count?">¶</a></h1><div class="discussion-marker"><img alt="Discussion prompt" height="36" src="images/discussion_marker.svg" width="36"/><span>Before calling one of the previous objects fractal-like, what would we need to measure rather than recognise by eye?</span></div>
+<h2 id="What-evidence-counts-as-fractal?">What evidence counts as fractal?<a class="anchor-link" href="#What-evidence-counts-as-fractal?">¶</a></h2><div class="discussion-marker"><img alt="Discussion prompt" height="36" src="images/discussion_marker.svg" width="36"/><span>Before calling one of the previous objects fractal-like, what would we need to measure rather than recognise by eye?</span></div>
 <ol class="evidence-steps">
 <li><strong>Name the feature.</strong> Boundary roughness, occupied mass, branching, or another measurable quantity.</li>
 <li><strong>Change resolution.</strong> Test whether its scaling is stable across several defensible scales.</li>
@@ -8615,14 +8853,14 @@ figcaption {
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=session2-controlled-fractals">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Build-a-controlled-fractal">Build a controlled fractal<a class="anchor-link" href="#Build-a-controlled-fractal">¶</a></h1><p>The motivating systems are finite, noisy, and dependent on their mechanisms. To understand scaling and dimension cleanly, we now remove that messiness on purpose.</p>
+<h2 id="Build-a-controlled-fractal">Build a controlled fractal<a class="anchor-link" href="#Build-a-controlled-fractal">¶</a></h2><p>The motivating systems are finite, noisy, and dependent on their mechanisms. To understand scaling and dimension cleanly, we now remove that messiness on purpose.</p>
 <div class="reader-route">
 <div class="reader-route-body">empirical patterns → exact calibration models → dimension → return to data</div>
 </div>
@@ -8630,34 +8868,34 @@ figcaption {
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=weierstrass-monster">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="When-smoothness-fails">When smoothness fails<a class="anchor-link" href="#When-smoothness-fails">¶</a></h1><h2 id="An-early-mathematical-%E2%80%9Cmonster%E2%80%9D">An early mathematical “monster”<a class="anchor-link" href="#An-early-mathematical-%E2%80%9Cmonster%E2%80%9D">¶</a></h2><div class="slide-columns" style="grid-template-columns:1.25fr .75fr;align-items:center">
+<h2 id="When-smoothness-fails">When smoothness fails<a class="anchor-link" href="#When-smoothness-fails">¶</a></h2><h2 id="An-early-mathematical-%E2%80%9Cmonster%E2%80%9D">An early mathematical “monster”<a class="anchor-link" href="#An-early-mathematical-%E2%80%9Cmonster%E2%80%9D">¶</a></h2><div class="slide-columns" style="grid-template-columns:1.25fr .75fr;align-items:center">
 <img alt="A graph of a Weierstrass nowhere-differentiable function" class="column-image" src="images/WeierstrassFunction.png" style="max-height:430px;object-fit:contain"/>
 <div>
 <p>For suitable <em>a</em> between 0 and 1 and integer <em>b</em> greater than 1, higher-frequency waves enter with smaller amplitudes.</p>
 <p>The sum is continuous, but no point settles into a straight local tangent.</p>
 </div>
 </div>
-<p>$$W(x)=\sum_{n=0}^{\infty}a^n\cos\!\left(b^n\pi x\right).$$</p>
+<p>$$W(x)=\sum_{n=0}^{\infty}a^n\cos\!\left(b^n\pi x\right)$$</p>
 <p>Cantor, Sierpiński, and Weierstrass were all associated with the nineteenth- and early twentieth-century tradition of mathematical “monsters”: exact counterexamples that exposed limits in familiar geometric and analytic intuition. Weierstrass challenges tangents, Cantor challenges length and cardinality, and Sierpiński challenges area and boundary.</p>
 <div class="reader-voice"><div class="reader-voice-quote">A rebellion against calculus.</div><div class="reader-voice-attr">Grant Sanderson, 3Blue1Brown</div></div>
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=canonical-constructions">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Exact-fractals">Exact fractals<a class="anchor-link" href="#Exact-fractals">¶</a></h1><div class="analysis-perspectives" style="align-items:stretch">
+<h2 id="Exact-fractals">Exact fractals<a class="anchor-link" href="#Exact-fractals">¶</a></h2><div class="analysis-perspectives" style="align-items:stretch">
 <div style="display:flex;flex-direction:column">
 <strong>Cantor set</strong>
 <img alt="The first four iterations of the Cantor set" src="images/cantor_iterations_clean.svg" style="width:100%;height:210px;object-fit:contain;margin-top:.45rem"/>
@@ -8673,14 +8911,14 @@ figcaption {
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=multiple-descriptions">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Three-descriptions-of-an-exact-fractal">Three descriptions of an exact fractal<a class="anchor-link" href="#Three-descriptions-of-an-exact-fractal">¶</a></h1><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;align-items:stretch">
+<h2 id="Three-descriptions-of-an-exact-fractal">Three descriptions of an exact fractal<a class="anchor-link" href="#Three-descriptions-of-an-exact-fractal">¶</a></h2><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;align-items:stretch">
 <div class="meaning-panel"><strong>1. Replacement</strong><p>Replace one piece with smaller pieces.</p><p><strong>Next:</strong> 1A Cantor set and 1B Sierpiński triangle.</p></div>
 <div class="meaning-panel"><strong>2. Iterated function system</strong><p>Shrink and reposition points or sets using contraction maps.</p><p><strong>Next:</strong> 2A Cantor IFS, 2B Sierpiński IFS, then the chaos game as random iteration of that IFS.</p></div>
 <div class="meaning-panel"><strong>3. L-system</strong><p>Rewrite symbols, then interpret the resulting word geometrically.</p><p><strong>Next:</strong> Cantor and Sierpiński symbolic constructions.</p></div>
@@ -8689,7 +8927,7 @@ figcaption {
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=initiator-generator-cantor">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8723,7 +8961,7 @@ figcaption {
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=cantor-ifs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8731,8 +8969,8 @@ figcaption {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
 <h2 id="2A.-Cantor-set-%C2%B7-iterated-function-system">2A. Cantor set · iterated function system<a class="anchor-link" href="#2A.-Cantor-set-%C2%B7-iterated-function-system">¶</a></h2><p>For the Cantor set, apply both contractions to the current set:</p>
-<p>$$f_0(x)=\frac{x}{3},\qquad f_1(x)=\frac{x}{3}+\frac{2}{3}.$$</p>
-<p>$$C_{k+1}=f_0(C_k)\cup f_1(C_k).$$</p>
+<p>$$f_0(x)=\frac{x}{3},\qquad f_1(x)=\frac{x}{3}+\frac{2}{3}$$</p>
+<p>$$C_{k+1}=f_0(C_k)\cup f_1(C_k)$$</p>
 </div>
 </div>
 </div>
@@ -8795,7 +9033,7 @@ figcaption {
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=l-system-definition">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8803,7 +9041,7 @@ figcaption {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
 <h2 id="3.-L-systems:-symbols-first,-geometry-second">3. L-systems: symbols first, geometry second<a class="anchor-link" href="#3.-L-systems:-symbols-first,-geometry-second">¶</a></h2><p>An L-system rewrites a word in parallel. We specify</p>
-<p>$$G=(V,\omega,P),$$</p>
+<p>$$G=(V,\omega,P)$$</p>
 <p>where $V$ is the alphabet, $\omega$ is the axiom or initial word, and $P$ is the set of production rules. Every symbol in the current word is replaced simultaneously.</p>
 <p>The word has no geometric length by itself. A separate turtle interpretation assigns actions to symbols, a turning angle, and a step length. If the step length is fixed, the drawing grows with each rewrite. To compare successive approximations inside the same frame, we shorten the step at generation $k$.</p>
 </div>
@@ -8845,20 +9083,21 @@ figcaption {
 <p><strong>Meaning:</strong> <em>F</em> and <em>G</em> draw; + turns left by 60°; − turns right by 60°</p>
 <p><strong>Initial word:</strong> ω = <em>F</em></p>
 <p><strong>Productions:</strong> <em>F</em> → <em>G−F−G</em>, <em>G</em> → <em>F+G+F</em></p>
+<p><strong>Geometry:</strong> initial heading 60°; turns 60°</p>
 </div>
 <img alt="Successive iterations through depth six of the Sierpiński arrowhead L-system" src="images/sierpinski_lsystem_iterations.svg" style="display:block;width:100%;max-height:310px;object-fit:contain"/>
 </div>
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=generation-methods-summary">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Three-descriptions,-three-emphases">Three descriptions, three emphases<a class="anchor-link" href="#Three-descriptions,-three-emphases">¶</a></h1><table class="standard-table">
+<h2 id="Three-descriptions,-three-emphases">Three descriptions, three emphases<a class="anchor-link" href="#Three-descriptions,-three-emphases">¶</a></h2><table class="standard-table">
 <colgroup><col style="width:21%"/><col style="width:37%"/><col style="width:42%"/></colgroup>
 <thead><tr><th>Description</th><th>Most useful when</th><th>Real-world connection</th></tr></thead>
 <tbody>
@@ -8891,14 +9130,14 @@ figcaption {
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=cantor-construction">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Cantor-set">Cantor set<a class="anchor-link" href="#Cantor-set">¶</a></h1><img alt="The first four iterations of the middle-thirds Cantor construction" src="images/cantor_iterations_clean.svg" style="display:block;max-height:250px;width:auto;max-width:100%;margin:0 auto .8rem"/>
+<h2 id="Cantor-set">Cantor set<a class="anchor-link" href="#Cantor-set">¶</a></h2><img alt="The first four iterations of the middle-thirds Cantor construction" src="images/cantor_iterations_clean.svg" style="display:block;max-height:250px;width:auto;max-width:100%;margin:0 auto .8rem"/>
 <div class="discussion-marker"><img alt="Discussion prompt" height="36" src="images/discussion_marker.svg" width="36"/><span>What could “size” mean for this set? Compare count, total length, the length of one piece, and how much detail appears under magnification. Which answers the question you care about?</span></div>
 <table class="standard-table fragment">
 <colgroup><col style="width:28%"/><col style="width:72%"/></colgroup>
@@ -8911,14 +9150,14 @@ figcaption {
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=sierpinski-construction">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Sierpi%C5%84ski-triangle">Sierpiński triangle<a class="anchor-link" href="#Sierpi%C5%84ski-triangle">¶</a></h1><img alt="The first iterations of the Sierpiński triangle construction" src="images/Sierpinski_triangle_iterations.png" style="display:block;max-height:220px;width:auto;max-width:100%;margin:0 auto"/>
+<h2 id="Sierpi%C5%84ski-triangle">Sierpiński triangle<a class="anchor-link" href="#Sierpi%C5%84ski-triangle">¶</a></h2><img alt="The first iterations of the Sierpiński triangle construction" src="images/Sierpinski_triangle_iterations.png" style="display:block;max-height:220px;width:auto;max-width:100%;margin:0 auto"/>
 <div class="discussion-marker"><img alt="Discussion prompt" height="36" src="images/discussion_marker.svg" width="36"/><span>At depth <em>k</em>, how many triangles remain? What happens to their total area and total perimeter?</span></div>
 <p>Let $A_0$ and $P_0$ be the area and perimeter of the initial filled triangle. At depth $k$, there are $3^k$ triangles, each with side length $2^{-k}$ times the original.</p>
 <table class="standard-table fragment">
@@ -8934,13 +9173,24 @@ figcaption {
 </div>
 </div>
 </div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w2-analysis-banner">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
+<h1 id="Analysis">Analysis<a class="anchor-link" href="#Analysis">¶</a></h1>
+</div>
+</div>
+</div>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=why-dimension">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Infinite-detail-changes-what-%E2%80%9Csize%E2%80%9D-means">Infinite detail changes what “size” means<a class="anchor-link" href="#Infinite-detail-changes-what-%E2%80%9Csize%E2%80%9D-means">¶</a></h1><div class="analysis-perspectives">
+<h2 id="Infinite-detail-changes-what-%E2%80%9Csize%E2%80%9D-means">Infinite detail changes what “size” means<a class="anchor-link" href="#Infinite-detail-changes-what-%E2%80%9Csize%E2%80%9D-means">¶</a></h2><div class="analysis-perspectives">
 <div><strong>Cantor set</strong><p>It lies on a line and contains uncountably many points, yet its total length is zero.</p></div>
 <div><strong>Sierpiński triangle</strong><p>Its area tends to zero while its boundary length diverges.</p></div>
 </div>
@@ -8949,14 +9199,14 @@ figcaption {
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=dimension-directions">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="What-do-we-mean-by-dimension?">What do we mean by dimension?<a class="anchor-link" href="#What-do-we-mean-by-dimension?">¶</a></h1><p><img alt="A point extended successively into a line, square, and cube" src="images/dimension_extension.svg"/></p>
+<h2 id="What-do-we-mean-by-dimension?">What do we mean by dimension?<a class="anchor-link" href="#What-do-we-mean-by-dimension?">¶</a></h2><p><img alt="A point extended successively into a line, square, and cube" src="images/dimension_extension.svg"/></p>
 <p>Each new dimension adds an <strong>independent direction</strong> in which a point can vary.</p>
 </div>
 </div>
@@ -9005,17 +9255,17 @@ figcaption {
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=similarity-dimension">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Similarity-dimension-from-self-similarity">Similarity dimension from self-similarity<a class="anchor-link" href="#Similarity-dimension-from-self-similarity">¶</a></h1><p>For an exact self-similar fractal, the <strong>similarity dimension</strong> keeps the Euclidean scaling rule but no longer assumes an integer exponent:</p>
+<h2 id="Similarity-dimension-from-self-similarity">Similarity dimension from self-similarity<a class="anchor-link" href="#Similarity-dimension-from-self-similarity">¶</a></h2><p>For an exact self-similar fractal, the <strong>similarity dimension</strong> keeps the Euclidean scaling rule but no longer assumes an integer exponent:</p>
 <p>$$N=r^{-D}$$</p>
 <p>so</p>
-<p>$$D=\frac{\log N}{\log(1/r)}.$$</p>
+<p>$$D=\frac{\log N}{\log(1/r)}$$</p>
 <p>Here $N$ is the number of self-similar copies and $r$ is the linear scale of each copy relative to the whole. Both remain meaningful beyond these exact examples: we can count visible pieces and state the resolution at which we observed them.</p>
 <div class="ladder-marker"><img alt="Ladder of abstraction" height="40" src="images/ladder_marker.svg" width="30"/><span><strong>Up the ladder:</strong> replace an infinite construction with one scaling exponent.</span></div>
 </div>
@@ -9029,7 +9279,7 @@ figcaption {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
 <h2 id="Cantor-set-dimension">Cantor set dimension<a class="anchor-link" href="#Cantor-set-dimension">¶</a></h2><p>Two copies remain, each scaled by one third:</p>
-<p>$$D_C=\frac{\log 2}{\log 3}\approx0.631.$$</p>
+<p>$$D_C=\frac{\log 2}{\log 3}\approx0.631$$</p>
 <div class="discussion-marker"><img alt="Discussion prompt" height="36" src="images/discussion_marker.svg" width="36"/><span>If magnification triples, a line reveals three times as many pieces. The Cantor set reveals only two. Where should its scaling exponent sit?</span></div>
 <p>It grows in visible detail faster than isolated points, but more slowly than a complete line: $0\lt D_C\lt 1$.</p>
 </div>
@@ -9043,20 +9293,20 @@ figcaption {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
 <h2 id="Sierpi%C5%84ski-triangle-dimension">Sierpiński triangle dimension<a class="anchor-link" href="#Sierpi%C5%84ski-triangle-dimension">¶</a></h2><p>Three copies remain, each scaled by one half:</p>
-<p>$$D_S=\frac{\log 3}{\log 2}\approx1.585.$$</p>
+<p>$$D_S=\frac{\log 3}{\log 2}\approx1.585$$</p>
 <div class="discussion-marker"><img alt="Discussion prompt" height="36" src="images/discussion_marker.svg" width="36"/><span>If magnification doubles, a curve reveals two times as much detail and a filled region reveals four. The triangle reveals three. Where should its exponent sit?</span></div>
 <p>It grows in visible detail faster than a curve, but more slowly than a filled region: $1\lt D_S\lt 2$.</p>
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=empirical-transition">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Exact-dimension-is-not-always-available">Exact dimension is not always available<a class="anchor-link" href="#Exact-dimension-is-not-always-available">¶</a></h1><div class="slide-columns" style="grid-template-columns:.72fr 1.28fr;align-items:center">
+<h2 id="Exact-dimension-is-not-always-available">Exact dimension is not always available<a class="anchor-link" href="#Exact-dimension-is-not-always-available">¶</a></h2><div class="slide-columns" style="grid-template-columns:.72fr 1.28fr;align-items:center">
 <div>
 <p><strong>This was the problem Mandelbrot was tackling.</strong></p>
 <p>A coastline has no known exact generator, only a finite statistical scaling range.</p>
@@ -9072,14 +9322,14 @@ figcaption {
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=box-counting-intro">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Box-counting">Box counting<a class="anchor-link" href="#Box-counting">¶</a></h1><div class="slide-columns" style="grid-template-columns:1.05fr .95fr;align-items:center">
+<h2 id="Box-counting">Box counting<a class="anchor-link" href="#Box-counting">¶</a></h2><div class="slide-columns" style="grid-template-columns:1.05fr .95fr;align-items:center">
 <div>
 <img alt="Box coverings at multiple resolutions" src="images/BoxCounting_Wiki.png" style="width:100%;max-height:430px;object-fit:contain"/>
 </div>
@@ -9091,51 +9341,9 @@ figcaption {
 </div>
 <p>$$D_B=\lim_{\varepsilon\to0}\frac{\log N(\varepsilon)}{\log(1/\varepsilon)},
 \qquad
-\log N(\varepsilon)\approx D\log(1/\varepsilon)+c\quad\text{for finite data}.$$</p>
+\log N(\varepsilon)\approx D\log(1/\varepsilon)+c\quad\text{for finite data}$$</p>
 <div class="choice-marker"><img alt="Modelling choice" height="34" src="images/choice_marker.svg" width="34"/><span>Resolution, grid origin, threshold, and fitted scale range all matter</span></div>
 <div class="figure-caption">Figure: <a href="https://commons.wikimedia.org/wiki/File:Great_Britain_Box.svg">Great Britain box coverings</a>, Wikimedia Commons. This is the source image linked from the Minkowski–Bouligand dimension article.</div>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=scaling-caution">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="A-straight-line-is-not-enough">A straight line is not enough<a class="anchor-link" href="#A-straight-line-is-not-enough">¶</a></h2><div class="slide-columns" style="grid-template-columns:1.25fr .75fr;align-items:center">
-<img alt="Illustrative box-counting log-log plot for a rasterised British coastline" src="images/britain_boxcount_diagnostic.svg" style="width:100%;max-height:450px;object-fit:contain"/>
-<div>
-<p>A fitted slope is credible only across a justified scaling range.</p>
-<p>Fine scales can saturate at pixel resolution. Coarse scales feel the finite size of the country.</p>
-<p>Too few scales, thresholding, grid placement, or a crossover between mechanisms can also create an apparently straight region.</p>
-</div>
-</div>
-<div class="discussion-marker"><img alt="Discussion prompt" height="36" src="images/discussion_marker.svg" width="36"/><span>Which points would you fit, and what evidence justifies excluding the others?</span></div>
-<p>Scaling is a claim to interrogate, not a visual effect to admire.</p>
-<div class="figure-caption">Illustrative diagnostic calculated from the rasterised Britain silhouette used in this Reader. The estimate is representation- and range-dependent, not a definitive dimension for Britain.</div>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=australian-coast">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Different-coastlines">Different coastlines<a class="anchor-link" href="#Different-coastlines">¶</a></h1><div class="slide-columns evidence-layout compact-evidence-layout" style="grid-template-columns:1.18fr .82fr">
-<div class="evidence-panel"><img alt="Estimated coastline fractal dimensions for seven countries" src="images/coastline_country_comparison.svg"/></div>
-<div class="meaning-panel">
-<img alt="Natural Earth outlines comparing Norway and South Africa" src="images/coastline_extremes.svg" style="width:100%;max-height:190px;object-fit:contain"/>
-<p><strong>A larger estimate means:</strong> occupied coastline detail grows faster as the map resolution becomes finer.</p>
-<p><strong>It does not mean:</strong> a better coast, a longer coast at every stated resolution, or one universal geological mechanism.</p>
-<p><strong>The useful next question:</strong> do fjords, islands, erosion, lithology, glaciation, tides, or mapping choices explain the contrast?</p>
-</div>
-</div>
-<p><strong>Evidence check:</strong> one exponent is useful only if a stable scaling range and measurement protocol are reported.</p>
-<div class="figure-caption">Selected values from the <a href="https://datarepository.wolframcloud.com/resources/WolframSummerCamp_Coastline-Fractal-Dimensions/">Wolfram Data Repository coastline dataset</a>. Country outlines from Natural Earth, public domain. Treat these as one method-dependent comparison, not definitive national constants.</div>
 </div>
 </div>
 </div>
@@ -9160,14 +9368,56 @@ figcaption {
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=scaling-caution">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
+<h2 id="A-straight-line-is-not-enough">A straight line is not enough<a class="anchor-link" href="#A-straight-line-is-not-enough">¶</a></h2><div class="slide-columns" style="grid-template-columns:1.25fr .75fr;align-items:center">
+<img alt="Illustrative box-counting log-log plot for a rasterised British coastline" src="images/britain_boxcount_diagnostic.svg" style="width:100%;max-height:450px;object-fit:contain"/>
+<div>
+<p>A fitted slope is credible only across a justified scaling range.</p>
+<p>Fine scales can saturate at pixel resolution. Coarse scales feel the finite size of the country.</p>
+<p>Too few scales, thresholding, grid placement, or a crossover between mechanisms can also create an apparently straight region.</p>
+</div>
+</div>
+<div class="discussion-marker"><img alt="Discussion prompt" height="36" src="images/discussion_marker.svg" width="36"/><span>Which points would you fit, and what evidence justifies excluding the others?</span></div>
+<p>Scaling is a claim to interrogate, not a visual effect to admire.</p>
+<div class="figure-caption">Illustrative diagnostic calculated from the rasterised Britain silhouette used in this Reader. The estimate is representation- and range-dependent, not a definitive dimension for Britain.</div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=australian-coast">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
+<h2 id="Different-coastlines">Different coastlines<a class="anchor-link" href="#Different-coastlines">¶</a></h2><div class="slide-columns evidence-layout compact-evidence-layout" style="grid-template-columns:1.18fr .82fr">
+<div class="evidence-panel"><img alt="Estimated coastline fractal dimensions for seven countries" src="images/coastline_country_comparison.svg"/></div>
+<div class="meaning-panel">
+<img alt="Natural Earth outlines comparing Norway and South Africa" src="images/coastline_extremes.svg" style="width:100%;max-height:190px;object-fit:contain"/>
+<p><strong>A larger estimate means:</strong> occupied coastline detail grows faster as the map resolution becomes finer.</p>
+<p><strong>It does not mean:</strong> a better coast, a longer coast at every stated resolution, or one universal geological mechanism.</p>
+<p><strong>The useful next question:</strong> do fjords, islands, erosion, lithology, glaciation, tides, or mapping choices explain the contrast?</p>
+</div>
+</div>
+<p><strong>Evidence check:</strong> one exponent is useful only if a stable scaling range and measurement protocol are reported.</p>
+<div class="figure-caption">Selected values from the <a href="https://datarepository.wolframcloud.com/resources/WolframSummerCamp_Coastline-Fractal-Dimensions/">Wolfram Data Repository coastline dataset</a>. Country outlines from Natural Earth, public domain. Treat these as one method-dependent comparison, not definitive national constants.</div>
+</div>
+</div>
+</div>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=scale-free-bridge-reader">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="From-dimension-to-scale-free-behaviour">From dimension to scale-free behaviour<a class="anchor-link" href="#From-dimension-to-scale-free-behaviour">¶</a></h1><div class="slide-columns evidence-layout" style="grid-template-columns:1fr 1fr;align-items:stretch">
+<h2 id="From-dimension-to-scale-free-behaviour">From dimension to scale-free behaviour<a class="anchor-link" href="#From-dimension-to-scale-free-behaviour">¶</a></h2><div class="slide-columns evidence-layout" style="grid-template-columns:1fr 1fr;align-items:stretch">
 <div class="meaning-panel" style="text-align:left">
 <h3>Measured object</h3>
 <p style="text-align:center;font-size:1.1em"><em>N</em>(ε) ∝ ε<sup>−<em>D</em></sup></p>
@@ -9222,11 +9472,11 @@ figcaption {
 <div class="slide-columns evidence-layout" style="grid-template-columns:1fr 1fr;align-items:stretch">
 <div class="meaning-panel" style="text-align:left">
 <strong>Circle</strong>
-<p>Doubling the radius multiplies area by \(2^2=4\). This is a scaling law for a family of circles. A particular circle still contains the characteristic length \(R\).</p>
+<p>Doubling the radius multiplies area by 2<sup>2</sup> = 4. This is a scaling law for a family of circles. A particular circle still contains the characteristic length <em>R</em>.</p>
 </div>
 <div class="meaning-panel" style="text-align:left">
 <strong>Exact fractal</strong>
-<p>Reducing each length to \(1/L\) reveals \(N=L^D\) copies inside the same set. The structure repeats; \(D\) is a dimensionless ratio of complexity across scales, not a physical size.</p>
+<p>Reducing each length to 1/<em>L</em> reveals <em>N</em> = <em>L</em><sup><em>D</em></sup> copies inside the same set. The structure repeats; <em>D</em> is a dimensionless ratio of complexity across scales, not a physical size.</p>
 </div>
 </div>
 </div>
@@ -9251,18 +9501,18 @@ figcaption {
 <p>A relationship is scale-free when the same rescaling rule holds without introducing a preferred value of <em>x</em>. The factor <em>a</em> is chosen by us. The exponent α remains fixed.</p>
 </div>
 </div>
-<p>The area relation (A(R)=\pi R^2) is homogeneous in (R), but this does not make the geometry of one fixed circle self-similar under magnification. Always state <strong>what object or relationship is being rescaled</strong>.</p>
+<p>The area relation <em>A</em>(<em>R</em>) = π<em>R</em><sup>2</sup> is homogeneous in <em>R</em>, but this does not make the geometry of one fixed circle self-similar under magnification. Always state <strong>what object or relationship is being rescaled</strong>.</p>
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=scale-free-examples">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Scale-free-patterns-in-real-complex-systems">Scale-free patterns in real complex systems<a class="anchor-link" href="#Scale-free-patterns-in-real-complex-systems">¶</a></h1><p>Scale-free and approximately scale-free relationships appear in many kinds of system. Here we compare trees, organisms, networks, language, cities, earthquakes, and critical phenomena.</p>
+<h2 id="Scale-free-patterns-in-real-complex-systems">Scale-free patterns in real complex systems<a class="anchor-link" href="#Scale-free-patterns-in-real-complex-systems">¶</a></h2><p>Scale-free and approximately scale-free relationships appear in many kinds of system. Here we compare trees, organisms, networks, language, cities, earthquakes, and critical phenomena.</p>
 <p>The recurring mathematical question is:</p>
 <blockquote>
 <p>Does the same relationship remain useful when the scale of observation or system size changes?</p>
@@ -9382,14 +9632,14 @@ figcaption {
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=finite-scale-free-reader">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Real-systems-are-scale-free-only-over-a-range">Real systems are scale-free only over a range<a class="anchor-link" href="#Real-systems-are-scale-free-only-over-a-range">¶</a></h1><p>Exact fractals continue through every mathematical generation. Real systems have limits.</p>
+<h2 id="Real-systems-are-scale-free-only-over-a-range">Real systems are scale-free only over a range<a class="anchor-link" href="#Real-systems-are-scale-free-only-over-a-range">¶</a></h2><p>Exact fractals continue through every mathematical generation. Real systems have limits.</p>
 <table class="standard-table">
 <colgroup><col style="width:24%"/><col style="width:76%"/></colgroup>
 <tbody>
@@ -9406,13 +9656,24 @@ figcaption {
 </div>
 </div>
 </div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w2-scope-banner">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
+<h1 id="Scope-and-connections">Scope and connections<a class="anchor-link" href="#Scope-and-connections">¶</a></h1>
+</div>
+</div>
+</div>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=scale-free-complex-systems-reader">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Why-this-matters-in-Complex-Systems">Why this matters in Complex Systems<a class="anchor-link" href="#Why-this-matters-in-Complex-Systems">¶</a></h1><p>Fractal geometry applies scaling ideas to spatial structure. The same language can describe other quantities, including event sizes, durations, fluctuations, and network measurements.</p>
+<h2 id="Why-this-matters-in-Complex-Systems">Why this matters in Complex Systems<a class="anchor-link" href="#Why-this-matters-in-Complex-Systems">¶</a></h2><p>Fractal geometry applies scaling ideas to spatial structure. The same language can describe other quantities, including event sizes, durations, fluctuations, and network measurements.</p>
 <p>Scale-free behaviour may arise from several different mechanisms. Later in the unit we will see it in connection with critical phenomena, percolation, and self-organised criticality. Observing a power law does not identify the mechanism by itself. It gives us a compact pattern that the mechanism must explain.</p>
 </div>
 </div>
@@ -9424,7 +9685,7 @@ figcaption {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Very-different-(complex)-systems">Very different (complex) systems<a class="anchor-link" href="#Very-different-(complex)-systems">¶</a></h1><div class="compact-card-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:.45rem;align-items:stretch">
+<h2 id="Very-different-(complex)-systems">Very different (complex) systems<a class="anchor-link" href="#Very-different-(complex)-systems">¶</a></h2><div class="compact-card-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:.45rem;align-items:stretch">
 <div class="meaning-panel"><img alt="Branching bacterial colony" src="images/paenibacillus_branching.png"/><strong>Colony growth</strong><p>Cells alter local resources and the frontier available to later growth.</p></div>
 <div class="meaning-panel"><img alt="Largest connected cluster in a site-percolation realisation near the critical threshold" src="images/critical_percolation_cluster.svg"/><strong>Critical percolation</strong><p>Local occupancy produces connected clusters and voids across many sizes near the transition.</p></div>
 <div class="meaning-panel"><img alt="Normal retinal blood vessels branching from the optic disc" src="images/normal_retinal_vasculature.jpg"/><strong>Retinal vasculature</strong><p>A nested physiological network distributes blood across the retinal surface.</p></div>
@@ -9458,14 +9719,14 @@ figcaption {
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=pattern-to-mechanism">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="From-pattern-back-to-mechanism">From pattern back to mechanism<a class="anchor-link" href="#From-pattern-back-to-mechanism">¶</a></h1><p>Fractal analysis can <strong>constrain explanations</strong> by identifying patterns that a proposed mechanism should reproduce. It cannot recover one unique mechanism from geometry alone.</p>
+<h2 id="From-pattern-back-to-mechanism">From pattern back to mechanism<a class="anchor-link" href="#From-pattern-back-to-mechanism">¶</a></h2><p>Fractal analysis can <strong>constrain explanations</strong> by identifying patterns that a proposed mechanism should reproduce. It cannot recover one unique mechanism from geometry alone.</p>
 <div class="analysis-perspectives">
 <div><strong>A fractal dimension can tell us</strong><p>how occupied structure changes with resolution over a stated range of scales.</p></div>
 <div><strong>It cannot tell us alone</strong><p>which interactions generated the pattern, whether the scaling continues, or whether two matching exponents imply the same process.</p></div>
@@ -9475,14 +9736,14 @@ figcaption {
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=project-statistics-reminder">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="A-reminder-for-your-project">A reminder for your project<a class="anchor-link" href="#A-reminder-for-your-project">¶</a></h1><img alt="A hand-drawn joke showing error bars recursively placed on error bars" src="images/error_bars.png" style="display:block;width:min(48%,430px);max-height:390px;object-fit:contain;margin:.2rem auto .7rem"/>
+<h2 id="A-reminder-for-your-project">A reminder for your project<a class="anchor-link" href="#A-reminder-for-your-project">¶</a></h2><img alt="A hand-drawn joke showing error bars recursively placed on error bars" src="images/error_bars.png" style="display:block;width:min(48%,430px);max-height:390px;object-fit:contain;margin:.2rem auto .7rem"/>
 <div class="choice-marker"><img alt="" height="34" src="images/choice_marker.svg" width="34"/><span><strong>You will need to run statistics for your project.</strong> Your code needs to be functional early enough to test, diagnose, and revise it.</span></div>
 </div>
 </div>

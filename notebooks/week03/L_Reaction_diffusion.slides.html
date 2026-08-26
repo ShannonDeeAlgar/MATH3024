@@ -7947,6 +7947,27 @@ figcaption {
 
 .discussion-marker img { width: 36px !important; height: 36px !important; margin: 0 !important; }
 
+details.reader-answer {
+  margin: 0.8rem 0 1.2rem 3.2rem;
+  border: 1px solid #c7cedc;
+  border-radius: 6px;
+  background: var(--pst-color-surface, #f7f8fa);
+  font-family: var(--pst-font-family-base);
+}
+
+details.reader-answer summary {
+  cursor: pointer;
+  padding: 0.7rem 1rem;
+  color: #1d315b;
+  font-family: var(--pst-font-family-base);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+details.reader-answer > div {
+  padding: 0 1rem 0.9rem;
+}
+
 .discussion-prompt { border-left-color: #EDCC55; }
 
 .qa-grid { margin-top: 0.55em; }
@@ -8080,6 +8101,39 @@ figcaption {
   gap: 0.65em;
 }
 
+.reveal .slides .two-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0.8em;
+  align-items: center;
+  width: 100%;
+}
+
+.reveal .slides .two-panel.wide-left {
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
+}
+
+.reveal .slides .two-panel > *,
+.reveal .slides .three-panel > * { min-width: 0; }
+
+.reveal .slides .two-panel .image-panel,
+.reveal .slides .three-panel .image-panel,
+.reveal .slides .two-panel .text-panel,
+.reveal .slides .three-panel .text-panel {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.reveal .slides .two-panel .image-panel img,
+.reveal .slides .three-panel .image-panel img {
+  display: block;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
 .reveal .slides .model-specification > div {
   grid-template-columns: minmax(8.5em, 0.72fr) minmax(0, 1.6fr);
   font-size: 1em;
@@ -8210,6 +8264,41 @@ figcaption {
   color: var(--reader-ink-soft, #5D6D8D);
 }
 
+.modelling-practice-marker {
+  display: inline-flex;
+  gap: 0.55rem;
+  align-items: baseline;
+  max-width: 92%;
+  margin-top: 0.45rem;
+  padding: 0.48rem 0.85rem;
+  border: 1px solid #d4c178;
+  border-left: 5px solid #c89b19;
+  background: #fffaf0;
+  color: #1b2a4c;
+  text-align: left;
+}
+
+.modelling-practice-marker span {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.5em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.modelling-practice-marker strong {
+  font-family: Baskerville, Georgia, serif;
+  font-size: 0.76em;
+  line-height: 1.15;
+}
+
+.dark .modelling-practice-marker {
+  border-color: #8f7f49;
+  border-left-color: #edcc55;
+  background: #292615;
+  color: #f7f1df;
+}
+
 .jp-OutputArea-child:has(iframe) .jp-OutputPrompt,
 .jp-Cell-outputWrapper:has(iframe) .jp-OutputCollapser {
   display: none;
@@ -8277,6 +8366,22 @@ figcaption {
   text-underline-offset: 0.12em;
 }
 
+/* Notebook anchor glyphs are useful in the Reader but are visual noise in a
+   presentation heading. */
+.reveal .slides section .anchor-link {
+  display: none !important;
+}
+
+/* Old notebooks contain a few inline or inherited sans-serif declarations.
+   Body copy follows the common lecture type system; sans serif is reserved
+   for captions, labels and compact annotations below. */
+.reveal .slides section .jp-MarkdownOutput > p,
+.reveal .slides section .jp-MarkdownOutput > ul,
+.reveal .slides section .jp-MarkdownOutput > ol,
+.reveal .slides section .jp-MarkdownOutput > div:not(.small-note):not(.figure-caption) {
+  font-family: Baskerville, Georgia, serif;
+}
+
 .reveal .slides section table {
   border-collapse: collapse;
   margin: 0.7em auto;
@@ -8325,6 +8430,41 @@ figcaption {
 
 .reveal .slides section .compact-panels .text-panel { padding: 0.45em 0.65em; }
 .reveal .slides section .compact-panels p { margin: 0; }
+.reveal .slides section .two-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0.8em;
+  align-items: center;
+  width: 100%;
+}
+.reveal .slides section .two-panel.wide-left {
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
+}
+.reveal .slides section .three-panel {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.65em;
+  align-items: stretch;
+  width: 100%;
+}
+.reveal .slides section .two-panel > *,
+.reveal .slides section .three-panel > * { min-width: 0; }
+.reveal .slides section .two-panel .image-panel,
+.reveal .slides section .three-panel .image-panel,
+.reveal .slides section .two-panel .text-panel,
+.reveal .slides section .three-panel .text-panel {
+  box-sizing: border-box;
+  width: 100%;
+}
+.reveal .slides section .two-panel .image-panel img,
+.reveal .slides section .three-panel .image-panel img {
+  display: block;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+}
 .reveal .slides section .small-note {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.62em;
@@ -8375,17 +8515,29 @@ figcaption {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h1 id="Reaction%E2%80%93diffusion-systems">Reaction–diffusion systems<a class="anchor-link" href="#Reaction%E2%80%93diffusion-systems">¶</a></h1><h2 id="MATH3024-%C2%B7-Week-3">MATH3024 · Week 3<a class="anchor-link" href="#MATH3024-%C2%B7-Week-3">¶</a></h2><div class="canonical-model-marker"><span>Canonical model</span><strong>Gray–Scott reaction–diffusion<br/><small>Supporting model: random-walk diffusion</small></strong></div>
+<div class="modelling-practice-marker"><span>Modelling practice</span><strong>Choosing discrete and continuous representations</strong></div>
 </div>
 </div>
 </div>
 </div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w3-motivation-banner">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
+<h1 id="Real-world-motivation">Real-world motivation<a class="anchor-link" href="#Real-world-motivation">¶</a></h1>
+</div>
+</div>
+</div>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a2fe3243">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="How-did-the-cheetah-get-its-spots?">How did the cheetah get its spots?<a class="anchor-link" href="#How-did-the-cheetah-get-its-spots?">¶</a></h1><div class="discussion-marker"><img alt="Discussion prompt" height="36" src="images/discussion_marker.svg" width="36"/><span>Why spots rather than stripes? Indeed, what is a pattern?</span></div>
+<h2 id="How-did-the-cheetah-get-its-spots?">How did the cheetah get its spots?<a class="anchor-link" href="#How-did-the-cheetah-get-its-spots?">¶</a></h2><div class="discussion-marker"><img alt="Discussion prompt" height="36" src="images/discussion_marker.svg" width="36"/><span>Why spots rather than stripes? Indeed, what is a pattern?</span></div>
 </div>
 </div>
 </div>
@@ -8410,7 +8562,7 @@ figcaption {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Related-mechanisms,-different-patterns">Related mechanisms, different patterns<a class="anchor-link" href="#Related-mechanisms,-different-patterns">¶</a></h1><div class="analysis-perspectives three coat-cards">
+<h2 id="Related-mechanisms,-different-patterns">Related mechanisms, different patterns<a class="anchor-link" href="#Related-mechanisms,-different-patterns">¶</a></h2><div class="analysis-perspectives three coat-cards">
 <div><div class="coat-image-frame"><img alt="Cheetah coat" src="images/cheetah_coat_card.jpg"/></div><strong>Cheetah</strong><p>Small spots</p></div>
 <div><div class="coat-image-frame"><img alt="Leopard coat" src="images/leopard_coat_card_cropped.jpg"/></div><strong>Leopard</strong><p>Rosettes</p></div>
 <div><div class="coat-image-frame"><img alt="Jaguar coat" src="images/jaguar_coat_card.jpg"/></div><strong>Jaguar</strong><p>Rosettes with central spots</p></div>
@@ -8426,7 +8578,7 @@ figcaption {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Similar-patterns,-different-mechanisms">Similar patterns, different mechanisms<a class="anchor-link" href="#Similar-patterns,-different-mechanisms">¶</a></h1><div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1rem;align-items:start;">
+<h2 id="Similar-patterns,-different-mechanisms">Similar patterns, different mechanisms<a class="anchor-link" href="#Similar-patterns,-different-mechanisms">¶</a></h2><div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1rem;align-items:start;">
 <div class="image-panel" style="padding:0.8rem;">
 <img alt="Parallel ridges in wind-blown sand" src="images/sand_ridges_only.png" style="display:block;width:100%;height:220px;object-fit:cover;margin:0;"/>
 <p style="margin:0.65rem 0 0.2rem;"><strong>Sand ridges</strong></p>
@@ -8462,14 +8614,14 @@ Enables more complex circuitry and higher cognitive function in a constrained sp
 </div>
 </div>
 </div>
-</aside></section></section><section><section>
+</aside></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=week03-alan-mathison-turing">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Alan-Turing">Alan Turing<a class="anchor-link" href="#Alan-Turing">¶</a></h1><div class="two-panel equal-panels compact-panels">
+<h2 id="Alan-Turing">Alan Turing<a class="anchor-link" href="#Alan-Turing">¶</a></h2><div class="two-panel equal-panels compact-panels">
 <div class="image-panel"><img alt="Alan Turing and a representation of the imitation game" src="images/Turing_and_imitation_game.png" style="display:block;width:100%;height:270px;object-fit:contain;"/></div>
 <div class="text-panel"><p>Turing helped establish theoretical computer science, worked in wartime cryptanalysis and designed early computers.</p><p>At Manchester he turned to mathematical biology: could ordinary physical and chemical processes explain how biological form develops?</p></div>
 </div>
@@ -8561,13 +8713,24 @@ Enables more complex circuitry and higher cognitive function in a constrained sp
 </div>
 </div>
 </div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w3-explorable-banner">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
+<h1 id="Explorable">Explorable<a class="anchor-link" href="#Explorable">¶</a></h1>
+</div>
+</div>
+</div>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b7c839be-6ee3-4fef-9aae-72b880dbb4b9">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Understanding-diffusion">Understanding diffusion<a class="anchor-link" href="#Understanding-diffusion">¶</a></h1><h2 id="Random-walk:-a-discrete-model">Random walk: a discrete model<a class="anchor-link" href="#Random-walk:-a-discrete-model">¶</a></h2><img alt="Unbiased, biased and persistent random walks, each shown with 45 unit-length steps on the same spatial scale" src="images/random_walk_types_stats.svg" style="display:block;width:94%;max-height:390px;object-fit:contain;margin:0 auto;"/>
+<h2 id="Understanding-diffusion">Understanding diffusion<a class="anchor-link" href="#Understanding-diffusion">¶</a></h2><h2 id="Random-walk:-a-discrete-model">Random walk: a discrete model<a class="anchor-link" href="#Random-walk:-a-discrete-model">¶</a></h2><img alt="Unbiased, biased and persistent random walks, each shown with 45 unit-length steps on the same spatial scale" src="images/random_walk_types_stats.svg" style="display:block;width:94%;max-height:390px;object-fit:contain;margin:0 auto;"/>
 </div>
 </div>
 </div>
@@ -8609,7 +8772,7 @@ Enables more complex circuitry and higher cognitive function in a constrained sp
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
 <h3 id="From-one-path-to-an-ensemble">From one path to an ensemble<a class="anchor-link" href="#From-one-path-to-an-ensemble">¶</a></h3><img alt="Individual squared displacements, their ensemble mean at D equals 0.25, and the theoretical diffusion law" src="images/brownian_ensemble_msd.svg" style="display:block;width:68%;max-height:325px;object-fit:contain;margin:0 auto;"/>
-<div class="ladder-marker"><img alt="" src="images/ladder_marker.svg"/><span><strong>Up the ladder over walkers:</strong> the MSD approaches 4<i>Dt</i>.</span></div>
+<div class="ladder-marker"><img alt="" src="images/ladder_marker.svg"/><span><strong>Up the ladder over walkers:</strong> replace individual squared displacements by the ensemble MSD; in two dimensions it approaches 4<i>Dt</i>.</span></div>
 </div>
 </div>
 </div>
@@ -8637,15 +8800,15 @@ Enables more complex circuitry and higher cognitive function in a constrained sp
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=week03-gray-scott-history">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Add-reaction:-the-Gray%E2%80%93Scott-model">Add reaction: the Gray–Scott model<a class="anchor-link" href="#Add-reaction:-the-Gray%E2%80%93Scott-model">¶</a></h1><p>Turing supplied a general mechanism, not one unique reaction law. Gray–Scott gives us a particular reaction to explore.</p>
-<p>$$u+2v\longrightarrow3v.$$</p>
+<h2 id="Add-reaction:-the-Gray%E2%80%93Scott-model">Add reaction: the Gray–Scott model<a class="anchor-link" href="#Add-reaction:-the-Gray%E2%80%93Scott-model">¶</a></h2><p>Turing supplied a general mechanism, not one unique reaction law. Gray–Scott gives us a particular reaction to explore.</p>
+<p>$$u+2v\longrightarrow3v$$</p>
 <p>Existing $v$ is required to produce one additional $v$, so the product promotes its own production. This is <strong>autocatalysis</strong>. Under mass action, the encounter rate is proportional to $uv^2$.</p>
 </div>
 </div>
@@ -8686,13 +8849,24 @@ Enables more complex circuitry and higher cognitive function in a constrained sp
 </div>
 </div>
 </div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w3-model-banner">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
+<h1 id="Model-details">Model details<a class="anchor-link" href="#Model-details">¶</a></h1>
+</div>
+</div>
+</div>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4f8c9362">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="From-particle-motion-to-continuous-equations">From particle motion to continuous equations<a class="anchor-link" href="#From-particle-motion-to-continuous-equations">¶</a></h1><p>The Complexity Explorable is not directly simulating every particle interaction.</p>
+<h2 id="From-particle-motion-to-continuous-equations">From particle motion to continuous equations<a class="anchor-link" href="#From-particle-motion-to-continuous-equations">¶</a></h2><p>The Complexity Explorable is not directly simulating every particle interaction.</p>
 <div class="discussion-marker"><img alt="Discussion prompt" src="images/discussion_marker.svg"/><span>Could it update every molecule, collision and three-particle encounter?</span></div>
 <p>An exact particle simulation would require an enormous number of random trajectories and collision tests. Statistical physics handles systems such as gases by replacing inaccessible microscopic histories with collective quantities that can be predicted and measured.</p>
 </div>
@@ -8709,7 +8883,7 @@ Enables more complex circuitry and higher cognitive function in a constrained sp
 <p>$$
 \text{many particle positions}
 \quad\longrightarrow\quad
-U(\mathbf x,t),\;V(\mathbf x,t),
+U(\mathbf x,t),\;V(\mathbf x,t)
 $$</p>
 <p>where the fields record local concentrations. We lose individual histories and gain a tractable description of collective transport and reaction.</p>
 <div class="ladder-marker"><img alt="Ladder of abstraction" src="images/ladder_marker.svg"/><span><strong>Up the ladder over particles:</strong> retain how much of each chemical is present at each location.</span></div>
@@ -8725,20 +8899,20 @@ $$</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_remove-cell celltag_presenter-notes" data-mime-type="text/markdown">
 <h2 id="From-a-random-walk-to-the-diffusion-equation">From a random walk to the diffusion equation<a class="anchor-link" href="#From-a-random-walk-to-the-diffusion-equation">¶</a></h2><p>Consider a particle on a one-dimensional grid. At each time step $\Delta t$, it moves left or right by $\Delta x$ with equal probability. If $P(x,t)$ is the probability of finding it at $x$ at time $t$, then</p>
 <p>$$
-P(x,t+\Delta t)=\frac12P(x-\Delta x,t)+\frac12P(x+\Delta x,t).
+P(x,t+\Delta t)=\frac12P(x-\Delta x,t)+\frac12P(x+\Delta x,t)
 $$</p>
 <p>Taylor-expand both sides. Symmetry cancels the first-order spatial terms, leaving</p>
 <p>$$
 \Delta t\,\frac{\partial P}{\partial t}
-=\frac12\Delta x^2\frac{\partial^2P}{\partial x^2}+\text{higher-order terms}.
+=\frac12\Delta x^2\frac{\partial^2P}{\partial x^2}+\text{higher-order terms}
 $$</p>
 <p>Let</p>
 <p>$$
-D=\frac{\Delta x^2}{2\Delta t},
+D=\frac{\Delta x^2}{2\Delta t}
 $$</p>
 <p>and take the continuum limit while holding $D$ fixed. The result is</p>
 <p>$$
-\frac{\partial P}{\partial t}=D\frac{\partial^2P}{\partial x^2}.
+\frac{\partial P}{\partial t}=D\frac{\partial^2P}{\partial x^2}
 $$</p>
 <p>The continuum field retains the collective spreading law and discards each particle’s particular sequence of steps.</p>
 </div>
@@ -8775,7 +8949,7 @@ $$</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
 <h3 id="1.-Reaction">1. Reaction<a class="anchor-link" href="#1.-Reaction">¶</a></h3><p>The particle story was</p>
-<p>$$u+2v\longrightarrow3v.$$</p>
+<p>$$u+2v\longrightarrow3v$$</p>
 <p>At the aggregate level, let $U(\mathbf x,t)$ and $V(\mathbf x,t)$ denote concentrations. The mass-action choice introduced at particle level becomes the local rate $UV^2$:</p>
 <p>$$
 \begin{aligned}
@@ -8876,7 +9050,7 @@ $$</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
 <h3 id="Explore-the-parameter-space">Explore the parameter space<a class="anchor-link" href="#Explore-the-parameter-space">¶</a></h3><p>The model contains four principal parameters:</p>
-<p>$$D_U,\qquad D_V,\qquad f,\qquad k.$$</p>
+<p>$$D_U,\qquad D_V,\qquad f,\qquad k$$</p>
 <p>Exploring $m$ values of each would require $m^4$ combinations. This rapid growth is one form of the <strong>curse of dimensionality</strong>.</p>
 <p>In this teaching model we often fix a plausible diffusion ratio, then sweep $f$ and $k$. These are effective nondimensional parameters; in a laboratory system they must be related carefully to measurable controls.</p>
 <div class="ladder-marker"><img alt="Ladder of abstraction" src="images/ladder_marker.svg"/><span><strong>Up the ladder:</strong> compare many parameter choices to reveal a map of qualitative behaviours.</span></div>
@@ -8901,16 +9075,16 @@ $$</p>
 </div>
 </div>
 </div>
-</aside></section></section><section><section>
+</aside></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=954ca579-6444-4529-9190-05fb00912d11">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="From-continuous-equations-to-a-discrete-simulation">From continuous equations to a discrete simulation<a class="anchor-link" href="#From-continuous-equations-to-a-discrete-simulation">¶</a></h1><p>A solution is a pair of evolving concentration fields:</p>
+<h2 id="From-continuous-equations-to-a-discrete-simulation">From continuous equations to a discrete simulation<a class="anchor-link" href="#From-continuous-equations-to-a-discrete-simulation">¶</a></h2><p>A solution is a pair of evolving concentration fields:</p>
 <p>$$
-\bigl(U(\mathbf x,t),V(\mathbf x,t)\bigr).
+\bigl(U(\mathbf x,t),V(\mathbf x,t)\bigr)
 $$</p>
 <p><strong>Analytic solutions:</strong> exact results are available in special cases and can expose equilibria, growing modes and parameter dependence.</p>
 <p><strong>Numerical solutions:</strong> a nonlinear two-dimensional pattern usually requires a grid and finite time steps.</p>
@@ -9030,18 +9204,18 @@ $$</p>
 <h2 id="Approximate-the-Laplacian">Approximate the Laplacian<a class="anchor-link" href="#Approximate-the-Laplacian">¶</a></h2><p>In continuous space,
 $$
 \nabla^2U=\nabla\!\cdot(\nabla U)
-=\frac{\partial^2U}{\partial x^2}+\frac{\partial^2U}{\partial y^2}.
+=\frac{\partial^2U}{\partial x^2}+\frac{\partial^2U}{\partial y^2}
 $$</p>
 <p>On a square grid with spacing $h=\Delta x=\Delta y$, use
 $$
 (\nabla_h^2U)_{i,j}
-=\frac{U_{i+1,j}+U_{i-1,j}+U_{i,j+1}+U_{i,j-1}-4U_{i,j}}{h^2}.
+=\frac{U_{i+1,j}+U_{i-1,j}+U_{i,j+1}+U_{i,j-1}-4U_{i,j}}{h^2}
 $$</p>
 <p>Here $\nabla^2$ is the continuous Laplacian; $\nabla_h^2$ is its grid approximation; $h$ is the distance between neighbouring grid points; and $(i,j)$ identifies the focal cell.</p>
 <div class="reader-only-detail">
 <p>This is a second-derivative approximation, not a first derivative. In one dimension the centred second difference is</p>
 $$
-(\nabla_h^2U)_i=\frac{U_{i+1}-2U_i+U_{i-1}}{h^2}.
+(\nabla_h^2U)_i=\frac{U_{i+1}-2U_i+U_{i-1}}{h^2}
 $$
 <p>The two-dimensional stencil adds one such curvature comparison in the horizontal direction and one in the vertical direction. The four neighbour values are compared with four copies of the focal value. A constant or locally linear field gives zero; a focal peak gives a negative value; and a focal valley gives a positive value. Multiplication by a positive diffusion coefficient therefore lowers peaks and fills valleys.</p>
 <p>The subscript <i>h</i> is a reminder that this is a discrete operator whose value depends on the mesh spacing. As the grid is refined and <i>h</i> decreases, a consistent approximation should approach the continuous Laplacian.</p>
@@ -9072,13 +9246,7 @@ $$
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h3 id="Convolve-with-the-five-point-stencil">Convolve with the five-point stencil<a class="anchor-link" href="#Convolve-with-the-five-point-stencil">¶</a></h3><div class="reader-only-detail">
-<p>The corresponding convolution kernel is</p>
-<p>$$
-L=\begin{bmatrix}0&amp;1&amp;0\\1&amp;-4&amp;1\\0&amp;1&amp;0\end{bmatrix}.
-$$</p>
-</div>
-<div class="two-panel equal-panels">
+<h3 id="Convolve-with-the-five-point-stencil">Convolve with the five-point stencil<a class="anchor-link" href="#Convolve-with-the-five-point-stencil">¶</a></h3><div class="two-panel equal-panels">
 <div class="image-panel"><img alt="A numerical example of convolving a grid with the five-point Laplacian stencil" src="images/laplacian_convolution_example.svg" style="width:100%;"/></div>
 <div class="text-panel">
 <p>Place the stencil over one cell, multiply overlapping entries, and add. Then slide it to the next cell.</p>
@@ -9098,7 +9266,7 @@ $$</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
 <h2 id="Discretise-time">Discretise time<a class="anchor-link" href="#Discretise-time">¶</a></h2><p>Let</p>
 <p>$$
-t_n=n\Delta t,
+t_n=n\Delta t
 $$</p>
 <p>where $n=0,1,2,\ldots$ is the time-step index and $\Delta t$ is the chosen finite step size. The notation $U^n_{i,j}$ means the numerical value of the $U$ field at grid cell $(i,j)$ and time $t_n$.</p>
 <p>If the continuous equations are written as</p>
@@ -9134,7 +9302,7 @@ U^{n+1}_{i,j}=U^n_{i,j}
 D_U(\nabla_h^2U^n)_{i,j}
 -U^n_{i,j}(V^n_{i,j})^2
 +f(1-U^n_{i,j})
-\right],
+\right]
 $$</p>
 <p>$$
 V^{n+1}_{i,j}=V^n_{i,j}
@@ -9142,7 +9310,7 @@ V^{n+1}_{i,j}=V^n_{i,j}
 D_V(\nabla_h^2V^n)_{i,j}
 +U^n_{i,j}(V^n_{i,j})^2
 -(f+k)V^n_{i,j}
-\right].
+\right]
 $$</p>
 <p>Both right-hand sides use time level $n$. Only after both have been calculated do we replace the old arrays with the new arrays.</p>
 <div class="ladder-marker"><img alt="Ladder of abstraction" src="images/ladder_marker.svg"/><span><strong>Down the ladder:</strong> the PDE has become a local numerical update that can be inspected, tested and debugged.</span></div>
@@ -9150,13 +9318,24 @@ $$</p>
 </div>
 </div>
 </div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w3-analysis-banner">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
+<h1 id="Analysis">Analysis<a class="anchor-link" href="#Analysis">¶</a></h1>
+</div>
+</div>
+</div>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=week03-return-to-simulation">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Return-to-the-Gray%E2%80%93Scott-simulation">Return to the Gray–Scott simulation<a class="anchor-link" href="#Return-to-the-Gray%E2%80%93Scott-simulation">¶</a></h1><div class="two-panel equal-panels">
+<h2 id="Return-to-the-Gray%E2%80%93Scott-simulation">Return to the Gray–Scott simulation<a class="anchor-link" href="#Return-to-the-Gray%E2%80%93Scott-simulation">¶</a></h2><div class="two-panel equal-panels">
 <div class="image-panel"><img alt="The U and V concentration fields from one Gray–Scott simulation" src="images/gray_scott_two_fields.png" style="display:block;width:100%;max-height:430px;object-fit:contain;margin:0 auto;"/></div>
 <div class="text-panel">
 <p>This is one run of the complete discrete Gray–Scott model. The left panel displays <i>U</i>; the right displays <i>V</i>.</p>
@@ -9175,7 +9354,7 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Test-the-mechanism-in-a-chemical-system">Test the mechanism in a chemical system<a class="anchor-link" href="#Test-the-mechanism-in-a-chemical-system">¶</a></h1><div class="two-panel equal-panels">
+<h2 id="Test-the-mechanism-in-a-chemical-system">Test the mechanism in a chemical system<a class="anchor-link" href="#Test-the-mechanism-in-a-chemical-system">¶</a></h2><div class="two-panel equal-panels">
 <div class="image-panel"><img alt="Experimental setup and stationary patterns in a CIMA gel reactor" src="images/cima_experimental_turing_patterns.webp" style="display:block;width:100%;height:auto;max-height:330px;object-fit:contain;margin:0 auto;"/></div>
 <div class="text-panel">
 <p><strong>CIMA gel reactor:</strong> Reactants diffuse through an unstirred gel supplied by reservoirs. Starch binding changes their effective transport rates.</p>
@@ -9187,22 +9366,32 @@ $$</p>
 </div>
 </div>
 </div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w3-scope-banner">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
+<h1 id="Scope-and-connections">Scope and connections<a class="anchor-link" href="#Scope-and-connections">¶</a></h1>
+</div>
+</div>
+</div>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=week03-final-discrete-continuous">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="The-modelling-problem-underneath-the-model">The modelling problem underneath the model<a class="anchor-link" href="#The-modelling-problem-underneath-the-model">¶</a></h1><p>One system, represented at three levels:</p>
+<h2 id="The-modelling-problem-underneath-the-model">The modelling problem underneath the model<a class="anchor-link" href="#The-modelling-problem-underneath-the-model">¶</a></h2><p>One system, represented at three levels:</p>
 <p>$$
 \text{particles}
 \xrightarrow{\text{aggregate}}
 \text{continuous fields}
 \xrightarrow{\text{discretise}}
-\text{grid values}.
+\text{grid values}
 $$</p>
-<p><strong>Up the ladder:</strong> reveal ensemble diffusion and system-level morphology.<br/>
-<strong>Down the ladder:</strong> inspect the local update and compute an approximation.</p>
+<p>The particle, field and grid descriptions retain different information. Move upward when constructing ensemble or field-level behaviour; return to the grid update when the numerical mechanism needs inspection.</p>
 <p>Next week keeps the grid and neighbourhood, then replaces continuous concentrations with discrete cellular states and rules.</p>
 </div>
 </div>

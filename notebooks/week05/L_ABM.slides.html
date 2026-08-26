@@ -8515,7 +8515,18 @@ details.reader-answer > div {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
 <h1 id="Agent-based-modelling">Agent-based modelling<a class="anchor-link" href="#Agent-based-modelling">¶</a></h1><h2 id="MATH3024-%C2%B7-Week-5">MATH3024 · Week 5<a class="anchor-link" href="#MATH3024-%C2%B7-Week-5">¶</a></h2><div class="canonical-model-marker"><span>Canonical model</span><strong>Vicsek flocking model</strong></div>
-<div class="modelling-practice-marker"><span>Modelling practice</span><strong>Stochastic implementation and noise</strong></div>
+<div class="modelling-practice-marker"><span>Modelling practice</span><strong>Noise, stochastic evidence and finite populations</strong></div>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w5-motivation-banner">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
+<h1 id="Real-world-motivation">Real-world motivation<a class="anchor-link" href="#Real-world-motivation">¶</a></h1>
 </div>
 </div>
 </div>
@@ -8526,7 +8537,7 @@ details.reader-answer > div {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Collective-behaviour-without-a-conductor">Collective behaviour without a conductor<a class="anchor-link" href="#Collective-behaviour-without-a-conductor">¶</a></h1><div class="two-panel wide-left compact-panels">
+<h2 id="Collective-behaviour-without-a-conductor">Collective behaviour without a conductor<a class="anchor-link" href="#Collective-behaviour-without-a-conductor">¶</a></h2><div class="two-panel wide-left compact-panels">
 <div class="image-panel"><img alt="Thousands of spectators moving onto the field around Lance Franklin" src="images/franklin_crowd_1000.jpg"/></div>
 <div class="text-panel">
 <h3>A crowd becomes the event</h3>
@@ -8587,14 +8598,14 @@ details.reader-answer > div {
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=712307a3">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Three-modelling-purposes">Three modelling purposes<a class="anchor-link" href="#Three-modelling-purposes">¶</a></h1><table>
+<h2 id="Three-modelling-purposes">Three modelling purposes<a class="anchor-link" href="#Three-modelling-purposes">¶</a></h2><table>
 <thead>
 <tr>
 <th>Route</th>
@@ -8637,6 +8648,17 @@ details.reader-answer > div {
 </div>
 <div class="discussion-marker"><img alt="Discussion prompt" src="images/discussion_marker.svg"/><span>Does reproducing the motion explain the biological mechanism, or only show that the chosen rules are sufficient?</span></div>
 <p class="media-credit">Boids history: Craig Reynolds, <a href="https://www.red3d.com/cwr/boids/" rel="noopener" target="_blank">Boids</a>. Film excerpts are used for teaching and commentary.</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w5-explorable-banner">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
+<h1 id="Explorable">Explorable<a class="anchor-link" href="#Explorable">¶</a></h1>
 </div>
 </div>
 </div>
@@ -8752,13 +8774,24 @@ details.reader-answer > div {
 </div>
 </div>
 </div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w5-model-banner">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
+<h1 id="Model-details">Model details<a class="anchor-link" href="#Model-details">¶</a></h1>
+</div>
+</div>
+</div>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=abm-ingredients">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="What-goes-into-an-agent-based-model?">What goes into an agent-based model?<a class="anchor-link" href="#What-goes-into-an-agent-based-model?">¶</a></h1><table>
+<h2 id="What-goes-into-an-agent-based-model?">What goes into an agent-based model?<a class="anchor-link" href="#What-goes-into-an-agent-based-model?">¶</a></h2><table>
 <thead>
 <tr>
 <th>Ingredient</th>
@@ -8788,14 +8821,14 @@ details.reader-answer > div {
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=vicsek-intro">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Build-the-Vicsek-model">Build the Vicsek model<a class="anchor-link" href="#Build-the-Vicsek-model">¶</a></h1><p>Vicsek and colleagues asked what happens when self-propelled particles align with nearby particles while noise perturbs their headings.</p>
+<h2 id="Build-the-Vicsek-model">Build the Vicsek model<a class="anchor-link" href="#Build-the-Vicsek-model">¶</a></h2><p>Vicsek and colleagues asked what happens when self-propelled particles align with nearby particles while noise perturbs their headings.</p>
 <ul>
 <li><strong>Retain:</strong> positions, headings, local neighbours and noise.</li>
 <li><strong>Remove:</strong> aerodynamics, body shape, vision, memory, leadership and attraction.</li>
@@ -8848,7 +8881,7 @@ details.reader-answer > div {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="2.-Define-the-interaction-network">2. Define the interaction network<a class="anchor-link" href="#2.-Define-the-interaction-network">¶</a></h2><p>$$\mathcal N_i(t)=\{j:d_{\mathrm{torus}}(\mathbf x_i,\mathbf x_j)\le R\}.$$</p>
+<h2 id="2.-Define-the-interaction-network">2. Define the interaction network<a class="anchor-link" href="#2.-Define-the-interaction-network">¶</a></h2><p>$$\mathcal N_i(t)=\{j:d_{\mathrm{torus}}(\mathbf x_i,\mathbf x_j)\le R\}$$</p>
 <p>Agent $j$ influences agent $i$ when their periodic distance is at most $R$. The network changes as the agents move.</p>
 <div class="choice-marker"><img alt="Modelling choice" src="images/choice_marker.svg"/><span>Metric distance is one choice. Empirical flocks are often better described by a fixed number of nearest neighbours.</span></div>
 </div>
@@ -8864,11 +8897,11 @@ details.reader-answer > div {
 <h2 id="3.-Apply-one-synchronous-update">3. Apply one synchronous update<a class="anchor-link" href="#3.-Apply-one-synchronous-update">¶</a></h2><p>$$
 \theta_i(t+\Delta t)
 =\operatorname{Arg}\!\left(\sum_{j\in\mathcal N_i(t)}e^{\mathrm i\theta_j(t)}\right)+\xi_i(t),
-\qquad \xi_i\sim U[-\eta/2,\eta/2].
+\qquad \xi_i\sim U[-\eta/2,\eta/2]
 $$</p>
 <p>$$
 \mathbf x_i(t+\Delta t)
-=\mathbf x_i(t)+v\Delta t(\cos\theta_i(t),\sin\theta_i(t)).
+=\mathbf x_i(t)+v\Delta t(\cos\theta_i(t),\sin\theta_i(t))
 $$</p>
 <p>All new headings and positions are calculated from the same state at time $t$, then wrapped into the periodic square.</p>
 </div>
@@ -8883,7 +8916,7 @@ $$</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
 <h2 id="Where-is-the-noise-added?-%C2%B7-angular-noise">Where is the noise added? · angular noise<a class="anchor-link" href="#Where-is-the-noise-added?-%C2%B7-angular-noise">¶</a></h2><p>$$
 \theta_i'=\bar\theta_i+\xi_i,
-\qquad \xi_i\sim U[-\eta/2,\eta/2].
+\qquad \xi_i\sim U[-\eta/2,\eta/2]
 $$</p>
 <p>This is the noise convention used in the original Vicsek model. The agent first estimates the local mean heading $\bar\theta_i$, then makes a turning error $\xi_i$. The parameter $\eta$ controls the width of the error distribution.</p>
 <p><strong>Interpretation:</strong> uncertainty enters while the agent executes a chosen direction.</p>
@@ -8891,13 +8924,24 @@ $$</p>
 </div>
 </div>
 </div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w5-analysis-banner">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
+<h1 id="Analysis">Analysis<a class="anchor-link" href="#Analysis">¶</a></h1>
+</div>
+</div>
+</div>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=qualitative">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Qualitative-analysis">Qualitative analysis<a class="anchor-link" href="#Qualitative-analysis">¶</a></h1><div class="two-panel equal-panels">
+<h2 id="Qualitative-analysis">Qualitative analysis<a class="anchor-link" href="#Qualitative-analysis">¶</a></h2><div class="two-panel equal-panels">
 <div class="image-panel"><img alt="Vicsek configurations at different density and noise values" src="images/Vicsek_types_of_behaviour.png"/></div>
 <div class="text-panel">
 <p>Simulation reveals coherent flocks, fragmented groups, and disordered motion.</p>
@@ -8916,7 +8960,7 @@ $$</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
 <h2 id="Quantify-collective-alignment">Quantify collective alignment<a class="anchor-link" href="#Quantify-collective-alignment">¶</a></h2><p>$$
-\Phi(t)=\frac1N\left|\sum_{i=1}^{N}e^{\mathrm i\theta_i(t)}\right|.
+\Phi(t)=\frac1N\left|\sum_{i=1}^{N}e^{\mathrm i\theta_i(t)}\right|
 $$</p>
 <div class="two-panel equal-panels compact-panels">
 <div class="text-panel"><p>Φ ≈ 0: headings cancel.</p></div>
@@ -8927,15 +8971,15 @@ $$</p>
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=parameter-sweep">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="First-sweep-the-noise">First sweep the noise<a class="anchor-link" href="#First-sweep-the-noise">¶</a></h1><img alt="Vicsek order parameter as noise and density change" src="images/Vicsek_parameter_sweeps.jpeg" style="max-height:430px"/>
-<div class="ladder-marker"><img alt="Ladder of abstraction" src="images/ladder_marker.svg"/><span>Up the ladder again: compare the system-level order parameter across noise values to reveal a transition.</span></div>
+<h2 id="First-sweep-the-noise">First sweep the noise<a class="anchor-link" href="#First-sweep-the-noise">¶</a></h2><img alt="Vicsek order parameter as noise and density change" src="images/Vicsek_parameter_sweeps.jpeg" style="max-height:430px"/>
+<div class="ladder-marker"><img alt="Ladder of abstraction" src="images/ladder_marker.svg"/><span>Up the ladder over noise: abstract over noise by plotting the ensemble response of the order parameter.</span></div>
 </div>
 </div>
 </div>
@@ -8952,7 +8996,7 @@ $$</p>
 <li>A parameter sweep of ensembles: a comparison across $\eta$ that separates systematic change from run-to-run randomness.</li>
 </ol>
 <p>A sweep containing only one run per noise value can mistake stochastic variation for a parameter effect.</p>
-<div class="ladder-marker"><img alt="Ladder of abstraction" src="images/ladder_marker.svg"/><span>Up the ladder over random histories: replace individual trajectories by an estimated response and its uncertainty at each parameter value.</span></div>
+<div class="ladder-marker"><img alt="Ladder of abstraction" src="images/ladder_marker.svg"/><span>Up the ladder over random histories: at each noise value, replace separate stochastic runs by an ensemble centre and spread.</span></div>
 </div>
 </div>
 </div>
@@ -8986,7 +9030,7 @@ $$</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
 <h2 id="Where-is-the-noise-added?-%C2%B7-vectorial-noise">Where is the noise added? · vectorial noise<a class="anchor-link" href="#Where-is-the-noise-added?-%C2%B7-vectorial-noise">¶</a></h2><p>$$
-\theta_i'=\operatorname{Arg}\!\left(\sum_{j\in\mathcal N_i}e^{\mathrm i\theta_j}+\eta n_i e^{\mathrm i\chi_i}\right).
+\theta_i'=\operatorname{Arg}\!\left(\sum_{j\in\mathcal N_i}e^{\mathrm i\theta_j}+\eta n_i e^{\mathrm i\chi_i}\right)
 $$</p>
 <table style="table-layout:fixed;width:100%;">
 <colgroup><col style="width:28%;"/><col style="width:72%;"/></colgroup>
@@ -9058,11 +9102,22 @@ $$</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
 <h2 id="One-simulation-has-a-size">One simulation has a size<a class="anchor-link" href="#One-simulation-has-a-size">¶</a></h2><p>For a square Vicsek system,</p>
 <p>$$
-\rho=\frac{N}{L^2}.
+\rho=\frac{N}{L^2}
 $$</p>
 <p>To change system size without also changing density, increase $N$ with $L^2$. Then ask whether the apparent transition shifts, sharpens or develops coexistence as $L$ increases.</p>
 <div class="ladder-marker"><img alt="" src="images/ladder_marker.svg"/><span><strong>Up the ladder over system size:</strong> compare several finite systems before making a claim about large-system behaviour.</span></div>
 <div class="discussion-marker"><img alt="Discussion prompt" src="images/discussion_marker.svg"/><span>Does the conclusion persist as the simulated system becomes larger?</span></div>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w5-scope-banner">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
+<h1 id="Scope-and-connections">Scope and connections<a class="anchor-link" href="#Scope-and-connections">¶</a></h1>
 </div>
 </div>
 </div>
@@ -9103,14 +9158,14 @@ $$</p>
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=hysteresis">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="History-can-matter">History can matter<a class="anchor-link" href="#History-can-matter">¶</a></h1><div class="two-panel equal-panels">
+<h2 id="History-can-matter">History can matter<a class="anchor-link" href="#History-can-matter">¶</a></h2><div class="two-panel equal-panels">
 <div class="image-panel"><img alt="Hysteresis in a collective-motion model" src="images/Couzin_hysteresis.png"/></div>
 <div class="text-panel">
 <p>If a parameter is changed without reinitialising, the next run begins from the previous final state.</p>

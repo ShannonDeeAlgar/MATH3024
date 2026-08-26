@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="660" viewBox="0 0 1200 660">
+<style>
+text { font-family: Arial, Helvetica, sans-serif; fill: #17284d; }
+.title { font-size: 32px; font-weight: 700; }
+.label { font-size: 25px; font-weight: 700; }
+.body { font-size: 22px; }
+.small { font-size: 18px; fill: #52627f; }
+.panel { fill: none; stroke: #bcc8dc; stroke-width: 2; }
+.navy { stroke: #17284d; fill: none; stroke-width: 5; }
+.blue { stroke: #5d7fae; fill: none; stroke-width: 5; }
+.yellow { stroke: #efc94c; fill: none; stroke-width: 5; }
+</style>
+
+<defs><marker id="a" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#17284d"/></marker></defs>
+<text x="600" y="42" text-anchor="middle" class="title">The Gray–Scott model</text>
+<rect x="55" y="105" width="245" height="145" rx="15" class="panel"/>
+<text x="177" y="150" text-anchor="middle" class="label">Feed</text>
+<text x="177" y="184" text-anchor="middle" class="body">fresh U enters</text>
+<text x="177" y="215" text-anchor="middle" class="small">f(1−U) restores U towards 1</text>
+<rect x="475" y="90" width="255" height="175" rx="15" class="panel"/>
+<text x="602" y="135" text-anchor="middle" class="label">Autocatalytic reaction</text>
+<text x="602" y="185" text-anchor="middle" class="body">U + 2V → 3V</text>
+<text x="602" y="220" text-anchor="middle" class="small">V catalyses production of more V</text>
+<text x="602" y="246" text-anchor="middle" class="small">local rate UV²</text>
+<rect x="900" y="105" width="245" height="145" rx="15" class="panel"/>
+<text x="1022" y="150" text-anchor="middle" class="label">Removal</text>
+<text x="1022" y="184" text-anchor="middle" class="body">V is removed</text>
+<text x="1022" y="215" text-anchor="middle" class="small">outflow f plus kill rate k</text>
+<path d="M300 178 L460 178" stroke="#17284d" stroke-width="5" marker-end="url(#a)"/>
+<path d="M730 178 L885 178" stroke="#17284d" stroke-width="5" marker-end="url(#a)"/>
+<rect x="110" y="315" width="980" height="105" rx="15" class="panel"/>
+<text x="600" y="355" text-anchor="middle" class="label">Diffusion</text>
+<text x="600" y="395" text-anchor="middle" class="body">U and V spread through space at rates D<tspan baseline-shift="sub">U</tspan> and D<tspan baseline-shift="sub">V</tspan></text>
+<text x="600" y="500" text-anchor="middle" class="body">∂U/∂t = D<tspan baseline-shift="sub" font-size="16">U</tspan>∇²U − UV² + f(1−U)</text>
+<text x="600" y="555" text-anchor="middle" class="body">∂V/∂t = D<tspan baseline-shift="sub" font-size="16">V</tspan>∇²V + UV² − (f+k)V</text>
+<text x="600" y="625" text-anchor="middle" class="small">Reaction changes concentrations locally. Diffusion couples neighbouring locations. Feed and removal keep the system driven.</text>
+
+</svg>
