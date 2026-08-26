@@ -7,6 +7,15 @@ set -euo pipefail
 cd "$(dirname "$0")"
 PORT="${1:-8766}"
 
+# The Reader build stages existing .slides.html files but does not create
+# them. Regenerate every lecture deck first so the local preview cannot serve
+# stale slides after a notebook has changed.
+echo "Regenerating lecture slides from the current notebooks..."
+for NOTEBOOK in notebooks/week*/L_*.ipynb; do
+    [[ -f "$NOTEBOOK" ]] || continue
+    ./generate_slides.sh "$NOTEBOOK"
+done
+
 ./build_reader.sh
 
 echo

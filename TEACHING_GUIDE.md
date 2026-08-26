@@ -59,6 +59,35 @@ canvas. Captions and references use the smaller sans-serif role. If a slide
 needs more than the shared cap allows, split the teaching beat rather than
 shrinking all of its text.
 
+### Course-generated figures
+
+Python figures use `tools/figure_style.py` as their source of truth. The
+standard roles are DejaVu Sans 15 pt body text, 18 pt figure titles, 16 pt axis
+labels, 13 pt tick labels and 12.5 pt legends. Static figures are exported once
+as SVG and reused by both the Reader and slides; do not maintain separate
+Reader and slide versions of the same plot. SVG text is converted to vector
+paths at export so that a browser cannot silently substitute a different font.
+Animated figures use the same DejaVu Sans type roles and course colours, with
+raster export only where animation requires it. HTML player controls may use
+the browser's interface font, but text inside the animated figure must not.
+
+Use Picasso indigo for axes and principal curves, blue for ordinary data,
+orange for a contrasting collective quantity, yellow for a deliberately
+highlighted observation, and pale blue for uncertainty. These combinations are
+chosen to remain distinguishable without a red–green contrast.
+
+- Keep the data region clear. Put a legend in unused whitespace or immediately
+  above/below the axes; never cover a curve, title or annotation.
+- A line and its uncertainty band must have separate, explicit meanings, such
+  as “ensemble mean” and “±1 SD across 10 populations”.
+- Avoid an internal figure title when the surrounding slide or Reader heading
+  already supplies it. Put parameters in the surrounding caption unless they
+  are needed to interpret the axes.
+- Preserve individual runs faintly when an ensemble is small or potentially
+  skewed. A summary must state its centre, spread and number of runs.
+- Regenerate the shared SVG from its Python source. Do not repair the exported
+  SVG by hand and do not edit generated `.slides.html` files.
+
 ### Non-negotiable slide constraints
 
 - A projected slide must fit the 1280 × 720 canvas without vertical scrolling.
@@ -74,6 +103,20 @@ shrinking all of its text.
   spatial detail are compressed to reveal a broader relationship. It points
   **down** when returning to an individual, local update, grid cell, mechanism,
   or debugging example. A change of visual encoding alone is not a ladder move.
+- Follow Victor's distinction between **controlling** a parameter and
+  **abstracting over** it. Moving a slider and watching the same representation
+  stays on one rung. Collecting results across the slider values into a response
+  curve, phase diagram, or other relationship moves up. Likewise, running more
+  seeds does not itself move up; replacing those runs by an ensemble summary
+  does.
+- Name each lost dimension when several upward moves are chained. A common
+  sequence is individual histories → a collective time series → one summary per
+  run → an ensemble summary at one condition → a response across conditions.
+  Do not collapse this sequence into “up twice” merely because the final plot
+  has two parameter axes.
+- Put only one direction in a ladder marker. When an aggregate needs explaining,
+  use a later down marker beside the individual run, component, or update that
+  supplies that explanation.
 - `choice-marker` labels an assumption or modelling decision;
   `discussion-marker` labels a genuine live prompt. Neither is decorative.
 - Use lowercase symbols for fields and uppercase symbols for named chemical
@@ -81,6 +124,75 @@ shrinking all of its text.
   concentration fields, and $u^n_{i,j},v^n_{i,j}$ are numerical values.
 - Do not edit generated `.slides.html` files. Correct the notebook or shared
   stylesheet and regenerate the deck.
+
+### Reader and slide heading hierarchy
+
+Use headings to expose the argument rather than to label every teaching beat.
+
+- Level-one headings are broad banners. Most weeks should need only four to
+  seven. A useful default sequence is **Real-world motivation**,
+  **Explorable**, **Model details**, **Analysis**, and **Scope and
+  connections**.
+- The Explorable usually comes before the formal model details. It is a
+  scene-setting encounter with the phenomenon: students first notice what the
+  system does, identify controls, and form questions. The later model section
+  then explains what the explorable must contain. Do not turn the first
+  encounter into an undocumented technical exercise.
+- This sequence is a guide, not a compulsory template. Move the Explorable
+  later when students need a small amount of model language before its controls
+  are intelligible, or when it is being used to test a model already developed.
+  A week may also omit a banner that does no genuine organisational work.
+- Level-two headings contain the examples, concepts, model components, and
+  calculations that develop one banner.
+- Level-three headings are supporting detail within a level-two subsection.
+- In slides, a level-one banner begins a horizontal section. Its level-two
+  slides develop the argument vertically. Do not promote historical examples,
+  successive equations, or individual analysis steps merely to obtain a new
+  right-arrow move.
+- Reader and slide headings should describe the same conceptual groups, even
+  when the Reader contains extra level-three detail or reader-only sections.
+- **Qualitative analysis** normally precedes **Quantitative analysis**: first
+  establish what the behaviour looks like, then introduce the quantity that
+  compresses or compares it.
+
+The default is already expressed in different ways across the unit:
+
+| Week | Scene-setting encounter | Why it appears where it does |
+|---|---|---|
+| 1 | Parable of the Polygons | encounter segregation before rebuilding the model |
+| 2 | Weeds & Trees | follows only the minimal branching prompt needed to read its controls |
+| 3 | Gray–Scott parameter space | follows Turing's question and the minimum reaction vocabulary |
+| 4 | elementary CA and Game of Life Explorables | each follows the minimum local-rule language needed to interact meaningfully |
+| 5 | Ising, XY, and moving-agent Explorables | motivate the move from spins to active agents before the Vicsek construction |
+| 6 | Kuramoto Explorable | encounter phase organisation before deriving the Kuramoto equations |
+| 7 | no single lecture Explorable | retain the motivation-to-model route; the workshop constructs PSO by extending familiar agent code |
+| 8 | Barista's Secret | follows the minimum language of criticality, then motivates the percolation model and its analysis |
+| 9 | no single canonical Explorable | demonstrations support particular information measures rather than defining a separate scene-setting section |
+| 10 | no dedicated Explorable | begin from strategic situations and payoff choices before formal game analysis |
+
+Later weeks should follow the same principle where an appropriate Explorable
+exists. An interactive used for validation, sensitivity analysis, or parameter
+measurement belongs under **Analysis**, not under the scene-setting banner.
+
+## Canonical-model summaries
+
+End each Reader topic with a short, consistently ordered summary headed
+**Canonical model at a glance · [model name]**. Use the following fields where
+they are meaningful:
+
+1. **World** — the domain, topology and boundary conditions. State explicitly
+   when the model has no physical spatial world rather than silently omitting it.
+2. **State** — the variables required to describe the model at one instant.
+3. **Initialisation** — how the starting state is chosen.
+4. **Dynamics** — how one state evolves into the next.
+5. **Interactions** — which components influence one another and how.
+6. **Parameters** — the main quantities controlled by the modeller.
+7. **Outputs** — the observables used to interpret the model.
+
+Add one model-specific field only when it is genuinely useful, such as
+**Stochastic choices**, **Numerical choices**, or **Stopping condition**. The
+shared ordering is a scaffold for comparing models, not a demand that every
+model be forced into an inappropriate spatial or agent-based description.
 
 ## Week 1 — Modelling complex systems
 

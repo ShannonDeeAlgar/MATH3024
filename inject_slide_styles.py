@@ -76,6 +76,7 @@ SHARED_COMPONENT_PREFIXES = (
     ".figure-",
     ".unit-",
     ".model-",
+    ".modelling-",
     ".choice-",
     ".discussion-",
     ".canonical-",
@@ -160,6 +161,22 @@ SLIDES_ONLY_RULES = """
   color: var(--reader-ink);
   text-decoration-thickness: 1px;
   text-underline-offset: 0.12em;
+}
+
+/* Notebook anchor glyphs are useful in the Reader but are visual noise in a
+   presentation heading. */
+.reveal .slides section .anchor-link {
+  display: none !important;
+}
+
+/* Old notebooks contain a few inline or inherited sans-serif declarations.
+   Body copy follows the common lecture type system; sans serif is reserved
+   for captions, labels and compact annotations below. */
+.reveal .slides section .jp-MarkdownOutput > p,
+.reveal .slides section .jp-MarkdownOutput > ul,
+.reveal .slides section .jp-MarkdownOutput > ol,
+.reveal .slides section .jp-MarkdownOutput > div:not(.small-note):not(.figure-caption) {
+  font-family: Baskerville, Georgia, serif;
 }
 
 .reveal .slides section table {

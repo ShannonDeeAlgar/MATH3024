@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="530" viewBox="0 0 920 530">
+<style>text{font-family:Arial,sans-serif;fill:#172a52}.axis{stroke:#172a52;stroke-width:2}.grid{stroke:#d7dfed;stroke-width:1}.run{fill:none;stroke:#5e7fb5;stroke-width:1.3;opacity:.17}.mean{fill:none;stroke:#172a52;stroke-width:3}.err{stroke:#172a52;stroke-width:1.7}.pt{fill:#172a52}</style>
+<line class="grid" x1="95" y1="455.0" x2="890" y2="455.0"/>
+<text x="80" y="460.0" text-anchor="end" font-size="16">0.0</text>
+<line class="grid" x1="95" y1="371.0" x2="890" y2="371.0"/>
+<text x="80" y="376.0" text-anchor="end" font-size="16">0.2</text>
+<line class="grid" x1="95" y1="287.0" x2="890" y2="287.0"/>
+<text x="80" y="292.0" text-anchor="end" font-size="16">0.4</text>
+<line class="grid" x1="95" y1="203.0" x2="890" y2="203.0"/>
+<text x="80" y="208.0" text-anchor="end" font-size="16">0.6</text>
+<line class="grid" x1="95" y1="119.0" x2="890" y2="119.0"/>
+<text x="80" y="124.0" text-anchor="end" font-size="16">0.8</text>
+<line class="grid" x1="95" y1="35.0" x2="890" y2="35.0"/>
+<text x="80" y="40.0" text-anchor="end" font-size="16">1.0</text>
+<line class="grid" x1="95.0" y1="35" x2="95.0" y2="455"/>
+<text x="95.0" y="483" text-anchor="middle" font-size="16">0</text>
+<line class="grid" x1="293.8" y1="35" x2="293.8" y2="455"/>
+<text x="293.8" y="483" text-anchor="middle" font-size="16">1</text>
+<line class="grid" x1="492.5" y1="35" x2="492.5" y2="455"/>
+<text x="492.5" y="483" text-anchor="middle" font-size="16">2</text>
+<line class="grid" x1="691.2" y1="35" x2="691.2" y2="455"/>
+<text x="691.2" y="483" text-anchor="middle" font-size="16">3</text>
+<line class="grid" x1="890.0" y1="35" x2="890.0" y2="455"/>
+<text x="890.0" y="483" text-anchor="middle" font-size="16">4</text>
+<polyline class="run" points="95.0,426.0 151.8,429.2 208.6,417.2 265.4,411.1 322.1,375.8 378.9,394.0 435.7,344.9 492.5,145.5 549.3,94.1 606.1,71.1 662.9,71.8 719.6,59.4 776.4,59.6 833.2,54.5 890.0,51.0"/>
+<polyline class="run" points="95.0,424.7 151.8,428.3 208.6,418.4 265.4,404.5 322.1,397.8 378.9,341.4 435.7,283.5 492.5,168.9 549.3,98.1 606.1,80.7 662.9,67.3 719.6,58.5 776.4,55.5 833.2,51.3 890.0,50.6"/>
+<polyline class="run" points="95.0,435.6 151.8,434.3 208.6,421.9 265.4,419.4 322.1,412.8 378.9,369.3 435.7,287.1 492.5,190.7 549.3,99.8 606.1,87.5 662.9,61.3 719.6,61.1 776.4,56.2 833.2,54.3 890.0,49.7"/>
+<polyline class="run" points="95.0,420.9 151.8,421.1 208.6,413.8 265.4,392.1 322.1,384.6 378.9,280.8 435.7,293.3 492.5,126.5 549.3,123.8 606.1,65.4 662.9,74.2 719.6,61.8 776.4,58.0 833.2,54.6 890.0,49.6"/>
+<polyline class="run" points="95.0,416.6 151.8,411.0 208.6,405.5 265.4,420.0 322.1,421.4 378.9,385.0 435.7,210.4 492.5,130.3 549.3,113.5 606.1,103.5 662.9,75.4 719.6,59.3 776.4,59.7 833.2,49.6 890.0,51.2"/>
+<polyline class="run" points="95.0,427.6 151.8,433.5 208.6,407.4 265.4,397.7 322.1,404.5 378.9,335.2 435.7,261.8 492.5,150.3 549.3,96.1 606.1,82.9 662.9,76.0 719.6,62.1 776.4,61.7 833.2,54.7 890.0,49.5"/>
+<polyline class="run" points="95.0,428.8 151.8,420.2 208.6,431.8 265.4,422.2 322.1,403.6 378.9,373.7 435.7,262.2 492.5,163.1 549.3,100.9 606.1,94.1 662.9,68.2 719.6,71.6 776.4,53.8 833.2,54.4 890.0,47.0"/>
+<polyline class="run" points="95.0,422.5 151.8,418.0 208.6,405.3 265.4,401.6 322.1,404.2 378.9,291.3 435.7,234.9 492.5,206.3 549.3,98.0 606.1,88.1 662.9,62.5 719.6,65.5 776.4,55.7 833.2,51.3 890.0,47.7"/>
+<polyline class="run" points="95.0,434.3 151.8,436.6 208.6,407.8 265.4,412.6 322.1,371.1 378.9,390.3 435.7,399.2 492.5,166.5 549.3,91.2 606.1,81.4 662.9,58.3 719.6,63.2 776.4,57.5 833.2,49.8 890.0,51.8"/>
+<polyline class="run" points="95.0,415.1 151.8,429.1 208.6,415.2 265.4,403.4 322.1,394.3 378.9,340.5 435.7,328.1 492.5,261.0 549.3,120.2 606.1,81.9 662.9,70.0 719.6,64.3 776.4,61.1 833.2,50.5 890.0,49.3"/>
+<polyline class="mean" points="95.0,425.2 151.8,426.1 208.6,414.4 265.4,408.5 322.1,397.0 378.9,350.2 435.7,290.5 492.5,170.9 549.3,103.6 606.1,83.7 662.9,68.5 719.6,62.7 776.4,57.9 833.2,52.5 890.0,49.7"/>
+<line class="err" x1="95.0" y1="418.4" x2="95.0" y2="432.0"/>
+<line class="err" x1="91.0" y1="418.4" x2="99.0" y2="418.4"/>
+<line class="err" x1="91.0" y1="432.0" x2="99.0" y2="432.0"/>
+<circle class="pt" cx="95.0" cy="425.2" r="4.2"/>
+<line class="err" x1="151.8" y1="417.9" x2="151.8" y2="434.4"/>
+<line class="err" x1="147.8" y1="417.9" x2="155.8" y2="417.9"/>
+<line class="err" x1="147.8" y1="434.4" x2="155.8" y2="434.4"/>
+<circle class="pt" cx="151.8" cy="426.1" r="4.2"/>
+<line class="err" x1="208.6" y1="406.0" x2="208.6" y2="422.9"/>
+<line class="err" x1="204.6" y1="406.0" x2="212.6" y2="406.0"/>
+<line class="err" x1="204.6" y1="422.9" x2="212.6" y2="422.9"/>
+<circle class="pt" cx="208.6" cy="414.4" r="4.2"/>
+<line class="err" x1="265.4" y1="398.2" x2="265.4" y2="418.7"/>
+<line class="err" x1="261.4" y1="398.2" x2="269.4" y2="398.2"/>
+<line class="err" x1="261.4" y1="418.7" x2="269.4" y2="418.7"/>
+<circle class="pt" cx="265.4" cy="408.5" r="4.2"/>
+<line class="err" x1="322.1" y1="381.1" x2="322.1" y2="412.9"/>
+<line class="err" x1="318.1" y1="381.1" x2="326.1" y2="381.1"/>
+<line class="err" x1="318.1" y1="412.9" x2="326.1" y2="412.9"/>
+<circle class="pt" cx="322.1" cy="397.0" r="4.2"/>
+<line class="err" x1="378.9" y1="310.2" x2="378.9" y2="390.1"/>
+<line class="err" x1="374.9" y1="310.2" x2="382.9" y2="310.2"/>
+<line class="err" x1="374.9" y1="390.1" x2="382.9" y2="390.1"/>
+<circle class="pt" cx="378.9" cy="350.2" r="4.2"/>
+<line class="err" x1="435.7" y1="235.3" x2="435.7" y2="345.7"/>
+<line class="err" x1="431.7" y1="235.3" x2="439.7" y2="235.3"/>
+<line class="err" x1="431.7" y1="345.7" x2="439.7" y2="345.7"/>
+<circle class="pt" cx="435.7" cy="290.5" r="4.2"/>
+<line class="err" x1="492.5" y1="130.7" x2="492.5" y2="211.1"/>
+<line class="err" x1="488.5" y1="130.7" x2="496.5" y2="130.7"/>
+<line class="err" x1="488.5" y1="211.1" x2="496.5" y2="211.1"/>
+<circle class="pt" cx="492.5" cy="170.9" r="4.2"/>
+<line class="err" x1="549.3" y1="92.2" x2="549.3" y2="114.9"/>
+<line class="err" x1="545.3" y1="92.2" x2="553.3" y2="92.2"/>
+<line class="err" x1="545.3" y1="114.9" x2="553.3" y2="114.9"/>
+<circle class="pt" cx="549.3" cy="103.6" r="4.2"/>
+<line class="err" x1="606.1" y1="72.9" x2="606.1" y2="94.4"/>
+<line class="err" x1="602.1" y1="72.9" x2="610.1" y2="72.9"/>
+<line class="err" x1="602.1" y1="94.4" x2="610.1" y2="94.4"/>
+<circle class="pt" cx="606.1" cy="83.7" r="4.2"/>
+<line class="err" x1="662.9" y1="62.3" x2="662.9" y2="74.7"/>
+<line class="err" x1="658.9" y1="62.3" x2="666.9" y2="62.3"/>
+<line class="err" x1="658.9" y1="74.7" x2="666.9" y2="74.7"/>
+<circle class="pt" cx="662.9" cy="68.5" r="4.2"/>
+<line class="err" x1="719.6" y1="58.8" x2="719.6" y2="66.6"/>
+<line class="err" x1="715.6" y1="58.8" x2="723.6" y2="58.8"/>
+<line class="err" x1="715.6" y1="66.6" x2="723.6" y2="66.6"/>
+<circle class="pt" cx="719.6" cy="62.7" r="4.2"/>
+<line class="err" x1="776.4" y1="55.3" x2="776.4" y2="60.5"/>
+<line class="err" x1="772.4" y1="55.3" x2="780.4" y2="55.3"/>
+<line class="err" x1="772.4" y1="60.5" x2="780.4" y2="60.5"/>
+<circle class="pt" cx="776.4" cy="57.9" r="4.2"/>
+<line class="err" x1="833.2" y1="50.3" x2="833.2" y2="54.7"/>
+<line class="err" x1="829.2" y1="50.3" x2="837.2" y2="50.3"/>
+<line class="err" x1="829.2" y1="54.7" x2="837.2" y2="54.7"/>
+<circle class="pt" cx="833.2" cy="52.5" r="4.2"/>
+<line class="err" x1="890.0" y1="48.2" x2="890.0" y2="51.2"/>
+<line class="err" x1="886.0" y1="48.2" x2="894.0" y2="48.2"/>
+<line class="err" x1="886.0" y1="51.2" x2="894.0" y2="51.2"/>
+<circle class="pt" cx="890.0" cy="49.7" r="4.2"/>
+<line x1="412.2" y1="35" x2="412.2" y2="455" stroke="#f2c94c" stroke-width="4" stroke-dasharray="10 8"/>
+<line class="axis" x1="95" y1="455" x2="890" y2="455"/>
+<line class="axis" x1="95" y1="35" x2="95" y2="455"/>
+<text x="492.5" y="512" text-anchor="middle" font-size="20">Coupling, K</text>
+<text x="24" y="245.0" text-anchor="middle" font-size="20" transform="rotate(-90 24 245.0)">Long-time coherence, r</text>
+<line x1="590" y1="52" x2="635" y2="52" stroke="#172a52" stroke-width="3"/><circle cx="613" cy="52" r="4" fill="#172a52"/>
+<text x="645" y="58" font-size="15">ensemble mean ± one SD</text>
+<line x1="590" y1="78" x2="635" y2="78" stroke="#f2c94c" stroke-width="4" stroke-dasharray="9 7"/>
+<text x="645" y="84" font-size="15">large-<tspan font-style="italic">N</tspan> onset <tspan font-style="italic">K</tspan><tspan baseline-shift="sub" font-size="11">c</tspan> = 2/[πg(0)]</text>
+</svg>

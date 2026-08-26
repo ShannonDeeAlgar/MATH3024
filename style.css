@@ -54,6 +54,24 @@
   font-family: Baskerville, Georgia, serif;
 }
 
+/* Display equations: MyST wraps every block in `flex my-5 group`, which
+   otherwise adds 1.25rem above and below the maths.  That margin combines
+   with the neighbouring paragraph margins and creates a conspicuous blank
+   band, especially when a short linking phrase sits between two equations.
+   Keep a modest mathematical pause without interrupting the prose rhythm. */
+.article div.flex.my-5.group:has(.katex-display) {
+  margin-top: 0.45rem !important;
+  margin-bottom: 0.45rem !important;
+}
+
+.article p:has(+ div.flex.my-5.group .katex-display) {
+  margin-bottom: 0.45rem;
+}
+
+.article div.flex.my-5.group:has(.katex-display) + p {
+  margin-top: 0.45rem;
+}
+
 /* ---- Reader components: Voice / Prompt / Emphasis ----
    Used as literal class="..." on raw HTML in notebook cells, not just
    the Reader -- generate_slides.sh's inject_slide_styles.py copies
@@ -946,4 +964,10 @@ details.reader-answer > div {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.58em;
   text-align: center;
+}
+/* A simulation has an arrow of time. Matplotlib's reverse-playback mode is
+   useful for some geometric animations, but is misleading for model runs. */
+input[type="radio"][value="reflect"],
+input[type="radio"][value="reflect"] + label {
+  display: none !important;
 }

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="520" viewBox="100 90 460 440" role="img" aria-labelledby="title desc">
+  <title id="title">Geometric interpretation of the Kuramoto order parameter</title>
+  <desc id="desc">Individual oscillator phases are unit vectors. Their vector average has direction psi and magnitude r.</desc>
+  <defs>
+    <marker id="small-arrow" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto"><path d="M0,0 L9,3 L0,6 Z" fill="#4A90C2"/></marker>
+    <marker id="mean-arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L10,3 L0,6 Z" fill="#667085"/></marker>
+  </defs>
+  <circle cx="330" cy="310" r="185" fill="none" stroke="#1B2E55" stroke-width="6"/>
+  <g stroke="#4A90C2" stroke-width="4" marker-end="url(#small-arrow)" opacity="0.72">
+    <line x1="330" y1="310" x2="470" y2="189"/>
+    <line x1="330" y1="310" x2="492" y2="225"/>
+    <line x1="330" y1="310" x2="506" y2="263"/>
+    <line x1="330" y1="310" x2="510" y2="338"/>
+    <line x1="330" y1="310" x2="482" y2="414"/>
+    <line x1="330" y1="310" x2="425" y2="469"/>
+    <line x1="330" y1="310" x2="286" y2="490"/>
+    <line x1="330" y1="310" x2="188" y2="429"/>
+    <line x1="330" y1="310" x2="153" y2="258"/>
+    <line x1="330" y1="310" x2="258" y2="140"/>
+  </g>
+  <line x1="330" y1="310" x2="456" y2="279" stroke="#667085" stroke-width="10" marker-end="url(#mean-arrow)"/>
+  <path d="M405 310 A75 75 0 0 0 402 292" fill="none" stroke="#667085" stroke-width="4"/>
+  <text x="414" y="335" font-family="Arial, Helvetica, sans-serif" font-size="29" font-style="italic" fill="#667085">ψ</text>
+  <text x="410" y="270" font-family="Arial, Helvetica, sans-serif" font-size="31" font-style="italic" fill="#667085">r</text>
+</svg>
