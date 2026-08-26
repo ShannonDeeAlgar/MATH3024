@@ -29,6 +29,12 @@ def filter_notebook(path: Path) -> int:
     removed = 0
     for cell in nb["cells"]:
         tags = set(cell.get("metadata", {}).get("tags", []))
+        # The Week 1 lecture reintroduces its computed results as deliberately
+        # authored figures and interactives. Publishing the construction cells
+        # too creates duplicate output and MyST "Source" dropdowns.
+        if path.name == "L_Introduction_to_complex_systems.ipynb" and cell.get("cell_type") == "code":
+            removed += 1
+            continue
         if tags & TAGS_TO_STRIP:
             removed += 1
             continue

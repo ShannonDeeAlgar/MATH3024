@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680">
+<style>
+text { font-family: Arial, Helvetica, sans-serif; fill: #17284d; }
+.title { font-size: 28px; font-weight: 700; }
+.label { font-size: 22px; font-weight: 700; }
+.body { font-size: 18px; }
+.small { font-size: 15px; fill: #52627f; }
+.panel { fill: none; stroke: #bcc8dc; stroke-width: 2; }
+.navy { stroke: #17284d; fill: none; stroke-width: 5; }
+.blue { stroke: #5d7fae; fill: none; stroke-width: 5; }
+.yellow { stroke: #efc94c; fill: none; stroke-width: 5; }
+</style>
+
+<rect x="55" y="70" width="1090" height="500" rx="26" class="panel"/>
+<path d="M215 410 C120 300,165 155,300 155 C435 155,480 300,385 410 C310 495,290 495,215 410Z" class="navy"/>
+<path d="M470 410 C375 300,420 155,555 155 C690 155,735 300,640 410 C565 495,545 495,470 410Z" class="blue"/>
+<path d="M725 410 C630 300,675 155,810 155 C945 155,990 300,895 410 C820 495,800 495,725 410Z" class="yellow"/>
+<path d="M268 430 L268 195 M523 430 L523 195 M778 430 L778 195" stroke="#17284d" stroke-width="4" marker-end="url(#a)"/>
+<defs><marker id="a" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#17284d"/></marker></defs>
+<text x="600" y="45" text-anchor="middle" class="title">Rayleigh–Bénard convection</text>
+<text x="600" y="620" text-anchor="middle" class="body">Warm fluid rises, cool fluid sinks, and neighbouring rolls organise into cells.</text>
+
+</svg>

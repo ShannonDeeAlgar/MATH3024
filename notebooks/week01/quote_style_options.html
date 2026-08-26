@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MATH3024 quote treatments</title>
+<style>
+:root{--ink:#1b2a4c;--soft:#5a6685;--line:#c7cedc;--yellow:#edcc55;--blue:#5879aa;--paper:#fff}
+*{box-sizing:border-box} body{margin:0;background:#eef0f4;color:var(--ink);font-family:Baskerville,Georgia,serif}
+main{max-width:1500px;margin:0 auto;padding:38px} h1{margin:0 0 8px;font-size:34px} .intro{margin:0 0 28px;color:var(--soft);font-family:Arial,sans-serif}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}.slide{position:relative;min-height:345px;background:var(--paper);padding:38px 44px;box-shadow:0 8px 26px rgba(27,42,76,.09)}
+.label{font:700 13px/1 Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);margin-bottom:34px}.quote{font-size:32px;line-height:1.25}.attr{font:15px/1.4 Arial,sans-serif;color:var(--soft);margin-top:25px}
+.a .quote{max-width:900px}.a .mark{font-size:118px;line-height:.3;color:var(--yellow);display:block;margin:20px 0 22px}.a .attr{border-top:1px solid var(--line);padding-top:12px;width:max-content;max-width:100%}
+.b{display:grid;grid-template-columns:92px 1fr;column-gap:28px}.b .label{grid-column:1/-1}.b .glyph{font:80px/.85 Baskerville;color:var(--blue);text-align:center}.b .quote{font-style:italic}.b .attr{text-align:left}
+.c .quote{font-style:italic;padding:25px 32px;background:linear-gradient(transparent 8%,rgba(237,204,85,.38) 8%,rgba(237,204,85,.38) 91%,transparent 91%)}.c .attr{text-align:right;margin-right:26px}
+.d:after{content:"";position:absolute;right:38px;bottom:34px;width:110px;height:72px;border:3px solid var(--ink);border-radius:52% 45% 49% 44%;transform:rotate(-6deg);opacity:.16}.d .quote{font-size:35px;max-width:940px}.d .quote:first-letter{font-size:1.75em;float:left;line-height:.75;margin-right:5px;color:var(--blue)}.d .attr{font-weight:700;letter-spacing:.03em}
+.rules{margin-top:28px;background:white;padding:28px 34px;font-family:Arial,sans-serif}.rules h2{font-family:Baskerville,Georgia,serif;margin:0 0 14px}.rules-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.rule{border-top:4px solid var(--line);padding-top:12px}.rule:nth-child(2){border-color:var(--yellow)}.rule:nth-child(3){border-color:var(--blue)}.rule strong{display:block;margin-bottom:6px}.rule p{margin:0;color:var(--soft);line-height:1.4}
+@media(max-width:900px){.grid,.rules-grid{grid-template-columns:1fr}.slide{min-height:0}.quote{font-size:26px}}
+</style>
+</head>
+<body><main>
+<h1>Quote treatments</h1><p class="intro">Same quote, same hierarchy, four deliberately different treatments.</p>
+<div class="grid">
+<section class="slide a"><div class="label">A · Typographic pause</div><span class="mark">“</span><div class="quote">There are laws of physics and there are rules of life, and rules are meant to be broken.</div><div class="attr">David Krakauer · <em>Foundational Papers in Complexity Science</em></div></section>
+<section class="slide b"><div class="label">B · Speaker glyph</div><div class="glyph">◯<br><span style="font-size:38px">╱</span></div><div><div class="quote">There are laws of physics and there are rules of life, and rules are meant to be broken.</div><div class="attr">David Krakauer<br><em>Foundational Papers in Complexity Science</em></div></div></section>
+<section class="slide c"><div class="label">C · Yellow field</div><div class="quote">“There are laws of physics and there are rules of life, and rules are meant to be broken.”</div><div class="attr">David Krakauer · <em>Foundational Papers in Complexity Science</em></div></section>
+<section class="slide d"><div class="label">D · Editorial statement</div><div class="quote">There are laws of physics and there are rules of life, and rules are meant to be broken.</div><div class="attr">David Krakauer<br><span style="font-weight:400"><em>Foundational Papers in Complexity Science</em></span></div></section>
+</div>
+<section class="rules"><h2>Proposed box grammar</h2><div class="rules-grid">
+<div class="rule"><strong>Box: bounded content</strong><p>Use only when two things must be read as a unit: figure + interpretation, or a revealed set of model assumptions.</p></div>
+<div class="rule"><strong>Marker: an action</strong><p>Discussion, modelling choice, and ladder movement use their symbols and a short label. No surrounding box.</p></div>
+<div class="rule"><strong>Open space: ideas</strong><p>Quotes, conclusions, transitions, references, and emphasis remain unboxed. Hierarchy comes from scale, spacing, and one accent.</p></div>
+</div></section>
+</main></body></html>

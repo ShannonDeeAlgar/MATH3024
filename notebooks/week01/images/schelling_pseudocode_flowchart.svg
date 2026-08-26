@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1320 650" role="img" aria-labelledby="title desc">
+  <title id="title">Flowchart for a Schelling segregation simulation</title>
+  <desc id="desc">Set a seed and initialise the grid, find agents below the similarity threshold, stop if none remain, otherwise choose an agent, move it to an allowed empty site, record summaries, and repeat.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#172b52"/>
+    </marker>
+    <style>
+      .box { fill: #f8fafc; stroke: #b9c8df; stroke-width: 3; }
+      .decision { fill: #fff7dc; stroke: #d7a92d; stroke-width: 3; }
+      .terminal { fill: #eef4fb; stroke: #4e8fc4; stroke-width: 3; }
+      .line { fill: none; stroke: #172b52; stroke-width: 4; marker-end: url(#arrow); }
+      .label { font: 27px Arial, Helvetica, sans-serif; fill: #172b52; text-anchor: middle; }
+      .small { font: 22px Arial, Helvetica, sans-serif; fill: #52698e; text-anchor: middle; }
+      .branch { font: 22px Arial, Helvetica, sans-serif; font-weight: 700; fill: #172b52; }
+    </style>
+  </defs>
+
+  <rect class="terminal" x="60" y="65" width="245" height="92" rx="46"/>
+  <text class="label" x="182" y="103">Set the seed</text>
+  <text class="small" x="182" y="136">initialise the grid</text>
+
+  <rect class="box" x="385" y="55" width="300" height="112" rx="14"/>
+  <text class="label" x="535" y="103">Find agents below</text>
+  <text class="label" x="535" y="137">the threshold</text>
+
+  <polygon class="decision" points="830,42 1010,111 830,180 650,111"/>
+  <text class="label" x="830" y="103">Any dissatisfied</text>
+  <text class="label" x="830" y="137">agents?</text>
+
+  <rect class="terminal" x="1058" y="65" width="205" height="92" rx="46"/>
+  <text class="label" x="1160" y="103">Stop and</text>
+  <text class="small" x="1160" y="136">report results</text>
+
+  <rect class="box" x="680" y="290" width="300" height="104" rx="14"/>
+  <text class="label" x="830" y="333">Choose one</text>
+  <text class="label" x="830" y="367">dissatisfied agent</text>
+
+  <rect class="box" x="680" y="465" width="300" height="104" rx="14"/>
+  <text class="label" x="830" y="508">Move it to an</text>
+  <text class="label" x="830" y="542">allowed empty site</text>
+
+  <rect class="box" x="250" y="465" width="300" height="104" rx="14"/>
+  <text class="label" x="400" y="508">Record movement and</text>
+  <text class="label" x="400" y="542">segregation summaries</text>
+
+  <path class="line" d="M305 111 H385"/>
+  <path class="line" d="M685 111 H650"/>
+  <path class="line" d="M1010 111 H1058"/>
+  <text class="branch" x="1021" y="92">no</text>
+  <path class="line" d="M830 180 V290"/>
+  <text class="branch" x="850" y="239">yes</text>
+  <path class="line" d="M830 394 V465"/>
+  <path class="line" d="M680 517 H550"/>
+  <path class="line" d="M250 517 H155 V226 H535 V167"/>
+</svg>
