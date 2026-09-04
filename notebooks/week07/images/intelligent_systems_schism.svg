@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 520" role="img" aria-labelledby="title desc">
+  <title id="title">Two approaches to intelligent systems</title>
+  <desc id="desc">Complexity science compresses a system to expose mechanisms, while machine learning retains high-dimensional detail to improve prediction. Both begin with a complex system and can inform one another.</desc>
+  <rect width="1400" height="520" fill="transparent"/>
+  <style>
+    .navy{fill:#172b55}.ink{fill:#242424}.muted{fill:#566987}.panel{fill:#fff;stroke:#c7d2e5;stroke-width:3}.accent{fill:#f2cc4d}
+    .head{font:700 37px Arial,Helvetica,sans-serif}.body{font:28px Georgia,serif}.small{font:22px Arial,Helvetica,sans-serif}
+    .line{stroke:#172b55;stroke-width:4;fill:none}.dash{stroke:#8da0bf;stroke-width:3;stroke-dasharray:10 10;fill:none}
+  </style>
+  <rect x="420" y="28" width="560" height="88" rx="12" class="navy"/>
+  <text x="700" y="84" text-anchor="middle" fill="#fff" class="head">A complex intelligent system</text>
+  <path d="M700 116 V158 M700 158 H345 V188 M700 158 H1055 V188" class="line"/>
+  <rect x="55" y="188" width="580" height="245" rx="16" class="panel"/>
+  <rect x="765" y="188" width="580" height="245" rx="16" class="panel"/>
+  <rect x="55" y="188" width="14" height="245" rx="7" class="accent"/>
+  <rect x="1331" y="188" width="14" height="245" rx="7" class="accent"/>
+  <text x="105" y="246" class="head navy">Complexity science</text>
+  <text x="105" y="303" class="body ink">Compress the description.</text>
+  <text x="105" y="347" class="body ink">Identify mechanisms and useful scales.</text>
+  <text x="105" y="397" class="small muted">Priority: explanation and transferable insight</text>
+  <text x="815" y="246" class="head navy">Machine learning</text>
+  <text x="815" y="303" class="body ink">Retain high-dimensional detail.</text>
+  <text x="815" y="347" class="body ink">Learn patterns that improve prediction.</text>
+  <text x="815" y="397" class="small muted">Priority: predictive performance</text>
+  <path d="M635 466 H765" class="dash"/>
+  <path d="M650 454 L635 466 L650 478 M750 454 L765 466 L750 478" class="dash"/>
+  <text x="700" y="506" text-anchor="middle" class="small muted">the approaches can be combined</text>
+</svg>

@@ -1,0 +1,136 @@
+<div id="pso-week7" style="font-family:Arial,sans-serif;color:#172a52;max-width:1100px;margin:0 auto">
+  <div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin:0 0 10px">
+    <button id="pso-toggle" type="button">Start</button>
+    <button id="pso-step" type="button">One iteration</button>
+    <button id="pso-reset" type="button">Reset</button>
+    <label>Landscape <select id="pso-landscape"><option value="irregular">Irregular landscape</option><option value="deceptive">Harder: deceptive basins</option></select></label>
+    <label>Parameter set <select id="pso-preset"><option value="previous">Previous settings</option><option value="wide">Wider search</option></select></label>
+    <label>Inspect <select id="pso-particle"></select></label>
+    <label>Inertia <input id="pso-w" type="range" min="0" max="1.1" step="0.05" value="0.72"><span id="pso-wv">0.72</span></label>
+    <label>Personal <input id="pso-c1" type="range" min="0" max="3" step="0.1" value="1.3"><span id="pso-c1v">1.3</span></label>
+    <label>Shared <input id="pso-c2" type="range" min="0" max="3" step="0.1" value="1.3"><span id="pso-c2v">1.3</span></label>
+    <label>Maximum move <input id="pso-vmax" type="range" min="0.15" max="1.5" step="0.05" value="0.55"><span id="pso-vmaxv">0.55</span></label>
+  </div>
+  <canvas id="pso-canvas" width="1060" height="470" style="width:100%;height:auto;border:1px solid #c7cedc;background:#fff"></canvas>
+  <div id="pso-status" style="display:flex;gap:28px;flex-wrap:wrap;margin-top:8px;font-size:15px"></div>
+</div>
+<script>
+(() => {
+  const root=document.getElementById('pso-week7'), canvas=root.querySelector('#pso-canvas'), ctx=canvas.getContext('2d');
+  const toggle=root.querySelector('#pso-toggle'), once=root.querySelector('#pso-step'), reset=root.querySelector('#pso-reset'), status=root.querySelector('#pso-status'), particleSelect=root.querySelector('#pso-particle'), landscapeSelect=root.querySelector('#pso-landscape'), presetSelect=root.querySelector('#pso-preset');
+  const sliders=['w','c1','c2','vmax'].map(k=>root.querySelector('#pso-'+k));
+  let particles=[], running=false, iteration=0, timer=0, selected=0, random=Math.random;
+  const landscapes={
+    irregular:{minimum:[1.3,-0.8],target:1e-3,label:'irregular landscape'},
+    deceptive:{minimum:[3.2,2.2],target:1e-2,label:'deceptive landscape'}
+  };
+  const objective=(x,y)=>{
+    if(landscapeSelect.value==='deceptive'){
+      const local=0.12+0.025*((x+2.6)*(x+2.6)+0.8*(y+1.4)*(y+1.4))
+        +0.025*Math.pow(Math.sin(1.7*x+0.4*y),2);
+      const global=1.8*((x-3.2)*(x-3.2)+1.1*(y-2.2)*(y-2.2));
+      return Math.min(local,global);
+    }
+    const dx=x-1.3,dy=y+0.8;
+    return 0.035*(dx*dx+1.15*dy*dy)
+      +Math.pow(Math.sin(1.15*dx)+0.42*Math.sin(2.05*dy),2)
+      +0.65*Math.pow(Math.sin(0.78*dy)+0.38*Math.sin(2.35*dx+0.2*dy),2);
+  };
+  function seeded(seed){return function(){seed|=0;seed=seed+0x6D2B79F5|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+  const rand=(a,b)=>a+random()*(b-a);
+  function initialise(){
+    running=false; toggle.textContent='Start'; iteration=0; clearInterval(timer);
+    random=seeded(landscapeSelect.value==='deceptive'?55:202607);
+    particles=Array.from({length:34},()=>{const x=rand(-6,6),y=rand(-5,5);return{x,y,vx:rand(-.3,.3),vy:rand(-.3,.3),px:x,py:y,pv:objective(x,y),trail:[[x,y]]}});
+    particleSelect.innerHTML=particles.map((_,i)=>`<option value="${i}">particle ${i+1}</option>`).join('');
+    selected=0; particleSelect.value='0';
+    draw();
+  }
+  function best(){return particles.reduce((a,p)=>p.pv<a.pv?p:a,particles[0]);}
+  function step(){
+    // Snapshot the shared record so every particle uses the same information
+    // during this synchronous iteration.
+    const g=best(), gx=g.px, gy=g.py;
+    const w=+sliders[0].value,c1=+sliders[1].value,c2=+sliders[2].value,vmax=+sliders[3].value;
+    const proposals=particles.map(p=>{
+      let vx=w*p.vx+c1*random()*(p.px-p.x)+c2*random()*(gx-p.x);
+      let vy=w*p.vy+c1*random()*(p.py-p.y)+c2*random()*(gy-p.y);
+      const speed=Math.hypot(vx,vy);
+      if(speed>vmax){vx*=vmax/speed;vy*=vmax/speed;}
+      return {vx,vy,x:Math.max(-6,Math.min(6,p.x+vx)),y:Math.max(-5,Math.min(5,p.y+vy))};
+    });
+    particles.forEach((p,i)=>{
+      Object.assign(p,proposals[i]);
+      p.trail.push([p.x,p.y]); if(p.trail.length>14)p.trail.shift();
+      const v=objective(p.x,p.y); if(v<p.pv){p.pv=v;p.px=p.x;p.py=p.y;}
+    });
+    iteration++;
+  }
+  const sx=x=>50+(x+6)/12*650, sy=y=>30+(5-y)/10*400;
+  function landscapeColour(q){
+    const stops=[[253,231,37],[53,183,121],[33,145,140],[59,82,139],[68,1,84]];
+    const z=Math.max(0,Math.min(1,q))*(stops.length-1), k=Math.min(stops.length-2,Math.floor(z)), t=z-k;
+    const rgb=stops[k].map((value,n)=>Math.round(value+(stops[k+1][n]-value)*t));
+    return `rgb(${rgb[0]},${rgb[1]},${rgb[2]})`;
+  }
+  function arrow(x0,y0,x1,y1,colour,dashed=false){
+    ctx.save();ctx.strokeStyle=colour;ctx.fillStyle=colour;ctx.lineWidth=2.2;ctx.setLineDash(dashed?[6,5]:[]);
+    ctx.beginPath();ctx.moveTo(sx(x0),sy(y0));ctx.lineTo(sx(x1),sy(y1));ctx.stroke();ctx.setLineDash([]);
+    const a=Math.atan2(sy(y1)-sy(y0),sx(x1)-sx(x0));ctx.beginPath();ctx.moveTo(sx(x1),sy(y1));ctx.lineTo(sx(x1)-10*Math.cos(a-.45),sy(y1)-10*Math.sin(a-.45));ctx.lineTo(sx(x1)-10*Math.cos(a+.45),sy(y1)-10*Math.sin(a+.45));ctx.closePath();ctx.fill();ctx.restore();
+  }
+  function legendLine(y,colour,label,dashed=false){
+    ctx.save();ctx.strokeStyle=colour;ctx.lineWidth=2.5;ctx.setLineDash(dashed?[6,5]:[]);
+    ctx.beginPath();ctx.moveTo(735,y);ctx.lineTo(775,y);ctx.stroke();ctx.restore();
+    ctx.fillStyle='#172a52';ctx.font='14px Arial';ctx.fillText(label,785,y+5);
+  }
+  function draw(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    for(let i=0;i<100;i++){for(let j=0;j<70;j++){const x=-6+12*i/99,y=-5+10*j/69,v=Math.log1p(objective(x,y));const q=Math.min(1,v/2.2);ctx.fillStyle=landscapeColour(q);ctx.fillRect(sx(x),sy(y),8,7);}}
+    ctx.strokeStyle='#172a52';ctx.lineWidth=1.3;ctx.strokeRect(50,30,650,400);
+    ctx.fillStyle='#172a52';ctx.font='italic 16px Arial';ctx.fillText('x₁',370,454);
+    ctx.save();ctx.translate(18,235);ctx.rotate(-Math.PI/2);ctx.fillText('x₂',0,0);ctx.restore();
+    const setting=landscapes[landscapeSelect.value],ox=sx(setting.minimum[0]),oy=sy(setting.minimum[1]);
+    ctx.fillStyle='rgba(255,255,255,.9)';ctx.strokeStyle='#172a52';ctx.lineWidth=2;
+    ctx.beginPath();ctx.arc(ox,oy,8,0,Math.PI*2);ctx.fill();ctx.stroke();
+    ctx.beginPath();ctx.moveTo(ox-5,oy);ctx.lineTo(ox+5,oy);ctx.moveTo(ox,oy-5);ctx.lineTo(ox,oy+5);ctx.stroke();
+    ctx.fillStyle='#172a52';ctx.font='14px Arial';ctx.fillText('known global minimum',Math.min(ox+12,790),oy-10);
+    const g=best(), cx=particles.reduce((s,p)=>s+p.x,0)/particles.length, cy=particles.reduce((s,p)=>s+p.y,0)/particles.length;
+    particles.forEach((p,i)=>{
+      const trace=()=>{ctx.beginPath();p.trail.forEach(([x,y],j)=>j?ctx.lineTo(sx(x),sy(y)):ctx.moveTo(sx(x),sy(y)));};
+      trace();ctx.strokeStyle='rgba(255,255,255,.62)';ctx.lineWidth=i===selected?5.2:3.4;ctx.stroke();
+      trace();ctx.strokeStyle=i===selected?'rgba(255,107,53,.98)':'rgba(23,42,82,.58)';ctx.lineWidth=i===selected?3.0:1.7;ctx.stroke();
+    });
+    particles.forEach((p,i)=>{
+      ctx.beginPath();ctx.arc(sx(p.x),sy(p.y),i===selected?7:5,0,Math.PI*2);
+      ctx.fillStyle=i===selected?'#ff6b35':'#ffffff';ctx.fill();
+      ctx.strokeStyle='#172a52';ctx.lineWidth=i===selected?2.5:1.8;ctx.stroke();
+    });
+    const p=particles[selected];
+    arrow(p.x,p.y,p.x+p.vx,p.y+p.vy,'#172a52');
+    arrow(p.x,p.y,p.px,p.py,'#d7a51e',true);
+    arrow(p.x,p.y,g.px,g.py,'#e15d36',true);
+    ctx.strokeStyle='#f03b8c';ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(sx(g.px)-7,sy(g.py));ctx.lineTo(sx(g.px)+7,sy(g.py));ctx.moveTo(sx(g.px),sy(g.py)-7);ctx.lineTo(sx(g.px),sy(g.py)+7);ctx.stroke();
+    ctx.fillStyle='#172a52';ctx.font='16px Arial';ctx.fillText('objective landscape: yellow = lower objective, purple = higher objective',50,22);
+    ctx.font='bold 15px Arial';ctx.fillText('Selected particle',735,50);
+    legendLine(76,'#172a52','current displacement');
+    legendLine(102,'#d7a51e','towards its personal best',true);
+    legendLine(128,'#e15d36','towards the shared best found so far',true);
+    const div=Math.sqrt(particles.reduce((s,p)=>s+(p.x-cx)**2+(p.y-cy)**2,0)/particles.length);
+    const reached=g.pv<setting.target;
+    status.innerHTML=`<span>iteration: ${iteration}</span><span>best objective: ${g.pv.toFixed(3)}</span><span>target ${setting.target}: <strong>${reached?'reached':'not yet reached'}</strong></span><span>swarm diversity: ${div.toFixed(2)}</span><span>maximum move: ${(+sliders[3].value).toFixed(2)} per iteration</span><span>white: particles · orange: selected particle · pink: shared best</span>`;
+  }
+  function start(){clearInterval(timer);timer=setInterval(()=>{if(running){step();draw();}},320);}
+  toggle.onclick=()=>{running=!running;toggle.textContent=running?'Pause':'Start';if(running)start();else clearInterval(timer);};
+  once.onclick=()=>{running=false;toggle.textContent='Start';clearInterval(timer);step();draw();};
+  reset.onclick=initialise;
+  particleSelect.onchange=()=>{selected=+particleSelect.value;draw();};
+  landscapeSelect.onchange=initialise;
+  presetSelect.onchange=()=>{
+    const values=presetSelect.value==='wide'?[0.98,0.7,0.35,1.5]:[0.72,1.3,1.3,0.55];
+    sliders.forEach((s,i)=>{s.value=values[i];const key=s.id.replace('pso-','');root.querySelector('#pso-'+key+'v').textContent=values[i].toFixed(key==='w'||key==='vmax'?2:1);});
+    initialise();
+  };
+  sliders.forEach(s=>s.oninput=()=>{const key=s.id.replace('pso-','');root.querySelector('#pso-'+key+'v').textContent=(+s.value).toFixed(key==='w'||key==='vmax'?2:1);draw();});
+  initialise();
+})();
+</script>

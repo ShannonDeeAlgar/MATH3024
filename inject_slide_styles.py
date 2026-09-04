@@ -79,6 +79,7 @@ SHARED_COMPONENT_PREFIXES = (
     ".modelling-",
     ".choice-",
     ".discussion-",
+    ".guiding-",
     ".canonical-",
     ".process-",
     ".planet-",
@@ -89,6 +90,7 @@ SHARED_COMPONENT_PREFIXES = (
     ".initialisation-",
     ".planet-",
     ".analysis-",
+    ".ant-",
     ".aggregate-",
     ".parameter-",
     ".two-",
@@ -161,6 +163,47 @@ SLIDES_ONLY_RULES = """
   color: var(--reader-ink);
   text-decoration-thickness: 1px;
   text-underline-offset: 0.12em;
+}
+
+/* A quieter quotation treatment for projected slides. */
+.reveal .slides section .slide-quote {
+  display: block;
+  width: min(86%, 860px);
+  margin: 1.35em auto;
+  padding: 0 0 0 0.8em;
+  border: 0;
+  border-left: 4px solid #D69E1E;
+  color: var(--reader-ink);
+  text-align: left;
+}
+
+.reveal .slides section .slide-quote::before {
+  display: none;
+  content: none;
+}
+
+.reveal .slides section .slide-quote .reader-voice-quote {
+  display: block;
+  font-family: Baskerville, Georgia, serif;
+  font-size: 0.82em;
+  font-style: italic;
+  line-height: 1.45;
+}
+
+.reveal .slides section .slide-quote .reader-voice-quote::after {
+  content: none;
+}
+
+.reveal .slides section .slide-quote .reader-voice-attr {
+  display: block;
+  margin: 0.9em 0 0;
+  padding: 0;
+  border: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.55em;
+  font-style: normal;
+  letter-spacing: 0;
+  color: var(--reader-ink-soft);
 }
 
 /* Notebook anchor glyphs are useful in the Reader but are visual noise in a
