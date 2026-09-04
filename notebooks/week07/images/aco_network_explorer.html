@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ant colony optimisation on a network</title>
+<style>
+  :root{--ink:#172b55;--blue:#3182bd;--pale:#e7eef8;--gold:#f2bd3f;--orange:#df5b35;--grey:#68758d}
+  *{box-sizing:border-box} body{margin:0;background:#fff;color:var(--ink);font:16px Arial,sans-serif}
+  .wrap{max-width:1050px;margin:auto;padding:12px 18px 8px}.grid{display:grid;grid-template-columns:2.1fr 1fr;gap:22px;align-items:start}
+  h2{font-size:22px;margin:0 0 4px}.sub{color:var(--grey);margin:0 0 10px;font-size:14px}.panel{border:1px solid #c9d4e5;border-radius:8px;padding:10px;background:#fff}
+  svg{width:100%;height:auto;display:block}.edge{stroke:var(--blue);stroke-linecap:round}.base{stroke:#cbd6e6;stroke-width:2}.node{fill:#fff;stroke:var(--ink);stroke-width:3}.terminal{fill:var(--gold)}
+  .label{font-weight:700;fill:var(--ink);font-size:15px}.length{fill:var(--grey);font-size:13px}.ant{fill:var(--orange);stroke:#fff;stroke-width:1.5}
+  button{border:1px solid #9badc8;background:#fff;color:var(--ink);border-radius:5px;padding:7px 12px;font-weight:700;cursor:pointer}button:hover{background:#eef4fb}
+  .controls{display:grid;grid-template-columns:auto auto auto minmax(210px,1fr);gap:8px 10px;align-items:center;margin-top:9px}.controls label{font-size:14px}.controls input{vertical-align:middle}
+  .time-control{grid-column:1/-1;display:grid;grid-template-columns:auto minmax(180px,1fr) auto;gap:8px;align-items:center}.time-control input{width:100%}.speed-control{white-space:nowrap}.speed-control input{width:100px}
+  .stat{display:flex;justify-content:space-between;border-bottom:1px solid #dce4ef;padding:7px 0}.stat:last-child{border:0}.bar{height:11px;background:var(--pale);border-radius:6px;overflow:hidden;margin:3px 0 10px}.fill{height:100%;background:var(--blue)}
+  .note{font-size:13px;color:var(--grey);line-height:1.35;margin-top:8px}
+  @media(max-width:760px){.grid{grid-template-columns:1fr}.controls{grid-template-columns:auto auto auto 1fr}}
+</style>
+</head>
+<body><div class="wrap">
+  <h2>Ants learn a route through a network</h2>
+  <p class="sub">Edge width shows pheromone. Orange points are the current ants; labels give fixed edge lengths.</p>
+  <div class="grid">
+    <div class="panel">
+      <svg id="net" viewBox="0 0 700 390" aria-label="ACO network animation">
+        <g id="base"></g><g id="pher"></g><g id="nodes"></g><g id="ants"></g>
+      </svg>
+      <div class="controls">
+        <button id="play">Pause</button><button id="step">Next generation</button><button id="reset">Reset</button>
+        <label class="speed-control">speed <input id="speed" type="range" min="0.2" max="1.4" value="0.45" step="0.05"></label>
+        <label class="time-control"><span>generation</span><input id="timeline" type="range" min="0" max="0" value="0" step="1"><strong id="time-label">0</strong></label>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="stat"><span>generation</span><strong id="gen">0</strong></div>
+      <div class="stat"><span>shortest route</span><strong>S–B–D–E–T · 5.4</strong></div>
+      <p><strong>Outcomes this generation</strong></p>
+      <div>ants finding the shortest route</div><div class="bar"><div class="fill" id="bestbar"></div></div>
+      <div class="stat"><span>best route found</span><strong id="best">none yet</strong></div>
+      <div class="stat"><span>different routes used</span><strong id="diversity">0</strong></div>
+      <div class="stat"><span>strongest complete route</span><strong id="winner">none yet</strong></div>
+      <p class="note">At each node an ant chooses one outgoing edge using its length and pheromone. A complete route is evaluated only after the ant reaches T. Its deposit then reinforces every edge it used.</p>
+    </div>
+  </div>
+</div>
+<script>
+const pts={S:[45,195],A:[180,90],B:[180,300],C:[330,90],D:[330,300],E:[485,90],F:[485,300],T:[650,195]};
+const edges=[
+  ['S','A',1.5],['S','B',1.3],
+  ['A','C',1.4],['A','D',2.0],['B','C',1.8],['B','D',1.2],
+  ['C','E',4.0],['C','F',2.0],['D','E',1.5],['D','F',2.2],
+  ['E','T',1.4],['F','T',2.4]
+];
+const outgoing={}; edges.forEach((e,i)=>(outgoing[e[0]]??=[]).push(i));
+const BEST_KEY='S-B-D-E-T', BEST_LENGTH=5.4, MAX_GENERATIONS=40, NANTS=30;
+let tau=edges.map(()=>1), gen=0, playing=true, ants=[], history=[], routeCounts={};
+const ns='http://www.w3.org/2000/svg', base=document.querySelector('#base'), pher=document.querySelector('#pher'), ng=document.querySelector('#nodes'), ag=document.querySelector('#ants');
+function line(g,a,b,cls){let x=document.createElementNS(ns,'line');x.setAttribute('x1',pts[a][0]);x.setAttribute('y1',pts[a][1]);x.setAttribute('x2',pts[b][0]);x.setAttribute('y2',pts[b][1]);x.setAttribute('class',cls);g.appendChild(x);return x}
+const plines=edges.map(e=>{line(base,e[0],e[1],'base');return line(pher,e[0],e[1],'edge')});
+edges.forEach(e=>{let t=document.createElementNS(ns,'text'),x=(pts[e[0]][0]+pts[e[1]][0])/2,y=(pts[e[0]][1]+pts[e[1]][1])/2-8;t.setAttribute('x',x);t.setAttribute('y',y);t.setAttribute('class','length');t.textContent=e[2];ng.appendChild(t)});
+Object.entries(pts).forEach(([k,p])=>{let c=document.createElementNS(ns,'circle');c.setAttribute('cx',p[0]);c.setAttribute('cy',p[1]);c.setAttribute('r',k==='S'||k==='T'?18:13);c.setAttribute('class','node '+(k==='S'||k==='T'?'terminal':''));ng.appendChild(c);let t=document.createElementNS(ns,'text');t.setAttribute('x',p[0]);t.setAttribute('y',p[1]+5);t.setAttribute('text-anchor','middle');t.setAttribute('class','label');t.textContent=k;ng.appendChild(t)});
+function chooseEdge(node){let choices=outgoing[node],desir=choices.map(i=>Math.pow(tau[i],1.25)*Math.pow(1/edges[i][2],2));let z=desir.reduce((a,b)=>a+b),u=Math.random()*z;for(let j=0;j<choices.length;j++){u-=desir[j];if(u<=0)return choices[j]}return choices.at(-1)}
+function constructRoute(){let nodes=['S'],used=[],length=0,node='S';while(node!=='T'){let ei=chooseEdge(node),e=edges[ei];used.push(ei);length+=e[2];node=e[1];nodes.push(node)}return{nodes,edges:used,length,key:nodes.join('-')}}
+function pointOn(route,q){let segs=[],tot=0;for(let i=0;i<route.length-1;i++){let a=pts[route[i]],b=pts[route[i+1]],d=Math.hypot(b[0]-a[0],b[1]-a[1]);segs.push([a,b,d]);tot+=d}let d=q*tot;for(const [a,b,l] of segs){if(d<=l)return[a[0]+(b[0]-a[0])*d/l,a[1]+(b[1]-a[1])*d/l];d-=l}return pts.T}
+function snapshot(){return{tau:[...tau],routeCounts:{...routeCounts},routes:ants.map(a=>({nodes:[...a.nodes],edges:[...a.edges],length:a.length,key:a.key}))}}
+function saveSnapshot(){history=history.slice(0,gen);history.push(snapshot());let t=document.querySelector('#timeline');t.max=history.length-1;t.value=gen;document.querySelector('#time-label').textContent=gen}
+function loadSnapshot(i){i=Math.max(0,Math.min(history.length-1,i));let s=history[i];gen=i;tau=[...s.tau];routeCounts={...s.routeCounts};ants=s.routes.map((r,j)=>({...r,delay:j/NANTS}));phase=1;updateStats()}
+function generation(){if(gen>=MAX_GENERATIONS){playing=false;setPlayLabel();return}routeCounts={};ants=[];for(let i=0;i<NANTS;i++){let r=constructRoute();routeCounts[r.key]=(routeCounts[r.key]||0)+1;ants.push({...r,delay:i/NANTS})}tau=tau.map(x=>0.72*x);ants.forEach(a=>a.edges.forEach(e=>tau[e]+=1/a.length));gen++;saveSnapshot();updateStats();if(gen>=MAX_GENERATIONS){playing=false;setPlayLabel()}}
+function routeStrength(a){return a.edges.reduce((s,e)=>s+tau[e],0)/a.edges.length}
+function updateStats(){document.querySelector('#gen').textContent=gen;document.querySelector('#timeline').value=gen;document.querySelector('#time-label').textContent=gen;let nbest=routeCounts[BEST_KEY]||0;document.querySelector('#bestbar').style.width=(100*nbest/NANTS)+'%';let unique=[...new Map(ants.map(a=>[a.key,a])).values()],best=unique.length?unique.reduce((a,b)=>a.length<b.length?a:b):null,winner=unique.length?unique.reduce((a,b)=>routeStrength(a)>routeStrength(b)?a:b):null;document.querySelector('#best').textContent=best?best.key.replaceAll('-', '–')+' · '+best.length.toFixed(1):'none yet';document.querySelector('#diversity').textContent=unique.length;document.querySelector('#winner').textContent=winner?winner.key.replaceAll('-', '–'):'none yet';plines.forEach((l,i)=>{l.style.strokeWidth=(2+2.7*Math.sqrt(tau[i])).toFixed(1);l.style.opacity=Math.min(.95,.25+.1*tau[i])})}
+function setPlayLabel(){document.querySelector('#play').textContent=playing?'Pause':'Play'}
+function reset(){tau=edges.map(()=>1);gen=0;routeCounts={};ants=[];phase=0;history=[];saveSnapshot();updateStats()}
+let phase=0,last=0;function frame(ts){let dt=Math.min(.04,(ts-last)/1000||0),speed=+document.querySelector('#speed').value;last=ts;if(playing){phase+=dt*speed;if(phase>=1){phase=0;generation()}}ag.innerHTML='';ants.forEach((a,i)=>{let q=Math.max(0,Math.min(1,(phase-a.delay)*1.55));if(q<=0)return;let p=pointOn(a.nodes,q),c=document.createElementNS(ns,'circle');c.setAttribute('cx',p[0]);c.setAttribute('cy',p[1]+(i%3-1)*3);c.setAttribute('r',5);c.setAttribute('class','ant');ag.appendChild(c)});requestAnimationFrame(frame)}
+document.querySelector('#play').onclick=()=>{if(gen>=MAX_GENERATIONS){reset()}playing=!playing;setPlayLabel()};
+document.querySelector('#step').onclick=()=>{playing=false;setPlayLabel();phase=0;generation()};
+document.querySelector('#reset').onclick=()=>{playing=false;setPlayLabel();reset()};
+document.querySelector('#timeline').oninput=e=>{playing=false;setPlayLabel();loadSnapshot(+e.target.value)};
+reset();setPlayLabel();requestAnimationFrame(frame);
+</script></body></html>

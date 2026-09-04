@@ -6,7 +6,7 @@
 <meta content="yes" name="apple-mobile-web-app-capable"/>
 <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
 <title>L_Intelligent_systems slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
-  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.0/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script>
 <!-- General and theme style sheets -->
@@ -7430,1349 +7430,2042 @@ main {
     </script>
 <!-- End of mathjax configuration --><!-- Reveal Theme -->
 <link href="https://unpkg.com/reveal.js@4.0.2/dist/theme/simple.css" id="theme" rel="stylesheet"/>
+<style>
+/* Injected by inject_slide_styles.py -- keeps slide styling in
+   sync with style.css. Do not edit directly. */
+.jp-MarkdownOutput h1,
+.jp-MarkdownOutput h2,
+.jp-MarkdownOutput h3,
+.jp-MarkdownOutput h4,
+.jp-MarkdownOutput h5,
+.jp-MarkdownOutput h6 {
+  font-family: Baskerville, Georgia, serif;
+  font-style: italic;
+  font-weight: 700;
+  color: var(--reader-ink, #1B2A4C);
+}
+
+.jp-MarkdownOutput p,
+.jp-MarkdownOutput li,
+.jp-MarkdownOutput blockquote {
+  font-family: Baskerville, Georgia, serif;
+}
+
+.reader-voice {
+  display: grid;
+  grid-template-columns: 1.05em minmax(0, 1fr);
+  column-gap: 0.65em;
+  border: 0;
+  padding: 0;
+  margin: 1.25em 0 1.5em;
+  color: var(--reader-ink, #1B2A4C);
+}
+
+.reader-voice::before {
+  content: "“";
+  grid-column: 1;
+  grid-row: 1 / 3;
+  align-self: stretch;
+  display: flex;
+  align-items: flex-start;
+  height: auto;
+  margin: 0;
+  color: var(--reader-ink-soft, #5A6685);
+  font-family: Baskerville, Georgia, serif;
+  font-size: 3.4em;
+  line-height: 0.72;
+}
+
+.reader-voice-quote {
+  grid-column: 2;
+  font-style: normal;
+  font-family: Baskerville, Georgia, serif;
+  font-size: 1.15em;
+  line-height: 1.28;
+}
+
+.reader-voice-quote::after {
+  content: "”";
+  display: inline;
+  margin-left: 0.2em;
+  color: var(--reader-ink-soft, #5A6685);
+  font-family: Baskerville, Georgia, serif;
+  font-size: 1.7em;
+  line-height: 0;
+  vertical-align: -0.14em;
+}
+
+.reader-voice-attr {
+  grid-column: 2;
+  display: table;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.74em;
+  letter-spacing: 0.06em;
+  color: var(--reader-ink-soft, #5A6685);
+  margin-top: 0.85em;
+  padding-top: 0.55em;
+  border-top: 1px solid var(--reader-line, #C7CEDC);
+  text-align: left;
+}
+
+.reader-voice-attr a {
+  color: var(--reader-ink-soft, #5A6685);
+}
+
+.reader-prompt {
+  position: relative;
+  border: 0;
+  border-left: 2px solid var(--reader-line, #C7CEDC);
+  padding: 0.15em 0 0.15em 3.2em;
+  margin: 1.1em 0;
+  color: var(--reader-ink, #1B2A4C);
+}
+
+.reader-prompt::before {
+  content: "→";
+  position: absolute;
+  left: 0.65em;
+  top: 50%;
+  width: 1.45em;
+  height: 1.45em;
+  transform: translateY(-50%);
+  border: 0;
+  display: grid;
+  place-items: center;
+  font-family: Baskerville, Georgia, serif;
+  font-size: 1.05em;
+  font-style: normal;
+}
+
+.reader-prompt a {
+  color: var(--reader-ink, #1B2A4C);
+}
+
+.reader-prompt-label {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.62em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.35em;
+  color: var(--reader-ink-soft, #5A6685);
+}
+
+.reader-prompt-body {
+  font-family: Baskerville, Georgia, serif;
+  font-size: 1em;
+  font-style: normal;
+  line-height: 1.38;
+}
+
+.reader-prompt-body.italic {
+  font-style: normal;
+}
+
+.jp-MarkdownOutput summary.myst-dropdown-header,
+.jp-MarkdownOutput .myst-dropdown-header-title {
+  font-family: Baskerville, Georgia, serif;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.jp-MarkdownOutput .myst-dropdown-body {
+  padding: 0.15rem 0.2rem 0.7rem !important;
+  background: transparent !important;
+  font-family: Baskerville, Georgia, serif;
+}
+
+.reader-prompt-footnote {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.68em;
+  color: var(--reader-ink-soft, #5A6685);
+  margin-top: 1em;
+  padding-top: 0.2em;
+  border-top: 0;
+}
+
+.reader-prompt-footnote a {
+  color: var(--reader-ink-soft, #5A6685);
+}
+
+.reader-emphasis {
+  border-top: 1px solid var(--reader-line, #C7CEDC);
+  border-bottom: 1px solid var(--reader-line, #C7CEDC);
+  padding: 1em;
+  margin: 2em 0;
+  text-align: center;
+}
+
+.reader-emphasis p {
+  font-family: Baskerville, Georgia, serif;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 1.3em;
+  color: var(--reader-ink, #1B2A4C);
+  margin: 0;
+}
+
+.reader-route {
+  border-left: 1px solid var(--reader-ink, #1B2A4C);
+  padding: 0.25em 0 0.25em 1em;
+  margin: 1.5em 0 2em;
+}
+
+.reader-route-label {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.7em;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--reader-ink-soft, #5A6685);
+  margin-bottom: 0.45em;
+}
+
+.reader-route-body {
+  font-family: Baskerville, Georgia, serif;
+  color: var(--reader-ink, #1B2A4C);
+}
+
+.country-map {
+  display: block;
+  max-height: 430px;
+  width: auto;
+  margin: 0.35em auto 0.6em;
+}
+
+.country-slide-grid {
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.65fr);
+}
+
+.country-slide-grid .country-map {
+  width: 100%;
+  max-height: 470px;
+  object-fit: contain;
+}
+
+.country-map-large {
+  display: block;
+  width: 96% !important;
+  max-height: 505px !important;
+  object-fit: contain;
+  margin: 0 auto !important;
+}
+
+.group-slide-grid {
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 0.75fr);
+  align-items: center;
+}
+
+.group-slide-grid .group-photo {
+  width: 100%;
+  max-height: 475px;
+  object-fit: cover;
+  object-position: center;
+  margin: 0 auto;
+}
+
+.group-slide-grid .group-logo {
+  width: 100%;
+  max-height: 245px;
+  object-fit: contain;
+  margin: 0 auto 0.75em;
+}
+
+.figure-reference,
+.figure-caption,
+figcaption {
+  margin-top: 0.45em;
+  color: var(--reader-ink-soft, #5A6685);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.62em;
+  line-height: 1.25;
+}
+
+.unit-essentials {
+  width: 78%;
+  margin: 0.5em auto;
+}
+
+.unit-essentials > div {
+  display: grid;
+  grid-template-columns: 8em 1fr;
+  gap: 1em;
+  padding: 0.34em 0;
+  border-bottom: 1px solid var(--reader-line, #C7CEDC);
+}
+
+.unit-essentials span {
+  text-align: right;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.64em;
+  color: var(--reader-ink-soft, #5A6685);
+}
+
+.unit-essentials strong {
+  text-align: left;
+  font-weight: 400;
+}
+
+.model-specification {
+  margin-top: 0.55em;
+}
+
+.model-specification > div {
+  display: grid;
+  grid-template-columns: 10.5em 1fr;
+  gap: 0.8em;
+  padding: 0.25em 0;
+  border-bottom: 1px solid var(--reader-line, #C7CEDC);
+  font-size: 0.86em;
+}
+
+.model-specification strong { text-align: right; }
+
+.aggregate-definitions { margin-top: 0.35em; }
+
+.aggregate-definitions > div {
+  display: grid;
+  grid-template-columns: 10.5em minmax(0, 1fr);
+  align-items: center;
+  gap: 0.9em;
+  padding: 0.38em 0;
+  border-bottom: 1px solid var(--reader-line, #C7CEDC);
+}
+
+.aggregate-definitions strong { text-align: right; }
+
+.aggregate-definitions p { margin: 0; }
+
+.parameter-outcomes-layout { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); }
+
+.article .choice-marker img,
+.article .discussion-marker img { max-width: 36px !important; }
+
+.article .ladder-marker img { max-width: 30px !important; }
+
+.process-note {
+  margin-top: 0.8em;
+  color: var(--reader-ink-soft, #5A6685);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.62em;
+}
+
+.system-title span {
+  display: inline;
+  margin-left: 0.28em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.48em;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.025em;
+  color: var(--reader-ink-soft, #5A6685);
+}
+
+.system-title span::before { content: ": "; }
+
+.planet-process { display: block; }
+
+.process-sequence { max-width: 49em; }
+
+.process-step {
+  display: grid;
+  grid-template-columns: 1.7em 1fr;
+  gap: 0.55em;
+  align-items: start;
+  margin: 0.08em 0;
+}
+
+.process-step > span {
+  width: 1.45em;
+  height: 1.45em;
+  border: 1px solid var(--reader-ink, #1B2A4C);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.7em;
+}
+
+.process-step p { margin: 0; font-size: 0.72em; line-height: 1.16; }
+
+.process-step.qed { margin-top: 0.28em; padding-top: 0.28em; border-top: 1px solid var(--reader-line, #C7CEDC); }
+
+.variable-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.28em 0.9em;
+  margin-top: 0.45em;
+  padding-top: 0.38em;
+  border-top: 1px solid var(--reader-line, #C7CEDC);
+  color: var(--reader-ink-soft, #5A6685);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.46em;
+  line-height: 1.25;
+}
+
+.variable-strip strong { grid-column: 1 / -1; text-transform: uppercase; letter-spacing: 0.08em; }
+
+.analysis-perspectives {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
+  margin: 0.75em 0;
+}
+
+.analysis-perspectives.three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.analysis-perspectives.four {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.analysis-perspectives.three img,
+.analysis-perspectives.four img {
+  display: block;
+  width: 100%;
+  height: 9rem;
+  object-fit: cover;
+  margin: 0 0 0.6rem;
+}
+
+.analysis-perspectives.three,
+  .analysis-perspectives.four {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+.analysis-perspectives > div {
+  border: 1px solid var(--reader-line, #C7CEDC);
+  padding: 0.58em 0.64em;
+}
+
+.analysis-perspectives strong {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.68em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.analysis-perspectives p { font-size: 0.76em; line-height: 1.22; margin: 0.3em 0; }
+
+.analysis-perspectives.ensemble-comparison > div {
+  min-height: 0;
+  padding: 0.62em 0.72em;
+}
+
+.analysis-perspectives.ensemble-comparison p {
+  margin: 0.35em 0 0;
+  font-size: 0.75em;
+  line-height: 1.2;
+}
+
+.meaning-panel ul,
+.evidence-layout .meaning-panel ul {
+  margin: 0.2em 0 0.55em;
+  padding-left: 1.1em;
+}
+
+.meaning-panel li,
+.evidence-layout .meaning-panel li {
+  padding-left: 0.08em;
+  margin: 0.2em 0;
+}
+
+.group-caption {
+  text-align: center;
+  margin-top: 0.35em;
+  font-family: Baskerville, Georgia, serif;
+  font-size: 1em;
+  line-height: 1.25;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.country-acknowledgement {
+  max-width: 46em;
+  margin: 0.5em auto;
+  text-align: left;
+  font-family: Baskerville, Georgia, serif;
+  color: var(--reader-ink, #1B2A4C);
+}
+
+.slide-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 1.6em;
+  align-items: center;
+  text-align: left;
+}
+
+.slide-columns .column-image {
+  display: block;
+  width: 100%;
+  max-height: 430px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.assumption-reveal {
+  position: relative;
+  border: 1px solid var(--reader-line, #C7CEDC);
+  margin-top: 1em;
+  padding: 0.7em 0.9em 0.7em 4em;
+  color: var(--reader-ink, #1B2A4C);
+}
+
+.assumption-reveal::before {
+  content: "";
+  position: absolute;
+  left: 0.8em;
+  top: 0.75em;
+  width: 2.25em;
+  height: 2.25em;
+  background: center / contain no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%231b2a4c' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 48C24 46 27 38 31 31C35 23 41 17 53 16M31 31C38 35 44 41 51 50'/%3E%3Ccircle cx='12' cy='48' r='5' fill='%231b2a4c'/%3E%3Ccircle cx='53' cy='16' r='5'/%3E%3Ccircle cx='51' cy='50' r='5'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.choice-marker {
+  display: flex;
+  align-items: center;
+  gap: 0.55em;
+  margin: 0.65em 0;
+  color: var(--reader-ink-soft, #5A6685);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.62em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.choice-marker img { width: 34px !important; height: 34px !important; margin: 0 !important; }
+
+.discussion-marker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0.15rem 0 0.55rem;
+  color: var(--reader-ink, #1B2A4C);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.62em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.discussion-marker img { width: 36px !important; height: 36px !important; margin: 0 !important; }
+
+details.reader-answer {
+  margin: 0.8rem 0 1.2rem 3.2rem;
+  border: 1px solid #c7cedc;
+  border-radius: 6px;
+  background: var(--pst-color-surface, #f7f8fa);
+  font-family: var(--pst-font-family-base);
+}
+
+details.reader-answer summary {
+  cursor: pointer;
+  padding: 0.7rem 1rem;
+  color: #1d315b;
+  font-family: var(--pst-font-family-base);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+details.reader-answer > div {
+  padding: 0 1rem 0.9rem;
+}
+
+details.discussion-reveal {
+  margin: 0.7rem 0 1.2rem;
+  overflow: hidden;
+  border: 1px solid #c7cedc;
+  border-left: 5px solid #edcc55;
+  border-radius: 0.32rem;
+  background: #fff;
+  color: var(--reader-ink, #1b2a4c);
+}
+
+details.discussion-reveal summary {
+  position: relative;
+  display: block;
+  padding: 0.72rem 0.9rem;
+  cursor: pointer;
+  list-style: none;
+  background: #fffaf0;
+}
+
+details.discussion-reveal summary::-webkit-details-marker {
+  display: none;
+}
+
+details.discussion-reveal summary > .myst-dropdown-header-title {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr) 1.2rem;
+  gap: 0.7rem;
+  align-items: center;
+  width: 100%;
+}
+
+details.discussion-reveal summary > .myst-dropdown-header-title > img {
+  grid-column: 1;
+  grid-row: 1;
+  width: 2.35rem !important;
+  height: 2.35rem !important;
+  margin: 0 !important;
+}
+
+details.discussion-reveal summary > .myst-dropdown-header-title > .discussion-reveal-heading {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+details.discussion-reveal summary > .myst-dropdown-header-title > span:has(.myst-dropdown-header-icon) {
+  grid-column: 3;
+  grid-row: 1;
+  justify-self: end;
+  float: none !important;
+  margin: 0 !important;
+}
+
+.discussion-reveal-heading {
+  display: block;
+  min-width: 0;
+}
+
+.discussion-reveal-label {
+  display: none;
+}
+
+.discussion-reveal-question {
+  display: block;
+  color: var(--reader-ink, #1b2a4c);
+  font-family: Baskerville, Georgia, serif;
+  font-size: 1.12rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+details.discussion-reveal .discussion-answer {
+  padding: 0.75rem 1rem 0.9rem 4.3rem;
+  border-top: 1px solid #e2e6ed;
+  background: #fff;
+}
+
+details.discussion-reveal .discussion-answer > :first-child {
+  margin-top: 0;
+}
+
+details.discussion-reveal .discussion-answer > :last-child {
+  margin-bottom: 0;
+}
+
+.dark details.discussion-reveal {
+  border-color: #58647a;
+  border-left-color: #edcc55;
+  background: #202633;
+}
+
+.dark details.discussion-reveal summary {
+  background: #2b291e;
+}
+
+.dark .discussion-reveal-label,
+.dark details.discussion-reveal summary::after {
+  color: #c7cfdd;
+}
+
+.dark .discussion-reveal-question {
+  color: #eef2f8;
+}
+
+.dark details.discussion-reveal .discussion-answer {
+  border-top-color: #46536a;
+  background: #202633;
+}
+
+.discussion-prompt { border-left-color: #EDCC55; }
+
+.qa-grid { margin-top: 0.55em; }
+
+.qa-row {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  gap: 1.1em;
+  align-items: start;
+  padding: 0.42em 0;
+  border-bottom: 1px solid var(--reader-line, #C7CEDC);
+}
+
+.qa-question { text-align: right; font-weight: 700; }
+
+.qa-answer { color: var(--reader-ink, #1B2A4C); }
+
+.qa-row p { margin: 0; font-size: 0.82em; line-height: 1.24; }
+
+.initialisation-layout { grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr); gap: 1em; }
+
+.initialisation-layout .qa-row { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); }
+
+.initialisation-layout .column-image { max-height: 330px; }
+
+.schelling-embed div[style*="padding-bottom"] {
+  padding-bottom: 34% !important;
+}
+
+.schelling-embed {
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto 0.75em;
+}
+
+.schelling-embed > div,
+.schelling-embed > div > div[style*="padding-bottom"],
+.schelling-embed > div iframe {
+  width: 100% !important;
+  height: 215px !important;
+  padding-bottom: 0 !important;
+}
+
+.reveal .schelling-embed,
+.reveal .schelling-embed iframe {
+  width: 74% !important;
+  height: 285px !important;
+  margin-inline: auto;
+}
+
+.evidence-layout {
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 1.25em;
+  align-items: stretch;
+}
+
+.evidence-panel,
+.meaning-panel {
+  border: 1px solid var(--reader-line, #C7CEDC);
+  padding: 0.58em 0.64em;
+  min-width: 0;
+  align-self: stretch;
+}
+
+.evidence-panel img {
+  display: block;
+  width: 100%;
+  max-height: 430px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.meaning-panel > img {
+  display: block;
+  width: 100%;
+  height: 135px;
+  object-fit: contain;
+  margin: 0 auto 0.35em;
+}
+
+.evidence-panel p,
+.meaning-panel p,
+.meaning-panel li {
+  font-size: 0.76em;
+  line-height: 1.22;
+}
+
+.evidence-panel > strong,
+.meaning-panel > strong {
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.68em;
+  line-height: 1.15;
+  min-height: 2.3em;
+  margin: 0.25em 0;
+}
+
+.article .reader-figure {
+  width: min(100%, 620px);
+  margin: 1.2rem auto;
+}
+
+.article .reader-figure.reader-figure-small {
+  width: min(100%, 360px);
+}
+
+.article .reader-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+.jp-MarkdownOutput table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Baskerville, Georgia, serif;
+  font-size: 0.95rem;
+  line-height: 1.3;
+}
+
+.reveal .slides table,
+.reveal .slides .model-specification,
+.reveal .slides .qa-grid {
+  font-size: 0.68em;
+  line-height: 1.16;
+}
+
+.reveal .slides .analysis-perspectives.three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.65em;
+}
+
+.reveal .slides .two-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0.8em;
+  align-items: center;
+  width: 100%;
+}
+
+.reveal .slides .two-panel.wide-left {
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
+}
+
+.reveal .slides .two-panel > *,
+.reveal .slides .three-panel > * { min-width: 0; }
+
+.reveal .slides .two-panel .image-panel,
+.reveal .slides .three-panel .image-panel,
+.reveal .slides .two-panel .text-panel,
+.reveal .slides .three-panel .text-panel {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.reveal .slides .two-panel .image-panel img,
+.reveal .slides .three-panel .image-panel img {
+  display: block;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.reveal .slides .ant-behaviour-gallery {
+  gap: 0.48em;
+}
+
+.reveal .slides .ant-behaviour-gallery .image-panel {
+  display: grid;
+  grid-template-rows: 285px auto;
+  align-content: start;
+  overflow: hidden;
+  border: 1px solid #d5dce8;
+  border-radius: 0.18em;
+  background: #f7f9fc;
+}
+
+.reveal .slides .ant-behaviour-gallery .image-panel img {
+  width: 100%;
+  height: 285px;
+  max-height: none;
+  object-fit: cover;
+}
+
+.reveal .slides .ant-behaviour-gallery .image-panel p {
+  margin: 0;
+  padding: 0.38em 0.48em 0.44em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.59em;
+  line-height: 1.24;
+  text-align: left;
+}
+
+.reveal .slides .model-specification > div {
+  grid-template-columns: minmax(8.5em, 0.72fr) minmax(0, 1.6fr);
+  font-size: 1em;
+  padding: 0.28em 0;
+}
+
+.reveal .slides .model-specification strong {
+  text-align: left;
+}
+
+.ladder-marker {
+  display: flex;
+  align-items: center;
+  gap: 0.65em;
+  border-top: 1px solid var(--reader-line, #C7CEDC);
+  margin-top: 0.8em;
+  padding-top: 0.55em;
+  color: var(--reader-ink-soft, #5A6685);
+  font-family: Baskerville, Georgia, serif;
+  font-size: 0.68em;
+}
+
+.ladder-marker img {
+  width: 30px !important;
+  height: 40px !important;
+  margin: 0 !important;
+  flex: 0 0 auto;
+}
+
+.reveal section:has(.transfer-slide) h1 {
+  font-size: 2.65em;
+  margin-bottom: 0.05em;
+}
+
+.reveal section:has(.transfer-slide) h2 {
+  font-size: 1.45em;
+  margin: 0 0 0.35em;
+}
+
+.reveal section:has(.transfer-slide) p,
+.reveal section:has(.transfer-slide) li {
+  font-size: 0.9em;
+  line-height: 1.25;
+}
+
+.reveal section:has(.transfer-slide) .ladder-marker {
+  margin-top: 0.45em;
+  padding-top: 0.35em;
+}
+
+.schelling-interactive {
+  display: block;
+  width: 100%;
+  height: 475px;
+  margin: 0 auto;
+  border: 0;
+}
+
+.schelling-interactive.compact-simulation {
+  width: 88%;
+  height: 350px;
+}
+
+.reader-event-layout .evidence-panel > img {
+  width: min(100%, 420px);
+  margin-inline: auto;
+}
+
+.simulation-preview {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  margin: 0 auto;
+  border: 0;
+}
+
+.article .meaning-panel > img {
+  display: block;
+  width: 100%;
+  height: 135px;
+  object-fit: contain;
+  margin: 0 auto 0.35em;
+}
+
+.article .reader-map {
+  display: block;
+  width: min(100%, 900px);
+  height: auto !important;
+  object-fit: contain;
+  margin: 1rem auto 0.5rem;
+}
+
+.canonical-model-marker {
+  display: inline-flex;
+  gap: 0.55rem;
+  align-items: baseline;
+  max-width: 92%;
+  margin-top: 1rem;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid #aebbd0;
+  border-left: 5px solid #1b2a4c;
+  background: #f7f9fc;
+  color: #1b2a4c;
+  text-align: left;
+}
+
+.canonical-model-marker span {
+  font-family: Arial, sans-serif;
+  font-size: 0.5em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.canonical-model-marker strong {
+  font-family: Baskerville, Georgia, serif;
+  font-size: 0.76em;
+  line-height: 1.15;
+}
+
+.canonical-model-marker strong small {
+  display: block;
+  margin-top: 0.22em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.68em;
+  font-style: normal;
+  font-weight: 400;
+  color: var(--reader-ink-soft, #5D6D8D);
+}
+
+.modelling-practice-marker {
+  display: inline-flex;
+  gap: 0.55rem;
+  align-items: baseline;
+  max-width: 92%;
+  margin-top: 0.45rem;
+  padding: 0.48rem 0.85rem;
+  border: 1px solid #d4c178;
+  border-left: 5px solid #c89b19;
+  background: #fffaf0;
+  color: #1b2a4c;
+  text-align: left;
+}
+
+.modelling-practice-marker span {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.5em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.modelling-practice-marker strong {
+  font-family: Baskerville, Georgia, serif;
+  font-size: 0.76em;
+  line-height: 1.15;
+}
+
+.dark .modelling-practice-marker {
+  border-color: #8f7f49;
+  border-left-color: #edcc55;
+  background: #292615;
+  color: #f7f1df;
+}
+
+.guiding-question {
+  box-sizing: border-box;
+  width: min(92%, 58rem);
+  margin: 0.8rem 0 0;
+  padding: 0.68rem 0.9rem 0.72rem;
+  border: 1px solid #c7d2e2;
+  border-top: 4px solid #6d83a9;
+  border-radius: 0.25rem;
+  background: #f7f9fc;
+  color: #1b2a4c;
+  text-align: left;
+}
+
+.guiding-question span {
+  display: block;
+  margin-bottom: 0.22rem;
+  color: #5a6685;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.44em;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.guiding-question p {
+  margin: 0;
+  color: inherit;
+  font-family: Baskerville, Georgia, serif;
+  font-size: 0.76em;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.dark .guiding-question {
+  border-color: #586983;
+  border-top-color: #92a6c8;
+  background: #222936;
+  color: #eef2f8;
+}
+
+.dark .guiding-question span {
+  color: #b7c3d7;
+}
+
+.jp-OutputArea-child:has(iframe) .jp-OutputPrompt,
+.jp-Cell-outputWrapper:has(iframe) .jp-OutputCollapser {
+  display: none;
+}
+
+.jp-Cell-outputWrapper:has(iframe) {
+  display: flex;
+  justify-content: center;
+}
+
+:root {
+  --jp-content-font-size1: 28px !important;
+  --reader-ink: #1B2A4C;
+  --reader-ink-soft: #5A6685;
+  --reader-line: #C7CEDC;
+}
+
+.reveal,
+.reveal .slides,
+.reveal .slides section {
+  background: #fff;
+  color: var(--reader-ink);
+}
+
+.reveal .jp-MarkdownOutput p,
+.reveal .jp-MarkdownOutput li,
+.reveal .jp-MarkdownOutput td,
+.reveal .jp-MarkdownOutput th {
+  font-family: Baskerville, Georgia, serif;
+  line-height: 1.28;
+}
+
+.reveal .slides section h1 {
+  font-size: 2.35em;
+  line-height: 1.05;
+}
+
+.reveal .slides section h2,
+.reveal .slides section h3,
+.reveal .slides section h4,
+.reveal .slides section h5 {
+  font-size: 1.45em;
+  line-height: 1.12;
+}
+
+.reveal .slides section h1,
+.reveal .slides section h2,
+.reveal .slides section h3,
+.reveal .slides section h4,
+.reveal .slides section h5 {
+  margin-top: 0;
+  margin-bottom: 0.55em;
+  color: var(--reader-ink);
+}
+
+.reveal .slides section h3,
+.reveal .slides section h4,
+.reveal .slides section h5 {
+  font-size: 1.15em;
+}
+
+.reveal .slides section a {
+  color: var(--reader-ink);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.12em;
+}
+
+/* A quieter quotation treatment for projected slides. */
+.reveal .slides section .slide-quote {
+  display: block;
+  width: min(86%, 860px);
+  margin: 1.35em auto;
+  padding: 0 0 0 0.8em;
+  border: 0;
+  border-left: 4px solid #D69E1E;
+  color: var(--reader-ink);
+  text-align: left;
+}
+
+.reveal .slides section .slide-quote::before {
+  display: none;
+  content: none;
+}
+
+.reveal .slides section .slide-quote .reader-voice-quote {
+  display: block;
+  font-family: Baskerville, Georgia, serif;
+  font-size: 0.82em;
+  font-style: italic;
+  line-height: 1.45;
+}
+
+.reveal .slides section .slide-quote .reader-voice-quote::after {
+  content: none;
+}
+
+.reveal .slides section .slide-quote .reader-voice-attr {
+  display: block;
+  margin: 0.9em 0 0;
+  padding: 0;
+  border: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.55em;
+  font-style: normal;
+  letter-spacing: 0;
+  color: var(--reader-ink-soft);
+}
+
+/* Notebook anchor glyphs are useful in the Reader but are visual noise in a
+   presentation heading. */
+.reveal .slides section .anchor-link {
+  display: none !important;
+}
+
+/* Old notebooks contain a few inline or inherited sans-serif declarations.
+   Body copy follows the common lecture type system; sans serif is reserved
+   for captions, labels and compact annotations below. */
+.reveal .slides section .jp-MarkdownOutput > p,
+.reveal .slides section .jp-MarkdownOutput > ul,
+.reveal .slides section .jp-MarkdownOutput > ol,
+.reveal .slides section .jp-MarkdownOutput > div:not(.small-note):not(.figure-caption) {
+  font-family: Baskerville, Georgia, serif;
+}
+
+.reveal .slides section table {
+  border-collapse: collapse;
+  margin: 0.7em auto;
+  font-size: 0.68em;
+  line-height: 1.16;
+}
+
+.reveal .slides section th,
+.reveal .slides section td {
+  border-bottom: 1px solid var(--reader-line);
+  padding: 0.3em 0.55em;
+}
+
+.reveal .slides section tbody tr:nth-child(even) {
+  background: transparent;
+}
+
+.reveal .slides section .analysis-perspectives.three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.65em;
+}
+
+.reveal .slides section .coat-cards img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.reveal .slides section .coat-cards .coat-image-frame {
+  height: 230px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 0.25em;
+}
+
+.reveal .slides section .coat-cards > div {
+  padding: 0.42em 0.48em;
+}
+
+.reveal .slides section .coat-cards p {
+  margin: 0.18em 0;
+}
+
+.reveal .slides section .compact-panels .text-panel { padding: 0.45em 0.65em; }
+.reveal .slides section .compact-panels p { margin: 0; }
+.reveal .slides section .two-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0.8em;
+  align-items: center;
+  width: 100%;
+}
+.reveal .slides section .two-panel.wide-left {
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
+}
+.reveal .slides section .three-panel {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.65em;
+  align-items: stretch;
+  width: 100%;
+}
+.reveal .slides section .two-panel > *,
+.reveal .slides section .three-panel > * { min-width: 0; }
+.reveal .slides section .two-panel .image-panel,
+.reveal .slides section .three-panel .image-panel,
+.reveal .slides section .two-panel .text-panel,
+.reveal .slides section .three-panel .text-panel {
+  box-sizing: border-box;
+  width: 100%;
+}
+.reveal .slides section .two-panel .image-panel img,
+.reveal .slides section .three-panel .image-panel img {
+  display: block;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+}
+.reveal .slides section .small-note {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.62em;
+  line-height: 1.28;
+  color: var(--reader-ink-soft);
+}
+
+.reveal .slides section .canonical-model-marker strong small {
+  display: block;
+  margin-top: 0.22em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.68em;
+  font-style: normal;
+  font-weight: 400;
+  color: var(--reader-ink-soft);
+}
+
+.reveal .slides section figcaption,
+.reveal .slides section .figure-caption,
+.reveal .slides section p:has(> em:first-child:last-child) {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.58em;
+  line-height: 1.25;
+  color: var(--reader-ink-soft);
+}
+
+.reveal .slides section pre,
+.reveal .slides section code,
+.reveal .jp-CodeCell {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+
+.reveal .slides section img {
+  max-height: 350px;
+  width: auto;
+  height: auto;
+}
+</style>
 </head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 <main>
 <div class="reveal">
 <div class="slides"><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=305e7889">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w7-slide-title">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Week-7:-Intelligent-systems">Week 7: Intelligent systems<a class="anchor-link" href="#Week-7:-Intelligent-systems">¶</a></h1><p><strong>Intelligence:</strong> the ability to <em>acquire and apply</em> knowledge and skills, i.e. learn from experience and to adapt to, shape, and select environments.</p>
-<p><strong>Intelligent systems</strong> perceive and respond to the world around them.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3322f266">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="A-scientific-schism">A scientific schism<a class="anchor-link" href="#A-scientific-schism">¶</a></h2><p><img alt="" src="images/Complex_systems_schism.png"/></p>
-<p>So far we have mostly been camped in the Complexity Science space (indeed we have used '<em>Complex Systems</em>' as a synonym for '<em>Complexity Science</em>').</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=660548bc-e418-458d-9db7-8130dc7b02f9">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="Complexity-Science-is...">Complexity Science is...<a class="anchor-link" href="#Complexity-Science-is...">¶</a></h2>
-</div>
-</div>
-</div>
-</div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=da3527b4-fd35-4ae7-944d-21f6a5f793aa">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>A framework for <em>understanding</em> the dynamics of complex systems and explaining phenomena such as <em>emergence</em>, <em>adaptation</em>, and <em>self-organisation</em>.</p>
-</div>
-</div>
-</div>
-</div></div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e0aeec0f-bd16-4972-af5b-545dce152e3f">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p><strong>Goal</strong>: Find <em>simple, often mathematical descriptions</em> that capture the essential structure and behaviour of systems that look messy at first sight. These models prioritise <em>insight and explanation</em> over raw predictive accuracy.</p>
-</div>
-</div>
-</div>
-</div></div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3765471e-189a-43e1-9ec2-612f5d1e3c43">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>Complexity science asks questions such as:</p>
-</div>
-</div>
-</div>
-</div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f6172e26-cae3-44a1-b9c6-42b1b71d0774">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<ul>
-<li>How does intelligence arise from many interacting parts?</li>
-<li>What tipping points or critical transitions exist in this system?</li>
-<li>What are the universal patterns across biology, society, and technology?</li>
-</ul>
-</div>
-</div>
-</div>
-</div></div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=65ff3029">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="Machine-Learning-(&amp;-AI)-is...">Machine Learning (&amp; AI) is...<a class="anchor-link" href="#Machine-Learning-(&amp;-AI)-is...">¶</a></h2>
-</div>
-</div>
-</div>
-</div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=75e16371-cdc0-4ca5-af5e-c017a7a4a951">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>A framework for <strong>building and implementing</strong> systems that perform tasks requiring intelligence.</p>
-<p>Provides the <em>practical methodologies</em> to train machines to recognise patterns, adapt, and act for predictive power by taking all that complexity in and encoding it in big models.</p>
-</div>
-</div>
-</div>
-</div></div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0fa90d8c-fab8-4dde-8206-6c6a4e58138a">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p><strong>Goal</strong>: Harness the richness of data and encode it in <em>large, flexible models</em> for <em>predictive power and performance</em>. Explanation is often secondary to accurate outcomes.</p>
-</div>
-</div>
-</div>
-</div></div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=433e53e5-2c94-4efa-b50d-40ec1c32fd9e">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>AI asks questions such as:</p>
-</div>
-</div>
-</div>
-</div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9265590a-99fd-4676-a516-f22b7efd8715">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<ul>
-<li>How can we design algorithms that learn from data and improve over time?</li>
-<li>What architectures (neural nets, transformers) are best for complex tasks?</li>
-<li>How can we engineer intelligent behaviour into machines for real-world use?</li>
-</ul>
-</div>
-</div>
-</div>
-</div></div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=53e0b32c-d0e4-4021-b02c-7f937ec17673">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="Key-Distinction-(but-also-synergy)">Key Distinction (but also synergy)<a class="anchor-link" href="#Key-Distinction-(but-also-synergy)">¶</a></h2><p><strong>Complexity Science</strong>:</p>
-<ul>
-<li><em>Explains</em> the principles of emergence and dynamics in complex systems.</li>
-<li>Theory-driven, insight-focused.</li>
-</ul>
-</div>
-</div>
-</div>
-</div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=90aef3f0-c90b-4d47-9e36-3cb8ba7fda66">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Machine Learning/AI</strong>:</p>
-<ul>
-<li><em>Builds</em> tools to <em>predict and act</em> within complex systems.</li>
-<li>Data-driven, performance-focused.</li>
-</ul>
-</div>
-</div>
-</div>
-</div></div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=66a8c075-4351-4170-aadf-4b6da4d5646f">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="Positioning-of-intelligent-systems">Positioning of intelligent systems<a class="anchor-link" href="#Positioning-of-intelligent-systems">¶</a></h2><p>Intelligent systems sit at the intersection of Complexity Science and Machine Learning/AI, but the emphasis shifts depending on the question being asked:</p>
-<p><strong>Complexity Science</strong>:</p>
-<ul>
-<li>The focus is on: <em>how intelligence emerges</em> from the interactions of many parts (as in biological, ecological, or social systems)</li>
-<li>The goal is explanation: understanding the principles that give rise to adaptive or intelligent behaviour.</li>
-</ul>
-</div>
-</div>
-</div>
-</div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=957e5392-41ea-4e90-84d5-e5740a50ad3a">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Machine Learning/AI</strong>:</p>
-<ul>
-<li>The focus is on: <em>designing and implementing algorithms that exhibit intelligence</em> (as in robotics, autonomous agents, or large-scale models)</li>
-<li>The goal is construction: building systems that can act intelligently in the world.</li>
-</ul>
-</div>
-</div>
-</div>
-</div></div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=18998055">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Artificial-intelligence-(AI)">Artificial intelligence (AI)<a class="anchor-link" href="#Artificial-intelligence-(AI)">¶</a></h1><p>AI has gone from niche to everywhere shifting rapidly from an abstract research idea to something that touches nearly every aspect of daily life in just a decade.</p>
-<p><img alt="" src="images/Google_trends_AI.png"/></p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a1274aaf-3097-4904-ae47-df310fd1fdc6">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>AI is often considered to be a machine's ability to perform a task that would have previously required 'human intelligence'</p>
-<p>But successful AI is redefining what this means!</p>
-<p>e.g. chess was previously thought to be a pinnacle of human intelligence.</p>
-<p>In 1996 Grandmaster Garry Kasparov beat IBM's DeepBlue computer in a 7 match series (4-2). In 1997 he lost the rematch (3.5-2.5), playing uncharacteristically poorly.</p>
-<p><img alt="" src="images/Kasparov_vs_Deep_blue_Turk.png"/></p>
-<p>Images from <a href="https://theworld.org/stories/2018-01-05/garry-kasparov-and-game-artificial-intelligence">Kasparov photo here</a>, Turk from Wiki.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=72ec22c0-fcbb-449b-8149-087f43869d35">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>AI is simultaneously described as:</p>
-<ol>
-<li>“<em>the new electricity</em>” (Andrew Ng, 2017), poised to revolutionise human life and benefit society; and</li>
-<li>“<em>our biggest existential threat</em>” (Elon Musk, 2014)</li>
-</ol>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=29f05cf9">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="Origins">Origins<a class="anchor-link" href="#Origins">¶</a></h2><p>Biological neurons receive signals from many other neurons, combine them, and fire an output if the signal is strong enough.</p>
-<p>That output aims to classify the input, assigning it to a category based on its features.</p>
-<p><img alt="" src="images/Neuron_brain.png"/></p>
-<p>This was the basic inspiration for the artificial neuron, the <strong>perceptron</strong>.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1dcd3871-e715-489e-a737-6efab5d8f101">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h3 id="Artificial-neurons">Artificial neurons<a class="anchor-link" href="#Artificial-neurons">¶</a></h3><p>The <strong>artificial neuron</strong> is a mathematical model of a biological one (and the great grandparent of neural network).</p>
-<p><img alt="" src="images/Artificial_neuron.png"/></p>
-<p>It was invented by McCulloch &amp; Pitts in 1943.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d0177c57-0525-4c05-bc97-cd8cccf5ffee">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h3 id="Perceptron">Perceptron<a class="anchor-link" href="#Perceptron">¶</a></h3><p>The artifical neuron was first implemented as a learning machine by Frank Rosenblatt (1958).</p>
-<p>Rosenblatt’s perceptron acts as a <strong>linear classifier</strong>: the activation function corresponds geometrically to drawing a line (or, in higher dimensions, a hyperplane) in input space.</p>
-<ul>
-<li>Everything on one side → “yes.”</li>
-<li>Everything on the other → “no.”</li>
-</ul>
-<p>The perceptron learns the orientation of the separating line.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=58a7b197-24df-4541-904e-a45aaa7db09e">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h3 id="Linear-classifiers">Linear classifiers<a class="anchor-link" href="#Linear-classifiers">¶</a></h3><p>Linear classifiers, like Rosenblatt's:</p>
-<ul>
-<li>can separate data with a line</li>
-<li>are the simplest feed-forward neural network</li>
-<li>but they can't solve XOR.</li>
-</ul>
-<p><img alt="" src="images/XOR_linear_classifier.png"/></p>
-<p>Fig from <a href="https://pyimagesearch.com/2021/05/06/implementing-the-perceptron-neural-network-with-python/">PyImageSource</a></p>
-<p>It took many years (until the 1980s) to realise that multi-layer perceptrons had far greater processing power and many more for deep learning to come along (2010).</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f35f34cd">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>Since then the predictions (and sometimes hyperbole) are generally not being realised.</p>
-<div style="margin: 1.5em 0; border-right: 4px solid #888; padding-right: 1em; text-align: right;">
-<div style="font-style: italic; font-family: 'Comic Neue', 'Segoe Script', cursive; font-size: 1.2em;">
-    (On the perceptron:) The embryo of an electronic computer that [the Navy] expects will be able to walk, talk, see, write, reproduce itself and be conscious of its existence.
-  </div>
-<div style="font-style: normal; font-size: 0.95em; margin-top: 0.5em;">
-    — [A Sociological Study of the Official History of the Perceptrons Controversy
-](https://doi.org/10.1177%2F030631296026003005)
-  </div>
-</div>
-<div style="margin: 1.5em 0; border-right: 4px solid #888; padding-right: 1em; text-align: right;">
-<div style="font-style: italic; font-family: 'Comic Neue', 'Segoe Script', cursive; font-size: 1.2em;">
-    I confidently expect that within a matter of 10 or 15 years, something will emerge from the laboratory, which is not too far from the robot of science fiction fame
-  </div>
-<div style="font-style: normal; font-size: 0.95em; margin-top: 0.5em;">
-    — Claude Shannon, 1961
-  </div>
-</div>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=55e3f780-61b4-4c01-b5a0-b9b955b8734b">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<div style="margin: 1.5em 0; border-right: 4px solid #888; padding-right: 1em; text-align: right;">
-<div style="font-style: italic; font-family: 'Comic Neue', 'Segoe Script', cursive; font-size: 1.2em;">
-    Machines will be capable, within twenty years, of doing any work that a (hu)man[sic] can do
-  </div>
-<div style="font-style: normal; font-size: 0.95em; margin-top: 0.5em;">
-    — Nobel Laureat Herbert Simon, 1965
-  </div>
-</div>
-<div style="margin: 1.5em 0; border-right: 4px solid #888; padding-right: 1em; text-align: right;">
-<div style="font-style: italic; font-family: 'Comic Neue', 'Segoe Script', cursive; font-size: 1.2em;">
-    Within a generation... the problem of creating 'artificial intelligence; will be substantially solved
-  </div>
-<div style="font-style: normal; font-size: 0.95em; margin-top: 0.5em;">
-    — Founder of MIT Lab Marvin Minsky, 1967
-  </div>
-</div>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8820788a">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="Defining-AI">Defining AI<a class="anchor-link" href="#Defining-AI">¶</a></h2><p>Hard to define.</p>
-<p><img alt="" src="images/Timeline_AI.png"/></p>
-<p>Fig is a screenshot from <a href="https://achievements.ai/">AI Achievement Timeline</a></p>
-<p>Nowadays, it's an umbrella term for <a href="https://www.computer.org/csdl/magazine/ex/2014/06/mex2014060056/13rRUxcKzSL"><em>'an anarchy of methods'</em>.</a></p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=528c222f">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="Types-of-AI-technology">Types of AI technology<a class="anchor-link" href="#Types-of-AI-technology">¶</a></h2><p>(these terms are often used interchangeably)</p>
-<p><strong>Machine learning</strong>: a very large part of AI</p>
-<ul>
-<li>learning from data (e.g. neural networks, decision trees, support vector machines, k-nearest neighbours,...)</li>
-</ul>
-<p>A model learns to separate or fit patterns in data, such as a curve dividing two clusters or a simple regression:</p>
-<p><img alt="" src="images/Linear_regression.png"/></p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3d3d08e9-255b-44e0-ac5f-dbbe5f46c071">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p><strong>Neural networks</strong>: a large part of machine learning</p>
-<ul>
-<li>inspired by visual system in the brain (very loosely).</li>
-<li>artificial neurons organised into layers (input, hidden layers, output).</li>
-<li>layers of neurons separate vision into features to build simple shapes, up to more and more complex shapes. They require very careful design.</li>
-</ul>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=db26c75d-8710-4d0c-aa4b-4f70a6e4f67f">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>Information flows through layers of nodes linked by weighted connections:
-<img alt="" src="images/Neural_network.png"/></p>
-<p>Can be shallow (with only a few hidden layers) or deep (many hidden layers).</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8db128b0-9ce5-44d9-af0f-6160ed9f3eca">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p><strong>Deep (many layers) learning</strong>: a very large part of neural networks</p>
-<ul>
-<li>stacked layers allow automatic extraction of features, from simple edges to complex objects.</li>
-</ul>
-<p><img alt="" src="images/Deep_learning.jpg"/></p>
-<p>There are now models much more closely aligned with actual brain architecture as well but deep learning is still dominant.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=970f32ca">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="Categories-of-AI">Categories of AI<a class="anchor-link" href="#Categories-of-AI">¶</a></h2><ol>
-<li><strong>Weak aka Narrow AI:</strong></li>
-</ol>
-<ul>
-<li>successful</li>
-<li>views "intelligence" as the ability of a machine to solve a very discrete task (no expectations that the AI can solve similar-but-different tasks).</li>
-<li>this type of "intelligence" is behind much of the AI in daily life, such as recommendation algorithms, chess-playing programs, and GPS navigation.</li>
-</ul>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=806dbfcf">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<ol start="2">
-<li><strong>Strong aka General AI:</strong></li>
-</ol>
-<ul>
-<li>doesn't exist yet</li>
-<li>more ambitious and more on par with human capabilities e.g. the ability to interpret tone and emotion</li>
-<li>views machine "intelligence" as similar to human intelligence (some generalisable computational/cognitive process that enables the solution of unfamiliar tasks by way of analogy and extrapoloation from acquired knowledge or experiences).</li>
-<li>might posses consciousness(?)</li>
-</ul>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c5b5f6cc">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<ol start="3">
-<li><strong>Super intelligence:</strong></li>
-</ol>
-<ul>
-<li>hypothetical</li>
-<li>machines become self-aware and surpass capacity of human intelligence and ability (the muse of dystopian science fiction in which robots overrun/enslave humanity)</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e41646f2-e04c-4742-bc02-d2fd1a407c39">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<!--     - personally I think weak AI in the hands of bad people is a much scarier prospect (e.g. autonomous weapons) -->
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bc703bda">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="Successes">Successes<a class="anchor-link" href="#Successes">¶</a></h2><p>AI has been very successful with tasks that are clearly defined:</p>
-<ul>
-<li>chess-playing</li>
-<li>speech/facial recognition</li>
-<li>GPS navigation</li>
-<li>translation</li>
-<li>self-driving cars</li>
-<li>medical diagnosis</li>
-<li>image search/classification</li>
-<li>...</li>
-</ul>
-<p>However, there have also been recent strides towards more open ended 'human' tasks such as creativity (generative art, ChatGPT etc), emotional intelligence (facial expression analysis, personalised content recommendations, sentiment analysis), capacity for abstraction, logic, understanding, ...</p>
-<p>Whilst they have successfully achieved their task, it is often not clear what has actually been learnt in each case.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a2aea159">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="Fails">Fails<a class="anchor-link" href="#Fails">¶</a></h2><p>As humans we will try to anthropomorphise the learning and we struggle to think about things outside our own experience.</p>
-<p>But we know that machines don't learn the way we do.</p>
-<p>It's not easy to understand what a machine has actually learned (we don't even have very good definitions for these sort of terms e.g. common sense, consciousness, learning, understanding, ...).</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d6ccb6b1-b4d6-4961-96c8-2b4802e5c70f">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>In general though, it is the easiest thing in the data that is learned e.g.:</p>
-<ul>
-<li>does image contain an animal? Blurred background $\rightarrow$ yes.</li>
-<li>pneumonia detection from chest X-rays. Does image contain metadata (like logos) from specific hospital $\rightarrow$ yes.</li>
-</ul>
-<p>And this learning can't be transferred to unseen situations in the training because machines lack common sense.</p>
-<p>This is a problem because life is 'long-tailed' (some unlikely things are likely to happen).</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d22fa3de">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>AI systems can be, and frequently are, vulnerable and easily fooled:</p>
-<ul>
-<li>gender and racial bias in recruiting tools (e.g. Amazon)</li>
-<li>many examples in NLP where AI learned and perpetuated societal biases</li>
-<li>bad chatbots</li>
-<li>ball tracking camera at soccer game <a href="https://www.youtube.com/watch?v=eMx-2s7mZ24">mistakingly following bald umpire's head</a></li>
-<li>driverless cars (so many examples of cars being fooled by salt lines/plastic bags on roads, crashing into stopped cars, stop signs with stickers misclassifed as 80km/hr speed limit signs etc etc)</li>
-<li>...</li>
-</ul>
-<p>Defence against adversarial attacks on neural networks is now a highly active field.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e893c272-987d-4013-b695-95fbe11debc8">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>Good AI is more than accuracy. It should be:</p>
-<ol>
-<li><strong>Explainable</strong>: We should understand why a particular result has occurred and be able to show the key factors or examples behind each decision.</li>
-<li><strong>Fair</strong>: Bias should be measured and minimised with appropriate metrics reported.</li>
-<li><strong>Transparent</strong>: The data, model and limits (or at least their sources should be disclosed.</li>
-<li><strong>Accountable</strong>: Ideally there should also be clear ownership, audit trails, and a path for redress.</li>
-</ol>
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
+<h1 id="Intelligent-systems">Intelligent systems<a class="anchor-link" href="#Intelligent-systems">¶</a></h1><div class="canonical-model-marker"><span><strong>Canonical models</strong> Ant colony optimisation (ACO) and particle swarm optimisation (PSO)</span></div>
+<div class="modelling-practice-marker"><span><strong>Modelling practice</strong> Represent, evaluate and compare collective search</span></div>
+<div class="guiding-question"><span>Guiding question</span><p>How can simple agents store and share information so that a population searches more effectively than one agent?</p></div>
 </div>
 </div>
 </div>
 </div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f0d0beff">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w7-slide-intelligent-system-definition">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Collective/swarm--intelligence">Collective/swarm  intelligence<a class="anchor-link" href="#Collective/swarm--intelligence">¶</a></h1><p>Collective intelligence refers to an ability to do intelligent things that is exhibited by groups, communities, or networks of individuals when they work together to achieve a common goal.</p>
-<p>It is a type of <strong>unconventional computation</strong>.</p>
-<p>We often struggle to recognise unconventional intelligence, i.e. intelligence that looks different to what we humans supposedly have.</p>
-<p>Of course, you should now be comfortable with the reality... that human intelligence <em>is</em> collective intelligence (neurons interacting for brain function).</p>
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Intelligent-systems">Intelligent systems<a class="anchor-link" href="#Intelligent-systems">¶</a></h2><p>An intelligent system can:</p>
+<ul>
+<li>receive information about its environment;</li>
+<li>retain or communicate useful information;</li>
+<li>use that information to adjust its behaviour; and</li>
+<li>improve performance according to a stated objective.</li>
+</ul>
+<div class="two-panel equal-panels compact-panels">
+<div class="text-panel"><p><strong>Individual system</strong></p><p>Intelligence is designed or trained within one system.</p><p><em>Example:</em> a chess engine evaluates positions and selects a move within one designed computational system.</p></div>
+<div class="text-panel"><p><strong>Collective system</strong></p><p>Useful behaviour arises through interactions among many units.</p><p><em>Example:</em> an ant colony selects and reinforces a route through the actions of many ants.</p></div>
 </div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5aa96f13">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p><strong>The basic idea</strong>: social sharing of information among group members offers a simple and flexible evolutionary advantage.</p>
-<div style="margin: 1.5em 0; border-right: 4px solid #888; padding-right: 1em; text-align: right;">
-<div style="font-style: italic; font-family: 'Comic Neue', 'Segoe Script', cursive; font-size: 1.2em;">
-    In theory at least, individual members of the school can profit from the discoveries and previous experience of all other members of the school during the search for food. This advantage can become decisive, outweighing the disadvantages of competition for food items, whenever the resource is unpredictably distributed in patches.
-
-  </div>
-<div style="font-style: normal; font-size: 0.95em; margin-top: 0.5em;">
-    — Biologist E.O. Wilson, from his book Sociobiology: The new synthesis [1975]
-  </div>
-</div>
-<p>Ants, bees, termites etc are basic creatures with very limited simple behaviours.</p>
-<p>However en masse, they form <strong>superorganisms</strong> capable of emergent behaviour that is highly complex e.g. bees precisely modulating the temperature of a hive, and ants gathering themselves into a raft to cross a river or to survive a flood.</p>
-<p>The collective is <em>required</em> for the intelligence.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9012fd46">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Ants">Ants<a class="anchor-link" href="#Ants">¶</a></h1><div style="margin: 1.5em 0; border-right: 4px solid #888; padding-right: 1em; text-align: right;">
-<div style="font-style: italic; font-family: 'Comic Neue', 'Segoe Script', cursive; font-size: 1.2em;">
-    Go to the ant, you sluggard; consider its ways and be wise! It has no commander, no overseer or ruler, yet it stores its provisions in summer and gathers its food at harvest.
-  </div>
-<div style="font-style: normal; font-size: 0.95em; margin-top: 0.5em;">
-    — Proverbs 6
-  </div>
-</div>
-<p><img alt="" src="images/Escher_ants.jpeg"/></p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=88b7fea6-5127-48c9-a87c-71bdee28b06b">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>Ants can do all sorts of curious things:</p>
-</div>
-</div>
-</div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell celltag_hide-input celltag_slides" id="cell-id=37d055ce">
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[2]:</div>
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
-<iframe allowfullscreen="" frameborder="0" height="300" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/pa5UnI279Es" width="400"></iframe>
-</div>
-</div>
-</div>
-</div>
-</div></div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=302edd47">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="Ant-communication">Ant communication<a class="anchor-link" href="#Ant-communication">¶</a></h2><p>Ants lay pheromone where they walk, which evaporates over time. In particular, they leave a trace of pheromone on their way back to the nest when they have found food.</p>
-<p>Ants can't see very well and smell the pheromone of fellow ants with their antennae.</p>
-<p>The pheromone gives an indication of the frequency of interaction as ants encounter each other's paths.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=97fcb7f0">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>Pheromone-based communication is an example of <strong>stigmergy</strong>.</p>
-<p>Derived from the Greek words for "<em>stigma</em>" (mark or sign) and "<em>ergon</em>" (work, action).</p>
-<p>It's a mechanism of indirect communication between agents, which occurs <em>via the environment</em>.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e454bccc">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="Shortest-paths">Shortest paths<a class="anchor-link" href="#Shortest-paths">¶</a></h2><p>Together many ants develop a complex network of pheromone trails, which acts as a shared external memory for the colony.</p>
-<p>This allows ants to find shortest paths:</p>
-<p><img alt="" src="images/Double_bridge_experiment_ants.png"/></p>
-<p>Fig from <a href="https://www.ijcaonline.org/archives/volume179/number16/saxena-2018-ijca-916224.pdf">here</a></p>
-<p>Note that it is not necessary that an ant actually travels the shortest route... the shortest route can be built from the strongest segments of the best solutions.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3110c932">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="Lane-formation">Lane formation<a class="anchor-link" href="#Lane-formation">¶</a></h2><p>Ants are great commuters... they don't get stuck in traffic.</p>
-<p>You might be tempted to think that it is because they aren't bound to the roads but they sort of are... ants create the 'roads': wider roads take effort and pheromone gets weaker as its spread out</p>
-<p>They form 3 distinct traffic lanes between the nest and food source that minimise congestion and prioritise food carrying.</p>
-<p>The rule is simple... if you aren't carrying food you turn with 50% probability to the left/right</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=85c7534a-2d04-4b05-90de-0c144b3d98f4">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h3 id="Data">Data<a class="anchor-link" href="#Data">¶</a></h3><p><img alt="" src="images/Couzin_lane_formation_data.png"/></p>
-<p>Fig: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1691225/">'Self-organized lane formation and optimized traffic flow in army ants', Couzin et al.</a>. This is an agent-based model.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8c83b869-2174-4ef5-b472-ba1fb8ab4d48">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h3 id="Models">Models<a class="anchor-link" href="#Models">¶</a></h3><p>Repulsion + pheromone:</p>
-<p><img alt="" src="images/Couzin_lane_formation_model.png"/></p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9120f58a">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="Lesson:-Be-like-ants">Lesson: Be like ants<a class="anchor-link" href="#Lesson:-Be-like-ants">¶</a></h2><div style="margin: 1.5em 0; border-right: 4px solid #888; padding-right: 1em; text-align: right;">
-<div style="font-style: italic; font-family: 'Comic Neue', 'Segoe Script', cursive; font-size: 1.2em;">
-    The wonderful thing about being an ant is that they're working together for the benefit of the colony... The problem with us humans is that we tend to be a little selfish.  </div>
-<div style="font-style: normal; font-size: 0.95em; margin-top: 0.5em;">
-    — Couzin
-  </div>
-</div>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9133eb16">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="Lesson:-Don't-be-like-ants">Lesson: Don't be like ants<a class="anchor-link" href="#Lesson:-Don't-be-like-ants">¶</a></h2><p>Ants aren’t smart. Ant colonies are.</p>
-<p>If ants are separated from the wider system dumb behviours can emerge:</p>
-</div>
-</div>
-</div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell celltag_hide-input celltag_slides" id="cell-id=07d472be-e1a4-4fcb-bd49-5bbe32ac2d63">
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
-<iframe allowfullscreen="" frameborder="0" height="300" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/LEKwQxO4EZU" width="400"></iframe>
-</div>
-</div>
-</div>
-</div>
-</div></div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ce2ba53c">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Biomimicry-(biomimetics)">Biomimicry (biomimetics)<a class="anchor-link" href="#Biomimicry-(biomimetics)">¶</a></h1><p>From "<em>bio</em>" (life) and "<em>mimicry</em>" (to imitate or replicate).</p>
-<p>Nature's systems have had millions, if not billions, of years to evolve in order to adapt to their environments with energy efficient and sustainable solutions.</p>
-<p>But this is a little misleading because it's not about copying, it's about <em>inspiration</em> and using the principles that nature uses for <em>function</em>.</p>
-<p>The inspiration can be drawn from the levels of <strong>form</strong>, or <strong>process</strong>, or <strong>system</strong>.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=97cf993a-df60-4dc5-abd1-16cf9b4aa529">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="Form-(shape/structure)">Form (shape/structure)<a class="anchor-link" href="#Form-(shape/structure)">¶</a></h2><p>Drawing inspiration from the <em>appearance or geometry</em> of nature.</p>
-<p>i.e. copy <em>what it looks like</em> to solve a problem.</p>
-<p><img alt="" src="images/Train_kingfisher.png"/></p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8c00332c-a381-4132-8900-e77a840bf19b">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="Process-(behaviour/mechanism)">Process (behaviour/mechanism)<a class="anchor-link" href="#Process-(behaviour/mechanism)">¶</a></h2><p>Drawing inspiration from <em>how something works in nature</em>.</p>
-<p>i.e. copy <em>what it does/how it functions</em> at the mechanism level.</p>
-<p><img alt="" src="images/Lotus_leaf.png"/></p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=575d20c2-47dc-4a42-a4da-b1320e84e318">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="System-(relationships/ecology)">System (relationships/ecology)<a class="anchor-link" href="#System-(relationships/ecology)">¶</a></h2><p>Drawing inspiration from <em>interconnected ecosystems and cycles</em>.</p>
-<p>i.e. copy <em>how it is embedded in a network of relationships</em>.</p>
-<p><img alt="" src="images/Kalundborg_Eco-Industrial_Park_Symbiosis_Map.jpg"/></p>
 </div>
 </div>
 </div>
 </div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e99e6df2">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w7-slide-ai-collective-contrast">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="Ant-colony-optimisation-(ACO)">Ant colony optimisation (ACO)<a class="anchor-link" href="#Ant-colony-optimisation-(ACO)">¶</a></h2><p>We want to mimic the ants' ability to problem solve.</p>
-<p>This is a class of algorithm inspired by the pheromone laying behaviour and communication of real ants.</p>
-<p>The first ACO, called the '<strong>Ant System</strong>' by M. Dorigo was designed to solve the travelling salesman problem but they have since been used for so much more!</p>
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Two-approaches-to-intelligent-systems">Two approaches to intelligent systems<a class="anchor-link" href="#Two-approaches-to-intelligent-systems">¶</a></h2><div class="two-panel wide-right compact-panels">
+<div class="image-panel"><img alt="Garry Kasparov playing IBM Deep Blue" src="images/Kasparov_vs_Deep_blue.png" style="max-height:410px"/><p>Deep Blue used specialised search and a designed evaluation procedure.</p></div>
+<div class="text-panel">
+<table><thead><tr><th>Within one system</th><th>Across a collective</th></tr></thead><tbody>
+<tr><td>Information is stored and processed within one designed or trained system.</td><td>Information is distributed across agents, their interactions or their environment.</td></tr>
+<tr><td>Examples include chess engines and neural networks.</td><td>Examples include ant colonies, ACO and PSO.</td></tr>
+</tbody></table>
+</div>
+</div>
+<p class="media-credit">Image: The World, “Garry Kasparov and the game of artificial intelligence”.</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w7-slide-schism-return">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Prediction-and-explanation">Prediction and explanation<a class="anchor-link" href="#Prediction-and-explanation">¶</a></h2><div class="image-panel" style="max-width:920px;margin:0 auto 0.35em"><img alt="Complexity science and machine learning as complementary approaches to intelligent systems" src="images/intelligent_systems_schism.svg"/></div>
+<p>David Krakauer describes a scientific <strong>schism</strong> between approaches that retain high-dimensional detail for prediction and approaches that compress a system to expose mechanisms and useful scales.</p>
+<p class="figure-source">David Krakauer, <a href="https://complexity.simplecast.com/episodes/1">“The Landscape of 21st Century Science”</a>; see also <a href="https://doi.org/10.3389/fcpxs.2023.1235202">Gilpin et al. (2023)</a>.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w7-slide-biomimicry-bridge">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Biomimicry-(biomimetics)">Biomimicry (biomimetics)<a class="anchor-link" href="#Biomimicry-(biomimetics)">¶</a></h2><div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;align-items:start">
+<figure style="margin:0"><img alt="Burr hooks and hook-and-loop fastener" src="images/Velcro_burrs.png" style="display:block;width:100%;height:275px;object-fit:contain"/><figcaption style="font-size:0.66em;margin-top:0.35rem"><strong>Burrs → hook-and-loop fasteners</strong><br/>Copy the hooked form.</figcaption></figure>
+<figure style="margin:0"><img alt="Kingfisher and streamlined Shinkansen nose" src="images/Train_kingfisher.png" style="display:block;width:100%;height:275px;object-fit:contain"/><figcaption style="font-size:0.66em;margin-top:0.35rem"><strong>Kingfisher → Shinkansen nose</strong><br/>Copy the tapered form.</figcaption></figure>
+<figure style="margin:0"><img alt="Water droplets on a lotus leaf" src="images/Lotus_leaf.png" style="display:block;width:100%;height:275px;object-fit:contain"/><figcaption style="font-size:0.66em;margin-top:0.35rem"><strong>Lotus leaf → self-cleaning surfaces</strong><br/>Copy the surface structure.</figcaption></figure>
+</div>
+<p>ACO and PSO instead take inspiration from biological processes: how a population stores, shares and uses information.</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w7-slide-superorganism">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Superorganisms">Superorganisms<a class="anchor-link" href="#Superorganisms">¶</a></h2><p>A <strong>superorganism</strong> is a highly integrated society in which specialised individuals cooperate so closely that important functions belong to the colony as a whole.</p>
+<p>A school of fish can coordinate movement and share information. Its members retain the same basic roles and reproduce independently. Collective behaviour alone does not make a superorganism.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w7-slide-waggle-dance">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Honeybees-communicate-by-dancing">Honeybees communicate by dancing<a class="anchor-link" href="#Honeybees-communicate-by-dancing">¶</a></h2><div class="two-panel wide-left">
+<div class="image-panel"><iframe allowfullscreen="" frameborder="0" height="455" src="https://www.youtube-nocookie.com/embed/-7ijI-g4jHg?rel=0" title="Bee Dance (Waggle Dance)" width="100%"></iframe></div>
+<div class="text-panel">
+<p><strong>Direction:</strong> on the vertical comb, upward represents flight towards the Sun. The waggle-run angle gives the food source's angular offset from the Sun.</p>
+<p><strong>Distance:</strong> waggle duration encodes how far to fly.</p>
+<p><strong>Collective effect:</strong> one forager's discovery recruits others.</p>
+</div>
+</div>
+<p>The dance illustrates discovery followed by recruitment. Standard PSO arose historically from a simplified flock simulation and uses a shared best-position record rather than a waggle dance.</p>
+<p class="media-credit">Video: <a href="https://www.youtube.com/watch?v=-7ijI-g4jHg" rel="noopener" target="_blank">Bee Dance (Waggle Dance)</a>.</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w7-slide-motion-to-search">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Collective-behaviour-and-collective-intelligence">Collective behaviour and collective intelligence<a class="anchor-link" href="#Collective-behaviour-and-collective-intelligence">¶</a></h2><p><strong>Collective behaviour</strong> is any population-level pattern produced by interactions among individuals. A stop–start wave in a dense crowd is one example and need not help the group achieve a shared task.</p>
+<p><strong>Collective intelligence</strong> describes cases in which these interactions help a group process information, make a decision or solve a problem.</p>
+<p>This week asks how collective mechanisms can be used for computation and search.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w7-slide-ant-diversity">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Ant-colonies">Ant colonies<a class="anchor-link" href="#Ant-colonies">¶</a></h2><div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;align-items:start">
+<figure style="margin:0"><img alt="Fire ants joined together in a floating raft" src="images/fire_ant_raft.jpg" style="display:block;width:100%;height:245px;object-fit:cover"/><figcaption style="font-size:0.62em;margin-top:0.35rem"><strong>Flood survival.</strong> Fire ants link their bodies into a floating raft.</figcaption></figure>
+<figure style="margin:0"><img alt="Weaver ants stitching leaves while constructing a nest" src="images/weaver_ants_nest.jpg" style="display:block;width:100%;height:245px;object-fit:cover"/><figcaption style="font-size:0.62em;margin-top:0.35rem"><strong>Collective construction.</strong> Weaver ants pull leaves together and join them with larval silk.</figcaption></figure>
+<figure style="margin:0"><img alt="Leafcutter ants tending a fungus garden" src="images/leafcutter_fungus_garden.jpg" style="display:block;width:100%;height:245px;object-fit:cover"/><figcaption style="font-size:0.62em;margin-top:0.35rem"><strong>Environmental engineering.</strong> Leafcutters collect plant material to cultivate a mutualistic fungus.</figcaption></figure>
+</div>
+<p><strong>Each task uses a different collective mechanism.</strong> The bodies, environmental traces and interaction rules depend on the task.</p>
+<p class="media-credit">Images: Oo Uui (CC0); PHGCOM (CC BY-SA 4.0); Alex Wild (CC0), via Wikimedia Commons.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w7-slide-ant-shortest-path">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Shortest-paths">Shortest paths<a class="anchor-link" href="#Shortest-paths">¶</a></h2><div class="two-panel equal-panels compact-panels">
+<div class="image-panel"><img alt="Pheromone reinforcement across alternative routes between a nest and food source" src="images/Double_bridge_experiment_ants.png" style="max-height:440px"/></div>
+<div class="text-panel">
+<p>Ants deposit pheromone on travelled paths.</p>
+<p>Later ants are more likely to follow stronger trails.</p>
+<p>Shorter routes can be reinforced sooner because ants complete them more frequently.</p>
+<p><strong>Repeated local choices can concentrate traffic on a short route.</strong></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w7-slide-couzin-ants">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Lane-formation">Lane formation<a class="anchor-link" href="#Lane-formation">¶</a></h2><div class="image-panel"><img alt="Observed lane positions, trajectories and turning responses in army ants" src="images/Couzin_lane_formation_data.png" style="display:block;max-height:455px;width:auto;margin:0 auto"/></div>
+<p>Returning ants use the centre of the trail while outbound ants use its margins. Field trajectories show that outbound ants turn more sharply during avoidance encounters.</p>
+<p class="media-credit">Couzin &amp; Franks (2003), <em>Self-organized lane formation and optimized traffic flow in army ants</em>, Fig. 3.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w7-slide-ant-model-frameworks">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Models">Models<a class="anchor-link" href="#Models">¶</a></h2><div class="two-panel equal-panels compact-panels">
+<div class="image-panel"><img alt="Couzin and Franks individual-based model of army-ant traffic" src="images/Couzin_lane_formation_model.png" style="max-height:390px"/><p><strong>Individual-based model.</strong> Ants follow a fixed pheromone trail, retain an intended direction and avoid nearby ants. Different avoidance turning rates produce the three-lane pattern.</p></div>
+<div class="image-panel"><img alt="Cellular automaton representation of three-lane army-ant traffic" src="images/Chowdhury_lane_formation.png" style="max-height:390px"/><p><strong>Cellular automaton.</strong> Ant traffic is represented more coarsely as occupation and movement between discrete sites.</p></div>
+</div>
+<p>Different representations support different questions about the same collective behaviour.</p>
+<p class="media-credit">Couzin &amp; Franks (2003), Fig. 4; Pradhan et al. (2021).</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w7-slide-ant-video">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Lesson:-Be-like-ants">Lesson: Be like ants<a class="anchor-link" href="#Lesson:-Be-like-ants">¶</a></h2><div class="image-panel"><iframe allowfullscreen="" frameborder="0" height="480" src="https://www.youtube-nocookie.com/embed/pa5UnI279Es" title="Ants making a bridge" width="100%"></iframe></div>
+<p class="media-credit">Video: Arjunc369, “Ants making bridge, team work”.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w7-slide-ant-death-spiral">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Lesson:-Don't-be-like-ants">Lesson: Don't be like ants<a class="anchor-link" href="#Lesson:-Don't-be-like-ants">¶</a></h2><div class="image-panel"><iframe allowfullscreen="" frameborder="0" height="470" src="https://www.youtube-nocookie.com/embed/LEKwQxO4EZU" title="Why army ants get trapped in death circles" width="100%"></iframe></div>
+<p>Following nearby ants normally supports collective foraging. If the trail closes into a loop, the same feedback can trap the group in a rotating mill.</p>
+<p class="media-credit">Video: Amaze Lab, “Why army ants get trapped in ‘death circles’”.</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w7-slide-optimisation">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Optimisation">Optimisation<a class="anchor-link" href="#Optimisation">¶</a></h2><p>$$
+\min_{x\in\mathcal X} f(x)
+$$</p>
 <ul>
-<li>scheduling</li>
-<li>image processing and edge detection</li>
-<li>bankruptcy prediction</li>
-<li>protein folding</li>
-<li>...</li>
+<li><strong>Candidate</strong> $x$: one possible solution.</li>
+<li><strong>Solution space</strong> $\mathcal X$: all allowed candidates, including any constraints.</li>
+<li><strong>Objective</strong> $f(x)$: a numerical measure of candidate quality; here, lower is better.</li>
+<li><strong>Evaluation budget</strong>: the number of candidates the algorithm may score.</li>
 </ul>
+<p>Some optimisation literature uses <strong>fitness</strong> for a score that increases with quality. State the direction whenever that term is used.</p>
+<p>The solution space is usually abstract: its coordinates are decision variables rather than physical locations.</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w7-slide-aco-explorer">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Canonical-model-1:-ACO">Canonical model 1: ACO<a class="anchor-link" href="#Canonical-model-1:-ACO">¶</a></h2><iframe src="images/aco_network_explorer.html" style="display:block;width:100%;height:545px;border:0;margin:0 auto;" title="Ant colony optimisation learning a route through a network"></iframe>
 </div>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=45669a33">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w7-slide-aco-specification">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>ACO is typically applied to path finding through <em>graphs</em> (networks).</p>
-<p>To apply an ant colony algorithm, the optimisation problem needs to be converted into the problem of finding the shortest path on a weighted graph.</p>
-<p>But, it's a bit vague and there is also a tendency to classify any algorithm that's based on an exchange of information between agents <em>via the environment</em> in this way as ACO.</p>
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Model-details">Model details<a class="anchor-link" href="#Model-details">¶</a></h2><table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Definition or choice</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>graph</td>
+<td>$G=(V,E)$, with fixed edge costs $d_e&gt;0$, start node $s$ and target node $T$</td>
+</tr>
+<tr>
+<td>shared information</td>
+<td>pheromone $\tau_e(n)$ on each edge at generation $n$</td>
+</tr>
+<tr>
+<td>population</td>
+<td>$N$ ants constructing complete routes per generation</td>
+</tr>
+<tr>
+<td>choice rule</td>
+<td>pheromone weight $\alpha$ and fixed-heuristic weight $\beta$, with $\eta_e=1/d_e$</td>
+</tr>
+<tr>
+<td>pheromone update</td>
+<td>evaporation fraction $\rho$ and deposit scale $Q$</td>
+</tr>
+<tr>
+<td>stopping rule</td>
+<td>a stated number of generations or evaluations, or a route-cost threshold chosen in advance</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=00b42943">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w7-slide-aco-choice">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="So-how-would-you-model-this?">So how would you model this?<a class="anchor-link" href="#So-how-would-you-model-this?">¶</a></h2>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=04b8025f-e3c2-411b-b70f-5e4ea9df6d1e">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p><strong>Initialse</strong>:</p>
-<ul>
-<li>$N$ agents at the 'nest', where $i$ labels the $i$th agent.</li>
-<li>$F$ food sources</li>
-<li>the road network agents can travel along connecting the nest to the food, $G=(V,E)$.</li>
-</ul>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a9da65e1">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p><strong>Generate solutions</strong>:</p>
-<ol>
-<li>consider each edge $e\in E$ and determine its:<ul>
-<li>personal 'attractiveness' (e.g. $1/\text{length}$) $\alpha_e$, and</li>
-<li>the corresponding pheromone level $\beta_e$</li>
-</ul>
-</li>
-</ol>
-</div>
-</div>
-</div>
-</div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b6d74719-ee7c-4ed0-821a-a530a3e3a0e3">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<ol start="2">
-<li>compute the probability that agent $i$ moves along each edge $e$ by applying some combination of these two considerations. e.g.:</li>
-</ol>
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Choose-the-next-edge">Choose the next edge<a class="anchor-link" href="#Choose-the-next-edge">¶</a></h2><p>For an ant currently at node $i$, $P(e\mid i)$ is the probability that its next selected edge is $e$:</p>
 <p>$$
-p_{e_i}=\frac{\alpha_e^a\beta_e^b}{\sum_e \alpha_e^a\beta_e^b}
+P(e\mid i)=
+\frac{\tau_e^{\alpha}\eta_e^{\beta}}
+{\displaystyle\sum_{e'\in\mathcal A(i)}\tau_{e'}^{\alpha}\eta_{e'}^{\beta}}.
 $$</p>
-<ol start="3">
-<li>repeat until destination is reached</li>
+<p>$\mathcal A(i)$ is the set of currently allowed outgoing edges. Sampling from this distribution is repeated until the ant reaches the target and has constructed one complete candidate route.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w7-slide-aco-update">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Evaluate-complete-paths-and-update-pheromone">Evaluate complete paths and update pheromone<a class="anchor-link" href="#Evaluate-complete-paths-and-update-pheromone">¶</a></h2><p>If ant $a$ constructs route $R_a$, its total cost is</p>
+<p>$$
+L_a=\sum_{e\in R_a}d_e.
+$$</p>
+<p>After all $N$ routes have been evaluated, evaporate pheromone and reinforce the edges used by shorter routes:</p>
+<p>$$
+\tau_e(n+1)=(1-\rho)\tau_e(n)+
+\sum_{a=1}^{N}\Delta\tau_e^{(a)},
+\qquad
+\Delta\tau_e^{(a)}=
+\begin{cases}
+Q/L_a,&amp;e\in R_a,\\
+0,&amp;\text{otherwise.}
+\end{cases}
+$$</p>
+<p>Lower-cost routes therefore make larger deposits. Pheromone is held fixed while the routes in one generation are constructed.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w7-slide-aco-evidence">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Analysis">Analysis<a class="anchor-link" href="#Analysis">¶</a></h2><table>
+<thead>
+<tr>
+<th>Measurement</th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>best route cost</td>
+<td>solution quality</td>
+</tr>
+<tr>
+<td>fraction of runs finding a route at or below the chosen cost threshold</td>
+<td>reliability across stochastic runs</td>
+</tr>
+<tr>
+<td>completed routes evaluated before first success</td>
+<td>search efficiency</td>
+</tr>
+<tr>
+<td>pheromone concentration and route diversity</td>
+<td>how continued search is distributed across the graph</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w7-slide-aco-sharing-evidence">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
+<img alt="Ensemble comparison of ACO route allocation beside heatmaps of route use and pheromone strength in one run" src="images/aco_sharing_comparison.png" style="display:block;max-height:445px;width:auto;margin:0 auto;"/>
+<p>Panel A repeats the explorable network across 120 runs: every run encounters the shortest route, but shared pheromone concentrates later route construction. Panel B follows one run and shows this concentration developing in both the routes traversed and the pheromone stored on their edges.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w7-slide-aco-discovery-efficiency">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
+<img alt="Fraction of ACO runs reaching a near-optimal tour as the evaluation budget is used" src="images/aco_discovery_efficiency.png" style="display:block;max-height:455px;width:auto;margin:0 auto;"/>
+<p>This is a different problem from the explorable. There, ants seek a shortest path from $S$ to $T$; here, each ant constructs a tour that visits all ten cities once and returns to its starting city. One completed tour is one evaluation. The lines isolate stigmergic sharing: $\alpha=1$ uses pheromone and $\alpha=0$ ignores it, while the other settings remain fixed.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w7-slide-aco-parameter-sweep">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
+<img alt="ACO sweep over pheromone influence and evaporation" src="images/aco_parameter_sweep.png" style="display:block;max-height:465px;width:auto;margin:0 auto;"/>
+<p>These heatmaps continue with the separate travelling-salesman benchmark, not the explorable network. The left panel varies pheromone influence $\alpha$ against heuristic weight $\beta$; the right varies $\alpha$ against evaporation $\rho$. All other aspects of the comparison are held fixed.</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w7-slide-pso-origin">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Canonical-model-2:-PSO">Canonical model 2: PSO<a class="anchor-link" href="#Canonical-model-2:-PSO">¶</a></h2><ol>
+<li>Kennedy and Eberhart began with a simplified flock model.</li>
+<li>A fixed <strong>cornfield vector</strong> marked a target at known screen coordinates.</li>
+<li>Distance from the target gave each visited position an objective value; particles were not given a direction to the target.</li>
+<li>Each particle retained its own best position and received the swarm's best recorded position.</li>
+<li>Position became a candidate solution in an abstract solution space.</li>
 </ol>
+<p>As in Week 5, the agents move and exchange social information. Here those processes search an abstract solution space.</p>
 </div>
 </div>
 </div>
-</div></div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fb79a779">
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w7-slide-pso-simple-quote">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p><strong>Update pheromone</strong>:
-(typically done globally once entire solution has been realised)</p>
-<p>e.g.:
-$$
-\beta_e \leftarrow (1-\rho )\beta _{e}+\sum _{i}^{N}\Delta \beta _{e_i}
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
+<div class="reader-voice slide-quote">
+<div class="reader-voice-quote">very simple concept, and paradigms can be implemented in a few lines of computer code.</div>
+<div class="reader-voice-attr">Kennedy and Eberhart, <a href="https://doi.org/10.1109/ICNN.1995.488968"><em>Particle Swarm Optimization</em></a> (1995)</div>
+</div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w7-slide-pso-state">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Model-details">Model details<a class="anchor-link" href="#Model-details">¶</a></h2><p>Each particle $i$ stores four things:</p>
+<table>
+<thead>
+<tr>
+<th>State</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$x_i$</td>
+<td>current candidate solution</td>
+</tr>
+<tr>
+<td>$v_i$</td>
+<td>proposed movement through the search space</td>
+</tr>
+<tr>
+<td>$p_i$</td>
+<td>particle's personal best position</td>
+</tr>
+<tr>
+<td>$g$</td>
+<td>best position shared by the swarm</td>
+</tr>
+</tbody>
+</table>
+<p>Particles repeatedly move, evaluate the objective and update these records.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w7-slide-pso-specification">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Model-specification">Model specification<a class="anchor-link" href="#Model-specification">¶</a></h2><table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Choice required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>problem</td>
+<td>objective $f(\mathbf{x})$, feasible space and bounds</td>
+</tr>
+<tr>
+<td>population</td>
+<td>particle count $N$ and initial positions and displacements</td>
+</tr>
+<tr>
+<td>information</td>
+<td>global-best or neighbourhood sharing</td>
+</tr>
+<tr>
+<td>parameters</td>
+<td>inertia $w$, personal weight $c_1$, shared weight $c_2$</td>
+</tr>
+<tr>
+<td>implementation</td>
+<td>boundary rule and any maximum move</td>
+</tr>
+<tr>
+<td>stopping</td>
+<td>evaluation budget or declared objective target</td>
+</tr>
+</tbody>
+</table>
+<p>These choices are part of the algorithm and must be reported with its performance.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w7-slide-pso-update">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Update-displacement-and-position">Update displacement and position<a class="anchor-link" href="#Update-displacement-and-position">¶</a></h2><p>For particle $i$ in a $D$-dimensional search space,</p>
+<p>$$
+x_i^n,\;v_i^n,\;p_i,\;g\in\mathbb R^D.
 $$</p>
-<p>i.e. the pheromone on the $e$th edge is updated with the amount of pheromone deposited by the $i$th ant, $\Delta \beta_{e_i}$,  $\rho$  is the pheromone evaporation coefficient, $N$ is the number of ants.</p>
+<p>For every particle and iteration, draw fresh random multipliers $r_{1,i}^n,r_{2,i}^n$ and set</p>
+<p>$$
+v_i^{n+1}=
+\underbrace{w v_i^n}_{\text{inertia}}
++\underbrace{c_1r_{1,i}^n(p_i-x_i^n)}_{\text{personal memory}}
++\underbrace{c_2r_{2,i}^n(g-x_i^n)}_{\text{shared information}},
+$$</p>
+<p>$$
+x_i^{n+1}=x_i^n+v_i^{n+1}.
+$$</p>
+<p style="font-size:0.72em;color:#5B6780"><strong>Notation:</strong> the coordinate subscript $d$ is suppressed here. The update is applied coordinate by coordinate, with independent $r_{1,i,d}^n,r_{2,i,d}^n\sim\operatorname{Uniform}(0,1)$ draws.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w7-slide-pso-iteration">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="One-PSO-iteration">One PSO iteration<a class="anchor-link" href="#One-PSO-iteration">¶</a></h2><ol>
+<li>Evaluate every current candidate position.</li>
+<li>Update each particle's personal best.</li>
+<li>Update the best position shared globally.</li>
+<li>Draw fresh random multipliers.</li>
+<li>Update each displacement and position.</li>
+<li>Apply the stated boundary rule.</li>
+</ol>
+<p>Repeat until a satisfactory objective target is reached or the evaluation budget is exhausted. Return the best position found, not the final swarm centroid.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w7-slide-exploration-exploitation">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Exploration-and-exploitation">Exploration and exploitation<a class="anchor-link" href="#Exploration-and-exploitation">¶</a></h2><p>Every new objective evaluation can either gather evidence elsewhere or refine what already looks promising.</p>
+<div class="two-panel equal-panels compact-panels">
+<div class="text-panel"><p><strong>Exploration</strong> means visiting new or weakly sampled regions and preserving differences between candidate solutions.</p></div>
+<div class="text-panel"><p><strong>Exploitation</strong> means concentrating evaluations near the best solutions found so far.</p></div>
+</div>
+<p>Too much exploration wastes evaluations. Too much exploitation produces <strong>premature convergence</strong>: the population agrees before it has searched sufficiently widely.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w7-slide-pso-explorer">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Explorable">Explorable<a class="anchor-link" href="#Explorable">¶</a></h2><iframe src="images/pso_explorer.html" style="display:block;width:100%;height:535px;border:1px solid #C7CEDC;margin:0 auto;" title="Interactive particle swarm optimisation explorer"></iframe>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w7-slide-pso-analysis">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Analysis">Analysis<a class="anchor-link" href="#Analysis">¶</a></h2><img alt="PSO results at particle, swarm and ensemble levels" src="images/pso_analysis_levels.png" style="display:block;max-height:440px;width:auto;margin:0 auto;"/>
+<p>One trajectory explains an update. One swarm shows a transient. Repeated runs tell us whether the performance is dependable.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w7-slide-pso-sweep">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Sweep-personal-and-shared-influence">Sweep personal and shared influence<a class="anchor-link" href="#Sweep-personal-and-shared-influence">¶</a></h2><img alt="Ensemble sweep over personal-memory and shared-information weights" src="images/pso_exploration_exploitation_sweep.png" style="display:block;max-height:445px;width:auto;margin:0 auto;"/>
+<p>Each cell represents 20 runs with the same two weights. A run succeeds when the best position found by any particle reaches $f(x)&lt;10^{-8}$ within 100 iterations. The sweep includes zero as a no-personal or no-sharing control and extends both weights to 4. Darker cells on the left mean a larger fraction of runs succeeded. On the right, darker cells mean that particles finished farther from their swarm centroid.</p>
+<p>PSO seeks a high-quality solution. The left panel measures reliability across repeated searches. Time or evaluations to first reach the target would measure efficiency. The right panel measures final concentration, which helps diagnose exploration, local refinement and premature convergence. Weak shared information leaves the particles dispersed and makes success less reliable in this experiment.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w7-slide-pso-population">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="What-does-population-size-change?">What does population size change?<a class="anchor-link" href="#What-does-population-size-change?">¶</a></h2><img alt="PSO population-size sweep at a fixed evaluation budget" src="images/pso_population_size_sweep.png" style="display:block;max-height:445px;width:auto;margin:0 auto;"/>
+<p>At a fixed number of objective evaluations, larger swarms sample more starting points but receive fewer updates per particle. The population-size sweep shows that trade-off; it does not isolate the effect of sharing.</p>
 </div>
 </div>
 </div>
 </div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=687fdd80">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w7-slide-aco-pso-compare">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="Other-systems-inspired-by-nature...">Other systems inspired by nature...<a class="anchor-link" href="#Other-systems-inspired-by-nature...">¶</a></h2><p>Some examples:</p>
-<ul>
-<li>Bat algorithm</li>
-<li>Artificial fish swarm algorithm</li>
-<li>Cuckoo search algorithm</li>
-<li>Firefly algorithm</li>
-<li>Flower pollination algorithm</li>
-<li>Artificial bee colony optimisation</li>
-<li>Wolf-based search algorithm</li>
-<li>Bird's-eye view</li>
-<li>Slime mould</li>
-<li>...</li>
-</ul>
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="ACO-and-PSO:-a-comparison">ACO and PSO: a comparison<a class="anchor-link" href="#ACO-and-PSO:-a-comparison">¶</a></h2><table>
+<thead>
+<tr>
+<th></th>
+<th>ACO</th>
+<th>PSO</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>candidate</td>
+<td>path through a graph</td>
+<td>point in a continuous search space</td>
+</tr>
+<tr>
+<td>memory</td>
+<td>pheromone on edges</td>
+<td>personal and shared best positions</td>
+</tr>
+<tr>
+<td>communication</td>
+<td>indirect, through the environment</td>
+<td>best-so-far record is shared globally</td>
+</tr>
+<tr>
+<td>main risk</td>
+<td>reinforcing a poor route</td>
+<td>collapsing too early around a local minimum</td>
+</tr>
+</tbody>
+</table>
+<div style="display:flex;align-items:center;justify-content:center;gap:0.45em;margin-top:0.8em;font-size:0.8em"><strong>Generate a candidate</strong><span style="color:#D69E1E">→</span><strong>Evaluate it</strong><span style="color:#D69E1E">→</span><strong>Update stored information</strong><span style="color:#D69E1E">→</span><strong>Guide the next candidate</strong><span style="color:#D69E1E">↺</span></div>
 </div>
 </div>
 </div>
 </div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=04c038e0-a932-42a7-bef3-03b4c1d653a0">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w7-slide-abm-retrospective">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Optimisation">Optimisation<a class="anchor-link" href="#Optimisation">¶</a></h1><p>A process concerned with finding the best available solution(s).</p>
-<p>We are almost always trying to optimise something e.g. maximise profit, maximise efficiency, minimise energy consumption.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7cc52d41-7dc2-40cf-a349-9db0d19da73f">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>Generically:</p>
-<p>$$
-\min_{x\in \mathbb{R}^n} f_i(x), \quad (i=1,2,\ldots, M)
-$$</p>
-</div>
-</div>
-</div>
-</div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0380a626-9d28-4976-926f-7ecae5d697c5">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p><strong>The objective function</strong>, $f_i(x)$:</p>
-<ul>
-<li>is the function that needs to be minimised (or maximised)</li>
-<li>is the cost for objective $i$, where there are $M$ objective functions</li>
-<li>if $M=1$ then this is a <em>'single objective'</em> optimisation, while $M&gt;1$ is a <em>'multi-objective'</em> optimisation</li>
-<li>if the objective function (and constraints) are linear then we speak of 'linear programming'</li>
-</ul>
-</div>
-</div>
-</div>
-</div></div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bacf3d8f-98b2-4bfb-b043-581d76cdfc05">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_remove-cell" data-mime-type="text/markdown">
-<p>$$
-\min_{x\in \mathbb{R}^n} f_i(x), \quad (i=1,2,\ldots, M)
-$$</p>
-</div>
-</div>
-</div>
-</div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a69fbf4f-a8a9-4696-a989-3a65c51d21e1">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p><strong>The design variables</strong>, $x$:</p>
-<ul>
-<li>$n$ input parameters to be 'guessed' by the optimisation algorithm</li>
-<li>these are the factors that affect the outcome of the objective function</li>
-<li>$\mathbb{R}^n$ is the space spanned by the decision variables (the <em>'search space'</em>)</li>
-<li>variables can be continuous or restricted to discrete values</li>
-</ul>
-</div>
-</div>
-</div>
-</div></div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=275c3eaa-ceeb-477d-bfeb-955e947549c0">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="Global-vs.-Local-Optimisation:">Global vs. Local Optimisation:<a class="anchor-link" href="#Global-vs.-Local-Optimisation:">¶</a></h2><p><strong>Local Optimisation:</strong> Finding the best solution within a specific, possibly limited region of the feasible space</p>
-</div>
-</div>
-</div>
-</div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fbf371e4-f998-4f46-8711-88bcd0e1ff79">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p><strong>Global Optimisation:</strong> Finding the absolute best solution across the entire feasible region</p>
-</div>
-</div>
-</div>
-</div></div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7ca7bd3e-cc3a-4e61-9d70-7a4de98db6d6">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Swarm-optimisation">Swarm optimisation<a class="anchor-link" href="#Swarm-optimisation">¶</a></h1><p>Swarm optimisation is an iterative process carried out by a collective of interacting individuals.</p>
-<p>It continues until certain termination criteria are met, which could include a maximum number of iterations, a specific level of convergence, or a predetermined threshold for the fitness score.</p>
-<p>We will cover the basics with respect to a particular swarm optimiser: particle swarm optimisation (PSO).</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=03776ead-c42a-4e00-8b7b-106d0066d038">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="Particle-swarm-optimisation-(PSO)">Particle swarm optimisation (PSO)<a class="anchor-link" href="#Particle-swarm-optimisation-(PSO)">¶</a></h2><p>First intended for simulating social behaviour as a stylised representation of the movement of organisms in a bird flock or fish school.</p>
-<p>Kennedy and Eberhart included a roost, or, more generally, an attraction point (e.g, a prey) in a simplified Boids-like simulation, such that each agent:</p>
-<ul>
-<li>is attracted to the location of the roost</li>
-<li>remembers where it was closer to the roost</li>
-<li>shares information with the entire flock about its closest location to the roost (local-neighbourhood variants came later.)</li>
-</ul>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=204ea4e5-394b-4b0b-b7db-75b245de629c">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>They then flipped the set up such that:</p>
-<ul>
-<li>the “roost” is no longer fixed. Instead, the best positions discovered so far acted as <em>emergent attractors</em>.</li>
-<li>the quality of agent's position was evaluated by a fitness function on the optimisation landscape.</li>
-<li>Each particle was pulled toward its own best position so far (pbest) and the best position found by the swarm (gbest).</li>
-</ul>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=00c3a207-4eed-4e3f-abe8-c63c95ba102b">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>The <a href="https://ieeexplore.ieee.org/document/488968">PSO algorithm</a> uses only basic mathematical operators and is computationally inexpensive in terms of both memory requirements and speed</p>
-<blockquote>
-<p><em>"very simple concept, and paradigms can be implemented in a few lines of computer code." - Kennedy et al.</em></p>
-</blockquote>
-<p>It has undergone continued development since it was first proposed in 1995 and continues to be used today.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bb5fc162-6be2-4839-bfa3-f619dcd024f5">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h3 id="The-search-space">The search space<a class="anchor-link" href="#The-search-space">¶</a></h3><p>The set of possible solutions is the <strong>search/solution space</strong>, $X_n \subseteq \mathbb{R}^n $.</p>
-<p>Each particle (aka agent) has a state (its position), $x\in X_n$, that represents a solution to the optimisation problem.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=90374db7-a0fc-4092-a4a9-62522f88c799">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h3 id="Fitness-function-(aka-objective-function,-cost-function)">Fitness function (aka objective function, cost function)<a class="anchor-link" href="#Fitness-function-(aka-objective-function,-cost-function)">¶</a></h3><p>The fitness function provides the means to objectively compare different candidate solutions and select the best ones for further exploration.</p>
-<p>The <strong>'fitness'</strong> is then the output of the fitness function for a given potential solution, representing the quality of the agent's position on the optimisation landscape.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4d00af5e-42ad-473d-83c8-c3567edcdd76">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h3 id="Moving-through-the-search-space">Moving through the search space<a class="anchor-link" href="#Moving-through-the-search-space">¶</a></h3><p>In PSO agents move through the search space with a velocity that is dynamically adjusted according to its own and its neighbours’ historical behaviour. In particular, movement is influenced by:</p>
-<ul>
-<li>the best state this individual has found so far (pbest)</li>
-<li>the best state the flock found so far (gbest)</li>
-</ul>
-<p>i.e. an agent 'learns' from itself and others.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bfeacb53-fa34-4113-b0d8-be10a10a41c3">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h3 id="Exploration-and-Exploitation">Exploration and Exploitation<a class="anchor-link" href="#Exploration-and-Exploitation">¶</a></h3><p>Successful optimisation requires a balance between <em>exploration and exploitation</em> within the search space.</p>
-<p><strong>Exploration:</strong> searching for new, potentially better solutions</p>
-<p><strong>Exploitation:</strong> focusing on known, promising solutions</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=db6e0e86-0ce4-4d2b-b436-c0fe00f7c59f">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h3 id="Forces">Forces<a class="anchor-link" href="#Forces">¶</a></h3><p>Velocity is a linear combination of personal inertia (exploration) and influences/biases (both personal and social), which act to enforce social norms and what has been good so far:</p>
-<p>$$
-v_i(t+1)=wv_i(t) + p U_1 (x_{i_b}-x_i(t)) + s U_2(x_{g_b}-x_i(t))
-$$</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ebb75231-ca35-4a44-9ee7-1c71ff41973f">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h3 id="The-picture-to-have-in-mind">The picture to have in mind<a class="anchor-link" href="#The-picture-to-have-in-mind">¶</a></h3><p><img alt="" src="images/ParticleSwarmArrowsAnimation.gif"/></p>
-<p>But the landscape may:</p>
-<ul>
-<li>be complex, noisy, and high-dimensional</li>
-<li>change over time ('fitness seascape' can be more appropriate)</li>
-<li>have multiple optimas</li>
-</ul>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bc2b52d7-b0b0-48c5-af84-5a80082ca8c8">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h3 id="An*-algorithm">An* algorithm<a class="anchor-link" href="#An*-algorithm">¶</a></h3><p><img alt="" src="images/PSO_flowchart.png"/></p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7ec2833b-5f35-4ecb-aa69-217d30d64423">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p><img alt="" src="images/PSO_pseudocode.png"/></p>
-<p>$*$ Note that this is a slight variant with the social component based on a local network and the global best only stored and not influencing the dynamics directly</p>
-<p>Figure from this <a href="https://link.springer.com/article/10.1007/s40747-018-0071-2">PSO review article</a></p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=788146cb-6459-4f04-99f0-1aaf3dc53b39">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h3 id="Limitations-and-considerations">Limitations and considerations<a class="anchor-link" href="#Limitations-and-considerations">¶</a></h3><p><strong>Advantages</strong></p>
-<ul>
-<li>simple implementation</li>
-<li>not a lot of hyperparameters and very flexible with the form of the objective function, so is able to solve a wide range of problems</li>
-<li>relatively insensitive to scaling of design variables</li>
-<li>easily parallelised for concurrent and efficient processing</li>
-</ul>
-</div>
-</div>
-</div>
-</div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=00032b6d-ed99-46d9-92ab-ec1296f81393">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p><strong>Disadvantages</strong></p>
-<ul>
-<li>final solution is heavily dependent on the initial seeds of the population (so ensemble runs are especially important)</li>
-<li>can have a tendency to a fast and premature convergence to sub optimal points</li>
-<li>convergence can be slow in the refined search stage (weak local search ability)</li>
-</ul>
-</div>
-</div>
-</div>
-</div></div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fc65c90d-42d7-447c-bfab-8add3d7ad963">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Harnessing-collective-intelligence">Harnessing collective intelligence<a class="anchor-link" href="#Harnessing-collective-intelligence">¶</a></h1><p>Some crowds turn to madness, others to wisdom.</p>
-<p><a href="https://unanimous.ai/swarm/">Researchers at Uninanimous</a> predicted the exact Kentucky Derby finish: Nyquist, Exaggerator, Gun Runner, Mohaymen: a superfecta that bookmakers had at 540:1!</p>
-<p><img alt="" src="images/Unanimous_Kentucky_derby.gif"/></p>
-<p>Gif from <a href="https://www.news.com.au/technology/innovation/design/swarm-intelligence-predicted-a-540-to-one-long-shot-and-could-be-the-future-of-decision-making/news-story/955f67fd78fe9c73665395637a62840c">here</a></p>
-<p>They asked 20 avid racing fans from across the country to pick the race winner. Participants moved a shared “puck” in sync to indicate answers, convering on a group choice that optimised their collective conviction.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=eff40d3d-d19f-460f-baa2-d3553d136a79">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_remove-cell" data-mime-type="text/markdown">
-<div style="background-color: #ffff88; padding: 1em; border-left: 5px solid #fff102;">
-For discussion...
-
-<p>Whether we follow the majority or trust experts is shaped by our networks. In general, more bridges allows for more diverse evidence and better collective decisions.</p>
-<p>Beyond <strong>Homo Economicus</strong>: People act under imperfect information and cognitive limits (bounded rationality). Decision strategies are context-dependent, not one-size-fits-all. Combining the</p>
-</div>
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Scope-and-connections">Scope and connections<a class="anchor-link" href="#Scope-and-connections">¶</a></h2><table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Each agent retains</th>
+<th>Interaction or shared information</th>
+<th>Collective question</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vicsek</td>
+<td>position and heading</td>
+<td>local alignment with nearby headings, plus noise</td>
+<td>when does coherent motion emerge?</td>
+</tr>
+<tr>
+<td>Kuramoto</td>
+<td>phase and natural frequency</td>
+<td>phase coupling, usually with the whole population</td>
+<td>when can coupling overcome differences between internal clocks?</td>
+</tr>
+<tr>
+<td>ACO and PSO</td>
+<td>a path or candidate solution, plus some form of memory</td>
+<td>pheromone in the environment or a shared best position</td>
+<td>can a population search for a useful solution?</td>
+</tr>
+</tbody>
+</table>
+<p>The framework is reusable; changing the state, interaction or memory changes the scientific claim.</p>
 </div>
 </div>
 </div>
 </div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=51ad3691">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w7-slide-big-hero-6-finale">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Controlling-collective-intelligence">Controlling collective intelligence<a class="anchor-link" href="#Controlling-collective-intelligence">¶</a></h1>
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube-nocookie.com/embed/fsVJuN75vzE" style="display:block;width:88%;height:500px;border:0;margin:0.4rem auto 0.6rem auto;" title="Hiro Hamada's microbots presentation in Big Hero 6"></iframe>
+<p class="media-credit" style="text-align:center">Walt Disney Animation Studios, <a href="https://www.youtube.com/watch?v=fsVJuN75vzE" rel="noopener" target="_blank"><em>Big Hero 6</em> (2014), “Hiro Hamada’s microbots presentation”</a>.</p>
 </div>
 </div>
 </div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell celltag_hide-input" id="cell-id=872c458e">
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
-<iframe allowfullscreen="" frameborder="0" height="300" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/fsVJuN75vzE" width="400"></iframe>
-</div>
-</div>
-</div>
-</div>
-</div></div></section></section>
+</div></section></section>
 </div>
 </div>
 </main>
@@ -8798,8 +9491,8 @@ require(
             transition: "slide",
             slideNumber: "",
             plugins: [RevealNotes],
-            width: 960,
-			      height: 700,
+            width: 1280,
+			      height: 720,
 
         });
 

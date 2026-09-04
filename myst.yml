@@ -28,6 +28,11 @@ project:
       children:
         - file: notebooks/week06/Slides.md
         - file: notebooks/week06/WS_Synchronisation.ipynb
+    - file: notebooks/week07/L_Intelligent_systems.ipynb
+      children:
+        - file: notebooks/week07/Slides.md
+        - file: notebooks/week07/WS_Intelligent_systems.ipynb
+        - file: notebooks/week07/Practice.md
 site:
   options:
     folders: true
