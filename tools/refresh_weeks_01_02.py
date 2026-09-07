@@ -64,7 +64,7 @@ def refresh_week01_lecture():
     path = ROOT / "notebooks/week01/L_Introduction_to_complex_systems.ipynb"
     nb = load(path)
     cells = nb["cells"]
-    cells[0]["source"] = ["# Welcome to MATH3024\n", "## (Modelling) complex systems\n", "*Week 1 · From observations to useful models*"]
+    cells[0]["source"] = ["# Introduction to complex systems\n", "## (Modelling) complex systems\n"]
     insert_after_id(cells, cells[0].get("id"), "week01-country-slide", md("""## We begin on Whadjuk Noongar Boodjar
 
 <div class="slide-columns country-slide-grid">
