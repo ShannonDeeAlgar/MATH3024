@@ -14,7 +14,11 @@ def rewrite(word: str) -> str:
 
 
 def points_for(word: str) -> list[tuple[float, float]]:
-    x = y = angle = 0.0
+    # Use one fixed turtle heading at every depth.  This makes k = 0 a
+    # 60-degree line and lets the production G-F-G produce the k = 1
+    # arrowhead without an unrecorded, depth-dependent rotation.
+    x = y = 0.0
+    angle = 60.0
     points = [(x, y)]
     for symbol in word:
         if symbol in "FG":
@@ -25,21 +29,7 @@ def points_for(word: str) -> list[tuple[float, float]]:
             angle += 60
         elif symbol == "-":
             angle -= 60
-    # Rotate so the two endpoints form a horizontal base, then place the
-    # construction above that base.
-    x0, y0 = points[0]
-    x1, y1 = points[-1]
-    angle = math.atan2(y1 - y0, x1 - x0)
-    cosine, sine = math.cos(-angle), math.sin(-angle)
-    rotated = [
-        ((x - x0) * cosine - (y - y0) * sine,
-         (x - x0) * sine + (y - y0) * cosine)
-        for x, y in points
-    ]
-    base_y = (rotated[0][1] + rotated[-1][1]) / 2
-    if sum(y for _, y in rotated) / len(rotated) > base_y:
-        rotated = [(x, 2 * base_y - y) for x, y in rotated]
-    return rotated
+    return points
 
 
 def polyline(points, x0, y0, width, height, scale) -> str:
@@ -88,7 +78,7 @@ elements = ["""<style>
 for depth, points, x in zip(depths, point_sets, column_x):
     elements.append(
         f'<text x="{x + plot_width / 2}" y="330" text-anchor="middle" '
-        f'font-family="Arial, sans-serif" font-size="24" '
+        f'font-family="DejaVu Sans, sans-serif" font-size="24" '
         f'class="depth-label">k = {depth}</text>'
     )
     elements.append(

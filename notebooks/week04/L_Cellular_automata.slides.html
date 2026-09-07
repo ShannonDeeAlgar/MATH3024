@@ -5,7 +5,7 @@
 <meta content="chrome=1" http-equiv="X-UA-Compatible"/>
 <meta content="yes" name="apple-mobile-web-app-capable"/>
 <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
-<title>L_Cellular_automata slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
+<title>.L_Cellular_automata.fresh.3267 slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
   import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script>
@@ -7565,8 +7565,14 @@ main {
 .jp-MarkdownOutput .myst-dropdown-header-title {
   font-family: Baskerville, Georgia, serif;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0;
+}
+
+.jp-MarkdownOutput .myst-dropdown-body {
+  padding: 0.15rem 0.2rem 0.7rem !important;
+  background: transparent !important;
+  font-family: Baskerville, Georgia, serif;
 }
 
 .reader-prompt-footnote {
@@ -7968,6 +7974,115 @@ details.reader-answer > div {
   padding: 0 1rem 0.9rem;
 }
 
+details.discussion-reveal {
+  margin: 0.7rem 0 1.2rem;
+  overflow: hidden;
+  border: 1px solid #c7cedc;
+  border-left: 5px solid #edcc55;
+  border-radius: 0.32rem;
+  background: #fff;
+  color: var(--reader-ink, #1b2a4c);
+}
+
+details.discussion-reveal summary {
+  position: relative;
+  display: block;
+  padding: 0.72rem 0.9rem;
+  cursor: pointer;
+  list-style: none;
+  background: #fffaf0;
+}
+
+details.discussion-reveal summary::-webkit-details-marker {
+  display: none;
+}
+
+details.discussion-reveal summary > .myst-dropdown-header-title {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr) 1.2rem;
+  gap: 0.7rem;
+  align-items: center;
+  width: 100%;
+}
+
+details.discussion-reveal summary > .myst-dropdown-header-title > img {
+  grid-column: 1;
+  grid-row: 1;
+  width: 2.35rem !important;
+  height: 2.35rem !important;
+  margin: 0 !important;
+}
+
+details.discussion-reveal summary > .myst-dropdown-header-title > .discussion-reveal-heading {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+details.discussion-reveal summary > .myst-dropdown-header-title > span:has(.myst-dropdown-header-icon) {
+  grid-column: 3;
+  grid-row: 1;
+  justify-self: end;
+  float: none !important;
+  margin: 0 !important;
+}
+
+.discussion-reveal-heading {
+  display: block;
+  min-width: 0;
+}
+
+.discussion-reveal-label {
+  display: none;
+}
+
+.discussion-reveal-question {
+  display: block;
+  color: var(--reader-ink, #1b2a4c);
+  font-family: Baskerville, Georgia, serif;
+  font-size: 1.12rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+details.discussion-reveal .discussion-answer {
+  padding: 0.75rem 1rem 0.9rem 4.3rem;
+  border-top: 1px solid #e2e6ed;
+  background: #fff;
+}
+
+details.discussion-reveal .discussion-answer > :first-child {
+  margin-top: 0;
+}
+
+details.discussion-reveal .discussion-answer > :last-child {
+  margin-bottom: 0;
+}
+
+.dark details.discussion-reveal {
+  border-color: #58647a;
+  border-left-color: #edcc55;
+  background: #202633;
+}
+
+.dark details.discussion-reveal summary {
+  background: #2b291e;
+}
+
+.dark .discussion-reveal-label,
+.dark details.discussion-reveal summary::after {
+  color: #c7cfdd;
+}
+
+.dark .discussion-reveal-question {
+  color: #eef2f8;
+}
+
+.dark details.discussion-reveal .discussion-answer {
+  border-top-color: #46536a;
+  background: #202633;
+}
+
 .discussion-prompt { border-left-color: #EDCC55; }
 
 .qa-grid { margin-top: 0.55em; }
@@ -8081,7 +8196,7 @@ details.reader-answer > div {
   margin: 0;
 }
 
-.jp-MarkdownOutput table.standard-table {
+.jp-MarkdownOutput table {
   width: 100%;
   border-collapse: collapse;
   font-family: Baskerville, Georgia, serif;
@@ -8132,6 +8247,36 @@ details.reader-answer > div {
   height: auto;
   margin: 0 auto;
   object-fit: contain;
+}
+
+.reveal .slides .ant-behaviour-gallery {
+  gap: 0.48em;
+}
+
+.reveal .slides .ant-behaviour-gallery .image-panel {
+  display: grid;
+  grid-template-rows: 285px auto;
+  align-content: start;
+  overflow: hidden;
+  border: 1px solid #d5dce8;
+  border-radius: 0.18em;
+  background: #f7f9fc;
+}
+
+.reveal .slides .ant-behaviour-gallery .image-panel img {
+  width: 100%;
+  height: 285px;
+  max-height: none;
+  object-fit: cover;
+}
+
+.reveal .slides .ant-behaviour-gallery .image-panel p {
+  margin: 0;
+  padding: 0.38em 0.48em 0.44em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.59em;
+  line-height: 1.24;
+  text-align: left;
 }
 
 .reveal .slides .model-specification > div {
@@ -8299,6 +8444,51 @@ details.reader-answer > div {
   color: #f7f1df;
 }
 
+.guiding-question {
+  box-sizing: border-box;
+  width: min(92%, 58rem);
+  margin: 0.8rem 0 0;
+  padding: 0.68rem 0.9rem 0.72rem;
+  border: 1px solid #c7d2e2;
+  border-top: 4px solid #6d83a9;
+  border-radius: 0.25rem;
+  background: #f7f9fc;
+  color: #1b2a4c;
+  text-align: left;
+}
+
+.guiding-question span {
+  display: block;
+  margin-bottom: 0.22rem;
+  color: #5a6685;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.44em;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.guiding-question p {
+  margin: 0;
+  color: inherit;
+  font-family: Baskerville, Georgia, serif;
+  font-size: 0.76em;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.dark .guiding-question {
+  border-color: #586983;
+  border-top-color: #92a6c8;
+  background: #222936;
+  color: #eef2f8;
+}
+
+.dark .guiding-question span {
+  color: #b7c3d7;
+}
+
 .jp-OutputArea-child:has(iframe) .jp-OutputPrompt,
 .jp-Cell-outputWrapper:has(iframe) .jp-OutputCollapser {
   display: none;
@@ -8364,6 +8554,47 @@ details.reader-answer > div {
   color: var(--reader-ink);
   text-decoration-thickness: 1px;
   text-underline-offset: 0.12em;
+}
+
+/* A quieter quotation treatment for projected slides. */
+.reveal .slides section .slide-quote {
+  display: block;
+  width: min(86%, 860px);
+  margin: 1.35em auto;
+  padding: 0 0 0 0.8em;
+  border: 0;
+  border-left: 4px solid #D69E1E;
+  color: var(--reader-ink);
+  text-align: left;
+}
+
+.reveal .slides section .slide-quote::before {
+  display: none;
+  content: none;
+}
+
+.reveal .slides section .slide-quote .reader-voice-quote {
+  display: block;
+  font-family: Baskerville, Georgia, serif;
+  font-size: 0.82em;
+  font-style: italic;
+  line-height: 1.45;
+}
+
+.reveal .slides section .slide-quote .reader-voice-quote::after {
+  content: none;
+}
+
+.reveal .slides section .slide-quote .reader-voice-attr {
+  display: block;
+  margin: 0.9em 0 0;
+  padding: 0;
+  border: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.55em;
+  font-style: normal;
+  letter-spacing: 0;
+  color: var(--reader-ink-soft);
 }
 
 /* Notebook anchor glyphs are useful in the Reader but are visual noise in a
@@ -8514,8 +8745,9 @@ details.reader-answer > div {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Cellular-automata">Cellular automata<a class="anchor-link" href="#Cellular-automata">¶</a></h1><h2 id="MATH3024-%C2%B7-Week-4">MATH3024 · Week 4<a class="anchor-link" href="#MATH3024-%C2%B7-Week-4">¶</a></h2><div class="canonical-model-marker"><span>Canonical models</span><strong>Elementary cellular automata and Conway's Game of Life</strong></div>
+<h1 id="Cellular-automata">Cellular automata<a class="anchor-link" href="#Cellular-automata">¶</a></h1><div class="canonical-model-marker"><span>Canonical models</span><strong>Elementary cellular automata and Conway's Game of Life</strong></div>
 <div class="modelling-practice-marker"><span>Modelling practice</span><strong>Computational complexity and finite budgets</strong></div>
+<p class="week-emphasis"><strong>This week’s emphasis:</strong> The rules are deliberately quick to specify. Most of the week asks what can be established about their behaviour without inspecting every possible trajectory.<br/><span class="toolkit-addition"><strong>Added to the toolkit:</strong> Finite-state dynamics on a fixed lattice; synchronous updating, rule and state spaces, and computational cost can now be examined explicitly.</span></p>
 </div>
 </div>
 </div>
@@ -8982,7 +9214,7 @@ details.reader-answer > div {
 <div class="text-panel">
 <p>The R-pentomino contains only five live cells but takes 1,103 generations to stabilise.</p>
 <p>Small initial differences can therefore create long, difficult-to-predict transients.</p>
-<p>Local simplicity does not imply short or transparent global behaviour.</p>
+<p>Simple local rules can produce long and difficult-to-predict global behaviour.</p>
 </div>
 </div>
 </div>
@@ -9065,14 +9297,14 @@ $$</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
 <h2 id="Related-rules-are-not-new-dynamics">Related rules are not new dynamics<a class="anchor-link" href="#Related-rules-are-not-new-dynamics">¶</a></h2><div class="two-panel equal-panels compact-panels">
 <div class="text-panel">
-<h3>Symmetry equivalence</h3>
+<p><strong>Symmetry equivalence</strong></p>
 <p>Reflection, exchanging 0 and 1, or both can change the rule number while preserving the dynamics after the same transformation.</p>
 <p>Rules 30 and 86 are reflection partners.</p>
 </div>
 <div class="text-panel">
-<h3>Agreement for one seed</h3>
+<p><strong>Agreement for one seed</strong></p>
 <p>Two different rules can agree temporarily if the trajectory never visits a neighbourhood on which their lookup tables differ.</p>
-<p>One matching history does not establish rule equivalence.</p>
+<p>Rule equivalence requires agreement across all possible histories.</p>
 </div>
 </div>
 <div class="ladder-marker"><img alt="Ladder of abstraction" src="images/ladder_marker.svg"/><span><strong>Up the ladder over rules:</strong> group rule numbers that differ only by a relabelling or reflection.</span></div>
@@ -9128,7 +9360,7 @@ $$</p>
 <li>every configuration has exactly one predecessor; and</li>
 <li>the graph is therefore a disjoint union of cycles, with no merging transient branches.</li>
 </ol>
-<p>Finding a loop is not sufficient: every deterministic finite system eventually enters one.</p>
+<p>Reversibility requires every state to have exactly one predecessor. Every deterministic finite system eventually enters a loop, including irreversible systems.</p>
 <div class="discussion-marker"><img alt="Discussion prompt" src="images/discussion_marker.svg"/><span>Does checking one small world establish reversibility for every world size and boundary condition?</span></div>
 </div>
 </div>
@@ -9142,13 +9374,13 @@ $$</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
 <h2 id="Shift-versus-Rule-254">Shift versus Rule 254<a class="anchor-link" href="#Shift-versus-Rule-254">¶</a></h2><div class="two-panel equal-panels compact-panels">
 <div class="text-panel">
-<h3>Periodic shift</h3>
+<p><strong>Periodic shift</strong></p>
 <p>Every old cell moves to exactly one new site.</p>
 <p>The opposite shift is an inverse, so the global map is one-to-one and onto.</p>
 <p>An open boundary can instead discard information.</p>
 </div>
 <div class="text-panel">
-<h3>Rule 254</h3>
+<p><strong>Rule 254</strong></p>
 <p>The output is zero only for neighbourhood 000.</p>
 <p>All ones and ones containing one isolated zero both map to all ones.</p>
 <p>Distinct histories merge, so the rule is irreversible.</p>
@@ -9240,22 +9472,7 @@ $$</p>
 </div>
 </div>
 </div>
-</div><aside class="notes">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3e691db3-8de3-4dc4-badf-b991cdb3ece6">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_remove-cell celltag_presenter-notes" data-mime-type="text/markdown">
-<div style="background-color: #ffff88; padding: 1em; border-left: 5px solid #fff102;">
-<p>We've see an example of continuous field models with PDEs that were coarse-grained for a discrete approximation that allowed for simulation.</p>
-<p>Spatio-temporal dynamics may also be appropriately modelled intentionally as a discrete dynamical system...</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</aside></section></section><section><section>
+</div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w4-slides-scope">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -9277,7 +9494,7 @@ $$</p>
 <div class="image-panel"><img alt="Rule 30 space-time evolution" src="images/Class_3.png"/><p><strong>Rule 30:</strong> each new row is produced from a one-dimensional local rule.</p></div>
 <div class="image-panel"><img alt="Pattern on a textile cone snail" src="images/Textile_cone.jpeg"/><p><strong>Textile cone:</strong> each new band of shell records pigment activity along a one-dimensional growing edge.</p></div>
 </div>
-<p>The representation is biologically meaningful, but resemblance does not establish that the animal uses Rule 30 or the same local mechanism.</p>
+<p>The representation is biologically meaningful. Identifying Rule 30 as the animal's mechanism would require biological evidence about pigment production and local interaction.</p>
 <p class="media-credit">Kusch, I. and Markus, M. (1996), <a href="https://doi.org/10.1006/jtbi.1996.0029">“Mollusc shell pigmentation”</a>, <em>Journal of Theoretical Biology</em> 178, 333–340.</p>
 </div>
 </div>
@@ -9384,135 +9601,18 @@ $$</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
 <h2 id="Beyond-binary-cells-%C2%B7-Lenia">Beyond binary cells · Lenia<a class="anchor-link" href="#Beyond-binary-cells-%C2%B7-Lenia">¶</a></h2><div class="two-panel wide-left compact-panels">
-<div class="image-panel"><iframe allowfullscreen="" src="https://www.youtube.com/embed/iE46jKYcI4Y" style="width:100%; height:350px; border:0;" title="Lenia: Mathematical Life Forms"></iframe></div>
+<div class="image-panel"><iframe allowfullscreen="" src="https://www.youtube.com/embed/iE46jKYcI4Y" style="width:100%; height:350px; border:0;" title="Lenia: Mathematical Life Forms"></iframe>
+<p class="media-credit">Bert Wang-Chak Chan, <a href="https://www.youtube.com/watch?v=iE46jKYcI4Y">“Lenia: Mathematical Life Forms”</a> (2018).</p></div>
 <div class="text-panel">
 <p>Lenia generalises cellular automata using continuous states, space and time.</p>
 <p>Its local rules support moving, deforming and self-organising forms that resemble microscopic organisms.</p>
 <p>The extension changes the representation, but preserves the central question: what system-level behaviour can emerge from repeated local interaction?</p>
 </div>
 </div>
-<p class="media-credit">Bert Wang-Chak Chan, <a href="https://www.youtube.com/watch?v=iE46jKYcI4Y">“Lenia: Mathematical Life Forms”</a> (2018).</p>
 </div>
 </div>
 </div>
-</div><aside class="notes">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b3c05bd4-616d-4bf8-8595-8655b59de4e0">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_remove-cell celltag_presenter-notes" data-mime-type="text/markdown">
-<div style="background-color: #ffff88; padding: 1em; border-left: 5px solid #fff102;">
-<p>This follows the typical pattern in English where some words derived from Greek or Latin use the "a" ending for plural, much like datum (singular) and data (plural).</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</aside><aside class="notes">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b70624c0-c008-4f97-8bcf-4f2cf0c374dd">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_remove-cell celltag_presenter-notes" data-mime-type="text/markdown">
-<div style="background-color: #ffff88; padding: 1em; border-left: 5px solid #fff102;">
-<p>The numbers in the brackets ${p,q}$ are the Schläfli symbol for a regular tiling:</p>
-<ul>
-<li>$p =$ the number of sides of each regular polygon in the tiling.</li>
-<li>$q =$ the number of polygons that meet at each vertex.</li>
-</ul>
-<p>These three are the only regular tilings of the Euclidean plane because they are the only $\{p, q\}$ pairs that satisfy the flatness condition:</p>
-<p>$$
-\frac{1}{p} + \frac{1}{q} = \frac{1}{2}
-$$</p>
-<p>(Euler’s formula for planar graphs, $V−E+F=2$, for finite patches, and
-$V−E+F=0$ in the infinite tiling limit leads to the same constraint.)</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</aside><aside class="notes">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2fff3df9-01cd-4994-93d5-d4bd1d30257b">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_remove-cell celltag_presenter-notes" data-mime-type="text/markdown">
-<div style="background-color: #ffff88; padding: 1em; border-left: 5px solid #fff102;">
-<p>There are various explanations for such a long life: some believe a mistranslation, others believe that his age is used to give the impression that part of Genesis takes place in a very distant past.</p>
-<p>A pentomino (or 5-omino) is a polyomino of order 5, i.e., a polygon in the plane made of 5 equal-sized squares connected edge to edge.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</aside><aside class="notes">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=62b5c01b">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_remove-cell celltag_presenter-notes" data-mime-type="text/markdown">
-<div style="background-color: #ffff88; padding: 1em; border-left: 5px solid #fff102;">
-<p>We've seen how simple yet powerful rules in cellular automata models can lead to extremely complex and highly nonlinear behaviour.</p>
-<p>Analysing this behaviour in a mathematically elegant way isn't straightforward</p>
-<p>Today we will see some options and tricks</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</aside><aside class="notes">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=dd88a58c-d6c1-47d6-8ca8-06eb935d0f94">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_remove-cell celltag_presenter-notes" data-mime-type="text/markdown">
-<div style="background-color: #ffff88; padding: 1em; border-left: 5px solid #fff102;">
-<p>For a small finite world, draw the complete state-transition graph and compare two questions:</p>
-<ol>
-<li>Does the graph contain a loop? It must contain at least one.</li>
-<li>Does every node have exactly one incoming edge? Only then is the finite global update reversible.</li>
-</ol>
-</div>
-</div>
-</div>
-</div>
-</div>
-</aside><aside class="notes">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=100f56ce-a0fc-4a25-95ec-63c014425517">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_remove-cell celltag_presenter-notes" data-mime-type="text/markdown">
-<div style="background-color: #ffff88; padding: 1em; border-left: 5px solid #fff102;">
-<p>i.e. truly undecidable in the formal sense of computability theory (a theoretical impossibility, not dependent on practical limitations like time or computational power)</p>
-<p>This is akin to the Halting Problem in Turing machines. The Halting Problem is undecidable because there is no general algorithm that can determine whether any arbitrary program will halt or run forever. Similarly, there is no general algorithm that can determine if any arbitrary configuration in the Game of Life is a Garden of Eden state.</p>
-<p>The undecidability of this problem has been established through mathematical proofs based on the inherent limitations of computation</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</aside><aside class="notes">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1206cfbb-e19c-4ed5-8b4e-deef02921750">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_remove-cell celltag_presenter-notes" data-mime-type="text/markdown">
-<div style="background-color: #ffff88; padding: 1em; border-left: 5px solid #fff102;">
-(true random numbers are hardware generated or generated from blood volume pulse, atmospheric pressure, thermal noise, quantum phenomenon, etc.)
-</div>
-</div>
-</div>
-</div>
-</div>
-</aside></section></section>
+</div></section></section>
 </div>
 </div>
 </main>
