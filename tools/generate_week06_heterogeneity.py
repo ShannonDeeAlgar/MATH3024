@@ -5,7 +5,11 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import numpy as np
 
-from figure_style import BLUE, GRID, INK as NAVY, YELLOW as GOLD, apply_course_figure_style
+NAVY = "#192B52"
+BLUE = "#2C7FB8"
+ORANGE = "#E35D34"
+GOLD = "#F4C84A"
+GRID = "#D9E1EE"
 
 
 def simulate(omega, coupling, steps=12000, dt=0.02, seed=12):
@@ -23,7 +27,6 @@ def simulate(omega, coupling, steps=12000, dt=0.02, seed=12):
 
 
 def main():
-    apply_course_figure_style()
     root = Path(__file__).resolve().parents[1]
     out = root / "notebooks/week06/images"
     rng = np.random.default_rng(8)
@@ -51,6 +54,11 @@ def main():
     order = np.abs(np.mean(np.exp(1j * theta)))
     mean_rate = np.median(realised[np.abs(realised - np.median(realised)) < 0.08])
 
+    plt.rcParams.update({
+        "font.family": "DejaVu Sans", "font.size": 13,
+        "axes.labelcolor": NAVY, "axes.edgecolor": NAVY,
+        "xtick.color": NAVY, "ytick.color": NAVY, "text.color": NAVY,
+    })
     fig, axes = plt.subplots(1, 2, figsize=(12.5, 5.4), constrained_layout=True)
     ax = axes[0]
     circle = plt.Circle((0, 0), 1, fill=False, color=NAVY, lw=2.5)

@@ -30,18 +30,16 @@ def main():
     }
     notebook["cells"] = [
         markdown(r"""
-# Welcome to MATH3024
+# Getting started
 
-MATH3024 is organised as a sequence of weekly topics. Each topic uses a **canonical model** to make particular ideas concrete enough to specify, simulate, analyse and revise.
+MATH3024 is organised as a sequence of weekly topics. Each topic is explored through a **canonical model**: a deliberately focused model that makes the week's central ideas visible and gives us something concrete to question, implement, and extend.
 
 <div class="reader-route">
-  <div class="reader-route-label">The modelling process</div>
-  <div class="reader-route-body">Observe and ask → specify → simulate → analyse → revise and communicate</div>
+  <div class="reader-route-label">One weekly thread</div>
+  <div class="reader-route-body">Phenomenon → canonical model → local mechanism → collective behaviour → interpretation → transfer</div>
 </div>
 
-Every topic moves through this process, but not with equal emphasis. Some weeks concentrate on representation or model specification; others spend more time on simulation, analysis or evidence. Across the unit, those different emphases build a fuller modelling practice.
-
-The lecture, Reader and workshop have different jobs:
+You will meet that thread in three connected forms:
 
 | Resource | What it contributes | How to use it |
 |---|---|---|
@@ -49,17 +47,53 @@ The lecture, Reader and workshop have different jobs:
 | **Reader** | The durable account of the ideas, definitions, evidence, derivations, references, and interpretations | Read actively. Annotate it or keep handwritten notes beside it. Return to it before and after the workshop. |
 | **Workshop notebook** | The executable version of the model, small tests, parameter changes, and extensions | Predict before running. Inspect intermediate states. Change one choice at a time, then explain what changed and why. |
 
-The lecture introduces and discusses the central ideas. The Reader provides the complete account and references. The workshop is where you implement the model, inspect its behaviour and make modelling decisions.
+These are not three repetitions of the same material. They are three passes through the same intellectual problem. The lecture establishes the questions, the Reader develops the account, and the workshop turns the account into something you can interrogate.
 """, "weekly-learning-thread"),
 
         markdown(r"""
-## Optional material in the Reader
+## Where to find each resource
 
-The main argument of each week is written to stand on its own. Some chapters also retain material that is useful on a second pass but is not required for the unit core: a longer derivation, wider scientific context, a model variant, or a possible project method.
+| Resource | Student access |
+|---|---|
+| **Unit essentials, announcements, assessment, and weekly links** | LMS is the authoritative location. |
+| **Reader** | [shannondeealgar.github.io/MATH3024](https://shannondeealgar.github.io/MATH3024/) |
+| **Lecture slides** | Use the clearly labelled **Lecture slides** link beneath the relevant week in this Reader. |
+| **Workshop notebooks** | Download the file beginning `WS_` from the relevant LMS weekly module. Download any support files listed beside it. |
+| **Source repository** | [github.com/ShannonDeeAlgar/MATH3024](https://github.com/ShannonDeeAlgar/MATH3024). This is available for transparency, but students do not need Git or GitHub to complete the unit. |
 
-<div class="optional-reader-flag"><strong>Optional · extension</strong> Dashed grey flags mark this material. Unless a chapter states otherwise, it is not directly assessable.</div>
+If an LMS instruction and an older downloaded file disagree, follow the current LMS instruction and download the file again.
 
-This material is retained rather than deleted because it can make an assumption inspectable, connect the canonical model to mathematics studied elsewhere, or provide a defensible starting point for a project. **Optional does not mean unimportant or unreliable.** It means that you can follow the assessable weekly argument without it, then return when the connection is useful.
+""", "resource-locations"),
+
+        markdown(r"""
+## A useful weekly rhythm
+
+### During the lecture
+
+- Commit to predictions before simulations or results are revealed.
+- Record modelling choices and assumptions, not only final equations.
+- Mark places where the behaviour conflicts with your expectation.
+
+### After the lecture
+
+- Open the newly published Reader chapter while the lecture is still fresh.
+- Use it to reconstruct the argument, fill gaps in your notes, and follow evidence or references that interest you.
+- Revisit any prediction that differed from the model behaviour and explain what changed your mind.
+
+### Before and during the workshop
+
+- Revisit the relevant Reader section.
+- Download the weekly `WS_...ipynb` file and any stated support files from LMS.
+- Run it from the beginning in order.
+- Use the workshop to reconstruct, test, and challenge the canonical model.
+- Finish by connecting a local modelling choice to a system-level result.
+
+### After the workshop
+
+- Record which conclusions survived your computational tests and which depended on a modelling choice.
+- Keep your annotated notebook. It is part of your working account of the weekly topic.
+
+The Week 1 workshop notebook is self-contained. If a later workshop needs images or data, they will be supplied with it on LMS. You do **not** need GitHub access or any accompanying `.py` build scripts. Those scripts maintain the teaching materials and are not part of the student exercise.
 """, "weekly-rhythm"),
 
         markdown(r"""
@@ -75,7 +109,7 @@ All computational work in MATH3024 is done in **Python**. We use it to implement
 
 <div style="text-align:center;font-size:.82em;color:#5A6685">Randall Munroe, <a href="https://xkcd.com/353/">“Python”</a>, xkcd 353, licensed under CC BY-NC 2.5.</div>
 
-## Recommended setup: run locally
+## Option 1: run locally
 
 A scientific Python distribution such as Anaconda provides Python, Jupyter, NumPy, Matplotlib, SciPy, and other libraries used in this unit.
 
@@ -87,7 +121,16 @@ A scientific Python distribution such as Anaconda provides Python, Jupyter, NumP
 
 Keep the notebook in a folder where you have permission to save changes. Save a new copy before making a substantial extension.
 
-If local installation is temporarily unavailable, Google Colab can open a notebook in a browser. Local Jupyter remains the supported and strongly recommended setup for this unit.
+## Option 2: use Google Colab
+
+If you cannot install software locally:
+
+1. Go to <https://colab.research.google.com>.
+2. Select **File → Upload notebook**.
+3. Upload the weekly `WS_...ipynb` file.
+4. Run the cells in order.
+
+Browser security can prevent a custom animation control from appearing until its code cell has been run. The mathematical code and static figures will still work.
 """, "running-notebooks"),
 
         markdown(r"""
@@ -141,19 +184,44 @@ A notebook that only works because cells were run in a particular accidental ord
 > “The purpose of computing is insight, not numbers.”<br>
 > Richard Hamming
 
-You are not expected to become a software engineer in this unit. Code is one part of the modelling process: it lets you specify a model precisely, test small cases, inspect intermediate behaviour and compare evidence across runs. Keep initialisation, dynamics, measurement and plotting separate where possible; record random seeds; and confirm that a notebook runs from top to bottom before sharing it.
+You are not expected to become a software engineer in this unit. You are expected to use code carefully enough that it supports mathematical reasoning rather than obscuring it.
+
+## A reliable process
+
+1. **State the question.** What are you trying to learn from the model?
+2. **Write pseudocode.** Describe the logic before worrying about Python syntax.
+3. **Start small.** Use a configuration that you can inspect by hand.
+4. **Separate responsibilities.** Keep initialisation, update rules, measurement, and plotting in distinct functions.
+5. **Test local rules.** Construct tiny cases with known answers.
+6. **Make randomness reproducible.** Record seeds and use local random-number generators.
+7. **Preserve a baseline.** Change one modelling choice at a time.
+8. **Restart and run all.** Confirm that the notebook works from a clean kernel.
+9. **Interpret the output.** A figure is evidence to reason from, not a conclusion by itself.
 
 Online examples and generative AI can help you understand syntax, errors, and alternative implementations. You remain responsible for checking the code, understanding every claim you make, following the unit's assessment rules, and acknowledging assistance where required.
 """, "code-for-thinking"),
 
         markdown(r"""
-## Pseudocode
+## Pseudocode example
 
-Pseudocode describes computational logic without tying it to Python syntax. There is no required house style. A useful version makes the order of operations and important decisions visible; a complete version must be precise enough that another person could implement the same model without guessing.
+Pseudocode is a plain-language description of an algorithm. It should expose the sequence of decisions without tying the explanation to Python syntax.
 
-For a complete simulation, state or name the world or domain, boundary conditions, stored state, parameters, initialisation and seed, interaction set, update order, stopping rule, and recorded output. Not every model has a physical boundary or numerical time step; say explicitly when an item does not apply.
+For one step of a segregation model:
 
-Each workshop includes a clearly labelled pseudocode section near the model specification. Across the unit, the examples become more technical and use several legitimate forms. The aim is to learn how to communicate a reproducible algorithm, not to memorise one notation.
+```text
+calculate each occupied agent's local similarity
+identify the dissatisfied agents
+
+if no agent is dissatisfied:
+    stop
+otherwise:
+    choose one dissatisfied agent at random
+    choose one empty site at random
+    move the selected agent to that site
+    record the new state and observables
+```
+
+This is already useful. It exposes where choices have been made and suggests separate functions that can be tested before the full simulation is run.
 """, "pseudocode-example"),
     ]
 

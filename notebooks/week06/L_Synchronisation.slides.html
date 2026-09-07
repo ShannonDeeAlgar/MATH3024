@@ -5,7 +5,7 @@
 <meta content="chrome=1" http-equiv="X-UA-Compatible"/>
 <meta content="yes" name="apple-mobile-web-app-capable"/>
 <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
-<title>.L_Synchronisation.fresh.3324 slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
+<title>L_Synchronisation slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
   import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script>
@@ -7565,14 +7565,8 @@ main {
 .jp-MarkdownOutput .myst-dropdown-header-title {
   font-family: Baskerville, Georgia, serif;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0;
-}
-
-.jp-MarkdownOutput .myst-dropdown-body {
-  padding: 0.15rem 0.2rem 0.7rem !important;
-  background: transparent !important;
-  font-family: Baskerville, Georgia, serif;
 }
 
 .reader-prompt-footnote {
@@ -7974,115 +7968,6 @@ details.reader-answer > div {
   padding: 0 1rem 0.9rem;
 }
 
-details.discussion-reveal {
-  margin: 0.7rem 0 1.2rem;
-  overflow: hidden;
-  border: 1px solid #c7cedc;
-  border-left: 5px solid #edcc55;
-  border-radius: 0.32rem;
-  background: #fff;
-  color: var(--reader-ink, #1b2a4c);
-}
-
-details.discussion-reveal summary {
-  position: relative;
-  display: block;
-  padding: 0.72rem 0.9rem;
-  cursor: pointer;
-  list-style: none;
-  background: #fffaf0;
-}
-
-details.discussion-reveal summary::-webkit-details-marker {
-  display: none;
-}
-
-details.discussion-reveal summary > .myst-dropdown-header-title {
-  display: grid;
-  grid-template-columns: 2.5rem minmax(0, 1fr) 1.2rem;
-  gap: 0.7rem;
-  align-items: center;
-  width: 100%;
-}
-
-details.discussion-reveal summary > .myst-dropdown-header-title > img {
-  grid-column: 1;
-  grid-row: 1;
-  width: 2.35rem !important;
-  height: 2.35rem !important;
-  margin: 0 !important;
-}
-
-details.discussion-reveal summary > .myst-dropdown-header-title > .discussion-reveal-heading {
-  grid-column: 2;
-  grid-row: 1;
-}
-
-details.discussion-reveal summary > .myst-dropdown-header-title > span:has(.myst-dropdown-header-icon) {
-  grid-column: 3;
-  grid-row: 1;
-  justify-self: end;
-  float: none !important;
-  margin: 0 !important;
-}
-
-.discussion-reveal-heading {
-  display: block;
-  min-width: 0;
-}
-
-.discussion-reveal-label {
-  display: none;
-}
-
-.discussion-reveal-question {
-  display: block;
-  color: var(--reader-ink, #1b2a4c);
-  font-family: Baskerville, Georgia, serif;
-  font-size: 1.12rem;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 1.3;
-}
-
-details.discussion-reveal .discussion-answer {
-  padding: 0.75rem 1rem 0.9rem 4.3rem;
-  border-top: 1px solid #e2e6ed;
-  background: #fff;
-}
-
-details.discussion-reveal .discussion-answer > :first-child {
-  margin-top: 0;
-}
-
-details.discussion-reveal .discussion-answer > :last-child {
-  margin-bottom: 0;
-}
-
-.dark details.discussion-reveal {
-  border-color: #58647a;
-  border-left-color: #edcc55;
-  background: #202633;
-}
-
-.dark details.discussion-reveal summary {
-  background: #2b291e;
-}
-
-.dark .discussion-reveal-label,
-.dark details.discussion-reveal summary::after {
-  color: #c7cfdd;
-}
-
-.dark .discussion-reveal-question {
-  color: #eef2f8;
-}
-
-.dark details.discussion-reveal .discussion-answer {
-  border-top-color: #46536a;
-  background: #202633;
-}
-
 .discussion-prompt { border-left-color: #EDCC55; }
 
 .qa-grid { margin-top: 0.55em; }
@@ -8196,7 +8081,7 @@ details.discussion-reveal .discussion-answer > :last-child {
   margin: 0;
 }
 
-.jp-MarkdownOutput table {
+.jp-MarkdownOutput table.standard-table {
   width: 100%;
   border-collapse: collapse;
   font-family: Baskerville, Georgia, serif;
@@ -8247,36 +8132,6 @@ details.discussion-reveal .discussion-answer > :last-child {
   height: auto;
   margin: 0 auto;
   object-fit: contain;
-}
-
-.reveal .slides .ant-behaviour-gallery {
-  gap: 0.48em;
-}
-
-.reveal .slides .ant-behaviour-gallery .image-panel {
-  display: grid;
-  grid-template-rows: 285px auto;
-  align-content: start;
-  overflow: hidden;
-  border: 1px solid #d5dce8;
-  border-radius: 0.18em;
-  background: #f7f9fc;
-}
-
-.reveal .slides .ant-behaviour-gallery .image-panel img {
-  width: 100%;
-  height: 285px;
-  max-height: none;
-  object-fit: cover;
-}
-
-.reveal .slides .ant-behaviour-gallery .image-panel p {
-  margin: 0;
-  padding: 0.38em 0.48em 0.44em;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.59em;
-  line-height: 1.24;
-  text-align: left;
 }
 
 .reveal .slides .model-specification > div {
@@ -8444,51 +8299,6 @@ details.discussion-reveal .discussion-answer > :last-child {
   color: #f7f1df;
 }
 
-.guiding-question {
-  box-sizing: border-box;
-  width: min(92%, 58rem);
-  margin: 0.8rem 0 0;
-  padding: 0.68rem 0.9rem 0.72rem;
-  border: 1px solid #c7d2e2;
-  border-top: 4px solid #6d83a9;
-  border-radius: 0.25rem;
-  background: #f7f9fc;
-  color: #1b2a4c;
-  text-align: left;
-}
-
-.guiding-question span {
-  display: block;
-  margin-bottom: 0.22rem;
-  color: #5a6685;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.44em;
-  font-weight: 700;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-}
-
-.guiding-question p {
-  margin: 0;
-  color: inherit;
-  font-family: Baskerville, Georgia, serif;
-  font-size: 0.76em;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 1.25;
-}
-
-.dark .guiding-question {
-  border-color: #586983;
-  border-top-color: #92a6c8;
-  background: #222936;
-  color: #eef2f8;
-}
-
-.dark .guiding-question span {
-  color: #b7c3d7;
-}
-
 .jp-OutputArea-child:has(iframe) .jp-OutputPrompt,
 .jp-Cell-outputWrapper:has(iframe) .jp-OutputCollapser {
   display: none;
@@ -8554,47 +8364,6 @@ details.discussion-reveal .discussion-answer > :last-child {
   color: var(--reader-ink);
   text-decoration-thickness: 1px;
   text-underline-offset: 0.12em;
-}
-
-/* A quieter quotation treatment for projected slides. */
-.reveal .slides section .slide-quote {
-  display: block;
-  width: min(86%, 860px);
-  margin: 1.35em auto;
-  padding: 0 0 0 0.8em;
-  border: 0;
-  border-left: 4px solid #D69E1E;
-  color: var(--reader-ink);
-  text-align: left;
-}
-
-.reveal .slides section .slide-quote::before {
-  display: none;
-  content: none;
-}
-
-.reveal .slides section .slide-quote .reader-voice-quote {
-  display: block;
-  font-family: Baskerville, Georgia, serif;
-  font-size: 0.82em;
-  font-style: italic;
-  line-height: 1.45;
-}
-
-.reveal .slides section .slide-quote .reader-voice-quote::after {
-  content: none;
-}
-
-.reveal .slides section .slide-quote .reader-voice-attr {
-  display: block;
-  margin: 0.9em 0 0;
-  padding: 0;
-  border: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.55em;
-  font-style: normal;
-  letter-spacing: 0;
-  color: var(--reader-ink-soft);
 }
 
 /* Notebook anchor glyphs are useful in the Reader but are visual noise in a
@@ -8745,9 +8514,8 @@ details.discussion-reveal .discussion-answer > :last-child {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Synchronisation">Synchronisation<a class="anchor-link" href="#Synchronisation">¶</a></h1><div class="canonical-model-marker"><span>Canonical model</span><strong>Kuramoto coupled oscillators</strong></div>
+<h1 id="Synchronisation">Synchronisation<a class="anchor-link" href="#Synchronisation">¶</a></h1><h2 id="MATH3024-%C2%B7-Week-6">MATH3024 · Week 6<a class="anchor-link" href="#MATH3024-%C2%B7-Week-6">¶</a></h2><div class="canonical-model-marker"><span>Canonical model</span><strong>Kuramoto coupled oscillators</strong></div>
 <div class="modelling-practice-marker"><span>Modelling practice</span><strong>Heterogeneity in finite populations</strong></div>
-<p class="week-emphasis"><strong>This week’s emphasis:</strong> The equations define a heterogeneous population. Most of the week asks what that heterogeneity does at individual, population and ensemble levels.<br/><span class="toolkit-addition"><strong>Added to the toolkit:</strong> Each agent now has intrinsic dynamics even in isolation. Heterogeneity also moves beyond Schelling's two categorical types to a parameter distributed across the population.</span></p>
 </div>
 </div>
 </div>
@@ -8760,7 +8528,6 @@ details.discussion-reveal .discussion-answer > :last-child {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
 <h1 id="Real-world-motivation">Real-world motivation<a class="anchor-link" href="#Real-world-motivation">¶</a></h1><div style="width:78%;margin:0 auto;text-align:center">
 <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/JWToUATLGzs" style="display:block;width:100%;height:455px;border:0" title="Metronomes synchronising through a shared platform"></iframe>
-<p class="media-credit">Video: <a href="https://www.youtube.com/watch?v=JWToUATLGzs" rel="noopener" target="_blank">Metronomes synchronising through a shared platform</a>.</p>
 </div>
 <div class="discussion-marker"><img alt="Discussion prompt" src="images/discussion_marker.svg"/><span>How are the metronomes coordinating their behaviour?</span></div>
 </div>
@@ -8775,29 +8542,8 @@ details.discussion-reveal .discussion-answer > :last-child {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
 <h2 id="Not-all-synchrony-is-complex">Not all synchrony is complex<a class="anchor-link" href="#Not-all-synchrony-is-complex">¶</a></h2><div style="width:82%;margin:0 auto;text-align:center">
 <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/qsRmVtvbrAE" style="display:block;width:100%;height:455px;border:0" title="Synchronised swimmers"></iframe>
-<p class="media-credit">Video: <a href="https://www.youtube.com/watch?v=qsRmVtvbrAE" rel="noopener" target="_blank">Synchronised swimming demonstration</a>.</p>
 </div>
 <p>The swimmers coordinate through rehearsal, shared timing and a planned sequence. The synchronisation studied later arises from interacting systems that retain their own dynamics.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w6-definition-slide">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
-<h2 id="Synchronisation-through-interaction">Synchronisation through interaction<a class="anchor-link" href="#Synchronisation-through-interaction">¶</a></h2><p><strong>Synchronisation occurs when interaction causes systems with their own internal dynamics to develop a stable timing relationship.</strong></p>
-<table class="compact-table">
-<thead><tr><th>Choreographed</th><th>Coincidental</th><th>Self-organised</th></tr></thead>
-<tbody><tr>
-<td>A shared plan prescribes the timing.</td>
-<td>Similar rhythms occur without interaction.</td>
-<td>Interaction adjusts the rhythms.</td>
-</tr></tbody>
-</table>
-<p>The stable relationship may be in phase, anti-phase or separated by another constant phase difference.</p>
 </div>
 </div>
 </div>
@@ -8811,13 +8557,13 @@ details.discussion-reveal .discussion-answer > :last-child {
 <h2 id="Not-all-synchrony-is-good">Not all synchrony is good<a class="anchor-link" href="#Not-all-synchrony-is-good">¶</a></h2><div class="two-panel wide-left compact-panels">
 <div class="image-panel">
 <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/y2FaOJxWqLE" style="display:block;width:100%;height:410px;margin:0 auto" title="The Millennium Bridge wobbling shortly after opening in June 2000"></iframe>
-<p class="figure-credit">Opening-day footage filmed in June 2000. <a href="https://www.youtube.com/watch?v=y2FaOJxWqLE">The Wibbly Wobbly Millennium Bridge in London</a>.</p>
 </div>
 <div class="text-panel">
 <p>Pedestrians responded to lateral bridge motion, and their response fed energy back into the bridge.</p>
 <p>The wobble did not require the whole crowd to march in step.</p>
 </div>
 </div>
+<p class="figure-credit">Opening-day footage filmed in June 2000. <a href="https://www.youtube.com/watch?v=y2FaOJxWqLE">The Wibbly Wobbly Millennium Bridge in London</a>.</p>
 </div>
 </div>
 </div>
@@ -8895,8 +8641,18 @@ details.discussion-reveal .discussion-answer > :last-child {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
-<h1 id="Model-details">Model details<a class="anchor-link" href="#Model-details">¶</a></h1><!-- phase-oscillator-definition -->
-<p>If a cycle repeats reliably and only timing matters, one angle is enough to record position within it.</p>
+<h1 id="Model-details">Model details<a class="anchor-link" href="#Model-details">¶</a></h1>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w6-one">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="A-phase-oscillator">A phase oscillator<a class="anchor-link" href="#A-phase-oscillator">¶</a></h2><p>If a cycle repeats reliably and only timing matters, one angle is enough to record position within it.</p>
 <p>A <strong>phase oscillator</strong> retains that angle and its rate of advance:</p>
 <p>$$
 \dot{\theta}=\omega,
@@ -8959,16 +8715,10 @@ $$</p>
 \qquad
 \dot{\theta}_2=\omega_2.
 $$</p>
-<div style="display:grid;grid-template-columns:0.9fr 1.1fr;gap:1.6rem;align-items:center">
-<img alt="Two phase oscillators on a circle" src="images/two_phase_oscillators.svg?v=20260826c" style="width:100%;max-height:285px"/>
-<div>
-<p>If oscillator 1 is <strong>behind</strong>, the coupling increases its rate.</p>
-<p>If oscillator 1 is <strong>ahead</strong>, the coupling decreases its rate.</p>
-<p>The correction is zero at alignment and repeats after a full cycle.</p>
-<p><i>K</i> controls how strongly the clocks can correct their mismatch.</p>
-</div>
-</div>
-<p>For a coupled pair, locking is possible when $|\Delta\omega|\leq K$. The population model asks how the same competition operates across a distribution of natural frequencies.</p>
+<p>$K$ controls the coupling strength.</p>
+<div class="discussion-marker"><img alt="Discussion prompt" src="images/discussion_marker.svg"/><span>Why might sine be a sensible first choice for the coupling?</span></div>
+<div class="discussion-marker"><img alt="Discussion prompt" src="images/discussion_marker.svg"/><span>What changes if the raw phase difference θ<sub>2</sub> − θ<sub>1</sub> is used instead of sin(θ<sub>2</sub> − θ<sub>1</sub>)?</span></div>
+<img alt="Coupled oscillators approaching a locked phase difference" src="images/phase_signals_coupled.svg?v=20260826" style="display:block;max-height:265px;max-width:92%;margin:0 auto"/>
 </div>
 </div>
 </div>
@@ -8979,21 +8729,46 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
-<h2 id="Compare-timing-relationships">Compare timing relationships<a class="anchor-link" href="#Compare-timing-relationships">¶</a></h2><table class="compact-table">
-<thead><tr><th>Behaviour</th><th>Phase difference</th><th>Long-time frequencies</th></tr></thead>
-<tbody>
-<tr><td><strong>In phase</strong></td><td>$0$</td><td>equal</td></tr>
-<tr><td><strong>Anti-phase</strong></td><td>$\pi$</td><td>equal</td></tr>
-<tr><td><strong>Phase locked</strong></td><td>constant</td><td>equal</td></tr>
-<tr><td><strong>Drifting</strong></td><td>changes continuously</td><td>unequal</td></tr>
-<tr><td><strong>Beats without interaction</strong></td><td>changes continuously</td><td>unequal</td></tr>
-</tbody>
-</table>
-<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.8rem;margin-top:0.5rem">
-<img alt="In-phase oscillators" src="images/synchronisation_types/in_phase.svg?v=20260826" style="width:100%;max-height:145px"/>
-<img alt="Anti-phase oscillators" src="images/synchronisation_types/anti_phase.svg?v=20260826" style="width:100%;max-height:145px"/>
-<img alt="Phase-locked oscillators" src="images/synchronisation_types/phase_locked.svg?v=20260826" style="width:100%;max-height:145px"/>
+<h2 id="Several-forms-of-synchronisation">Several forms of synchronisation<a class="anchor-link" href="#Several-forms-of-synchronisation">¶</a></h2><div style="display:grid;grid-template-columns:1fr 1fr;gap:0.7rem 1rem">
+<div class="two-panel equal-panels compact-panels"><div class="text-panel"><strong>In phase</strong><br/>Phase difference is 0 modulo $2\pi$.</div><div class="image-panel"><img alt="In-phase oscillators" src="images/synchronisation_types/in_phase.svg?v=20260826" style="max-height:150px"/></div></div>
+<div class="two-panel equal-panels compact-panels"><div class="text-panel"><strong>Anti-phase</strong><br/>Two oscillators remain half a cycle apart.</div><div class="image-panel"><img alt="Anti-phase oscillators" src="images/synchronisation_types/anti_phase.svg?v=20260826" style="max-height:150px"/></div></div>
+<div class="two-panel equal-panels compact-panels"><div class="text-panel"><strong>Phase locked</strong><br/>The phase difference remains constant.</div><div class="image-panel"><img alt="Phase-locked oscillators" src="images/synchronisation_types/phase_locked.svg?v=20260826" style="max-height:150px"/></div></div>
+<div class="two-panel equal-panels compact-panels"><div class="text-panel"><strong>Frequency entrained</strong><br/>Long-time average frequencies agree.</div><div class="image-panel"><img alt="Frequency-entrained oscillators" src="images/synchronisation_types/frequency_entrained.svg?v=20260826" style="max-height:150px"/></div></div>
 </div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=sync-types-collective-slide">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Collective-patterns-of-synchronisation">Collective patterns of synchronisation<a class="anchor-link" href="#Collective-patterns-of-synchronisation">¶</a></h2><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem">
+<div><p><strong>Two clusters:</strong> subsets lock internally.</p><img alt="Two synchronised clusters" src="images/synchronisation_types/two_clusters.svg?v=20260826" style="width:100%;max-height:230px"/></div>
+<div><p><strong>Partial synchrony:</strong> a locked group coexists with drifters.</p><img alt="Partial synchronisation" src="images/synchronisation_types/partial_synchrony.svg?v=20260826" style="width:100%;max-height:230px"/></div>
+<div><p><strong>Chimera state:</strong> coherent and incoherent subsets persist together.</p><img alt="Chimera-like state" src="images/synchronisation_types/chimera_like.svg?v=20260826" style="width:100%;max-height:230px"/></div>
+</div>
+<p><strong>Generalised synchronisation:</strong> states maintain a functional relationship without becoming equal.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w6-relative">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Reduce-to-phase-difference">Reduce to phase difference<a class="anchor-link" href="#Reduce-to-phase-difference">¶</a></h2><p>For two oscillators, subtracting the equations removes their shared rotation and retains only their separation.</p>
+<p>With $\phi=\theta_1-\theta_2$ and $\Delta\omega=\omega_1-\omega_2$,</p>
+<p>$$
+\dot\phi=\Delta\omega-K\sin\phi.
+$$</p>
+<p>A locked separation $\phi^*$ requires $\sin\phi^*=\Delta\omega/K$, so locking is possible only when $|\Delta\omega|\le K$.</p>
+<p>For the full population there are many relative phases, so no single $\phi$ closes the system. Later, the complex mean field provides a different reduction: every oscillator is compared with the population mean phase $\psi$.</p>
+<div class="ladder-marker"><img alt="Ladder of abstraction" src="images/ladder_marker.svg"/><span><strong>Up the ladder:</strong> replace two trajectories with one equation for their separation.</span></div>
 </div>
 </div>
 </div>
@@ -9113,24 +8888,6 @@ $$</p>
 </div>
 </div>
 </div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w6-relative">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
-<h1 id="Analysis">Analysis<a class="anchor-link" href="#Analysis">¶</a></h1><h2 id="Reduce-to-phase-difference">Reduce to phase difference<a class="anchor-link" href="#Reduce-to-phase-difference">¶</a></h2><p>For two oscillators, subtracting the equations removes their shared rotation and retains only their separation.</p>
-<p>With $\phi=\theta_1-\theta_2$ and $\Delta\omega=\omega_1-\omega_2$,</p>
-<p>$$
-\dot\phi=\Delta\omega-K\sin\phi.
-$$</p>
-<p>A locked separation $\phi^*$ requires $\sin\phi^*=\Delta\omega/K$, so locking is possible only when $|\Delta\omega|\le K$.</p>
-<p>For the full population there are many relative phases, so no single $\phi$ closes the system. Later, the complex mean field provides a different reduction: every oscillator is compared with the population mean phase $\psi$.</p>
-<div class="ladder-marker"><img alt="Ladder of abstraction" src="images/ladder_marker.svg"/><span><strong>Up the ladder:</strong> replace two trajectories with one equation for their separation.</span></div>
-</div>
-</div>
-</div>
 </div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w6-66a5febb56">
 <div class="jp-Cell-inputWrapper" tabindex="0">
@@ -9138,7 +8895,7 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
-<h2 id="Numerical-population-analysis">Numerical population analysis<a class="anchor-link" href="#Numerical-population-analysis">¶</a></h2>
+<h1 id="Analysis">Analysis<a class="anchor-link" href="#Analysis">¶</a></h1><h2 id="Numerical-experiments">Numerical experiments<a class="anchor-link" href="#Numerical-experiments">¶</a></h2>
 </div>
 </div>
 </div>
@@ -9268,8 +9025,7 @@ $$</p>
 <p>Increasing <i>N</i> reduces finite-population fluctuations and clarifies the onset of collective coherence.</p>
 </div>
 </div>
-<div class="ladder-marker"><img alt="Ladder of abstraction" src="images/ladder_marker.svg"/><span><strong>Up the ladder through three representations:</strong> individual phases become <i>r</i>(<i>t</i>); one run becomes <i>r</i><sub>∞</sub>; repeated runs at fixed (<i>K</i>, <i>N</i>) become an ensemble summary.</span></div>
-<p>The sweeps across <i>K</i> and <i>N</i> then explore how that ensemble-level representation changes; they are not additional rungs by themselves.</p>
+<div class="ladder-marker"><img alt="Ladder of abstraction" src="images/ladder_marker.svg"/><span><strong>Up the ladder through four representations:</strong> individual phases become <i>r</i>(<i>t</i>); one run becomes <i>r</i><sub>∞</sub>; repeated runs at fixed (<i>K</i>, <i>N</i>) become an ensemble summary; those summaries become response curves across <i>K</i> and <i>N</i>.</span></div>
 </div>
 </div>
 </div>
@@ -9280,7 +9036,7 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
-<h2 id="Finite-size-effects">Finite-size effects<a class="anchor-link" href="#Finite-size-effects">¶</a></h2><p><strong>Finite populations:</strong> sampled frequencies and initial phases differ between runs. The onset is noisy and rounded.</p>
+<h2 id="What-changes-with-$N$?">What changes with $N$?<a class="anchor-link" href="#What-changes-with-$N$?">¶</a></h2><p><strong>Finite populations:</strong> sampled frequencies and initial phases differ between runs. The onset is noisy and rounded.</p>
 <p><strong>Larger populations:</strong> the ensemble curve becomes more stable and the residual coherence below onset decreases.</p>
 <p>A numerical conclusion therefore depends on system size, simulation time and the number of repeats.</p>
 <div class="discussion-marker"><img alt="Discussion prompt" src="images/discussion_marker.svg"/><span>Which of these quantities would you hold fixed when comparing two coupling strengths?</span></div>
@@ -9329,12 +9085,14 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
-<h1 id="Analytical-benchmark">Analytical benchmark<a class="anchor-link" href="#Analytical-benchmark">¶</a></h1><p>The order parameter defines the collective field:</p>
+<h1 id="Analytical-mean-field-analysis">Analytical mean-field analysis<a class="anchor-link" href="#Analytical-mean-field-analysis">¶</a></h1><h2 id="What-the-analytical-result-adds">What the analytical result adds<a class="anchor-link" href="#What-the-analytical-result-adds">¶</a></h2><p>The numerical ensemble describes selected finite populations and observation times. The analytical calculation asks where coherence should begin in an idealised infinite, all-to-all population with a known frequency distribution.</p>
+<p>It can expose a mechanism and predict a critical coupling. It does not retain finite-population fluctuations, transient times, irregular networks, noise or a particular initial condition.</p>
+<p>First define the complex order parameter:</p>
 <p>$$
 r(t)e^{\mathrm{i}\psi(t)}=\dfrac{1}{N}\sum_{j=1}^{N}e^{\mathrm{i}\theta_j(t)}.
 $$</p>
-<p>Rewriting the all-to-all interaction through $r$ and $\psi$ is exact. Replacing the finite population by a continuous frequency density $g(\omega)$ gives a large-population prediction for the onset of coherence.</p>
-<p>The analytical result provides a benchmark for the numerical ensemble and shows how the onset depends on heterogeneity.</p>
+<p>This is a definition, not yet a mean-field approximation. It becomes an exact and useful reformulation of the all-to-all coupling when the sine sum is expressed through $r$ and $\psi$. The approximation enters later, when the finite sample is replaced by a continuum frequency distribution.</p>
+<div class="ladder-marker"><img alt="Ladder of abstraction" src="images/ladder_marker.svg"/><span><strong>Up the ladder:</strong> replace a finite frequency sample by a population density.</span></div>
 </div>
 </div>
 </div>
@@ -9359,19 +9117,62 @@ $$</p>
 </div>
 </div>
 </div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w6-dynamic-to-stationary-slide">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="From-evolving-phases-to-a-stationary-prediction">From evolving phases to a stationary prediction<a class="anchor-link" href="#From-evolving-phases-to-a-stationary-prediction">¶</a></h2><div class="two-panel wide-left compact-panels">
+<div class="image-panel"><img alt="Individual phase histories above the evolving coherence of the same population" src="images/kuramoto_phase_trajectories_coherence.svg?v=20260826" style="max-height:410px"/></div>
+<div class="text-panel">
+<p><i>r</i>(<i>t</i>) remains time dependent in a finite simulation.</p>
+<p>The onset calculation asks whether the long-time value <i>r</i><sub>∞</sub> can remain greater than zero.</p>
+<p>The sampled natural frequencies are then replaced by their population density <i>g</i>(<i>ω</i>).</p>
+</div>
+</div>
+<div class="ladder-marker"><img alt="Ladder of abstraction" src="images/ladder_marker.svg"/><span><strong>Up the ladder:</strong> replace evolving individual histories by a long-time collective state.</span></div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w6-onset-result-slide">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Heterogeneity-sets-the-onset">Heterogeneity sets the onset<a class="anchor-link" href="#Heterogeneity-sets-the-onset">¶</a></h2><p>Move with the collective rotation at rate $\Omega$ and define</p>
+<p>$$
+\nu=\omega-\Omega,
+\qquad
+h(\nu)=g(\Omega+\nu).
+$$</p>
+<p>Here $h(0)$ is the height of the natural-frequency density at its centre. The onset of coherence is</p>
+<p>$$
+K_c=\frac{2}{\pi h(0)}.
+$$</p>
+<p>The self-consistency equation has two branches:</p>
+<p>$$
+r_\infty=0 \quad (K\le K_c),
+$$</p>
+<p>while for $K&gt;K_c$, $r_\infty$ is the positive solution. The derivation is reader-only and not assessable.</p>
+</div>
+</div>
+</div>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w6-ensemble">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
-<h2 id="Predicted-onset-and-finite-simulations">Predicted onset and finite simulations<a class="anchor-link" href="#Predicted-onset-and-finite-simulations">¶</a></h2><div class="two-panel wide-left compact-panels">
+<h2 id="Compare-analytical-and-numerical-results">Compare analytical and numerical results<a class="anchor-link" href="#Compare-analytical-and-numerical-results">¶</a></h2><div class="two-panel wide-left compact-panels">
 <div class="image-panel"><img alt="Large-population Kuramoto prediction compared with a finite numerical ensemble" src="images/kuramoto_meanfield_comparison.svg"/></div>
 <div class="text-panel">
-<p>For a symmetric frequency density centred at zero,</p>
-<p style="font-size:1.25em;text-align:center">$K_c=2/[\pi g(0)]$.</p>
-<p>The orange curve is the continuum prediction. The grey curve is a direct numerical ensemble with $N=600$.</p>
-<p>Finite populations round and fluctuate around the idealised onset.</p>
+<p>The grey curve is a direct numerical ensemble with <i>N</i> = 600.</p>
+<p>The orange curve is the continuum, large-population prediction in the co-rotating frame; it is equivalent to the shifted Gaussian used in the laboratory-frame simulation.</p>
+<p>Here <i>g</i>(0) is the height of the frequency-density curve at its centre. The dashed line marks <i>K</i><sub>c</sub> = 2/[π<i>g</i>(0)].</p>
 </div>
 </div>
 </div>
@@ -9384,37 +9185,40 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
-<h1 id="Selected-extensions">Selected extensions<a class="anchor-link" href="#Selected-extensions">¶</a></h1><table>
-<thead>
-<tr>
-<th>Change</th>
-<th>Question it opens</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>interaction network</td>
-<td>Who can influence whom?</td>
-</tr>
-<tr>
-<td>independent noise</td>
-<td>How robust is collective timing?</td>
-</tr>
-<tr>
-<td>coupling strengths</td>
-<td>What if responsiveness varies?</td>
-</tr>
-<tr>
-<td>oscillator order</td>
-<td>What changes when velocity has its own dynamics?</td>
-</tr>
-<tr>
-<td>physical position</td>
-<td>What if motion and phase affect each other?</td>
-</tr>
-</tbody>
-</table>
-<p>Each extension changes one modelling assumption and creates a possible project direction.</p>
+<h1 id="Model-variants">Model variants<a class="anchor-link" href="#Model-variants">¶</a></h1><p>Change one assumption at a time.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w6-independent-noise-slide">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Independent-phase-noise">Independent phase noise<a class="anchor-link" href="#Independent-phase-noise">¶</a></h2><p>$$
+d\theta_i
+=\left[\omega_i+\frac{K}{N}\sum_{j=1}^{N}\sin(\theta_j-\theta_i)\right]dt
++\sqrt{2D}\,dW_i.
+$$</p>
+<div class="two-panel wide-left compact-panels">
+<div class="image-panel"><img alt="Matched simulations comparing Kuramoto coherence and time to synchrony under three independent phase-noise intensities" src="images/kuramoto_independent_noise.svg" style="max-height:470px"/></div>
+<div class="text-panel"><p><i>D</i> controls independent clock noise.</p><p>At fixed <i>K</i>, more noise usually lowers sustained coherence and delays a sustained threshold crossing.</p><p>The first panel is a mean trajectory; the crossing time is calculated for each run separately, then summarised by its median and interquartile range.</p><p>Vicsek-style noise adds an error once per discrete update; Wiener noise represents continuous buffeting and scales with √Δ<i>t</i>.</p><p>Wiener processes and stochastic calculus are context only; they are not assessable here.</p></div>
+</div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w6-coupling-heterogeneity-slide">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Heterogeneous-coupling-strength">Heterogeneous coupling strength<a class="anchor-link" href="#Heterogeneous-coupling-strength">¶</a></h2><div class="two-panel wide-left compact-panels">
+<div class="image-panel"><img alt="Numerical simulation of oscillator groups with different coupling strengths" src="images/kuramoto_coupling_heterogeneity.svg" style="max-height:430px"/></div>
+<div class="text-panel"><p><strong>One deterministic numerical run:</strong> 160 oscillators are divided into four groups of 40. All have the same natural frequency; only <i>K</i><sub>i</sub> differs.</p><p>Each line is the group mean of the wrapped angular distance from the current population phase <i>ψ</i>(<i>t</i>). It is not an analytic curve or an average over repeated runs.</p><p>The curves are smooth because the model contains no noise and averaging over 40 oscillators suppresses variation between individuals.</p></div>
+</div>
 </div>
 </div>
 </div>
@@ -9425,10 +9229,61 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
-<h2 id="Networks-can-change-too">Networks can change too<a class="anchor-link" href="#Networks-can-change-too">¶</a></h2><p><strong>Dynamics on a network:</strong> oscillator phases change while the edges stay fixed.  Kuramoto oscillators on a prescribed graph are the example here.</p>
-<p><strong>Dynamics of a network:</strong> the network itself changes, as in a growing preferential-attachment network.</p>
-<p><strong>Adaptive network:</strong> states and edges change together.  Behaviour can alter epidemic contacts while infection risk alters behaviour.</p>
-<p>These are different model classes.  Replacing all-to-all coupling by a fixed graph is the first, simplest extension.</p>
+<h2 id="Networks:-fixed,-changing-or-adaptive">Networks: fixed, changing or adaptive<a class="anchor-link" href="#Networks:-fixed,-changing-or-adaptive">¶</a></h2><div class="analysis-perspectives three">
+<div><strong>Dynamics on a network</strong><p>Node states evolve on a fixed graph. Network Kuramoto models and epidemics on a fixed contact graph are examples.</p></div>
+<div><strong>Dynamics of a network</strong><p>The graph itself grows or changes. Preferential attachment in the Barabási–Albert model is a standard example.</p></div>
+<div><strong>Adaptive network</strong><p>Node states and edges affect one another. Adaptive Kuramoto and behaviour-changing epidemic models have this form.</p></div>
+</div>
+<p>Standard Kuramoto is all-to-all. A fixed-network Kuramoto model is dynamics <strong>on</strong> a network; rewiring based on phase similarity makes it adaptive.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w6-second-order-kuramoto-slide">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Second-order-Kuramoto-model">Second-order Kuramoto model<a class="anchor-link" href="#Second-order-Kuramoto-model">¶</a></h2><p>The canonical model specifies phase velocity directly:</p>
+<p>$$
+\dot\theta_i=\omega_i+\text{coupling}.
+$$</p>
+<p>Adding inertia gives angular velocity its own dynamics:</p>
+<p>$$
+m_i\ddot\theta_i+d_i\dot\theta_i
+=\omega_i+\frac{K}{N}\sum_j\sin(\theta_j-\theta_i).
+$$</p>
+<p>This is a reader extension. It changes the equation order; it does not, by itself, define the order of the collective transition.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w6-spatial-fireflies-slide">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h1 id="Return-to-the-real-systems">Return to the real systems<a class="anchor-link" href="#Return-to-the-real-systems">¶</a></h1><h2 id="Return-to-fireflies:-restore-physical-space">Return to fireflies: restore physical space<a class="anchor-link" href="#Return-to-fireflies:-restore-physical-space">¶</a></h2><p>The Kuramoto phase circle is not a physical map.</p>
+<table class="compact-table">
+<tbody>
+<tr><th>Kuramoto</th><td>phase only; all-to-all coupling</td></tr>
+<tr><th>Spin Wheels</th><td>fixed positions; local spatial coupling</td></tr>
+<tr><th>Swarmalators</th><td>positions and phases both evolve</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w6-spin-wheels-slide">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Fixed-positions:-Spin-Wheels">Fixed positions: Spin Wheels<a class="anchor-link" href="#Fixed-positions:-Spin-Wheels">¶</a></h2><iframe src="https://www.complexity-explorables.org/explorables/spin-wheels/" style="display:block;width:100%;height:535px;border:1px solid #C7CEDC;margin:0 auto;" title="Spin Wheels explorable"></iframe>
 </div>
 </div>
 </div>
@@ -9439,28 +9294,20 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
-<h2 id="Spatial-extension-%C2%B7-swarmalators">Spatial extension · swarmalators<a class="anchor-link" href="#Spatial-extension-%C2%B7-swarmalators">¶</a></h2><iframe allowfullscreen="" src="https://www.complexity-explorables.org/explorables/swarmalators/" style="display:block;width:100%;height:470px;border:1px solid #C7CEDC;margin:0 auto;" title="Swårmalätørs explorable"></iframe>
-<p>Each individual now has a phase and a physical position. Phase affects motion while changing neighbours alter phase coupling.</p>
+<h2 id="Moving-positions:-swarmalators">Moving positions: swarmalators<a class="anchor-link" href="#Moving-positions:-swarmalators">¶</a></h2><iframe allowfullscreen="" src="https://www.complexity-explorables.org/explorables/swarmalators/" style="display:block;width:100%;height:535px;border:1px solid #C7CEDC;margin:0 auto;" title="Swårmalätørs explorable"></iframe>
 </div>
 </div>
 </div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w6-synthesis-slide">
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w6-drone-shows-slide">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
-<h1 id="Synchronisation-%C2%B7-synthesis">Synchronisation · synthesis<a class="anchor-link" href="#Synchronisation-%C2%B7-synthesis">¶</a></h1><ul>
-<li>Each oscillator has <strong>intrinsic dynamics</strong> even in isolation.</li>
-<li>A distribution of natural frequencies creates <strong>heterogeneity</strong>.</li>
-<li>Coupling competes with that heterogeneity.</li>
-<li>Individual oscillators may lock to the group or continue to drift.</li>
-<li>The order parameter $r(t)$ compresses the population's phase organisation.</li>
-<li>Repeated simulations reveal the collective transition and its finite-size variation.</li>
-<li>The large-population calculation predicts how the onset depends on $g(\omega)$.</li>
-</ul>
-<p><strong>Canonical question:</strong> When can interaction overcome differences between individual clocks and produce a stable collective rhythm?</p>
+<h2 id="Drone-shows:-choreography-or-swarm?">Drone shows: choreography or swarm?<a class="anchor-link" href="#Drone-shows:-choreography-or-swarm?">¶</a></h2><p>Most drone shows are closer to synchronised swimming than to swarmalators. The images and timed trajectories are designed in advance; onboard controllers track those paths while a ground system monitors the fleet.</p>
+<p>A more adaptive show could retain the choreography at the group level while allowing local autonomy to avoid collisions, reorganise safely and respond to an audience signal. Gesture-controlled swarm light painting has already demonstrated real-time human input. Fully emergent motion is possible, but it gives up some of the exact repeatability expected of a public performance.</p>
+<div class="reference-line">Huang et al. (2021), <a href="https://doi.org/10.3390/app11167687">UAV light-show systems</a>; Serpiva et al. (2021), <a href="https://doi.org/10.1145/3450550.3465349">DronePaint</a>; Balázs et al. (2024), <a href="https://doi.org/10.1007/s11721-024-00241-y">decentralised drone traffic</a>.</div>
 </div>
 </div>
 </div>

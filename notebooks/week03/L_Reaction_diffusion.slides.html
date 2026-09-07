@@ -5,7 +5,7 @@
 <meta content="chrome=1" http-equiv="X-UA-Compatible"/>
 <meta content="yes" name="apple-mobile-web-app-capable"/>
 <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
-<title>.L_Reaction_diffusion.fresh.3234 slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
+<title>L_Reaction_diffusion slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
   import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script>
@@ -7565,14 +7565,8 @@ main {
 .jp-MarkdownOutput .myst-dropdown-header-title {
   font-family: Baskerville, Georgia, serif;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0;
-}
-
-.jp-MarkdownOutput .myst-dropdown-body {
-  padding: 0.15rem 0.2rem 0.7rem !important;
-  background: transparent !important;
-  font-family: Baskerville, Georgia, serif;
 }
 
 .reader-prompt-footnote {
@@ -7974,115 +7968,6 @@ details.reader-answer > div {
   padding: 0 1rem 0.9rem;
 }
 
-details.discussion-reveal {
-  margin: 0.7rem 0 1.2rem;
-  overflow: hidden;
-  border: 1px solid #c7cedc;
-  border-left: 5px solid #edcc55;
-  border-radius: 0.32rem;
-  background: #fff;
-  color: var(--reader-ink, #1b2a4c);
-}
-
-details.discussion-reveal summary {
-  position: relative;
-  display: block;
-  padding: 0.72rem 0.9rem;
-  cursor: pointer;
-  list-style: none;
-  background: #fffaf0;
-}
-
-details.discussion-reveal summary::-webkit-details-marker {
-  display: none;
-}
-
-details.discussion-reveal summary > .myst-dropdown-header-title {
-  display: grid;
-  grid-template-columns: 2.5rem minmax(0, 1fr) 1.2rem;
-  gap: 0.7rem;
-  align-items: center;
-  width: 100%;
-}
-
-details.discussion-reveal summary > .myst-dropdown-header-title > img {
-  grid-column: 1;
-  grid-row: 1;
-  width: 2.35rem !important;
-  height: 2.35rem !important;
-  margin: 0 !important;
-}
-
-details.discussion-reveal summary > .myst-dropdown-header-title > .discussion-reveal-heading {
-  grid-column: 2;
-  grid-row: 1;
-}
-
-details.discussion-reveal summary > .myst-dropdown-header-title > span:has(.myst-dropdown-header-icon) {
-  grid-column: 3;
-  grid-row: 1;
-  justify-self: end;
-  float: none !important;
-  margin: 0 !important;
-}
-
-.discussion-reveal-heading {
-  display: block;
-  min-width: 0;
-}
-
-.discussion-reveal-label {
-  display: none;
-}
-
-.discussion-reveal-question {
-  display: block;
-  color: var(--reader-ink, #1b2a4c);
-  font-family: Baskerville, Georgia, serif;
-  font-size: 1.12rem;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 1.3;
-}
-
-details.discussion-reveal .discussion-answer {
-  padding: 0.75rem 1rem 0.9rem 4.3rem;
-  border-top: 1px solid #e2e6ed;
-  background: #fff;
-}
-
-details.discussion-reveal .discussion-answer > :first-child {
-  margin-top: 0;
-}
-
-details.discussion-reveal .discussion-answer > :last-child {
-  margin-bottom: 0;
-}
-
-.dark details.discussion-reveal {
-  border-color: #58647a;
-  border-left-color: #edcc55;
-  background: #202633;
-}
-
-.dark details.discussion-reveal summary {
-  background: #2b291e;
-}
-
-.dark .discussion-reveal-label,
-.dark details.discussion-reveal summary::after {
-  color: #c7cfdd;
-}
-
-.dark .discussion-reveal-question {
-  color: #eef2f8;
-}
-
-.dark details.discussion-reveal .discussion-answer {
-  border-top-color: #46536a;
-  background: #202633;
-}
-
 .discussion-prompt { border-left-color: #EDCC55; }
 
 .qa-grid { margin-top: 0.55em; }
@@ -8196,7 +8081,7 @@ details.discussion-reveal .discussion-answer > :last-child {
   margin: 0;
 }
 
-.jp-MarkdownOutput table {
+.jp-MarkdownOutput table.standard-table {
   width: 100%;
   border-collapse: collapse;
   font-family: Baskerville, Georgia, serif;
@@ -8247,36 +8132,6 @@ details.discussion-reveal .discussion-answer > :last-child {
   height: auto;
   margin: 0 auto;
   object-fit: contain;
-}
-
-.reveal .slides .ant-behaviour-gallery {
-  gap: 0.48em;
-}
-
-.reveal .slides .ant-behaviour-gallery .image-panel {
-  display: grid;
-  grid-template-rows: 285px auto;
-  align-content: start;
-  overflow: hidden;
-  border: 1px solid #d5dce8;
-  border-radius: 0.18em;
-  background: #f7f9fc;
-}
-
-.reveal .slides .ant-behaviour-gallery .image-panel img {
-  width: 100%;
-  height: 285px;
-  max-height: none;
-  object-fit: cover;
-}
-
-.reveal .slides .ant-behaviour-gallery .image-panel p {
-  margin: 0;
-  padding: 0.38em 0.48em 0.44em;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.59em;
-  line-height: 1.24;
-  text-align: left;
 }
 
 .reveal .slides .model-specification > div {
@@ -8444,51 +8299,6 @@ details.discussion-reveal .discussion-answer > :last-child {
   color: #f7f1df;
 }
 
-.guiding-question {
-  box-sizing: border-box;
-  width: min(92%, 58rem);
-  margin: 0.8rem 0 0;
-  padding: 0.68rem 0.9rem 0.72rem;
-  border: 1px solid #c7d2e2;
-  border-top: 4px solid #6d83a9;
-  border-radius: 0.25rem;
-  background: #f7f9fc;
-  color: #1b2a4c;
-  text-align: left;
-}
-
-.guiding-question span {
-  display: block;
-  margin-bottom: 0.22rem;
-  color: #5a6685;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.44em;
-  font-weight: 700;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-}
-
-.guiding-question p {
-  margin: 0;
-  color: inherit;
-  font-family: Baskerville, Georgia, serif;
-  font-size: 0.76em;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 1.25;
-}
-
-.dark .guiding-question {
-  border-color: #586983;
-  border-top-color: #92a6c8;
-  background: #222936;
-  color: #eef2f8;
-}
-
-.dark .guiding-question span {
-  color: #b7c3d7;
-}
-
 .jp-OutputArea-child:has(iframe) .jp-OutputPrompt,
 .jp-Cell-outputWrapper:has(iframe) .jp-OutputCollapser {
   display: none;
@@ -8554,47 +8364,6 @@ details.discussion-reveal .discussion-answer > :last-child {
   color: var(--reader-ink);
   text-decoration-thickness: 1px;
   text-underline-offset: 0.12em;
-}
-
-/* A quieter quotation treatment for projected slides. */
-.reveal .slides section .slide-quote {
-  display: block;
-  width: min(86%, 860px);
-  margin: 1.35em auto;
-  padding: 0 0 0 0.8em;
-  border: 0;
-  border-left: 4px solid #D69E1E;
-  color: var(--reader-ink);
-  text-align: left;
-}
-
-.reveal .slides section .slide-quote::before {
-  display: none;
-  content: none;
-}
-
-.reveal .slides section .slide-quote .reader-voice-quote {
-  display: block;
-  font-family: Baskerville, Georgia, serif;
-  font-size: 0.82em;
-  font-style: italic;
-  line-height: 1.45;
-}
-
-.reveal .slides section .slide-quote .reader-voice-quote::after {
-  content: none;
-}
-
-.reveal .slides section .slide-quote .reader-voice-attr {
-  display: block;
-  margin: 0.9em 0 0;
-  padding: 0;
-  border: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.55em;
-  font-style: normal;
-  letter-spacing: 0;
-  color: var(--reader-ink-soft);
 }
 
 /* Notebook anchor glyphs are useful in the Reader but are visual noise in a
@@ -8745,9 +8514,8 @@ details.discussion-reveal .discussion-answer > :last-child {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Reaction%E2%80%93diffusion-systems">Reaction–diffusion systems<a class="anchor-link" href="#Reaction%E2%80%93diffusion-systems">¶</a></h1><div class="canonical-model-marker"><span>Canonical model</span><strong>Gray–Scott reaction–diffusion<br/><small>Supporting model: random-walk diffusion</small></strong></div>
+<h1 id="Reaction%E2%80%93diffusion-systems">Reaction–diffusion systems<a class="anchor-link" href="#Reaction%E2%80%93diffusion-systems">¶</a></h1><h2 id="MATH3024-%C2%B7-Week-3">MATH3024 · Week 3<a class="anchor-link" href="#MATH3024-%C2%B7-Week-3">¶</a></h2><div class="canonical-model-marker"><span>Canonical model</span><strong>Gray–Scott reaction–diffusion<br/><small>Supporting model: random-walk diffusion</small></strong></div>
 <div class="modelling-practice-marker"><span>Modelling practice</span><strong>Choosing discrete and continuous representations</strong></div>
-<p class="week-emphasis"><strong>This week’s emphasis:</strong> This week concentrates on how a continuous model becomes a computable approximation without silently becoming a different model.<br/><span class="toolkit-addition"><strong>Added to the toolkit:</strong> Continuous fields, local reaction and spatial transport; differential equations are translated into grid updates without confusing the numerical representation with the model itself.</span></p>
 </div>
 </div>
 </div>
@@ -8794,8 +8562,7 @@ details.discussion-reveal .discussion-answer > :last-child {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p><strong>Related mechanisms, different patterns.</strong></p>
-<div class="analysis-perspectives three coat-cards">
+<h2 id="Related-mechanisms,-different-patterns">Related mechanisms, different patterns<a class="anchor-link" href="#Related-mechanisms,-different-patterns">¶</a></h2><div class="analysis-perspectives three coat-cards">
 <div><div class="coat-image-frame"><img alt="Cheetah coat" src="images/cheetah_coat_card.jpg"/></div><strong>Cheetah</strong><p>Small spots</p></div>
 <div><div class="coat-image-frame"><img alt="Leopard coat" src="images/leopard_coat_card_cropped.jpg"/></div><strong>Leopard</strong><p>Rosettes</p></div>
 <div><div class="coat-image-frame"><img alt="Jaguar coat" src="images/jaguar_coat_card.jpg"/></div><strong>Jaguar</strong><p>Rosettes with central spots</p></div>
@@ -8811,8 +8578,7 @@ details.discussion-reveal .discussion-answer > :last-child {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p><strong>Similar patterns, different mechanisms.</strong></p>
-<div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1rem;align-items:start;">
+<h2 id="Similar-patterns,-different-mechanisms">Similar patterns, different mechanisms<a class="anchor-link" href="#Similar-patterns,-different-mechanisms">¶</a></h2><div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1rem;align-items:start;">
 <div class="image-panel" style="padding:0.8rem;">
 <img alt="Parallel ridges in wind-blown sand" src="images/sand_ridges_only.png" style="display:block;width:100%;height:220px;object-fit:cover;margin:0;"/>
 <p style="margin:0.65rem 0 0.2rem;"><strong>Sand ridges</strong></p>
@@ -8828,7 +8594,27 @@ details.discussion-reveal .discussion-answer > :last-child {
 </div>
 </div>
 </div>
-</div></section><section>
+</div><aside class="notes">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a12c591e-c2e1-47b1-8a3b-db4b09a5415b">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_remove-cell celltag_presenter-notes" data-mime-type="text/markdown">
+<div style="background-color: #ffff88; padding: 1em; border-left: 5px solid #fff102;">
+The cortex (outer layer) grows faster than the underlying white matter (core).
+This mismatch in growth creates compressive stresses in the cortex.
+Once the stress exceeds a threshold, the cortex undergoes a mechanical buckling instability, resulting in folds.
+
+<p>Increases surface area for neurons without increasing brain volume.
+Enables more complex circuitry and higher cognitive function in a constrained space.</p>
+<p>The same thing happens with skin wrinkling when in water: Outer layer swells and buckles due to moisture, forming folds. Or with some plant leaves or petals	as differential growth rates in tissues cause wavy or ruffled edges</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</aside></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=week03-alan-mathison-turing">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8849,7 +8635,7 @@ details.discussion-reveal .discussion-answer > :last-child {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="Turing%E2%80%99s-question">Turing’s question<a class="anchor-link" href="#Turing%E2%80%99s-question">¶</a></h2><h3 id="Emergence-of-form">Emergence of form<a class="anchor-link" href="#Emergence-of-form">¶</a></h3><p>An embryo can begin close to uniform, yet organised spatial differences appear.</p>
+<h2 id="Turing%E2%80%99s-question">Turing’s question<a class="anchor-link" href="#Turing%E2%80%99s-question">¶</a></h2><h3 id="How-does-form-emerge?">How does form emerge?<a class="anchor-link" href="#How-does-form-emerge?">¶</a></h3><p>An embryo can begin close to uniform, yet organised spatial differences appear.</p>
 <p>Could local processes create that structure without a pre-drawn template?</p>
 </div>
 </div>
@@ -8864,7 +8650,6 @@ details.discussion-reveal .discussion-answer > :last-child {
 <h3 id="A-model-is-a-deliberate-simplification">A model is a deliberate simplification<a class="anchor-link" href="#A-model-is-a-deliberate-simplification">¶</a></h3><img alt="Turing describes the embryo model as a simplification and idealisation" src="images/Turing_1952_quote.png" style="display:block;width:86%;max-height:205px;object-fit:contain;margin:0.5rem auto 0.8rem;"/>
 <p>Turing begins by stating what the model will leave out. The question is whether the retained features capture the mechanism that matters.</p>
 <p class="figure-reference">Excerpt from A. M. Turing, <a href="https://doi.org/10.1098/rstb.1952.0012">“The Chemical Basis of Morphogenesis”</a>, <em>Philosophical Transactions of the Royal Society B</em> 237 (1952), 37–72.</p>
-<div class="optional-reader-flag"><strong>Optional · model reduction</strong> The FitzHugh--Nagumo model shows how a detailed biological model can be reduced to expose a mechanism: fast excitation coupled to slower recovery. Adding diffusion then produces waves in excitable media. This is useful as an example of deliberate simplification; the FitzHugh--Nagumo equations are not assessable here. See <a href="https://doi.org/10.1016/S0006-3495(61)86902-6">FitzHugh (1961)</a> and <a href="https://doi.org/10.1109/JRPROC.1962.288235">Nagumo, Arimoto and Yoshizawa (1962)</a>.</div>
 </div>
 </div>
 </div>
@@ -8906,7 +8691,7 @@ details.discussion-reveal .discussion-answer > :last-child {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h3 id="Diffusion-driven-instability">Diffusion-driven instability<a class="anchor-link" href="#Diffusion-driven-instability">¶</a></h3><p>Diffusion destabilises a spatially uniform state that was stable to uniform perturbations. Here <strong>instability</strong> has a precise meaning: a small spatial perturbation grows. Chaos and complexity are separate properties that require their own definitions and evidence.</p>
+<h3 id="Diffusion-driven-instability">Diffusion-driven instability<a class="anchor-link" href="#Diffusion-driven-instability">¶</a></h3><p>Diffusion destabilises a spatially uniform state that was stable to uniform perturbations.</p>
 <div class="definition-panel"><strong>Turing pattern:</strong> the stationary spatial pattern left when the growing variation saturates.</div>
 <div class="discussion-prompt"><span aria-hidden="true" class="discussion-icon"></span><div><strong>Diffusion normally smooths differences. How could it instead help a pattern grow?</strong></div></div>
 </div>
@@ -8946,7 +8731,6 @@ details.discussion-reveal .discussion-answer > :last-child {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
 <h2 id="Understanding-diffusion">Understanding diffusion<a class="anchor-link" href="#Understanding-diffusion">¶</a></h2><h2 id="Random-walk:-a-discrete-model">Random walk: a discrete model<a class="anchor-link" href="#Random-walk:-a-discrete-model">¶</a></h2><img alt="Unbiased, biased and persistent random walks, each shown with 45 unit-length steps on the same spatial scale" src="images/random_walk_types_stats.svg" style="display:block;width:94%;max-height:390px;object-fit:contain;margin:0 auto;"/>
-<p class="figure-caption" id="fig-w3-1"><strong>Figure 3.1.</strong> Individual and ensemble summaries of random walks.</p>
 </div>
 </div>
 </div>
@@ -8957,10 +8741,8 @@ details.discussion-reveal .discussion-answer > :last-child {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p><strong>Brownian motion: the physical phenomenon.</strong></p>
-<div class="two-panel equal-panels compact-panels">
-<div class="image-panel"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" height="275" src="https://www.youtube.com/embed/ZNzoTGv_XiQ" title="Microscope recordings of Brownian motion" width="100%"></iframe>
-<p class="media-credit">Video: <a href="https://www.youtube.com/watch?v=ZNzoTGv_XiQ" rel="noopener" target="_blank">Microscope recording of Brownian motion</a>.</p></div>
+<h3 id="Brownian-motion:-the-physical-phenomenon">Brownian motion: the physical phenomenon<a class="anchor-link" href="#Brownian-motion:-the-physical-phenomenon">¶</a></h3><div class="two-panel equal-panels compact-panels">
+<div class="image-panel"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" height="275" src="https://www.youtube.com/embed/ZNzoTGv_XiQ" title="Microscope recordings of Brownian motion" width="100%"></iframe></div>
 <div class="text-panel">
 <p>Brownian motion is the continuous-time limit of many small random steps.</p>
 <p>Individual paths remain irregular; ensembles reveal the diffusion law.</p>
@@ -8976,11 +8758,9 @@ details.discussion-reveal .discussion-answer > :last-child {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p><strong>One path: distance from the origin.</strong></p>
-<img alt="Two Brownian trajectories beginning at a shared point and their distances from the origin compared with square-root reference curves" src="images/brownian_distance_sqrt.svg" style="display:block;width:80%;max-height:385px;object-fit:contain;margin:0 auto;"/>
-<p>The two examples use $D=0.10$ and $D=0.35$. The diffusion coefficient $D$ sets the variance accumulated per unit time: over an interval $\Delta t$, each coordinate increment has variance $2D\Delta t$. A discrete implementation calibrates its step size and number of steps to produce the chosen $D$.</p>
+<h3 id="One-path:-distance-from-the-origin">One path: distance from the origin<a class="anchor-link" href="#One-path:-distance-from-the-origin">¶</a></h3><img alt="Two Brownian trajectories beginning at a shared point and their distances from the origin compared with square-root reference curves" src="images/brownian_distance_sqrt.svg" style="display:block;width:80%;max-height:385px;object-fit:contain;margin:0 auto;"/>
+<p>The two examples use $D=0.10$ and $D=0.35$. The diffusion coefficient $D$ sets the variance accumulated per unit time: over an interval $\Delta t$, each coordinate increment has variance $2D\Delta t$. It is not simply the step size or the number of steps, although either can be calibrated to produce a chosen $D$ in a discrete implementation.</p>
 <div class="ladder-marker"><img alt="" src="images/ladder_marker.svg"/><span><strong>Stay low:</strong> one path is irregular; its typical distance from the start has a square-root scale.</span></div>
-<p class="figure-caption" id="fig-w3-2"><strong>Figure 3.2.</strong> Distance from the origin along two Brownian paths with diffusion coefficients <i>D</i> = 0.10 and 0.35.</p>
 </div>
 </div>
 </div>
@@ -8991,10 +8771,8 @@ details.discussion-reveal .discussion-answer > :last-child {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p><strong>From one path to an ensemble.</strong></p>
-<img alt="Individual squared displacements, their ensemble mean at D equals 0.25, and the theoretical diffusion law" src="images/brownian_ensemble_msd.svg" style="display:block;width:68%;max-height:325px;object-fit:contain;margin:0 auto;"/>
+<h3 id="From-one-path-to-an-ensemble">From one path to an ensemble<a class="anchor-link" href="#From-one-path-to-an-ensemble">¶</a></h3><img alt="Individual squared displacements, their ensemble mean at D equals 0.25, and the theoretical diffusion law" src="images/brownian_ensemble_msd.svg" style="display:block;width:68%;max-height:325px;object-fit:contain;margin:0 auto;"/>
 <div class="ladder-marker"><img alt="" src="images/ladder_marker.svg"/><span><strong>Up the ladder over walkers:</strong> replace individual squared displacements by the ensemble MSD; in two dimensions it approaches 4<i>Dt</i>.</span></div>
-<p class="figure-caption" id="fig-w3-3"><strong>Figure 3.3.</strong> Mean-squared displacement across an ensemble of Brownian walkers.</p>
 </div>
 </div>
 </div>
@@ -9005,10 +8783,8 @@ details.discussion-reveal .discussion-answer > :last-child {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p><strong>Sweep the diffusion coefficient.</strong></p>
-<img alt="Ensemble mean-square displacement for six diffusion coefficients, including D equals 0.25" src="images/brownian_diffusion_sweep.svg" style="display:block;width:80%;max-height:420px;object-fit:contain;margin:0 auto;"/>
-<p><strong>Parameter exploration:</strong> compare the same ensemble summary across values of $D$; this explores a representation already chosen rather than moving to a new rung.</p>
-<p class="figure-caption" id="fig-w3-4"><strong>Figure 3.4.</strong> Mean-squared displacement across diffusion coefficients.</p>
+<h3 id="Sweep-the-diffusion-coefficient">Sweep the diffusion coefficient<a class="anchor-link" href="#Sweep-the-diffusion-coefficient">¶</a></h3><img alt="Ensemble mean-square displacement for six diffusion coefficients, including D equals 0.25" src="images/brownian_diffusion_sweep.svg" style="display:block;width:80%;max-height:420px;object-fit:contain;margin:0 auto;"/>
+<div class="ladder-marker"><img alt="" src="images/ladder_marker.svg"/><span><strong>Up the ladder over a parameter:</strong> compare ensembles across values of <i>D</i>.</span></div>
 </div>
 </div>
 </div>
@@ -9019,10 +8795,8 @@ details.discussion-reveal .discussion-answer > :last-child {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p><strong>Compress each ensemble trajectory.</strong></p>
-<img alt="Fitted mean-square-displacement slope against diffusion coefficient, including D equals 0.25" src="images/brownian_slope_vs_D.svg" style="display:block;width:68%;max-height:400px;object-fit:contain;margin:0 auto;"/>
+<h3 id="Compress-each-ensemble-trajectory">Compress each ensemble trajectory<a class="anchor-link" href="#Compress-each-ensemble-trajectory">¶</a></h3><img alt="Fitted mean-square-displacement slope against diffusion coefficient, including D equals 0.25" src="images/brownian_slope_vs_D.svg" style="display:block;width:68%;max-height:400px;object-fit:contain;margin:0 auto;"/>
 <div class="ladder-marker"><img alt="" src="images/ladder_marker.svg"/><span><strong>Up again:</strong> replace each ensemble curve by its fitted slope and test slope = 4<i>D</i>.</span></div>
-<p class="figure-caption" id="fig-w3-5"><strong>Figure 3.5.</strong> Fitted mean-squared-displacement slope against diffusion coefficient.</p>
 </div>
 </div>
 </div>
@@ -9116,7 +8890,36 @@ $$</p>
 </div>
 </div>
 </div>
-</div></section><section>
+</div><aside class="notes">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8d24112f-90ca-4f2e-b3d6-26a6612e7d5f">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_remove-cell celltag_presenter-notes" data-mime-type="text/markdown">
+<h2 id="From-a-random-walk-to-the-diffusion-equation">From a random walk to the diffusion equation<a class="anchor-link" href="#From-a-random-walk-to-the-diffusion-equation">¶</a></h2><p>Consider a particle on a one-dimensional grid. At each time step $\Delta t$, it moves left or right by $\Delta x$ with equal probability. If $P(x,t)$ is the probability of finding it at $x$ at time $t$, then</p>
+<p>$$
+P(x,t+\Delta t)=\frac12P(x-\Delta x,t)+\frac12P(x+\Delta x,t)
+$$</p>
+<p>Taylor-expand both sides. Symmetry cancels the first-order spatial terms, leaving</p>
+<p>$$
+\Delta t\,\frac{\partial P}{\partial t}
+=\frac12\Delta x^2\frac{\partial^2P}{\partial x^2}+\text{higher-order terms}
+$$</p>
+<p>Let</p>
+<p>$$
+D=\frac{\Delta x^2}{2\Delta t}
+$$</p>
+<p>and take the continuum limit while holding $D$ fixed. The result is</p>
+<p>$$
+\frac{\partial P}{\partial t}=D\frac{\partial^2P}{\partial x^2}
+$$</p>
+<p>The continuum field retains the collective spreading law and discards each particle’s particular sequence of steps.</p>
+</div>
+</div>
+</div>
+</div>
+</aside></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=week03-turing-paper-scope">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -9192,7 +8995,6 @@ $$</p>
 <div class="image-panel"><img alt="Microscopic particle motion and macroscopic concentration spreading" src="images/Ficks_diffusion_micro_macro.gif" style="display:block;width:100%;max-height:340px;object-fit:contain;margin:0 auto;"/></div>
 </div>
 <div class="ladder-marker"><img alt="Ladder of abstraction" src="images/ladder_marker.svg"/><span><strong>Up the ladder:</strong> replace individual paths by a field equation that preserves their collective spreading.</span></div>
-<p class="figure-caption" id="fig-w3-6"><strong>Figure 3.6.</strong> Diffusion represented as the evolution of a concentration field.</p>
 </div>
 </div>
 </div>
@@ -9234,8 +9036,8 @@ $$</p>
 \end{aligned}
 $$</p>
 <p><strong>Coupled:</strong> each equation depends on both fields through $UV^2$.<br>
-<strong>Local terms:</strong> reaction, feed and removal change concentrations at one location.<br>
-<strong>Spatial terms:</strong> diffusion couples nearby locations, generally at different rates.</br></br></p>
+<strong>Local terms:</strong> reaction, feed and removal change concentrations at one location.<br/>
+<strong>Spatial terms:</strong> diffusion couples nearby locations, generally at different rates.</br></p>
 <p>This is the continuous model we intend to solve. We must next choose a finite representation that a computer can update.</p>
 </div>
 </div>
@@ -9251,11 +9053,29 @@ $$</p>
 <p>$$D_U,\qquad D_V,\qquad f,\qquad k$$</p>
 <p>Exploring $m$ values of each would require $m^4$ combinations. This rapid growth is one form of the <strong>curse of dimensionality</strong>.</p>
 <p>In this teaching model we often fix a plausible diffusion ratio, then sweep $f$ and $k$. These are effective nondimensional parameters; in a laboratory system they must be related carefully to measurable controls.</p>
-<p><strong>Parameter exploration:</strong> the morphology summary has already moved up from individual grid values. Sweeping $f$ and $k$ maps how that chosen representation changes.</p>
+<div class="ladder-marker"><img alt="Ladder of abstraction" src="images/ladder_marker.svg"/><span><strong>Up the ladder:</strong> compare many parameter choices to reveal a map of qualitative behaviours.</span></div>
 </div>
 </div>
 </div>
-</div></section><section>
+</div><aside class="notes">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=14fd6a13-cc4e-4360-a3ba-ae2f850fa153">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_remove-cell celltag_presenter-notes" data-mime-type="text/markdown">
+<div style="background-color: #ffff88; padding: 1em; border-left: 5px solid #fff102;">
+<p>We typically move between discrete and continuous worlds when we are able to preserve the essential behaviour, whilst making the mathematics more tractable or the insight more accessible.</p>
+<ul>
+<li>Treating discrete processes as continuous is useful when the scale is large, and individual steps average out (diffusion from random walks).</li>
+<li>Treating continuous systems as discrete is helpful when we need to simulate, approximate, or explore individual-level dynamics (like particles in molecular dynamics or agents in crowd behaviour).</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</aside></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=954ca579-6444-4529-9190-05fb00912d11">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -9270,7 +9090,7 @@ $$</p>
 <p><strong>Numerical solutions:</strong> a nonlinear two-dimensional pattern usually requires a grid and finite time steps.</p>
 <div class="ladder-marker"><img alt="Ladder of abstraction" src="images/ladder_marker.svg"/><span><strong>Down the ladder:</strong> replace continuous fields by finitely many stored concentrations and explicit updates.</span></div>
 <div class="reader-only-detail">
-<p>A particular PDE solution requires a domain, parameter values, boundary conditions and initial fields. The mathematical object being solved for is the complete pair of functions <i>U</i>(<b>x</b>, <i>t</i>) and <i>V</i>(<b>x</b>, <i>t</i>); the final image shows only one part of that solution.</p>
+<p>The PDEs do not determine one universal picture by themselves. A particular solution also requires a domain, parameter values, boundary conditions and initial fields. The mathematical object being solved for is still the complete pair of functions <i>U</i>(<b>x</b>, <i>t</i>) and <i>V</i>(<b>x</b>, <i>t</i>), not merely a final image.</p>
 <p>Analytic work remains preferable when it is available. It can establish whether an equilibrium exists, which spatial wavelengths grow, how a wave travels, or how a result depends on parameters. Such conclusions can apply to a whole family of initial conditions and do not contain grid or time-step error. Nonlinear coupling, two spatial dimensions, finite boundaries and irregular initial data usually prevent a closed-form expression for the full pattern.</p>
 <p>Numerical discretisation is therefore required for the patterns explored here. It approximates the local reaction and diffusion rules repeatedly across space and time. Because it is an approximation, we must later check time-step stability and whether refining the grid changes the result.</p>
 </div>
@@ -9292,7 +9112,6 @@ $$</p>
 <p>The Laplacian will be replaced by a comparison between this focal value and its neighbours.</p>
 </div>
 </div>
-<p class="figure-caption" id="fig-w3-7"><strong>Figure 3.7.</strong> Indexing a continuous field on a discrete grid.</p>
 </div>
 </div>
 </div>
@@ -9306,7 +9125,6 @@ $$</p>
 <h3 id="Inspect-the-stored-values">Inspect the stored values<a class="anchor-link" href="#Inspect-the-stored-values">¶</a></h3><img alt="Numerical concentration values at discrete time levels zero, one and two" src="images/diffusion_grid_numbers_t012.svg" style="display:block;width:76%;max-height:400px;object-fit:contain;margin:0 auto;"/>
 <div class="discussion-marker"><img alt="Discussion prompt" src="images/discussion_marker.svg"/><span>The values are precise. Can you see the spatial pattern quickly?</span></div>
 <div class="ladder-marker"><img alt="Ladder of abstraction" src="images/ladder_marker.svg"/><span><strong>Down the ladder:</strong> inspect the value stored in each cell at time level <i>n</i>.</span></div>
-<p class="figure-caption" id="fig-w3-8"><strong>Figure 3.8.</strong> Stored grid values at three successive time levels.</p>
 </div>
 </div>
 </div>
@@ -9337,8 +9155,7 @@ $$</p>
 <p>The label must state which concentration is displayed.</p>
 </div>
 </div>
-<div class="choice-marker"><img alt="Modelling choice" src="images/choice_marker.svg"/><span>Visualisation leaves the simulated state unchanged and determines which patterns are visible.</span></div>
-<p class="figure-caption" id="fig-w3-9"><strong>Figure 3.9.</strong> The <i>U</i> and <i>V</i> concentration fields defined at every location on the same grid and displayed separately.</p>
+<div class="choice-marker"><img alt="Modelling choice" src="images/choice_marker.svg"/><span>Visualisation does not change the simulated state, but it changes which patterns are visible.</span></div>
 </div>
 </div>
 </div>
@@ -9349,8 +9166,7 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p><strong>Recovering the stored field.</strong></p>
-<img alt="A pseudo-Ishihara colour-vision image" src="images/Colourblind.png" style="display:block;width:42%;max-height:400px;object-fit:contain;margin:0 auto;"/>
+<h4 id="Can-everyone-recover-the-same-information?">Can everyone recover the same information?<a class="anchor-link" href="#Can-everyone-recover-the-same-information?">¶</a></h4><img alt="A pseudo-Ishihara colour-vision image" src="images/Colourblind.png" style="display:block;width:42%;max-height:400px;object-fit:contain;margin:0 auto;"/>
 <div class="reader-only-detail">
 <p>I did my PhD, and continue to work, with someone who is red–green colour blind. He cannot see the number inside this circle.</p>
 <p>Red–green colour-vision deficiency affects about 8% of men and 0.5% of women in populations where it has been most extensively measured. Prevalence varies between populations.</p>
@@ -9367,16 +9183,14 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p><strong>Design colour deliberately.</strong></p>
-<img alt="Accessible sequential colormaps compared with rainbow and red-green scales" src="images/colormap_good_bad.svg" style="display:block;width:82%;max-height:430px;object-fit:contain;margin:0 auto;"/>
+<h4 id="Design-colour-deliberately">Design colour deliberately<a class="anchor-link" href="#Design-colour-deliberately">¶</a></h4><img alt="Accessible sequential colormaps compared with rainbow and red-green scales" src="images/colormap_good_bad.svg" style="display:block;width:82%;max-height:430px;object-fit:contain;margin:0 auto;"/>
 <div class="reader-only-detail">
 <p>Colour is part of the representation, not decoration.</p>
 <p><strong>Prefer:</strong> perceptually ordered sequential maps such as <code>viridis</code>, <code>cividis</code> and <code>plasma</code> for concentration.</p>
 <p><strong>Avoid:</strong> rainbow scales and red–green contrasts when ordered values must be read accurately.</p>
-<p>Check Figure 3.10 in greyscale. Also use labels, line styles or markers when colour distinguishes categories.</p>
+<p>Check the figure in greyscale. Also use labels, line styles or markers when colour distinguishes categories.</p>
 <p class="figure-reference"><a href="https://matplotlib.org/stable/users/explain/colors/colormaps.html">Matplotlib: Choosing Colormaps</a> · <a href="https://www.nature.com/articles/d41586-021-02696-z">Nature guide</a> · <a href="https://www.ascb.org/science-news/how-to-make-scientific-figures-accessible-to-readers-with-color-blindness/">ASCB guide</a></p>
 </div>
-<p class="figure-caption" id="fig-w3-10"><strong>Figure 3.10.</strong> Colour maps that preserve or obscure ordered values.</p>
 </div>
 </div>
 </div>
@@ -9416,7 +9230,7 @@ $$
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
-<h3 id="Choice-of-neighbourhood">Choice of neighbourhood<a class="anchor-link" href="#Choice-of-neighbourhood">¶</a></h3><img alt="Von Neumann and Moore neighbourhoods on square grids" src="images/grid_neighbourhoods.svg" style="display:block;width:58%;max-width:690px;height:auto;max-height:265px;object-fit:contain;margin:0 auto .35rem;"/>
+<h3 id="Which-cells-count-as-neighbours?">Which cells count as neighbours?<a class="anchor-link" href="#Which-cells-count-as-neighbours?">¶</a></h3><img alt="Von Neumann and Moore neighbourhoods on square grids" src="images/grid_neighbourhoods.svg" style="display:block;width:58%;max-width:690px;height:auto;max-height:265px;object-fit:contain;margin:0 auto .35rem;"/>
 <div class="two-panel equal-panels">
 <div class="text-panel"><p><strong>Von Neumann:</strong> Four edge-sharing cells. This gives the standard five-point finite-difference Laplacian.</p></div>
 <div class="text-panel"><p><strong>Moore:</strong> Eight surrounding cells. Use it when diagonal influence is part of the rule or is weighted to improve rotational symmetry.</p></div>
@@ -9440,7 +9254,6 @@ $$
 <p>The same local comparison is applied everywhere, producing a field of approximate Laplacian values.</p>
 </div>
 </div>
-<p class="figure-caption" id="fig-w3-12"><strong>Figure 3.12.</strong> Applying the five-point Laplacian stencil by convolution.</p>
 </div>
 </div>
 </div>

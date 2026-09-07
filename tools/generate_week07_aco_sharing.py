@@ -46,7 +46,7 @@ def experiment(seed, shared, generations=24, ants=30, record_routes=False):
     tau = np.ones(len(EDGES))
     fractions = []
     route_use = []
-    route_pheromone_score = []
+    route_pheromone = []
     found = False
     for _ in range(generations):
         desirability = np.array([
@@ -70,15 +70,12 @@ def experiment(seed, shared, generations=24, ants=30, record_routes=False):
             for route, cost, count in zip(ROUTES, ROUTE_COSTS, counts):
                 for edge_index in route:
                     tau[edge_index] += count / cost
-        # Pheromone is stored on edges. The geometric mean provides a derived
-        # route-level score that falls when a route's distinguishing edges
-        # evaporate, rather than being dominated by a few shared strong edges.
-        route_pheromone_score.append([
-            np.prod(tau[list(route)]) ** (1 / len(route)) for route in ROUTES
+        route_pheromone.append([
+            np.mean(tau[list(route)]) for route in ROUTES
         ])
     result = (np.asarray(fractions), found)
     if record_routes:
-        return result + (np.asarray(route_use), np.asarray(route_pheromone_score))
+        return result + (np.asarray(route_use), np.asarray(route_pheromone))
     return result
 
 
@@ -91,13 +88,11 @@ shared_found = np.mean([result[1] for result in shared_results])
 independent_found = np.mean([result[1] for result in independent_results])
 
 generation = np.arange(1, shared.shape[1] + 1)
-_, _, route_use, route_pheromone_score = experiment(11, True, record_routes=True)
+_, _, route_use, route_pheromone = experiment(11, True, record_routes=True)
 route_order = np.argsort(ROUTE_COSTS)
 route_use = route_use[:, route_order].T
-route_pheromone_score = route_pheromone_score[:, route_order].T
-# Use one scale for the complete run. Normalising each generation separately
-# would conceal evaporation whenever all pheromone values declined together.
-route_pheromone_score /= route_pheromone_score.max()
+route_pheromone = route_pheromone[:, route_order].T
+route_pheromone /= route_pheromone.max(axis=0, keepdims=True)
 
 route_names = []
 for route_index in route_order:
@@ -106,13 +101,13 @@ for route_index in route_order:
     marker = "★ " if route_index == BEST_INDEX else ""
     route_names.append(f"{marker}{'–'.join(nodes)} ({ROUTE_COSTS[route_index]:.1f})")
 
-fig = plt.figure(figsize=(16.2, 7.0))
+fig = plt.figure(figsize=(16.2, 6.6))
 outer = fig.add_gridspec(
     1, 2, width_ratios=(1.18, 1), left=0.065, right=0.97,
-    top=0.79, bottom=0.24, wspace=0.28,
+    top=0.79, bottom=0.22, wspace=0.28,
 )
 ax = fig.add_subplot(outer[0])
-right = outer[1].subgridspec(2, 1, hspace=0.30)
+right = outer[1].subgridspec(2, 1, hspace=0.18)
 ax_use = fig.add_subplot(right[0])
 ax_tau = fig.add_subplot(right[1], sharex=ax_use)
 for values, colour, label in [
@@ -160,15 +155,11 @@ use_image = ax_use.imshow(
     cmap="YlOrRd", vmin=0, vmax=1,
 )
 tau_image = ax_tau.imshow(
-    route_pheromone_score, aspect="auto", interpolation="nearest", origin="upper",
+    route_pheromone, aspect="auto", interpolation="nearest", origin="upper",
     extent=(0.5, 24.5, len(ROUTES) - 0.5, -0.5),
     cmap="Blues", vmin=0, vmax=1,
 )
-ax_use.set_title("B  One run: route use", loc="left", fontsize=14, pad=11)
-ax_tau.set_title(
-    "Route pheromone score (geometric mean of its edges)",
-    loc="left", fontsize=10.5, pad=5,
-)
+ax_use.set_title("B  One shared-pheromone run", loc="left", fontsize=14, pad=11)
 ax_use.set_ylabel("Route (cost)")
 ax_tau.set_ylabel("Route (cost)")
 ax_tau.set_xlabel(r"Generation, $k$")
@@ -176,23 +167,27 @@ ax_use.set_yticks(np.arange(len(route_names)), labels=route_names, fontsize=8.5)
 ax_tau.set_yticks(np.arange(len(route_names)), labels=route_names, fontsize=8.5)
 ax_use.tick_params(axis="x", labelbottom=False)
 ax_tau.set_xticks([1, 5, 10, 15, 20, 24])
+ax_use.text(
+    0.01, 0.98, "Fraction of ants using each route", transform=ax_use.transAxes,
+    ha="left", va="top", fontsize=10, color=INK,
+    bbox={"facecolor": "white", "edgecolor": "none", "alpha": 0.82, "pad": 2},
+)
+ax_tau.text(
+    0.01, 0.98, "Relative pheromone strength", transform=ax_tau.transAxes,
+    ha="left", va="top", fontsize=10, color=INK,
+    bbox={"facecolor": "white", "edgecolor": "none", "alpha": 0.82, "pad": 2},
+)
 for heat_ax in (ax_use, ax_tau):
     heat_ax.spines[["top", "right"]].set_visible(False)
     heat_ax.grid(False)
-fig.colorbar(
-    use_image, ax=ax_use, fraction=0.035, pad=0.025,
-    label=r"$u_R(k)$",
-)
-fig.colorbar(
-    tau_image, ax=ax_tau, fraction=0.035, pad=0.025,
-    label=r"$g_R(k)\,/\,\max g$",
-)
+fig.colorbar(use_image, ax=ax_use, fraction=0.035, pad=0.025, label="Route fraction")
+fig.colorbar(tau_image, ax=ax_tau, fraction=0.035, pad=0.025, label="Relative strength")
 fig.text(
-    0.5, 0.035,
-    "A: mean and 10th–90th percentile across 120 seeded runs.\n"
-    "B: one seeded run; the route score is the geometric mean of its edge pheromones, using one scale across the run.  "
+    0.5, 0.025,
+    "A: mean and 10th–90th percentile across 120 seeded runs.  "
+    "B: one seeded run; route strength is mean edge pheromone, normalised within each generation.  "
     "30 ants per generation.",
-    ha="center", color=INK, fontsize=9.5, linespacing=1.25,
+    ha="center", color=INK, fontsize=10.5,
 )
 out = ROOT / "notebooks/week07/images/aco_sharing_comparison.png"
 fig.savefig(out, dpi=190, facecolor="white", bbox_inches="tight")

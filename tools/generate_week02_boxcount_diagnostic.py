@@ -66,17 +66,17 @@ points = "\n".join(
 
 svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">
 <rect width="100%" height="100%" fill="white"/>
-<text x="{width/2}" y="38" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="28" fill="#1B2A4C">Box counting of a rasterised British coastline</text>
+<text x="{width/2}" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" fill="#1B2A4C">Box counting of a rasterised British coastline</text>
 <rect x="{sx(fit_x1):.1f}" y="{top}" width="{sx(fit_x0)-sx(fit_x1):.1f}" height="{plot_height}" fill="#D5A62A" opacity="0.10"/>
 <line x1="{left}" y1="{top + plot_height}" x2="{left + plot_width}" y2="{top + plot_height}" stroke="#1B2A4C" stroke-width="2"/>
 <line x1="{left}" y1="{top}" x2="{left}" y2="{top + plot_height}" stroke="#1B2A4C" stroke-width="2"/>
 <line x1="{sx(fit_x0):.1f}" y1="{sy(fit_y0):.1f}" x2="{sx(fit_x1):.1f}" y2="{sy(fit_y1):.1f}" stroke="#D5A62A" stroke-width="5"/>
 {points}
-<text x="{width/2}" y="{height-25}" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="23" fill="#1B2A4C">log(1/ε)</text>
-<text x="28" y="{top+plot_height/2}" text-anchor="middle" transform="rotate(-90 28 {top+plot_height/2})" font-family="DejaVu Sans, sans-serif" font-size="23" fill="#1B2A4C">log N(ε)</text>
-<text x="{sx((fit_x0+fit_x1)/2):.1f}" y="{sy(slope*((fit_x0+fit_x1)/2)+intercept)-28:.1f}" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#1B2A4C">intermediate-scale fit: slope ≈ {slope:.2f}</text>
-<text x="{sx(x[0]):.1f}" y="{sy(y[0])+42:.1f}" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#64789B">fine-scale pixel effects</text>
-<text x="{sx(x[-1]):.1f}" y="{sy(y[-1])-34:.1f}" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#64789B">coarse-scale finite-size effects</text>
+<text x="{width/2}" y="{height-25}" text-anchor="middle" font-family="Arial, sans-serif" font-size="23" fill="#1B2A4C">log(1/ε)</text>
+<text x="28" y="{top+plot_height/2}" text-anchor="middle" transform="rotate(-90 28 {top+plot_height/2})" font-family="Arial, sans-serif" font-size="23" fill="#1B2A4C">log N(ε)</text>
+<text x="{sx((fit_x0+fit_x1)/2):.1f}" y="{sy(slope*((fit_x0+fit_x1)/2)+intercept)-28:.1f}" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#1B2A4C">intermediate-scale fit: slope ≈ {slope:.2f}</text>
+<text x="{sx(x[0]):.1f}" y="{sy(y[0])+42:.1f}" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#64789B">fine-scale pixel effects</text>
+<text x="{sx(x[-1]):.1f}" y="{sy(y[-1])-34:.1f}" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#64789B">coarse-scale finite-size effects</text>
 </svg>
 """
 TARGET.write_text(svg)

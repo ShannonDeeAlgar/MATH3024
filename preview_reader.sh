@@ -6,9 +6,6 @@ set -euo pipefail
 
 cd "$(dirname "$0")"
 PORT="${1:-8766}"
-source "$(pwd)/tools/course_python.sh"
-
-echo "Using course Python: $COURSE_PYTHON"
 
 # The Reader build stages existing .slides.html files but does not create
 # them. Regenerate every lecture deck first so the local preview cannot serve
@@ -16,15 +13,8 @@ echo "Using course Python: $COURSE_PYTHON"
 echo "Regenerating lecture slides from the current notebooks..."
 for NOTEBOOK in notebooks/week*/L_*.ipynb; do
     [[ -f "$NOTEBOOK" ]] || continue
-    DECK="${NOTEBOOK%.ipynb}.slides.html"
-    if [[ ! -f "$DECK" || "$NOTEBOOK" -nt "$DECK" ]]; then
-        ./generate_slides.sh --fresh "$NOTEBOOK"
-    else
-        ./generate_slides.sh "$NOTEBOOK"
-    fi
+    ./generate_slides.sh "$NOTEBOOK"
 done
-
-"$COURSE_PYTHON" tools/audit_teaching_assets.py
 
 ./build_reader.sh
 
@@ -32,7 +22,7 @@ echo
 echo "Reader preview: http://localhost:$PORT/"
 echo "Press Ctrl+C to stop the preview."
 
-"$COURSE_PYTHON" -m http.server "$PORT" --directory _build/html &
+python3 -m http.server "$PORT" --directory _build/html &
 SERVER_PID=$!
 
 cleanup() {
