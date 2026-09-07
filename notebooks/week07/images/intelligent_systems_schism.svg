@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 520" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 455" role="img" aria-labelledby="title desc">
   <title id="title">Two approaches to intelligent systems</title>
-  <desc id="desc">Complexity science compresses a system to expose mechanisms, while machine learning retains high-dimensional detail to improve prediction. Both begin with a complex system and can inform one another.</desc>
-  <rect width="1400" height="520" fill="transparent"/>
+  <desc id="desc">Complexity science compresses a system to expose mechanisms, while machine learning retains high-dimensional detail to improve prediction.</desc>
+  <rect width="1400" height="455" fill="transparent"/>
   <style>
     .navy{fill:#172b55}.ink{fill:#242424}.muted{fill:#566987}.panel{fill:#fff;stroke:#c7d2e5;stroke-width:3}.accent{fill:#f2cc4d}
     .head{font:700 37px Arial,Helvetica,sans-serif}.body{font:28px Georgia,serif}.small{font:22px Arial,Helvetica,sans-serif}
@@ -22,7 +22,4 @@
   <text x="815" y="303" class="body ink">Retain high-dimensional detail.</text>
   <text x="815" y="347" class="body ink">Learn patterns that improve prediction.</text>
   <text x="815" y="397" class="small muted">Priority: predictive performance</text>
-  <path d="M635 466 H765" class="dash"/>
-  <path d="M650 454 L635 466 L650 478 M750 454 L765 466 L750 478" class="dash"/>
-  <text x="700" y="506" text-anchor="middle" class="small muted">the approaches can be combined</text>
 </svg>

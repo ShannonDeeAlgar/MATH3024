@@ -25,7 +25,7 @@ def load_workshop_code():
     namespace = {}
     required_cells = [
         "week07-pso-imports-objective",
-        "week07-pso-engine",
+        "week07-pso-implementation",
         "week07-ensemble-helper",
     ]
     for cell_id in required_cells:
@@ -39,11 +39,13 @@ objective_landscape = workshop["objective_landscape"]
 initialise_swarm = workshop["initialise_swarm"]
 pso_step = workshop["pso_step"]
 run_pso = workshop["run_pso"]
+run_random_search = workshop["run_random_search"]
+run_random_ensemble = workshop["run_random_ensemble"]
 run_ensemble = workshop["run_ensemble"]
 
 
 # ---------------------------------------------------------------------------
-# Reference answer for "Establish that the baseline is valid"
+# Checks for the supplied implementation
 # ---------------------------------------------------------------------------
 
 known_minimum = np.array([1.3, -0.8])
@@ -98,6 +100,8 @@ n_particles = 17
 n_updates = 23
 counted_run = run_pso(n_particles=n_particles, steps=n_updates, seed=8)
 assert counted_run["objective_evaluations"] == n_particles * (n_updates + 1)
+random_run = run_random_search(n_particles=n_particles, steps=n_updates, seed=8)
+assert random_run["objective_evaluations"] == counted_run["objective_evaluations"]
 
 print("All five workshop validation checks passed.")
 
@@ -222,11 +226,12 @@ display(HTML(reference_animation.to_jshtml(default_mode="once")))
 # ---------------------------------------------------------------------------
 
 shared_weights = np.array([0.0, 0.4, 0.8, 1.2, 1.49, 2.0, 2.8])
-seeds = np.arange(120) + 10_000
+seeds = np.arange(60) + 10_000
 success_threshold = 1e-3
 fixed_settings = {
     "n_particles": 30,
     "steps": 100,
+    "bounds": ((-6.0, -5.0), (6.0, 5.0)),
     "inertia": 0.72,
     "personal_weight": 1.49,
 }
@@ -235,6 +240,19 @@ ensembles = {
     weight: run_ensemble(weight, seeds, **fixed_settings)
     for weight in shared_weights
 }
+random_baseline = run_random_ensemble(seeds, **fixed_settings)
+
+print("\nBaseline comparison")
+for label, ensemble in (
+    ("independent random search", random_baseline),
+    ("PSO without sharing", ensembles[0.0]),
+    ("PSO with sharing", ensembles[1.49]),
+):
+    summary = workshop["summarise_ensemble"](ensemble, success_threshold)
+    print(
+        f"{label:26s} success={summary['success_fraction']:.3f}  "
+        f"median final best={summary['median_final_best']:.4g}"
+    )
 
 success_fraction = np.array([
     np.mean(ensembles[weight]["final_best"] <= success_threshold)
