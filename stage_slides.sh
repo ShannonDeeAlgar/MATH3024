@@ -24,6 +24,18 @@ for SOURCE_ROOT in notebooks/week*; do
         cp -R "$SOURCE_ROOT/images" "$SLIDE_ROOT/images"
     fi
 
+    # Week 7 embeds standalone HTML explorables in the Reader. MyST leaves
+    # their relative iframe URLs unchanged and does not copy the HTML files.
+    # Support the Reader route with or without its trailing slash.
+    if [[ "$WEEK" == "week07" ]]; then
+        for READER_IMAGE_ROOT in \
+            "$SITE_ROOT/notebooks/$WEEK/images" \
+            "$SITE_ROOT/notebooks/$WEEK/l-intelligent-systems/images"; do
+            mkdir -p "$READER_IMAGE_ROOT"
+            cp -R "$SOURCE_ROOT/images/." "$READER_IMAGE_ROOT/"
+        done
+    fi
+
     # Keep locally embedded lecture media with the deployed deck. Previously
     # only images were staged, so Week 6's Kuramoto animation worked in the
     # notebook directory but disappeared from the Reader and GitHub Pages.
