@@ -1,8 +1,3 @@
 _build/
 .ipynb_checkpoints/
 .DS_Store
-__pycache__/
-*.pyc
-
-# Legacy quiz PDFs are source material only; practice is integrated into the Reader.
-notebooks/week*/MATH3024_Quiz*.pdf

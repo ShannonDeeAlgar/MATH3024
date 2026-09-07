@@ -5,8 +5,8 @@
 <meta content="chrome=1" http-equiv="X-UA-Compatible"/>
 <meta content="yes" name="apple-mobile-web-app-capable"/>
 <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
-<title>.L_Game_theory.fresh.3451 slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
-  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
+<title>L_Game_theory slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
+  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script>
 <!-- General and theme style sheets -->
@@ -7430,1440 +7430,93 @@ main {
     </script>
 <!-- End of mathjax configuration --><!-- Reveal Theme -->
 <link href="https://unpkg.com/reveal.js@4.0.2/dist/theme/simple.css" id="theme" rel="stylesheet"/>
-<style>
-/* Injected by inject_slide_styles.py -- keeps slide styling in
-   sync with style.css. Do not edit directly. */
-.jp-MarkdownOutput h1,
-.jp-MarkdownOutput h2,
-.jp-MarkdownOutput h3,
-.jp-MarkdownOutput h4,
-.jp-MarkdownOutput h5,
-.jp-MarkdownOutput h6 {
-  font-family: Baskerville, Georgia, serif;
-  font-style: italic;
-  font-weight: 700;
-  color: var(--reader-ink, #1B2A4C);
-}
-
-.jp-MarkdownOutput p,
-.jp-MarkdownOutput li,
-.jp-MarkdownOutput blockquote {
-  font-family: Baskerville, Georgia, serif;
-}
-
-.reader-voice {
-  display: grid;
-  grid-template-columns: 1.05em minmax(0, 1fr);
-  column-gap: 0.65em;
-  border: 0;
-  padding: 0;
-  margin: 1.25em 0 1.5em;
-  color: var(--reader-ink, #1B2A4C);
-}
-
-.reader-voice::before {
-  content: "“";
-  grid-column: 1;
-  grid-row: 1 / 3;
-  align-self: stretch;
-  display: flex;
-  align-items: flex-start;
-  height: auto;
-  margin: 0;
-  color: var(--reader-ink-soft, #5A6685);
-  font-family: Baskerville, Georgia, serif;
-  font-size: 3.4em;
-  line-height: 0.72;
-}
-
-.reader-voice-quote {
-  grid-column: 2;
-  font-style: normal;
-  font-family: Baskerville, Georgia, serif;
-  font-size: 1.15em;
-  line-height: 1.28;
-}
-
-.reader-voice-quote::after {
-  content: "”";
-  display: inline;
-  margin-left: 0.2em;
-  color: var(--reader-ink-soft, #5A6685);
-  font-family: Baskerville, Georgia, serif;
-  font-size: 1.7em;
-  line-height: 0;
-  vertical-align: -0.14em;
-}
-
-.reader-voice-attr {
-  grid-column: 2;
-  display: table;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.74em;
-  letter-spacing: 0.06em;
-  color: var(--reader-ink-soft, #5A6685);
-  margin-top: 0.85em;
-  padding-top: 0.55em;
-  border-top: 1px solid var(--reader-line, #C7CEDC);
-  text-align: left;
-}
-
-.reader-voice-attr a {
-  color: var(--reader-ink-soft, #5A6685);
-}
-
-.reader-prompt {
-  position: relative;
-  border: 0;
-  border-left: 2px solid var(--reader-line, #C7CEDC);
-  padding: 0.15em 0 0.15em 3.2em;
-  margin: 1.1em 0;
-  color: var(--reader-ink, #1B2A4C);
-}
-
-.reader-prompt::before {
-  content: "→";
-  position: absolute;
-  left: 0.65em;
-  top: 50%;
-  width: 1.45em;
-  height: 1.45em;
-  transform: translateY(-50%);
-  border: 0;
-  display: grid;
-  place-items: center;
-  font-family: Baskerville, Georgia, serif;
-  font-size: 1.05em;
-  font-style: normal;
-}
-
-.reader-prompt a {
-  color: var(--reader-ink, #1B2A4C);
-}
-
-.reader-prompt-label {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.62em;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin-bottom: 0.35em;
-  color: var(--reader-ink-soft, #5A6685);
-}
-
-.reader-prompt-body {
-  font-family: Baskerville, Georgia, serif;
-  font-size: 1em;
-  font-style: normal;
-  line-height: 1.38;
-}
-
-.reader-prompt-body.italic {
-  font-style: normal;
-}
-
-.jp-MarkdownOutput summary.myst-dropdown-header,
-.jp-MarkdownOutput .myst-dropdown-header-title {
-  font-family: Baskerville, Georgia, serif;
-  font-style: normal;
-  font-weight: 500;
-  letter-spacing: 0;
-}
-
-.jp-MarkdownOutput .myst-dropdown-body {
-  padding: 0.15rem 0.2rem 0.7rem !important;
-  background: transparent !important;
-  font-family: Baskerville, Georgia, serif;
-}
-
-.reader-prompt-footnote {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.68em;
-  color: var(--reader-ink-soft, #5A6685);
-  margin-top: 1em;
-  padding-top: 0.2em;
-  border-top: 0;
-}
-
-.reader-prompt-footnote a {
-  color: var(--reader-ink-soft, #5A6685);
-}
-
-.reader-emphasis {
-  border-top: 1px solid var(--reader-line, #C7CEDC);
-  border-bottom: 1px solid var(--reader-line, #C7CEDC);
-  padding: 1em;
-  margin: 2em 0;
-  text-align: center;
-}
-
-.reader-emphasis p {
-  font-family: Baskerville, Georgia, serif;
-  font-style: italic;
-  font-weight: bold;
-  font-size: 1.3em;
-  color: var(--reader-ink, #1B2A4C);
-  margin: 0;
-}
-
-.reader-route {
-  border-left: 1px solid var(--reader-ink, #1B2A4C);
-  padding: 0.25em 0 0.25em 1em;
-  margin: 1.5em 0 2em;
-}
-
-.reader-route-label {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.7em;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  color: var(--reader-ink-soft, #5A6685);
-  margin-bottom: 0.45em;
-}
-
-.reader-route-body {
-  font-family: Baskerville, Georgia, serif;
-  color: var(--reader-ink, #1B2A4C);
-}
-
-.country-map {
-  display: block;
-  max-height: 430px;
-  width: auto;
-  margin: 0.35em auto 0.6em;
-}
-
-.country-slide-grid {
-  grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.65fr);
-}
-
-.country-slide-grid .country-map {
-  width: 100%;
-  max-height: 470px;
-  object-fit: contain;
-}
-
-.country-map-large {
-  display: block;
-  width: 96% !important;
-  max-height: 505px !important;
-  object-fit: contain;
-  margin: 0 auto !important;
-}
-
-.group-slide-grid {
-  grid-template-columns: minmax(0, 1.6fr) minmax(0, 0.75fr);
-  align-items: center;
-}
-
-.group-slide-grid .group-photo {
-  width: 100%;
-  max-height: 475px;
-  object-fit: cover;
-  object-position: center;
-  margin: 0 auto;
-}
-
-.group-slide-grid .group-logo {
-  width: 100%;
-  max-height: 245px;
-  object-fit: contain;
-  margin: 0 auto 0.75em;
-}
-
-.figure-reference,
-.figure-caption,
-figcaption {
-  margin-top: 0.45em;
-  color: var(--reader-ink-soft, #5A6685);
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.62em;
-  line-height: 1.25;
-}
-
-.unit-essentials {
-  width: 78%;
-  margin: 0.5em auto;
-}
-
-.unit-essentials > div {
-  display: grid;
-  grid-template-columns: 8em 1fr;
-  gap: 1em;
-  padding: 0.34em 0;
-  border-bottom: 1px solid var(--reader-line, #C7CEDC);
-}
-
-.unit-essentials span {
-  text-align: right;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.64em;
-  color: var(--reader-ink-soft, #5A6685);
-}
-
-.unit-essentials strong {
-  text-align: left;
-  font-weight: 400;
-}
-
-.model-specification {
-  margin-top: 0.55em;
-}
-
-.model-specification > div {
-  display: grid;
-  grid-template-columns: 10.5em 1fr;
-  gap: 0.8em;
-  padding: 0.25em 0;
-  border-bottom: 1px solid var(--reader-line, #C7CEDC);
-  font-size: 0.86em;
-}
-
-.model-specification strong { text-align: right; }
-
-.aggregate-definitions { margin-top: 0.35em; }
-
-.aggregate-definitions > div {
-  display: grid;
-  grid-template-columns: 10.5em minmax(0, 1fr);
-  align-items: center;
-  gap: 0.9em;
-  padding: 0.38em 0;
-  border-bottom: 1px solid var(--reader-line, #C7CEDC);
-}
-
-.aggregate-definitions strong { text-align: right; }
-
-.aggregate-definitions p { margin: 0; }
-
-.parameter-outcomes-layout { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); }
-
-.article .choice-marker img,
-.article .discussion-marker img { max-width: 36px !important; }
-
-.article .ladder-marker img { max-width: 30px !important; }
-
-.process-note {
-  margin-top: 0.8em;
-  color: var(--reader-ink-soft, #5A6685);
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.62em;
-}
-
-.system-title span {
-  display: inline;
-  margin-left: 0.28em;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.48em;
-  font-style: normal;
-  font-weight: 400;
-  letter-spacing: 0.025em;
-  color: var(--reader-ink-soft, #5A6685);
-}
-
-.system-title span::before { content: ": "; }
-
-.planet-process { display: block; }
-
-.process-sequence { max-width: 49em; }
-
-.process-step {
-  display: grid;
-  grid-template-columns: 1.7em 1fr;
-  gap: 0.55em;
-  align-items: start;
-  margin: 0.08em 0;
-}
-
-.process-step > span {
-  width: 1.45em;
-  height: 1.45em;
-  border: 1px solid var(--reader-ink, #1B2A4C);
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.7em;
-}
-
-.process-step p { margin: 0; font-size: 0.72em; line-height: 1.16; }
-
-.process-step.qed { margin-top: 0.28em; padding-top: 0.28em; border-top: 1px solid var(--reader-line, #C7CEDC); }
-
-.variable-strip {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.28em 0.9em;
-  margin-top: 0.45em;
-  padding-top: 0.38em;
-  border-top: 1px solid var(--reader-line, #C7CEDC);
-  color: var(--reader-ink-soft, #5A6685);
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.46em;
-  line-height: 1.25;
-}
-
-.variable-strip strong { grid-column: 1 / -1; text-transform: uppercase; letter-spacing: 0.08em; }
-
-.analysis-perspectives {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1em;
-  margin: 0.75em 0;
-}
-
-.analysis-perspectives.three {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.analysis-perspectives.four {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
-.analysis-perspectives.three img,
-.analysis-perspectives.four img {
-  display: block;
-  width: 100%;
-  height: 9rem;
-  object-fit: cover;
-  margin: 0 0 0.6rem;
-}
-
-.analysis-perspectives.three,
-  .analysis-perspectives.four {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-.analysis-perspectives > div {
-  border: 1px solid var(--reader-line, #C7CEDC);
-  padding: 0.58em 0.64em;
-}
-
-.analysis-perspectives strong {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.68em;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.analysis-perspectives p { font-size: 0.76em; line-height: 1.22; margin: 0.3em 0; }
-
-.analysis-perspectives.ensemble-comparison > div {
-  min-height: 0;
-  padding: 0.62em 0.72em;
-}
-
-.analysis-perspectives.ensemble-comparison p {
-  margin: 0.35em 0 0;
-  font-size: 0.75em;
-  line-height: 1.2;
-}
-
-.meaning-panel ul,
-.evidence-layout .meaning-panel ul {
-  margin: 0.2em 0 0.55em;
-  padding-left: 1.1em;
-}
-
-.meaning-panel li,
-.evidence-layout .meaning-panel li {
-  padding-left: 0.08em;
-  margin: 0.2em 0;
-}
-
-.group-caption {
-  text-align: center;
-  margin-top: 0.35em;
-  font-family: Baskerville, Georgia, serif;
-  font-size: 1em;
-  line-height: 1.25;
-  font-weight: 400;
-  font-style: italic;
-}
-
-.country-acknowledgement {
-  max-width: 46em;
-  margin: 0.5em auto;
-  text-align: left;
-  font-family: Baskerville, Georgia, serif;
-  color: var(--reader-ink, #1B2A4C);
-}
-
-.slide-columns {
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-  gap: 1.6em;
-  align-items: center;
-  text-align: left;
-}
-
-.slide-columns .column-image {
-  display: block;
-  width: 100%;
-  max-height: 430px;
-  object-fit: contain;
-  margin: 0 auto;
-}
-
-.assumption-reveal {
-  position: relative;
-  border: 1px solid var(--reader-line, #C7CEDC);
-  margin-top: 1em;
-  padding: 0.7em 0.9em 0.7em 4em;
-  color: var(--reader-ink, #1B2A4C);
-}
-
-.assumption-reveal::before {
-  content: "";
-  position: absolute;
-  left: 0.8em;
-  top: 0.75em;
-  width: 2.25em;
-  height: 2.25em;
-  background: center / contain no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%231b2a4c' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 48C24 46 27 38 31 31C35 23 41 17 53 16M31 31C38 35 44 41 51 50'/%3E%3Ccircle cx='12' cy='48' r='5' fill='%231b2a4c'/%3E%3Ccircle cx='53' cy='16' r='5'/%3E%3Ccircle cx='51' cy='50' r='5'/%3E%3C/g%3E%3C/svg%3E");
-}
-
-.choice-marker {
-  display: flex;
-  align-items: center;
-  gap: 0.55em;
-  margin: 0.65em 0;
-  color: var(--reader-ink-soft, #5A6685);
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.62em;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.choice-marker img { width: 34px !important; height: 34px !important; margin: 0 !important; }
-
-.discussion-marker {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  margin: 0.15rem 0 0.55rem;
-  color: var(--reader-ink, #1B2A4C);
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.62em;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.discussion-marker img { width: 36px !important; height: 36px !important; margin: 0 !important; }
-
-details.reader-answer {
-  margin: 0.8rem 0 1.2rem 3.2rem;
-  border: 1px solid #c7cedc;
-  border-radius: 6px;
-  background: var(--pst-color-surface, #f7f8fa);
-  font-family: var(--pst-font-family-base);
-}
-
-details.reader-answer summary {
-  cursor: pointer;
-  padding: 0.7rem 1rem;
-  color: #1d315b;
-  font-family: var(--pst-font-family-base);
-  font-size: 1rem;
-  font-weight: 600;
-}
-
-details.reader-answer > div {
-  padding: 0 1rem 0.9rem;
-}
-
-details.discussion-reveal {
-  margin: 0.7rem 0 1.2rem;
-  overflow: hidden;
-  border: 1px solid #c7cedc;
-  border-left: 5px solid #edcc55;
-  border-radius: 0.32rem;
-  background: #fff;
-  color: var(--reader-ink, #1b2a4c);
-}
-
-details.discussion-reveal summary {
-  position: relative;
-  display: block;
-  padding: 0.72rem 0.9rem;
-  cursor: pointer;
-  list-style: none;
-  background: #fffaf0;
-}
-
-details.discussion-reveal summary::-webkit-details-marker {
-  display: none;
-}
-
-details.discussion-reveal summary > .myst-dropdown-header-title {
-  display: grid;
-  grid-template-columns: 2.5rem minmax(0, 1fr) 1.2rem;
-  gap: 0.7rem;
-  align-items: center;
-  width: 100%;
-}
-
-details.discussion-reveal summary > .myst-dropdown-header-title > img {
-  grid-column: 1;
-  grid-row: 1;
-  width: 2.35rem !important;
-  height: 2.35rem !important;
-  margin: 0 !important;
-}
-
-details.discussion-reveal summary > .myst-dropdown-header-title > .discussion-reveal-heading {
-  grid-column: 2;
-  grid-row: 1;
-}
-
-details.discussion-reveal summary > .myst-dropdown-header-title > span:has(.myst-dropdown-header-icon) {
-  grid-column: 3;
-  grid-row: 1;
-  justify-self: end;
-  float: none !important;
-  margin: 0 !important;
-}
-
-.discussion-reveal-heading {
-  display: block;
-  min-width: 0;
-}
-
-.discussion-reveal-label {
-  display: none;
-}
-
-.discussion-reveal-question {
-  display: block;
-  color: var(--reader-ink, #1b2a4c);
-  font-family: Baskerville, Georgia, serif;
-  font-size: 1.12rem;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 1.3;
-}
-
-details.discussion-reveal .discussion-answer {
-  padding: 0.75rem 1rem 0.9rem 4.3rem;
-  border-top: 1px solid #e2e6ed;
-  background: #fff;
-}
-
-details.discussion-reveal .discussion-answer > :first-child {
-  margin-top: 0;
-}
-
-details.discussion-reveal .discussion-answer > :last-child {
-  margin-bottom: 0;
-}
-
-.dark details.discussion-reveal {
-  border-color: #58647a;
-  border-left-color: #edcc55;
-  background: #202633;
-}
-
-.dark details.discussion-reveal summary {
-  background: #2b291e;
-}
-
-.dark .discussion-reveal-label,
-.dark details.discussion-reveal summary::after {
-  color: #c7cfdd;
-}
-
-.dark .discussion-reveal-question {
-  color: #eef2f8;
-}
-
-.dark details.discussion-reveal .discussion-answer {
-  border-top-color: #46536a;
-  background: #202633;
-}
-
-.discussion-prompt { border-left-color: #EDCC55; }
-
-.qa-grid { margin-top: 0.55em; }
-
-.qa-row {
-  display: grid;
-  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
-  gap: 1.1em;
-  align-items: start;
-  padding: 0.42em 0;
-  border-bottom: 1px solid var(--reader-line, #C7CEDC);
-}
-
-.qa-question { text-align: right; font-weight: 700; }
-
-.qa-answer { color: var(--reader-ink, #1B2A4C); }
-
-.qa-row p { margin: 0; font-size: 0.82em; line-height: 1.24; }
-
-.initialisation-layout { grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr); gap: 1em; }
-
-.initialisation-layout .qa-row { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); }
-
-.initialisation-layout .column-image { max-height: 330px; }
-
-.schelling-embed div[style*="padding-bottom"] {
-  padding-bottom: 34% !important;
-}
-
-.schelling-embed {
-  position: relative;
-  overflow: hidden;
-  margin: 0 auto 0.75em;
-}
-
-.schelling-embed > div,
-.schelling-embed > div > div[style*="padding-bottom"],
-.schelling-embed > div iframe {
-  width: 100% !important;
-  height: 215px !important;
-  padding-bottom: 0 !important;
-}
-
-.reveal .schelling-embed,
-.reveal .schelling-embed iframe {
-  width: 74% !important;
-  height: 285px !important;
-  margin-inline: auto;
-}
-
-.evidence-layout {
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-  gap: 1.25em;
-  align-items: stretch;
-}
-
-.evidence-panel,
-.meaning-panel {
-  border: 1px solid var(--reader-line, #C7CEDC);
-  padding: 0.58em 0.64em;
-  min-width: 0;
-  align-self: stretch;
-}
-
-.evidence-panel img {
-  display: block;
-  width: 100%;
-  max-height: 430px;
-  object-fit: contain;
-  margin: 0 auto;
-}
-
-.meaning-panel > img {
-  display: block;
-  width: 100%;
-  height: 135px;
-  object-fit: contain;
-  margin: 0 auto 0.35em;
-}
-
-.evidence-panel p,
-.meaning-panel p,
-.meaning-panel li {
-  font-size: 0.76em;
-  line-height: 1.22;
-}
-
-.evidence-panel > strong,
-.meaning-panel > strong {
-  display: block;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.68em;
-  line-height: 1.15;
-  min-height: 2.3em;
-  margin: 0.25em 0;
-}
-
-.article .reader-figure {
-  width: min(100%, 620px);
-  margin: 1.2rem auto;
-}
-
-.article .reader-figure.reader-figure-small {
-  width: min(100%, 360px);
-}
-
-.article .reader-figure img {
-  display: block;
-  width: 100%;
-  height: auto;
-  margin: 0;
-}
-
-.jp-MarkdownOutput table {
-  width: 100%;
-  border-collapse: collapse;
-  font-family: Baskerville, Georgia, serif;
-  font-size: 0.95rem;
-  line-height: 1.3;
-}
-
-.reveal .slides table,
-.reveal .slides .model-specification,
-.reveal .slides .qa-grid {
-  font-size: 0.68em;
-  line-height: 1.16;
-}
-
-.reveal .slides .analysis-perspectives.three {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.65em;
-}
-
-.reveal .slides .two-panel {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 0.8em;
-  align-items: center;
-  width: 100%;
-}
-
-.reveal .slides .two-panel.wide-left {
-  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
-}
-
-.reveal .slides .two-panel > *,
-.reveal .slides .three-panel > * { min-width: 0; }
-
-.reveal .slides .two-panel .image-panel,
-.reveal .slides .three-panel .image-panel,
-.reveal .slides .two-panel .text-panel,
-.reveal .slides .three-panel .text-panel {
-  box-sizing: border-box;
-  width: 100%;
-}
-
-.reveal .slides .two-panel .image-panel img,
-.reveal .slides .three-panel .image-panel img {
-  display: block;
-  max-width: 100%;
-  width: auto;
-  height: auto;
-  margin: 0 auto;
-  object-fit: contain;
-}
-
-.reveal .slides .ant-behaviour-gallery {
-  gap: 0.48em;
-}
-
-.reveal .slides .ant-behaviour-gallery .image-panel {
-  display: grid;
-  grid-template-rows: 285px auto;
-  align-content: start;
-  overflow: hidden;
-  border: 1px solid #d5dce8;
-  border-radius: 0.18em;
-  background: #f7f9fc;
-}
-
-.reveal .slides .ant-behaviour-gallery .image-panel img {
-  width: 100%;
-  height: 285px;
-  max-height: none;
-  object-fit: cover;
-}
-
-.reveal .slides .ant-behaviour-gallery .image-panel p {
-  margin: 0;
-  padding: 0.38em 0.48em 0.44em;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.59em;
-  line-height: 1.24;
-  text-align: left;
-}
-
-.reveal .slides .model-specification > div {
-  grid-template-columns: minmax(8.5em, 0.72fr) minmax(0, 1.6fr);
-  font-size: 1em;
-  padding: 0.28em 0;
-}
-
-.reveal .slides .model-specification strong {
-  text-align: left;
-}
-
-.ladder-marker {
-  display: flex;
-  align-items: center;
-  gap: 0.65em;
-  border-top: 1px solid var(--reader-line, #C7CEDC);
-  margin-top: 0.8em;
-  padding-top: 0.55em;
-  color: var(--reader-ink-soft, #5A6685);
-  font-family: Baskerville, Georgia, serif;
-  font-size: 0.68em;
-}
-
-.ladder-marker img {
-  width: 30px !important;
-  height: 40px !important;
-  margin: 0 !important;
-  flex: 0 0 auto;
-}
-
-.reveal section:has(.transfer-slide) h1 {
-  font-size: 2.65em;
-  margin-bottom: 0.05em;
-}
-
-.reveal section:has(.transfer-slide) h2 {
-  font-size: 1.45em;
-  margin: 0 0 0.35em;
-}
-
-.reveal section:has(.transfer-slide) p,
-.reveal section:has(.transfer-slide) li {
-  font-size: 0.9em;
-  line-height: 1.25;
-}
-
-.reveal section:has(.transfer-slide) .ladder-marker {
-  margin-top: 0.45em;
-  padding-top: 0.35em;
-}
-
-.schelling-interactive {
-  display: block;
-  width: 100%;
-  height: 475px;
-  margin: 0 auto;
-  border: 0;
-}
-
-.schelling-interactive.compact-simulation {
-  width: 88%;
-  height: 350px;
-}
-
-.reader-event-layout .evidence-panel > img {
-  width: min(100%, 420px);
-  margin-inline: auto;
-}
-
-.simulation-preview {
-  display: block;
-  width: 100%;
-  aspect-ratio: 1;
-  margin: 0 auto;
-  border: 0;
-}
-
-.article .meaning-panel > img {
-  display: block;
-  width: 100%;
-  height: 135px;
-  object-fit: contain;
-  margin: 0 auto 0.35em;
-}
-
-.article .reader-map {
-  display: block;
-  width: min(100%, 900px);
-  height: auto !important;
-  object-fit: contain;
-  margin: 1rem auto 0.5rem;
-}
-
-.canonical-model-marker {
-  display: inline-flex;
-  gap: 0.55rem;
-  align-items: baseline;
-  max-width: 92%;
-  margin-top: 1rem;
-  padding: 0.55rem 0.85rem;
-  border: 1px solid #aebbd0;
-  border-left: 5px solid #1b2a4c;
-  background: #f7f9fc;
-  color: #1b2a4c;
-  text-align: left;
-}
-
-.canonical-model-marker span {
-  font-family: Arial, sans-serif;
-  font-size: 0.5em;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-
-.canonical-model-marker strong {
-  font-family: Baskerville, Georgia, serif;
-  font-size: 0.76em;
-  line-height: 1.15;
-}
-
-.canonical-model-marker strong small {
-  display: block;
-  margin-top: 0.22em;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.68em;
-  font-style: normal;
-  font-weight: 400;
-  color: var(--reader-ink-soft, #5D6D8D);
-}
-
-.modelling-practice-marker {
-  display: inline-flex;
-  gap: 0.55rem;
-  align-items: baseline;
-  max-width: 92%;
-  margin-top: 0.45rem;
-  padding: 0.48rem 0.85rem;
-  border: 1px solid #d4c178;
-  border-left: 5px solid #c89b19;
-  background: #fffaf0;
-  color: #1b2a4c;
-  text-align: left;
-}
-
-.modelling-practice-marker span {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.5em;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-
-.modelling-practice-marker strong {
-  font-family: Baskerville, Georgia, serif;
-  font-size: 0.76em;
-  line-height: 1.15;
-}
-
-.dark .modelling-practice-marker {
-  border-color: #8f7f49;
-  border-left-color: #edcc55;
-  background: #292615;
-  color: #f7f1df;
-}
-
-.guiding-question {
-  box-sizing: border-box;
-  width: min(92%, 58rem);
-  margin: 0.8rem 0 0;
-  padding: 0.68rem 0.9rem 0.72rem;
-  border: 1px solid #c7d2e2;
-  border-top: 4px solid #6d83a9;
-  border-radius: 0.25rem;
-  background: #f7f9fc;
-  color: #1b2a4c;
-  text-align: left;
-}
-
-.guiding-question span {
-  display: block;
-  margin-bottom: 0.22rem;
-  color: #5a6685;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.44em;
-  font-weight: 700;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-}
-
-.guiding-question p {
-  margin: 0;
-  color: inherit;
-  font-family: Baskerville, Georgia, serif;
-  font-size: 0.76em;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 1.25;
-}
-
-.dark .guiding-question {
-  border-color: #586983;
-  border-top-color: #92a6c8;
-  background: #222936;
-  color: #eef2f8;
-}
-
-.dark .guiding-question span {
-  color: #b7c3d7;
-}
-
-.jp-OutputArea-child:has(iframe) .jp-OutputPrompt,
-.jp-Cell-outputWrapper:has(iframe) .jp-OutputCollapser {
-  display: none;
-}
-
-.jp-Cell-outputWrapper:has(iframe) {
-  display: flex;
-  justify-content: center;
-}
-
-:root {
-  --jp-content-font-size1: 28px !important;
-  --reader-ink: #1B2A4C;
-  --reader-ink-soft: #5A6685;
-  --reader-line: #C7CEDC;
-}
-
-.reveal,
-.reveal .slides,
-.reveal .slides section {
-  background: #fff;
-  color: var(--reader-ink);
-}
-
-.reveal .jp-MarkdownOutput p,
-.reveal .jp-MarkdownOutput li,
-.reveal .jp-MarkdownOutput td,
-.reveal .jp-MarkdownOutput th {
-  font-family: Baskerville, Georgia, serif;
-  line-height: 1.28;
-}
-
-.reveal .slides section h1 {
-  font-size: 2.35em;
-  line-height: 1.05;
-}
-
-.reveal .slides section h2,
-.reveal .slides section h3,
-.reveal .slides section h4,
-.reveal .slides section h5 {
-  font-size: 1.45em;
-  line-height: 1.12;
-}
-
-.reveal .slides section h1,
-.reveal .slides section h2,
-.reveal .slides section h3,
-.reveal .slides section h4,
-.reveal .slides section h5 {
-  margin-top: 0;
-  margin-bottom: 0.55em;
-  color: var(--reader-ink);
-}
-
-.reveal .slides section h3,
-.reveal .slides section h4,
-.reveal .slides section h5 {
-  font-size: 1.15em;
-}
-
-.reveal .slides section a {
-  color: var(--reader-ink);
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.12em;
-}
-
-/* A quieter quotation treatment for projected slides. */
-.reveal .slides section .slide-quote {
-  display: block;
-  width: min(86%, 860px);
-  margin: 1.35em auto;
-  padding: 0 0 0 0.8em;
-  border: 0;
-  border-left: 4px solid #D69E1E;
-  color: var(--reader-ink);
-  text-align: left;
-}
-
-.reveal .slides section .slide-quote::before {
-  display: none;
-  content: none;
-}
-
-.reveal .slides section .slide-quote .reader-voice-quote {
-  display: block;
-  font-family: Baskerville, Georgia, serif;
-  font-size: 0.82em;
-  font-style: italic;
-  line-height: 1.45;
-}
-
-.reveal .slides section .slide-quote .reader-voice-quote::after {
-  content: none;
-}
-
-.reveal .slides section .slide-quote .reader-voice-attr {
-  display: block;
-  margin: 0.9em 0 0;
-  padding: 0;
-  border: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.55em;
-  font-style: normal;
-  letter-spacing: 0;
-  color: var(--reader-ink-soft);
-}
-
-/* Notebook anchor glyphs are useful in the Reader but are visual noise in a
-   presentation heading. */
-.reveal .slides section .anchor-link {
-  display: none !important;
-}
-
-/* Old notebooks contain a few inline or inherited sans-serif declarations.
-   Body copy follows the common lecture type system; sans serif is reserved
-   for captions, labels and compact annotations below. */
-.reveal .slides section .jp-MarkdownOutput > p,
-.reveal .slides section .jp-MarkdownOutput > ul,
-.reveal .slides section .jp-MarkdownOutput > ol,
-.reveal .slides section .jp-MarkdownOutput > div:not(.small-note):not(.figure-caption) {
-  font-family: Baskerville, Georgia, serif;
-}
-
-.reveal .slides section table {
-  border-collapse: collapse;
-  margin: 0.7em auto;
-  font-size: 0.68em;
-  line-height: 1.16;
-}
-
-.reveal .slides section th,
-.reveal .slides section td {
-  border-bottom: 1px solid var(--reader-line);
-  padding: 0.3em 0.55em;
-}
-
-.reveal .slides section tbody tr:nth-child(even) {
-  background: transparent;
-}
-
-.reveal .slides section .analysis-perspectives.three {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.65em;
-}
-
-.reveal .slides section .coat-cards img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-.reveal .slides section .coat-cards .coat-image-frame {
-  height: 230px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  margin-bottom: 0.25em;
-}
-
-.reveal .slides section .coat-cards > div {
-  padding: 0.42em 0.48em;
-}
-
-.reveal .slides section .coat-cards p {
-  margin: 0.18em 0;
-}
-
-.reveal .slides section .compact-panels .text-panel { padding: 0.45em 0.65em; }
-.reveal .slides section .compact-panels p { margin: 0; }
-.reveal .slides section .two-panel {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 0.8em;
-  align-items: center;
-  width: 100%;
-}
-.reveal .slides section .two-panel.wide-left {
-  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
-}
-.reveal .slides section .three-panel {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.65em;
-  align-items: stretch;
-  width: 100%;
-}
-.reveal .slides section .two-panel > *,
-.reveal .slides section .three-panel > * { min-width: 0; }
-.reveal .slides section .two-panel .image-panel,
-.reveal .slides section .three-panel .image-panel,
-.reveal .slides section .two-panel .text-panel,
-.reveal .slides section .three-panel .text-panel {
-  box-sizing: border-box;
-  width: 100%;
-}
-.reveal .slides section .two-panel .image-panel img,
-.reveal .slides section .three-panel .image-panel img {
-  display: block;
-  max-width: 100%;
-  width: auto;
-  height: auto;
-  margin: 0 auto;
-  object-fit: contain;
-}
-.reveal .slides section .small-note {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.62em;
-  line-height: 1.28;
-  color: var(--reader-ink-soft);
-}
-
-.reveal .slides section .canonical-model-marker strong small {
-  display: block;
-  margin-top: 0.22em;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.68em;
-  font-style: normal;
-  font-weight: 400;
-  color: var(--reader-ink-soft);
-}
-
-.reveal .slides section figcaption,
-.reveal .slides section .figure-caption,
-.reveal .slides section p:has(> em:first-child:last-child) {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.58em;
-  line-height: 1.25;
-  color: var(--reader-ink-soft);
-}
-
-.reveal .slides section pre,
-.reveal .slides section code,
-.reveal .jp-CodeCell {
-  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-}
-
-.reveal .slides section img {
-  max-height: 350px;
-  width: auto;
-  height: auto;
-}
-</style>
 </head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 <main>
 <div class="reveal">
 <div class="slides"><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c2a410f2">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Game-theory">Game theory<a class="anchor-link" href="#Game-theory">¶</a></h1><div class="canonical-model-marker"><span>Canonical models</span><strong>Prisoner's dilemma and iterated prisoner's dilemma</strong></div>
-<div class="modelling-practice-marker"><span>Modelling practice</span><strong>Path dependence and implementation choices</strong></div>
-<p class="week-emphasis"><strong>This week’s emphasis:</strong> We move through four levels: one encounter and its payoff, repeated interaction, a structured population, and evolutionary change in strategy frequencies.<br/><span class="toolkit-addition"><strong>Added to the toolkit:</strong> Interactions now produce payoffs, repeated encounters create path dependence, and strategies themselves can change through selection, inheritance and mutation.</span></p>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w10-motivation-banner">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Real-world-motivation">Real-world motivation<a class="anchor-link" href="#Real-world-motivation">¶</a></h1>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w10-shared-conflicting-objectives-slide">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
-<h2 id="From-shared-to-conflicting-objectives">From shared to conflicting objectives<a class="anchor-link" href="#From-shared-to-conflicting-objectives">¶</a></h2><p>Week 7 assumed that agents reported information honestly while searching for the same objective. Game theory allows their interests to differ.</p>
-<ul>
-<li><strong>Cooperation:</strong> acting towards a shared benefit.</li>
-<li><strong>Coordination:</strong> making actions fit together.</li>
-<li><strong>Negotiation:</strong> exchanging proposals or concessions when interests differ.</li>
-</ul>
-<p>Individually rational actions need not produce the socially preferred outcome.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w10-rps-arena">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Cyclic-competition-in-motion">Cyclic competition in motion<a class="anchor-link" href="#Cyclic-competition-in-motion">¶</a></h2><div class="two-panel wide-left compact-panels">
-<div class="image-panel"><iframe src="https://konloch.com/demos/rock-paper-scissors" style="width:100%;height:430px;border:0" title="Rock paper scissors emoji arena"></iframe></div>
-<div class="text-panel"><p>Rock–paper–scissors is a game in the game-theoretic sense: each strategy defeats one alternative and loses to the other. This simulation adds agents, movement and conversion on contact to that cyclic payoff rule.</p><p>A finite run may eventually contain only one type. That outcome is produced by movement, collisions, boundaries and chance as well as by the payoff table.</p><p><a href="https://konloch.com/demos/rock-paper-scissors" target="_blank">Open the simulation in a new tab</a>.</p></div>
-</div>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w10-rps-local-game-slide">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
-<h2 id="Rock--paper--scissors-is-a-game">Rock--paper--scissors is a game<a class="anchor-link" href="#Rock--paper--scissors-is-a-game">¶</a></h2><p>One encounter has a payoff matrix: a win gives $+1$, a loss $-1$, and a draw $0$.</p>
-<table>
-<thead>
-<tr>
-<th>Player 1 \ Player 2</th>
-<th style="text-align:right">Rock</th>
-<th style="text-align:right">Paper</th>
-<th style="text-align:right">Scissors</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Rock</td>
-<td style="text-align:right">$(0,0)$</td>
-<td style="text-align:right">$(-1,+1)$</td>
-<td style="text-align:right">$(+1,-1)$</td>
-</tr>
-<tr>
-<td>Paper</td>
-<td style="text-align:right">$(+1,-1)$</td>
-<td style="text-align:right">$(0,0)$</td>
-<td style="text-align:right">$(-1,+1)$</td>
-</tr>
-<tr>
-<td>Scissors</td>
-<td style="text-align:right">$(-1,+1)$</td>
-<td style="text-align:right">$(+1,-1)$</td>
-<td style="text-align:right">$(0,0)$</td>
-</tr>
-</tbody>
-</table>
-<p>The moving population adds local encounters, conversion, finite numbers and boundaries.  Those details determine which pairwise games are actually played.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w10-real-games-slide">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
-<h2 id="Games-outside-the-classroom">Games outside the classroom<a class="anchor-link" href="#Games-outside-the-classroom">¶</a></h2><ul>
-<li>Side-blotched lizards: three mating strategies form a rock--paper--scissors cycle.</li>
-<li>Yeast: cooperation and cheating can produce snowdrift-game dynamics.</li>
-<li>Shared resources: individual incentives can conflict with collective persistence.</li>
-</ul>
-<p>The payoff rule specifies incentives.  Population structure and repeated interaction determine what follows.</p>
-</div>
-</div>
-</div>
-</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d3421853">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="Elements-of-a-game">Elements of a game<a class="anchor-link" href="#Elements-of-a-game">¶</a></h2><p>A game is a representation of strategic decisions: the outcome for each player depends on what all players do.</p>
-<p>The model specifies</p>
+<h1 id="Games">Games<a class="anchor-link" href="#Games">¶</a></h1><p>A "game" is not about entertainment but a carefully designed representation of strategic decision-making.</p>
+<p>It is defined by three key ingredients: who makes the decision, $P$, what decision they make, $A$, and what reward they get as a result of the decision of <em>all</em> players, $U$.</p>
+<p>Formally:</p>
 <p>$$
-G=(P,\{A_i\}_{i=1}^{n},\{u_i\}_{i=1}^{n})
+G = \{P, A, U\}.
 $$</p>
-<p>where $P=\{1,\ldots,n\}$ is the set of $n$ players, $A_i$ is player $i$’s action set, and $u_i$ assigns that player a payoff to every action profile.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a7aa8aa3">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
+<h2 id="Assumptions">Assumptions<a class="anchor-link" href="#Assumptions">¶</a></h2><p>Game theory hinges on some critical assumptions.</p>
+<p>The players are <strong>rational utility maximisers</strong>.</p>
+<ul>
+<li><strong>Rational</strong> means they don't make mistakes when they choose the action.</li>
+<li><strong>Utility maximiser</strong> means they always choose the action that's best for them.</li>
+</ul>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=802fd871-454e-4fff-986f-608025913ed8">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
+<h3 id="Strategy-space">Strategy space<a class="anchor-link" href="#Strategy-space">¶</a></h3><p>The <strong>strategy space</strong> is the set of all possible action profiles across players:</p>
+<p>$$
+S = A_1 \times A_2 \times \cdots \times A_n,
+$$</p>
+<p>where $A_i$ is the action set of player $p_i$.</p>
+<p>Each element $s \in S$ is a tuple $(a_1,a_2,\ldots,a_n)$ describing one possible combination of actions.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9578e5bd-40d6-435f-83b2-a65f77bb3e37">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
+<h3 id="Payoff-functions">Payoff functions<a class="anchor-link" href="#Payoff-functions">¶</a></h3><p>For each profile $s \in S$ we assign a <strong>payoff function</strong>:</p>
+<p>$$
+u_i : S \to \mathbb{R},
+$$</p>
+<p>which gives the utility (reward/cost) for player $p_i$.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8ff83c61-0097-43d3-ac1a-e5f5fef2995b">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
+<h3 id="Payoff-matrix-(normal-form)">Payoff matrix (normal form)<a class="anchor-link" href="#Payoff-matrix-(normal-form)">¶</a></h3><p>For 2-player games, it is convenient to represent the payoff structure with a matrix:</p>
+<p>$$
+\begin{array}{c|c|c|}
+ &amp; \text{Player 2: } \beta_1 &amp; \text{Player 2: } \beta_2 \\
+\hline
+\text{Player 1: } \alpha_1 &amp; (u_1(\alpha_1,\beta_1), u_2(\alpha_1,\beta_1)) 
+                           &amp; (u_1(\alpha_1,\beta_2), u_2(\alpha_1,\beta_2)) \\
+\hline
+\text{Player 1: } \alpha_2 &amp; (u_1(\alpha_2,\beta_1), u_2(\alpha_2,\beta_1)) 
+                           &amp; (u_1(\alpha_2,\beta_2), u_2(\alpha_2,\beta_2)) \\
+\hline
+\end{array}
+$$</p>
 </div>
 </div>
 </div>
@@ -8878,45 +7531,47 @@ $$</p>
 </div>
 </div>
 </div>
-</div>
+</div><div class="fragment">
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b091f920-71fa-423d-bcca-802cdfc18199">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>Let $A_1$ and $A_2$ be the players’ action sets. An action profile $(a_1^*,a_2^*)$ is a Nash equilibrium when</p>
+<p>Let the actions of $p_1$ and $p_2$ be $a_1=\{\alpha_1,\alpha_2, \ldots \alpha_n\}$ and $a_2=\{\beta_1,\beta_2, \ldots \beta_n\}$ respectively.</p>
+<p>Then $(\alpha^*, \beta^*)$ is a Nash equilibrium if:</p>
 <p>$$
-u_1(a_1^*,a_2^*) \geq u_1(a_1,a_2^*)
-\qquad \text{for every } a_1\in A_1
+u_1(\alpha^*,\beta^*)\geq u_1(\alpha',\beta^*) \quad \forall \alpha'\in a_1
 $$</p>
 <p>and</p>
 <p>$$
-u_2(a_1^*,a_2^*) \geq u_2(a_1^*,a_2)
-\qquad \text{for every } a_2\in A_2
+u_2(\alpha^*,\beta^*)\geq u_2(\alpha^*,\beta') \quad \forall \beta' \in a_2.
 $$</p>
 </div>
 </div>
 </div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w10-model-banner">
+</div><aside class="notes">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=70f014bf-2659-4a8b-9539-6789379fb93b">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Model-details">Model details<a class="anchor-link" href="#Model-details">¶</a></h1>
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_presenter-notes celltag_remove-cell" data-mime-type="text/markdown">
+<div style="background-color: #ffff88; padding: 1em; border-left: 5px solid #fff102;">
+Khan Academy has a tutorial to point students to: https://www.khanacademy.org/economics-finance-domain/microeconomics/nash-equilibrium-tutorial
 </div>
 </div>
 </div>
-</div></section><section>
+</div>
+</div>
+</aside></div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d9bf6664">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="Prisoner's-dilemma">Prisoner's dilemma<a class="anchor-link" href="#Prisoner's-dilemma">¶</a></h2><p><em>Two criminals are caught by the police, but there isn’t enough evidence for the full charge. They are interrogated separately.</em></p>
+<h1 id="Prisoner's-dilemma">Prisoner's dilemma<a class="anchor-link" href="#Prisoner's-dilemma">¶</a></h1><p><em>Two criminals are caught by the police, but there isn’t enough evidence for the full charge. They are interrogated separately.</em></p>
 <p>Each must decide whether to:</p>
 <ul>
 <li><strong>Cooperate (C):</strong> stay silent and protect the other.</li>
@@ -8933,29 +7588,17 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p><strong>Frame the Prisoner’s Dilemma as a game.</strong></p>
-<table>
-<thead>
-<tr>
-<th>Component</th>
-<th>Specification</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Players</td>
-<td>$P=\{p_1,p_2\}$</td>
-</tr>
-<tr>
-<td>Actions</td>
-<td>$A_1=A_2=\{C,D\}$, where $C$ is cooperate and $D$ is defect</td>
-</tr>
-<tr>
-<td>Utilities</td>
-<td>$u_i(a_1,a_2)$ is the negative prison sentence, so a less negative value is better.</td>
-</tr>
-</tbody>
-</table>
+<h2 id="Framed-as-a-game">Framed as a game<a class="anchor-link" href="#Framed-as-a-game">¶</a></h2><p>Using the formal definition of a game, $G = \{P, A, U\}$:</p>
+<ul>
+<li><strong>Players</strong>: $P=\{p_1, p_2\}$</li>
+<li><strong>Actions</strong>: $A=\{A_1, A_2\}$, where $A_1=\{C,D\}$, $A_2=\{C,D\}$</li>
+<li><strong>Utilities (payoffs)</strong>: $U=\{u_1,u_2\}$ for chosen actions $a_1\in A_1$ and $a_2\in A_2$<ul>
+<li>$u_1(a_1,a_2)$ = -(years in jail) for $p_1$ given actions $(a_1,a_2)$</li>
+<li>$u_2(a_1,a_2)$ = -(years in jail) for $p_2$</li>
+<li>We define <strong>utility = −(years in jail)</strong> (think of it as years of life lost) in order to keep “higher is better” consistent with the formal definition of Nash equilibrium (which we will see shortly).</li>
+</ul>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -8966,8 +7609,7 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p><strong>The rules of the game.</strong></p>
-<p>The police offer the prisoners a <strong>"Faustian bargain"</strong> (Faust traded his soul for knowledge and power):</p>
+<h2 id="The-rules-of-the-game">The rules of the game<a class="anchor-link" href="#The-rules-of-the-game">¶</a></h2><p>The police offer the prisoners a <strong>"Faustian bargain"</strong> (Faust traded his soul for knowledge and power):</p>
 <p>If one betrays while the other stays silent:</p>
 <ul>
 <li>The betrayer goes free.</li>
@@ -8991,15 +7633,14 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p><strong>Payoff structure.</strong></p>
-<p>Using negative years in prison as utility gives</p>
+<h2 id="Payoff-structure">Payoff structure<a class="anchor-link" href="#Payoff-structure">¶</a></h2><p>We can now assign payoffs formally:</p>
 <p>$$
-\begin{aligned}
-u_1(D,C)&amp;=0, &amp; u_1(C,D)&amp;=-3, &amp; u_1(D,D)&amp;=-2, &amp; u_1(C,C)&amp;=-1,\\
-u_2(C,D)&amp;=0, &amp; u_2(D,C)&amp;=-3, &amp; u_2(D,D)&amp;=-2, &amp; u_2(C,C)&amp;=-1.
-\end{aligned}
+u_1(D,C)=0, \quad u_1(C,D)=3, \quad u_1(D,D)=2, \quad u_1(C,C)=1
 $$</p>
-<p>Here $u_i(a_1,a_2)$ is Player $i$'s utility for the action pair, with $C$ for cooperate and $D$ for defect. Higher utility now consistently means a better outcome. If payoffs are written as positive years in prison, players minimise cost.</p>
+<p>By symmetry:</p>
+<p>$$
+u_2(C,D)=0, \quad u_2(D,C)=3, \quad u_2(D,D)=2, \quad u_2(C,C)=1
+$$</p>
 </div>
 </div>
 </div>
@@ -9012,9 +7653,9 @@ $$</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
 <p>The <strong>strategy space</strong> is the set of all possible action pairs:</p>
 <p>$$
-S=\{C,D\}\times\{C,D\}=\{(C,C),(C,D),(D,C),(D,D)\}
+S=\{C,D\}\times\{C,D\}=\{(C,C),(C,D),(D,C),(D,D)\}.
 $$</p>
-<p>Here $C$ means cooperate and $D$ means defect. For each element of $S$, the payoff functions $u_1$ and $u_2$ give the two players' outcomes.</p>
+<p>For each element of $S$, the payoff functions $u_1$ and $u_2$ tell us the outcome (years in jail).</p>
 </div>
 </div>
 </div>
@@ -9025,34 +7666,7 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p><strong>Payoff matrix (normal form).</strong></p>
-<div class="two-panel compact-panels image-text">
-<div class="image-panel"><img alt="Prisoner’s Dilemma payoff matrix" src="images/Payoff_matrix_pictures_PD.png" style="max-height:410px"/></div>
-<div class="text-panel"><p>Rows are Player 1’s actions and columns are Player 2’s.</p><p>Each cell contains the resulting payoff pair.</p></div>
-</div>
-<p class="figure-caption" id="fig-w10-1"><strong>Figure 10.1.</strong> A Prisoner’s Dilemma payoff matrix illustrated by its four outcomes. Rows give Player 1’s actions, columns give Player 2’s, and each cell contains the resulting payoff pair.</p>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w10-explorable-banner-slide">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
-<h1 id="Explorable">Explorable<a class="anchor-link" href="#Explorable">¶</a></h1>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w10-prisoners-kaleidoscope-slide">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
-<h2 id="Prisoner's-Kaleidoscope">Prisoner's Kaleidoscope<a class="anchor-link" href="#Prisoner's-Kaleidoscope">¶</a></h2><iframe class="full-bleed-frame" src="https://www.complexity-explorables.org/explorables/prisoners-kaleidoscope/" title="Prisoner's Kaleidoscope explorable"></iframe>
+<h2 id="Payoff-matrix-(normal-form)">Payoff matrix (normal form)<a class="anchor-link" href="#Payoff-matrix-(normal-form)">¶</a></h2><p><img alt="" src="images/Payoff_matrix_pictures_PD.png"/></p>
 </div>
 </div>
 </div>
@@ -9063,7 +7677,7 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p><strong>Payoff plane.</strong></p>
+<h2 id="Payoff-plane">Payoff plane<a class="anchor-link" href="#Payoff-plane">¶</a></h2>
 </div>
 </div>
 </div>
@@ -9074,35 +7688,20 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p><img alt="Payoff plane PD" src="images/Payoff_plane_PD.png"/></p>
-<p class="figure-caption" id="fig-w10-2"><strong>Figure 10.2.</strong> The Prisoner’s Dilemma represented in payoff space.</p>
+<p><img alt="" src="images/Payoff_plane_PD.png"/></p>
 </div>
 </div>
 </div>
-</div></div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w10-analysis-banner">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Analysis">Analysis<a class="anchor-link" href="#Analysis">¶</a></h1>
-</div>
-</div>
-</div>
-</div></section><section>
+</div></div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5cddb19c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p><strong>Individual incentives.</strong></p>
-<div class="two-panel compact-panels image-text">
-<div class="image-panel"><img alt="Prisoner’s Dilemma payoff matrix" src="images/Payoff_matrix_PD.png" style="max-height:410px"/></div>
-<div class="text-panel"><p>Assume each prisoner maximises their own immediate payoff.</p><p><strong>What should Player 1 do for each possible action of Player 2?</strong></p></div>
-</div>
-<p class="figure-caption" id="fig-w10-3"><strong>Figure 10.3.</strong> Individual incentives in the Prisoner’s Dilemma payoff matrix.</p>
+<h2 id="So-what-actions-should-the-players-choose?">So what actions should the players choose?<a class="anchor-link" href="#So-what-actions-should-the-players-choose?">¶</a></h2><p>Assuming that the prisoners are rational utility maximisers, i.e. they are only concerned with the immediate goal of minimising their own sentence...</p>
+<p>What should $p_1$ do?</p>
+<p><img alt="" src="images/Payoff_matrix_PD.png"/></p>
 </div>
 </div>
 </div>
@@ -9113,8 +7712,7 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p><strong>Nash equilibrium.</strong></p>
-<p>No matter what $p_2$ does, $p_1$ is better off defecting.</p>
+<h2 id="Nash-equilibrium">Nash equilibrium<a class="anchor-link" href="#Nash-equilibrium">¶</a></h2><p>No matter what $p_2$ does, $p_1$ is better off defecting.</p>
 <p>Same goes for $p_2$ from symmetry.</p>
 <p>Defecting is the best choice in all cases! It is the (strictly) <strong>'dominant strategy'</strong> and the <strong>Nash equilibrium</strong> i.e. once both defect, neither regrets it — even though they don’t like the outcome!</p>
 <p>Here the inequalities are strict in each comparison, so defection strictly dominates cooperation for both players.</p>
@@ -9128,8 +7726,7 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p><strong>Pareto optimum.</strong></p>
-<p>The outcome $(1,1)$ means one year in prison for each player; $(2,2)$ means two years each. The first is Pareto-superior because both players prefer it, but individual incentives make mutual cooperation unstable.</p>
+<h2 id="Pareto-optimum">Pareto optimum<a class="anchor-link" href="#Pareto-optimum">¶</a></h2><p>The point $(1,1)$ is Pareto-superior to $(2,2)$ because both players would prefer this option. But the incentives of each player make it unstable.</p>
 </div>
 </div>
 </div>
@@ -9140,8 +7737,7 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p><img alt="Payoff plane analysed PD" src="images/Payoff_plane_analysed_PD.png"/></p>
-<p class="figure-caption" id="fig-w10-4"><strong>Figure 10.4.</strong> Best-response structure in the Prisoner’s Dilemma payoff plane.</p>
+<p><img alt="" src="images/Payoff_plane_analysed_PD.png"/></p>
 </div>
 </div>
 </div>
@@ -9152,12 +7748,7 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p><strong>Generalising the payoff.</strong></p>
-<div class="two-panel compact-panels image-text">
-<div class="image-panel"><img alt="General Prisoner’s Dilemma payoff ordering" src="images/General_PD.png" style="max-height:410px"/></div>
-<div class="text-panel"><p>The labels can change while the strategic structure remains.</p><p>The Prisoner’s Dilemma requires temptation $&gt;$ reward $&gt;$ punishment $&gt;$ sucker’s payoff.</p></div>
-</div>
-<p class="figure-caption" id="fig-w10-5"><strong>Figure 10.5.</strong> The general payoff ordering defining a Prisoner’s Dilemma: temptation &gt; reward &gt; punishment &gt; sucker’s payoff.</p>
+<h2 id="Generalising-the-payoff">Generalising the payoff<a class="anchor-link" href="#Generalising-the-payoff">¶</a></h2><p><img alt="" src="images/General_PD.png"/></p>
 </div>
 </div>
 </div>
@@ -9168,7 +7759,7 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>Let $T$, $R$, $P$ and $S$ denote the temptation, reward, punishment and sucker's payoffs. If</p>
+<p>In general, if:</p>
 <p>$$
 S&lt;P&lt;R&lt;T
 $$</p>
@@ -9182,159 +7773,14 @@ $$</p>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w10-read-payoff-slide">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
-<h2 id="Read-one-payoff-entry">Read one payoff entry<a class="anchor-link" href="#Read-one-payoff-entry">¶</a></h2><p>Player 1 chooses a row and Player 2 a column.  The selected cell contains</p>
-<p>$$
-(\text{Player 1 payoff},\;\text{Player 2 payoff}).
-$$</p>
-<p>In the Prisoner's Dilemma, $(D,C)$ gives the defector the tempting payoff while the cooperator receives the sucker's payoff.  The whole game is read one cell at a time.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w10-evolution-bridge-slide">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
-<h1 id="From-games-to-evolution">From games to evolution<a class="anchor-link" href="#From-games-to-evolution">¶</a></h1><p>The Prisoner's Dilemma remains the canonical game.  We add:</p>
-<ol>
-<li>repeated encounters;</li>
-<li>strategies that use the history of play;</li>
-<li>accumulated payoff across a population; and</li>
-<li>a rule connecting payoff to representation in the next generation.</li>
-</ol>
-<p>Tournament success and evolutionary success are different claims.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w10-repeated-play-slide">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
-<h2 id="Repeated-play">Repeated play<a class="anchor-link" href="#Repeated-play">¶</a></h2><p>A strategy is now a rule that maps interaction history to the next action.</p>
-<ul>
-<li><strong>Always Cooperate</strong> and <strong>Always Defect</strong> ignore history.</li>
-<li><strong>Tit for Tat</strong> cooperates first, then copies its opponent's previous action.</li>
-</ul>
-<p>An immediate gain can therefore change many later rounds.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w10-axelrod-slide">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
-<h2 id="Axelrod's-tournaments">Axelrod's tournaments<a class="anchor-link" href="#Axelrod's-tournaments">¶</a></h2><p>Submitted strategies played repeated matches against a fixed field of opponents.</p>
-<p>Tit for Tat won despite being extremely short and never outscoring an opponent head-to-head.  It accumulated a strong total across the field.</p>
-<p>This result describes tournament performance among a fixed collection of strategies.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w10-tournament-evolution-slide">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
-<h2 id="Tournament-success-and-evolutionary-success">Tournament success and evolutionary success<a class="anchor-link" href="#Tournament-success-and-evolutionary-success">¶</a></h2><p><strong>Tournament:</strong> which strategy scores best against a fixed collection?</p>
-<p><strong>Evolution:</strong> which strategy becomes more common as the population changes?</p>
-<p>Evolution requires an explicit payoff-to-fitness rule, inheritance and mutation.  A high payoff does not cause copying or reproduction unless the model says how.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w10-payoff-fitness-link-slide">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
-<h3 id="From-payoff-to-fitness">From payoff to fitness<a class="anchor-link" href="#From-payoff-to-fitness">¶</a></h3><p>An evolutionary model needs an explicit link from game payoff to expected copying or reproductive success.</p>
-<ul>
-<li><strong>Selection:</strong> how payoff changes the expected number of descendants or copies.</li>
-<li><strong>Inheritance:</strong> whether descendants receive the parent's strategy.</li>
-<li><strong>Mutation:</strong> how copied strategies change or new strategies appear.</li>
-</ul>
-<p>A high payoff does not cause reproduction unless the model supplies this rule.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w10-selection-inheritance-mutation-slide">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
-<h3 id="Selection-changes-the-population">Selection changes the population<a class="anchor-link" href="#Selection-changes-the-population">¶</a></h3><ol>
-<li>Agents play the Prisoner's Dilemma and accumulate payoff.</li>
-<li>Strategies with greater fitness are copied more often.</li>
-<li>Copies inherit a strategy, with occasional mutation.</li>
-<li>The new population changes the opponents encountered next.</li>
-</ol>
-<p>Tournament success tests a fixed field of opponents.  Evolutionary success changes that field.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w10-spatial-evolution">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Replicator-dynamics">Replicator dynamics<a class="anchor-link" href="#Replicator-dynamics">¶</a></h3><p>Let $x_s$ be the fraction of a well-mixed population using strategy $s$. Its expected payoff $\pi_s(\mathbf{x})$ depends on the current population mixture $\mathbf{x}$. The population mean payoff is</p>
-<p>$$
-\bar\pi(\mathbf{x})=\sum_s x_s\pi_s(\mathbf{x}).
-$$</p>
-<p>The <strong>replicator equation</strong> is</p>
-<p>$$
-\dot{x}_s=x_s\left[\pi_s(\mathbf{x})-\bar\pi(\mathbf{x})\right].
-$$</p>
-<p>The dot denotes change per unit time. A strategy increases when its payoff is above the current population mean and decreases when it is below it. The basic equation assumes an effectively infinite, well-mixed population and faithful inheritance. This form excludes mutation; later variants can add it.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w10-evolution-not-optimisation">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Structured-populations">Structured populations<a class="anchor-link" href="#Structured-populations">¶</a></h3><p>The replicator equation assumes random mixing. On a lattice or network, agents interact with a restricted set of neighbours and successful strategies spread locally. Cooperative clusters can protect their members from defectors; in cyclic games, local replacement can produce fronts and spirals.</p>
-<p>The evolutionary outcome therefore depends on more than the payoff matrix. The interaction structure, payoff-to-fitness map, update timing, mutation and population size can all change the result.</p>
-<p>Evolution and optimisation use populations differently. Particle swarm optimisation updates candidate solutions without reproduction. Biological evolution changes inherited traits through differential reproduction, and fitness arises from interactions among organisms and their environment rather than from an externally specified objective function.</p>
-</div>
-</div>
-</div>
-</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=09fa3a4f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p><strong>The Prisoner’s Dilemma is one $2\times2$ game.</strong></p>
-<div class="two-panel compact-panels image-text">
-<div class="image-panel"><img alt="Topology of two-player two-action games" src="images/2x2games-topology_page1.jpg" style="max-height:430px"/></div>
-<div class="text-panel"><p>Changing the ordering of four outcomes changes the strategic problem.</p><p>Other orderings produce coordination, anti-coordination and asymmetric games.</p></div>
-</div>
-<p class="figure-caption" id="fig-w10-6"><strong>Figure 10.6.</strong> The Prisoner’s Dilemma within the space of symmetric two-action games.</p>
+<p>And if it doesn't fit the Prisoner's Dilemma framework then there is another game it will fit!</p>
+<p><img alt="" src="images/2x2games-topology_page1.jpg"/></p>
 </div>
 </div>
 </div>
@@ -9345,48 +7791,26 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<div class="two-panel compact-panels image-text">
-<div class="image-panel"><img alt="Families of two-player two-action games" src="images/2x2games-topology_page4.jpg" style="max-height:430px"/></div>
-<div class="text-panel"><p><strong>A space of games</strong></p><p>Games can be grouped by transformations of their payoff rankings. Figure 10.7 organises related strategic structures rather than isolated examples.</p><p class="figure-source">Robinson and Goforth, <em>The Topology of the 2×2 Games</em>.</p></div>
-</div>
-<p class="figure-caption" id="fig-w10-7"><strong>Figure 10.7.</strong> Two-action games grouped by transformations of their payoff rankings. From Robinson and Goforth, <em>The Topology of the 2×2 Games</em>.</p>
+<p><img alt="" src="images/2x2games-topology_page4.jpg"/></p>
+<p>[Topology of 2x2 Ordinal Games with Payoff Families]
+(<a href="https://upload.wikimedia.org/wikipedia/commons/3/32/2x2chart110602.pdf">https://upload.wikimedia.org/wikipedia/commons/3/32/2x2chart110602.pdf</a>)</p>
 </div>
 </div>
 </div>
 </div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w10-scope-banner">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Scope-and-connections">Scope and connections<a class="anchor-link" href="#Scope-and-connections">¶</a></h1><div aria-hidden="true" class="reference-register" style="display:none">
-<a href="https://doi.org/10.1126/science.7466396">Axelrod and Hamilton (1981)</a><br/>
-<a href="https://doi.org/10.1038/246015a0">Maynard Smith and Price (1973)</a><br/>
-<a href="https://doi.org/10.1038/359826a0">Nowak and May (1992)</a>
-</div>
-</div>
-</div>
-</div>
-</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=19360953">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p><strong>Limits of the model.</strong>
-Game theory tells us what a perfectly rational agent <em>should</em> do.</p>
+<h1 id="Reality">Reality<a class="anchor-link" href="#Reality">¶</a></h1><p>Game theory tells us what a perfectly rational agent <em>should</em> do.</p>
 <p>It is much harder to predict what real people <em>actually</em> do.</p>
 <p>See this 'real life' example, the Golden Balls:</p>
-<div class="video-embed">
-<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" height="405" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube-nocookie.com/embed/S0qjK3TWZE8" title="Golden Balls: split or steal" width="720"></iframe>
-<p class="media-credit">Video: <a href="https://www.youtube.com/watch?v=S0qjK3TWZE8" rel="noopener" target="_blank"><em>Golden Balls</em>: split or steal</a>.</p>
 </div>
 </div>
 </div>
-</div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell celltag_slides celltag_hide-input celltag_slides-only" id="cell-id=f56e1160-08b3-48a5-a0c7-14ca10c7b2ed">
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell celltag_slides celltag_hide-input" id="cell-id=f56e1160-08b3-48a5-a0c7-14ca10c7b2ed">
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
@@ -9399,16 +7823,401 @@ Game theory tells us what a perfectly rational agent <em>should</em> do.</p>
 </div>
 </div>
 </div>
-</div></div></section><section>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=07507eed-5649-4b03-a13c-efa1871f738b">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_remove-cell" data-mime-type="text/markdown">
+<h1 id="Is-it-so-surprising-that-people-are-not-rational-agents?">Is it so surprising that people are not rational agents?<a class="anchor-link" href="#Is-it-so-surprising-that-people-are-not-rational-agents?">¶</a></h1><p>How can we explain people not doing what Game Theory says they should?</p>
+<ul>
+<li>people are not smart enough to understand the scenario?</li>
+<li>people are knowingly acting contrary to their own interest?</li>
+<li>something else?</li>
+</ul>
+<p>We will take a small detour via evolution and genetic algorithms and come back to this 'something else'...</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=754af072-4e59-4257-80d5-71957ab707a0">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_remove-cell" data-mime-type="text/markdown">
+<h1 id="Evolution">Evolution<a class="anchor-link" href="#Evolution">¶</a></h1><p>To evolve is to change over time</p>
+<p>In biology, evolution refers to the gradual process by which species change genetically across generations i.e. it's an aggregate effect: <em>individuals don't evolve, populations do</em></p>
+<p>The theory of evolution claims that new species are created and existing species change due to <strong>natural selection</strong></p>
+<p>Natural selection is the process where inherited variations between individuals cause differences in survival and reproduction</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=55f9a1d7-3174-45dc-a3c3-f19b708b3f62">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_remove-cell" data-mime-type="text/markdown">
+<h2 id="Darwin">Darwin<a class="anchor-link" href="#Darwin">¶</a></h2><center>
+<img alt="No description has been provided for this image" src="images/DarwinsFinches.jpeg" width="300"/>
+</center>
+<p>Finches from the Galapagos inspired Darwin during his visit to the islands in 1835: They are thought to have evolved from a single finch species that came to the islands more than a million years ago. Differences between species are in the size and shape of their beaks, which are highly adapted to different food sources available on the different islands</p>
+<p>According to Darwin all organisms share a common ancestor that lived about 580 million years ago and there's no hierarchy -- each organism alive now is the most evolved of its kind.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5d2f81c4-336e-4821-8451-c33861287542">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_remove-cell" data-mime-type="text/markdown">
+<h3 id="Beware-the-linear-depiction-of-ape-to-man!">Beware the linear depiction of ape to man!<a class="anchor-link" href="#Beware-the-linear-depiction-of-ape-to-man!">¶</a></h3><center>
+<img alt="No description has been provided for this image" src="images/Evolution_ApeMan_Linear.png" width="300"/>
+</center>
+<p>Image: <a href="http://creationwiki.org/Devolution">http://creationwiki.org/Devolution</a></p>
+<p>Many variations of this picture - some have a humorous spirit, but most aim to ridicule the monkey to man theory</p>
+<p>Linear depictions like this may confirm false preconceptions about evolution, such as intelligent design (the idea that life has an intelligent creator behind it)</p>
+<!-- Evolution is not some goal-directed process with humans as the final product/pinnacle -->
+<p>The reality is that each is a unique species with their own evolutionary paths and humans are no more special than any other primate.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f7eed763-463d-45e7-82a2-2b2a0f1634c3">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_remove-cell" data-mime-type="text/markdown">
+<h3 id="Evolution-is-not-linear">Evolution is not linear<a class="anchor-link" href="#Evolution-is-not-linear">¶</a></h3><center>
+<img alt="No description has been provided for this image" src="images/Evolution_ApeMan_Proper.jpeg" width="300"/>
+</center>
+<p>Image from: doi:10.1038/nature01400</p>
+<p>Evolution is a process of continuous branching and divergence of populations of organisms</p>
+<p>Humans did not evolve from chimpanzees or any of the other great apes that live today</p>
+<p>We share a common ancestor that lived $\approx$10 million years ago - asking why modern chimps don't look more like humans is like asking why the children of your cousins don't look more like you than their parents - they're on an entirely different evolutionary path.</p>
+<!-- Some good reading and some really bad reading on this topic exists. Do your own homework.  -->
+<!-- https://www.washingtonpost.com/news/speaking-of-science/wp/2016/07/25/dear-science-answers-your-questions-about-evolution/ -->
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=adcf3a46-299b-4fd4-af18-7ef091917ca2">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_remove-cell" data-mime-type="text/markdown">
+<h2 id="Explaining-global/macroscopic-observations">Explaining global/macroscopic observations<a class="anchor-link" href="#Explaining-global/macroscopic-observations">¶</a></h2><p>i.e. the output</p>
+<p>The theory of evolution is powerful because it explains phenomena we see in the natural world:</p>
+<ul>
+<li><strong>Adaptation</strong>: Natural selection favors adaptations that best enable creatures to survive under the circumstances in which they live. (This <em>does not</em> mean they should all be becoming more human!)</li>
+</ul>
+<!--     - How ridiculously elitist to think we are the goal and culmination of 4.5 billion years of evolution.
+    - We continue to evolve - lactose tolerance came long after we were making cheese. Malaria resilience in parts of the world etc.
+    - Our species could continue to evolve and change for many millennia to come, but we could just as easily go extinct, as have 99 percent of all life forms that came before us.
+    - Many features of natural systems seem as if they were designed. -->
+<ul>
+<li><strong>Increasing diversity</strong>: Over time the number of species on earth has generally increased (despite periods of mass extinction)</li>
+<li><strong>Increasing complexity</strong>: The history of life on earth starts with relatively simple life forms, with more complex organisms appearing later in the geological record.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=798a38a9-aa79-4722-8bb8-ed6ac7dc27ba">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_remove-cell" data-mime-type="text/markdown">
+<h2 id="Mechanisms-for-evolution">Mechanisms for evolution<a class="anchor-link" href="#Mechanisms-for-evolution">¶</a></h2><p>i.e. the inputs required</p>
+<!-- Gradual change happens on timescales that vary from organism to organism based on the length of a generation -->
+<p>To model evolution the following three mechanisms are sufficient:</p>
+<ol>
+<li><strong>Variation</strong>: variability in the population, i.e. differences between individuals</li>
+<li><strong>Differential survival or reproduction</strong>: differences between individuals affect their ability to survive or reproduce</li>
+<li><strong>Replicators</strong>: a population of agents that can reproduce in some way (perfect copies of themselves or imperfect copying, i.e. mutation)</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ebe6ea04-4789-42ad-9f1c-84645d9eeca6">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_remove-cell" data-mime-type="text/markdown">
+<h1 id="Modelling-evolution">Modelling evolution<a class="anchor-link" href="#Modelling-evolution">¶</a></h1><p>The (typical) process is:</p>
+<ul>
+<li>Agents have genetic information, called their "genotype"</li>
+<li>Based on their genotype a "fitness" is calculated</li>
+<li>Some agents die</li>
+<li>Some agents are born</li>
+</ul>
+<p>There are modelling decisions and choices are everywhere here!</p>
+<p>e.g.:</p>
+<ul>
+<li>What is the genotype?</li>
+<li>What is fitness? How does it depend on the agent genotype?</li>
+<li>Who dies - dependent on what? Fitness? How many die?</li>
+<li>Who is born - how many? What are their properties? Are they children of existing agents? Who gets to reproduce?</li>
+<li>etc etc etc...</li>
+<li></li>
+</ul>
+<h2 id="An-example">An example<a class="anchor-link" href="#An-example">¶</a></h2><p><a href="https://www.complexity-explorables.org/explorables/maggots-in-the-wiggle-room/">https://www.complexity-explorables.org/explorables/maggots-in-the-wiggle-room/</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=076e8823-91a5-4021-80b0-2ced6e5f5cd0">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_remove-cell" data-mime-type="text/markdown">
+<h3 id="Fitness">Fitness<a class="anchor-link" href="#Fitness">¶</a></h3><p>Evolution is a change in a population's distribution of genotypes (may be hard to visualise)</p>
+<p>As genotypes change, we expect fitness to change</p>
+<p>Therefore, we use changes in the distribution of fitness as evidence of evolution (easier to visualise as it's just a single value)</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=96ec316d-8096-4f97-8217-a45a62fc4524">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_remove-cell" data-mime-type="text/markdown">
+<h5 id="Fitness-landscapes">Fitness landscapes<a class="anchor-link" href="#Fitness-landscapes">¶</a></h5><p>We saw fitness landscapes in the context of particle swarm optimisation</p>
+<p>In genetic algorithms the fitness landscape, sometimes called an evolutionary landscape, is a function that maps genotype to fitness</p>
+<!-- a relationship between genotype and fitness is needed for evolution but it can be any relationship -- even a totally random fitness landscape will work. -->
+<pre><code>    </code></pre>
+<ul>
+<li>The agent's fitness is the 'height' of the landscape at that location, which relates to an agent's ability to survive or reproduce</li>
+<li>Increasing fitness (of the population) means that the species is getting better at surviving in its environment</li>
+<li>In biological terms, the fitness landscape represents information about how the genotype of an organism is related to its physical form and capabilities, called its phenotype, and how the phenotype interacts with its environment</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4d9773f1-c016-47d7-bdd9-f397e6c496a3">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_remove-cell" data-mime-type="text/markdown">
+<h5 id="Remember...">Remember...<a class="anchor-link" href="#Remember...">¶</a></h5><p>Agents don't move over the fitness landscape (the genotype of an organism doesn't change)</p>
+<p>When an agent dies, it can leave a location unoccupied. And when a mutation occurs, it can occupy a new location
+As agents disappear from some locations and appear in others, the <em>population</em> migrates across the landscape (like a glider in Game of Life)
+i.e. organisms don't evolve; populations do</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4b231ff7-ab6e-4fed-bed7-abb64c059f31">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_remove-cell" data-mime-type="text/markdown">
+<h2 id="Building-the-required-mechanisms-for-adaptation-into-the-model">Building the required mechanisms for adaptation into the model<a class="anchor-link" href="#Building-the-required-mechanisms-for-adaptation-into-the-model">¶</a></h2><ol>
+<li>Variation: initialise the population with a variety of genotypes (or could simply rely on mutation)</li>
+<li>Differential survival and reproduction: genotype is mapped to fitness and a function converts the fitness to agent's ability to survive or reproduce</li>
+<li>Replication: the genotype is copied by agents that reproduce. Mutation of the genotype is included to increase diversity</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c70fd097-a345-4444-be0e-654e3a2b43c2">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_remove-cell" data-mime-type="text/markdown">
+<h3 id="How-would-you-test-these-mechanisms?">How would you test these mechanisms?<a class="anchor-link" href="#How-would-you-test-these-mechanisms?">¶</a></h3><p>They should result in: adaptation, increasing diversity, increasing complexity</p>
+<p>For example:</p>
+<ul>
+<li>Increasing fitness would mean that the species is getting better at surviving in its environment (and hence adapting)</li>
+<li>Diversity could be captured by number of/distribution of genotypes</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=405b0c35-35da-48ef-9991-726e1e01152a">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_remove-cell" data-mime-type="text/markdown">
+<p>This model is not meant to be realistic - evolution in natural systems is obviously much more complicated than this
+Rather, it is a demonstration that the features of the model are <em>sufficient</em> to produce the behaviour we are trying to explain</p>
+<p>This doesn't prove that evolution in nature is caused by these mechanisms alone. But it is reasonable to think that they at least contribute to natural evolution
+Similarly, it doesn't prove that these mechanisms always cause evolution. But the results are fairly robust.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2bee20e4-17e8-4992-a011-85783a6770ae">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_remove-cell" data-mime-type="text/markdown">
+<h1 id="Altruistic-genes-(and-selfish-ones)-with-an-evolutionary-model">Altruistic genes (and selfish ones) with an evolutionary model<a class="anchor-link" href="#Altruistic-genes-(and-selfish-ones)-with-an-evolutionary-model">¶</a></h1><p>What do you expect of this computational model...?:</p>
+<blockquote>
+<p><em>In a evolving population where some agents have genes that encourage them to help others, even to their own detriment, and other agents are purely selfish...</em></p>
+</blockquote>
+<blockquote>
+<p><em>... it seems like the selfish ones would benefit, the altruistic ones would suffer, and the genes for altruism would be driven to extinction -- Allen Downey</em></p>
+</blockquote>
+<p>This apparent conflict (between natural selection, which suggests that animals live in a state of constant competition, and altruism, which is the tendency of many animals to help other animals, even to their own detriment) is the 'problem/paradox of altruism'</p>
+<p>Among biologists, there are many possible explanations, including reciprocal altruism, sexual selection, kin selection, and group selection.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bb4d3000-de25-4139-b5cf-a3f1a7ededf9">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_remove-cell" data-mime-type="text/markdown">
+<h1 id="Iterated-prisoner's-dilemma">Iterated prisoner's dilemma<a class="anchor-link" href="#Iterated-prisoner's-dilemma">¶</a></h1><p>There is no altruism in the Prisoner's Dilemma, and yet, when real people play these games we frequently observe them not chasing maximal utility in a rational way</p>
+<p>Here's a third option for why people are not rational: altruism is simply adaptive (Occam's razor - again!) i.e. genes for altruism make people more likely to survive and reproduce</p>
+<p>Robert Axelrod's tournament played many different strategies against each other in <em>repeated games</em> (200 rounds)</p>
+<p>14 different strategies (+ random) were submitted by participants</p>
+<center>
+<img alt="No description has been provided for this image" src="images/Axelrod_PD.png" width="300"/>
+</center>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bc4a3e25-e61d-4249-ad83-e94241116252">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_remove-cell" data-mime-type="text/markdown">
+<h2 id="Successful-strategies">Successful strategies<a class="anchor-link" href="#Successful-strategies">¶</a></h2><p>Successful strategies in the tournament had the following properties:</p>
+<ul>
+<li><strong>Nice</strong>: The strategies that do well cooperate during the first round, and generally cooperate as often as they defect in subsequent rounds</li>
+<li><strong>Retaliating</strong>: Strategies that cooperate all the time did not do as well as strategies that retaliate if the opponent defects (avoiding further losses and disincentivising defecting)</li>
+<li><strong>Forgiving</strong>: But strategies that were too vindictive tended to punish themselves as well as their opponents</li>
+<li><strong>Non-envious</strong>: Some of the most successful strategies seldom outscore their opponents and aren't tempted; they are successful because they do well enough against a wide variety of opponents</li>
+</ul>
+<p>A brain that is wired to be nice, tempered by a balance of retaliation and forgiveness, with foresight beyond the immediate future will tend to do well in a wide variety of circumstances.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=66bd5cf9-9059-4f94-8551-97e061671068">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_remove-cell" data-mime-type="text/markdown">
+<h3 id="Tit-for-Tat">Tit for Tat<a class="anchor-link" href="#Tit-for-Tat">¶</a></h3><p>One strategy, called Tit for Tat, cooperated in the first instance and then copied the opponents move in the previous round of play</p>
+<p>Does Tit for Tat have the properties of a successful strategy? (nice, retaliatory, forgiving, non-envious)</p>
+<!-- nice - cooperates in first round
+retaliates - tit for tat
+forgiving - tit for tat. But being more forgiving can be even better e.g. tit for 2tat avoids echo effect but can be taken advantage of once people know this strategy exists
+non-envious - can only tie or lose against a single opponent -->
+<p>This strategy actually won the tournament but better strategies have been uncovered since.</p>
+<center>
+<img alt="No description has been provided for this image" src="images/Iterated_Prisoners_Dilemma_Venn-Diagram.png" width="600"/>
+</center>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=86d7cac4-4d05-4235-b786-29995a6cfc59">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_remove-cell" data-mime-type="text/markdown">
+<p>...For inclusion in 2025...
+More background on PD variants needed: <a href="https://en.wikipedia.org/wiki/Prisoner%27s_dilemma#cite_note-1">https://en.wikipedia.org/wiki/Prisoner%27s_dilemma#cite_note-1</a></p>
+<center>
+<img alt="No description has been provided for this image" src="images/Axelrod_TournamentResults.png" width="600"/>
+</center>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c2b6a8b3-26d3-4941-b32c-2eef774cbd34">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_remove-cell" data-mime-type="text/markdown">
+<h2 id="Evolving-a-successful-strategy">Evolving a successful strategy<a class="anchor-link" href="#Evolving-a-successful-strategy">¶</a></h2><p>Axelrod's tournaments and the strategies that were played were designed by people - they didn't evolve
+Assume the points accrued at the end of one of Axelrod's tournaments are a kind of resource that can be used for reproduction</p>
+<ul>
+<li>Genotype: iterated PD strategy (we'll need a way to encode the PD strategy as a genotype)</li>
+<li>Generation: an Axelrod tournament (200 games against all opponents)</li>
+<li>Fitness: points accrued</li>
+<li>Reproduction: function of fitness such that the number of players with successful strategies increases in - successive generations</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a9bbd415-1de4-4083-b584-6f99d2524d1b">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_remove-cell" data-mime-type="text/markdown">
+<h2 id="Analysis">Analysis<a class="anchor-link" href="#Analysis">¶</a></h2><p>What sorts of questions might we try and answer with a computational model of the tournament?</p>
+<ul>
+<li>Can genes for niceness, retribution, and forgiveness appear by mutation?</li>
+<li>Can they successfully invade a population of other strategies?</li>
+<li>Can they resist being invaded by subsequent mutations?</li>
+</ul>
+<p>I'll leave it with you to think about modelling this to evolve a winning strategy and the sorts of behaviours that might emerge from this Complex System.</p>
+</div>
+</div>
+</div>
+</div></div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell celltag_slides celltag_hide-input" id="cell-id=5416b4f2-08a4-4c61-9263-8f63fd127ac6">
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Lectures completed successfully!
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=407e130e-1c99-44a4-a6d5-ef0d46aa6945">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<div class="reader-voice slide-quote">
-<div class="reader-voice-quote">Tiger got to hunt, bird got to fly; Man got to sit and wonder 'why, why, why?' Tiger got to sleep, bird got to land; Man got to tell himself he understand.</div>
-<div class="reader-voice-attr">Kurt Vonnegut</div>
+<div style="margin: 1.5em 0; border-right: 4px solid #888; padding-right: 1em; text-align: right;">
+<div style="font-style: italic; font-family: 'Comic Neue', 'Segoe Script', cursive; font-size: 1.2em;">
+    Tiger got to hunt, bird got to fly; Man got to sit and wonder 'why, why, why?' Tiger got to sleep, bird got to land; Man got to tell himself he understand.
+  </div>
+<div style="font-style: normal; font-size: 0.95em; margin-top: 0.5em;">
+    — Kurt Vonnegut
+  </div>
 </div>
 <p>I hope that you've enjoyed this unit and that you think about it and what you have learned as you go into the next phase of your working life and education</p>
 <p>Good luck for the upcoming Test and your final Project submissions :)</p>
@@ -9441,8 +8250,8 @@ require(
             transition: "slide",
             slideNumber: "",
             plugins: [RevealNotes],
-            width: 1280,
-			      height: 720,
+            width: 960,
+			      height: 700,
 
         });
 

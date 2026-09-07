@@ -73,7 +73,7 @@ def main() -> None:
   <rect width="760" height="360" fill="#fff"/>
   <g>{svg_paths(selected["NOR"], 200)}</g>
   <g>{svg_paths(selected["ZAF"], 565)}</g>
-  <g font-family="DejaVu Sans, sans-serif" fill="#1B2A4C" text-anchor="middle">
+  <g font-family="Arial, sans-serif" fill="#1B2A4C" text-anchor="middle">
     <text x="200" y="320" font-size="23" font-weight="700">Norway · 1.37</text>
     <text x="565" y="320" font-size="23" font-weight="700">South Africa · 1.04</text>
     <text x="380" y="350" font-size="15" fill="#64789b">Natural Earth 1:50m outlines · estimates from the cited comparison dataset</text>

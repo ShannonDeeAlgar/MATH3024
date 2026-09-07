@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-Strips cells that are not intended for the Reader from notebooks IN PLACE.
+Strips slides-only/presenter-notes cells from the lecture notebooks IN PLACE.
 
 mystmd's remove-cell tag handling isn't actually enforced by the current
 book-theme site template (the JS ships the tag names but not the logic that
-acts on them), so tagged cells leak straight into
+acts on them), so slides-only and presenter-notes cells leak straight into
 the published Reader. This modifies notebooks/*.ipynb directly before
 `jupyter-book build` runs, so myst.yml's toc paths don't need to change
 (keeping page URLs stable).
@@ -20,7 +20,7 @@ from pathlib import Path
 ROOT = Path(__file__).parent
 SRC = ROOT / "notebooks"
 
-TAGS_TO_STRIP = {"slides-only", "presenter-notes", "archive-only", "remove-cell"}
+TAGS_TO_STRIP = {"slides-only", "presenter-notes", "archive-only"}
 
 
 def filter_notebook(path: Path) -> int:
@@ -52,7 +52,7 @@ def main():
             continue
         total_removed += filter_notebook(path)
 
-    print(f"Removed {total_removed} non-Reader cells from notebooks/ (in place)")
+    print(f"Removed {total_removed} slides-only/presenter-notes cells from notebooks/ (in place)")
 
 
 if __name__ == "__main__":

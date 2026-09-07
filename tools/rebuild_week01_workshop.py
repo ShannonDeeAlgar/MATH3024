@@ -2,7 +2,6 @@
 """Rebuild the Week 1 workshop as a tested continuation of the lecture."""
 
 from pathlib import Path
-import re
 
 import nbformat as nbf
 
@@ -28,22 +27,6 @@ MARKER_STYLE = (
 
 
 def md(source: str, cell_id: str):
-    # Workshop notebooks are downloaded directly from the LMS and commonly open
-    # as untrusted files. Keep pedagogical callouts as ordinary Markdown so that
-    # their meaning never depends on Jupyter rendering embedded SVG.
-    callouts = (
-        ("ladder-marker", "LADDER_MARKER", "The ladder of abstraction"),
-        ("discussion-marker", "DISCUSSION_MARKER", "Discuss"),
-        ("choice-marker", "CHOICE_MARKER", "Modelling choice"),
-    )
-    for class_name, marker_name, label in callouts:
-        source = re.sub(
-            rf'<div class="{class_name}">\{{\{{{marker_name}\}}\}}<span>(.*?)</span></div>',
-            rf'> **{label}:** \1',
-            source,
-            flags=re.DOTALL,
-        )
-    source = source.replace("<strong>", "**").replace("</strong>", "**")
     source = source.replace('<div class="ladder-marker">', f'<div class="ladder-marker" {MARKER_STYLE}>')
     source = source.replace('<div class="discussion-marker">', f'<div class="discussion-marker" {MARKER_STYLE}>')
     source = source.replace('<div class="choice-marker">', f'<div class="choice-marker" {MARKER_STYLE}>')
@@ -70,16 +53,20 @@ def main():
         md(r"""
 # Week 1 workshop · Build, inspect, generalise
 
-> **Route through the workshop:** Specify → initialise → inspect one agent → update once → simulate → measure → repeat as an ensemble.
+<div class="reader-route">
+  <div class="reader-route-label">Route through the workshop</div>
+  <div class="reader-route-body">Specify → initialise → inspect one agent → update once → simulate → measure → repeat as an ensemble</div>
+</div>
 
-## Workshop focus
+## Learning outcomes
 
-The lecture and Reader introduce the model and analysis. Here you will actively reconstruct and test them by:
+By the end of the workshop, you should be able to:
 
-- implementing a reproducible one-dimensional Schelling model;
-- checking local rules on cases that can be verified by hand;
-- moving between agent-level mechanisms and system-level summaries;
-- comparing a parameter sweep with an ensemble of stochastic runs.
+- implement a reproducible one-dimensional Schelling model;
+- distinguish states, parameters, update rules, and observables;
+- test local rules on small cases before iterating them;
+- move between agent-level mechanisms and system-level summaries;
+- explain why a stochastic model needs an ensemble of runs.
 
 ## How to work
 

@@ -17,7 +17,7 @@ PALE = "#d6deeb"
 
 def font(size: int):
     for path in (
-        "DejaVuSans.ttf",
+        "/System/Library/Fonts/Supplemental/Arial.ttf",
         "/System/Library/Fonts/Supplemental/Helvetica.ttf",
     ):
         if Path(path).exists():

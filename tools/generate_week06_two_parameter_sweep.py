@@ -94,23 +94,10 @@ def make_figure(
         color="white",
         linewidth=2.4,
         linestyle="--",
+        label=r"continuum onset: $K_c=\sqrt{8/\pi}\,\sigma_\omega$",
         zorder=3,
     )
     prediction.set_path_effects([pe.Stroke(linewidth=4.2, foreground=INK), pe.Normal()])
-    annotation_sigma = 0.72
-    annotation_coupling = np.sqrt(8 / np.pi) * annotation_sigma
-    ax.annotate(
-        "Analytical onset\n" + r"$K_c=\sqrt{8/\pi}\,\sigma_\omega$",
-        xy=(annotation_sigma, annotation_coupling),
-        xytext=(0.27, 3.68),
-        color=INK,
-        fontsize=12.5,
-        ha="left",
-        va="top",
-        bbox={"boxstyle": "round,pad=0.35", "facecolor": "white", "edgecolor": "none", "alpha": 0.92},
-        arrowprops={"arrowstyle": "->", "color": INK, "linewidth": 1.4},
-        zorder=4,
-    )
 
     ax.set(
         xlabel=r"Natural-frequency standard deviation, $\sigma_\omega$",
@@ -132,6 +119,7 @@ def make_figure(
         fontsize=12.5,
         color=INK,
     )
+    ax.legend(loc="upper left", frameon=True, facecolor="white", framealpha=0.92)
     cbar = fig.colorbar(mesh, ax=ax, pad=0.025)
     cbar.set_label(r"Ensemble mean long-time coherence, $r_\infty$")
     cbar.outline.set_edgecolor(INK)

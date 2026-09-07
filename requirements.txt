@@ -5,5 +5,3 @@ imageio
 ipywidgets
 tqdm
 ipykernel
-nbconvert
-Pillow

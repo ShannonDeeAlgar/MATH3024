@@ -6,18 +6,14 @@ import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation, PillowWriter
 import numpy as np
 
-from figure_style import (
-    BLUE,
-    GRID,
-    INK as NAVY,
-    ORANGE,
-    apply_course_figure_style,
-    style_animation_frame,
-)
+
+NAVY = "#192B52"
+ORANGE = "#E35D34"
+BLUE = "#2C7FB8"
+GRID = "#D9E1EE"
 
 
 def main():
-    apply_course_figure_style()
     rng = np.random.default_rng(3024)
     n = 72
     # Use a non-zero laboratory-frame mean so a locked group visibly keeps rotating.
@@ -42,6 +38,15 @@ def main():
             realised = omega + coupling * r_now * np.sin(psi_now - theta)
             frames.append((theta.copy(), r_now, psi_now, realised.copy()))
 
+    plt.rcParams.update({
+        "font.family": "DejaVu Sans",
+        "font.size": 13,
+        "text.color": NAVY,
+        "axes.labelcolor": NAVY,
+        "axes.edgecolor": NAVY,
+        "xtick.color": NAVY,
+        "ytick.color": NAVY,
+    })
     fig = plt.figure(figsize=(10.8, 5.2), constrained_layout=True)
     gs = fig.add_gridspec(1, 2, width_ratios=(1.0, 1.25))
     ax_circle = fig.add_subplot(gs[0, 0])
@@ -81,7 +86,6 @@ def main():
         status.set_text(
             rf"coherence $r={r:.2f}$; common realised frequency ≈ {np.mean(realised):.2f}"
         )
-        style_animation_frame(fig, (ax_hist,))
         return points, mean_line, status
 
     animation = FuncAnimation(fig, update, frames=frames, interval=85, blit=True)
