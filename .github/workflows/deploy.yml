@@ -40,14 +40,25 @@ jobs:
           python-version: "3.11"
       - name: Install Python dependencies
         run: pip install -r requirements.txt
+      - name: Check Week 7 reader, slides and assets
+        run: |
+          python tools/check_equation_consistency.py
+          python tools/test_equation_consistency.py
+          python tools/test_week07_presentation.py
+      - name: Restrict publication to released weeks
+        run: python tools/prepare_publication.py
       - name: Install Jupyter Book (via myst)
         run: npm install -g jupyter-book
+      - name: Rebuild Week 7 slides from the canonical reader
+        run: ./generate_slides.sh notebooks/week07/L_Intelligent_systems.ipynb
       - name: Stage reader-only notebook copies
         run: python prepare_reader_build.py
       - name: Build HTML Assets
         run: jupyter-book build --html --execute
       - name: Add standalone lecture slides
         run: ./stage_slides.sh _build/html
+      - name: Verify explorable URLs and publication boundary
+        run: python tools/check_publication_assets.py _build/html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

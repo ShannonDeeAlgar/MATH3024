@@ -1,0 +1,84 @@
+{
+  "scope": [
+    "notebooks/week07/L_Intelligent_systems.ipynb"
+  ],
+  "notebooks": {
+    "notebooks/week07/L_Intelligent_systems.ipynb": {
+      "math_signatures": {
+        "w7-slide-ant-shortest-path": "6295503f75982f22088c79f9b56059f11f57e9dd2db841806be49b0e8d3b2ff5",
+        "w7-slide-optimisation": "29c85801666a8b92804029a0c049f38a516fd950280a27e2390788aef8dfb861",
+        "w7-slide-aco-specification": "e486e22b91c73c0873a1fddb7be849909c7c042497e4507f89653cf59e52fb43",
+        "w7-slide-aco-choice": "0f76f1372f59b195a2dd733fb62a0d97d47c4e5a6dc1427af555fa6ab8c7c0ed",
+        "w7-slide-aco-update": "26890629e59fd3d3aa12a76ddd7921db3fe2d4844e5f6172a25a5df32713392a",
+        "w7-slide-aco-sharing-evidence": "40e1a384ff8429694682f384ffdfab41de45259a4de3e82b121be9b011a28232",
+        "w7-slide-aco-discovery-efficiency": "89be97dbd4427c9f4b88ed9dac3099609a9adb3c3bb2397d33e32db38e2260c4",
+        "w7-slide-aco-parameter-sweep": "8e481562ebf5b382776965e9d8e8fdb6e1fe1c2e8257832e4dde8433a8e5631d",
+        "w7-slide-pso-state": "e4c3a370f9e489a2ed812a21f16f0c07017037cdfab4f530404f47071e2d3f56",
+        "w7-slide-pso-specification": "34f444cbfdb6b577c2157c265db276bc72f333b46d729a3c4b7d5592d691dc72",
+        "w7-slide-pso-update": "6cd662709636f9b853a3367b9e2115a954c7dd399eb71a4c66917b8707be0125",
+        "w7-slide-pso-analysis": "1aea4308fb26bfe942542a32910f21b2aee4cd87a0ea94bc589cdcaf1a939725",
+        "w7-slide-pso-sweep": "c6c985e1bbcd3ff271146a3723b5aba1d2886dfef2dcff8f912233f0a733d06a",
+        "w7-slide-pso-population": "151fa4d6bdaedde2e9aeaa77685a613dcd13c3ce89e092c5a1dd2c28a363d4e0",
+        "w7-slide-pso-evaluation-progress": "bcf272009667b6a1300145296b7cbfb903179c22f2ceb8a22322ede038a31de2",
+        "e454bccc": "6295503f75982f22088c79f9b56059f11f57e9dd2db841806be49b0e8d3b2ff5",
+        "w7-optimisation-reader": "131937a5d629f5b82937b29b608019cbce3a0d5a031c222174085bf0e38a65e1",
+        "04b8025f-e3c2-411b-b70f-5e4ea9df6d1e": "8d52ad4b0f7d4ede03b3d2963b8d7e6cd5f83e116e162d9ab14c725d45b79117",
+        "a9da65e1": "99efcc0c7016a3a865cc8a34fa069df10d0966d84b55bddd594edd5351c42f3f",
+        "fb79a779": "3e06a3bafaffdd6f741f51625fd7ca13a2091401b0c76074642a4dc05cc227ec",
+        "03776ead-c42a-4e00-8b7b-106d0066d038": "f75be7510dc393d134f7d948ee521c3939f3077c2684194e9b3c4f06e71cc954",
+        "efee329f-5045-4530-80bf-f8b4146fafbc": "0e1b7d298fa57aca6d3f95b44e0e7bb814b578d0b477e0849a8f54f1eccc4d1f",
+        "90374db7-a0fc-4092-a4a9-62522f88c799": "b045a2ccb9a70883f37723118f82e62d5a2e630c805e7b621fed6b12e9acdc37",
+        "db6e0e86-0ce4-4d2b-b436-c0fe00f7c59f": "0cd68da937f36d856b0cdf9f9eb44403e8a8dc239b4dcb3fae0400397ca09089",
+        "cd589720-d985-4f23-b989-ce48bfe67b0e": "fb8294bedf8c2e45766385996bcb16812e45a1a30528963787f2f5f0175f1473",
+        "ebb75231-ca35-4a44-9ee7-1c71ff41973f": "49508eb5671f6b3bca09aba17db18fa0871cda89bd6a1ed4a5eb83b15ee26a3f",
+        "w7-reader-analysis": "e294a0b9d334e9e2c9df379c1c110558db3527a538c6088149200ac162e8078f",
+        "w7-canonical-pseudocode": "70546a4496be7260a8ca777d926091688f1044747b5e85e9d8f200d7905fa59e",
+        "w7-slide-pso-ensemble": "a20e5bdd2adecb2bbea8658efa2f79836ccfbbf0aebcc4607c2449041afd429a"
+      },
+      "displays": [
+        {
+          "slide": "w7-slide-optimisation",
+          "index": 0,
+          "mode": "exact",
+          "reader": "w7-optimisation-reader",
+          "reader_index": 0
+        },
+        {
+          "slide": "w7-slide-aco-choice",
+          "index": 0,
+          "mode": "exact",
+          "reader": "a9da65e1",
+          "reader_index": 0
+        },
+        {
+          "slide": "w7-slide-aco-update",
+          "index": 0,
+          "mode": "exact",
+          "reader": "fb79a779",
+          "reader_index": 0
+        },
+        {
+          "slide": "w7-slide-aco-update",
+          "index": 1,
+          "mode": "exact",
+          "reader": "fb79a779",
+          "reader_index": 1
+        },
+        {
+          "slide": "w7-slide-pso-update",
+          "index": 0,
+          "mode": "exact",
+          "reader": "db6e0e86-0ce4-4d2b-b436-c0fe00f7c59f",
+          "reader_index": 0
+        },
+        {
+          "slide": "w7-slide-pso-update",
+          "index": 1,
+          "mode": "exact",
+          "reader": "db6e0e86-0ce4-4d2b-b436-c0fe00f7c59f",
+          "reader_index": 1
+        }
+      ]
+    }
+  }
+}

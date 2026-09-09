@@ -105,5 +105,17 @@ finish_axes(ax)
 
 out = ROOT / "notebooks/week07/images/pso_analysis_levels.png"
 fig.savefig(out, dpi=180, facecolor="white")
+# Export the two teaching levels separately from these same plotted results.
+from matplotlib.transforms import Bbox
+fig.canvas.draw()
+renderer = fig.canvas.get_renderer()
+for selected, name in [(axes[:2], "pso_single_swarm.svg"),
+                       (axes[2:], "pso_ensemble.svg")]:
+    if name == "pso_ensemble.svg":
+        axes[2].set_title(f"Ensemble: {successes}/40 reached the target")
+        fig.canvas.draw()
+    bounds = Bbox.union([axis.get_tightbbox(renderer) for axis in selected])
+    bounds = bounds.transformed(fig.dpi_scale_trans.inverted()).padded(0.08)
+    fig.savefig(out.parent / name, facecolor="white", bbox_inches=bounds)
 plt.close(fig)
 print(out)

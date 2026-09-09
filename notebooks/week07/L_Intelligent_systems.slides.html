@@ -5,7 +5,7 @@
 <meta content="chrome=1" http-equiv="X-UA-Compatible"/>
 <meta content="yes" name="apple-mobile-web-app-capable"/>
 <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
-<title>.L_Intelligent_systems.fresh.3353 slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
+<title>.L_Intelligent_systems.resolved.50870 slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
   import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script>
@@ -7938,7 +7938,8 @@ figcaption {
 
 .choice-marker img { width: 34px !important; height: 34px !important; margin: 0 !important; }
 
-.discussion-marker {
+.discussion-marker,
+details.discussion-reveal summary {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
@@ -7977,20 +7978,19 @@ details.reader-answer > div {
 details.discussion-reveal {
   margin: 0.7rem 0 1.2rem;
   overflow: hidden;
-  border: 1px solid #c7cedc;
-  border-left: 5px solid #edcc55;
-  border-radius: 0.32rem;
-  background: #fff;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
   color: var(--reader-ink, #1b2a4c);
 }
 
 details.discussion-reveal summary {
   position: relative;
-  display: block;
-  padding: 0.72rem 0.9rem;
+  display: flex;
+  padding: 0.15rem 0;
   cursor: pointer;
   list-style: none;
-  background: #fffaf0;
+  background: transparent;
 }
 
 details.discussion-reveal summary::-webkit-details-marker {
@@ -7998,6 +7998,9 @@ details.discussion-reveal summary::-webkit-details-marker {
 }
 
 details.discussion-reveal summary > .myst-dropdown-header-title {
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
   display: grid;
   grid-template-columns: 2.5rem minmax(0, 1fr) 1.2rem;
   gap: 0.7rem;
@@ -8008,8 +8011,8 @@ details.discussion-reveal summary > .myst-dropdown-header-title {
 details.discussion-reveal summary > .myst-dropdown-header-title > img {
   grid-column: 1;
   grid-row: 1;
-  width: 2.35rem !important;
-  height: 2.35rem !important;
+  width: 36px !important;
+  height: 36px !important;
   margin: 0 !important;
 }
 
@@ -8035,14 +8038,34 @@ details.discussion-reveal summary > .myst-dropdown-header-title > span:has(.myst
   display: none;
 }
 
+.article details.discussion-reveal {
+  border: 0 !important;
+}
+
+.jp-MarkdownOutput details.discussion-reveal summary.myst-dropdown-header {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.62em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
 .discussion-reveal-question {
   display: block;
   color: var(--reader-ink, #1b2a4c);
-  font-family: Baskerville, Georgia, serif;
-  font-size: 1.12rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: inherit;
   font-style: normal;
-  font-weight: 600;
-  line-height: 1.3;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+details.discussion-reveal summary > img {
+  width: 36px !important;
+  height: 36px !important;
+  flex-shrink: 0;
+  margin: 0 !important;
 }
 
 details.discussion-reveal .discussion-answer {
@@ -8062,11 +8085,11 @@ details.discussion-reveal .discussion-answer > :last-child {
 .dark details.discussion-reveal {
   border-color: #58647a;
   border-left-color: #edcc55;
-  background: #202633;
+  background: transparent;
 }
 
 .dark details.discussion-reveal summary {
-  background: #2b291e;
+  background: transparent;
 }
 
 .dark .discussion-reveal-label,
@@ -8780,7 +8803,7 @@ details.discussion-reveal .discussion-answer > :last-child {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
 <h2 id="Prediction-and-explanation">Prediction and explanation<a class="anchor-link" href="#Prediction-and-explanation">¶</a></h2><div class="image-panel" style="max-width:920px;margin:0 auto 0.35em"><img alt="Complexity science and machine learning as complementary approaches to intelligent systems" src="images/intelligent_systems_schism.svg"/></div>
-<p>David Krakauer describes a scientific <strong>schism</strong> between approaches that retain high-dimensional detail for prediction and approaches that compress a system to expose mechanisms and useful scales.</p>
+<p>David Krakauer describes a scientific schism between approaches that retain high-dimensional detail for prediction and approaches that compress a system to expose mechanisms and useful scales.</p>
 <p class="figure-source">David Krakauer, <a href="https://complexity.simplecast.com/episodes/1">“The Landscape of 21st Century Science”</a>; see also <a href="https://doi.org/10.3389/fcpxs.2023.1235202">Gilpin et al. (2023)</a>.</p>
 </div>
 </div>
@@ -8878,7 +8901,7 @@ details.discussion-reveal .discussion-answer > :last-child {
 <figure style="margin:0"><img alt="Weaver ants stitching leaves while constructing a nest" src="images/weaver_ants_nest.jpg" style="display:block;width:100%;height:245px;object-fit:cover"/><figcaption style="font-size:0.62em;margin-top:0.35rem"><strong>Collective construction.</strong> Weaver ants pull leaves together and join them with larval silk.</figcaption></figure>
 <figure style="margin:0"><img alt="Leafcutter ants tending a fungus garden" src="images/leafcutter_fungus_garden.jpg" style="display:block;width:100%;height:245px;object-fit:cover"/><figcaption style="font-size:0.62em;margin-top:0.35rem"><strong>Environmental engineering.</strong> Leafcutters collect plant material to cultivate a mutualistic fungus.</figcaption></figure>
 </div>
-<p><strong>Each task uses a different collective mechanism.</strong> The bodies, environmental traces and interaction rules depend on the task.</p>
+<p>Each task uses a different collective mechanism. The bodies, environmental traces and interaction rules depend on the task.</p>
 <p class="media-credit">Images: Oo Uui (CC0); PHGCOM (CC BY-SA 4.0); Alex Wild (CC0), via Wikimedia Commons.</p>
 </div>
 </div>
@@ -8896,9 +8919,10 @@ details.discussion-reveal .discussion-answer > :last-child {
 <p>Ants deposit pheromone on travelled paths.</p>
 <p>Later ants are more likely to follow stronger trails.</p>
 <p>Shorter routes can be reinforced sooner because ants complete them more frequently.</p>
-<p><strong>Repeated local choices can concentrate traffic on a short route.</strong></p>
+<p>Repeated local choices can concentrate traffic on a short route.</p>
 </div>
 </div>
+<p style="font-size:0.68em;color:#5B6780"><strong>Notation:</strong> $N$ and $F$ in the apparatus denote nest and food source, respectively.</p>
 </div>
 </div>
 </div>
@@ -8968,7 +8992,7 @@ details.discussion-reveal .discussion-answer > :last-child {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
 <h2 id="Optimisation">Optimisation<a class="anchor-link" href="#Optimisation">¶</a></h2><p>$$
-\min_{x\in\mathcal X} f(x)
+\min_{\mathbf x\in\mathcal X} f(\mathbf x).
 $$</p>
 <ul>
 <li><strong>Candidate</strong> $x$: one possible solution.</li>
@@ -8998,7 +9022,7 @@ $$</p>
 <tbody>
 <tr>
 <td>graph</td>
-<td>$G=(V,E)$, with fixed edge costs $d_e&gt;0$, start node $s$ and target node $T$</td>
+<td>$G=(V,E)$, with fixed edge costs $c_e&gt;0$, start node $s$ and target node $T$</td>
 </tr>
 <tr>
 <td>shared information</td>
@@ -9010,7 +9034,7 @@ $$</p>
 </tr>
 <tr>
 <td>choice rule</td>
-<td>pheromone weight $\alpha$ and fixed-heuristic weight $\beta$, with $\eta_e=1/d_e$</td>
+<td>pheromone weight $\alpha$ and fixed-heuristic weight $\beta$, with $\eta_e=1/c_e$</td>
 </tr>
 <tr>
 <td>pheromone update</td>
@@ -9032,14 +9056,12 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
-<h2 id="Choose-the-next-edge">Choose the next edge<a class="anchor-link" href="#Choose-the-next-edge">¶</a></h2><p>For an ant currently at node $i$, $P(e\mid i)$ is the probability that its next selected edge is $e$:</p>
+<h2 id="Choose-the-next-edge">Choose the next edge<a class="anchor-link" href="#Choose-the-next-edge">¶</a></h2><p>For ant $a$ currently at node $i$, $P_a(e\mid i)$ is the probability that its next selected edge is $e$:</p>
 <p>$$
-P(e\mid i)=
-\frac{\tau_e^{\alpha}\eta_e^{\beta}}
-{\displaystyle\sum_{e'\in\mathcal A(i)}\tau_{e'}^{\alpha}\eta_{e'}^{\beta}}.
+P_a(e\mid i)=\frac{\tau_e^{\alpha}\eta_e^{\beta}}{\displaystyle\sum_{e'\in A_a(i)}\tau_{e'}^{\alpha}\eta_{e'}^{\beta}}.
 $$</p>
-<p>$\mathcal A(i)$ is the set of currently allowed outgoing edges. Sampling from this distribution is repeated until the ant reaches the target and has constructed one complete candidate route.</p>
-<p style="font-size:0.68em;color:#5B6780"><strong>Notation:</strong> $\tau_e$ is pheromone on edge $e$; $\eta_e=1/d_e$ favours lower-cost edges; $\alpha$ and $\beta$ set their relative influence. The primed edge $e'$ runs over the alternatives in $\mathcal A(i)$.</p>
+<p>$A_a(i)$ is the set of outgoing edges currently allowed for ant $a$. Sampling from this distribution is repeated until the ant reaches the target and has constructed one complete candidate route.</p>
+<p style="font-size:0.68em;color:#5B6780"><strong>Notation:</strong> $\tau_e$ is pheromone on edge $e$; $\eta_e=1/c_e$ favours lower-cost edges; $\alpha$ and $\beta$ set their relative influence. The primed edge $e'$ runs over the alternatives in $A_a(i)$.</p>
 </div>
 </div>
 </div>
@@ -9052,12 +9074,11 @@ $$</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
 <h2 id="Evaluate-complete-paths-and-update-pheromone">Evaluate complete paths and update pheromone<a class="anchor-link" href="#Evaluate-complete-paths-and-update-pheromone">¶</a></h2><p>If ant $a$ constructs route $R_a$, its total cost is</p>
 <p>$$
-L_a=\sum_{e\in R_a}d_e.
+L_a=L(R_a)=\sum_{e\in R_a}c_e.
 $$</p>
 <p>After all $N$ routes have been evaluated, evaporate pheromone and reinforce the edges used by shorter routes:</p>
 <p>$$
-\tau_e(n+1)=(1-\rho)\tau_e(n)+
-\sum_{a=1}^{N}\Delta\tau_e^{(a)},
+\tau_e(n+1)=(1-\rho)\tau_e(n)+\sum_{a=1}^{N}\Delta\tau_e^{(a)},
 \qquad
 \Delta\tau_e^{(a)}=
 \begin{cases}
@@ -9066,7 +9087,8 @@ Q/L_a,&amp;e\in R_a,\\
 \end{cases}
 $$</p>
 <p>Lower-cost routes therefore make larger deposits. Pheromone is held fixed while the routes in one generation are constructed.</p>
-<p style="font-size:0.66em;color:#5B6780"><strong>Notation:</strong> $d_e$ is edge cost; $L_a$ is route cost; $\tau_e(n)$ is pheromone after generation $n$; $\rho$ is the evaporated fraction; and $Q$ sets the deposit size.</p>
+<p>In our model, resetting the same ants and creating a new batch are equivalent. Each generation starts afresh at the start node; shared pheromone persists, but individual route histories are cleared.</p>
+<p style="font-size:0.68em;color:#5B6780"><strong>Notation:</strong> $c_e$ is edge cost; $L(R)$ is route cost and $L_a=L(R_a)$ for ant $a$; $\tau_e(n)$ is pheromone after generation $n$; $\rho$ is the evaporated fraction; and $Q$ sets the deposit size.</p>
 </div>
 </div>
 </div>
@@ -9124,8 +9146,35 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
-<img alt="Ensemble comparison of ACO route allocation beside heatmaps of complete-route use and a route pheromone score in one run" src="images/aco_sharing_comparison.png" style="display:block;max-height:445px;width:auto;margin:0 auto;"/>
-<p>Panel A repeats the explorable network across 120 runs: every run encounters the shortest route, but shared pheromone concentrates later route construction. Panel B follows one run and shows this concentration developing in both the routes traversed and the pheromone stored on their edges.</p>
+<img alt="Mean shortest-route use across runs, and route use and pheromone scores in one run" src="images/aco_sharing_comparison.png" style="display:block;max-height:390px;width:auto;margin:0 auto;"/>
+<p>Shared pheromone increases the fraction of ants using the shortest route over successive generations.</p>
+<p style="font-size:0.68em;color:#5B6780"><strong>Notation:</strong> $k$ is generation; $N=30$ ants construct one route each. For route $R$, $u_R(k)=n_R(k)/N$, where $n_R(k)$ counts ants using that complete route. <strong>A:</strong> $f_{\mathrm{short}}(k)=u_{R_*}(k)$ for the shortest route $R_*$; lines show the mean across 120 runs and bands the 10th–90th percentiles.</p>
+<p style="font-size:0.68em;color:#5B6780"><strong>B:</strong> top shows $u_R(k)$ in one run. Bottom shows $g_R(k)/g_{\max}$, where $g_R(k)=[\prod_{e\in R}\tau_e^+(k)]^{1/|R|}$ is the geometric mean of post-update edge pheromones. $|R|=4$ edges here; $g_{\max}=\max_{R,j}g_R(j)$ over all routes and generations in that run. This colour scale is shared across columns; it is not a route-choice probability.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w7-slide-tsp-benchmark">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="The-ten-city-benchmark">The ten-city benchmark<a class="anchor-link" href="#The-ten-city-benchmark">¶</a></h2><img alt="Ten city locations and the known shortest tour" src="images/aco_tsp_benchmark.svg" style="display:block;max-height:400px;width:auto;margin:auto;"/>
+<p>Visit every city once and return to the start. Edge costs are Euclidean distances. The known optimum is used for assessment, not supplied to the ants.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w7-slide-tsp-progress">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Progress-within-one-run">Progress within one run<a class="anchor-link" href="#Progress-within-one-run">¶</a></h2><img alt="Tour quality over ten ACO generations" src="images/aco_tsp_progress.svg" style="display:block;max-height:365px;width:auto;margin:auto;"/>
+<p>Stop after ten generations: 100 evaluated tours. Reaching the target counts as success; a flat best-so-far curve records no improvement over that interval.</p>
+<p style="font-size:0.68em;color:#5B6780"><strong>Notation:</strong> best-so-far = shortest tour found up to this generation; median and middle-50% band = lengths of the ten tours constructed in this generation. Seed 0; α = 1, β = 2, ρ = 0.5, Q = 1.</p>
 </div>
 </div>
 </div>
@@ -9138,6 +9187,7 @@ $$</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
 <img alt="Fraction of ACO runs reaching a near-optimal tour as the evaluation budget is used" src="images/aco_discovery_efficiency.png" style="display:block;max-height:455px;width:auto;margin:0 auto;"/>
 <p>This is a different problem from the explorable. There, ants seek a shortest path from $S$ to $T$; here, each ant constructs a tour that visits all ten cities once and returns to its starting city. One completed tour is one evaluation. The lines isolate stigmergic sharing: $\alpha=1$ uses pheromone and $\alpha=0$ ignores it, while the other settings remain fixed.</p>
+<p style="font-size:0.68em;color:#5B6780"><strong>Notation:</strong> $\alpha$ is the pheromone exponent; $F$ is the fraction of runs finding a tour within 2% of the optimal cost. One complete ten-city tour counts as one objective evaluation.</p>
 </div>
 </div>
 </div>
@@ -9149,7 +9199,8 @@ $$</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
 <img alt="ACO sweep over pheromone influence and evaporation" src="images/aco_parameter_sweep.png" style="display:block;max-height:465px;width:auto;margin:0 auto;"/>
-<p>These heatmaps continue with the separate travelling-salesman benchmark, not the explorable network. The left panel varies pheromone influence $\alpha$ against heuristic weight $\beta$; the right varies $\alpha$ against evaporation $\rho$. All other aspects of the comparison are held fixed.</p>
+<p>These heatmaps continue with the separate travelling-salesperson benchmark, not the explorable network. The left panel varies pheromone influence $\alpha$ against heuristic weight $\beta$; the right varies $\alpha$ against evaporation $\rho$. All other aspects of the comparison are held fixed.</p>
+<p style="font-size:0.68em;color:#5B6780"><strong>Notation:</strong> $\alpha,\beta$ are the pheromone and inverse-edge-cost exponents; $\rho$ is the evaporated fraction per generation. $F$ is the fraction of 80 runs finding a tour within 2% of optimal cost in 100 tour evaluations.</p>
 </div>
 </div>
 </div>
@@ -9162,7 +9213,7 @@ $$</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
 <h2 id="Canonical-model-2:-PSO">Canonical model 2: PSO<a class="anchor-link" href="#Canonical-model-2:-PSO">¶</a></h2><ol>
 <li>Kennedy and Eberhart began with a simplified flock model.</li>
-<li>A fixed <strong>cornfield vector</strong> marked a target at known screen coordinates.</li>
+<li>A fixed cornfield vector marked a target at known screen coordinates.</li>
 <li>Distance from the target gave each visited position an objective value; particles were not given a direction to the target.</li>
 <li>Each particle retained its own best position and received the swarm's best recorded position.</li>
 <li>Position became a candidate solution in an abstract solution space.</li>
@@ -9192,7 +9243,7 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
-<h2 id="Model-details">Model details<a class="anchor-link" href="#Model-details">¶</a></h2><p>Each particle $i$ stores four things:</p>
+<h2 id="Model-details">Model details<a class="anchor-link" href="#Model-details">¶</a></h2><p>Inspired by the boids, each particle $i$ stores four things:</p>
 <table>
 <thead>
 <tr>
@@ -9264,7 +9315,7 @@ $$</p>
 </tr>
 </tbody>
 </table>
-<p>These choices are part of the algorithm and must be reported with its performance.</p>
+<p>Record these settings so the experiment can be reproduced.</p>
 </div>
 </div>
 </div>
@@ -9275,21 +9326,17 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
-<h2 id="Update-displacement-and-position">Update displacement and position<a class="anchor-link" href="#Update-displacement-and-position">¶</a></h2><p>For particle $i$ in a $D$-dimensional search space,</p>
+<h2 id="Update-displacement-and-position">Update displacement and position<a class="anchor-link" href="#Update-displacement-and-position">¶</a></h2><p>For particle $i$ and coordinate $d$, draw independent random factors for each iteration and update</p>
 <p>$$
-x_i^n,\;v_i^n,\;p_i,\;g\in\mathbb R^D.
-$$</p>
-<p>For every particle and iteration, draw fresh random multipliers $r_{1,i}^n,r_{2,i}^n$ and set</p>
-<p>$$
-v_i^{n+1}=
-\underbrace{w v_i^n}_{\text{inertia}}
-+\underbrace{c_1r_{1,i}^n(p_i-x_i^n)}_{\text{personal memory}}
-+\underbrace{c_2r_{2,i}^n(g-x_i^n)}_{\text{shared information}},
+v_{i,d}^{n+1}=
+\underbrace{w v_{i,d}^{n}}_{\text{inertia}}
++\underbrace{c_1 r_{1,i,d}^{n}\bigl[p_{i,d}-x_{i,d}^{n}\bigr]}_{\text{personal memory}}
++\underbrace{c_2 r_{2,i,d}^{n}\bigl[g_d-x_{i,d}^{n}\bigr]}_{\text{shared information}},
 $$</p>
 <p>$$
-x_i^{n+1}=x_i^n+v_i^{n+1}.
+x_{i,d}^{n+1}=x_{i,d}^{n}+v_{i,d}^{n+1}.
 $$</p>
-<p style="font-size:0.66em;color:#5B6780"><strong>Notation:</strong> $n$ is the iteration; $p_i$ and $g$ are the personal and shared best positions; $w$ is inertia; and $c_1,c_2$ weight personal and shared information. The coordinate subscript $d$ is suppressed: each coordinate uses independent $r_{1,i,d}^n,r_{2,i,d}^n\sim\operatorname{Uniform}(0,1)$ draws.</p>
+<p style="font-size:0.68em;color:#5B6780"><strong>Notation:</strong> $n$ counts algorithm updates, not elapsed physical time; $x_{i,d}$ and $v_{i,d}$ are position and displacement components; $p_{i,d}$ and $g_d$ are personal and shared best components. $w$ is inertia; $c_1,c_2$ weight personal and shared information. Each $r_{1,i,d}^n,r_{2,i,d}^n$ is an independent Uniform(0,1) draw.</p>
 </div>
 </div>
 </div>
@@ -9346,8 +9393,22 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
-<h2 id="Analysis">Analysis<a class="anchor-link" href="#Analysis">¶</a></h2><img alt="PSO results at particle, swarm and ensemble levels" src="images/pso_analysis_levels.png" style="display:block;max-height:440px;width:auto;margin:0 auto;"/>
-<p>One trajectory explains an update. One swarm shows a transient. Repeated runs tell us whether the performance is dependable.</p>
+<h2 id="One-swarm:-progress-and-diversity">One swarm: progress and diversity<a class="anchor-link" href="#One-swarm:-progress-and-diversity">¶</a></h2><img alt="Progress and diversity within one swarm" src="images/pso_single_swarm.svg" style="display:block;max-height:440px;width:auto;margin:0 auto;"/>
+<p style="font-size:0.68em;color:#5B6780"><strong>Notation:</strong> $n$ is the iteration and $K=100$ the final iteration. $f_{\mathrm{best}}(n)$ is the lowest objective found by any particle up to iteration $n$. $D(n)=N^{-1}\sum_{i=1}^{N}\|\mathbf{x}_i(n)-\bar{\mathbf{x}}(n)\|$ is the mean distance from the swarm centroid $\bar{\mathbf{x}}$; $N=28$ is the number of particles; this run uses seed 6.</p>
+<p>Go down the ladder: view these traces alongside the swarm animation to connect changes in the plots with particle movements.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w7-slide-pso-ensemble">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="From-one-swarm-to-repeated-runs">From one swarm to repeated runs<a class="anchor-link" href="#From-one-swarm-to-repeated-runs">¶</a></h2><img alt="Final best objectives across 40 independent runs" src="images/pso_ensemble.svg" style="display:block;max-height:390px;width:auto;margin:0 auto;"/>
+<p>Up the ladder: repeat the simulation with different seeds and compare final solution quality.</p>
+<p style="font-size:0.68em;color:#5B6780"><strong>Notation:</strong> $f_{\mathrm{best}}(K)$ is the best objective after $K=100$ updates. Each run has $N=28$ particles; seeds are 0–39. Box = middle 50%; orange line = median; whiskers reach the most extreme values within 1.5 interquartile ranges; dots lie beyond. Values below $10^{-12}$ are displayed at $10^{-12}$.</p>
 </div>
 </div>
 </div>
@@ -9359,8 +9420,8 @@ $$</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
 <h2 id="Sweep-personal-and-shared-influence">Sweep personal and shared influence<a class="anchor-link" href="#Sweep-personal-and-shared-influence">¶</a></h2><img alt="Ensemble sweep over personal-memory and shared-information weights" src="images/pso_exploration_exploitation_sweep.png" style="display:block;max-height:445px;width:auto;margin:0 auto;"/>
-<p>Each cell represents 20 runs with the same two weights. A run succeeds when the best position found by any particle reaches $f(x)&lt;10^{-8}$ within 100 iterations. The sweep includes zero as a no-personal or no-sharing control and extends both weights to 4. Darker cells on the left mean a larger fraction of runs succeeded. On the right, darker cells mean that particles finished farther from their swarm centroid.</p>
-<p>PSO seeks a high-quality solution. The left panel measures reliability across repeated searches. Time or evaluations to first reach the target would measure efficiency. The right panel measures final concentration, which helps diagnose exploration, local refinement and premature convergence. Weak shared information leaves the particles dispersed and makes success less reliable in this experiment.</p>
+<p style="font-size:0.68em;color:#5B6780"><strong>Notation:</strong> $c_1$ weights attraction towards each particle's personal best; $c_2$ weights attraction towards the swarm's shared best. $F$ is the fraction of runs reaching $f_{\mathrm{best}}(K)&lt;10^{-8}$, where $f_{\mathrm{best}}$ is the lowest objective found and $K=100$ iterations.</p>
+<p style="font-size:0.68em;color:#5B6780">$D(K)=N^{-1}\sum_{i=1}^{N}\|\mathbf{x}_i(K)-\bar{\mathbf{x}}(K)\|$ is the mean distance of the $N=28$ particles from their swarm centroid $\bar{\mathbf{x}}$. Panel B reports its median across runs. Inertia $w=0.72$ and maximum displacement $0.55$ are fixed.</p>
 </div>
 </div>
 </div>
@@ -9372,7 +9433,21 @@ $$</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
 <h2 id="What-does-population-size-change?">What does population size change?<a class="anchor-link" href="#What-does-population-size-change?">¶</a></h2><img alt="PSO population-size sweep at a fixed evaluation budget" src="images/pso_population_size_sweep.png" style="display:block;max-height:445px;width:auto;margin:0 auto;"/>
-<p>At a fixed number of objective evaluations, larger swarms sample more starting points but receive fewer updates per particle. The population-size sweep shows that trade-off; it does not isolate the effect of sharing.</p>
+<p style="font-size:0.68em;color:#5B6780"><strong>Notation:</strong> $N$ is population size; $F$ is the fraction of runs reaching $f_{\mathrm{best}}&lt;10^{-8}$. $K=\lfloor3000/N\rfloor-1$ is the number of updates after the initial evaluations. Bars show approximate 95% confidence intervals for the probability of reaching the target (Wilson method; calculation not assessed). The shaded band is the middle 50% of final outcomes; values below $10^{-12}$ are displayed at $10^{-12}$.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w7-slide-pso-evaluation-progress">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="How-much-search-does-the-budget-allow?">How much search does the budget allow?<a class="anchor-link" href="#How-much-search-does-the-budget-allow?">¶</a></h2><img alt="Fraction of PSO runs reaching the target against cumulative objective evaluations for five population sizes" src="images/pso_population_evaluation_progress.png" style="display:block;max-height:360px;width:auto;margin:0 auto;"/>
+<p>The horizontal axis counts objective evaluations, not iterations or elapsed time. Compare vertically at equal evaluation cost.</p>
+<p>60 updates cost 488 evaluations with 8 particles, 1,830 with 30, and 3,660 with 60. Here, 8 particles usually reach the target using fewer evaluations; 30–40 achieve a higher final success fraction.</p>
+<p style="font-size:0.68em;color:#5B6780"><strong>Notation:</strong> $E=N(k+1)$ counts objective evaluations, including the $N$ initial positions; $k$ is completed updates. One evaluation calculates the objective at one particle’s position. Each curve gives the fraction of runs reaching the target by $E$.</p>
 </div>
 </div>
 </div>
@@ -9419,6 +9494,41 @@ $$</p>
 </div>
 </div>
 </div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w7-slide-bioinspired-algorithms">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Bioinspired-optimisation">Bioinspired optimisation<a class="anchor-link" href="#Bioinspired-optimisation">¶</a></h2><ul>
+<li>Genetic algorithms</li>
+<li>Evolution strategies</li>
+<li>Ant colony optimisation</li>
+<li>Particle swarm optimisation</li>
+<li>Artificial bee colony algorithms</li>
+<li>Artificial immune systems</li>
+<li>Physarum-inspired network optimisation</li>
+<li>…</li>
+</ul>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w7-slide-intelligence-without-nerves">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Intelligence-without-a-nervous-system">Intelligence without a nervous system<a class="anchor-link" href="#Intelligence-without-a-nervous-system">¶</a></h2><div style="display:flex;align-items:center;gap:2rem">
+<img alt="Slime-mould transport networks (A–C), the Tokyo rail network (D), and alternative network designs (E–F)" src="images/tero_physarum_tokyo_network.jpg" style="height:420px;width:auto;object-fit:contain"/>
+<div style="flex:1"><p><em>Physarum polycephalum</em> is a single cell with no brain or nervous system.</p><p>Local changes to its tubes produce a transport network between food sources.</p><p>Food placed at Tokyo’s population centres produced networks comparable with its railway in length, efficiency and resilience.</p></div>
+</div>
+<p style="font-size:0.62em;color:#5B6780">A–B: slime mould without/with geographical constraints; C: extracted network; D: Tokyo rail; E–F: alternative designs. <a href="https://doi.org/10.1126/science.1177894">Tero et al. (2010)</a>. Image courtesy of Science/AAAS.</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w7-slide-abm-retrospective">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -9455,7 +9565,7 @@ $$</p>
 </tr>
 </tbody>
 </table>
-<p>The framework is reusable; changing the state, interaction or memory changes the scientific claim.</p>
+<p>The same modelling approach can be used for other systems, but the choice of states, interactions and memory determines what the model represents.</p>
 </div>
 </div>
 </div>

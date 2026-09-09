@@ -6,6 +6,8 @@ The definitions below are deliberately course-sized. They identify how a word is
 
 ## A
 
+**Ant System.** The original ACO algorithm in which each ant constructs a candidate solution and deposits pheromone according to its quality after evaporation. *(Week 7)*
+
 **Adaptation.** A change in an agent, rule or population caused by experience, selection or environmental feedback. Adaptation need not imply biological evolution. *(Weeks 1, 7 and 10)*
 
 **Adaptive network.** A network in which node states and network connections co-evolve, so behaviour changes the network and the changed network alters later behaviour. *(Week 6)*
@@ -22,6 +24,8 @@ The definitions below are deliberately course-sized. They identify how a word is
 
 ## B
 
+**Biomimicry.** Designing materials, structures or processes using ideas drawn from biological systems. *(Week 7)*
+
 **Bifurcation.** A qualitative change in long-term behaviour as a parameter varies. This is useful wider vocabulary for transitions, although formal bifurcation theory is not assessed in this unit. *(Weeks 3, 6 and 8)*
 
 **Boundary condition.** A rule specifying what happens at the edge of a domain, such as periodic wrapping, fixed values, reflection or loss from the system. *(Weeks 3, 4, 7 and 8)*
@@ -31,6 +35,12 @@ The definitions below are deliberately course-sized. They identify how a word is
 **Box-counting dimension.** An estimate of how the number of occupied boxes changes as the box size changes. It is one way to quantify multiscale spatial structure. *(Weeks 2 and 8)*
 
 ## C
+
+**Combinatorial optimisation problem.** A search for the best discrete arrangement, such as a route, ordering or assignment. *(Week 7)*
+
+**Collective behaviour.** Coordinated or patterned group activity arising from interactions among individuals. *(Weeks 5 and 7)*
+
+**Candidate solution.** One possible answer represented in the search space and evaluated by the objective function. *(Week 7)*
 
 **Calibration.** Using observations to choose or estimate model parameters. Agreement with the data used for calibration does not by itself provide an independent test of the model. *(Course-wide modelling practice)*
 
@@ -70,6 +80,10 @@ The definitions below are deliberately course-sized. They identify how a word is
 
 ## D
 
+**Distributed computation.** Computation in which information storage, processing and decision-making are spread across interacting components. *(Week 7)*
+
+**Deposit scale.** The ACO parameter controlling the amount of pheromone deposited for a given route cost. In our model, each traversed edge receives the deposit scale divided by the complete route cost. *(Week 7)*
+
 **Density.** A quantity per unit space or a fraction of occupied components. In probability, a density instead describes how probability is distributed; the intended meaning must be stated. *(Weeks 3, 4, 5 and 9)*
 
 **Deterministic model.** A model in which a state and parameter set determine the subsequent evolution exactly. Determinism does not guarantee practical predictability. *(Weeks 0 and 1)*
@@ -81,6 +95,8 @@ The definitions below are deliberately course-sized. They identify how a word is
 **Dynamics.** The rule or equations that change a model state through time. *(All model-building weeks)*
 
 ## E
+
+**Environmental memory.** Information retained in an environment and available to influence later behaviour, such as pheromone left on a trail. *(Week 7)*
 
 **Emergence.** The appearance of a useful system-level pattern or behaviour that is not evident from one component considered in isolation. An emergent description does not make the component-level account irrelevant. *(Weeks 1 and 5–8)*
 
@@ -98,13 +114,25 @@ The definitions below are deliberately course-sized. They identify how a word is
 
 ## F
 
+**Objective landscape.** The objective value viewed across the solution space, with valleys or peaks corresponding to candidate quality under the chosen convention. *(Week 7)*
+
+**NP-hard.** At least as hard as every problem in NP under polynomial-time reductions. This is a worst-case classification; particular instances can still be tractable. *(Week 7; optional computational complexity)*
+
+**Normalised pheromone score.** A route pheromone score divided by a reference value. Our heatmap uses the largest score across all displayed routes and recorded generations in that run, giving one colour scale throughout. *(Week 7)*
+
+**Intelligent system.** A system that uses information to choose actions and adapt its behaviour in pursuit of a goal or in response to changing conditions. *(Week 7)*
+
+**Heuristic.** A practical rule for guiding a search using readily available information. In our ACO example, inverse edge cost favours cheaper edges. *(Week 7)*
+
+**Inertia (PSO).** Retention of part of a particle's previous displacement in its next update, controlled by the inertia weight. *(Week 7)*
+
 **Feedback.** A loop in which a system output influences later inputs or dynamics. **Positive feedback** reinforces an initial change or amplifies a difference; **negative feedback** opposes a change and can regulate or stabilise behaviour. “Positive” and “negative” describe the direction of the loop, not whether its outcome is desirable. *(Weeks 1, 6 and 7)*
 
 **Field.** A quantity defined throughout a spatial domain, such as a chemical concentration or density. A field description represents what is present at each location rather than tracking named individuals. *(Weeks 3 and 8)*
 
 **Finite-size effect.** Behaviour caused or modified by simulating a finite population or domain, rather than the large-system limit being discussed. *(Weeks 4–6 and 8)*
 
-**Fitness.** A measure of reproductive success or expected contribution to later generations. In evolutionary games it is commonly derived from payoff, but payoff and fitness are not identical concepts. *(Week 10)*
+**Fitness.** In optimisation, a score of candidate quality, often defined so that larger values are better; state the convention used. In biology, reproductive success or expected contribution to later generations. Evolutionary games commonly derive fitness from payoff. *(Weeks 7 and 10)*
 
 **Fractal.** A set or pattern with non-trivial structure across scales. Exact self-similarity is sufficient but not necessary for fractal geometry. *(Week 2)*
 
@@ -178,6 +206,12 @@ The definitions below are deliberately course-sized. They identify how a word is
 
 ## P
 
+**Premature convergence.** Concentration of a search around a suboptimal solution before sufficient alternatives have been explored. *(Week 7)*
+
+**Pheromone.** A chemical signal used by animals. In ACO, an artificial numerical value stored on an edge that influences later route choices. *(Week 7)*
+
+**Personal best.** The best position a particle has visited so far, retained as its individual search memory in PSO. *(Week 7)*
+
 **Parameter.** A fixed input controlling a model or experiment during one run. A state variable evolves; a parameter does not unless the model explicitly promotes it to a dynamic variable. *(All weeks)*
 
 **Parameter sweep.** A structured comparison in which one or more parameters are varied and the resulting observables are recorded. *(Weeks 1 and 3–10)*
@@ -208,6 +242,14 @@ The definitions below are deliberately course-sized. They identify how a word is
 
 ## R
 
+**Route-use fraction.** The number of ants using a given route divided by the total number of ants in that generation. *(Week 7)*
+
+**Route pheromone score.** The geometric mean of the pheromone values on a route's edges. It summarises stored pheromone along the route; it is not a route-selection probability. *(Week 7)*
+
+**Result sharing.** Agents exchanging discoveries that can guide one another's searches. *(Week 7)*
+
+**Reservoir computing.** Using the responses of a dynamical system to transform an input signal, then training a readout to produce the desired output. *(Week 7; optional related approach)*
+
 **Random seed.** A value used to initialise a pseudorandom number generator. Recording it makes a stochastic run repeatable; comparing several seeds tests whether a conclusion depends on one random realisation. *(All stochastic workshops)*
 
 **Random variable.** A mapping from possible outcomes to values. Its probability distribution states how likely those values are. *(Week 9)*
@@ -223,6 +265,16 @@ The definitions below are deliberately course-sized. They identify how a word is
 **Rule space.** The set of possible update rules within a specified model family. *(Week 4)*
 
 ## S
+
+**Tour.** In the travelling-salesperson problem, a closed route that visits each city once before returning to its starting city. *(Week 7)*
+
+**Task sharing.** Dividing work among agents so that their contributions address different parts of a collective task. *(Week 7)*
+
+**Superorganism.** A colony functioning as an integrated biological unit, with persistent organisation and specialised reproductive roles. *(Week 7)*
+
+**Shortest-route fraction.** The fraction of ants in a generation using a shortest route. Its ensemble mean summarises allocation to shortest routes across repeated runs. *(Week 7)*
+
+**Shared best.** The best recorded position available to a particle through its communication network. In global-best PSO, this is the best position found anywhere in the swarm. *(Week 7)*
 
 **Scale-free.** Lacking one characteristic scale over a stated range. The term is used differently across literatures, so the measured quantity and range should be given. *(Weeks 2 and 8)*
 
