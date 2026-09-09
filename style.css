@@ -586,7 +586,8 @@ figcaption {
 }
 .choice-marker img { width: 34px !important; height: 34px !important; margin: 0 !important; }
 
-.discussion-marker {
+.discussion-marker,
+details.discussion-reveal summary {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
@@ -626,20 +627,19 @@ details.reader-answer > div {
 details.discussion-reveal {
   margin: 0.7rem 0 1.2rem;
   overflow: hidden;
-  border: 1px solid #c7cedc;
-  border-left: 5px solid #edcc55;
-  border-radius: 0.32rem;
-  background: #fff;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
   color: var(--reader-ink, #1b2a4c);
 }
 
 details.discussion-reveal summary {
   position: relative;
-  display: block;
-  padding: 0.72rem 0.9rem;
+  display: flex;
+  padding: 0.15rem 0;
   cursor: pointer;
   list-style: none;
-  background: #fffaf0;
+  background: transparent;
 }
 
 details.discussion-reveal summary::-webkit-details-marker {
@@ -650,6 +650,9 @@ details.discussion-reveal summary::-webkit-details-marker {
    wrapper the layout row so the icon, question and disclosure arrow cannot be
    squeezed into the first grid column. */
 details.discussion-reveal summary > .myst-dropdown-header-title {
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
   display: grid;
   grid-template-columns: 2.5rem minmax(0, 1fr) 1.2rem;
   gap: 0.7rem;
@@ -660,8 +663,8 @@ details.discussion-reveal summary > .myst-dropdown-header-title {
 details.discussion-reveal summary > .myst-dropdown-header-title > img {
   grid-column: 1;
   grid-row: 1;
-  width: 2.35rem !important;
-  height: 2.35rem !important;
+  width: 36px !important;
+  height: 36px !important;
   margin: 0 !important;
 }
 
@@ -687,14 +690,34 @@ details.discussion-reveal summary > .myst-dropdown-header-title > span:has(.myst
   display: none;
 }
 
+.article details.discussion-reveal {
+  border: 0 !important;
+}
+
+.article details.discussion-reveal summary.myst-dropdown-header {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.62em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
 .discussion-reveal-question {
   display: block;
   color: var(--reader-ink, #1b2a4c);
-  font-family: Baskerville, Georgia, serif;
-  font-size: 1.12rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: inherit;
   font-style: normal;
-  font-weight: 600;
-  line-height: 1.3;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+details.discussion-reveal summary > img {
+  width: 36px !important;
+  height: 36px !important;
+  flex-shrink: 0;
+  margin: 0 !important;
 }
 
 details.discussion-reveal .discussion-answer {
@@ -714,11 +737,11 @@ details.discussion-reveal .discussion-answer > :last-child {
 .dark details.discussion-reveal {
   border-color: #58647a;
   border-left-color: #edcc55;
-  background: #202633;
+  background: transparent;
 }
 
 .dark details.discussion-reveal summary {
-  background: #2b291e;
+  background: transparent;
 }
 
 .dark .discussion-reveal-label,
@@ -851,6 +874,33 @@ details.discussion-reveal .discussion-answer > :last-child {
 }
 .article table tbody tr:nth-child(even) {
   background: transparent;
+}
+
+/* Give the PSO definitions room without reducing equation size. */
+.pso-measurements-table {
+  overflow-x: auto;
+}
+.pso-measurements-table table,
+table.pso-measurements-table {
+  table-layout: fixed;
+  min-width: 0;
+  width: 100%;
+}
+.pso-measurements-table th:nth-child(1),
+.pso-measurements-table td:nth-child(1) { width: 25%; }
+.pso-measurements-table th:nth-child(2),
+.pso-measurements-table td:nth-child(2) { width: 50%; }
+.pso-measurements-table th:nth-child(3),
+.pso-measurements-table td:nth-child(3) { width: 25%; }
+.pso-measurements-table td:nth-child(2) .katex {
+  white-space: nowrap;
+}
+/* MyST converts HTML images and may discard inline sizing. Match the asset
+   name (including its generated hash) so the single boxplot stays compact. */
+img[src*="pso_ensemble"] {
+  width: min(100%, 440px) !important;
+  height: auto !important;
+  margin-inline: auto;
 }
 .reveal .slides table,
 .reveal .slides .model-specification,
