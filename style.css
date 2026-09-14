@@ -332,6 +332,40 @@ figcaption {
   font-size: 0.62em;
   line-height: 1.25;
 }
+.figure-panel-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 0.7em;
+  align-items: stretch;
+  margin-top: 0.35em;
+}
+.figure-panel {
+  display: flex;
+  min-width: 0;
+  margin: 0;
+  flex-direction: column;
+}
+.figure-panel-frame {
+  display: flex;
+  height: 165px;
+  align-items: center;
+  justify-content: center;
+}
+.figure-panel-frame img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+  margin: 0;
+  object-fit: contain;
+}
+.figure-panel .figure-caption {
+  margin: 0.45em 0 0;
+}
+.article .figure-panel-frame {
+  height: 190px;
+}
 .unit-essentials {
   width: 78%;
   margin: 0.5em auto;
@@ -586,7 +620,8 @@ figcaption {
 }
 .choice-marker img { width: 34px !important; height: 34px !important; margin: 0 !important; }
 
-.discussion-marker {
+.discussion-marker,
+details.discussion-reveal summary {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
@@ -626,20 +661,19 @@ details.reader-answer > div {
 details.discussion-reveal {
   margin: 0.7rem 0 1.2rem;
   overflow: hidden;
-  border: 1px solid #c7cedc;
-  border-left: 5px solid #edcc55;
-  border-radius: 0.32rem;
-  background: #fff;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
   color: var(--reader-ink, #1b2a4c);
 }
 
 details.discussion-reveal summary {
   position: relative;
-  display: block;
-  padding: 0.72rem 0.9rem;
+  display: flex;
+  padding: 0.15rem 0;
   cursor: pointer;
   list-style: none;
-  background: #fffaf0;
+  background: transparent;
 }
 
 details.discussion-reveal summary::-webkit-details-marker {
@@ -650,6 +684,9 @@ details.discussion-reveal summary::-webkit-details-marker {
    wrapper the layout row so the icon, question and disclosure arrow cannot be
    squeezed into the first grid column. */
 details.discussion-reveal summary > .myst-dropdown-header-title {
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
   display: grid;
   grid-template-columns: 2.5rem minmax(0, 1fr) 1.2rem;
   gap: 0.7rem;
@@ -660,8 +697,8 @@ details.discussion-reveal summary > .myst-dropdown-header-title {
 details.discussion-reveal summary > .myst-dropdown-header-title > img {
   grid-column: 1;
   grid-row: 1;
-  width: 2.35rem !important;
-  height: 2.35rem !important;
+  width: 36px !important;
+  height: 36px !important;
   margin: 0 !important;
 }
 
@@ -687,14 +724,34 @@ details.discussion-reveal summary > .myst-dropdown-header-title > span:has(.myst
   display: none;
 }
 
+.article details.discussion-reveal {
+  border: 0 !important;
+}
+
+.article details.discussion-reveal summary.myst-dropdown-header {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.62em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
 .discussion-reveal-question {
   display: block;
   color: var(--reader-ink, #1b2a4c);
-  font-family: Baskerville, Georgia, serif;
-  font-size: 1.12rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: inherit;
   font-style: normal;
-  font-weight: 600;
-  line-height: 1.3;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+details.discussion-reveal summary > img {
+  width: 36px !important;
+  height: 36px !important;
+  flex-shrink: 0;
+  margin: 0 !important;
 }
 
 details.discussion-reveal .discussion-answer {
@@ -714,11 +771,11 @@ details.discussion-reveal .discussion-answer > :last-child {
 .dark details.discussion-reveal {
   border-color: #58647a;
   border-left-color: #edcc55;
-  background: #202633;
+  background: transparent;
 }
 
 .dark details.discussion-reveal summary {
-  background: #2b291e;
+  background: transparent;
 }
 
 .dark .discussion-reveal-label,
@@ -828,6 +885,9 @@ details.discussion-reveal .discussion-answer > :last-child {
 }
 .article .reader-figure.reader-figure-small {
   width: min(100%, 360px);
+}
+.article .reader-figure.reader-figure-wide {
+  width: min(100%, 920px);
 }
 .article .reader-figure img {
   display: block;
@@ -1032,11 +1092,24 @@ details.discussion-reveal .discussion-answer > :last-child {
   border: 0;
 }
 
-/* Reader figures retain their natural aspect ratio. The book theme otherwise
-   lets some legacy width attributes compress images vertically. */
+/* Keep an ordinary Reader figure within a comfortable reading viewport. MyST
+   can discard inline image sizing during conversion, so this must be a shared
+   Reader rule rather than a collection of per-notebook style attributes. */
 .article img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  max-height: min(58vh, 520px);
+  margin-left: auto;
+  margin-right: auto;
   height: auto;
   object-fit: contain;
+}
+
+/* Allow dense figures to use more of the reading viewport. */
+.article img.reader-image-detailed,
+.article .reader-figure.reader-figure-wide img {
+  max-height: min(76vh, 720px);
 }
 
 /* MyST's generic article-image rule appears after the card rules above.
@@ -1140,6 +1213,37 @@ details.discussion-reveal .discussion-answer > :last-child {
   border-left-color: #edcc55;
   background: #292615;
   color: #f7f1df;
+}
+.toolkit-addition-marker {
+  display: inline-flex;
+  gap: 0.55rem;
+  align-items: baseline;
+  max-width: 92%;
+  margin-top: 0.45rem;
+  padding: 0.48rem 0.85rem;
+  border: 1px solid #b8c8bd;
+  border-left: 5px solid #557a60;
+  background: #f5faf6;
+  color: #1b2a4c;
+  text-align: left;
+}
+.toolkit-addition-marker span {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.5em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.toolkit-addition-marker strong {
+  font-family: Baskerville, Georgia, serif;
+  font-size: 0.76em;
+  line-height: 1.15;
+}
+.dark .toolkit-addition-marker {
+  border-color: #66806d;
+  border-left-color: #93bd9d;
+  background: #1f2b22;
+  color: #eef6f0;
 }
 
 /* The organising question for a topic. This is deliberately a labelled
