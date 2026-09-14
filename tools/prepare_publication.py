@@ -9,7 +9,7 @@ import shutil
 import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
-MAX_WEEK = 7
+MAX_WEEK = 8
 
 
 def allowed(path):
