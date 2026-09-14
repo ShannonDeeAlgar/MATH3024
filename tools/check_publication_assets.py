@@ -1,4 +1,4 @@
-"""Fail publication if an explorable would 404 or later weeks are staged."""
+"""Fail publication if required pages are missing or later weeks are staged."""
 from html.parser import HTMLParser
 from pathlib import Path
 import re
@@ -22,8 +22,15 @@ class Frames(HTMLParser):
 def check(root):
     errors = []
     for path in root.rglob('*'):
-        if re.search(r'(?:^|/)week(?:08|09|10)(?:/|\.|$)', str(path.relative_to(root))):
+        if re.search(r'(?:^|/)week(?:09|10)(?:/|\.|$)', str(path.relative_to(root))):
             errors.append(f'Unreleased material staged: {path.relative_to(root)}')
+    required_pages = [
+        'notebooks/week08/l-critical-phenomena/index.html',
+        'slides/week08/L_Critical_phenomena.slides.html',
+    ]
+    for file in required_pages:
+        if not (root / file).is_file():
+            errors.append(f'Missing published page: {file}')
     pages = [
         ('notebooks/week07/l-intelligent-systems/index.html',
          ['notebooks/week07/l-intelligent-systems', 'notebooks/week07/l-intelligent-systems/']),
@@ -54,4 +61,4 @@ if __name__ == '__main__':
     errors = check(Path(sys.argv[1] if len(sys.argv) > 1 else '_build/html'))
     if errors:
         raise SystemExit('\n'.join(errors))
-    print('Both explorables resolve under /MATH3024, with and without a trailing slash; Weeks 8–10 are absent.')
+    print('Week 8 reader and slides are present; Weeks 9–10 are absent; Week 7 explorables resolve under /MATH3024.')
