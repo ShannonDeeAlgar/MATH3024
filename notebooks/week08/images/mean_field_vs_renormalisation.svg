@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="360" viewBox="0 0 1000 360" role="img" aria-labelledby="title desc">
+  <title id="title">Mean-field approximation compared with real-space renormalisation</title>
+  <desc id="desc">Mean field replaces a detailed spatial lattice by one population average at the same observation scale. Renormalisation repeatedly groups nearby cells into effective blocks and follows the model at progressively coarser spatial scales.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#1b2a4c"/>
+    </marker>
+    <pattern id="fine" width="22" height="22" patternUnits="userSpaceOnUse">
+      <rect width="22" height="22" fill="#f7f9fc"/>
+      <path d="M22 0H0V22" fill="none" stroke="#aebbd1" stroke-width="1"/>
+    </pattern>
+    <pattern id="coarse" width="44" height="44" patternUnits="userSpaceOnUse">
+      <rect width="44" height="44" fill="#edf2fa"/>
+      <path d="M44 0H0V44" fill="none" stroke="#6483b8" stroke-width="2"/>
+    </pattern>
+    <style>
+      .panel { fill:#ffffff; stroke:#c7cedc; stroke-width:2; }
+      .label { font:700 18px Arial, Helvetica, sans-serif; fill:#1b2a4c; }
+      .body { font:18px Arial, Helvetica, sans-serif; fill:#263856; }
+      .small { font:15px Arial, Helvetica, sans-serif; fill:#5b6780; }
+      .arrow { stroke:#1b2a4c; stroke-width:3; fill:none; marker-end:url(#arrow); }
+      .state-a { fill:#f2c94c; }
+      .state-b { fill:#6483b8; }
+    </style>
+  </defs>
+
+  <rect class="panel" x="10" y="10" width="980" height="155" rx="16"/>
+  <text class="label" x="32" y="43">MEAN FIELD</text>
+  <text class="small" x="32" y="68">average at one resolution</text>
+  <rect x="220" y="31" width="176" height="110" fill="url(#fine)" stroke="#1b2a4c" stroke-width="2"/>
+  <circle class="state-a" cx="242" cy="53" r="7"/><circle class="state-b" cx="286" cy="53" r="7"/>
+  <circle class="state-a" cx="352" cy="53" r="7"/><circle class="state-a" cx="264" cy="75" r="7"/>
+  <circle class="state-b" cx="330" cy="75" r="7"/><circle class="state-a" cx="374" cy="75" r="7"/>
+  <circle class="state-b" cx="242" cy="97" r="7"/><circle class="state-a" cx="308" cy="97" r="7"/>
+  <circle class="state-b" cx="352" cy="119" r="7"/><circle class="state-a" cx="374" cy="119" r="7"/>
+  <text class="small" x="235" y="157">detailed spatial state</text>
+  <path class="arrow" d="M420 86H570"/>
+  <text class="small" x="434" y="72">replace local surroundings</text>
+  <text class="small" x="457" y="112">by the average</text>
+  <circle cx="670" cy="86" r="48" fill="#edf2fa" stroke="#1b2a4c" stroke-width="3"/>
+  <text x="670" y="97" text-anchor="middle" style="font:italic 38px Georgia,serif;fill:#1b2a4c">ρ</text>
+  <text class="body" x="744" y="80">one population variable</text>
+  <text class="small" x="744" y="107">spatial arrangement discarded</text>
+
+  <rect class="panel" x="10" y="185" width="980" height="165" rx="16"/>
+  <text class="label" x="32" y="218" style="font-size:16px">RENORMALISATION</text>
+  <text class="small" x="32" y="243">repeat at larger length scales</text>
+  <rect x="220" y="207" width="176" height="110" fill="url(#fine)" stroke="#1b2a4c" stroke-width="2"/>
+  <path d="M264 207V317M308 207V317M352 207V317M220 251H396M220 295H396" fill="none" stroke="#f2c94c" stroke-width="3" stroke-dasharray="7 5"/>
+  <text class="small" x="235" y="337">group nearby sites</text>
+  <path class="arrow" d="M420 262H505"/>
+  <rect x="530" y="218" width="132" height="88" fill="url(#coarse)" stroke="#1b2a4c" stroke-width="2"/>
+  <circle class="state-a" cx="552" cy="240" r="10"/><circle class="state-b" cx="618" cy="240" r="10"/>
+  <circle class="state-b" cx="574" cy="284" r="10"/><circle class="state-a" cx="640" cy="284" r="10"/>
+  <text class="small" x="532" y="328">effective block states</text>
+  <path class="arrow" d="M687 262H758"/>
+  <text class="small" x="697" y="247">repeat</text>
+  <rect x="784" y="218" width="88" height="88" fill="#edf2fa" stroke="#1b2a4c" stroke-width="2"/>
+  <path d="M828 218V306M784 262H872" stroke="#6483b8" stroke-width="3"/>
+  <circle class="state-a" cx="806" cy="240" r="11"/><circle class="state-b" cx="850" cy="240" r="11"/>
+  <circle class="state-b" cx="806" cy="284" r="11"/><circle class="state-a" cx="850" cy="284" r="11"/>
+  <text class="small" x="894" y="253">effective rule</text>
+  <text class="small" x="894" y="276">at a coarser</text>
+  <text class="small" x="894" y="299">resolution</text>
+</svg>

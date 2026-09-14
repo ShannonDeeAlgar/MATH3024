@@ -40,6 +40,9 @@ project:
         - file: notebooks/week07/Slides.md
         - file: notebooks/week07/WS_Intelligent_systems.ipynb
         - file: notebooks/week07/Practice.md
+    - file: notebooks/week08/L_Critical_phenomena.ipynb
+      children:
+        - file: notebooks/week08/Slides.md
 site:
   options:
     folders: true
