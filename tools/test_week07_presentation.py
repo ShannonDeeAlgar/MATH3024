@@ -21,7 +21,9 @@ class PresentationTests(unittest.TestCase):
             content = ''.join(f'<iframe src="images/{name}"></iframe>' for name in
                               ['aco_network_explorer.html', 'pso_explorer.html'])
             for page in ['notebooks/week07/l-intelligent-systems/index.html',
-                         'slides/week07/L_Intelligent_systems.slides.html']:
+                         'slides/week07/L_Intelligent_systems.slides.html',
+                         'notebooks/week08/l-critical-phenomena/index.html',
+                         'slides/week08/L_Critical_phenomena.slides.html']:
                 target = root / page; target.parent.mkdir(parents=True, exist_ok=True)
                 target.write_text(content)
             for route in ['notebooks/week07/images',
@@ -32,7 +34,7 @@ class PresentationTests(unittest.TestCase):
             self.assertEqual(check_assets(root), [])
             (root / 'notebooks/week07/images/pso_explorer.html').unlink()
             self.assertTrue(any('not staged' in error for error in check_assets(root)))
-            (root / 'notebooks/week08').mkdir()
+            (root / 'notebooks/week09').mkdir()
             self.assertTrue(any('Unreleased' in error for error in check_assets(root)))
 
     def test_independent_figure_numbers(self):
@@ -63,13 +65,14 @@ class PresentationTests(unittest.TestCase):
 
     def test_publication_boundary(self):
         self.assertTrue(allowed('notebooks/week07/Slides.md'))
-        self.assertFalse(allowed('notebooks/week08/Slides.md'))
+        self.assertTrue(allowed('notebooks/week08/Slides.md'))
+        self.assertFalse(allowed('notebooks/week09/Slides.md'))
         self.assertFalse(allowed('week10'))
         original = [{'file': 'intro.md', 'children': [{'file': 'notebooks/week08/L.ipynb'}]},
                     {'file': 'notebooks/week07/L.ipynb'}, {'file': 'notebooks/week10/L.ipynb'}]
         result = filter_toc(original)
         self.assertEqual(len(result), 2)
-        self.assertEqual(result[0]['children'], [])
+        self.assertEqual(result[0]['children'], [{'file': 'notebooks/week08/L.ipynb'}])
         self.assertEqual(len(original[0]['children']), 1)
 
 
