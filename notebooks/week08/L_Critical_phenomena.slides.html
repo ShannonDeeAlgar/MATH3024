@@ -5,7 +5,7 @@
 <meta content="chrome=1" http-equiv="X-UA-Compatible"/>
 <meta content="yes" name="apple-mobile-web-app-capable"/>
 <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
-<title>.L_Critical_phenomena.resolved.39998 slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
+<title>.L_Critical_phenomena.resolved.51923 slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
   import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script>
@@ -8438,7 +8438,6 @@ details.discussion-reveal .discussion-answer > :last-child {
 .article .reader-map {
   display: block;
   width: min(100%, 900px);
-  max-height: min(76vh, 720px);
   height: auto !important;
   object-fit: contain;
   margin: 1rem auto 0.5rem;
@@ -8597,6 +8596,17 @@ details.discussion-reveal .discussion-answer > :last-child {
   color: #b7c3d7;
 }
 
+.week-emphasis .toolkit-addition {
+  display: block;
+  margin-top: 0.42rem;
+  padding-top: 0.42rem;
+  border-top: 1px solid #D7DEEA;
+}
+
+.dark .week-emphasis .toolkit-addition {
+  border-top-color: #46536A;
+}
+
 .jp-OutputArea-child:has(iframe) .jp-OutputPrompt,
 .jp-Cell-outputWrapper:has(iframe) .jp-OutputCollapser {
   display: none;
@@ -8738,18 +8748,6 @@ details.discussion-reveal .discussion-answer > :last-child {
   background: transparent;
 }
 
-/* Short component labels leave room for the full game specification. */
-.reveal [id="cell-id=8309b600-a5e3-4836-853a-d685bf85dd2f"] table {
-  width: 100%;
-  table-layout: fixed;
-}
-.reveal [id="cell-id=8309b600-a5e3-4836-853a-d685bf85dd2f"] th:first-child {
-  width: 24%;
-}
-.reveal [id="cell-id=8309b600-a5e3-4836-853a-d685bf85dd2f"] th:last-child {
-  width: 76%;
-}
-
 .reveal .slides section .analysis-perspectives.three {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.65em;
@@ -8800,50 +8798,6 @@ details.discussion-reveal .discussion-answer > :last-child {
 }
 .reveal .slides section .two-panel > *,
 .reveal .slides section .three-panel > * { min-width: 0; }
-.reveal .slides section .application-anchors {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
-  margin: 20px 0;
-}
-.reveal .slides section .application-anchors h3 {
-  font-size: .78em;
-  text-align: center;
-  margin: 0 0 12px;
-}
-.reveal .slides section .application-anchors p {
-  font-size: .70em;
-  line-height: 1.35;
-  margin: 12px 0 0;
-}
-.reveal .slides section img.application-schematic {
-  width: 100%;
-  height: 235px;
-  object-fit: contain;
-  margin: 0;
-}
-.reveal .slides section .lizard-photo-anchor {
-  position: relative;
-  overflow: hidden;
-  width: 307px;
-  height: 235px;
-  margin: 0 auto;
-}
-.reveal .slides section .lizard-photo-anchor img {
-  position: absolute;
-  width: 250% !important;
-  max-width: none !important;
-  max-height: none !important;
-  height: auto !important;
-  left: -129.8077%;
-  top: -77.3585%;
-  margin: 0 !important;
-}
-.reveal .slides section p.application-credit {
-  font-size: .40em;
-  line-height: 1.35;
-  color: #5A6685;
-}
 .reveal .slides section .two-panel .image-panel,
 .reveal .slides section .three-panel .image-panel,
 .reveal .slides section .two-panel .text-panel,
@@ -8896,17 +8850,6 @@ details.discussion-reveal .discussion-answer > :last-child {
   max-height: 350px;
   width: auto;
   height: auto;
-}
-.reveal .slides section img.game-payoff-figure:not(.pd-outcomes-figure) {
-  width: 360px !important;
-  max-width: 100% !important;
-  height: auto !important;
-}
-.reveal .slides section img.game-plane-figure {
-  width: 400px !important;
-  max-width: 100% !important;
-  max-height: 450px;
-  height: auto !important;
 }
 </style>
 </head>
@@ -8999,11 +8942,11 @@ details.discussion-reveal .discussion-answer > :last-child {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Real-world-motivation">Real-world motivation<a class="anchor-link" href="#Real-world-motivation">¶</a></h1><p>A transition may separate a disturbance that stops locally from one that spreads through much of the system. Here <strong>tuned</strong> means that an external parameter is varied; <strong>self-organised</strong> means that drive and loss maintain the operating regime.</p>
+<h1 id="Real-world-motivation">Real-world motivation<a class="anchor-link" href="#Real-world-motivation">¶</a></h1><p>A transition may separate a disturbance that stops locally from one that spreads through much of the system. Here tuned means that an external parameter is varied; self-organised means that drive and loss maintain the operating regime.</p>
 <div class="figure-panel-grid">
-<div class="figure-panel"><div class="figure-panel-frame"><img alt="Sketch comparing the physical sizes of systems with slip avalanches, from nanocrystals to earthquakes" src="images/published_slip_scales.jpg"/></div><div class="figure-caption"><strong>Tuned · Slip across scales.</strong> Controlled experiments vary loading; the sketch compares sample sizes.</div><div class="figure-reference">Source: <a href="https://doi.org/10.1038/srep16493">Uhl <em>et al.</em> (2015), Fig. 1</a>.</div></div>
-<div class="figure-panel"><div class="figure-panel-frame"><img alt="Forty-four neural activity traces with thresholded events grouped into three example avalanches" src="images/published_neuronal_avalanches.png"/></div><div class="figure-caption"><strong>Self-organised · Neural avalanches.</strong> Red dots are events; yellow bands group them into avalanches.</div><div class="figure-reference">Source: <a href="https://doi.org/10.1371/journal.pcbi.1002985">Priesemann <em>et al.</em> (2013), Fig. 2</a>.</div></div>
-<div class="figure-panel"><div class="figure-panel-frame"><img alt="Spanish power-grid network with two possible trigger lines and their cumulative failure counts" src="images/published_power_grid_cascades.jpg"/></div><div class="figure-caption"><strong>Self-organised · Power-grid cascades.</strong> Panel a marks two trigger lines; panel b shows the resulting failures.</div><div class="figure-reference">Source: <a href="https://doi.org/10.1038/s41467-018-04287-5">Schäfer <em>et al.</em> (2018), Fig. 2</a>.</div></div>
+<div class="figure-panel"><div class="figure-panel-frame"><img alt="Sketch comparing the physical sizes of systems with slip avalanches, from nanocrystals to earthquakes" src="images/published_slip_scales.jpg"/></div><div class="figure-caption">Tuned · Slip across scales. Controlled experiments vary loading; the sketch compares sample sizes.</div><div class="figure-reference">Source: <a href="https://doi.org/10.1038/srep16493">Uhl <em>et al.</em> (2015), Fig. 1</a>.</div></div>
+<div class="figure-panel"><div class="figure-panel-frame"><img alt="Forty-four neural activity traces with thresholded events grouped into three example avalanches" src="images/published_neuronal_avalanches.png"/></div><div class="figure-caption">Self-organised · Neural avalanches. Red dots are events; yellow bands group them into avalanches.</div><div class="figure-reference">Source: <a href="https://doi.org/10.1371/journal.pcbi.1002985">Priesemann <em>et al.</em> (2013), Fig. 2</a>.</div></div>
+<div class="figure-panel"><div class="figure-panel-frame"><img alt="Spanish power-grid network with two possible trigger lines and their cumulative failure counts" src="images/published_power_grid_cascades.jpg"/></div><div class="figure-caption">Self-organised · Power-grid cascades. Panel a marks two trigger lines; panel b shows the resulting failures.</div><div class="figure-reference">Source: <a href="https://doi.org/10.1038/s41467-018-04287-5">Schäfer <em>et al.</em> (2018), Fig. 2</a>.</div></div>
 </div>
 </div>
 </div>
@@ -9047,7 +8990,7 @@ details.discussion-reveal .discussion-answer > :last-child {
 </tr>
 </tbody>
 </table>
-<p style="font-size:0.56em;color:#5B6780">Critical slowing down and dynamic scaling: <a href="https://doi.org/10.1103/RevModPhys.49.435">Hohenberg and Halperin (1977)</a>.</p>
+<p style="font-size:0.56em;color:#5B6780">Critical dynamics: <a href="https://doi.org/10.1103/RevModPhys.49.435">Hohenberg and Halperin (1977)</a>. Tipping-point early warnings: <a href="https://doi.org/10.1038/nature08227">Scheffer <i>et al.</i> (2009)</a>.</p>
 </div>
 </div>
 </div>
@@ -9202,7 +9145,7 @@ details.discussion-reveal .discussion-answer > :last-child {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
 <h2 id="Parameter-sweep-and-ensembles">Parameter sweep and ensembles<a class="anchor-link" href="#Parameter-sweep-and-ensembles">¶</a></h2><img alt="Spanning probability and mean largest-cluster fraction across porosity and lattice size" src="images/percolation_finite_size.svg" style="display:block;width:auto;max-width:100%;height:auto;max-height:355px;object-fit:contain;margin:0 auto"/>
-<p style="font-size:0.64em;color:#5B6780">Sweep porosity $p$; use 450 independent lattices per point; repeat for several lattice widths $L$. Bars show 95% confidence intervals.</p>
+<p style="font-size:0.64em;color:#5B6780">Sweep porosity $p$; use 450 independent lattices per point; repeat for several lattice widths $L$. Bands show pointwise 95% confidence intervals for the estimates.</p>
 <div class="ladder-marker"><img alt="Ladder of abstraction" src="images/ladder_marker.svg"/><span><strong>Up the ladder:</strong> individual lattices become ensemble summaries at each <i>p</i>, then response curves across <i>p</i> and <i>L</i>.</span></div>
 </div>
 </div>
@@ -9307,7 +9250,7 @@ $$</p>
 <p style="font-size:1.05em;text-align:center"><i>C</i>(<i>r</i>) ∝ e<sup>−<i>r</i>/<i>ξ</i></sup>   ⟹   <i>C</i>(<i>r</i> + <i>ξ</i>) = <i>C</i>(<i>r</i>)/e</p>
 <p>After one correlation length <i>ξ</i>, about 37% of the previous pair-connectedness remains. <i>ξ</i> measures how quickly shared-cluster probability falls with distance; it is not a distance beyond which sites cannot share a cluster. Exponential decay approaches zero gradually and has no sharp cutoff.</p>
 <p>As <i>p</i> approaches <i>p</i><sub>c</sub>, <i>ξ</i> grows. At the critical point, infinite-system pair-connectedness has power-law rather than exponential decay, so there is no finite correlation length. Our finite-lattice, finite-range fit estimates this quantity as the effective correlation length <i>ξ</i><sub>eff</sub>.</p>
-<p style="font-size:0.68em;color:#5B6780"><i>r</i> is separation. <i>ξ</i> denotes the underlying correlation length; <i>ξ</i><sub>eff</sub> is its estimate from the stated finite fit. The temporal counterpart is introduced later, after defining activity autocorrelation.</p>
+<p style="font-size:0.68em;color:#5B6780"><i>r</i> is separation. <i>ξ</i> denotes the underlying correlation length; <i>ξ</i><sub>eff</sub> is its estimate from the stated finite fit.</p>
 <div class="ladder-marker"><img alt="Ladder of abstraction" src="images/ladder_marker.svg"/><span><strong>Up the ladder over separations:</strong> replace the spatial correlation curve with one decay scale, <i>ξ</i>.</span></div>
 </div>
 </div>
@@ -9515,8 +9458,8 @@ $$</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
 <h2 id="Initialisation">Initialisation<a class="anchor-link" href="#Initialisation">¶</a></h2><div class="two-panel wide-left compact-panels">
-<div class="image-panel"><img alt="Empty and overfull initialisation procedures" src="images/sandpile_initialisation_comparison.png" style="display:block;width:100%;height:auto;max-height:400px;object-fit:contain;margin:0 auto"/></div>
-<div class="text-panel"><p><strong>Empty:</strong> show the full loading transient.</p><p><strong>Overfull:</strong> relax first, then use random additions as burn-in.</p><p><strong>Burn-in:</strong> initial trials discarded before measurement so the starting state no longer dominates.</p><p>The first relaxation prepares a pile; it does not establish stationarity.</p></div>
+<div class="image-panel"><img alt="Overfull preparation before random driving: load falls, boundary grains are lost and active sites reach zero" src="images/sandpile_overfull_preparation.svg" style="display:block;width:100%;height:auto;max-height:450px;object-fit:contain;margin:0 auto"/></div>
+<div class="text-panel" style="font-size:0.80em;line-height:1.20"><p>Start overfull: loads sampled from 0 to 7 on an open 16 × 16 lattice.</p><p>With no additions, relaxation loses 345 grains. The marker shows toppling stopping after 106 parallel steps.</p><p>Random driving then starts at trial <i>n</i> = 1. Choose the measurement window within that driven history.</p><p>Use the Week 6 checks: compare initialisations and later windows of equal duration before summarising.</p></div>
 </div>
 </div>
 </div>
@@ -9530,7 +9473,7 @@ $$</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
 <h2 id="First-check:-slow-drive-and-boundary-loss">First check: slow drive and boundary loss<a class="anchor-link" href="#First-check:-slow-drive-and-boundary-loss">¶</a></h2><div class="two-panel compact-panels" style="grid-template-columns:minmax(0,1.15fr) minmax(0,0.85fr)">
 <div class="image-panel"><img alt="Mean load and boundary loss through time in a slowly driven open sandpile" src="images/sandpile_driven_stationarity.svg" style="display:block;width:100%;height:auto;max-height:440px;object-fit:contain;margin:0 auto"/></div>
-<div class="text-panel" style="font-size:0.82em;line-height:1.18"><p><span style="color:#347caf">Start empty:</span> the loading transient is visible.</p><p><span style="color:#76538C">Prepared high-load state:</span> loads begin between 0 and 7. Its initial relaxation loses 345 grains before plotted trial <i>n</i> = 1; random driving and burn-in then begin.</p><p>Late-run mean load is 2.050 versus 2.051; mean boundary loss is 0.994 versus 1.008 grains per trial.</p><p>The early trajectories differ; the stationary summaries agree.</p></div>
+<div class="text-panel" style="font-size:0.82em;line-height:1.18"><p><span style="color:#347caf">Start empty:</span> the loading transient is visible.</p><p><span style="color:#76538C">Prepared high-load state:</span> the previous relaxation has finished. Trial <i>n</i> = 1 begins random driving.</p><p>Late-run mean load is 2.050 versus 2.051; mean boundary loss is 0.994 versus 1.008 grains per trial.</p><p>These means agree. Check later measurement windows before summarising avalanche statistics.</p></div>
 </div>
 <p style="font-size:0.60em;color:#5B6780">Top: mean load per site. Bottom: boundary loss averaged over a moving 200-trial window. Each run uses an open $16\times16$ lattice. Here $z_c=4$ is a local toppling threshold. This driven protocol has no swept control parameter, so there is no phase-transition curve to plot.</p>
 </div>
@@ -9647,7 +9590,7 @@ $$</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
 <h2 id="Parameter-sweep">Parameter sweep<a class="anchor-link" href="#Parameter-sweep">¶</a></h2><div class="two-panel compact-panels" style="grid-template-columns:minmax(0,1.15fr) minmax(0,0.85fr)">
 <div class="image-panel"><img alt="Avalanche-size tails for three lattice sizes" src="images/sandpile_finite_size_ccdf.png" style="display:block;width:100%;height:auto;max-height:430px;object-fit:contain;margin:0 auto"/></div>
-<div class="text-panel"><p>A CDF compresses the rare upper tail near 1. The CCDF shows the probability of reaching each size without bins.</p><p>Use densities to examine power-law slopes; use the CCDF to compare the rollover across $L$.</p><p>Thin lines show 20 independent runs; bold lines pool their events.</p><p>The dotted level marks about one event in a run. Pooling lowers this sampling limit; it does not move the physical cutoff.</p><p>Larger $L$ → larger possible avalanches → rollover moves right.</p></div>
+<div class="text-panel"><p>A CDF compresses the rare upper tail near 1. The CCDF shows the probability of reaching each size without bins.</p><p>Use densities to examine power-law slopes; use the CCDF to compare where the tails bend down across $L$.</p><p>Thin lines show 20 independent runs; bold lines pool their events.</p><p>The dotted level marks about one event in a run. Pooling lowers this sampling limit; it does not move the physical cutoff.</p><p>Larger $L$ → larger possible avalanches → the tail bends down at a larger avalanche size.</p></div>
 </div>
 </div>
 </div>
@@ -9678,12 +9621,14 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
-<h2 id="Temporal-correlation">Temporal correlation<a class="anchor-link" href="#Temporal-correlation">¶</a></h2><p>$$\widehat C_A(\ell)=\frac{\frac{1}{n-\ell}\sum_{t=0}^{n-\ell-1}\delta A_t\delta A_{t+\ell}}{\frac{1}{n}\sum_{t=0}^{n-1}\delta A_t^2}.$$</p>
+<h2 id="Temporal-correlation">Temporal correlation<a class="anchor-link" href="#Temporal-correlation">¶</a></h2><p>$$\widehat C_A(\ell)=\frac{\frac{1}{N-\ell}\sum_{t=0}^{N-\ell-1}\delta A_t\delta A_{t+\ell}}{\frac{1}{N}\sum_{t=0}^{N-1}\delta A_t^2}.$$</p>
+<p style="font-size:0.60em;color:#5B6780">$N$ counts recorded activity steps; $\delta A_t=A_t-\bar A$.</p>
 <div class="two-panel compact-panels" style="grid-template-columns:minmax(0,0.70fr) minmax(0,1.30fr);align-items:start">
 <div class="text-panel" style="font-size:0.80em;line-height:1.20">
 <p>Here the separation is lag <i>ℓ</i>. The function <i>C</i><sub>A</sub>(<i>ℓ</i>) shows how activity fluctuations remain related through time; <i>τ</i> summarises its decay.</p>
 <p>The first 1/<i>e</i> crossing gives an effective correlation time <i>τ</i><sub>eff</sub> ≈ 30 recorded steps.</p>
-<p>Large <i>τ</i> means longer memory. Near a continuous critical point, longer recovery times are called critical slowing down.</p>
+<p>As spatial correlations extend further, fluctuations can take longer to relax. Near a continuous critical point, this is critical slowing down.</p>
+<p>One curve measures persistence. Showing slowing down requires comparing times as criticality is approached.</p>
 <p style="font-size:0.56em;color:#5B6780"><a href="https://doi.org/10.1103/RevModPhys.49.435">Hohenberg and Halperin (1977)</a>.</p>
 </div>
 <div class="image-panel"><img alt="Activity autocorrelation with a 37% crossing at about 30 recorded steps" src="images/sandpile_autocorrelation.png" style="display:block;width:100%;height:auto;max-height:430px;object-fit:contain;margin:0 auto"/><p class="figure-caption"><strong>Figure 8.14.</strong> The activity record remains correlated over several tens of recorded steps.</p></div>

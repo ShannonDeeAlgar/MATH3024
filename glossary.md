@@ -1,10 +1,12 @@
 # Glossary
 
-This glossary records the shared vocabulary of MATH3024. A term is normally **bolded when it is first introduced substantively** in a topic.
+This glossary collects key concepts used across MATH3024. Model-specific notation and calculation details are defined in the relevant Reader section.
 
-The definitions below are deliberately course-sized. They identify how a word is used here without pretending that every field uses it in exactly the same way. Where a term has several meanings, the model under discussion determines the relevant one.
+Where a term has several meanings, use the definition for the model being discussed.
 
 ## A
+
+**Autocorrelation.** Correlation of a signal with a lagged copy of itself. Its function shows how relatedness changes with the lag. *(Week 8)*
 
 **Ant System.** The original ACO algorithm in which each ant constructs a candidate solution and deposits pheromone according to its quality after evaporation. *(Week 7)*
 
@@ -20,7 +22,7 @@ The definitions below are deliberately course-sized. They identify how a word is
 
 **Attractor.** A state or set towards which trajectories approach. In an iterated function system, the attractor is the limiting set produced by repeated application of the maps. *(Week 2; wider dynamical-systems vocabulary)*
 
-**Avalanche.** The complete cascade of topplings triggered by adding a grain to a stable sandpile. Its size, area and duration describe different aspects of the event. *(Week 8)*
+**Avalanche.** The complete cascade of topplings triggered by one addition to a stable sandpile. *(Week 8)*
 
 ## B
 
@@ -30,11 +32,16 @@ The definitions below are deliberately course-sized. They identify how a word is
 
 **Boundary condition.** A rule specifying what happens at the edge of a domain, such as periodic wrapping, fixed values, reflection or loss from the system. *(Weeks 3, 4, 7 and 8)*
 
-**Burn-in.** An initial part of a simulation discarded before measurements are collected, allowing the influence of the starting state to diminish. The chosen length is part of the simulation protocol and should be checked rather than assumed sufficient. *(Weeks 6 and 8)*
+(burn-in)=
+**Burn-in.** An initial simulated period excluded from late-time measurements to reduce the influence of the starting state. Its length should be checked using later windows and different starts. Modelling practice in [Week 6](notebooks/week06/L_Synchronisation.ipynb), applied in Week 8.
 
 **Box-counting dimension.** An estimate of how the number of occupied boxes changes as the box size changes. It is one way to quantify multiscale spatial structure. *(Weeks 2 and 8)*
 
 ## C
+
+**Confidence interval.** An interval describing uncertainty in an estimated quantity. Its confidence level describes how often the interval procedure covers the true value over repeated experiments. *(Week 8)*
+
+**Correlation time.** A time scale $\tau$ summarising how quickly temporal correlation fades. A longer correlation time means fluctuations remain related for longer. *(Week 8)*
 
 **Combinatorial optimisation problem.** A search for the best discrete arrangement, such as a route, ordering or assignment. *(Week 7)*
 
@@ -54,7 +61,7 @@ The definitions below are deliberately course-sized. They identify how a word is
 
 **Coarse-graining.** Replacing a fine description by variables that summarise behaviour over space, time or components. Coarse-graining loses detail in order to expose larger-scale structure. *(Weeks 3 and 8)*
 
-**Complementary cumulative distribution function (CCDF).** For a variable $X$, the function $P(X\geq x)$. An empirical CCDF shows the fraction of observations at least as large as $x$ and is useful for inspecting a tail without choosing histogram bins. *(Weeks 2 and 8)*
+**Complementary cumulative distribution function (CCDF).** The upper-tail probability $P(X\geq x)$. The ordinary CDF is $F(x)=P(X\leq x)$; the CCDF is $1-F(x)$ for continuous $X$, or $1-F(s-1)$ for integer sizes $S$. Its empirical estimate is the fraction of observations at least as large as the threshold. *(Weeks 2 and 8)*
 
 **Collective intelligence.** Useful problem-solving behaviour produced by a group through interaction, memory or information sharing. Whether a system counts as collectively intelligent depends on what task and evidence are being considered. *(Week 7)*
 
@@ -70,13 +77,13 @@ The definitions below are deliberately course-sized. They identify how a word is
 
 **Control parameter.** A parameter varied to move a system between macroscopic regimes, such as coupling strength, noise or occupation probability. Calling a parameter a control parameter does not imply that it is controlled by an agent within the model. *(Weeks 5, 6 and 8)*
 
-**Correlation.** A statistical dependence between quantities. Correlation describes association; it does not by itself identify the interaction or causal mechanism that produced it. *(Weeks 5, 6, 8 and 9)*
+**Correlation.** How much knowing one observation tells us about another. A correlation function shows how this relatedness changes with spatial or temporal separation. *(Weeks 5, 6, 8 and 9)*
 
-**Correlation length.** A characteristic distance over which fluctuations remain related. Its growth near a continuous critical point indicates that increasingly distant parts of a system behave collectively. *(Weeks 5 and 8)*
+**Correlation length.** A distance $\xi$ summarising how quickly spatial correlation fades, not a sharp limit on connection. Its definition depends on the correlation function and stated estimator. *(Weeks 5 and 8)*
 
-**Critical point.** A parameter value separating macroscopic regimes, often accompanied by long correlations, large fluctuations and scale-free behaviour. *(Week 8)*
+**Critical point.** The control-parameter value of a continuous phase transition. In the infinite-system limit, the correlation length can diverge and correlations decay as a power law. *(Week 8)*
 
-**Critical slowing down.** Increasingly slow recovery from perturbations near a critical point. *(Week 8)*
+**Critical slowing down.** Increasingly slow recovery from disturbances near a continuous critical point. Larger correlated structures can take longer to relax; the relationship depends on the dynamics. *(Week 8)*
 
 ## D
 
@@ -100,7 +107,7 @@ The definitions below are deliberately course-sized. They identify how a word is
 
 **Emergence.** The appearance of a useful system-level pattern or behaviour that is not evident from one component considered in isolation. An emergent description does not make the component-level account irrelevant. *(Weeks 1 and 5–8)*
 
-**Ensemble.** A collection of comparable runs, usually differing in random seed, initial condition or sampled population. Ensemble summaries show what is typical and how much outcomes vary. *(Weeks 1 and 5–10)*
+**Ensemble.** Comparable runs differing in random seed, initial condition or sampled population, used to summarise typical behaviour and variation. The number of independent runs needed depends on the quantity, confidence level, precision and domain size. *(Weeks 1 and 5–10)*
 
 **Evaluation budget.** A declared limit on how many times an objective function or other costly model output may be evaluated. Holding this budget fixed permits fairer comparisons between algorithms or population sizes. *(Weeks 4 and 7)*
 
@@ -144,7 +151,7 @@ The definitions below are deliberately course-sized. They identify how a word is
 
 **Hamming distance.** The number of sites at which two discrete configurations differ. *(Week 4)*
 
-**Heavy-tailed distribution.** A distribution that gives relatively substantial probability to unusually large observations. A heavy tail is not automatically a power law. *(Weeks 2 and 8)*
+**Heavy-tailed distribution.** A distribution whose upper tail falls more slowly than any exponential. Power-law and lognormal tails are examples, unlike light tails such as Gaussian and exponential distributions. *(Weeks 2 and 8)*
 
 **Heterogeneity.** Variation among components, for example in natural frequencies, preferences, thresholds or responsiveness. *(Weeks 1, 5–7)*
 
@@ -222,9 +229,9 @@ The definitions below are deliberately course-sized. They identify how a word is
 
 **Path dependence.** Dependence of an outcome on the sequence of earlier events, not only the present state or final inputs. *(Weeks 1, 7 and 10)*
 
-**Percolation threshold.** The occupation probability at which a spanning cluster first appears in the large-system limit. *(Week 8)*
+**Percolation threshold.** The open-site probability $p_c$ marking the onset of system-wide connectivity in the large-system limit. Open clusters are connected groups of passable sites; a spanning cluster joins opposite boundaries without needing to include every site. *(Week 8)*
 
-**Phase.** Position within a repeating cycle, usually represented modulo $2\pi$. *(Week 6)*
+**Phase.** In synchronisation, position within an oscillator’s repeating cycle, usually modulo $2\pi$. In phase transitions, a macroscopic state of organisation, such as ordered or disordered motion. *(Weeks 6 and 8)*
 
 **Phase locking.** A maintained phase relationship in which the phase difference between oscillators remains constant, not necessarily zero. *(Week 6)*
 
@@ -232,15 +239,17 @@ The definitions below are deliberately course-sized. They identify how a word is
 
 **Phase transition.** A qualitative change in macroscopic behaviour as a control parameter crosses a threshold. Finite systems may round or shift the apparent transition. *(Weeks 5, 6 and 8)*
 
-**Power law.** A relationship of the form $y=Cx^{-\alpha}$ (or another power of $x$). A straight-looking log–log plot is suggestive but is not sufficient evidence by itself. *(Weeks 2 and 8)*
+**Power law.** A relationship $y=A x^b$: multiplying $x$ by a factor $k$ multiplies $y$ by $k^b$ throughout the stated scaling range. See the [Week 8 refresher](notebooks/week08/L_Critical_phenomena.ipynb#week08-power-laws-refresher). *(Weeks 2 and 8)*
 
-**Probability distribution.** A rule assigning probabilities to possible outcomes of a random variable. A distribution, rather than one observation, is the input to the information measures used in Week 9. *(Weeks 1, 2 and 5–9)*
+**Probability distribution.** A rule assigning probabilities to possible outcomes of a random variable. For discrete outcomes, its probability mass function (PMF) assigns a probability to each value. A distribution, rather than one observation, is the input to the information measures used in Week 9. *(Weeks 1, 2 and 5–9)*
 
 **Proof.** A deductive argument establishing a result from stated assumptions. Numerical examples can motivate or test a conjecture, but no finite collection of simulations is a proof of a general mathematical claim. *(Course-wide mathematical practice)*
 
 **Pseudocode.** A precise, language-independent description of an algorithm's logic, update order, stopping rule and returned output. *(All workshops)*
 
 ## R
+
+**Renormalisation.** Coarse-graining followed by rescaling to compare descriptions at different observation scales. Its iterations change scale rather than model time. *(Week 8)*
 
 **Route-use fraction.** The number of ants using a given route divided by the total number of ants in that generation. *(Week 7)*
 
@@ -286,7 +295,7 @@ The definitions below are deliberately course-sized. They identify how a word is
 
 **Self-organisation.** The formation or maintenance of macroscopic organisation through interactions among components, without a controller specifying the resulting pattern in detail. *(Weeks 5–8)*
 
-**Self-organised criticality.** The proposal that slow driving and threshold dynamics can bring a system towards a critical-like state without externally tuning a control parameter to a special value. *(Week 8)*
+**Self-organised criticality.** Critical behaviour reached and maintained by the system’s dynamics without externally tuning a control parameter to its critical value. In our sandpile, slow additions raise load while boundary-reaching avalanches remove it: this drive–loss feedback maintains the operating regime. *(Week 8)*
 
 **Self-similarity.** Similar structure appearing under magnification. It may be exact, statistical or approximate over a finite range. *(Week 2)*
 
@@ -330,7 +339,7 @@ The definitions below are deliberately course-sized. They identify how a word is
 
 ## Canonical models and named constructions
 
-**Abelian sandpile model.** A driven lattice model in which unstable sites topple and redistribute grains; used here to study avalanches and self-organised criticality. *(Week 8)*
+**Abelian sandpile model.** A driven lattice model in which an unstable site topples by removing four grains and sending one to each neighbour. Grains sent beyond the boundary are lost; a new grain is added after relaxation. The final stable state and toppling counts are independent of legal toppling order. *(Week 8)*
 
 **Cantor set.** A fractal obtained by repeatedly removing the open middle third of each retained interval. *(Week 2)*
 

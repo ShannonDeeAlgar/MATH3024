@@ -31,6 +31,8 @@ Do not express destination rules with cell position or manual deletion. Tags are
 
 ## Reusable visual components
 
+In teaching prose, use bold for a selected glossary term at its first substantive definition in each topic (and separately in the slides). Keep bold structural labels such as figure numbers, named steps and “Notation”. Choose glossary entries for their conceptual importance and lookup value. Define notation, model-specific labels and procedural details beside the relevant model or calculation. Use plain text for repeated terms, example names and emphasis.
+
 The shared components live in `style.css` and are automatically copied into standalone slides:
 
 - `reader-route`: the conceptual route shown at the start of a week;
@@ -272,6 +274,86 @@ is the framework through which the representation problem is studied.
 Turing's wider life belongs in the Reader. Slides retain only enough historical
 context to motivate the assessable mechanism. The workshop supplies correct
 baseline code and asks students to test, refine, measure, and interrogate it.
+
+## Week 8 — Critical behaviour
+
+**Canonical models:** site percolation and the Abelian sandpile. Percolation
+provides the tuned comparison; the sandpile supplies the workshop model.
+
+**Modelling practice:** check supplied code and decide how many independent
+runs are enough. The workshop compares avalanche sizes across finite lattices.
+
+Students return to the ladder of abstraction: visualise the pile and pause
+to inspect one complete toppling,
+then build back up to avalanche measurements and ensemble summaries. Several
+sites can topple in one parallel step; duration counts parallel steps.
+
+Students first identify the starting-pile options, addition-site selection
+and boundary loss in the functions. Instructor checks cover empty and supplied
+starts and the seeded overfull preparation followed by relaxation.
+
+The first check shows before-and-after lattice views with a fixed colour scale
+and a colourbar. Students use `plt.imshow`; no plotting function is supplied.
+They also show a small avalanche one parallel step at a time. Instructor
+traces observe the supplied function and check that logging changes no results.
+
+The specification gives the threshold, four-grain transfer, uniform random
+additions, parallel updates and open boundaries. Students inspect individual
+topplings and reproduce five supplied small cases with known final piles,
+measurements and boundary losses. They reconstruct event measurements from
+an observed trace, compare a short run with individual trials, and check a
+small ensemble against individually seeded runs. They choose further cases
+where needed. The instructor checks cover the supplied cases and these same
+joins between functions.
+
+Use $L=16,24,32$, an empty start, $8L^2$ burn-in additions and 1,500 recorded
+trials per run. Start with 20 independent runs at each width. Students apply
+the Week 6 burn-in checks and make three plots: aligned time series, run-level
+95th percentiles with their ensemble mean and interval, and pooled CCDFs of
+non-zero avalanches. Zeros stay in the records and time series.
+
+Choose confidence and useful precision before running ensembles. Plot the
+full interval width as a percentage of the ensemble mean, with a target line.
+The instructor example uses 90% confidence and a 5% full-width target. Add 10
+fresh runs while the interval is too wide, then another 10 to check that a
+result meeting the target still does. Stop at 60 per $L$; an unmet or
+unconfirmed target is a valid outcome. Report the first count meeting the
+target and the total after checking it. Compare counts across $L$ with
+confidence, relative target and record length fixed. Relate the differences
+to spread between runs relative to their mean; larger $L$ need not require
+more runs. These counts apply to this quantity and protocol.
+
+[Law (2015)](https://informs-sim.org/wsc15papers/188.pdf) supports the independent
+replication approach and the cost of precision: halving an interval width
+typically takes four times as many runs. Law uses Student-t intervals; the
+instructor example resamples run-level percentiles (bootstrap) using the same
+supplied `mean_interval` helper as students. Its purpose is explained briefly;
+the statistical method is outside the investigation. The 20-run start, 5%
+full-width target, batch confirmation and 60-run limit are teaching choices.
+
+Students also choose a far-tail size from the initial ensemble and keep it
+fixed as runs are added. Count both avalanches reaching it and independent
+runs contributing them. These counts show how much data supports the tail;
+the interval target checks the mean run-level percentile, not tail accuracy.
+Check record length separately: compare 1,500 and 3,000 trials for a few
+identical seeds at one $L$, with burn-in unchanged. More runs can narrow the
+interval while loading drift or short records still affect the summaries.
+
+The default instructor run completes the batches, confirmation, actual
+ensemble tail counts and four-seed record-length check at the largest $L$.
+Use `--checks-only` for code checks or `--initial-only` for the 20-run example.
+Its named sections follow Code checks 1–5 and How many runs? Questions 1–7.
+The three investigation plots and the extra precision plot are labelled by
+student task; progress messages are separate from the ordered results.
+Add `--100-runs` for an optional precision plot through 100 independent runs
+at every $L$. It extends the same ensembles with fresh seeds; the student
+stopping counts and 60-run budget are unchanged.
+
+Tracing an avalanche to reconstruct its measurements is a core check.
+Optional further moves down the ladder count boundary loss or rebuild a CCDF
+point from recorded events. Students add logging where needed and check that
+results are unchanged. The workshop is an independent investigation with no
+submission.
 
 ## Before teaching or publishing
 

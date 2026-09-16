@@ -36,6 +36,17 @@ for SOURCE_ROOT in notebooks/week*; do
         done
     fi
 
+    # Week 8 embeds figures, an animation and audio using raw HTML. MyST
+    # leaves these image-directory URLs unchanged, so stage every local asset.
+    if [[ "$WEEK" == "week08" ]]; then
+        for READER_IMAGE_ROOT in \
+            "$SITE_ROOT/notebooks/$WEEK/images" \
+            "$SITE_ROOT/notebooks/$WEEK/l-critical-phenomena/images"; do
+            mkdir -p "$READER_IMAGE_ROOT"
+            cp -R "$SOURCE_ROOT/images/." "$READER_IMAGE_ROOT/"
+        done
+    fi
+
     # Keep locally embedded lecture media with the deployed deck. Previously
     # only images were staged, so Week 6's Kuramoto animation worked in the
     # notebook directory but disappeared from the Reader and GitHub Pages.
