@@ -5,7 +5,7 @@
 <meta content="chrome=1" http-equiv="X-UA-Compatible"/>
 <meta content="yes" name="apple-mobile-web-app-capable"/>
 <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
-<title>.L_Critical_phenomena.resolved.64495 slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
+<title>.L_Critical_phenomena.resolved.39998 slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
   import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script>
@@ -8921,8 +8921,8 @@ details.discussion-reveal .discussion-answer > :last-child {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
 <h1 id="Critical-behaviour">Critical behaviour<a class="anchor-link" href="#Critical-behaviour">¶</a></h1><div class="canonical-model-marker"><span>Canonical models</span><strong>Site percolation and the Abelian sandpile</strong></div>
-<div class="modelling-practice-marker"><span>Modelling practice</span><strong>Check an implementation against its specification</strong></div>
-<div class="toolkit-addition-marker"><span>Toolkit additions</span><strong>Ensembles, finite-size comparisons and multiple time scales</strong></div>
+<div class="modelling-practice-marker"><span>Modelling practice</span><strong>Verify reused implementations and develop adequate ensemble evidence</strong></div>
+<div class="toolkit-addition-marker"><span>Toolkit additions</span><strong>Slow drive and dissipation, multiple time scales, finite-size comparisons and correlation scales</strong></div>
 </div>
 </div>
 </div>
@@ -8933,7 +8933,7 @@ details.discussion-reveal .discussion-answer > :last-child {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Phase-transitions">Phase transitions<a class="anchor-link" href="#Phase-transitions">¶</a></h1><p>A <strong>phase</strong> is a macroscopic state of organisation. A <strong>phase transition</strong> is a qualitative change between such states as a control parameter varies. Water changing between solid, liquid and gas is the familiar physical example. Complex systems may instead change between disordered and ordered motion, incoherence and synchrony, or local and system-wide connectivity.</p>
+<h1 id="Phase-transitions">Phase transitions<a class="anchor-link" href="#Phase-transitions">¶</a></h1><p>A <strong>phase</strong> is a macroscopic state of organisation. A <strong>phase transition</strong> is a qualitative change between such states as a control parameter varies. An <strong>order parameter</strong> is a measured summary that distinguishes the phases, such as magnetisation, density or polarisation. Water changing between solid, liquid and gas is the familiar physical example. Complex systems may instead change between disordered and ordered motion, incoherence and synchrony, or local and system-wide connectivity.</p>
 <table>
 <thead>
 <tr>
@@ -8951,6 +8951,22 @@ details.discussion-reveal .discussion-answer > :last-child {
 </div>
 </div>
 </div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w8-classic-transition-examples">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
+<h2 id="Two-classic-transitions">Two classic transitions<a class="anchor-link" href="#Two-classic-transitions">¶</a></h2><img alt="Schematic comparison of magnetisation vanishing continuously at the Curie temperature and density jumping at the boiling temperature" src="images/phase_transition_examples.svg" style="display:block;width:94%;max-height:390px;object-fit:contain;margin:0 auto"/>
+<p style="font-size:0.64em;color:#5B6780">Continuous transitions show scaling and growing correlations. Discontinuous transitions show a jump, coexistence or hysteresis.</p>
+<div class="two-panel equal-panels compact-panels">
+<div class="text-panel"><p><strong>Continuous transition</strong></p><p>At zero applied field, a ferromagnet loses its magnetisation continuously at <i>T</i><sub>c</sub>. Fluctuations become correlated over longer distances.</p></div>
+<div class="text-panel"><p><strong>Discontinuous transition</strong></p><p>At fixed pressure, boiling produces an abrupt density change at <i>T</i><sub>b</sub>. Liquid and vapour coexist while latent heat is absorbed.</p></div>
+</div>
+</div>
+</div>
+</div>
 </div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w8-criticality">
 <div class="jp-Cell-inputWrapper" tabindex="0">
@@ -8961,18 +8977,18 @@ details.discussion-reveal .discussion-answer > :last-child {
 <h1 id="Criticality">Criticality<a class="anchor-link" href="#Criticality">¶</a></h1><table>
 <thead>
 <tr>
-<th>Abrupt critical transition or tipping</th>
 <th>Continuous critical point</th>
+<th>Tipping point</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>A small change can trigger a large shift between regimes.</td>
-<td>The order parameter remains continuous, while correlations, fluctuations and response ranges grow at the threshold.</td>
+<td>A continuous phase transition occurs at a precise threshold. The order parameter remains continuous while the correlation length and susceptibility—the response to a small change—can diverge.</td>
+<td>Crossing a threshold allows feedback to carry the system rapidly into another regime. This need not be a phase transition.</td>
 </tr>
 </tbody>
 </table>
-<p>Tipping describes a regime shift and can arise through several mechanisms. A discontinuous transition is one possible mechanism.</p>
+<p>Every phase transition has a transition value or boundary. A continuous transition has a critical point in the strict sense. A discontinuous transition instead has a jump and often phase coexistence. A first-order line can end at a continuous critical endpoint.</p>
 </div>
 </div>
 </div>
@@ -8983,11 +8999,11 @@ details.discussion-reveal .discussion-answer > :last-child {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Real-world-motivation">Real-world motivation<a class="anchor-link" href="#Real-world-motivation">¶</a></h1><p>A transition may separate a disturbance that stops locally from one that spreads through much of the system.</p>
+<h1 id="Real-world-motivation">Real-world motivation<a class="anchor-link" href="#Real-world-motivation">¶</a></h1><p>A transition may separate a disturbance that stops locally from one that spreads through much of the system. Here <strong>tuned</strong> means that an external parameter is varied; <strong>self-organised</strong> means that drive and loss maintain the operating regime.</p>
 <div class="figure-panel-grid">
-<div class="figure-panel"><div class="figure-panel-frame"><img alt="Sketch comparing the physical sizes of systems with slip avalanches, from nanocrystals to earthquakes" src="images/published_slip_scales.jpg"/></div><div class="figure-caption"><strong>Tuned · Slip across scales.</strong> Controlled experiments vary loading; the sketch compares sample sizes. <a href="https://doi.org/10.1038/srep16493">Uhl <em>et al.</em> (2015), Fig. 1</a>.</div></div>
-<div class="figure-panel"><div class="figure-panel-frame"><img alt="Forty-four neural activity traces with thresholded events grouped into three example avalanches" src="images/published_neuronal_avalanches.png"/></div><div class="figure-caption"><strong>Self-organised · Neural avalanches.</strong> Red dots are events; yellow bands group them into avalanches. <a href="https://doi.org/10.1371/journal.pcbi.1002985">Priesemann <em>et al.</em> (2013), Fig. 2</a>.</div></div>
-<div class="figure-panel"><div class="figure-panel-frame"><img alt="Spanish power-grid network with two possible trigger lines and their cumulative failure counts" src="images/published_power_grid_cascades.jpg"/></div><div class="figure-caption"><strong>Self-organised · Power-grid cascades.</strong> Panel a marks two trigger lines; panel b shows the resulting failures. <a href="https://doi.org/10.1038/s41467-018-04287-5">Schäfer <em>et al.</em> (2018), Fig. 2</a>.</div></div>
+<div class="figure-panel"><div class="figure-panel-frame"><img alt="Sketch comparing the physical sizes of systems with slip avalanches, from nanocrystals to earthquakes" src="images/published_slip_scales.jpg"/></div><div class="figure-caption"><strong>Tuned · Slip across scales.</strong> Controlled experiments vary loading; the sketch compares sample sizes.</div><div class="figure-reference">Source: <a href="https://doi.org/10.1038/srep16493">Uhl <em>et al.</em> (2015), Fig. 1</a>.</div></div>
+<div class="figure-panel"><div class="figure-panel-frame"><img alt="Forty-four neural activity traces with thresholded events grouped into three example avalanches" src="images/published_neuronal_avalanches.png"/></div><div class="figure-caption"><strong>Self-organised · Neural avalanches.</strong> Red dots are events; yellow bands group them into avalanches.</div><div class="figure-reference">Source: <a href="https://doi.org/10.1371/journal.pcbi.1002985">Priesemann <em>et al.</em> (2013), Fig. 2</a>.</div></div>
+<div class="figure-panel"><div class="figure-panel-frame"><img alt="Spanish power-grid network with two possible trigger lines and their cumulative failure counts" src="images/published_power_grid_cascades.jpg"/></div><div class="figure-caption"><strong>Self-organised · Power-grid cascades.</strong> Panel a marks two trigger lines; panel b shows the resulting failures.</div><div class="figure-reference">Source: <a href="https://doi.org/10.1038/s41467-018-04287-5">Schäfer <em>et al.</em> (2018), Fig. 2</a>.</div></div>
 </div>
 </div>
 </div>
@@ -9017,7 +9033,7 @@ details.discussion-reveal .discussion-answer > :last-child {
 <tr>
 <td>Different input strengths remain distinguishable before saturation</td>
 <td>Wide dynamic range</td>
-<td>—</td>
+<td>Greater response variability</td>
 </tr>
 <tr>
 <td>Influence can spread over long distances</td>
@@ -9031,6 +9047,7 @@ details.discussion-reveal .discussion-answer > :last-child {
 </tr>
 </tbody>
 </table>
+<p style="font-size:0.56em;color:#5B6780">Critical slowing down and dynamic scaling: <a href="https://doi.org/10.1103/RevModPhys.49.435">Hohenberg and Halperin (1977)</a>.</p>
 </div>
 </div>
 </div>
@@ -9041,34 +9058,33 @@ details.discussion-reveal .discussion-answer > :last-child {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
-<h2 id="What-keeps-a-system-near-the-transition?">What keeps a system near the transition?<a class="anchor-link" href="#What-keeps-a-system-near-the-transition?">¶</a></h2><p>Movement towards or away from a critical point depends on how the control parameter changes.</p>
+<h2 id="What-keeps-a-system-near-the-transition?">What keeps a system near the transition?<a class="anchor-link" href="#What-keeps-a-system-near-the-transition?">¶</a></h2><p>A critical regime persists only if some process maintains the relevant operating condition.</p>
 <table>
 <thead>
 <tr>
-<th>What changes the control parameter?</th>
+<th>How is the operating regime maintained?</th>
 <th>What happens?</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>It is held near the threshold</td>
+<td>An external parameter is held near the threshold</td>
 <td>Tuned criticality</td>
 </tr>
 <tr>
-<td>Restoring feedback acts around the threshold</td>
-<td>The system hovers statistically nearby</td>
+<td>Slow driving and dissipation adjust the system load</td>
+<td>Self-organised criticality</td>
 </tr>
 <tr>
-<td>It drifts without restoring feedback</td>
+<td>No restoring process acts</td>
 <td>The system passes through or leaves the critical region</td>
 </tr>
 <tr>
-<td>Change is reinforced after the threshold is crossed</td>
+<td>Positive feedback acts after a threshold is crossed</td>
 <td>The system tips into another regime</td>
 </tr>
 </tbody>
 </table>
-<p style="font-size:0.66em;color:#5B6780">Large fluctuations and slow recovery describe the system state. Driving or feedback moves the control parameter.</p>
 </div>
 </div>
 </div>
@@ -9092,7 +9108,7 @@ details.discussion-reveal .discussion-answer > :last-child {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
 <h2 id="Qualitative-analysis">Qualitative analysis<a class="anchor-link" href="#Qualitative-analysis">¶</a></h2><img alt="Three porous media in which liquid released at the centre travels different distances" src="images/Baristas_secret_screenshots.png" style="display:block;width:auto;max-width:100%;height:auto;max-height:330px;object-fit:contain;margin:0 auto"/>
-<p style="font-size:0.68em;color:#5B6780">Same porosity, different random initialisations. Compare an ensemble at each parameter value.</p>
+<p style="font-size:0.68em;color:#5B6780">White sites already form open clusters. Releasing liquid at the centre selects one cluster and colours it red. Our later cluster analysis measures all open clusters, not only the centrally reached cluster.</p>
 </div>
 </div>
 </div>
@@ -9103,13 +9119,60 @@ details.discussion-reveal .discussion-answer > :last-child {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="Evidence-for-critical-behaviour">Evidence for critical behaviour<a class="anchor-link" href="#Evidence-for-critical-behaviour">¶</a></h2><p>We will test three kinds of evidence:</p>
-<ol>
-<li>spatial: a growing correlation length;</li>
-<li>temporal: a growing correlation time;</li>
-<li>event: sizes extending across many scales.</li>
-</ol>
-<p>With percolation we can look at spatial and event measurements. The sandpile model lets us also look at time and avalanches.</p>
+<h2 id="Analysis-roadmap:-evidence-for-critical-behaviour">Analysis roadmap: evidence for critical behaviour<a class="anchor-link" href="#Analysis-roadmap:-evidence-for-critical-behaviour">¶</a></h2><p>We ask the same question in three domains: does the measured range remain limited, or grow as the transition is approached and the system is enlarged?</p>
+<p>For a tuned transition, the route is: control-parameter sweep → correlation function → correlation scale → finite-size comparison → critical-point estimate. The detailed percolation analysis below develops each link.</p>
+<table style="font-size:0.68em;table-layout:fixed;width:100%;margin-top:0.30rem">
+<colgroup><col style="width:12%"/><col style="width:37%"/><col style="width:51%"/></colgroup>
+<thead><tr><th>Domain</th><th>Quantities used this week</th><th>Evidence across scales</th></tr></thead>
+<tbody>
+<tr><td>Spatial</td><td>Spanning, cluster sizes, pair-connectedness and fractal dimension</td><td>A growing correlation range, power-law spatial decay, or consistent fractal geometry across a stated scale range</td></tr>
+<tr><td>Temporal</td><td>Activity autocorrelation and correlation time</td><td>Activity remains related across more lags and the persistence time grows</td></tr>
+<tr><td>Event</td><td>Avalanche size, area and duration distributions</td><td>A power-law range can end at a cutoff that moves outward with system size</td></tr>
+</tbody>
+</table>
+<p>These are linked. A power law describes the form within a scaling range; a correlation range, persistence time or event cutoff marks where that range ends. A finite system always imposes an endpoint. If it moves outward towards the transition or as the system grows, the available range is increasing rather than revealing one fixed characteristic scale.</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w8-power-laws-rescaling-slide">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Power-laws-are-rescaling-laws">Power laws are rescaling laws<a class="anchor-link" href="#Power-laws-are-rescaling-laws">¶</a></h2><p>For a power law $y=A x^b$, multiplying $x$ by $k$ multiplies $y$ by $k^b$, wherever we start within the measured range.</p>
+<table style="font-size:0.70em;margin-top:0.35rem">
+<thead><tr><th>Law</th><th>Change in $x$</th><th>Response in $y$</th><th>Interpretation</th></tr></thead>
+<tbody>
+<tr><td>Linear</td><td>add the same amount</td><td>add the same amount</td><td>fixed absolute response</td></tr>
+<tr><td>Exponential</td><td>add the same amount</td><td>multiply by the same factor</td><td>fixed growth or decay scale</td></tr>
+<tr><td>Power law</td><td>multiply by the same factor</td><td>multiply by the same factor</td><td>same form under rescaling</td></tr>
+<tr><td>Logarithmic</td><td>multiply by the same factor</td><td>add the same amount</td><td>progressively slower change</td></tr>
+</tbody>
+</table>
+<p style="font-size:0.69em;color:#5B6780">A power law may grow or decay. Circle area $A\propto r^2$ is a power law. For $y\propto x^{-2}$, each doubling of $x$ divides $y$ by four.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w8-power-law-tails-slide">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Why-distribution-tails-matter">Why distribution tails matter<a class="anchor-link" href="#Why-distribution-tails-matter">¶</a></h2><table style="font-size:0.70em;margin-top:0.25rem">
+<colgroup><col style="width:27%"/><col style="width:73%"/></colgroup>
+<thead><tr><th>Distribution</th><th>Interpretation of large observations</th></tr></thead>
+<tbody>
+<tr><td>Normal</td><td>values cluster around a typical scale; extremes become rapidly unlikely</td></tr>
+<tr><td>Exponential</td><td>a fixed increase in size reduces the tail by the same factor</td></tr>
+<tr><td>Power-law tail</td><td>large events remain comparatively likely; the ideal tail has no fixed event scale</td></tr>
+<tr><td>Lognormal</td><td>multiplicative variation can also produce a broad, strongly skewed tail</td></tr>
+</tbody>
+</table>
+<p style="font-size:0.61em;color:#5B6780"><strong>Terminology:</strong> heavy-tailed is broad; power-law is a specific form; a lognormal can be heavy-tailed without being a power law. “Fat-tailed” is ambiguous, so we avoid it unless defined. Tail form controls extremes, moments and the influence of the largest observations. A heavy tail alone does not establish criticality.</p>
 </div>
 </div>
 </div>
@@ -9120,13 +9183,14 @@ details.discussion-reveal .discussion-answer > :last-child {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
-<h2 id="Quantitative-analysis">Quantitative analysis<a class="anchor-link" href="#Quantitative-analysis">¶</a></h2><p>We now implement site percolation on an $L\times L$ lattice so the sampling and measurements are explicit. For each lattice, record:</p>
+<h2 id="Spatial-analysis:-percolation">Spatial analysis: percolation<a class="anchor-link" href="#Spatial-analysis:-percolation">¶</a></h2><p>We implement site percolation on an $L\times L$ lattice. For each lattice, record:</p>
 <ul>
 <li>whether any open cluster spans opposite boundaries;</li>
 <li>the largest-cluster fraction $f_{\max}=s_{\max}/L^2$;</li>
-<li>pair-connectedness $C(r)$ at separation $r$.</li>
+<li>the sizes of all clusters.</li>
 </ul>
-<p style="font-size:0.64em;color:#5B6780">$s$ denotes any cluster size; $s_{\max}$ is the largest in that realisation. These are sensible measures for this transition, not the only possible choices.</p>
+<p>We first study their distributions across independent lattices. We then ask how the probability of shared cluster membership changes with distance and summarise that decay with a correlation length.</p>
+<p style="font-size:0.64em;color:#5B6780">$s$ denotes any cluster size; $s_{\max}$ is the largest in that realisation.</p>
 </div>
 </div>
 </div>
@@ -9137,8 +9201,9 @@ details.discussion-reveal .discussion-answer > :last-child {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
-<h2 id="Parameter-sweep">Parameter sweep<a class="anchor-link" href="#Parameter-sweep">¶</a></h2><img alt="Spanning probability and mean largest-cluster fraction across porosity and lattice size" src="images/percolation_finite_size.svg" style="display:block;width:auto;max-width:100%;height:auto;max-height:355px;object-fit:contain;margin:0 auto"/>
-<p style="font-size:0.64em;color:#5B6780">Sweep porosity $p$; use 450 independent lattices per point; repeat for several lattice widths $L$.</p>
+<h2 id="Parameter-sweep-and-ensembles">Parameter sweep and ensembles<a class="anchor-link" href="#Parameter-sweep-and-ensembles">¶</a></h2><img alt="Spanning probability and mean largest-cluster fraction across porosity and lattice size" src="images/percolation_finite_size.svg" style="display:block;width:auto;max-width:100%;height:auto;max-height:355px;object-fit:contain;margin:0 auto"/>
+<p style="font-size:0.64em;color:#5B6780">Sweep porosity $p$; use 450 independent lattices per point; repeat for several lattice widths $L$. Bars show 95% confidence intervals.</p>
+<div class="ladder-marker"><img alt="Ladder of abstraction" src="images/ladder_marker.svg"/><span><strong>Up the ladder:</strong> individual lattices become ensemble summaries at each <i>p</i>, then response curves across <i>p</i> and <i>L</i>.</span></div>
 </div>
 </div>
 </div>
@@ -9151,8 +9216,45 @@ details.discussion-reveal .discussion-answer > :last-child {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
 <h2 id="Ensemble-summaries">Ensemble summaries<a class="anchor-link" href="#Ensemble-summaries">¶</a></h2><img alt="Largest-cluster fractions shown with several centres and intervals" src="images/ensemble_summary_comparison.svg" style="display:block;width:auto;max-width:100%;height:auto;max-height:315px;object-fit:contain;margin:0 auto"/>
 <p>Run-to-run variation is greatest near the transition, where different initialisations can produce very different connectivity.</p>
-<p>Error bars suit this discrete parameter sweep. A band is useful for dense samples read as a curve, but connecting points does not show continuous evolution.</p>
-<p style="font-size:0.60em;color:#5B6780">160 independent $64\times64$ lattices per $p$. The known $p_c$ benchmarks the model. This $L$ supports comparison of summaries, not asymptotic scaling.</p>
+<p>Error bars show each tested porosity. A band suits dense samples read as a curve. The connecting lines only guide the eye.</p>
+<p style="font-size:0.60em;color:#5B6780">160 independent $64\times64$ lattices per $p$.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w8-percolation-cluster-tails-slide">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Cluster-size-tails">Cluster-size tails<a class="anchor-link" href="#Cluster-size-tails">¶</a></h2><div class="two-panel wide-left compact-panels">
+<div class="image-panel"><img alt="Cluster-size tails below, near and above the percolation threshold" src="images/Tails_comparison.png" style="display:block;width:100%;height:auto;max-height:410px;object-fit:contain;margin:0 auto"/></div>
+<div class="text-panel" style="font-size:0.68em;line-height:1.18"><p>For all measured cluster sizes $s_1,\ldots,s_N$:</p>$$\widehat{P}(S_{\mathrm{cl}}\geq s)=\frac{1}{N}\sum_{i=1}^{N}\mathbf 1(s_i\geq s).$$<p>The CCDF is the fraction of clusters reaching or exceeding $s$. For integer sizes it is $1-\widehat F_{\mathrm{cl}}(s-1)$.</p><p>Below $p_c$, the tail ends sooner. Near $p_c$, cluster sizes cover a wider range.</p><p>Above $p_c$, small finite clusters coexist with one spanning cluster. The gap between them produces the green plateau.</p></div>
+</div>
+<p style="font-size:0.60em;color:#5B6780">Every cluster has equal weight; this is not a distribution over sites. The final green drop passes through similarly sized spanning clusters. $128\times128$ lattices; 600 independent realisations per curve.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w8-correlation-scale-intuition">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
+<h2 id="From-distributions-to-correlations">From distributions to correlations<a class="anchor-link" href="#From-distributions-to-correlations">¶</a></h2><p>A cluster-size distribution tells us how often different cluster sizes occur. Correlation asks how strongly two observations remain related as their separation changes.</p>
+<p>$$
+\begin{aligned}
+\text{spatial separation }r &amp;\longrightarrow C(r)\longrightarrow\xi,\\
+\text{temporal separation }\ell &amp;\longrightarrow C_A(\ell)\longrightarrow\tau.
+\end{aligned}
+$$</p>
+<p>$$C(r)=\Pr(\text{two sites separated by }r\text{ belong to the same open cluster}).$$</p>
+<p>$C_A(\ell)$ measures the similarity of activity fluctuations separated by lag $\ell$. The two functions serve the same structural purpose—measuring relatedness against separation—but use different definitions and are not numerically interchangeable.</p>
+<p>For approximately exponential decay,</p>
+<p>$$C(r+\xi)\approx\frac{C(r)}{e},\qquad C_A(\ell+\tau)\approx\frac{C_A(\ell)}{e}.$$</p>
+<p>The correlation function is the whole curve against separation. The correlation length $\xi$ or correlation time $\tau$ gives a characteristic decay scale: after one such scale, an exponential correlation has fallen to $1/e\approx0.37$ of its earlier value. It marks a substantial weakening, not a point where the answer suddenly becomes ‘no’.</p>
 </div>
 </div>
 </div>
@@ -9163,9 +9265,8 @@ details.discussion-reveal .discussion-answer > :last-child {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="Spatial-correlations">Spatial correlations<a class="anchor-link" href="#Spatial-correlations">¶</a></h2><p>How far does membership of the same open cluster persist?</p>
+<h2 id="Spatial-correlations">Spatial correlations<a class="anchor-link" href="#Spatial-correlations">¶</a></h2><p>How does shared-cluster probability change with separation?</p>
 <p>For sites separated by distance $r$, pair-connectedness $C(r)$ is the probability that both belong to the same open cluster. Work through one separation explicitly to define the calculation, then evaluate it across distances and independent lattices.</p>
-<p>The temporal analogue replaces distance with lag and cluster membership with fluctuations in activity.</p>
 </div>
 </div>
 </div>
@@ -9189,9 +9290,9 @@ details.discussion-reveal .discussion-answer > :last-child {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
 <h2 id="Pair-connectedness">Pair-connectedness<a class="anchor-link" href="#Pair-connectedness">¶</a></h2><p>Label each open cluster. For pairs separated by $r$, count the fraction sharing a positive label, then average across lattices.</p>
-<p>$$C(r)=\frac{1}{N_r}\sum_{(i,j):d(i,j)=r}\mathbf{1}(\ell_i=\ell_j&gt;0).$$</p>
+<p>$$C(r)=\frac{1}{N_r}\sum_{(i,j)\in\mathcal P_r}\mathbf{1}(\ell_i=\ell_j&gt;0).$$</p>
 <p>Distinct pairs begin at $r=1$. Here $C(0)=p$ would measure occupancy through self-pairs, so we normalise by $C(1)$ to compare decay shapes.</p>
-<p style="font-size:0.64em;color:#5B6780">$\ell_i$ is the cluster label; $N_r$ counts pairs; $d(i,j)$ is separation. Equal positive labels mean the same open cluster.</p>
+<p style="font-size:0.64em;color:#5B6780">$\ell_i$ is the cluster label. $N_r$ counts horizontal and vertical pairs $r$ sites apart. Equal positive labels mean the same open cluster.</p>
 </div>
 </div>
 </div>
@@ -9202,99 +9303,12 @@ details.discussion-reveal .discussion-answer > :last-child {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="Correlation-length-and-time">Correlation length and time<a class="anchor-link" href="#Correlation-length-and-time">¶</a></h2><p>For pure exponential decay,</p>
-<table style="font-size:0.82em">
-<thead><tr><th>Decay</th><th>After one scale</th></tr></thead>
-<tbody>
-<tr><td><strong>Spatial</strong><br/><i>C</i>(<i>r</i>) ∝ e<sup>−<i>r</i>/<i>ξ</i></sup></td><td><i>C</i>(<i>r</i> + <i>ξ</i>) = <i>C</i>(<i>r</i>)/e</td></tr>
-<tr><td><strong>Temporal</strong><br/><i>C</i><sub>A</sub>(<i>s</i>) ∝ e<sup>−<i>s</i>/<i>τ</i></sup></td><td><i>C</i><sub>A</sub>(<i>s</i> + <i>τ</i>) = <i>C</i><sub>A</sub>(<i>s</i>)/e</td></tr>
-</tbody>
-</table>
-<p>After one correlation length <i>ξ</i>, or one correlation time <i>τ</i>, about 37% of the previous correlation remains. These scales summarise decay. Correlation does not suddenly vanish there.</p>
-<p style="font-size:0.68em;color:#5B6780"><i>r</i> is distance; <i>s</i> is lag; <i>ξ</i> is correlation length; <i>τ</i> is correlation time. The subscript <i>A</i> identifies the chosen activity signal <i>A</i>(<i>t</i>), e.g. topplings or active sites per step.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w8-pair-connectedness-figure-notation-slide">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
-<h2 id="Measuring-correlation-length">Measuring correlation length<a class="anchor-link" href="#Measuring-correlation-length">¶</a></h2><img alt="Pair-connectedness decays more slowly as porosity approaches the threshold, while the fitted length grows and becomes limited by lattice size" src="images/critical_correlations.svg" style="display:block;width:94%;max-height:305px;margin:0 auto"/>
-<p>$$\frac{C(r)}{C(1)}\approx B e^{-(r-1)/\xi_{\mathrm{eff}}}.$$</p>
-<p>As $p$ approaches $p_c$ from below, pair-connectedness decays more slowly. Distant sites are more likely to belong to the same finite cluster, so the fitted correlation length increases. Larger $L$ permits larger estimates before finite size limits them.</p>
-<p style="font-size:0.64em;color:#5B6780"><strong>Why fit below $p_c$?</strong> Below the threshold, all clusters are finite and $C(r)$ decays towards zero. Above $p_c$, distant sites can share the spanning cluster, so $C(r)$ approaches a non-zero baseline. Measuring the remaining decay requires subtracting that baseline or analysing finite clusters separately.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w8-spatial-scaling-notation-slide">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
-<h2 id="Finite-size-test">Finite-size test<a class="anchor-link" href="#Finite-size-test">¶</a></h2><p>$$\xi\sim |p-p_c|^{-\nu}.$$</p>
-<ul>
-<li>In an infinite system, the correlation length grows as $p$ approaches $p_c$ and diverges at an ideal continuous transition.</li>
-<li>On a finite lattice, growth is cut off when $\xi$ becomes comparable with $L$.</li>
-<li>Repeat the measurement across $L$ to distinguish intrinsic decay from a system-size limit.</li>
-</ul>
-<p style="font-size:0.64em;color:#5B6780">$\nu$ is the correlation-length exponent. The equation states the infinite-system asymptotic expectation.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w8-percolation-cluster-tails-slide">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
-<h2 id="Cluster-size-tails">Cluster-size tails<a class="anchor-link" href="#Cluster-size-tails">¶</a></h2><div class="two-panel wide-left compact-panels">
-<div class="image-panel"><img alt="Cluster-size tails below and near the percolation threshold" src="images/Tails_comparison.png" style="display:block;width:100%;height:auto;max-height:410px;object-fit:contain;margin:0 auto"/></div>
-<div class="text-panel"><p>The CCDF shows the fraction of clusters with size at least $s$.</p><p>Near $p_c$, the tail extends much farther. Below it, the finite cutoff appears sooner.</p><p>A broad tail is consistent with critical behaviour. It does not establish a power law by itself.</p></div>
-</div>
-<p style="font-size:0.62em;color:#5B6780">$128\times128$ lattices; 600 independent realisations per curve.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w8-noise-colours-introduction">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
-<h2 id="Scale-free-behaviour">Scale-free behaviour<a class="anchor-link" href="#Scale-free-behaviour">¶</a></h2><table>
-<thead>
-<tr>
-<th>Context</th>
-<th>Quantity without a fixed characteristic scale</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>geometric</td>
-<td>detail across length scales</td>
-</tr>
-<tr>
-<td>spatial</td>
-<td>correlation across distance</td>
-</tr>
-<tr>
-<td>temporal</td>
-<td>dependence across lag</td>
-</tr>
-<tr>
-<td>event</td>
-<td>magnitude across a distribution tail</td>
-</tr>
-</tbody>
-</table>
-<p>Always state the quantity and supported range. Scale-free evidence does not identify its mechanism.</p>
+<h2 id="From-correlation-to-correlation-length">From correlation to correlation length<a class="anchor-link" href="#From-correlation-to-correlation-length">¶</a></h2><p>Below <i>p</i><sub>c</sub>, pair-connectedness has a finite exponential cutoff. We use a simple exponential approximation to define its e-folding length:</p>
+<p style="font-size:1.05em;text-align:center"><i>C</i>(<i>r</i>) ∝ e<sup>−<i>r</i>/<i>ξ</i></sup>   ⟹   <i>C</i>(<i>r</i> + <i>ξ</i>) = <i>C</i>(<i>r</i>)/e</p>
+<p>After one correlation length <i>ξ</i>, about 37% of the previous pair-connectedness remains. <i>ξ</i> measures how quickly shared-cluster probability falls with distance; it is not a distance beyond which sites cannot share a cluster. Exponential decay approaches zero gradually and has no sharp cutoff.</p>
+<p>As <i>p</i> approaches <i>p</i><sub>c</sub>, <i>ξ</i> grows. At the critical point, infinite-system pair-connectedness has power-law rather than exponential decay, so there is no finite correlation length. Our finite-lattice, finite-range fit estimates this quantity as the effective correlation length <i>ξ</i><sub>eff</sub>.</p>
+<p style="font-size:0.68em;color:#5B6780"><i>r</i> is separation. <i>ξ</i> denotes the underlying correlation length; <i>ξ</i><sub>eff</sub> is its estimate from the stated finite fit. The temporal counterpart is introduced later, after defining activity autocorrelation.</p>
+<div class="ladder-marker"><img alt="Ladder of abstraction" src="images/ladder_marker.svg"/><span><strong>Up the ladder over separations:</strong> replace the spatial correlation curve with one decay scale, <i>ξ</i>.</span></div>
 </div>
 </div>
 </div>
@@ -9305,11 +9319,65 @@ details.discussion-reveal .discussion-answer > :last-child {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
-<h3 id="Starling-flocks:-one-event,-then-24">Starling flocks: one event, then 24<a class="anchor-link" href="#Starling-flocks:-one-event,-then-24">¶</a></h3><div class="two-panel wide-left compact-panels">
+<h3 id="Starling-flocks">Starling flocks<a class="anchor-link" href="#Starling-flocks">¶</a></h3><div class="two-panel wide-left compact-panels">
 <div class="image-panel"><img alt="Cavagna et al. Figure 2 showing correlation curves for one flock and correlation lengths across 24 flocking events" src="images/cavagna_2010_fig2.png" style="max-height:375px"/></div>
-<div class="text-panel" style="font-size:0.70em;line-height:1.22"><p><strong>A–B: one event.</strong> Positive values mean similar fluctuations; negative values mean opposing fluctuations.</p><p>The first zero crossing defines $\xi$. The correlation changes sign, not the length. B’s later recrossing is not a second $\xi$.</p><p><strong>C–D: 24 events.</strong> Each point is one event; bars show variation across frames. Both correlation lengths grow with flock size.</p></div>
+<div class="text-panel" style="font-size:0.68em;line-height:1.20"><p><i>ξ</i> is defined as the first zero crossing. This is the approximate size of the positively correlated domain.</p><p>Panels A and B show one event. Subtract the instantaneous flock mean so the calculation describes fluctuations about the current flock state. Nearby birds tend to have similar deviations, so correlation begins positive; beyond <i>ξ</i>, it becomes negative.</p><p>This differs from the percolation e-folding length because one positive exponential does not describe the signed curve.</p><p>Panels C and D show 24 events. Each point is one event; bars show variation across frames. Both correlation lengths grow with flock size.</p></div>
 </div>
-<p style="font-size:0.58em;color:#5B6780">Source: Cavagna <em>et al.</em> (2010), <a href="https://doi.org/10.1073/pnas.1005766107"><em>PNAS</em>, Fig. 2</a>. Subtracting the flock mean forces positive and negative contributions to balance.</p>
+<p class="figure-reference">Source: Cavagna <em>et al.</em> (2010), <a href="https://doi.org/10.1073/pnas.1005766107"><em>PNAS</em>, Fig. 2</a>.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w8-pair-connectedness-figure-notation-slide">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Measuring-correlation-length">Measuring correlation length<a class="anchor-link" href="#Measuring-correlation-length">¶</a></h2><img alt="Pair-connectedness decays more slowly as porosity approaches the threshold, while the fitted length grows and becomes limited by lattice size" src="images/critical_correlations.svg" style="display:block;width:94%;max-height:280px;margin:0 auto"/>
+<p>$$\frac{C(r)}{C(1)}\approx B e^{-(r-1)/\xi_{\mathrm{eff}}}.$$</p>
+<p>$$p\uparrow \quad\Rightarrow\quad \xi_{\mathrm{eff}}\uparrow \quad\Rightarrow\quad C(r)\text{ decays more slowly with distance}.$$</p>
+<p>Distant sites are more likely to belong to the same finite cluster. Larger $L$ permits larger estimates before finite size limits them.</p>
+<p style="font-size:0.61em;color:#5B6780"><strong>Axes:</strong> exponential decay is straight on log-linear axes, with gradient $-1/\xi_{\mathrm{eff}}$. A power law is straight on log–log axes, with gradient $-a$. Here we estimate an exponential decay length below $p_c$.</p>
+<p style="font-size:0.61em;color:#5B6780">$\xi$ is the underlying correlation length; $\xi_{\mathrm{eff}}$ is its finite-range estimate. The spanning cluster adds a non-zero baseline above $p_c$.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w8-spatial-scaling-notation-slide">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Finite-size-test">Finite-size test<a class="anchor-link" href="#Finite-size-test">¶</a></h2><img alt="Scaling guide showing an infinite-system line with gradient minus nu and finite-size curves that level off near the threshold" src="images/percolation_correlation_scaling_guide.svg" style="display:block;width:auto;max-width:100%;height:auto;max-height:250px;object-fit:contain;margin:0 auto"/>
+<p>$$\varepsilon=|p-p_c|,\qquad \xi\sim\varepsilon^{-\nu}.$$</p>
+<p>“Growth” means change as $p$ approaches $p_c$, not change through time or with $L$. Halving $\varepsilon=|p-p_c|$ multiplies $\xi$ by $2^\nu$: $2$, $2.52$ and $4$ for $\nu=1$, $4/3$ and $2$.</p>
+<p>Larger $\nu$ means a more rapid extension of spatial correlations. $\nu$ belongs to the transition; $L$ limits the measured $\xi$. Compare several $L$ and fit before this cutoff.</p>
+<p style="font-size:0.62em;color:#5B6780">The value $\nu=\frac{4}{3}$ comes from two-dimensional percolation theory. This guide shows the expected scaling form. Estimating <i>ν</i> from $\xi_{\mathrm{eff}}$ requires several system sizes and a fitted range.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w8-critical-point-workflow-slide">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="From-correlations-to-a-critical-point-estimate">From correlations to a critical-point estimate<a class="anchor-link" href="#From-correlations-to-a-critical-point-estimate">¶</a></h2><p>$$
+p\text{ sweep}\longrightarrow C(r;p)\longrightarrow\xi_{\mathrm{eff}}(p,L)\longrightarrow\text{compare several }L\longrightarrow\widehat p_c.
+$$</p>
+<ol>
+<li>Sweep $p$ for several $L$; use an ensemble at every point.</li>
+<li>Calculate $R_L(p)$, $C(r;p)$ and $\xi_{\mathrm{eff}}(p,L)$.</li>
+<li>Use a stated rule to estimate $p_c(L)$: a curve crossing, steepest response, fluctuation peak or fixed spanning probability.</li>
+<li>Extrapolate across $L$ and check whether the observables identify the same limit.</li>
+</ol>
+<p>$$
+p_c(L)-p_c\sim L^{-1/\nu}.
+$$</p>
+<p style="font-size:0.62em;color:#5B6780">Finite systems round the transition. The operational estimates can differ at finite $L$ but should approach the same $p_c$.</p>
 </div>
 </div>
 </div>
@@ -9321,10 +9389,69 @@ details.discussion-reveal .discussion-answer > :last-child {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
 <h2 id="Vicsek-near-the-transition">Vicsek near the transition<a class="anchor-link" href="#Vicsek-near-the-transition">¶</a></h2><div class="two-panel wide-left compact-panels">
-<div class="image-panel"><div style="display:grid;grid-template-columns:1.08fr 0.92fr;gap:0.5rem;align-items:center"><img alt="Vicsek polarisation against noise for several system sizes" src="images/Vicsek_results_Fig2a.png" style="max-height:315px"/><img alt="Vicsek ordered-side scaling plot" src="images/Vicsek_results_Fig3a.png" style="max-height:280px"/></div><p style="font-size:0.56em;color:#5B6780;margin-top:0.25rem">Vicsek <em>et al.</em> (1995), Figs 2a and 3a.</p></div>
-<div class="text-panel" style="font-size:0.68em;line-height:1.20"><p>At fixed density, the paper used two related tests:</p><ul><li><strong>Finite-size scaling:</strong> estimate $\eta_c(L)$, then extrapolate towards $\eta_c(\infty)$.</li><li><strong>Critical scaling:</strong> test $\Phi(\eta)\sim(\eta_c-\eta)^\beta$ around that point.</li></ul><p>The fit gave $\beta\approx0.45$, supporting a continuous onset. One finite curve cannot distinguish a sharp continuous transition from a weak jump.</p><p>Varying density would trace a phase boundary in $(\rho,\eta)$.</p></div>
+<div class="image-panel"><div style="display:grid;grid-template-columns:1.08fr 0.92fr;gap:0.5rem;align-items:center"><img alt="Vicsek polarisation against noise for several system sizes" src="images/Vicsek_results_Fig2a.png" style="max-height:315px"/><img alt="Vicsek ordered-side scaling plot" src="images/Vicsek_results_Fig3a.png" style="max-height:280px"/></div><p class="figure-reference">Source: Vicsek <em>et al.</em> (1995), Figs. 2a and 3a.</p></div>
+<div class="text-panel" style="font-size:0.68em;line-height:1.20"><p>At fixed density, the paper used two related tests:</p><ul><li><strong>Finite-size scaling:</strong> estimate $\eta_c(L)$, then extrapolate towards $\eta_c(\infty)$.</li><li><strong>Critical scaling:</strong> test $\Phi(\eta)\sim(\eta_c-\eta)^\beta$ around that point.</li></ul><p>The authors chose $\eta_c(L)$ to make the log–log scaling plots straightest. The fitted $\beta\approx0.45$ was sensitive to that choice.</p><p>Later, larger simulations resolved travelling bands and first-order behaviour hidden by small systems. The noise rule also matters.</p></div>
 </div>
-<p style="font-size:0.58em;color:#5B6780">Larger later studies found first-order-like band coexistence in important variants.</p>
+<p class="small-note">Larger later studies found first-order-like band coexistence in important variants.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d37cf795-075e-4ca5-92c5-613ff2da0088">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
+<h2 id="Physical-motivation">Physical motivation<a class="anchor-link" href="#Physical-motivation">¶</a></h2><div class="two-panel wide-left compact-panels">
+<div class="text-panel"><p>A physical pile has an angle of repose: the steepest stable surface angle. This motivates a local stability threshold.</p><p><a href="https://doi.org/10.1103/PhysRevLett.59.381">Bak, Tang and Wiesenfeld (1987)</a> interpreted the lattice variable <i>z</i><sub>ij</sub> as a local slope or force. Later work often calls it height or load.</p><p>The model does not construct a geometric surface or calculate its gradient.</p></div>
+<div class="image-panel"><img alt="Angle of repose in a granular pile" src="images/Angle_of_repose.png" style="display:block;width:100%;height:auto;max-height:300px;object-fit:contain;margin:0 auto"/></div>
+</div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=dfe24ab7-cf9f-49ba-8e6a-8ba6c1b85096-notation-slide">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Dynamics">Dynamics<a class="anchor-link" href="#Dynamics">¶</a></h2><p>The toppling threshold is $z_c=4$. Stable loads are 0, 1, 2 or 3. A site can exceed 3 during relaxation. When $z_{ij}\geq z_c$:</p>
+<p>$$
+\begin{aligned}
+z_{ij} &amp;\mapsto z_{ij}-4,\\
+z_{i\pm1,j} &amp;\mapsto z_{i\pm1,j}+1,\\
+z_{i,j\pm1} &amp;\mapsto z_{i,j\pm1}+1.
+\end{aligned}
+$$</p>
+<ul>
+<li>Lose load that crosses the boundary.</li>
+<li>Repeat until every site is stable, then add the next grain.</li>
+</ul>
+<p style="font-size:0.62em;color:#5B6780;clear:both">Four-neighbour redistribution removes four units per toppling. The convention $z_c=4$ labels the stable loads 0–3; it is not a control parameter. The maps above fully define the model. In code, the same transfers can be written with the Week 3 five-point stencil applied to a 0/1 array marking unstable sites.</p>
+<p style="font-size:0.62em;color:#5B6780">An <i>L</i> × <i>L</i> lattice has <i>L</i><sup>2</sup> integer degrees of freedom, one load per site.</p>
+<p style="font-size:0.62em;color:#5B6780"><strong>Abelian property:</strong> for a fixed initial state and addition, every legal toppling order gives the same final stable state and toppling counts. Duration depends on the time-step convention.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7faf3c7e-82c0-4a11-b8d3-f8705292d2fa-concise-slide">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
+<h2 id="Qualitative-analysis">Qualitative analysis<a class="anchor-link" href="#Qualitative-analysis">¶</a></h2><div class="two-panel compact-panels" style="display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,0.92fr);gap:0.8rem;align-items:start;width:100%">
+<div class="image-panel"><img alt="An avalanche propagating through the course Abelian sandpile simulation" src="./images/sandpile_avalanche.gif" style="display:block;width:100%;max-width:556px;height:auto;max-height:420px;object-fit:contain;margin:0 auto"/><div style="font-size:0.58em;color:#5B6780;margin:0.15rem 0 0;text-align:center">One avalanche, shown one parallel relaxation step at a time.</div></div>
+<div class="text-panel" style="font-size:0.72em;line-height:1.18">
+<div style="display:flex;flex-wrap:wrap;gap:0.25rem 0.65rem;align-items:center;font-size:0.82em;color:#5B6780;margin:0 0 0.45rem"><div style="display:flex;align-items:center;gap:0.18em"><div style="width:0.72em;height:0.72em;background:#F7F8FB;border:1px solid #AEB8C8"></div>0</div><div style="display:flex;align-items:center;gap:0.18em"><div style="width:0.72em;height:0.72em;background:#3C78A8"></div>1</div><div style="display:flex;align-items:center;gap:0.18em"><div style="width:0.72em;height:0.72em;background:#F2CF4A"></div>2</div><div style="display:flex;align-items:center;gap:0.18em"><div style="width:0.72em;height:0.72em;background:#D95F3D"></div>3</div><div style="display:flex;align-items:center;gap:0.18em"><div style="width:0.72em;height:0.72em;background:#76538C"></div><i>z</i><sub>ij</sub> ≥ 4: unstable</div></div>
+<div style="margin:0.25rem 0">Each unstable site topples once per parallel step. A toppling can make neighbouring sites unstable, and a site may topple again later.</div>
+<div style="margin:0.25rem 0">The avalanche ends when every site is stable. Load crossing the open boundary is lost.</div>
+<div style="margin:0.45rem 0 0;color:#172A50">We aim to follow where activity begins, how far it spreads and how long it takes to stop.</div>
+</div>
+</div>
+<div class="ladder-marker"><img alt="Ladder of abstraction" src="images/ladder_marker.svg"/><span><strong>Down the ladder:</strong> follow one avalanche to connect the local toppling rule with its spread through the lattice.</span></div>
 </div>
 </div>
 </div>
@@ -9348,55 +9475,20 @@ details.discussion-reveal .discussion-answer > :last-child {
 <td>tune porosity $p$ to $p_c$</td>
 </tr>
 <tr>
-<td>Vicsek / Kuramoto</td>
-<td>tune noise, density or coupling</td>
+<td>Vicsek</td>
+<td>at fixed density $\rho$, tune noise amplitude $\eta$</td>
+</tr>
+<tr>
+<td>Kuramoto</td>
+<td>tune coupling $K$ relative to the natural-frequency spread</td>
 </tr>
 <tr>
 <td>driven sandpile</td>
-<td>slow loading and boundary loss set the mean load</td>
+<td>repeated grain input and boundary loss set the mean load</td>
 </tr>
 </tbody>
 </table>
-<p>Test the stationary sandpile for spatial, temporal and event signatures of critical behaviour.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7faf3c7e-82c0-4a11-b8d3-f8705292d2fa-concise-slide">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
-<h2 id="Explorable:-Abelian-sandpile">Explorable: Abelian sandpile<a class="anchor-link" href="#Explorable:-Abelian-sandpile">¶</a></h2><div class="two-panel compact-panels" style="grid-template-columns:minmax(0,0.82fr) minmax(0,1.18fr);align-items:start">
-<div class="image-panel"><img alt="An avalanche propagating through the course Abelian sandpile simulation" src="images/sandpile_avalanche.gif" style="display:block;max-height:345px;width:auto;margin:0 auto"/></div>
-<div class="text-panel" style="font-size:0.82em;line-height:1.16"><p style="margin-top:0">Observe local toppling in the animation. Our analysis uses this specification:</p><table style="font-size:0.90em;margin:0.25rem 0"><thead><tr><th>Component</th><th>Rule</th></tr></thead><tbody><tr><td>State</td><td>integer load $z_{ij}$</td></tr><tr><td>Stable</td><td>$z_{ij}=0,1,2,3$</td></tr><tr><td>Unstable</td><td>$z_{ij}\geq4$</td></tr><tr><td>Toppling</td><td>subtract 4; give 1 to each axial neighbour</td></tr><tr><td>Boundary</td><td>outgoing load is lost</td></tr><tr><td>Driving</td><td>add 1 after full relaxation</td></tr></tbody></table><div style="display:flex;flex-wrap:wrap;gap:0.22rem 0.55rem;align-items:center;font-size:0.78em;color:#5B6780;margin:0.3rem 0"><span><i style="display:inline-block;width:0.72em;height:0.72em;background:#F7F8FB;border:1px solid #AEB8C8;margin-right:0.18em"></i>0</span><span><i style="display:inline-block;width:0.72em;height:0.72em;background:#3C78A8;margin-right:0.18em"></i>1</span><span><i style="display:inline-block;width:0.72em;height:0.72em;background:#F2CF4A;margin-right:0.18em"></i>2</span><span><i style="display:inline-block;width:0.72em;height:0.72em;background:#D95F3D;margin-right:0.18em"></i>3</span><span><i style="display:inline-block;width:0.72em;height:0.72em;background:#76538C;margin-right:0.18em"></i>$\geq4$ unstable</span></div><p style="font-size:0.86em;margin-bottom:0">All unstable loads share one colour. Each unstable site topples once per parallel step. If it remains unstable, or receives enough load to become unstable, it topples at the next step. These loads are abstract, not physical sand.</p></div>
-</div>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=dfe24ab7-cf9f-49ba-8e6a-8ba6c1b85096-notation-slide">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
-<h2 id="Dynamics">Dynamics<a class="anchor-link" href="#Dynamics">¶</a></h2><img alt="A physical sand pile labelled with its angle of repose" src="images/Angle_of_repose.png" style="float:right;width:38%;max-height:245px;object-fit:contain;margin:0 0 0.5rem 1rem"/>
-<p>Bak, Tang and Wiesenfeld used the same local toppling rule and interpreted $z_{ij}$ as a local slope or force. It is now often called height or load. These are interpretations of the same state variable. The model does not calculate a slope from a geometric surface.</p>
-<p>When $z_{ij}\geq4$:</p>
-<p>$$
-\begin{aligned}
-z_{ij} &amp;\mapsto z_{ij}-4,\\
-z_{i\pm1,j} &amp;\mapsto z_{i\pm1,j}+1,\\
-z_{i,j\pm1} &amp;\mapsto z_{i,j\pm1}+1.
-\end{aligned}
-$$</p>
-<ul>
-<li>Lose load that crosses the boundary.</li>
-<li>Repeat until every site is stable, then add the next grain.</li>
-</ul>
-<p style="font-size:0.62em;color:#5B6780;clear:both">$(i,j)$ labels a site; $\mapsto$ denotes the toppling change. Implementation: with $q^n=\mathbf 1[z^n\geq4]$, one parallel step is $z^{n+1}=z^n+\nabla_h^2q^n$. This is the Week 3 stencil applied to the toppling mask, not diffusion of $z$.</p>
+<p>No sandpile parameter is set to a prescribed critical value.</p>
 </div>
 </div>
 </div>
@@ -9407,35 +9499,11 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
-<h2 id="Clocks-and-time-scales">Clocks and time scales<a class="anchor-link" href="#Clocks-and-time-scales">¶</a></h2><table style="font-size:0.76em;margin-top:0.25rem">
-<thead><tr><th>Quantity</th><th>Meaning</th><th>Used for</th></tr></thead>
-<tbody>
-<tr><td><strong>Drive step</strong> $n$</td><td>one completed add–relax cycle</td><td>loading and stationarity</td></tr>
-<tr><td><strong>Relaxation step</strong> $t$</td><td>one synchronous toppling update</td><td>activity $A(t)$</td></tr>
-<tr><td><strong>Duration</strong> $T$</td><td>active relaxation steps in one avalanche</td><td>event distribution $p(T)$</td></tr>
-<tr><td><strong>Lag</strong> $s$</td><td>separation between activity samples</td><td>autocorrelation $C_A(s)$</td></tr>
-<tr><td><strong>Correlation time</strong> $\tau$</td><td>decay scale of $C_A(s)$</td><td>persistence of the joined record</td></tr>
-<tr><td><strong>Period</strong> $1/f$</td><td>time scale represented by frequency $f$</td><td>power spectrum</td></tr>
-</tbody>
-</table>
-<p style="font-size:0.66em;color:#5B6780"><i>C</i><sub><i>A</i></sub> is the autocorrelation of activity <i>A</i>(<i>t</i>). <i>n</i> and <i>t</i> are model clocks. <i>T</i>, <i>s</i>, <i>τ</i> and 1/<i>f</i> answer different questions.</p>
+<h2 id="Clocks-and-time-scales">Clocks and time scales<a class="anchor-link" href="#Clocks-and-time-scales">¶</a></h2><img alt="Sandpile activity time series divided into trials, with global index t and within-trial index k" src="images/sandpile_time_indices.png" style="display:block;width:96%;height:auto;max-height:430px;object-fit:contain;margin:0 auto"/>
+<div style="font-size:0.69em;line-height:1.18">
+<p><i>n</i> labels trials. <i>k</i> labels active relaxation steps within a trial and resets when the next grain is added. <i>t</i> runs continuously through the joined activity record <i>A</i>(<i>t</i>).</p>
+<p><i>T</i><sub><i>n</i></sub> counts the active <i>k</i>-steps in trial <i>n</i>. Lag <i>ℓ</i> and correlation time <i>τ</i> are measured from the joined record.</p>
 </div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w8-abelian-property-slide">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
-<h2 id="Abelian-property">Abelian property<a class="anchor-link" href="#Abelian-property">¶</a></h2><p>Any legal toppling order gives the same:</p>
-<ul>
-<li>final stable state;</li>
-<li>number of topplings at each site;</li>
-<li>avalanche size and area.</li>
-</ul>
-<p>The intermediate sequence can differ. Duration depends on the chosen time convention. We use parallel relaxation steps.</p>
 </div>
 </div>
 </div>
@@ -9448,8 +9516,23 @@ $$</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
 <h2 id="Initialisation">Initialisation<a class="anchor-link" href="#Initialisation">¶</a></h2><div class="two-panel wide-left compact-panels">
 <div class="image-panel"><img alt="Empty and overfull initialisation procedures" src="images/sandpile_initialisation_comparison.png" style="display:block;width:100%;height:auto;max-height:400px;object-fit:contain;margin:0 auto"/></div>
-<div class="text-panel"><p><strong>Empty:</strong> retain the full loading transient.</p><p><strong>Overfull:</strong> relax first, then use random additions as burn-in.</p><p>Record only after the chosen burn-in.</p></div>
+<div class="text-panel"><p><strong>Empty:</strong> show the full loading transient.</p><p><strong>Overfull:</strong> relax first, then use random additions as burn-in.</p><p><strong>Burn-in:</strong> initial trials discarded before measurement so the starting state no longer dominates.</p><p>The first relaxation prepares a pile; it does not establish stationarity.</p></div>
 </div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w8-tuned-versus-driven-sandpile-notation-slide">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="First-check:-slow-drive-and-boundary-loss">First check: slow drive and boundary loss<a class="anchor-link" href="#First-check:-slow-drive-and-boundary-loss">¶</a></h2><div class="two-panel compact-panels" style="grid-template-columns:minmax(0,1.15fr) minmax(0,0.85fr)">
+<div class="image-panel"><img alt="Mean load and boundary loss through time in a slowly driven open sandpile" src="images/sandpile_driven_stationarity.svg" style="display:block;width:100%;height:auto;max-height:440px;object-fit:contain;margin:0 auto"/></div>
+<div class="text-panel" style="font-size:0.82em;line-height:1.18"><p><span style="color:#347caf">Start empty:</span> the loading transient is visible.</p><p><span style="color:#76538C">Prepared high-load state:</span> loads begin between 0 and 7. Its initial relaxation loses 345 grains before plotted trial <i>n</i> = 1; random driving and burn-in then begin.</p><p>Late-run mean load is 2.050 versus 2.051; mean boundary loss is 0.994 versus 1.008 grains per trial.</p><p>The early trajectories differ; the stationary summaries agree.</p></div>
+</div>
+<p style="font-size:0.60em;color:#5B6780">Top: mean load per site. Bottom: boundary loss averaged over a moving 200-trial window. Each run uses an open $16\times16$ lattice. Here $z_c=4$ is a local toppling threshold. This driven protocol has no swept control parameter, so there is no phase-transition curve to plot.</p>
 </div>
 </div>
 </div>
@@ -9460,7 +9543,7 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
-<h1 id="Spatial-analysis:-central-loading">Spatial analysis: central loading<a class="anchor-link" href="#Spatial-analysis:-central-loading">¶</a></h1><div class="two-panel equal-panels compact-panels">
+<h2 id="Spatial-analysis:-central-loading">Spatial analysis: central loading<a class="anchor-link" href="#Spatial-analysis:-central-loading">¶</a></h2><div class="two-panel equal-panels compact-panels">
 <div class="image-panel"><img alt="Centrally loaded stable sandpiles" src="images/sandpile_fractal_stills.png" style="max-height:360px"/></div>
 <div class="image-panel"><img alt="Four stable-load masks" src="images/sandpile_height_subsets.png" style="max-height:360px"/></div>
 </div>
@@ -9479,18 +9562,18 @@ $$</p>
 <div class="image-panel"><img alt="Four stable-load masks arranged in a two-by-two grid" src="images/sandpile_height_subsets.png" style="display:block;width:100%;height:auto;max-height:405px;object-fit:contain;margin:0 auto"/></div>
 <div class="image-panel"><img alt="Box counts for the four stable-load masks" src="images/sandpile_box_counting.png" style="display:block;width:100%;height:auto;max-height:405px;object-fit:contain;margin:0 auto"/></div>
 </div>
-<p style="font-size:0.62em;color:#5B6780">Each mask selects one stable height. $N(\varepsilon)$ counts boxes intersecting that mask; the shaded region marks the fitted widths.</p>
+<p style="font-size:0.62em;color:#5B6780">Each mask selects one stable height. Curvature means this state does not support one common box-counting dimension. A stationary-state claim needs repeated post-burn-in snapshots.</p>
 </div>
 </div>
 </div>
-</div></section><section>
+</div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w8-qualitative-analysis-slide">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
-<h2 id="Quantitative-measures">Quantitative measures<a class="anchor-link" href="#Quantitative-measures">¶</a></h2><p>One grain addition followed by complete relaxation is one trial. For each trial, record:</p>
+<h2 id="Event-analysis">Event analysis<a class="anchor-link" href="#Event-analysis">¶</a></h2><p>Trial $n$ is one addition followed by complete relaxation. If toppling occurs, its avalanche is one event; each toppling is one redistribution within that event. Let $a_{n,k}$ count topplings in parallel step $k$. Quantify the avalanche by:</p>
 <table>
 <thead>
 <tr>
@@ -9500,32 +9583,72 @@ $$</p>
 </thead>
 <tbody>
 <tr>
-<td>$S$</td>
-<td>total topplings</td>
+<td>$S_n=\sum_{k=1}^{T_n}a_{n,k}$</td>
+<td>total topplings across the event</td>
 </tr>
 <tr>
-<td>$A$</td>
-<td>distinct sites that topple</td>
+<td>$A_{\mathrm{av},n}$</td>
+<td>distinct sites that topple in any step</td>
 </tr>
 <tr>
-<td>$T$</td>
-<td>parallel relaxation steps</td>
+<td>$T_n$</td>
+<td>active parallel relaxation steps</td>
 </tr>
 </tbody>
 </table>
-<p>Also retain additions that cause no toppling: $S=A=T=0$.</p>
-<p style="font-size:0.64em;color:#5B6780">$T$ is one event’s duration. It is not the correlation time $\tau$ of the joined activity record.</p>
+<p>A trial with no toppling has $S_n=A_{\mathrm{av},n}=T_n=0$.</p>
+<p style="font-size:0.64em;color:#5B6780">Joining the step counts $a_{n,k}$ across trials gives the activity record $A(t)$. The index $n$ is omitted later when $S$, $A_{\mathrm{av}}$ and $T$ label distributions across trials.</p>
 </div>
 </div>
 </div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c13d03d6-f14c-49e0-abaa-603e87235d25">
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4ef815da-7df1-4d08-a36c-f5593e8edd2c-notation-slide">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Randomly-driven-analysis">Randomly driven analysis<a class="anchor-link" href="#Randomly-driven-analysis">¶</a></h1><p>Temporal dependence · avalanche distributions · finite-size effects · driven stationarity</p>
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Avalanche-distributions">Avalanche distributions<a class="anchor-link" href="#Avalanche-distributions">¶</a></h2><div class="two-panel compact-panels" style="grid-template-columns:minmax(0,1.2fr) minmax(0,0.8fr);align-items:start">
+<div class="image-panel"><img alt="Histograms and log-binned densities for simulated avalanche size and duration" src="images/sandpile_avalanche_distributions.png" style="display:block;max-height:430px;max-width:100%;width:auto;margin:0 auto"/></div>
+<div class="text-panel" style="font-size:0.72em;line-height:1.22"><p>Treat each non-zero avalanche as one observation. A power-law model gives</p>
+<p>$$p(S)\propto S^{-\tau_S},\qquad p(T)\propto T^{-\tau_T}.$$</p>
+<p>$$\begin{aligned}\log p(S)&amp;=\log C_S-\tau_S\log S,\\ \log p(T)&amp;=\log C_T-\tau_T\log T.\end{aligned}$$</p>
+<p>The log–log slopes are $-\tau_S$ and $-\tau_T$. A larger exponent means that large sizes or long durations become rarer more quickly.</p><p>Both measured densities contain approximately straight sections followed by finite-size downturns.</p></div>
+</div>
+<p style="font-size:0.60em;color:#5B6780">$S$ counts topplings; $T$ counts avalanche steps. $p(S)$ and $p(T)$ are densities for non-zero events. The fitted slopes are local descriptions, not established asymptotic exponents. Test fitted ranges and alternative distributions.</p>
+<div class="ladder-marker"><img alt="Ladder of abstraction" src="images/ladder_marker.svg"/><span><strong>Up the ladder over events:</strong> replace individual avalanches with distributions of size and duration.</span></div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w8-btw-figure2-slide">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Original-BTW-results">Original BTW results<a class="anchor-link" href="#Original-BTW-results">¶</a></h2><div class="two-panel compact-panels" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+<div class="image-panel"><img alt="Original BTW Figure 2 showing response-cluster size distributions in two and three dimensions" src="images/btw_1987_fig2.png" style="display:block;width:auto;height:auto;max-height:405px;object-fit:contain;margin:0 auto"/><p class="figure-caption"><strong>Published Figure 2.</strong> Response size <i>s</i>, measured as sites reached.</p></div>
+<div class="image-panel"><img alt="Original BTW Figure 3 showing response-lifetime distributions in two and three dimensions" src="images/btw_1987_fig3.png" style="display:block;width:auto;height:auto;max-height:405px;object-fit:contain;margin:0 auto"/><p class="figure-caption"><strong>Published Figure 3.</strong> Response lifetime <i>t</i>.</p></div>
+</div>
+<p>The straight log–log sections extend across about two decades, farther than our fitted ranges. BTW use these broad distributions as evidence that responses extend across many spatial and temporal scales.</p>
+<p style="font-size:0.66em;color:#5B6780">For Fig. 2, BTW attribute the small-<i>s</i> deviation to lattice discreteness and the large-<i>s</i> falloff to finite array size, checked using different array sizes. Fig. 3 has a shorter reliable range because lifetimes are much smaller than response sizes.</p>
+<p class="small-note">BTW size <i>s</i> counts sites reached, closest to our area <i>A</i><sub>av</sub>. Our <i>S</i> counts topplings. Their lifetime distribution is response-weighted; our <i>T</i> counts parallel steps.</p>
+<p class="figure-reference">Source: Bak, Tang and Wiesenfeld (1987), <a href="https://doi.org/10.1103/PhysRevLett.59.381"><em>Physical Review Letters</em>, Figs. 2 and 3</a>.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w8-finite-avalanche-slide">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Parameter-sweep">Parameter sweep<a class="anchor-link" href="#Parameter-sweep">¶</a></h2><div class="two-panel compact-panels" style="grid-template-columns:minmax(0,1.15fr) minmax(0,0.85fr)">
+<div class="image-panel"><img alt="Avalanche-size tails for three lattice sizes" src="images/sandpile_finite_size_ccdf.png" style="display:block;width:100%;height:auto;max-height:430px;object-fit:contain;margin:0 auto"/></div>
+<div class="text-panel"><p>A CDF compresses the rare upper tail near 1. The CCDF shows the probability of reaching each size without bins.</p><p>Use densities to examine power-law slopes; use the CCDF to compare the rollover across $L$.</p><p>Thin lines show 20 independent runs; bold lines pool their events.</p><p>The dotted level marks about one event in a run. Pooling lowers this sampling limit; it does not move the physical cutoff.</p><p>Larger $L$ → larger possible avalanches → rollover moves right.</p></div>
+</div>
 </div>
 </div>
 </div>
@@ -9536,10 +9659,11 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
-<h2 id="Temporal-analysis">Temporal analysis<a class="anchor-link" href="#Temporal-analysis">¶</a></h2><p>Use the relaxation clock: record toppling activity $A(t)$ at each parallel step.</p>
+<h2 id="Temporal-analysis">Temporal analysis<a class="anchor-link" href="#Temporal-analysis">¶</a></h2><p>The event distributions show how often different avalanche sizes and durations occur. Autocorrelation asks how long activity remains related through time.</p>
+<p>Use the relaxation clock: record toppling activity $A(t)$ at each parallel step.</p>
 <ul>
 <li>Join successive avalanches into one activity record.</li>
-<li>Retain the zero step ending each relaxation; a no-toppling trial contributes one zero.</li>
+<li>Include the zero step ending each relaxation; a no-toppling trial contributes one zero.</li>
 <li>Insert no other waiting time.</li>
 </ul>
 <p><audio controls="" preload="metadata" src="images/sandpile_toppling_sound.wav"></audio></p>
@@ -9554,90 +9678,16 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
-<h2 id="Autocorrelation">Autocorrelation<a class="anchor-link" href="#Autocorrelation">¶</a></h2><div class="two-panel compact-panels" style="grid-template-columns:minmax(0,0.92fr) minmax(0,1.08fr);align-items:start">
-<div class="text-panel" style="font-size:0.66em;line-height:1.22">
-<p>Centre the activity: $\delta A(t)=A(t)-\langle A\rangle$.</p>
-<p>$$\widehat C_A(s)=\frac{\frac{1}{n-s}\sum_{t=0}^{n-s-1}\delta A_t\delta A_{t+s}}{\frac{1}{n}\sum_{t=0}^{n-1}\delta A_t^2}.$$</p>
-<p>The subscript <i>A</i> identifies the chosen activity signal <i>A</i>(<i>t</i>), e.g. topplings or active sites per step. The numerator compares deviations separated by lag $s$. Dividing by the variance removes units and gives $C_A(0)=1$.</p>
-<p>For exponential decay, $C_A(\tau)=1/e\approx0.37$. The first crossing therefore estimates $\tau$.</p>
-<p>$1/e$ is a convention. For a non-exponential curve, state the rule used.</p>
+<h2 id="Temporal-correlation">Temporal correlation<a class="anchor-link" href="#Temporal-correlation">¶</a></h2><p>$$\widehat C_A(\ell)=\frac{\frac{1}{n-\ell}\sum_{t=0}^{n-\ell-1}\delta A_t\delta A_{t+\ell}}{\frac{1}{n}\sum_{t=0}^{n-1}\delta A_t^2}.$$</p>
+<div class="two-panel compact-panels" style="grid-template-columns:minmax(0,0.70fr) minmax(0,1.30fr);align-items:start">
+<div class="text-panel" style="font-size:0.80em;line-height:1.20">
+<p>Here the separation is lag <i>ℓ</i>. The function <i>C</i><sub>A</sub>(<i>ℓ</i>) shows how activity fluctuations remain related through time; <i>τ</i> summarises its decay.</p>
+<p>The first 1/<i>e</i> crossing gives an effective correlation time <i>τ</i><sub>eff</sub> ≈ 30 recorded steps.</p>
+<p>Large <i>τ</i> means longer memory. Near a continuous critical point, longer recovery times are called critical slowing down.</p>
+<p style="font-size:0.56em;color:#5B6780"><a href="https://doi.org/10.1103/RevModPhys.49.435">Hohenberg and Halperin (1977)</a>.</p>
 </div>
-<div class="image-panel"><img alt="Activity autocorrelation with a 37% crossing at 30.2 recorded steps" src="images/sandpile_autocorrelation.png" style="display:block;width:100%;height:auto;max-height:390px;object-fit:contain;margin:0 auto"/><p class="small-note">Here $\tau_{\rm eff}\approx30$ recorded steps. It measures persistence in the joined activity record, not avalanche duration.</p></div>
+<div class="image-panel"><img alt="Activity autocorrelation with a 37% crossing at about 30 recorded steps" src="images/sandpile_autocorrelation.png" style="display:block;width:100%;height:auto;max-height:430px;object-fit:contain;margin:0 auto"/><p class="figure-caption"><strong>Figure 8.14.</strong> The activity record remains correlated over several tens of recorded steps.</p></div>
 </div>
-<p style="font-size:0.62em;color:#5B6780"><i>C</i><sub><i>A</i></sub> is the autocorrelation of activity <i>A</i>(<i>t</i>), which counts toppling sites per recorded step; $\langle\cdot\rangle$ averages over valid times.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w8-temporal-result-slide">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
-<h2 id="Power-spectrum">Power spectrum<a class="anchor-link" href="#Power-spectrum">¶</a></h2><div class="two-panel wide-left compact-panels" style="grid-template-columns:minmax(0,1.18fr) minmax(0,0.82fr)">
-<div class="image-panel"><img alt="Toppling activity and its Welch spectrum" src="images/sandpile_activity_spectrum.png" style="width:100%;height:auto;max-height:405px;object-fit:contain"/></div>
-<div class="text-panel"><p>The spectrum uses the same activity record as the autocorrelation.</p><p>Over 0.01 to 0.1 cycles per step, the fitted slope is $-1.68$. It lies between white noise ($0$) and red or Brownian noise ($-2$), closer to red.</p><p>Low frequencies carry more power than in white noise, but the fall is not as steep as pure red noise. This describes this record and range.</p></div>
-</div>
-<p style="font-size:0.62em;color:#5B6780">$P(f)$ is power spectral density. Period is $1/f$. Welch implementation details are optional.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4ef815da-7df1-4d08-a36c-f5593e8edd2c-notation-slide">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
-<h2 id="From-events-to-distributions">From events to distributions<a class="anchor-link" href="#From-events-to-distributions">¶</a></h2><p>Now treat each non-zero avalanche as one observation. A power-law model would give</p>
-<p>$$p(S)\propto S^{-\tau_S},\qquad p(T)\propto T^{-\tau_T}.$$</p>
-<p>$$\log p(S)=\log C-\tau_S\log S.$$</p>
-<p>The log–log slope is $-\tau_S$. A larger exponent means a steeper decline in density with event size.</p>
-<p style="font-size:0.64em;color:#5B6780">$S$ counts topplings; $T$ counts avalanche steps. $p(S)$ and $p(T)$ are densities for non-zero events. $\tau_S$ and $\tau_T$ are distribution exponents, not correlation times.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6ef6999f-aeb2-47d9-a94d-4f405a74be02-notation-slide">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
-<h2 id="Avalanche-distributions">Avalanche distributions<a class="anchor-link" href="#Avalanche-distributions">¶</a></h2><img alt="No description has been provided for this image" src="images/sandpile_avalanche_distributions.png" style="display:block;max-height:395px;max-width:100%;width:auto;margin:0 auto;"/>
-<p>Left: histograms. Right: log-binned densities. Shading marks the fitted range.</p>
-<p>A straight segment is range-dependent evidence, not proof of a power law.</p>
-<p style="font-size:0.64em;color:#5B6780">$S$ is total topplings; $T$ is duration in avalanche steps. Fitted log–log slopes are $-\tau_S$ and $-\tau_T$.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w8-finite-avalanche-slide">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
-<h2 id="Parameter-sweep">Parameter sweep<a class="anchor-link" href="#Parameter-sweep">¶</a></h2><div class="two-panel compact-panels" style="grid-template-columns:minmax(0,1.15fr) minmax(0,0.85fr)">
-<div class="image-panel"><img alt="Avalanche-size tails for three lattice sizes" src="images/sandpile_finite_size_ccdf.png" style="display:block;width:100%;height:auto;max-height:430px;object-fit:contain;margin:0 auto"/></div>
-<div class="text-panel"><p>Sweep lattice width $L$ and repeat independent runs at each value.</p><p>The CCDF avoids bin-edge choices and keeps the sparse upper tail visible.</p><p>As $L$ grows, the rollover moves to larger avalanche size $S$.</p><p>Thin lines show four runs; bold lines pool their events.</p></div>
-</div>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w8-tuned-versus-driven-sandpile-notation-slide">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
-<h2 id="Slow-drive-and-boundary-loss">Slow drive and boundary loss<a class="anchor-link" href="#Slow-drive-and-boundary-loss">¶</a></h2><div class="two-panel compact-panels" style="grid-template-columns:minmax(0,1.15fr) minmax(0,0.85fr)">
-<div class="image-panel"><img alt="Mean load and boundary loss through time in a slowly driven open sandpile" src="images/sandpile_driven_stationarity.svg" style="display:block;width:100%;height:auto;max-height:440px;object-fit:contain;margin:0 auto"/></div>
-<div class="text-panel"><p>At low load, most grains remain in the pile. As load rises, boundary-reaching avalanches remove more. This drive–loss balance is negative feedback.</p><p>In the marked 1,800 cycles, mean loss is 0.994 grain per cycle, close to the one-grain input.</p><p>The orange bars show boundary loss, not avalanche size $S$. Avalanche tails use longer ensembles and total topplings $S$.</p></div>
-</div>
-<p style="font-size:0.62em;color:#5B6780">Top: mean load per site. Bottom: grains lost in each add–relax cycle of an open $16\times16$ lattice.</p>
 </div>
 </div>
 </div>
@@ -9656,7 +9706,20 @@ $$</p>
 <div class="reader-voice-quote">[W]hen understood as sketches [SOC models] can be vehicles for successful research.</div>
 <div class="reader-voice-attr">Roman Frigg, <a href="https://doi.org/10.1016/S0039-3681%2803%2900046-3"><em>Self-organised criticality—what it is and what it isn’t</em></a> (2003), p. 630</div>
 </div>
-<p>Idealised models test mechanisms. Their assumptions set the scope of the explanation.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w8-renormalisation-levels-slide">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Renormalisation-across-levels">Renormalisation across levels<a class="anchor-link" href="#Renormalisation-across-levels">¶</a></h2><p>$P_m$ is the probability that a block at coarse-graining level $m$ conducts. Reusing the $2\times2$ rule gives</p>
+<p>$$P_{m+1}=R(P_m),\qquad 1\longrightarrow2\longrightarrow4\longrightarrow8\longrightarrow\cdots$$</p>
+<p>The numbers are block widths measured on the original lattice. The diagram remains $2\times2$ after each rescaling, while its original-lattice footprint doubles.</p>
+<p>The first block rule is calculated explicitly. Applying the same map at later levels assumes independent coarse blocks and discards their internal paths. This is a modelling approximation, not mathematical induction.</p>
 </div>
 </div>
 </div>
