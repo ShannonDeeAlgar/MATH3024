@@ -81,6 +81,7 @@ SHARED_COMPONENT_PREFIXES = (
     ".discussion-",
     ".guiding-",
     ".canonical-",
+    ".toolkit-",
     ".process-",
     ".planet-",
     ".variable-",

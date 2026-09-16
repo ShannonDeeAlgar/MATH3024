@@ -23,6 +23,8 @@ class PresentationTests(unittest.TestCase):
             for page in ['notebooks/week07/l-intelligent-systems/index.html',
                          'slides/week07/L_Intelligent_systems.slides.html',
                          'notebooks/week08/l-critical-phenomena/index.html',
+                         'notebooks/week08/ws-critical-phenomena/index.html',
+                         'notebooks/week08/practice/index.html',
                          'slides/week08/L_Critical_phenomena.slides.html']:
                 target = root / page; target.parent.mkdir(parents=True, exist_ok=True)
                 target.write_text(content)
@@ -32,6 +34,10 @@ class PresentationTests(unittest.TestCase):
                     target = root / route / name
                     target.parent.mkdir(parents=True, exist_ok=True); target.write_text('explorable')
             self.assertEqual(check_assets(root), [])
+            workshop = root / 'notebooks/week08/ws-critical-phenomena/index.html'
+            workshop.unlink()
+            self.assertTrue(any('ws-critical-phenomena' in error for error in check_assets(root)))
+            workshop.write_text(content)
             (root / 'notebooks/week07/images/pso_explorer.html').unlink()
             self.assertTrue(any('not staged' in error for error in check_assets(root)))
             (root / 'notebooks/week09').mkdir()

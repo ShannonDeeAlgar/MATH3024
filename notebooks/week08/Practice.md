@@ -2,14 +2,14 @@
 
 1. Use the [site-percolation pseudocode at the end of the reader](https://shannondeealgar.github.io/MATH3024/notebooks/week08/l-critical-phenomena/#pseudocode) to implement or adapt a model on a $20\times20$ lattice. Sweep occupation probability $p$ using independent realisations. Choose and justify a quantity that reveals the transition. Why is one realisation at each $p$ insufficient?
 2. For water passing through coffee grounds, a spanning path is not the only quantity of interest. Propose another property, explain how to represent it, and state how the model and measurements must change.
-3. Design a gravity-directed percolation model in which liquid enters along the top boundary and moves through passable sites. Decide whether it can move directly down, diagonally down or sideways. Specify the states, neighbourhood, update rule and stopping condition. Choose measurements that show whether and how far the liquid penetrates the medium. How would its spread differ from undirected percolation?
+3. Design a percolation model where liquid enters at the top and flows through passable sites. Choose whether it can move directly down, diagonally down or sideways. Define the states, neighbourhood, update rule and stopping condition. How would you measure penetration, and how would the spread differ from undirected percolation?
 4. Contrast percolation and the sandpile model. Which requires external tuning to a threshold, and which combines slow driving with fast relaxation?
-5. What caused an avalanche: the final added grain, or the state of the pile before it was added? Explain the role of each.
-6. Define avalanche size $S$, area $A_{\mathrm{av}}$ and duration $T$ using the reader's parallel-update convention. How would counting distinct toppled sites instead of total topplings change the size measurement? How would sequential single-site updates change the meaning of duration?
-7. A log–log plot looks approximately straight. What additional analysis would help establish whether the distribution follows a power law? What would comparison with exponential and lognormal distributions tell you?
-8. Explain why finite systems round a transition and truncate large avalanches. What should change as system size increases?
-9. A small change in a control parameter can move a system away from criticality. Why might evolution favour operating near a transition? Give one possible benefit, one cost and a measurement that could test the proposed benefit.
-10. You borrow a sandpile implementation. Identify its inputs, state changes and outputs. Design tests covering boundary loss, toppling order, stopping and event measurements. Explain how you would check the driving and burn-in conventions, and record the source and any changes you make.
+5. Does the added grain or the existing pile cause an avalanche? Explain the role of each.
+6. Define avalanche size $S$, area $A_{\mathrm{av}}$ and duration $T$ using the reader's parallel-update convention. Why can size differ from area? How would duration change if each sequential toppling counted as one step?
+7. A distribution looks straight on log–log axes. How would you test whether it follows a power law? What would comparison with exponential and lognormal distributions tell you?
+8. Why do finite lattices make the percolation transition appear gradual and limit avalanche sizes? What should change as the lattice grows?
+9. Why might evolution favour operating near a transition? Give a possible benefit, a cost and a measurement that could test the benefit.
+10. You borrow sandpile code. Find its inputs, state changes and outputs. How would you check toppling order, boundary loss and event measurements? How would you check driving, stopping and burn-in? Note the source and any changes you make.
 11. In the [Bak–Sneppen model](https://doi.org/10.1103/PhysRevLett.71.4083), species lie on a ring, each with a barrier to evolutionary change between 0 and 1. At each step, the species with the lowest barrier and its two neighbours receive new independent values drawn uniformly between 0 and 1.
 
     - Identify the agents, their states, the interaction network and the update rule.
@@ -17,19 +17,19 @@
     - Why is identifying the lowest barrier in the whole population a strong assumption?
     - Propose a version in which agents use only local information. Would you still expect the system to approach a critical state?
 
-12. Does every system have a correlation length? Choose two models from the unit. For each, identify a quantity to correlate and define distance. Sketch or describe the expected correlation function. Decide whether one finite correlation length is meaningful.
-13. Interpreting correlation time. The reader's sandpile activity autocorrelation falls to $1/e$ at about 30 recorded steps and is close to zero by about 100 steps. What does the 30-step value tell us? Is it an avalanche duration? What would you compare to investigate critical slowing down?
+12. Does every system have a correlation length? Choose two models from the unit. What would you correlate, and how would you define distance? Sketch or describe each correlation function. Would one finite correlation length describe its spatial range?
+13. The reader's sandpile activity autocorrelation falls to $1/e$ at about 30 recorded steps and is close to zero by about 100 steps. What does the 30-step value tell us? Is it an avalanche duration? What would you compare to investigate critical slowing down?
 
 ## Suggested answers
 
 <details class="reader-answer">
 <summary>1. Measuring the percolation transition</summary>
-<div><p>Estimate spanning probability by recording whether each lattice has an occupied cluster joining opposite boundaries, then averaging at each <i>p</i>. Mean largest-cluster fraction is another useful response. Independent realisations vary, especially near the threshold; one lattice cannot estimate how likely spanning is.</p></div>
+<div><p>At each <i>p</i>, record whether a cluster joins opposite boundaries and average across independent lattices. This estimates spanning probability. Mean largest-cluster fraction is another useful quantity. Near the threshold, different lattices can give very different results. One lattice cannot tell you how likely spanning is.</p></div>
 </details>
 
 <details class="reader-answer">
 <summary>4. Tuned and self-organised criticality</summary>
-<div><p>In percolation, the experimenter varies occupation probability to approach the global connectivity threshold. In the driven sandpile, additions increase total load and boundary losses reduce it. The density evolves under these rules. The local toppling threshold specifies when one site redistributes load; it plays a different role from the percolation threshold.</p></div>
+<div><p>Percolation is tuned by varying occupation probability towards its connectivity threshold. In the driven sandpile, grain additions increase load and boundary losses reduce it. The load density evolves under these rules. The local toppling threshold determines when one site redistributes load.</p></div>
 </details>
 
 <details class="reader-answer">
@@ -39,30 +39,30 @@
 
 <details class="reader-answer">
 <summary>6. Defining an event</summary>
-<div><p>Size <i>S</i> counts total topplings, area <i>A</i><sub>av</sub> counts distinct toppled sites, and duration <i>T</i> counts parallel relaxation steps. A site may topple repeatedly, so <i>A</i><sub>av</sub> ≤ <i>S</i>. Each parallel step topples every site unstable at its start once. Counting one sequential toppling as a time step instead makes duration equal to total topplings. Exponents must be compared using matching definitions.</p></div>
+<div><p>Size <i>S</i> counts total topplings, area <i>A</i><sub>av</sub> counts distinct toppled sites, and duration <i>T</i> counts parallel relaxation steps. A site may topple repeatedly, so <i>A</i><sub>av</sub> ≤ <i>S</i>. Each parallel step topples every site unstable at its start once. Counting each sequential toppling as one step gives <i>T</i> = <i>S</i>. Compare exponents using the same measurement definitions.</p></div>
 </details>
 
 <details class="reader-answer">
 <summary>7. Testing a power-law claim</summary>
-<div><p>Specify the observable and fitted range, estimate uncertainty and examine sensitivity to that range. Fit plausible alternatives to the same tail observations and assess goodness of fit. Repeat across seeds and system sizes to examine sampling variation and finite-size cutoffs.</p><p>An exponential has a fixed decay scale. A lognormal can have a broad, heavy tail too. Comparing these alternatives tests whether a power law describes the observations better; a straight section alone is insufficient.</p></div>
+<div><p>Choose the quantity and fitted range. Fit a power law, an exponential and a lognormal to the same tail data. Check their agreement with the data, uncertainty and sensitivity to the fitted range. Repeat across seeds and lattice sizes to check sampling variation and finite-size cutoffs.</p><p>An exponential has a fixed decay scale; a lognormal can also have a broad, heavy tail.</p></div>
 </details>
 
 <details class="reader-answer">
 <summary>8. Finite-size effects</summary>
-<div><p>Finite random lattices differ, so some span and others fail at the same occupation probability. For larger lattices, the change in spanning probability occurs over a narrower range near the threshold.</p><p>Open sandpile boundaries dissipate load and limit avalanche growth. Larger lattices allow a broader range of large events. Total topplings can exceed the number of sites because sites can topple repeatedly; the largest sampled event also depends on the number of trials.</p></div>
+<div><p>At the same occupation probability, some lattices span and others do not. For larger lattices, the change in spanning probability occurs over a narrower range near the threshold.</p><p>Open sandpile boundaries let grains leave, limiting avalanche growth. Larger lattices allow larger avalanches. Since sites can topple repeatedly, total topplings can exceed the number of sites. The largest observed event also depends on the number of trials.</p></div>
 </details>
 
 <details class="reader-answer">
 <summary>9. Why operate near criticality?</summary>
-<div><p>High sensitivity could improve detection of weak signals, while increased noise amplification could reduce reliability. Vary the operating regime and measure detection performance at matched input and noise levels. Evidence of improved performance supports the proposed function; an evolutionary explanation also requires a connection to survival or reproduction.</p><p>Sensitivity to a control parameter differs from dynamical instability, where a disturbance grows with time.</p></div>
+<div><p>High sensitivity could help detect weak signals, but noise amplification could reduce reliability. Compare detection performance near and away from the transition, with the same input and noise levels. An evolutionary explanation would also need evidence of a benefit to survival or reproduction.</p><p>Sensitivity to a control parameter measures response; dynamical instability means a disturbance grows with time.</p></div>
 </details>
 
 <details class="reader-answer">
 <summary>12. Does every system have a correlation length?</summary>
-<div><p>A correlation length depends on the observable and definition of distance. In percolation, pair-connectedness measures whether two sites belong to the same open cluster. Below the threshold, connectivity decays with a finite exponential decay length, not a sharp cutoff. At criticality, the infinite system has no finite exponential decay length.</p><p>For a flock, correlate velocity fluctuations after subtracting the mean velocity, using physical separation between birds. For the starling data, the first zero crossing gives the approximate size of the positively correlated domain. These definitions summarise spatial range but their values are not interchangeable. A constant quantity has zero variance, making its normalised correlation undefined.</p></div>
+<div><p>Choose the quantity and a definition of distance first. For percolation, correlate membership of the same open cluster. Below the threshold, the probability falls with a finite exponential decay length. It has no sharp cutoff. At criticality, the infinite system has no finite exponential decay length.</p><p>For starlings, subtract the flock's mean velocity and correlate the fluctuations against distance between birds. The first zero crossing estimates the size of the positively correlated domain. These two definitions describe spatial range but give different numerical measures. A constant quantity has zero variance, so its normalised correlation is undefined.</p></div>
 </details>
 
 <details class="reader-answer">
 <summary>13. Interpreting correlation time</summary>
-<div><p>The value is an effective e-folding time for fluctuations in toppling activity. Values separated by about 30 recorded steps have a normalised autocorrelation of approximately 0.37. The joined record includes successive avalanches and terminal zeros, so this time differs from both individual avalanche duration and grain-addition count.</p><p>Across lattice sizes, compare consistently defined decay times to test how persistence changes with system size. To investigate critical slowing down in a tuned model, compare recovery or correlation times as its control parameter approaches the transition. One curve gives a time scale for that record.</p></div>
+<div><p>The 30-step value is an effective e-folding time: activity fluctuations 30 recorded steps apart have an average normalised correlation of about 0.37. The record joins successive avalanches and their terminal zeros. The decay time measures persistence across this record. <i>T</i> measures one avalanche's duration; <i>n</i> counts grain additions.</p><p>Compare consistently defined decay times across lattice sizes to see how persistence changes with system size. For critical slowing down in a tuned model, compare recovery or correlation times as the control parameter approaches the transition. One curve measures persistence in that record.</p></div>
 </details>

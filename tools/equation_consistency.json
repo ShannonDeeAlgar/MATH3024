@@ -1,6 +1,7 @@
 {
   "scope": [
-    "notebooks/week07/L_Intelligent_systems.ipynb"
+    "notebooks/week07/L_Intelligent_systems.ipynb",
+    "notebooks/week08/L_Critical_phenomena.ipynb"
   ],
   "notebooks": {
     "notebooks/week07/L_Intelligent_systems.ipynb": {
@@ -77,6 +78,155 @@
           "mode": "exact",
           "reader": "db6e0e86-0ce4-4d2b-b436-c0fe00f7c59f",
           "reader_index": 1
+        }
+      ]
+    },
+    "notebooks/week08/L_Critical_phenomena.ipynb": {
+      "math_signatures": {
+        "w8-power-laws-refresher": "8b767ff54e95bcdb8106f56db32049d2c7ed04730abd533f062455fc0af74534",
+        "w8-power-laws-rescaling-slide": "652dc31bfeb5c258784582f55992d403cf6ae9ce9519af685b85a5d5a607e82a",
+        "cd594555-6784-4911-8c48-a6a58a43c0b1": "54f1139c6cef2fd6cb380e16ffaca990f4016de9e331f21627d1805ca545bd86",
+        "w8-ensemble-summary-guide-slide": "03ac58d8a7fc370db772f47c6a756b0b0da4268e89be87f766bec8e49685e13e",
+        "w8-critical-behaviour-percolation-evidence": "ed84bcd6232ac5051a34565c687b03bcf85f9f20077534acdb981752b9593469",
+        "w8-detecting-critical-behaviour-concise-slide": "54f1139c6cef2fd6cb380e16ffaca990f4016de9e331f21627d1805ca545bd86",
+        "w8-ensemble-summary-guide": "be6203eed8eb7fb8664c47e245102d3da7c98b1efba458bf4198330c19951979",
+        "w8-correlation-scale-intuition": "b5a81b3e457aa4a2e946865ef621253792a6ff24b94ab59b00a7ed9cf827a428",
+        "w8-computing-pair-connectedness-concise-slide": "ff01926745762494f353f436f470b3b7ca55fc6238f0b2012b7503cff7f2f2ec",
+        "w8-computing-pair-connectedness": "7ddaf2ebde74e472b0c920f2fd48c8a7cb719447412f4df7ad9da4c66826543e",
+        "w8-distance-matrix-example": "a82de97eff676153abc0a9a65f0fc40e2dede19f289ac4f3691b6109c88cc58d",
+        "w8-computing-pair-connectedness-detail": "f7e8d7a39717e0ded710fa14f9086afb8d2afb12c5ad1e10175e32a7816c5aed",
+        "w8-computing-pair-connectedness-detail-notation-slide": "1249a414683dfcae9530df5ca80a0d27a8fb4de9acf601ef301fbf49f45bff7b",
+        "w8-decay-scale-reader-detail": "6beefb6091560082840ee5f63a780eda62c908d0c413880e2a639066f1fdd9d2",
+        "w8-pair-connectedness-figure": "bf6607e34b00bd9d1f53580c2ee6a75b819ccb91ec38a65f68c40838688d487d",
+        "w8-pair-connectedness-figure-notation-slide": "5f65aec6a31032faa2849d1248900c4a29dcd19cfff0358021ca964bacc2d3f1",
+        "w8-spatial-scaling-reader": "da97d1be25479fa7ba5177287e13c4c9a32bd4e77dcebdcad03d6249f7fb597f",
+        "w8-spatial-scaling-notation-slide": "01b3eb13833d1b779eddb3b27b2300f8cb97fa610d526c2a2661b56413c937e1",
+        "dd5fbfb8-5f02-4683-9efa-cf0350649461": "a21501a7207fdb3b1e3684476f49e5578adcb2be9ce3d996c10c2978b43b243c",
+        "w8-percolation-cluster-tails-slide": "3b12f6ba899954b4cb1f0b30a575041a16b553733e0c7ccfe235a5c2116b8ab4",
+        "w8-fractal-geometry-connection": "1e13c83f347ab43cbd7501e4cb66046fe230be8afd07990d0cd35763b8e19eb8",
+        "w8-vicsek-criticality-reader": "077b596400ac80808fba78cc07b452ec0c7a2b6cc6d039b8dcfd3eb04223c5ba",
+        "w8-vicsek-criticality-slide": "0ba9aecc1ceee3a74693b909d66c3ba047fb6981b65f769d6a6f5e836be7a5f5",
+        "w8-motivation-banner": "65ce82d9606217bd5e782773eb449a5fa30c0f9d752745421c5828b6bfad42a6",
+        "w8-motivation-banner-concise-slide": "1b3af85a8789075df8df0e6c75eea8b0b6dc199bca40940bca5a28c73f9973f8",
+        "7faf3c7e-82c0-4a11-b8d3-f8705292d2fa": "454236404461d78300c32f9c5d5455685aa4f89241fbe7f9d8b1f0a7a040da55",
+        "dfe24ab7-cf9f-49ba-8e6a-8ba6c1b85096": "14e5078cd5363f65487c164a74f711adcbf4f99e2f5c49eee2576ecc33a83b89",
+        "dfe24ab7-cf9f-49ba-8e6a-8ba6c1b85096-notation-slide": "d50e3634fa9074ddc4408d738de6b01422697144175f06b5507ae91cb32a9c6a",
+        "w8-sandpile-two-clocks-reader": "56ec1f432e55ddb371664be6cfb8345cfafca5ae40257f4c9c07b254365cb9fa",
+        "w8-reader-avalanche-definitions": "6c0d217bf92cc8a1da7d79c25c9e0b94ff94d4b414ae28eb020a67a36e434f56",
+        "w8-qualitative-analysis-slide": "82093f713f9ecf856ae37ad1282936b6228ad77eb20e358f7d16721474044715",
+        "036605fa-9869-40cc-8e9b-8d69aac0261b": "79d8e89ad8915077c11cfc0bfc784afaff6ad8d0f510fc479ea027debc9a1b93",
+        "036605fa-9869-40cc-8e9b-8d69aac0261b-concise-slide": "28ef7a759ffd85b72ea5649d8dbfcf231ad234446f5ad6ab0e44e9a750bbf5e4",
+        "w8-measured-autocorrelation": "3de1d5e58506eff1da235e870ba309356fe486c4e5f24ad31a336daf6b77d21a",
+        "w8-autocorrelation-result-slide": "7625ebafc61928e76f6aa849bf2a848200d907a8aa806eea9d56125aa137f849",
+        "f99c1ab5-f5cc-48ec-9cad-95c2bea1cee4": "99b7e39e28fa38ca128d80bc4e45ab61aa5798da9be42ae950d1e4ddc0952e97",
+        "4ef815da-7df1-4d08-a36c-f5593e8edd2c": "07ea8592cde18a4730589efbd28648e1d4b8ba9c95918749daa23ebd8a956776",
+        "4ef815da-7df1-4d08-a36c-f5593e8edd2c-notation-slide": "2073853fd211d42bcaa7ce2a43f2fa810b66cb8552a11f42fe7deb03d5cd35f9",
+        "w8-btw-original-scaling-reader": "5121b9adcc62040e34c8892de7d37322d3a7fb37079066c95e856a3fd9c9022b",
+        "31a659d7-8bd2-46ad-b61b-aa6659cbb766": "4bd940b1e9a181d08b5289eb02b719f818c296f753347a03e5bfd506959e3d33",
+        "6ef6999f-aeb2-47d9-a94d-4f405a74be02": "23d4cb2201b3799e5a5fa5a9968dff0d3d88fc1fef453ca46b7507c0a52ddc07",
+        "w8-finite-avalanche-reader": "9478f90bbe4824980ce470d474516d843abe0bbf9f2d60bb1338b91b31e83c63",
+        "w8-finite-avalanche-slide": "07dcb5c3abd567a5576b01a9b27eb9bb7c73e388b30302b4fc6ddec002fed12f",
+        "w8-critical-point-workflow-reader": "98220007577a9047839776ca007a9ae5698dd081fed3ac5c9fa70917628ecbd8",
+        "w8-critical-point-workflow-slide": "ba11e6d1088dc9b969f4498d57395e27fd78ec7234dabfec04f6eaa9bcf9ec31",
+        "w8-tuned-versus-driven-sandpile-notation-slide": "9539ffa45fe7b4f1d1c244b030f4e11314853e0421ed80175d6d59ea0d5616d5",
+        "w8-fixed-energy-transition-reader": "41a028ba81c031aed0fc84ba01f77ee28b62d8d28f6ee99fbdfe691e995152cd",
+        "week08-sandpile-fractal-stills": "45376667138c144d156a66b14c10ca85832feb542514aca149d7196506361930",
+        "d9689493-fe6d-4c11-98e4-7cb1ecfc711e": "963f7f76b367b46374d9a8b975c531fbe2588b7f60e21c86ec1f688c5d2367db",
+        "624205d2-4885-4976-a5b4-0718c366279d": "4ec26f996d2c18069208348f2feeb0ca16d7b535ac6f6f91896270583183c777",
+        "cb05e58d-a142-4678-b52a-359ecf3f018a": "5e59228db504f430904832a01422645c8abba44c39bc8a67ebac380e0830c1ce",
+        "10b1bd93-b83e-4d3b-b2d3-18032b8f3314": "ecff94daa165aa3d3bdad6de70f969c0bc96c029b5d4b6815ecefdcd3d99546e",
+        "w8-renormalisation-levels-slide": "dedb980144431f51704e3de8497d39518237fc055d2005bb38ef02f8edfd6df9",
+        "7e997ebc-7369-49d2-8f24-577f346418cd": "6488cf52f66a792d85f1d10ee3c25a13cd6cc6d7ec573e43dc1d4f25c24a98f9",
+        "w8-reader-pseudocode": "45fdefacacd21d35430a0a23bd496b1a63577b9809e0bdfdb6d8429f85b06b90"
+      },
+      "displays": [
+        {
+          "slide": "w8-percolation-cluster-tails-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "dd5fbfb8-5f02-4683-9efa-cf0350649461",
+          "reader_index": 0
+        },
+        {
+          "slide": "w8-computing-pair-connectedness-detail-notation-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "w8-computing-pair-connectedness-detail",
+          "reader_index": 0
+        },
+        {
+          "slide": "w8-pair-connectedness-figure-notation-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "w8-pair-connectedness-figure",
+          "reader_index": 0
+        },
+        {
+          "slide": "w8-pair-connectedness-figure-notation-slide",
+          "index": 1,
+          "mode": "exact",
+          "reader": "w8-pair-connectedness-figure",
+          "reader_index": 1
+        },
+        {
+          "slide": "w8-spatial-scaling-notation-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "w8-spatial-scaling-reader",
+          "reader_index": 0
+        },
+        {
+          "slide": "dfe24ab7-cf9f-49ba-8e6a-8ba6c1b85096-notation-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "dfe24ab7-cf9f-49ba-8e6a-8ba6c1b85096",
+          "reader_index": 0
+        },
+        {
+          "slide": "4ef815da-7df1-4d08-a36c-f5593e8edd2c-notation-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "4ef815da-7df1-4d08-a36c-f5593e8edd2c",
+          "reader_index": 0
+        },
+        {
+          "slide": "4ef815da-7df1-4d08-a36c-f5593e8edd2c-notation-slide",
+          "index": 1,
+          "mode": "reviewed-variation",
+          "reader_cells": [
+            "4ef815da-7df1-4d08-a36c-f5593e8edd2c"
+          ],
+          "reason": "Logarithmic forms of the size and duration power-law densities; C_S and C_T are their constant prefactors, not correlation functions."
+        },
+        {
+          "slide": "w8-critical-point-workflow-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "w8-critical-point-workflow-reader",
+          "reader_index": 0
+        },
+        {
+          "slide": "w8-critical-point-workflow-slide",
+          "index": 1,
+          "mode": "exact",
+          "reader": "w8-critical-point-workflow-reader",
+          "reader_index": 1
+        },
+        {
+          "slide": "w8-renormalisation-levels-slide",
+          "index": 0,
+          "mode": "reviewed-variation",
+          "reader_cells": [
+            "10b1bd93-b83e-4d3b-b2d3-18032b8f3314"
+          ],
+          "reason": "Concise slide combines the repeated block map with the sequence of original-lattice widths; both definitions are given separately in the Reader."
+        },
+        {
+          "slide": "w8-autocorrelation-result-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "w8-measured-autocorrelation",
+          "reader_index": 0
         }
       ]
     }

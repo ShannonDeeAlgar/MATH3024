@@ -27,6 +27,8 @@ def check(root):
     required_pages = [
         'notebooks/week08/l-critical-phenomena/index.html',
         'slides/week08/L_Critical_phenomena.slides.html',
+        'notebooks/week08/ws-critical-phenomena/index.html',
+        'notebooks/week08/practice/index.html',
     ]
     for file in required_pages:
         if not (root / file).is_file():
@@ -61,4 +63,4 @@ if __name__ == '__main__':
     errors = check(Path(sys.argv[1] if len(sys.argv) > 1 else '_build/html'))
     if errors:
         raise SystemExit('\n'.join(errors))
-    print('Week 8 reader and slides are present; Weeks 9–10 are absent; Week 7 explorables resolve under /MATH3024.')
+    print('Week 8 reader, slides, workshop and practice questions are present; Weeks 9–10 are absent; Week 7 explorables resolve under /MATH3024.')

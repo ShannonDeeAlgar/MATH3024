@@ -43,6 +43,7 @@ project:
     - file: notebooks/week08/L_Critical_phenomena.ipynb
       children:
         - file: notebooks/week08/Slides.md
+        - file: notebooks/week08/WS_Critical_phenomena.ipynb
         - file: notebooks/week08/Practice.md
 site:
   options:
