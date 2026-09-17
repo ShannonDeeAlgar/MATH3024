@@ -14,6 +14,14 @@ from figure_style import BLUE, GRID as PALE, INK as NAVY, ORANGE, apply_course_f
 
 SUMMARY_GREY = "#667085"
 
+# Pillow measures type in pixels whereas Matplotlib's shared course template
+# measures it in points.  These sizes reproduce the template at the animation
+# export resolution without giving GIFs a separate, heavier visual style.
+ANIMATION_TITLE_SIZE = 25
+ANIMATION_LABEL_SIZE = 22
+ANIMATION_NOTE_SIZE = 18
+ANIMATION_TICK_SIZE = 18
+
 
 def simulate(n=36, coupling=1.65, dt=0.04, steps=300, seed=3024):
     rng = np.random.default_rng(seed)
@@ -32,12 +40,17 @@ def simulate(n=36, coupling=1.65, dt=0.04, steps=300, seed=3024):
 
 
 def font(size, bold=False):
-    """Use the same DejaVu Sans files as the course Matplotlib style."""
-    path = findfont(FontProperties(family="DejaVu Sans", weight="bold" if bold else "normal"))
+    """Use the typeface selected by the shared course figure template."""
+    configured_family = matplotlib.rcParams["font.family"]
+    family = configured_family[0] if isinstance(configured_family, list) else configured_family
+    path = findfont(FontProperties(family=family, weight="bold" if bold else "normal"))
     return ImageFont.truetype(path, size)
 
 
 def main():
+    # Apply the same family, weights, mathematical font and colours used by
+    # every static course figure before either Matplotlib or Pillow draws text.
+    apply_course_figure_style()
     history, order, dt, omega = simulate()
     norm = Normalize(vmin=float(omega.min()), vmax=float(omega.max()))
     colours = [to_hex(colormaps["coolwarm"](norm(value))) for value in omega]
@@ -60,15 +73,15 @@ def main():
         image = Image.new("RGB", (1200, 540), "white")
         draw = ImageDraw.Draw(image)
         centre, radius = (285, 280), 180
-        draw.text((105, 18), "Position in the cycle", fill=NAVY, font=font(31, bold=True))
-        draw.text((166, 60), "phase-space view", fill=NAVY, font=font(20))
+        draw.text((105, 18), "Position in the cycle", fill=NAVY, font=font(ANIMATION_TITLE_SIZE))
+        draw.text((166, 56), "phase-space view", fill=NAVY, font=font(ANIMATION_NOTE_SIZE))
         draw.ellipse((centre[0]-radius, centre[1]-radius, centre[0]+radius, centre[1]+radius), outline=NAVY, width=5)
         theta = history[k]
         for value, colour in zip(theta, colours):
             x, y = centre[0] + radius*np.cos(value), centre[1] - radius*np.sin(value)
             draw.ellipse((x-8, y-8, x+8, y+8), fill=colour, outline="white", width=2)
-        draw.text((720, 18), "Fixed nodes that flash", fill=NAVY, font=font(31, bold=True))
-        draw.text((795, 60), "fixed-node view", fill=NAVY, font=font(20))
+        draw.text((720, 18), "Fixed nodes that flash", fill=NAVY, font=font(ANIMATION_TITLE_SIZE))
+        draw.text((795, 56), "fixed-node view", fill=NAVY, font=font(ANIMATION_NOTE_SIZE))
         cols = 6
         spacing_x, spacing_y = 88, 78
         x0, y0 = 665, 115
@@ -82,7 +95,7 @@ def main():
             lit = np.array([245, 178, 45])
             rgb = tuple((base * (1-level) + lit * level).astype(int))
             draw.ellipse((x-18, y-18, x+18, y+18), fill=rgb, outline=NAVY, width=2)
-        draw.text((548, 508), f"t = {k*dt:4.1f}", fill=NAVY, font=font(25))
+        draw.text((548, 508), f"t = {k*dt:4.1f}", fill=NAVY, font=font(ANIMATION_LABEL_SIZE))
         qualitative_frames.append(image)
 
         # Quantitative view: retain the moving points, then add their vector
@@ -90,10 +103,10 @@ def main():
         image = Image.new("RGB", (1500, 760), "white")
         draw = ImageDraw.Draw(image)
         centre, radius = (330, 385), 225
-        draw.text((150, 25), "Current phases", fill=NAVY, font=font(36, bold=True))
-        draw.text((700, 25), "Individual histories and collective summaries", fill=NAVY, font=font(29, bold=True))
-        draw.text((115, 78), "colour: natural frequency", fill=NAVY, font=font(19))
-        draw.text((115, 108), "grey: vector average", fill=SUMMARY_GREY, font=font(19))
+        draw.text((150, 25), "Current phases", fill=NAVY, font=font(ANIMATION_TITLE_SIZE))
+        draw.text((700, 25), "Individual histories and collective summaries", fill=NAVY, font=font(ANIMATION_TITLE_SIZE))
+        draw.text((115, 72), "colour: natural frequency", fill=NAVY, font=font(ANIMATION_NOTE_SIZE))
+        draw.text((115, 101), "grey: vector average", fill=SUMMARY_GREY, font=font(ANIMATION_NOTE_SIZE))
         draw.ellipse((centre[0]-radius, centre[1]-radius, centre[0]+radius, centre[1]+radius), outline=NAVY, width=5)
         for value, colour in zip(theta, colours):
             x, y = centre[0] + radius*np.cos(value), centre[1] - radius*np.sin(value)
@@ -106,11 +119,11 @@ def main():
         for top, bottom in ((phase_top, phase_bottom), (coherence_top, coherence_bottom)):
             draw.line((left, bottom, right, bottom), fill=NAVY, width=3)
             draw.line((left, top, left, bottom), fill=NAVY, width=3)
-        draw.text((710, 78), "individual phase histories", fill=NAVY, font=font(19))
-        draw.text((1090, 78), "mean phase", fill=SUMMARY_GREY, font=font(19))
-        draw.text((620, 235), "phase", fill=NAVY, font=font(25))
-        draw.text((620, 585), "r(t)", fill=NAVY, font=font(27))
-        draw.text((1030, 715), "time", fill=NAVY, font=font(24))
+        draw.text((710, 72), "individual phase histories", fill=NAVY, font=font(ANIMATION_NOTE_SIZE))
+        draw.text((1090, 72), "mean phase", fill=SUMMARY_GREY, font=font(ANIMATION_NOTE_SIZE))
+        draw.text((620, 235), "phase", fill=NAVY, font=font(ANIMATION_LABEL_SIZE))
+        draw.text((620, 585), "r(t)", fill=NAVY, font=font(ANIMATION_LABEL_SIZE))
+        draw.text((1030, 715), "time", fill=NAVY, font=font(ANIMATION_LABEL_SIZE))
 
         # For this combined view, phase is a position within a cycle. Plot it
         # modulo 2π so the traces and the circle use the same representation.
@@ -138,8 +151,8 @@ def main():
         coherence_coords = list(zip(xcoords, coherence_y))
         if len(coherence_coords) > 1:
             draw.line(coherence_coords, fill=SUMMARY_GREY, width=5)
-        draw.text((655, coherence_bottom-16), "0", fill=NAVY, font=font(21))
-        draw.text((655, coherence_top-12), "1", fill=NAVY, font=font(21))
+        draw.text((655, coherence_bottom-16), "0", fill=NAVY, font=font(ANIMATION_TICK_SIZE))
+        draw.text((655, coherence_top-12), "1", fill=NAVY, font=font(ANIMATION_TICK_SIZE))
         quantitative_frames.append(image)
 
     output_dir = Path(__file__).resolve().parents[1] / "notebooks/week06/images"
@@ -155,7 +168,6 @@ def main():
     )
 
     # Also retain a static version for print and accessibility.
-    apply_course_figure_style()
     fig, axes = plt.subplots(
         2, 1, figsize=(11.5, 6.8), sharex=True,
         gridspec_kw={"height_ratios": (1.7, 1)}, constrained_layout=True,

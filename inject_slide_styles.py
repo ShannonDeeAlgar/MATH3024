@@ -271,6 +271,57 @@ SLIDES_ONLY_RULES = """
 
 .reveal .slides section .compact-panels .text-panel { padding: 0.45em 0.65em; }
 .reveal .slides section .compact-panels p { margin: 0; }
+
+/* Week 8 shared cells use projected layouts without changing the Reader. */
+.reveal [id="cell-id=w8-classic-transition-examples"] .jp-MarkdownOutput > img {
+  max-height: 315px !important;
+}
+.reveal [id="cell-id=w8-classic-transition-examples"] .jp-MarkdownOutput > p {
+  margin: 0.45em 0;
+}
+.reveal [id="cell-id=w8-classic-transition-examples"] .compact-panels .text-panel {
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+}
+.reveal [id="cell-id=w8-correlation-scale-intuition"] .jp-MarkdownOutput {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 0.8em;
+  row-gap: 0.35em;
+  align-items: start;
+}
+.reveal [id="cell-id=w8-correlation-scale-intuition"] .jp-MarkdownOutput > h2,
+.reveal [id="cell-id=w8-correlation-scale-intuition"] .jp-MarkdownOutput > p:nth-of-type(-n+3),
+.reveal [id="cell-id=w8-correlation-scale-intuition"] .jp-MarkdownOutput > p:nth-of-type(7) {
+  grid-column: 1 / -1;
+}
+.reveal [id="cell-id=w8-correlation-scale-intuition"] .jp-MarkdownOutput > p {
+  margin: 0;
+}
+.reveal [id="cell-id=w8-correlation-scale-intuition"] .jp-MarkdownOutput > p:nth-of-type(4) {
+  grid-column: 1;
+  grid-row: 5 / 7;
+}
+.reveal [id="cell-id=w8-correlation-scale-intuition"] .jp-MarkdownOutput > p:nth-of-type(5) {
+  grid-column: 2;
+  grid-row: 5;
+}
+.reveal [id="cell-id=w8-correlation-scale-intuition"] .jp-MarkdownOutput > p:nth-of-type(6) {
+  grid-column: 2;
+  grid-row: 6;
+}
+.reveal [id="cell-id=w8-correlation-scale-intuition"] .jp-MarkdownOutput > p:nth-of-type(7) {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.62em;
+  line-height: 1.28;
+  color: var(--reader-ink-soft);
+}
+.reveal [id="cell-id=w8-correlation-scale-intuition"] .MJXc-display {
+  margin: 0.45em 0;
+}
+.reveal [id="cell-id=w8-pair-connectedness-figure-notation-slide"] .MJXc-display {
+  margin: 0.4em 0;
+}
 .reveal .slides section .two-panel {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);

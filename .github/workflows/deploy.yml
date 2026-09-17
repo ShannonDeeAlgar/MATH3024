@@ -40,10 +40,11 @@ jobs:
           python-version: "3.11"
       - name: Install Python dependencies
         run: pip install -r requirements.txt
-      - name: Check Weeks 7 and 8 reader, slides and code
+      - name: Check Weeks 1–8 reader, slides and code
         run: |
           python tools/check_equation_consistency.py
           python tools/test_equation_consistency.py
+          python tools/test_execute_notebook.py
           python tools/test_week07_presentation.py
           python tools/test_week08_preparation.py
           MPLBACKEND=Agg python notebooks/week08/WS_Critical_phenomena_instructor_checks.py --checks-only
@@ -51,14 +52,14 @@ jobs:
         run: python tools/prepare_publication.py
       - name: Install Jupyter Book (via myst)
         run: npm install -g jupyter-book
-      - name: Rebuild Weeks 7 and 8 slides from the canonical readers
-        run: |
-          ./generate_slides.sh notebooks/week07/L_Intelligent_systems.ipynb
-          ./generate_slides.sh notebooks/week08/L_Critical_phenomena.ipynb
+      - name: Rebuild lecture slides from fresh notebook execution
+        run: ./refresh_slides.sh
       - name: Stage reader-only notebook copies
         run: python prepare_reader_build.py
       - name: Build HTML Assets
         run: jupyter-book build --html --execute
+      - name: Check reference formatting
+        run: python tools/check_reference_formatting.py
       - name: Add standalone lecture slides
         run: ./stage_slides.sh _build/html
       - name: Verify explorable URLs and publication boundary

@@ -1,6 +1,8 @@
 version: 1
 project:
   title: Unit Reader
+  bibliography:
+    - course_references.bib
   toc:
     - file: intro.md
     - file: notebooks/week00/Getting_Started.ipynb

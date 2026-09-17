@@ -15,6 +15,12 @@ READER = '\n'.join(''.join(c.get('source', [])) for c in CELLS
 
 
 class PresentationTests(unittest.TestCase):
+    def test_pso_ladder_callouts_keep_shared_format(self):
+        for cell_id in ['w7-slide-pso-analysis', 'w7-slide-pso-ensemble']:
+            source = ''.join(next(c for c in CELLS if c['id'] == cell_id)['source'])
+            self.assertIn('class="ladder-marker"', source)
+            self.assertIn('images/ladder_marker.svg', source)
+
     def test_published_explorable_routes(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

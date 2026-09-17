@@ -123,7 +123,7 @@
     legendLine(128,'#e15d36','towards the shared best found so far',true);
     legendLine(162,'#ff6b35','orange trail: selected particle');
     legendLine(188,'rgba(23,42,82,.58)','other trails: recent positions');
-    ctx.font='13px Arial';ctx.fillText('Trails retain up to 14 positions.',735,217);
+    ctx.font='13px Arial';ctx.fillText('Trails show up to 14 positions.',735,217);
     ctx.font='bold 15px Arial';ctx.fillText('Markers',735,253);
     function marker(y,colour,label,cross=false,circle=false){
       ctx.strokeStyle=colour;ctx.fillStyle=circle?'#ffffff':colour;ctx.lineWidth=2.5;

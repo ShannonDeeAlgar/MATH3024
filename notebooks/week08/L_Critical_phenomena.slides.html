@@ -5,7 +5,7 @@
 <meta content="chrome=1" http-equiv="X-UA-Compatible"/>
 <meta content="yes" name="apple-mobile-web-app-capable"/>
 <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
-<title>.L_Critical_phenomena.resolved.51923 slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
+<title>.L_Critical_phenomena.resolved.67746 slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
   import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script>
@@ -8438,6 +8438,7 @@ details.discussion-reveal .discussion-answer > :last-child {
 .article .reader-map {
   display: block;
   width: min(100%, 900px);
+  max-height: min(76vh, 720px);
   height: auto !important;
   object-fit: contain;
   margin: 1rem auto 0.5rem;
@@ -8779,6 +8780,57 @@ details.discussion-reveal .discussion-answer > :last-child {
 
 .reveal .slides section .compact-panels .text-panel { padding: 0.45em 0.65em; }
 .reveal .slides section .compact-panels p { margin: 0; }
+
+/* Week 8 shared cells use projected layouts without changing the Reader. */
+.reveal [id="cell-id=w8-classic-transition-examples"] .jp-MarkdownOutput > img {
+  max-height: 315px !important;
+}
+.reveal [id="cell-id=w8-classic-transition-examples"] .jp-MarkdownOutput > p {
+  margin: 0.45em 0;
+}
+.reveal [id="cell-id=w8-classic-transition-examples"] .compact-panels .text-panel {
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+}
+.reveal [id="cell-id=w8-correlation-scale-intuition"] .jp-MarkdownOutput {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 0.8em;
+  row-gap: 0.35em;
+  align-items: start;
+}
+.reveal [id="cell-id=w8-correlation-scale-intuition"] .jp-MarkdownOutput > h2,
+.reveal [id="cell-id=w8-correlation-scale-intuition"] .jp-MarkdownOutput > p:nth-of-type(-n+3),
+.reveal [id="cell-id=w8-correlation-scale-intuition"] .jp-MarkdownOutput > p:nth-of-type(7) {
+  grid-column: 1 / -1;
+}
+.reveal [id="cell-id=w8-correlation-scale-intuition"] .jp-MarkdownOutput > p {
+  margin: 0;
+}
+.reveal [id="cell-id=w8-correlation-scale-intuition"] .jp-MarkdownOutput > p:nth-of-type(4) {
+  grid-column: 1;
+  grid-row: 5 / 7;
+}
+.reveal [id="cell-id=w8-correlation-scale-intuition"] .jp-MarkdownOutput > p:nth-of-type(5) {
+  grid-column: 2;
+  grid-row: 5;
+}
+.reveal [id="cell-id=w8-correlation-scale-intuition"] .jp-MarkdownOutput > p:nth-of-type(6) {
+  grid-column: 2;
+  grid-row: 6;
+}
+.reveal [id="cell-id=w8-correlation-scale-intuition"] .jp-MarkdownOutput > p:nth-of-type(7) {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.62em;
+  line-height: 1.28;
+  color: var(--reader-ink-soft);
+}
+.reveal [id="cell-id=w8-correlation-scale-intuition"] .MJXc-display {
+  margin: 0.45em 0;
+}
+.reveal [id="cell-id=w8-pair-connectedness-figure-notation-slide"] .MJXc-display {
+  margin: 0.4em 0;
+}
 .reveal .slides section .two-panel {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -9280,9 +9332,10 @@ $$</p>
 <h2 id="Measuring-correlation-length">Measuring correlation length<a class="anchor-link" href="#Measuring-correlation-length">¶</a></h2><img alt="Pair-connectedness decays more slowly as porosity approaches the threshold, while the fitted length grows and becomes limited by lattice size" src="images/critical_correlations.svg" style="display:block;width:94%;max-height:280px;margin:0 auto"/>
 <p>$$\frac{C(r)}{C(1)}\approx B e^{-(r-1)/\xi_{\mathrm{eff}}}.$$</p>
 <p>$$p\uparrow \quad\Rightarrow\quad \xi_{\mathrm{eff}}\uparrow \quad\Rightarrow\quad C(r)\text{ decays more slowly with distance}.$$</p>
-<p>Distant sites are more likely to belong to the same finite cluster. Larger $L$ permits larger estimates before finite size limits them.</p>
-<p style="font-size:0.61em;color:#5B6780"><strong>Axes:</strong> exponential decay is straight on log-linear axes, with gradient $-1/\xi_{\mathrm{eff}}$. A power law is straight on log–log axes, with gradient $-a$. Here we estimate an exponential decay length below $p_c$.</p>
-<p style="font-size:0.61em;color:#5B6780">$\xi$ is the underlying correlation length; $\xi_{\mathrm{eff}}$ is its finite-range estimate. The spanning cluster adds a non-zero baseline above $p_c$.</p>
+<div class="two-panel compact-panels">
+<div class="text-panel"><p>Distant sites are more likely to belong to the same finite cluster. Larger $L$ permits larger estimates before finite size limits them.</p></div>
+<div class="text-panel"><p class="small-note"><strong>Axes:</strong> exponential decay is straight on log-linear axes, with gradient $-1/\xi_{\mathrm{eff}}$. A power law is straight on log–log axes, with gradient $-a$. Here we estimate an exponential decay length below $p_c$.</p><p class="small-note">$\xi$ is the underlying correlation length; $\xi_{\mathrm{eff}}$ is its finite-range estimate. The spanning cluster adds a non-zero baseline above $p_c$.</p></div>
+</div>
 </div>
 </div>
 </div>
@@ -9570,13 +9623,15 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
-<h2 id="Original-BTW-results">Original BTW results<a class="anchor-link" href="#Original-BTW-results">¶</a></h2><div class="two-panel compact-panels" style="grid-template-columns:repeat(2,minmax(0,1fr))">
-<div class="image-panel"><img alt="Original BTW Figure 2 showing response-cluster size distributions in two and three dimensions" src="images/btw_1987_fig2.png" style="display:block;width:auto;height:auto;max-height:405px;object-fit:contain;margin:0 auto"/><p class="figure-caption"><strong>Published Figure 2.</strong> Response size <i>s</i>, measured as sites reached.</p></div>
-<div class="image-panel"><img alt="Original BTW Figure 3 showing response-lifetime distributions in two and three dimensions" src="images/btw_1987_fig3.png" style="display:block;width:auto;height:auto;max-height:405px;object-fit:contain;margin:0 auto"/><p class="figure-caption"><strong>Published Figure 3.</strong> Response lifetime <i>t</i>.</p></div>
+<h2 id="Original-BTW-results">Original BTW results<a class="anchor-link" href="#Original-BTW-results">¶</a></h2><div class="two-panel wide-left compact-panels">
+<div class="image-panel"><div class="two-panel compact-panels">
+<div class="image-panel"><img alt="Original BTW Figure 2 showing response-cluster size distributions in two and three dimensions" src="images/btw_1987_fig2.png" style="display:block;width:auto;height:auto;max-height:350px;object-fit:contain;margin:0 auto"/><p class="figure-caption"><strong>Published Figure 2.</strong> Response size <i>s</i>, measured as sites reached.</p></div>
+<div class="image-panel"><img alt="Original BTW Figure 3 showing response-lifetime distributions in two and three dimensions" src="images/btw_1987_fig3.png" style="display:block;width:auto;height:auto;max-height:350px;object-fit:contain;margin:0 auto"/><p class="figure-caption"><strong>Published Figure 3.</strong> Response lifetime <i>t</i>.</p></div>
+</div></div>
+<div class="text-panel"><p>The straight log–log sections extend across about two decades, farther than our fitted ranges. BTW use these broad distributions as evidence that responses extend across many spatial and temporal scales.</p>
+<p class="small-note">For Fig. 2, BTW attribute the small-<i>s</i> deviation to lattice discreteness and the large-<i>s</i> falloff to finite array size, checked using different array sizes. Fig. 3 has a shorter reliable range because lifetimes are much smaller than response sizes.</p>
+<p class="small-note">BTW size <i>s</i> counts sites reached, closest to our area <i>A</i><sub>av</sub>. Our <i>S</i> counts topplings. Their lifetime distribution is response-weighted; our <i>T</i> counts parallel steps.</p></div>
 </div>
-<p>The straight log–log sections extend across about two decades, farther than our fitted ranges. BTW use these broad distributions as evidence that responses extend across many spatial and temporal scales.</p>
-<p style="font-size:0.66em;color:#5B6780">For Fig. 2, BTW attribute the small-<i>s</i> deviation to lattice discreteness and the large-<i>s</i> falloff to finite array size, checked using different array sizes. Fig. 3 has a shorter reliable range because lifetimes are much smaller than response sizes.</p>
-<p class="small-note">BTW size <i>s</i> counts sites reached, closest to our area <i>A</i><sub>av</sub>. Our <i>S</i> counts topplings. Their lifetime distribution is response-weighted; our <i>T</i> counts parallel steps.</p>
 <p class="figure-reference">Source: Bak, Tang and Wiesenfeld (1987), <a href="https://doi.org/10.1103/PhysRevLett.59.381"><em>Physical Review Letters</em>, Figs. 2 and 3</a>.</p>
 </div>
 </div>
