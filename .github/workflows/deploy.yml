@@ -40,13 +40,14 @@ jobs:
           python-version: "3.11"
       - name: Install Python dependencies
         run: pip install -r requirements.txt
-      - name: Check Weeks 1–8 reader, slides and code
+      - name: Check released reader, slides and code
         run: |
           python tools/check_equation_consistency.py
           python tools/test_equation_consistency.py
           python tools/test_execute_notebook.py
           python tools/test_week07_presentation.py
           python tools/test_week08_preparation.py
+          python tools/test_week10_publication.py
           MPLBACKEND=Agg python notebooks/week08/WS_Critical_phenomena_instructor_checks.py --checks-only
       - name: Restrict publication to released weeks
         run: python tools/prepare_publication.py

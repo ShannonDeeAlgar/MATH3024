@@ -8,6 +8,8 @@ source "$(pwd)/tools/course_python.sh"
 
 for NOTEBOOK in notebooks/week*/L_*.ipynb; do
     [[ -f "$NOTEBOOK" ]] || continue
+    # Week 10 has been cleared for the Reader only.
+    [[ "$NOTEBOOK" == notebooks/week10/* ]] && continue
     ./generate_slides.sh --fresh "$NOTEBOOK"
 done
 

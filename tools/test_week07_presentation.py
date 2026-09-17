@@ -31,7 +31,9 @@ class PresentationTests(unittest.TestCase):
                          'notebooks/week08/l-critical-phenomena/index.html',
                          'notebooks/week08/ws-critical-phenomena/index.html',
                          'notebooks/week08/practice/index.html',
-                         'slides/week08/L_Critical_phenomena.slides.html']:
+                         'slides/week08/L_Critical_phenomena.slides.html',
+                         'notebooks/week10/l-game-theory/index.html',
+                         'notebooks/week10/axelrod-tournament/index.html']:
                 target = root / page; target.parent.mkdir(parents=True, exist_ok=True)
                 target.write_text(content)
             for route in ['notebooks/week07/images',
@@ -39,6 +41,12 @@ class PresentationTests(unittest.TestCase):
                 for name in ['aco_network_explorer.html', 'pso_explorer.html']:
                     target = root / route / name
                     target.parent.mkdir(parents=True, exist_ok=True); target.write_text('explorable')
+            for name in ['discussion_marker.svg', 'pd_best_response_plane.svg',
+                         'pd_general_payoffs.svg', '2x2games-topology_page1.jpg',
+                         '2x2games-topology_page4.jpg', 'sinervo-morphs-source.jpeg']:
+                target = root / 'notebooks/week10/l-game-theory/images' / name
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.touch()
             self.assertEqual(check_assets(root), [])
             workshop = root / 'notebooks/week08/ws-critical-phenomena/index.html'
             workshop.unlink()
@@ -79,11 +87,12 @@ class PresentationTests(unittest.TestCase):
         self.assertTrue(allowed('notebooks/week07/Slides.md'))
         self.assertTrue(allowed('notebooks/week08/Slides.md'))
         self.assertFalse(allowed('notebooks/week09/Slides.md'))
-        self.assertFalse(allowed('week10'))
+        self.assertTrue(allowed('week10'))
         original = [{'file': 'intro.md', 'children': [{'file': 'notebooks/week08/L.ipynb'}]},
-                    {'file': 'notebooks/week07/L.ipynb'}, {'file': 'notebooks/week10/L.ipynb'}]
+                    {'file': 'notebooks/week07/L.ipynb'}, {'file': 'notebooks/week10/L.ipynb'},
+                    {'file': 'notebooks/week09/L.ipynb'}]
         result = filter_toc(original)
-        self.assertEqual(len(result), 2)
+        self.assertEqual(len(result), 3)
         self.assertEqual(result[0]['children'], [{'file': 'notebooks/week08/L.ipynb'}])
         self.assertEqual(len(original[0]['children']), 1)
 

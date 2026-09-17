@@ -7,6 +7,17 @@ set -euo pipefail
 cd "$(dirname "$0")"
 SITE_ROOT="${1:-_build/html}"
 
+# Week 10 is Reader-only and uses raw HTML figures.
+if [[ -d notebooks/week10/images ]]; then
+    for READER_IMAGE_ROOT in \
+        "$SITE_ROOT/notebooks/week10/images" \
+        "$SITE_ROOT/notebooks/week10/l-game-theory/images" \
+        "$SITE_ROOT/notebooks/week10/axelrod-tournament/images"; do
+        mkdir -p "$READER_IMAGE_ROOT"
+        cp -R notebooks/week10/images/. "$READER_IMAGE_ROOT/"
+    done
+fi
+
 # Discover every week containing a rendered lecture deck. This avoids the
 # recurring failure where a new week exists but is omitted from deployment.
 for SOURCE_ROOT in notebooks/week*; do
@@ -14,6 +25,7 @@ for SOURCE_ROOT in notebooks/week*; do
     compgen -G "$SOURCE_ROOT/L_*.slides.html" >/dev/null || continue
 
     WEEK="$(basename "$SOURCE_ROOT")"
+    [[ "$WEEK" == "week10" ]] && continue
     SLIDE_ROOT="$SITE_ROOT/slides/$WEEK"
 
     mkdir -p "$SLIDE_ROOT"
@@ -94,6 +106,7 @@ done
 for SLIDES_PAGE in notebooks/week*/Slides.md; do
     [[ -f "$SLIDES_PAGE" ]] || continue
     WEEK="$(basename "$(dirname "$SLIDES_PAGE")")"
+    [[ "$WEEK" == "week10" ]] && continue
     ABSOLUTE_PREFIX="https://shannondeealgar.github.io/MATH3024/slides/$WEEK/"
     LINK="$(sed -n 's/.*href="\([^"]*\.slides\.html\)".*/\1/p' "$SLIDES_PAGE" | head -n 1)"
 

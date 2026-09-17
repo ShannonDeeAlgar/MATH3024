@@ -1139,6 +1139,32 @@ img[src*="pso_ensemble"] {
   max-height: min(76vh, 720px);
 }
 
+/* Week 10 diagrams and the cropped lizard photograph. */
+.article img.game-payoff-figure,
+.article img.game-plane-figure,
+.article img.game-atlas-figure {
+  display: block;
+  height: auto !important;
+  max-width: 100% !important;
+  margin: 1rem auto;
+}
+.article img.game-payoff-figure { width: min(100%, 360px) !important; }
+.article img.game-plane-figure { width: min(100%, 400px) !important; }
+.article img.game-atlas-figure {
+  width: min(100%, 760px) !important;
+  max-height: min(76vh, 720px);
+}
+.article img[data-canonical-url="images/sinervo-morphs-source.jpeg"] {
+  position: absolute;
+  width: 250% !important;
+  max-width: none !important;
+  max-height: none !important;
+  height: auto !important;
+  left: -129.8077%;
+  top: -77.3585%;
+  margin: 0 !important;
+}
+
 /* MyST's generic article-image rule appears after the card rules above.
    Reassert a shared card image frame so different source aspect ratios do
    not push titles into the images or produce uneven cards. */
