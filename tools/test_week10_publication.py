@@ -44,6 +44,12 @@ class Week10PublicationTests(unittest.TestCase):
             for relative in re.findall(r'\]\(([^):]+\.ipynb)\)', source):
                 self.assertTrue((LECTURE.parent / relative).is_file(), relative)
 
+    def test_week10_citation_overrides_are_included(self):
+        bibliography = (ROOT / 'course_references.bib').read_text()
+        self.assertIn('author = {Maynard Smith, John and Price, George R.}', bibliography)
+        self.assertIn('doi = {10.1038/246015a0}', bibliography)
+        self.assertIn('doi = {10.1111/evo.14416}', bibliography)
+
     def test_simulation_comes_before_analysis(self):
         sequence = ['w10-rps-population', 'w10-rps-arena',
                     'w10-rps-population-behaviour', 'w10-lizard-morphs']
