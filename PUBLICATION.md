@@ -1,15 +1,17 @@
 # Publication boundary
 
 This update includes Weeks 1–8, Getting Started, the welcome page and glossary.
-It includes the revised practice answers and workshops. Weeks 9–10 remain
-outside the publication boundary.
+It includes the revised practice answers and workshops for those weeks.
+Week 10 adds the Reader and its linked Axelrod worked example. Week 9 and the
+Week 10 slides, workshop and practice questions remain outside the publication boundary.
 
-The public Reader currently stops at Week 8. Local previews retain all weeks.
+The public Reader includes Weeks 1–8 and Week 10. Local previews retain all weeks.
 The deployment workflow runs `tools/prepare_publication.py` in its disposable
 CI checkout before rendering. It removes later-week entries and directories
 there, so slide staging cannot accidentally publish them. The script refuses
 to run in a normal local session. Change `MAX_WEEK` only when another week is
-explicitly cleared for publication.
+explicitly cleared for publication. Week 10 is an explicit exception in
+`EXTRA_WEEKS`, so publishing it does not expose Week 9.
 
 ## Release checks
 

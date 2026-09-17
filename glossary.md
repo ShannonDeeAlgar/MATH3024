@@ -8,6 +8,16 @@ Where a term has several meanings, use the definition for the model being discus
 
 **Autocorrelation.** Correlation of a signal with a lagged copy of itself. Its function shows how relatedness changes with the lag. *(Week 8)*
 
+**Action.** One available choice at a decision point; in the one-shot prisoner’s dilemma, cooperate or defect. *(Week 10)*
+
+**Action set.** The choices available to one player. *(Week 10)*
+
+**Action profile.** One specified action for every player. Mutual cooperation is one prisoner’s-dilemma action profile. *(Week 10)*
+
+**Anti-coordination game.** A game in which players benefit from different rather than matching actions. *(Week 10)*
+
+**Asymmetric game.** A game in which exchanging player roles does not preserve the available strategies and payoff rules. *(Week 10)*
+
 **Ant System.** The original ACO algorithm in which each ant constructs a candidate solution and deposits pheromone according to its quality after evaporation. *(Week 7)*
 
 **Adaptation.** A change in an agent, rule or population caused by experience, selection or environmental feedback. Adaptation need not imply biological evolution. *(Weeks 1, 7 and 10)*
@@ -26,6 +36,8 @@ Where a term has several meanings, use the definition for the model being discus
 
 ## B
 
+**Best response.** An action or strategy maximising a player’s payoff against specified opponent choices, or expected payoff against a belief about them. *(Week 10)*
+
 **Biomimicry.** Designing materials, structures or processes using ideas drawn from biological systems. *(Week 7)*
 
 **Bifurcation.** A qualitative change in long-term behaviour as a parameter varies. This is useful wider vocabulary for transitions, although formal bifurcation theory is not assessed in this unit. *(Weeks 3, 6 and 8)*
@@ -42,6 +54,14 @@ Where a term has several meanings, use the definition for the model being discus
 **Confidence interval.** An interval describing uncertainty in an estimated quantity. Its confidence level describes how often the interval procedure covers the true value over repeated experiments. *(Week 8)*
 
 **Correlation time.** A time scale $\tau$ summarising how quickly temporal correlation fades. A longer correlation time means fluctuations remain related for longer. *(Week 8)*
+
+**Cooperation.** Acting towards a shared benefit. In the prisoner’s dilemma, the cooperative action benefits the other player but is individually costly relative to defection. *(Week 10)*
+
+**Coordination.** Making actions fit together, even when preferences differ; deliberate agreement is not required. *(Week 10)*
+
+**Coordination game.** A game in which players benefit from compatible choices. *(Week 10)*
+
+**Cyclic dominance.** A cycle of advantages: each type defeats one alternative and is defeated by another, as in rock–paper–scissors. *(Week 10)*
 
 **Candidate solution.** One possible answer represented in the search space and evaluated by the objective function. *(Week 7)*
 
@@ -92,6 +112,8 @@ Where a term has several meanings, use the definition for the model being discus
 
 In statistical estimation, “degrees of freedom” has a related but distinct use, such as the sample size minus the number of fitted parameters; that is not the state-variable count used here.
 
+**Defection.** The non-cooperative action in the prisoner’s dilemma: exploiting cooperation or withholding it, here by testifying against the other prisoner. *(Week 10)*
+
 **Deposit scale.** The ACO parameter controlling the amount of pheromone deposited for a given route cost. In our model, each traversed edge receives the deposit scale divided by the complete route cost. *(Week 7)*
 
 **Distributed computation.** Computation in which information storage, processing and decision-making are spread across interacting components. *(Week 7)*
@@ -107,6 +129,8 @@ In statistical estimation, “degrees of freedom” has a related but distinct u
 **Dynamics.** The rule or equations that change a model state through time. *(All model-building weeks)*
 
 ## E
+
+**Expected payoff.** The average payoff weighted by the probabilities assigned to possible outcomes. *(Week 10)*
 
 **Environmental memory.** Information stored in an environment and available to influence later behaviour, such as pheromone left on a trail. *(Week 7)*
 
@@ -126,6 +150,8 @@ In statistical estimation, “degrees of freedom” has a related but distinct u
 
 ## F
 
+**Frequency-dependent selection.** Selection in which a type’s success depends on the population’s current mixture of types. *(Week 10)*
+
 **Feedback.** A loop in which a system output influences later inputs or dynamics. **Positive feedback** reinforces an initial change or amplifies a difference; **negative feedback** opposes a change and can regulate or stabilise behaviour. “Positive” and “negative” describe the direction of the loop, not whether its outcome is desirable. *(Weeks 1, 6 and 7)*
 
 **Field.** A quantity defined throughout a spatial domain, such as a chemical concentration or density. A field description represents what is present at each location rather than tracking named individuals. *(Weeks 3 and 8)*
@@ -139,6 +165,10 @@ In statistical estimation, “degrees of freedom” has a related but distinct u
 **Fractal dimension.** A dimension intended to quantify how measured detail changes with scale. Different definitions and estimation procedures need not give identical finite-data results. *(Weeks 2 and 8)*
 
 ## G–I
+
+**Game theory.** The study of strategic interaction: choices whose consequences depend on other decision makers’ choices. *(Week 10)*
+
+**Inheritance.** Transmission of a parent’s strategy or trait to descendants or copies in an evolutionary model. *(Week 10)*
 
 **Inertia (PSO).** The contribution of part of a particle's previous displacement in its next update, controlled by the inertia weight. *(Week 7)*
 
@@ -168,6 +198,12 @@ In statistical estimation, “degrees of freedom” has a related but distinct u
 
 ## L–M
 
+**Mixed strategy.** A probability distribution over pure strategies; in a one-shot game, probabilities assigned to available actions. *(Week 10)*
+
+**Mixed Nash equilibrium.** A strategy profile involving randomised choices where no player can improve expected payoff by changing their own mixture alone. *(Week 10)*
+
+**Mutation.** A change in an inherited or copied strategy; the model specifies its rate and possible outcomes. *(Week 10)*
+
 **Lattice.** A regular discrete arrangement of sites on which states or agents may be placed. *(Weeks 3, 4, 8 and 10)*
 
 **Local rule.** An update determined from a component and a restricted neighbourhood rather than the complete system. *(Weeks 1 and 3–5)*
@@ -185,6 +221,16 @@ In statistical estimation, “degrees of freedom” has a related but distinct u
 **Mutual information.** The reduction in uncertainty about one variable obtained by knowing another. It measures statistical dependence, not meaning or causation. *(Week 9)*
 
 ## N–O
+
+**Negotiation.** Exchanging proposals or concessions to seek agreement when interests differ. *(Week 10)*
+
+**Non-zero-sum game.** A game whose payoff sum is not always zero. In the prisoner’s dilemma the sum varies, and both players prefer mutual cooperation to mutual defection. *(Week 10)*
+
+**Normal form.** A representation specifying players, their strategies and payoffs for every strategy profile. A two-player finite game can be displayed as a payoff matrix. *(Week 10)*
+
+**One-shot game.** A game played once, without future rounds that could reward or punish current behaviour. *(Week 10)*
+
+**Ordinal payoffs.** Rankings of outcomes rather than numerical strengths of preference. Rankings alone do not determine expected utilities for lotteries. *(Week 10)*
 
 **Normalised pheromone score.** A route pheromone score divided by a reference value. Our heatmap uses the largest score across all displayed routes and recorded generations in that run, giving one colour scale throughout. *(Week 7)*
 
@@ -217,6 +263,22 @@ In statistical estimation, “degrees of freedom” has a related but distinct u
 **Order parameter.** A macroscopic quantity used to distinguish collective regimes, such as polarisation in the Vicsek model or coherence in the Kuramoto model. *(Weeks 5, 6 and 8)*
 
 ## P
+
+**Pareto-superior.** An outcome is Pareto-superior to another if nobody is worse off and at least one player is better off. *(Week 10)*
+
+**Pareto optimal.** An outcome is Pareto optimal, or Pareto efficient, if no feasible alternative improves someone’s payoff without worsening another’s. This differs from Nash equilibrium. *(Week 10)*
+
+**Payoff function.** A rule assigning one player’s payoff to every strategy profile. *(Week 10)*
+
+**Payoff matrix.** A table showing the players’ payoffs for every action or strategy pair. *(Week 10)*
+
+**Payoff plane.** A plot with one player’s payoff on each axis; each action profile is represented by its payoff pair. *(Week 10)*
+
+**Player.** A decision maker in a game. *(Week 10)*
+
+**Pure strategy.** A complete non-randomised rule for acting. In a one-shot game it chooses one action; in a repeated game it specifies an action after each possible history. *(Week 10)*
+
+**Punishment.** In the prisoner’s dilemma, the payoff each player receives under mutual defection. *(Week 10)*
 
 **Personal best.** The best position a particle has visited so far, stored as its individual search memory in PSO. *(Week 7)*
 
@@ -256,6 +318,16 @@ In statistical estimation, “degrees of freedom” has a related but distinct u
 
 **Renormalisation.** Coarse-graining followed by rescaling to compare descriptions at different observation scales. Its iterations change scale rather than model time. *(Week 8)*
 
+**Repeated game.** Successive rounds of a game played by the same players; strategies can condition future actions on past play. *(Week 10)*
+
+**Replicator dynamics.** Evolution of population strategy frequencies governed by the replicator equation; above-average-payoff strategies increase their share. *(Week 10)*
+
+**Reward.** In the prisoner’s dilemma, the payoff each player receives under mutual cooperation. *(Week 10)*
+
+**Round-robin tournament.** A comparison in which every pair of entrants plays a match. In our repeated-game experiment, a round is one action pair and a match contains multiple rounds. *(Week 10)*
+
+**Rational agent.** An agent with consistent preferences who chooses an available action that maximises their payoff given their information and beliefs. Under uncertainty, our game-theoretic analysis assumes expected-payoff maximisation. Rationality does not itself require selfish preferences or perfect foresight. *(Week 10)*
+
 **Reservoir computing.** Using the responses of a dynamical system to transform an input signal, then training a readout to produce the desired output. *(Week 7; optional related approach)*
 
 **Result sharing.** Agents exchanging discoveries that can guide one another's searches. *(Week 7)*
@@ -270,7 +342,7 @@ In statistical estimation, “degrees of freedom” has a related but distinct u
 
 **Reaction–diffusion model.** A spatial model combining local reaction terms with diffusion of one or more fields. *(Week 3)*
 
-**Replicator equation.** An equation for strategy frequencies in which strategies grow or decline according to their payoff relative to the population average. *(Week 10)*
+**Replicator equation.** A continuous-time model of selection: a strategy’s population share changes at a rate equal to its current share multiplied by its payoff advantage over the frequency-weighted population mean. The resulting changes are called replicator dynamics. The basic model assumes a well-mixed, effectively infinite population, faithful inheritance and no mutation; it tracks relative shares, not total population size. *(Week 10)*
 
 **Reproducibility.** The capacity to obtain the stated result again from a complete specification, code, data and recorded random seeds. *(Course-wide modelling practice)*
 
@@ -279,6 +351,24 @@ In statistical estimation, “degrees of freedom” has a related but distinct u
 **Rule space.** The set of possible update rules within a specified model family. *(Week 4)*
 
 ## S
+
+**Selection.** Differential reproductive or copying success that changes the representation of inherited strategies or traits. *(Week 10)*
+
+**Self-regarding preferences.** Preferences that value only the player’s own specified outcome; in our prisoner’s dilemma, reducing their own prison sentence. This is a separate assumption from rationality. *(Week 10)*
+
+**Strategy frequency.** The fraction of a population using a given strategy. *(Week 10)*
+
+**Strategy profile.** One complete strategy specified for every player; in a one-shot pure-strategy game this is an action profile. *(Week 10)*
+
+**Strictly dominant strategy.** A strategy giving a higher payoff than every alternative for every combination of opponents’ choices. *(Week 10)*
+
+**Strictly dominated strategy.** A strategy giving a lower payoff than some alternative strategy for every combination of opponents’ choices. *(Week 10)*
+
+**Structured population.** A population whose interaction opportunities depend on a network, lattice or other specified structure rather than unrestricted random mixing. *(Week 10)*
+
+**Sucker’s payoff.** In the prisoner’s dilemma, the payoff to a cooperator whose opponent defects. *(Week 10)*
+
+**Symmetric game.** A game whose strategy sets and payoff rules are unchanged by exchanging player roles; players need not earn equal payoffs when their actions differ. *(Week 10)*
 
 **Shared best.** The best recorded position available to a particle through its communication network. In global-best PSO, this is the best position found anywhere in the swarm. *(Week 7)*
 
@@ -326,6 +416,12 @@ In statistical estimation, “degrees of freedom” has a related but distinct u
 
 ## T–V
 
+**Temptation.** In the prisoner’s dilemma, the payoff to a defector whose opponent cooperates. *(Week 10)*
+
+**Unilateral deviation.** A change in one player’s strategy while all other players’ strategies remain fixed. *(Week 10)*
+
+**Utility.** A numerical representation of a player’s preferences; higher is better. We use utility as the game payoff, such as negative prison years. *(Week 10)*
+
 **Task sharing.** Dividing work among agents so that their contributions address different parts of a collective task. *(Week 7)*
 
 **Tour.** In the travelling-salesperson problem, a closed route that visits each city once before returning to its starting city. *(Week 7)*
@@ -343,6 +439,10 @@ In statistical estimation, “degrees of freedom” has a related but distinct u
 **Verification.** Checking that equations or rules have been implemented as intended, using limiting cases, invariants, known results and intermediate states. *(Course-wide modelling practice)*
 
 ## W
+
+**Well-mixed population.** A population in which encounter probabilities depend on overall type frequencies rather than spatial neighbourhoods. *(Week 10)*
+
+**Zero-sum game.** A game in which the players’ payoffs sum to zero for every outcome; one player’s gain is another’s loss. *(Week 10)*
 
 **Waggle dance.** A honeybee signal whose orientation and duration convey the direction and distance of a resource relative to the hive. *(Week 7)*
 

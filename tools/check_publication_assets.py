@@ -22,14 +22,23 @@ class Frames(HTMLParser):
 def check(root):
     errors = []
     for path in root.rglob('*'):
-        if re.search(r'(?:^|/)week(?:09|10)(?:/|\.|$)', str(path.relative_to(root))):
+        if re.search(r'(?:^|/)week09(?:/|\.|$)', str(path.relative_to(root))):
             errors.append(f'Unreleased material staged: {path.relative_to(root)}')
+        if re.search(r'(?:^|/)week10/(?:ws[-_]|practice(?:/|\.|$))', str(path.relative_to(root)), re.I):
+            errors.append(f'Unreleased Week 10 workshop or practice staged: {path.relative_to(root)}')
+        if str(path.relative_to(root)).startswith('slides/week10'):
+            errors.append(f'Week 10 is a Reader-only release: {path.relative_to(root)}')
     required_pages = [
         'notebooks/week08/l-critical-phenomena/index.html',
         'slides/week08/L_Critical_phenomena.slides.html',
         'notebooks/week08/ws-critical-phenomena/index.html',
         'notebooks/week08/practice/index.html',
+        'notebooks/week10/l-game-theory/index.html',
+        'notebooks/week10/axelrod-tournament/index.html',
     ]
+    required_pages += [f'notebooks/week10/l-game-theory/images/{name}' for name in (
+        'discussion_marker.svg', 'pd_best_response_plane.svg', 'pd_general_payoffs.svg',
+        '2x2games-topology_page1.jpg', '2x2games-topology_page4.jpg', 'sinervo-morphs-source.jpeg')]
     for file in required_pages:
         if not (root / file).is_file():
             errors.append(f'Missing published page: {file}')
@@ -63,4 +72,4 @@ if __name__ == '__main__':
     errors = check(Path(sys.argv[1] if len(sys.argv) > 1 else '_build/html'))
     if errors:
         raise SystemExit('\n'.join(errors))
-    print('Week 8 reader, slides, workshop and practice questions are present; Weeks 9–10 are absent; Week 7 explorables resolve under /MATH3024.')
+    print('Weeks 1–8 and the Week 10 Reader are present; Week 9 and Week 10 slides/workshop/practice are absent; Week 7 explorables resolve under /MATH3024.')

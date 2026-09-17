@@ -8,9 +8,10 @@
     "notebooks/week05/L_ABM.ipynb",
     "notebooks/week06/L_Synchronisation.ipynb",
     "notebooks/week07/L_Intelligent_systems.ipynb",
-    "notebooks/week08/L_Critical_phenomena.ipynb"
+    "notebooks/week08/L_Critical_phenomena.ipynb",
+    "notebooks/week10/L_Game_theory.ipynb"
   ],
-  "description": "Audited Weeks 1–8 reader and slide equations and inline LaTeX. Figure pixels and executable implementations are separate checks.",
+  "description": "Audited published reader and slide equations and inline LaTeX. Figure pixels and executable implementations are separate checks.",
   "notebooks": {
     "notebooks/week01/L_Introduction_to_complex_systems.ipynb": {
       "math_signatures": {
@@ -844,6 +845,122 @@
           "mode": "exact",
           "reader": "w8-measured-autocorrelation",
           "reader_index": 0
+        }
+      ]
+    },
+    "notebooks/week10/L_Game_theory.ipynb": {
+      "math_signatures": {
+        "w10-rps-local-game": "33fe84933f51a237f2b708162744b820c0879fe4f24bc1d2365e0e2092d1f17d",
+        "w10-rps-local-game-slide": "6ba3fc5b9e5540507ddd9c77929de7e32ddb599e55872f2276ac4b34e111b8e5",
+        "d3421853": "765eb028c45734dc5572955abc594fc2df41a9b2ad21eec9d106a5a0abae9e34",
+        "d3421853-notation-slide": "50a37bae26e1791efffa40fa4682fd27fcf31438d206921693ac56231604ae70",
+        "b43b5b0d-465b-4a2e-9e3b-181971725ff0": "a1ede42c97bfcb0864283ed01cc0a48950eb24f2ceb6e16a6655737ac91e510f",
+        "8ff83c61-0097-43d3-ac1a-e5f5fef2995b": "f5e475f067ba4538d75c38b6663e9bdf809a25dfd98cf3d68e3a51a56c8b06e3",
+        "7bd55632-9c72-4c3a-9bcd-056ecf3b727c": "a77811b40c51f0cfd114f8277c1763a9ffb40a7e4a0f6b42ea4b5f4a82d44629",
+        "b091f920-71fa-423d-bcca-802cdfc18199": "223760295687241b92df7721f041b160ee12e1606e038ae8ae836c536241c9a0",
+        "b091f920-71fa-423d-bcca-802cdfc18199-notation-slide": "c966bfac78ef0d4c336e82357c73ba1e79d3c5d3590bdbc0cce5dbf82a56a538",
+        "8309b600-a5e3-4836-853a-d685bf85dd2f": "eba901d004358a4a9db1401bea4ab87cc5f3d184664fc26f995d111ef4ecf380",
+        "e190c160-09b7-46d5-8983-6aa6f397daf4": "cbc30f775acdfc2099162c551ffa28e6faada67d48f4d193f7d5fe75e3f2572a",
+        "e190c160-09b7-46d5-8983-6aa6f397daf4-notation-slide": "63326149ee0101c8139a087f209048c281a3aff23deae5cbd0fbbe7962302b73",
+        "185e0fc7-41d0-47a3-b5e9-cdedc9619297": "bc1063eb041952ca5c550ff87958c8055592f32955048fbd8b2259b0209939c3",
+        "185e0fc7-41d0-47a3-b5e9-cdedc9619297-notation-slide": "0136dc6681a214e0b53b77e8adc2e2ce9d273112892f9e07aace86c3df3159a3",
+        "c1cd393a-fb79-4969-886d-91559cef052a": "4d37d815a153099290056829109e94dcd7e219fe36a06b2a0ab3837982b90cd0",
+        "5cddb19c": "bca0fee8203cdb9e45fad0e46e9403ee54bdbbfbf986a30bb2687e9a7ebe0c8e",
+        "4c60edf4-5607-4ff8-a279-e6770d3a517b": "1b7bc1d5a0b12cfc6352fcbdb30c8ae8759822957a33a0b64b16148ab217956b",
+        "e902a40e-5ac1-4db4-ad7c-a606d1f0f688": "4e02b9606741a060de160f05252a13c2ba6c38cccaf373834489286d3e7830c8",
+        "894680c8-6d78-4117-b994-6b42b5c64ffe": "c1fd8aa743b8ea1714ce4fe6f291b57cd2d881ce7568dc8043773fce8f55801a",
+        "2adb1aca": "0a8a66c1228557091882732762c3a16488e01720ed1380eb6ce3cc69181e988b",
+        "2adb1aca-notation-slide": "ce1a4f9dc1e2d06b4401ab8f694bac50d3f9657d7ff1484d0e4fd023025fce67",
+        "7af06bd8-c205-4f4c-9b82-9f93390748a6": "2a5ef60a87434efe370381ba01895e60cc3708bbbcdb5a2953f301d917326a20",
+        "a8733185-a037-45a2-b04e-75ac43cedb98": "6c2749aed71ead941566d8e425ee5bb335b01fe70233d42780df4eb7c2b8d148",
+        "a8733185-a037-45a2-b04e-75ac43cedb98-notation-slide": "6894101cb59c2431d19b9a234c2ac639b0b038e34e9ae2b3976fb0c06cfe57dc",
+        "w10-comparing-game-types": "e76054ca56caeac481f20d494e43b7860c11488a5722f1c98f43e50dac02c273",
+        "cf863523": "4eb466e480d53d409b403b7b24665fb61e4d12a9cbc4a9a2d7096acfc4b4b47a",
+        "w10-read-payoff-slide": "bb80f469666bb7c180af63acfe2b665b7e440e15387fc3f43b4c055d7325723d",
+        "w10-spatial-evolution": "968b29e1b05b2a90ac7c6ed3bb5d30265376318e1783d026517ac29f8b4a0f39",
+        "w10-spatial-evolution-notation-slide": "ed33969c81e12601d84106ecd0224421f656c192298ba8e4305d5a2f34d52579",
+        "09fa3a4f": "289b9b71c84ee97a9018ed2f0e9e625f1fe1f9c45e2fb0dcd398bf1b000715ac",
+        "f6989099": "49cd6d6f5932fae00c8195463587b986c5c5d5f8df40b88c82402575de3edaeb"
+      },
+      "displays": [
+        {
+          "slide": "5cddb19c",
+          "index": 0,
+          "mode": "exact",
+          "reader": "c1cd393a-fb79-4969-886d-91559cef052a",
+          "reader_index": 0
+        },
+        {
+          "slide": "e902a40e-5ac1-4db4-ad7c-a606d1f0f688",
+          "index": 0,
+          "mode": "exact",
+          "reader": "c1cd393a-fb79-4969-886d-91559cef052a",
+          "reader_index": 0
+        },
+        {
+          "slide": "d3421853-notation-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "d3421853",
+          "reader_index": 0
+        },
+        {
+          "slide": "b091f920-71fa-423d-bcca-802cdfc18199-notation-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "b091f920-71fa-423d-bcca-802cdfc18199",
+          "reader_index": 0
+        },
+        {
+          "slide": "b091f920-71fa-423d-bcca-802cdfc18199-notation-slide",
+          "index": 1,
+          "mode": "exact",
+          "reader": "b091f920-71fa-423d-bcca-802cdfc18199",
+          "reader_index": 1
+        },
+        {
+          "slide": "e190c160-09b7-46d5-8983-6aa6f397daf4-notation-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "e190c160-09b7-46d5-8983-6aa6f397daf4",
+          "reader_index": 0
+        },
+        {
+          "slide": "185e0fc7-41d0-47a3-b5e9-cdedc9619297-notation-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "185e0fc7-41d0-47a3-b5e9-cdedc9619297",
+          "reader_index": 0
+        },
+        {
+          "slide": "a8733185-a037-45a2-b04e-75ac43cedb98-notation-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "a8733185-a037-45a2-b04e-75ac43cedb98",
+          "reader_index": 0
+        },
+        {
+          "slide": "w10-read-payoff-slide",
+          "index": 0,
+          "mode": "reviewed-variation",
+          "reader_cells": [
+            "cf863523"
+          ],
+          "reason": "Same ordered payoff pair with sentence-ending punctuation."
+        },
+        {
+          "slide": "w10-spatial-evolution-notation-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "w10-spatial-evolution",
+          "reader_index": 0
+        },
+        {
+          "slide": "w10-spatial-evolution-notation-slide",
+          "index": 1,
+          "mode": "exact",
+          "reader": "w10-spatial-evolution",
+          "reader_index": 1
         }
       ]
     }

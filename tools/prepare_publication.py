@@ -10,11 +10,12 @@ import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 MAX_WEEK = 8
+EXTRA_WEEKS = {10}
 
 
 def allowed(path):
     match = re.search(r"(?:^|/)week(\d+)(?:/|$)", str(path))
-    return not match or int(match[1]) <= MAX_WEEK
+    return not match or int(match[1]) <= MAX_WEEK or int(match[1]) in EXTRA_WEEKS
 
 
 def filter_toc(entries):
@@ -39,7 +40,7 @@ def main():
     for directory in (ROOT / 'notebooks').glob('week[0-9][0-9]'):
         if not allowed(directory.name):
             shutil.rmtree(directory)
-    print(f'Publication limited to Weeks 0–{MAX_WEEK}; later weeks excluded from CI output.')
+    print(f'Publication includes Weeks 0–{MAX_WEEK} and the Week 10 Reader; Week 9 remains excluded.')
 
 
 if __name__ == '__main__':
