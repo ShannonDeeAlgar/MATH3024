@@ -1,9 +1,626 @@
 {
+  "version": 1,
   "scope": [
+    "notebooks/week01/L_Introduction_to_complex_systems.ipynb",
+    "notebooks/week02/L_Fractals.ipynb",
+    "notebooks/week03/L_Reaction_diffusion.ipynb",
+    "notebooks/week04/L_Cellular_automata.ipynb",
+    "notebooks/week05/L_ABM.ipynb",
+    "notebooks/week06/L_Synchronisation.ipynb",
     "notebooks/week07/L_Intelligent_systems.ipynb",
     "notebooks/week08/L_Critical_phenomena.ipynb"
   ],
+  "description": "Audited Weeks 1–8 reader and slide equations and inline LaTeX. Figure pixels and executable implementations are separate checks.",
   "notebooks": {
+    "notebooks/week01/L_Introduction_to_complex_systems.ipynb": {
+      "math_signatures": {
+        "week01-planet-assumptions": "9cd0a8c59bc1b16e3e10bb79491459c7f98c975de796bb26ba17f13f5209d0a4",
+        "week01-planet-assumptions-notation-slide": "53572fe3684bfa5340f2ca703eab53e03e5111d6b03d57d0ac2e5acfaebbb809",
+        "week01-planet-solve-reader": "eea9ae588ef0e0e6d0c5acba3f607169626f1f5976de2885a19bb44489c44ed6",
+        "5bfdc721-881f-4515-83c5-3e65eadc032a": "0c60c80794219de72c0484e58281872809371301c9cfd5d9a47934489c4e89c6",
+        "ebcc33aa-e15a-4fba-990e-e2efb6431c4d": "63248f035ad6f01c72d382a2a419c773febbabb20598564d712cf83211bc36e7",
+        "dca16023-db06-46c5-b417-e73f55fd6cb0": "63248f035ad6f01c72d382a2a419c773febbabb20598564d712cf83211bc36e7",
+        "afefca12-bf3d-4e52-a9e1-765a43b0adc5": "5d13c1904179c06bb4e26563b12ce4b41e38192e7618c0abe04dee6cc02cf2e7",
+        "c717f021-8b82-42e3-8972-f18050210d0f": "bc80fcbcea23cf5d42733dc9c7158986d38ebcfadc8cd718f7c7867dec4f8963",
+        "week01-initialisation-reader": "3a7ffbab8a1ca2982e0522167bf232c75deb58785b2526859a251bb961b73955",
+        "week01-dynamics-reader": "c2c35bb9ef2658b2ebdb28f461bfc20adcaf0dbecaa846ddedb73602600cadff",
+        "week01-local-similarity-reader": "74bbf174b03ddfcaad9052f64959f8c755b1cdea5d8beef375d45c69eccf0012",
+        "week01-collective-reader": "be3e929e7a03ed6b7badfbfaaee2e2a1601e96436b18896275d351a920b19c6c",
+        "932d7c89-9361-49f4-9cd8-642e13327165": "3f6669e41e5ca786fc7a263e0066e50b81dac6a8cf1e0f15902f5b1c67ac7668"
+      },
+      "displays": [
+        {
+          "slide": "week01-planet-assumptions-notation-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "week01-planet-assumptions",
+          "reader_index": 0
+        }
+      ]
+    },
+    "notebooks/week02/L_Fractals.ipynb": {
+      "math_signatures": {
+        "opening-video-slides": "9ab355a52f3207617ecce70bfd5ddee75b4a77ab652f4b71d73177ac806dea44",
+        "opening-video-reader": "1cb542747e4ab86412a42fa23ed14cac1e01273b6141806fedffedb60f7f28f6",
+        "weierstrass-monster": "88c185612aea97ad0dd555b17ca0242f4f9d18984917de69ec2bf57bf61cf5d9",
+        "weierstrass-monster-notation-slide": "8b3fea588010faf0c2a58cfe028b275c22d0ebff791792747d480837730d85a2",
+        "cantor-ifs": "bdcedae6d0056a959e173dc45d19846294b22fde15b673e42c0f3739578169c4",
+        "cantor-ifs-notation-slide": "21590511e3851db1639cb69bc4e064bdc384614a48a2788676276420697bafe9",
+        "cantor-limit-reader": "e2337d276f206182a000c1d76cef87ae1785053beb8ea9e4f8f5b73b80e58a7f",
+        "sierpinski-ifs-notation-slide": "2a23e72c71cfc3f47687994ebe6a32f3eaf6ebd9e7f5b66c6fb063b7b3ebcc39",
+        "sierpinski-limit-reader": "53d9f5cf4da11eff10fb9c7e22bcc35904fe4ba0440ebcfe8693d82bbe7a055e",
+        "ifs-convergence": "b39932e02c6dff46c5c011ae84afe17d99c08158fd885bd611afc704d2cfe1b6",
+        "chaos-game-reader": "f2d0182f40265396e5e82c784a7e7ad9ad3e10634415e4f1ab459538810e7dda",
+        "l-system-definition": "573586aa389245ff9593f4d1fe158bed89b8850b0f3598f14290f7a9f1c7ceb0",
+        "l-system-definition-notation-slide": "6844c87e5efa2d70b581f37050e6dacc5f1d004c9b12169fef35fb046ab320d8",
+        "cantor-construction-notation-slide": "9fcca72589c6aacd8bc28dc4aae5e39934d489a0d91c9e8cbecf8983aabaa4e3",
+        "cantor-detail-reader": "ecedae963fa9e49ca172cbfd63784b9181da0d90aace0fb9158f2c685c52ed7d",
+        "sierpinski-construction": "b3d59ff24e3d819a47fde73a04318911cd63c0f41ecc12a6458a9bc8cfd2a7c4",
+        "sierpinski-construction-notation-slide": "2ac59f77f3ca651243d68767e8a636b82ebb04471805b6cdf8354db7cdc05184",
+        "sierpinski-detail-reader": "da44fd9eccc8e66f76dfbbee8b6c43455f47b5f82c0e7d67c516f251f0f630bb",
+        "euclidean-scaling": "b0b3c6b2830c4bbe0fb15350e8c333926c22e3682935dae55036b1e11627da2d",
+        "linear-scale-factor-reader": "0520f0818acf8c590ee4325a6a48cf5842a948aa730970c037ca769ab120106d",
+        "euclidean-scaling-reader": "817f5fe92c397e6b19c435bd89b4779f60dc9ddb2559ff14c52f5446f261dc15",
+        "similarity-dimension": "6738ee5b43e1596644fac9d37266379bb44ca8ad039b65c8793c9bee48dc02a5",
+        "similarity-dimension-notation-slide": "7d18d5336560c4b9e9ee37fd7d3073cf23beeeb05a005527736d93fa7aa4c685",
+        "invent-a-fractal-reader": "4f5ff54ba67f4c743ef8513bfc69792aa2095ee0d382c44a1db94a60c8de9e63",
+        "cantor-dimension": "896eea4f6d9b2deafae32b65285b2abf2e0a792143fb3e7c9cae6b791e72d172",
+        "cantor-dimension-notation-slide": "b043adee259d6c608997b87c75b22f584be8604b2ebdd99b9213500537610c35",
+        "sierpinski-dimension": "3e9f50e549085841564fdda01fd8eed0c57d3149098ec3b3e3f2d2fccde1b969",
+        "sierpinski-dimension-notation-slide": "c28f5c852b6de766332e94da864098f07414ac5fc9fabf9b3b97d004026ca621",
+        "coastline-reader": "65ba4cab98936dca1b6eced23aec8559a1d767591525355ec71477c8c29401c2",
+        "hausdorff-dimension": "15fba826f3d967e13ad7786d29bd3946da2a21073354d216795af52c3b8f35e7",
+        "hausdorff-reader": "47040ffe40ecf5edd952f57e5362ed5871ef487c6513ec065e306f802da1df87",
+        "box-counting-intro": "2f7a07542e02ff30996c06ded3e3dad0765124d334bfe853d9e226dd7fc72e37",
+        "box-counting-intro-notation-slide": "85660237595c41bf8d7c08a5905750d2fe5cd9be37d47789a91f9023f7908e11",
+        "box-counting-intuition": "cb1b58f767542f8588ad3f8c1c490375fd0422999f81f6828c19b75e8b2fab73",
+        "scale-free-bridge-reader-notation-slide": "92f2cedac5c7abc6bc5fc99d6c779c0f68b2fe1808757eeefdb7656e0e8c3468",
+        "scale-free-circle-reader-notation-slide": "76a317155361b237085b5cbf7d7851559bd42259e6e85ae1d8a025fbed55abe9",
+        "network-scale-free": "626b009c7fe43291cf84a00fb3197f2c5081fa73bd95c6d9dc8e1124cd88462c",
+        "scale-free-diagnostic-reader": "878dbf620f372095f453db65e7139d0dfe13b6066380b39f49dd47bae6ca1326"
+      },
+      "displays": [
+        {
+          "slide": "opening-video-slides",
+          "index": 0,
+          "mode": "exact",
+          "reader": "opening-video-reader",
+          "reader_index": 0
+        },
+        {
+          "slide": "weierstrass-monster-notation-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "weierstrass-monster",
+          "reader_index": 0
+        },
+        {
+          "slide": "cantor-ifs-notation-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "cantor-ifs",
+          "reader_index": 0
+        },
+        {
+          "slide": "cantor-ifs-notation-slide",
+          "index": 1,
+          "mode": "exact",
+          "reader": "cantor-ifs",
+          "reader_index": 1
+        },
+        {
+          "slide": "l-system-definition-notation-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "l-system-definition",
+          "reader_index": 0
+        },
+        {
+          "slide": "similarity-dimension-notation-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "similarity-dimension",
+          "reader_index": 0
+        },
+        {
+          "slide": "similarity-dimension-notation-slide",
+          "index": 1,
+          "mode": "exact",
+          "reader": "similarity-dimension",
+          "reader_index": 1
+        },
+        {
+          "slide": "cantor-dimension-notation-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "cantor-dimension",
+          "reader_index": 0
+        },
+        {
+          "slide": "sierpinski-dimension-notation-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "sierpinski-dimension",
+          "reader_index": 0
+        },
+        {
+          "slide": "box-counting-intro-notation-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "box-counting-intro",
+          "reader_index": 0
+        }
+      ]
+    },
+    "notebooks/week03/L_Reaction_diffusion.ipynb": {
+      "math_signatures": {
+        "52214046": "218c4ac178a62e73c55901757524866b19d0f15082bdd4d9b17c1cd9bf7289c8",
+        "week03-turing-linear-stability-reader": "b6dad7edd8987de2a89919236a6d6ed505745ebc9614d5fb024b1b1256fddec4",
+        "week03-random-walk-detail-reader": "ee97567884016e276c71551ec4c4f0e5f928b2045b9a94b98f81f25eb075b94c",
+        "week03-brownian-video-reader": "28f2c1f909eb85cce20d68acd9447e586fe1c40931ac8fa69f256665715235c4",
+        "dc08556a": "d6fc3ab4ac7c5c3eac95112acd6605f1e0ef44e0861f27a30146226f12f71150",
+        "dc08556a-notation-slide": "89a24047fbe5ce8068096d346b583571e08a7a00f13e765192fd7d5a4b3b18da",
+        "week03-brownian-ensemble": "ad3b303ca9fed5d342e81542f6d2e490a663e8fb199a67106aa2dc593d617b59",
+        "bf26cf2d-notation-slide": "95a8b826788231a10b47aba784aab604175217af617604b4819f2fe256525f9f",
+        "25b5d7f3": "c0d0faedd6703d39dff44e6ffbac65557276f70323f093bad30d813b38657407",
+        "25b5d7f3-notation-slide": "3df7f38a6279c359215ff5204b6f3ef617198d56f36b6ac9f33f04da04f6b56d",
+        "a241f850-notation-slide": "e1ca442c4da1c46c7cb5d51fd7cf5c20bfb4a6fb2a31121a47e87396d678759c",
+        "week03-gray-scott-history": "e83eba9bd2d5b984f29fdb446924073af015fe16fe34dadc52e2e248bd47af7f",
+        "week03-gray-scott-history-notation-slide": "d8d3852b0e8fc3081d78a40af7060921e7019e7870d44e982033f138e32ced61",
+        "week03-gray-scott-history-reader": "9c51fedba3e709b20f9c9d60780452ea58628109ee2c9deb360c397a5663c3c4",
+        "week03-coarse-grain-state": "f49425b4c19a5f762c0a10e1f8a6cca417671ba9cfb1fb99486253d082bb09c8",
+        "week03-coarse-grain-state-notation-slide": "2a0c81935cd388d1c8fb417195b67504882c11902535f42596687c481f3db173",
+        "2ba9c92e-5488-45b4-a697-7aa99f2bc487": "2c4882e410938a5113f83a957034390b2a7a42c9e49bb92d852b0768056ba16d",
+        "57d73b10-bd0c-4326-b40d-50a7e9eb7c03": "d550bc34878014adf1247a5923bc2392ffaa046e8b7e610ebd34e433380ef920",
+        "week03-turing-paper-scope": "1a44d6900d79c19ed64314347c8134a3a546cdf922b5b0b8acc677214ed7b6c0",
+        "week03-turing-paper-scope-notation-slide": "33e68f2ebea81ca0ca7fd28b9b35edbc685d01a36977191a80a2f644618cbbcc",
+        "4fad79e4-e78d-468c-be71-d70d8c4c711e": "2732cdb7f44fce74bab50f27a5091089d73bfdc0670ea41710dd2d307ea3ea24",
+        "8858f425-48a5-492b-9a5a-2d277dacc632": "52000bfed4fc5f34dfd38500b4e5f9fb62cbdb959a8c8b3908559dcedfe0f440",
+        "8858f425-48a5-492b-9a5a-2d277dacc632-notation-slide": "070185b9911451f0abfff4bdc7d2ac4b483a3d9c9c072cc4eae811ea2c4fad1b",
+        "562f3685-c727-4a03-ae6e-7e8ed6aaa9c6": "71f80e870949a1318d0b07135bf7f113b82fa33374b981434eb2ddf64e3db817",
+        "562f3685-c727-4a03-ae6e-7e8ed6aaa9c6-notation-slide": "c9c49dd91cb8f5a997790612a0a8b3287de92b87ff7956eb135a6a9b8dc22545",
+        "d1f8631e": "f6195df28476be0f51b8a62a3c87f5ff793e8c295141912770555685f93f27f1",
+        "d1f8631e-notation-slide": "1e1bbfb49230047353b57894ca31e51ee1d862bf11512d167dd316a28b661038",
+        "week03-feed-kill-reader": "213374c3fc9e8d62eeecdeae83caa5ff10252e95865ff2be7dbfe0a301308f91",
+        "36fa3ed0": "5ae27f0605dc7d65c3f775c33e7c4cafeedd7e5598bf62c00392b36554023515",
+        "36fa3ed0-notation-slide": "b16e1f09de041a8e8d25b5c3ebe3338cd854b21b246bd9b19f0459d4d02bf8e4",
+        "week03-parameter-space": "db38f75d80eb13797b67aa0b6fae3e1455a9ce8cb816e6d4a21ef8db39eff3ce",
+        "week03-parameter-space-notation-slide": "daf8364098f350dde5c35dfd5cd53c84d7ff55e3b5eaea1dad39bbecde90f60d",
+        "954ca579-6444-4529-9190-05fb00912d11": "9177a058d0304557c1b96f50e0ae67c67f6c17c984f216ad7285d266289a2d82",
+        "954ca579-6444-4529-9190-05fb00912d11-notation-slide": "a6ce9312b1d3ef63051611ce3979eb28b82ddc591b37bd801dbcf46f52b97939",
+        "088466bd-70cc-484f-ac97-e85a5a7255f4": "d54ecd10b9cc7b98f9ad062aa0117dc675a14cd37bc8b0aadac3147f32b3bd48",
+        "f2e3c94d-6d0e-4d20-992a-8e23122ce6d0": "f9234c499d36f567e1ae745e3cd0fb894de6bcb9c2ba5a33c69a0885f7c709b9",
+        "f2e3c94d-6d0e-4d20-992a-8e23122ce6d0-notation-slide": "420d307ceb5df5874462729b75cbfe6fa0a3ef7481f235b54bbfe43901c28dbc",
+        "week03-neighbourhoods-reader": "bffb8ac42091ec6978d963c14725b3f32c4030df4a3b837f57954660b96b4345",
+        "week03-five-point-kernel-reader": "b369f9c99bd6387abead9c734a8a921d65c7ce464db7a8edbfe51a57044b0de8",
+        "d3786649-2fd4-4766-8d86-df7cd2839294": "85ffd2757e34c99a7075ad35fe16980064f29546385967fa29c47e8bfb5e46ed",
+        "d3786649-2fd4-4766-8d86-df7cd2839294-notation-slide": "c0971f4fa7b81ce0dffd617a79f127db06b7c6c6d2347052f99c60982f70d3a0",
+        "0ac1d921-5f1e-4b64-8c65-8454c1e70e8f": "fe2e8bf5f65cde98fa12d6a541cdae5b05e6e05ebbd29b184d9abfa17eeab68b",
+        "0ac1d921-5f1e-4b64-8c65-8454c1e70e8f-notation-slide": "c2f34fc87a54b86d836efe20c7c53772f87e59897393a9adb5944d24c1476d01",
+        "week03-reader-return-simulation": "01ea0fcfd732d579be001f5e9ae7ac2c27ea0096de7007960c4c7b2b82f04195",
+        "week03-final-discrete-continuous": "2a4d29246cd678ab0b860fbdf5ca85a180683b9bdcce40f8ea10ed4aacd65139"
+      },
+      "displays": [
+        {
+          "slide": "week03-gray-scott-history-notation-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "week03-gray-scott-history",
+          "reader_index": 0
+        },
+        {
+          "slide": "week03-coarse-grain-state-notation-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "week03-coarse-grain-state",
+          "reader_index": 0
+        },
+        {
+          "slide": "week03-turing-paper-scope-notation-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "week03-turing-paper-scope",
+          "reader_index": 0
+        },
+        {
+          "slide": "8858f425-48a5-492b-9a5a-2d277dacc632-notation-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "week03-gray-scott-history",
+          "reader_index": 0
+        },
+        {
+          "slide": "8858f425-48a5-492b-9a5a-2d277dacc632-notation-slide",
+          "index": 1,
+          "mode": "exact",
+          "reader": "8858f425-48a5-492b-9a5a-2d277dacc632",
+          "reader_index": 1
+        },
+        {
+          "slide": "562f3685-c727-4a03-ae6e-7e8ed6aaa9c6-notation-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "562f3685-c727-4a03-ae6e-7e8ed6aaa9c6",
+          "reader_index": 0
+        },
+        {
+          "slide": "d1f8631e-notation-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "d1f8631e",
+          "reader_index": 0
+        },
+        {
+          "slide": "36fa3ed0-notation-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "36fa3ed0",
+          "reader_index": 0
+        },
+        {
+          "slide": "week03-parameter-space-notation-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "week03-parameter-space",
+          "reader_index": 0
+        },
+        {
+          "slide": "954ca579-6444-4529-9190-05fb00912d11-notation-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "954ca579-6444-4529-9190-05fb00912d11",
+          "reader_index": 0
+        },
+        {
+          "slide": "f2e3c94d-6d0e-4d20-992a-8e23122ce6d0-notation-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "f2e3c94d-6d0e-4d20-992a-8e23122ce6d0",
+          "reader_index": 0
+        },
+        {
+          "slide": "f2e3c94d-6d0e-4d20-992a-8e23122ce6d0-notation-slide",
+          "index": 1,
+          "mode": "exact",
+          "reader": "f2e3c94d-6d0e-4d20-992a-8e23122ce6d0",
+          "reader_index": 1
+        },
+        {
+          "slide": "f2e3c94d-6d0e-4d20-992a-8e23122ce6d0-notation-slide",
+          "index": 2,
+          "mode": "exact",
+          "reader": "f2e3c94d-6d0e-4d20-992a-8e23122ce6d0",
+          "reader_index": 2
+        },
+        {
+          "slide": "d3786649-2fd4-4766-8d86-df7cd2839294-notation-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "d3786649-2fd4-4766-8d86-df7cd2839294",
+          "reader_index": 0
+        },
+        {
+          "slide": "d3786649-2fd4-4766-8d86-df7cd2839294-notation-slide",
+          "index": 1,
+          "mode": "exact",
+          "reader": "d3786649-2fd4-4766-8d86-df7cd2839294",
+          "reader_index": 1
+        },
+        {
+          "slide": "d3786649-2fd4-4766-8d86-df7cd2839294-notation-slide",
+          "index": 2,
+          "mode": "exact",
+          "reader": "d3786649-2fd4-4766-8d86-df7cd2839294",
+          "reader_index": 2
+        },
+        {
+          "slide": "0ac1d921-5f1e-4b64-8c65-8454c1e70e8f-notation-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "0ac1d921-5f1e-4b64-8c65-8454c1e70e8f",
+          "reader_index": 0
+        },
+        {
+          "slide": "0ac1d921-5f1e-4b64-8c65-8454c1e70e8f-notation-slide",
+          "index": 1,
+          "mode": "exact",
+          "reader": "0ac1d921-5f1e-4b64-8c65-8454c1e70e8f",
+          "reader_index": 1
+        }
+      ]
+    },
+    "notebooks/week04/L_Cellular_automata.ipynb": {
+      "math_signatures": {
+        "w4-eca": "2607635f992fa605e642b60870aca7fde7c4e2b69368c66d0bb5b509ecff6761",
+        "w4-rule90-sierpinski": "7fc33778ff91cdb53ec607ebe43bfcad732882a008c9078d6785375b138986ff",
+        "w4-rule-number": "97a4e817e927936047fdb909db1808ad4584a5f057fcea3ee15df18bce880af8",
+        "w4-gol": "9aad3f5835071d45ff0f09811d0650b5c7697fa933d42a47c3d05fc06390b34b",
+        "w4-rule-space": "ad8ec32ff228e1c622af8fc095ea4f326e646191523fed8a3f4600eb3dd6ca63",
+        "w4-state-space": "ccde6b48dae5fa095e3e7a3771380c9f3f06e09b88d381de9201591df4eed705",
+        "w4-garden-of-eden-slide": "1854ddabad5d67820cb6ea9ce70d40ab7ada81d1da54e412811c54f0f266c81f",
+        "damage-080a2acf": "f4198931797891df7e21e3302e6d78c3c5e71a7a31145dda72c26e6002caa049",
+        "w4-mean-field": "be605017b5dc879df199a2be609bd220e45316397ffce5daab923751db5edbad",
+        "w4-mean-field-loss": "1e014aefe60ab6eb2dcae08e9b023f1466f458565f8a9050c9d29f0ca0789e91",
+        "w4-traffic-rule": "39747d0c074ad77dc931a5574c1c6e5e08cf18cc63d41b567cb642fd200c04bd",
+        "26f9f017": "f67bdc1e799e25e587cd5f459da1e5a2c1e46a146e31a4d614630abef87385c6",
+        "deb6f76f-1a71-4330-bae5-e30ff744bfac": "7cc109d970cf1c8ca588c02cd34bdfd60ec19fb3eed785d0834bdd0086d6829a",
+        "week04-app-traffic": "c5b945d8a87a431fd59484b5c2043838c005b03929d230b28b2ee78d72dc6f67",
+        "a8b6969e": "8756d84d1605077564412eef8f6e69b910d70f366681dd2af7fabc6769fdc621",
+        "88433fd7": "267587582b9db275fe5a044a40b234779d8a29bcb7b01e1ce5b29545b86dfdaa",
+        "b5f7b527": "4ea964c3f0dce0ded8f7dc843d364ce0c06aa2b93b9c1aabdd9f59b9508971f8",
+        "b3d6e359": "598d6067b5a2bd63665a1124c6b95f2389d28a08aba4f70c99e27a2e1e206175",
+        "6609c75a": "ffe5869b58ee8b546e6581ec3d19e798cac1b4bf63c08d91e864d059e82ba7ee",
+        "b76cc4fc-bd13-4eb6-b175-6b3a4dde73d9": "9aad3f5835071d45ff0f09811d0650b5c7697fa933d42a47c3d05fc06390b34b",
+        "d0943696-a64e-4d50-82c3-bb84667c0be3": "015762daa061f40a97d8bf76f78a07867e193d56c309deb1e9ad6843af8f7f52",
+        "079918c5-7776-43ae-af9f-03bd78bc2ebb": "12d3912fdb5fb7576fa63be8eb079fc19110346e4315af7d67b0876ed8161bd1",
+        "fd6b07bc-df79-441f-a093-6380bfdad7e6": "7bd435162401277ab1d83c2dee61e3032ab34d8e42a046e5de084721ef985acc",
+        "16dbb195-7733-4ed4-bf77-3adb37ac31aa": "ad9a2ec88a1752c902c2d10eca0fba2e771c0cc04aba4f131bd3fae188461324",
+        "374ab40f-22df-448b-a8b9-54d51fa4c97f": "bc5e317b32acd94f08a122672beacabde7948b0c387949d77e769ee01eb7c803",
+        "b431361f-c619-4951-96c4-f70e2f8c2385": "eb8c1942eecce0e683f584694b55587ca9b520c9f608da6bd31ed49b113948b8",
+        "4adaf0b1-27b0-4bb2-8c9b-71a33b7855ac": "3b39572a8690a4e9ca54865e7e7eae7476138253c93bf7baf942258bd628f169",
+        "8f15f06f-29e6-4535-98d7-dacb48e115de": "fb37a7df79a1649b949eb8b42063852bdb1d610a74783b30c8337ecbce9c4a00",
+        "c4aa8c50-fb05-448d-819d-c7b01e6dc1ef": "1a874ee4a3ddf78b8448e7a69926bfbcdb0560e712505c9ff53ac710b8b57579",
+        "15ab5850-a40b-418f-b486-5685573c90e0": "a7cea76bd0d0782d34cddef7aa21d9ce9f4eac4cc743d3aaf03fdc4399f8b8d2",
+        "18ba9bbb-9d30-4828-b251-7a1743f73ff9": "84aa0fbd00f5d8a6aa74a86b60968c7cb6586e26c4dfd23eb3efd760510b1305",
+        "damage-77c16c9e": "af6e4032ff134b1b83d9120e7f743d3a6b4c0a9d94bf8da929e77300f584e78b",
+        "cff953e9-1565-43b9-a324-c1f5b0bc669e": "3ad793ab89589d8ede950ef285ca5c6861a6b0a8f0b7fd73ab786284df257ffe",
+        "f6f6346f-5f42-4f78-9452-5794c4ab2c3a": "7d4b0526db7aa74fc156a79dfb58094142f5698d3901c2dbb05c104843a8ea58",
+        "week04-reader-synthesis": "1e4d16114b4e2b7ff01cc88616f2b1cea4c0c9dc3c5ac2675ef976a6c34022be"
+      },
+      "displays": [
+        {
+          "slide": "w4-rule90-sierpinski",
+          "index": 0,
+          "mode": "reviewed-variation",
+          "reader_cells": [
+            "week04-app-family-resemblance"
+          ],
+          "reason": "Formal XOR notation for the Rule 90 rule stated in reader prose."
+        },
+        {
+          "slide": "w4-rule-number",
+          "index": 0,
+          "mode": "reviewed-variation",
+          "reader_cells": [
+            "w4-related-rules-reader"
+          ],
+          "reason": "Worked binary-to-decimal example: 16+8+4+2=30; explanatory slide elaborates rule numbering."
+        },
+        {
+          "slide": "w4-rule-space",
+          "index": 0,
+          "mode": "exact",
+          "reader": "d0943696-a64e-4d50-82c3-bb84667c0be3",
+          "reader_index": 0
+        },
+        {
+          "slide": "w4-state-space",
+          "index": 0,
+          "mode": "exact",
+          "reader": "16dbb195-7733-4ed4-bf77-3adb37ac31aa",
+          "reader_index": 0
+        },
+        {
+          "slide": "w4-garden-of-eden-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "15ab5850-a40b-418f-b486-5685573c90e0",
+          "reader_index": 0
+        },
+        {
+          "slide": "w4-mean-field-loss",
+          "index": 0,
+          "mode": "reviewed-variation",
+          "reader_cells": [
+            "f6f6346f-5f42-4f78-9452-5794c4ab2c3a"
+          ],
+          "reason": "First and last lines of the reader mean-field derivation, with explanatory underbraces."
+        },
+        {
+          "slide": "w4-mean-field-loss",
+          "index": 1,
+          "mode": "reviewed-variation",
+          "reader_cells": [
+            "f6f6346f-5f42-4f78-9452-5794c4ab2c3a"
+          ],
+          "reason": "First and last lines of the reader mean-field derivation, with explanatory underbraces."
+        }
+      ]
+    },
+    "notebooks/week05/L_ABM.ipynb": {
+      "math_signatures": {
+        "vicsek-initialise": "be0d04ac9ecff8e3baa2d2ed44a1b565e3a903b04fac54baf209926bd61e81c4",
+        "vicsek-neighbours": "0c54f859170efdb56809280a6fe291f43a9f749fa698acd25dfd3a09a8968acb",
+        "vicsek-neighbours-notation-slide": "4768c44c1ef906099c1beb433d0763d5559eea683670bd7d9970d60571ff5366",
+        "vicsek-update": "556664caf7035673e8f6bc5d6eafd7e54527f6a32c1bfc13ea678f70f9c296f1",
+        "vicsek-update-notation-slide": "777478cf13c628feeee2250558d233f991a9a45ac7f82b8d527d9db667f455d3",
+        "17257bc1": "2a70d0bcb829c76b9ff1332b4ce874bb8d88ff7ee44e203331f781e0b89a0bad",
+        "8e7f4295": "43ab303c98994a2271769c2f4bbf2be50bc716e47eca610c1a4bcea564ec4a62",
+        "8e7f4295-notation-slide": "52fc78ef780078e87f1bf83c40bb2d045622d0aca573c1f3968ca7ca78745655",
+        "polarisation": "e788c2e3b028e12f9b9af719f97c61777b56ec3dd40a25a74194184ce44a32dd",
+        "polarisation-notation-slide": "f3ab0b034a410672290bfb70b917bb9a95d0ea4b91f8aaa3c2d314894a685a3f",
+        "w5-parameter-sweep-reader": "fdb5b837d7469c2c6678a28ac6612854c8d4e0beb1bce09e7a38a740be39d0f3",
+        "w5-speed-screen-reader": "b672668046677b303e2b1fc961a9664380b41c2f0296d7a49f07ac4b93d17067",
+        "6210d4be": "d6ed044f51147b7465dd415f1520e95171878469903f33131f52c9cfb8dd354b",
+        "week05-noise-entry-points": "0263e8c295e358e89ce4160d850f6a6d87106614107f0e8c182dcf26984cc5bf",
+        "week05-noise-entry-points-notation-slide": "633fba5f62f1e637e381548df91eb87b7ee716aadfeb734b71d9ccf97fd6d237",
+        "week05-vectorial-noise": "36115ba87e3f08865face3c2a3a75579640d60deb2b2262b258c426064a6b5b6",
+        "week05-vectorial-noise-notation-slide": "fc2e7c918ba256525e06bb4d1eb73e38d026a6c0353293edf70f8f1fbf4d0eca",
+        "week05-finite-size-slide": "9f37429cd3659c6c3b3afa353e4ba3af138432f34a1844822d4abeba1bedfb6c",
+        "week05-finite-size-slide-notation-slide": "466a622ab27a5cc4ead7615eae42a54ba34fb8f957c83a5e00dee594b080248a",
+        "week05-finite-size-reader": "9d1c0f47f156b488bab73101ff7fc899d91e14ffa4969d435a6c45defa2ce602"
+      },
+      "displays": [
+        {
+          "slide": "vicsek-neighbours-notation-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "vicsek-neighbours",
+          "reader_index": 0
+        },
+        {
+          "slide": "vicsek-update-notation-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "vicsek-update",
+          "reader_index": 0
+        },
+        {
+          "slide": "vicsek-update-notation-slide",
+          "index": 1,
+          "mode": "exact",
+          "reader": "vicsek-update",
+          "reader_index": 1
+        },
+        {
+          "slide": "8e7f4295-notation-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "8e7f4295",
+          "reader_index": 0
+        },
+        {
+          "slide": "polarisation-notation-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "polarisation",
+          "reader_index": 0
+        },
+        {
+          "slide": "week05-vectorial-noise-notation-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "week05-vectorial-noise",
+          "reader_index": 0
+        },
+        {
+          "slide": "week05-finite-size-slide-notation-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "week05-finite-size-slide",
+          "reader_index": 0
+        }
+      ]
+    },
+    "notebooks/week06/L_Synchronisation.ipynb": {
+      "math_signatures": {
+        "w6-model-details-slide": "bec23316d608607fc78a403185dc8296930c1ea7b7453b705be1d05c656a0f69",
+        "w6-beats": "eb28908f6cb026290f97896b38a98071a5f01b1cfd7db67a7337429adaee33e6",
+        "w6-coupling": "29be1a0acb543f460d882c3eda0176c00288f6679055c74c4b8227f52dc5f6ce",
+        "sync-types-slide": "4101b63b697df4b7fe62dbe716f906d7491161bbdc83dcf07ad7dc11b53fbb35",
+        "w6-kuramoto": "943334a7ef34a2cc25ff063f0c587cc9367fd451f0b58cb98d7a99383b7e939f",
+        "w6-assumptions": "75b22dc346d36c6ce5c187f528b9e14a7448f6c896347c051eabab4b01f52965",
+        "w6-natural-frequency-before-analysis-slide": "cbe48c185fdee6a5055a82306717329f8b818236d00c0b44c8ab02cfc71dac9c",
+        "w6-discrete-evolution-slide": "692e08ebb476dbc70937ec20e8882e05f83d4b5be2fd0e1b9b55cc094fe2628b",
+        "w6-relative": "5c39b9d7941b9fc193b54e3573624ceb11355249a2fdf48347d6b4796c28189d",
+        "w6-frequency-heterogeneity-slide": "faac19de0e08681861cdf6a3ed4718691c469969c8c73dbab0c0ae9a290d67f8",
+        "w6-order": "72b241a6d7de6176d5c8799a69df335ce5a95dae903c6238875ae2ad07ce33ed",
+        "w6-long-time-summary-motivation-slide": "a5744e95ddcf3e4911fafa94b2528726654d9da338d9586c9c2e77ef6827a09d",
+        "w6-long-time-summary-choices-slide": "f7cc4e31e23c5e352111df9a6c71b81ec861ab97848948a8d5943b5467c48868",
+        "w6-sweep": "2e6fb85c0a51ab06c4f6ea7f0a539e2542505a43d3a1e034954ff47d100cc4c2",
+        "w6-heterogeneity-width-sweep-slide": "452de1e86628f8e8fd47127993bd01c0f7416d4c4e05600232c4052d95547743",
+        "w6-ensemble-reporting-slide": "fc4a7bf0593c60bbd71ddf2c259e3382adabc36362fa1e19452a628d92a45561",
+        "w6-mean-field-return": "4ebb0be5e04ceef67c622ac0dba2ebe50490b0f7575b386b9276896d7fd9a6f7",
+        "w6-mean-field": "f95c88f8e0b1a66e2a9cb4b05ebd8157c1d79c5c1149f7002b7dafbf9e4d62a5",
+        "w6-ensemble": "1485a57e561064e7ba0df2422086458eb2cb32a2a8d688fb3b2db654b67d1bd7",
+        "w6-synthesis-slide": "4f59268f9d61cec82f30640dca67dc0aaa2b1925abb7d744ab1619a46d4f5916",
+        "kuramoto-equation": "aad6b417f49f86678d6cf19438b18fa272c66a69d716814b25943c323c9f7bdc",
+        "w6-natural-frequency-before-analysis-reader": "9e6aa27da9575f7669dfd04d5dfdc217c5d5046fe482e67f6ccb449b3cf0e1ff",
+        "network-specification": "2c5d29742eda3f4b2373df3b991357a935240c06f2e80c196ee53dd0cebbe6ff",
+        "single-oscillator": "aaf8a4e7afa7dc257aedbc2cca98e66412b91ea43bde15fb0106959defbc9b85",
+        "uncoupled": "45ffabe90133af7d900d44191615e578f136723257b77efbeaa94ecc40eac2a3",
+        "reader-beats": "edbbc6e213e19d6fd18896d212b51ce7879153af2e0f68ecfd02aae4a7e9c582",
+        "two-coupled": "ca88c2653f67ba633b359d5cde47d231f04bfecc1c11ee36f7d2fc48645bfdeb",
+        "w6-types-of-synchronisation-reader": "25708871e72b3f6bfc115e02d167c37a01d8ab360c041db0741d526c6ddd73ff",
+        "phase-difference": "8dfb4c0a240a1032be79261ea89a054ab185d78cef30350bc23d828b830eac75",
+        "reader-locking": "384126c0b3f0cb7be9fc75835b6f947054517638f0906117721bdaa23fa831e3",
+        "w6-realised-frequency-analysis-reader": "fc4a7bf0593c60bbd71ddf2c259e3382adabc36362fa1e19452a628d92a45561",
+        "w6-reader-coherence": "294858123ae1d01e8a73712b4d7330bc192aa433534c5109ab866b584ab76158",
+        "order-parameter": "2afe997aaaff53f97345ecbac8ac44cbec057478c6a82d4a09ae9234cc4b02aa",
+        "w6-long-time-summary-reader": "adb94a5de62a97073485f7ba9c4184628d9e9d60f93b83aee0da06036b706873",
+        "parameter-sweep": "c1b5903836c05a69ca014d74944ef3888409cb73c9d4497f6e6a2a7eae1bc584",
+        "w6-onset-analysis-reader": "7acf42fd70b1a341020d7cf79e2e12b0e4143717bd8d65776c933104e34710d8",
+        "w6-heterogeneity-width-sweep-reader": "5a5285dabd24de338758fa73acd3bdc9f4c78ea21235e6c5c4547c4030dcec68",
+        "w6-two-parameter-sweep-reader": "8d888746934333715f7854109862de9b52fd9a307bae12cd128d2b16e4fcff5d",
+        "mean-field": "cba99e00898e751f9c7b2d351511c59bb480b8ae7d72ac1437fa8a2411793b38",
+        "w6-independent-noise-reader": "53a58c4e6606f6986458a5915e560e60f58b96386fdaa1c977474a9cf748da20",
+        "w6-controlled-heterogeneity-reader": "680d5b3d6fb611e35e607cc67abc90f95f142382bf197033d5fd361f3550d3e6",
+        "w6-network-variant-reader": "614a1127b543f5015897d9b07067803bbef60eaa464c0fe0c4de7ff0526ff975",
+        "w6-second-order-kuramoto-reader": "f42d10f2db5fc9a4b4b3d424b266c3d01abd2a4831bf05c3d071a6d4cf9ddfe2",
+        "w6-spatial-fireflies-reader": "8094683ab91a70da8e65c787e583095e786cc9c06515bc3c256a0f53f1f6e9f3"
+      },
+      "displays": [
+        {
+          "slide": "w6-model-details-slide",
+          "index": 0,
+          "mode": "reviewed-variation",
+          "reader_cells": [
+            "single-oscillator"
+          ],
+          "reason": "Same single-oscillator equation; slide adds punctuation and local equation tag."
+        },
+        {
+          "slide": "w6-coupling",
+          "index": 0,
+          "mode": "reviewed-variation",
+          "reader_cells": [
+            "two-coupled"
+          ],
+          "reason": "Combines the two reader displays into one line; one-way coupling is unchanged."
+        },
+        {
+          "slide": "w6-kuramoto",
+          "index": 0,
+          "mode": "exact",
+          "reader": "kuramoto-equation",
+          "reader_index": 0
+        },
+        {
+          "slide": "w6-discrete-evolution-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "kuramoto-equation",
+          "reader_index": 1
+        },
+        {
+          "slide": "w6-relative",
+          "index": 0,
+          "mode": "exact",
+          "reader": "phase-difference",
+          "reader_index": 1
+        },
+        {
+          "slide": "w6-order",
+          "index": 0,
+          "mode": "exact",
+          "reader": "w6-reader-coherence",
+          "reader_index": 1
+        },
+        {
+          "slide": "w6-mean-field-return",
+          "index": 0,
+          "mode": "exact",
+          "reader": "w6-reader-coherence",
+          "reader_index": 1
+        },
+        {
+          "slide": "w6-mean-field",
+          "index": 0,
+          "mode": "reviewed-variation",
+          "reader_cells": [
+            "mean-field"
+          ],
+          "reason": "Intermediate imaginary-part identity deriving the exact collective-field rewriting."
+        },
+        {
+          "slide": "w6-mean-field",
+          "index": 1,
+          "mode": "exact",
+          "reader": "mean-field",
+          "reader_index": 1
+        }
+      ]
+    },
     "notebooks/week07/L_Intelligent_systems.ipynb": {
       "math_signatures": {
         "w7-slide-ant-shortest-path": "6295503f75982f22088c79f9b56059f11f57e9dd2db841806be49b0e8d3b2ff5",

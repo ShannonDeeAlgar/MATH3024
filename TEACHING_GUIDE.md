@@ -16,7 +16,38 @@ Use the same sequence whenever the topic permits:
 
 The visual process map at the start of each chapter tells students which version of this rhythm the week uses.
 
+## The modelling toolkit accumulates
+
+The opening of every topic distinguishes the canonical model or models, the
+week's modelling practice and its toolkit additions. Modelling practice means a
+transferable part of how models are designed, tested or interpreted. Toolkit
+additions are new concepts, representations or analytical capabilities.
+
+| Week | Toolkit additions | Modelling practice |
+|---|---|---|
+| 1 | Worlds, states, local rules and observables | Reproducible stochastic comparisons using explicit random seeds |
+| 2 | Self-similarity, recursive construction and fractal dimension | Choose finite resolution and a defensible scaling range |
+| 3 | Continuous fields, local reaction and spatial transport | Translate continuous models into tested discrete approximations |
+| 4 | Finite-state lattices, neighbourhoods, rule spaces and synchronous updates | Set and interpret finite computational budgets |
+| 5 | Mobile agents, vector headings, local interaction and stochastic updates | Design and refine parameter sweeps |
+| 6 | Intrinsic dynamics, phase coupling and collective coherence | Represent heterogeneity; check initialisation and burn-in |
+| 7 | Objective-guided search, stigmergic communication, personal memory and shared information | Design fair, reproducible comparisons for stochastic algorithms |
+| 8 | Finite-size comparisons, spatial and temporal correlations, and multiple time scales | Verify reused implementations and develop adequate ensemble evidence |
+| 9 | Entropy and dependence from probability distributions | State what a summary retains and discards |
+| 10 | Payoffs, repeated interaction and changing strategy frequencies | Separate incentives, interaction structure and updating assumptions |
+
+Keep this signal concise. It should help students locate the week's genuine
+advance without turning the opening into another learning-outcomes list.
+
+Week 6 keeps heterogeneity central and adds a second objective: compare initial
+states and justify when late-time measurement begins. The workshop holds the
+frequency sample fixed while changing initial phases, then compares equal-duration
+measurement windows. Sustained coherence excludes the initial adjustment; time to
+synchrony measures it. Week 8 applies these checks before assessing ensemble adequacy.
+
 ## Notebook conventions
+
+Use `n` for a discrete update index and `t` for continuous or elapsed simulation time where this distinction is useful. Introduce update counting in Week 2 and the relationship `t_n = n Δt` in Week 3. In cellular automata and optimisation, an update need not represent a physical duration. Explain that these letters are conventions, not restrictions; explicitly translate alternative notation in retained external or legacy figures. Keep indices consistent across reader equations, slide notation and generated plot labels.
 
 | Tag | Destination | Purpose |
 |---|---|---|
@@ -30,6 +61,8 @@ The visual process map at the start of each chapter tells students which version
 Do not express destination rules with cell position or manual deletion. Tags are the contract used by the build scripts.
 
 ## Reusable visual components
+
+Reference formatting: retain the shared author–date bibliography style, conventional personal-name capitalisation (including particles, accents and compound family names), and original title wording/acronyms. Do not apply CSS title-casing to references. Correct defective imported DOI metadata with a reviewed entry in `course_references.bib`; include a publisher or author-source URL in a comment. Prefer the dated journal issue when the citation includes its volume and pages. Run `tools/check_reference_formatting.py` after building the Reader; it checks every generated reference appearance across the available weeks.
 
 In teaching prose, use bold for a selected glossary term at its first substantive definition in each topic (and separately in the slides). Keep bold structural labels such as figure numbers, named steps and “Notation”. Choose glossary entries for their conceptual importance and lookup value. Define notation, model-specific labels and procedural details beside the relevant model or calculation. Use plain text for repeated terms, example names and emphasis.
 
@@ -61,7 +94,16 @@ canvas. Captions and references use the smaller sans-serif role. If a slide
 needs more than the shared cap allows, split the teaching beat rather than
 shrinking all of its text.
 
+Use `figure-caption` for a description placed directly beneath a figure and
+`figure-reference` for its source or credit. Use `small-note` only for a
+method, parameter or limitation that applies to the surrounding analysis.
+Refer to panels in plain sentences such as “The left panel shows...” or
+“Panels A and B show...”. Do not bold panel positions. Published panel letters
+retain the case used in the source.
+
 ### Course-generated figures
+
+Give each separately displayed figure its own consecutive topic figure number. Reserve letter labels (A, B, and so on) for panels within a single figure. When a figure is split into separate displays, renumber it and all subsequent figures and update their references; do not use suffixed figure numbers to avoid renumbering.
 
 Python figures use `tools/figure_style.py` as their source of truth. The
 standard roles are DejaVu Sans 15 pt body text, 18 pt figure titles, 16 pt axis
@@ -72,6 +114,10 @@ paths at export so that a browser cannot silently substitute a different font.
 Animated figures use the same DejaVu Sans type roles and course colours, with
 raster export only where animation requires it. HTML player controls may use
 the browser's interface font, but text inside the animated figure must not.
+Call `style_figure(fig)` after building a static figure and
+`style_animation_frame(fig, axes)` at the end of an animation callback. This
+matters because artists created during a later frame do not reliably inherit
+the settings that were active when the figure was first made.
 
 Use Picasso indigo for axes and principal curves, blue for ordinary data,
 orange for a contrasting collective quantity, yellow for a deliberately
@@ -121,6 +167,10 @@ chosen to remain distinguishable without a red–green contrast.
   supplies that explanation.
 - `choice-marker` labels an assumption or modelling decision;
   `discussion-marker` labels a genuine live prompt. Neither is decorative.
+- Reveal answers and optional detail use the standard MyST dropdown interaction,
+  styled as a quiet disclosure with thin rules and ordinary Reader prose. Do
+  not place answers in a shaded card or introduce a second callout style inside
+  the dropdown.
 - Use lowercase symbols for fields and uppercase symbols for named chemical
   species. For Week 3, $U,V$ are species, $u(\mathbf x,t),v(\mathbf x,t)$ are
   concentration fields, and $u^n_{i,j},v^n_{i,j}$ are numerical values.
@@ -176,11 +226,13 @@ Later weeks should follow the same principle where an appropriate Explorable
 exists. An interactive used for validation, sensitivity analysis, or parameter
 measurement belongs under **Analysis**, not under the scene-setting banner.
 
-## Canonical-model summaries
+## Specifying canonical models in workshops
 
-End each Reader topic with a short, consistently ordered summary headed
-**Canonical model at a glance · [model name]**. Use the following fields where
-they are meaningful:
+The workshop **Specify the model** section is the consistent comparison point
+for canonical models. A week with two canonical models must specify both, even
+when students implement only one of them in full. It replaces the former end-of-Reader “at a glance”
+summary and leads directly into the workshop's clearly labelled
+**Pseudocode** section. Use the following fields where they are meaningful:
 
 1. **World** — the domain, topology and boundary conditions. State explicitly
    when the model has no physical spatial world rather than silently omitting it.
@@ -195,6 +247,45 @@ Add one model-specific field only when it is genuinely useful, such as
 **Stochastic choices**, **Numerical choices**, or **Stopping condition**. The
 shared ordering is a scaffold for comparing models, not a demand that every
 model be forced into an inappropriate spatial or agent-based description.
+
+Do not repeat this complete inventory in the Reader. Slides should select only
+the model components needed for the live argument.
+
+## Recurring model audit
+
+The Welcome notebook introduces one recurring sequence:
+
+**System → representation → implementation → behaviour → evidence → claim**
+
+Its ten questions distinguish the purpose and scope of a model, the choices
+used to represent and implement it, the evidence extracted from its behaviour,
+and the limits of the final claim. Keep the complete list in Welcome rather
+than reproducing it in every topic.
+
+Workshops select only two or three questions at the point where students make
+the corresponding decision. The emphasis should vary with the week: numerical
+verification in Week 3, parameter-sweep design and stochastic evidence in Week 5,
+heterogeneity and collective measurement in Week 6, scaling evidence and
+implementation validation, ensemble adequacy and finite-size limits in Week 8, and interaction, updating and evolutionary claims
+in Week 10. Do not turn these prompts into another procedural header sequence.
+
+Maintain the distinction between **verification** and **validation**.
+Verification asks whether the implementation solves the model that was
+specified. Validation asks whether the model and its evidence are useful for
+the original system and question. A correct implementation does not guarantee
+a valid model, and reproducing one observation does not identify a mechanism.
+
+The compact project audit is:
+
+1. What is represented?
+2. What has been left out?
+3. How was the implementation checked?
+4. What was measured?
+5. What was it compared with?
+6. What claim is supported?
+
+Use this compact form in later project-facing work and consultation, while the
+larger curriculum-planning question bank remains an instructor document.
 
 ## Week 1 — Modelling complex systems
 
@@ -248,7 +339,8 @@ The workshop is intentionally broad. Students should follow one generative route
 **Canonical model:** Gray–Scott reaction–diffusion. Random-walk diffusion is a
 supporting model, not a second equal-weight canonical model.
 
-**Modelling core:** diffusion as a change of representation. Reaction–diffusion
+**Modelling practice:** translate continuous models into tested discrete
+approximations. Reaction–diffusion
 is the framework through which the representation problem is studied.
 
 ### Session 1 · How can a uniform system create a pattern?
@@ -274,6 +366,52 @@ is the framework through which the representation problem is studied.
 Turing's wider life belongs in the Reader. Slides retain only enough historical
 context to motivate the assessable mechanism. The workshop supplies correct
 baseline code and asks students to test, refine, measure, and interrogate it.
+
+## Week 7 — Intelligent systems
+
+**Canonical models:** ant colony optimisation and particle swarm optimisation.
+They have equal conceptual status and expose two different architectures for
+collective search.
+
+**Modelling practice:** design fair, reproducible comparisons for stochastic
+algorithms. The models represent a problem as candidate solutions with a
+numerical objective, then specify where search information is stored and how it
+changes later candidates.
+
+Keep the two pathways distinct:
+
+- ACO begins with ant trail formation and the double-bridge experiment, then
+  constructs complete routes through successive local choices on a weighted
+  graph. Pheromone provides environmental memory and evaporates through time.
+- PSO retains its historical origin in simplified bird-flock simulation.
+  Particles move through an abstract numerical solution space, retain personal
+  best positions and receive a globally shared best-so-far position.
+- Honeybee recruitment belongs in the biological motivation for distributed
+  information. Present it as an analogy for communicating a useful location,
+  not as the historical source or literal mechanism of PSO.
+
+Both models must state solution quality, reliability, efficiency and search
+concentration separately. For ACO, concentration is described by route
+diversity and pheromone distribution. For PSO, it is described by particle
+spread around the swarm centroid. Concentration is a diagnostic of how search
+effort is allocated; the best objective or route cost measures solution quality.
+
+The workshop uses PSO for a controlled computational investigation of globally
+shared information. Its modelling-practice objective is to design a fair,
+reproducible comparison of a stochastic algorithm. Baseline checks are supplied
+as worked scaffold: students run and read them, but do not design validation
+tests. Students choose the conditions, success criterion, repeated matched
+seeds, summaries and figure while holding the objective-evaluation budget and
+other settings fixed. A final transfer task asks them to specify a new
+continuous optimisation problem without introducing a separate data-wrangling
+exercise.
+
+Near the end of the lecture, return to Krakauer's account of the schism between
+high-dimensional predictive models and compressed mechanistic explanations.
+Connect it explicitly to Week 1's question about what a useful model preserves,
+and treat predictive performance, explanatory access and computational cost as
+separate properties. The final slide then returns to the practical choice of an
+algorithm whose representation matches the problem.
 
 ## Week 8 — Critical behaviour
 
@@ -357,12 +495,61 @@ submission.
 
 ## Before teaching or publishing
 
-1. Run all code cells from a clean kernel where practical.
+1. Run all code cells from a clean kernel. The Reader build executes its
+   temporary notebook copies; slide decks must also be regenerated from fresh
+   execution rather than from saved notebook output.
 2. Check that every local image path resolves and every externally sourced image has attribution.
-3. Generate slides with `generate_slides.sh` and serve them with `present_slides.sh`.
+3. During editing, generate one deck with `generate_slides.sh`. Before release,
+   run `refresh_slides.sh`; it executes every lecture notebook in a clean kernel
+   before rebuilding the decks. Serve the result with `present_slides.sh`.
 4. Confirm videos through the served slide deck, not through a `file://` URL.
 5. Verify the Reader through `build_reader.sh` only after committing notebook work; that script temporarily strips slide-only cells and restores notebooks from Git.
 6. Scan presenter notes for dates, LMS directions, room-specific comments, and material marked optional.
+7. Run `python tools/audit_teaching_assets.py`. Resolve errors, inspect every
+   stale-output and heading warning, and use its fit candidates as the starting
+   list for the manual slide proof.
+8. Inspect every slide at 1280 × 720. Confirm there is no scrollbar, that the
+   Reader and slide headings name the same teaching beat, and that Reader-only
+   extensions have not leaked into the projected deck.
+
+### Student animation path
+
+Every workshop that animates a canonical model keeps a short, readable function
+in the main student path. At minimum it should create the figure, update the
+artists for frame `k`, and return a standard Matplotlib animation. Students are
+expected to understand and adapt that version for project work.
+
+A polished HTML player may be supplied in a collapsed or helper cell when it
+adds a genuinely useful control, a linked view, or presentation-quality output.
+Do not make students read custom HTML, JavaScript, widget plumbing, or export
+machinery in order to understand the model. If the standard Matplotlib player
+already supplies the needed time slider and controls, omit the polished layer.
+
+The model simulation and the display are separate functions. An animation must
+consume stored states rather than hide the update rule inside interface code.
+This keeps the simulation reusable for still figures, measurements and simpler
+student animations.
+
+Downloaded workshops remain self-contained. Their compact setup cell may copy
+the shared plotting defaults into the notebook; generated course assets should
+import `tools.figure_style` directly. In either case, apply the same defaults
+when the figure is created and again at the end of every animation frame.
+
+### Reader-to-slide release pass
+
+The Reader heading hierarchy is the narrative source of truth. After changing
+it, select slides deliberately from that argument; do not assume that every
+Reader subsection deserves a projected slide. Reader extensions, optional
+derivations and detailed qualifications normally remain Reader-only.
+
+After every substantial Reader restructure:
+
+1. compare Reader and slide headings and resolve accidental renaming;
+2. regenerate figures and animations from source;
+3. regenerate the slide deck;
+4. run `python tools/audit_teaching_assets.py`;
+5. proof each slide at 1280 × 720 for overflow, hierarchy, font consistency and
+   whether it earns its place in the live argument.
 
 ## Extending the template
 
@@ -378,8 +565,10 @@ converts legacy quote and discussion markup, supplies missing Markdown image
 descriptions, and distributes the shared marker assets. It does not rewrite
 topic content or execute code.
 
-Afterwards regenerate the relevant deck with `generate_slides.sh`. That script
-injects the current unit-wide typography and component rules from `style.css`,
-so generated HTML should not be edited by hand.
+Afterwards regenerate the relevant deck with `generate_slides.sh`. Use its
+`--fresh` option when outputs have changed, or use `refresh_slides.sh` for the
+complete release pass. These scripts inject the current unit-wide typography
+and component rules from `style.css`, so generated HTML should not be edited by
+hand.
 
 The TCSG light-mode logo is produced non-destructively from the supplied original with `tools/prepare_tcsg_logo.py`; the original JPEG remains available as provenance.

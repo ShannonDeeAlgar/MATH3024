@@ -56,6 +56,7 @@ if [[ "$FRESH" -eq 1 ]]; then
     "$COURSE_PYTHON" "$SCRIPT_DIR/tools/execute_notebook.py" \
         "$INPUT" "$TEMP_NOTEBOOK" \
         --kernel math3024-build \
+        --skip-archive \
         --timeout 1200
     INPUT="$TEMP_NOTEBOOK"
 fi

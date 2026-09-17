@@ -5,7 +5,7 @@
 <meta content="chrome=1" http-equiv="X-UA-Compatible"/>
 <meta content="yes" name="apple-mobile-web-app-capable"/>
 <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
-<title>.L_Intelligent_systems.resolved.50870 slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
+<title>.L_Intelligent_systems.fresh.67337 slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
   import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script>
@@ -7680,6 +7680,46 @@ figcaption {
   line-height: 1.25;
 }
 
+.figure-panel-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 0.7em;
+  align-items: stretch;
+  margin-top: 0.35em;
+}
+
+.figure-panel {
+  display: flex;
+  min-width: 0;
+  margin: 0;
+  flex-direction: column;
+}
+
+.figure-panel-frame {
+  display: flex;
+  height: 165px;
+  align-items: center;
+  justify-content: center;
+}
+
+.figure-panel-frame img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+  margin: 0;
+  object-fit: contain;
+}
+
+.figure-panel .figure-caption {
+  margin: 0.45em 0 0;
+}
+
+.article .figure-panel-frame {
+  height: 190px;
+}
+
 .unit-essentials {
   width: 78%;
   margin: 0.5em auto;
@@ -8212,6 +8252,10 @@ details.discussion-reveal .discussion-answer > :last-child {
   width: min(100%, 360px);
 }
 
+.article .reader-figure.reader-figure-wide {
+  width: min(100%, 920px);
+}
+
 .article .reader-figure img {
   display: block;
   width: 100%;
@@ -8378,6 +8422,11 @@ details.discussion-reveal .discussion-answer > :last-child {
   border: 0;
 }
 
+.article img.reader-image-detailed,
+.article .reader-figure.reader-figure-wide img {
+  max-height: min(76vh, 720px);
+}
+
 .article .meaning-panel > img {
   display: block;
   width: 100%;
@@ -8389,6 +8438,7 @@ details.discussion-reveal .discussion-answer > :last-child {
 .article .reader-map {
   display: block;
   width: min(100%, 900px);
+  max-height: min(76vh, 720px);
   height: auto !important;
   object-fit: contain;
   margin: 1rem auto 0.5rem;
@@ -8467,6 +8517,41 @@ details.discussion-reveal .discussion-answer > :last-child {
   color: #f7f1df;
 }
 
+.toolkit-addition-marker {
+  display: inline-flex;
+  gap: 0.55rem;
+  align-items: baseline;
+  max-width: 92%;
+  margin-top: 0.45rem;
+  padding: 0.48rem 0.85rem;
+  border: 1px solid #b8c8bd;
+  border-left: 5px solid #557a60;
+  background: #f5faf6;
+  color: #1b2a4c;
+  text-align: left;
+}
+
+.toolkit-addition-marker span {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.5em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.toolkit-addition-marker strong {
+  font-family: Baskerville, Georgia, serif;
+  font-size: 0.76em;
+  line-height: 1.15;
+}
+
+.dark .toolkit-addition-marker {
+  border-color: #66806d;
+  border-left-color: #93bd9d;
+  background: #1f2b22;
+  color: #eef6f0;
+}
+
 .guiding-question {
   box-sizing: border-box;
   width: min(92%, 58rem);
@@ -8510,6 +8595,17 @@ details.discussion-reveal .discussion-answer > :last-child {
 
 .dark .guiding-question span {
   color: #b7c3d7;
+}
+
+.week-emphasis .toolkit-addition {
+  display: block;
+  margin-top: 0.42rem;
+  padding-top: 0.42rem;
+  border-top: 1px solid #D7DEEA;
+}
+
+.dark .week-emphasis .toolkit-addition {
+  border-top-color: #46536A;
 }
 
 .jp-OutputArea-child:has(iframe) .jp-OutputPrompt,
@@ -8768,8 +8864,9 @@ details.discussion-reveal .discussion-answer > :last-child {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
-<h1 id="Intelligent-systems">Intelligent systems<a class="anchor-link" href="#Intelligent-systems">¶</a></h1><div class="canonical-model-marker"><span><strong>Canonical models</strong> Ant colony optimisation (ACO) and particle swarm optimisation (PSO)</span></div>
-<div class="modelling-practice-marker"><span><strong>Modelling practice</strong> Design fair, reproducible comparisons for stochastic algorithms</span></div>
+<h1 id="Intelligent-systems">Intelligent systems<a class="anchor-link" href="#Intelligent-systems">¶</a></h1><div class="canonical-model-marker"><span>Canonical models</span><strong>Ant colony optimisation (ACO) and particle swarm optimisation (PSO)</strong></div>
+<div class="modelling-practice-marker"><span>Modelling practice</span><strong>Design fair, reproducible comparisons for stochastic algorithms</strong></div>
+<div class="toolkit-addition-marker"><span>Toolkit additions</span><strong>Objective-guided search, stigmergic communication, personal memory and shared information</strong></div>
 <div class="guiding-question"><span>Guiding question</span><p>How can simple agents store and share information so that a population searches more effectively than one agent?</p></div>
 </div>
 </div>
@@ -8784,7 +8881,7 @@ details.discussion-reveal .discussion-answer > :last-child {
 <h2 id="Intelligent-systems">Intelligent systems<a class="anchor-link" href="#Intelligent-systems">¶</a></h2><p>An intelligent system can:</p>
 <ul>
 <li>receive information about its environment;</li>
-<li>retain or communicate useful information;</li>
+<li>store or communicate useful information;</li>
 <li>use that information to adjust its behaviour; and</li>
 <li>improve performance according to a stated objective.</li>
 </ul>
@@ -8803,7 +8900,7 @@ details.discussion-reveal .discussion-answer > :last-child {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
 <h2 id="Prediction-and-explanation">Prediction and explanation<a class="anchor-link" href="#Prediction-and-explanation">¶</a></h2><div class="image-panel" style="max-width:920px;margin:0 auto 0.35em"><img alt="Complexity science and machine learning as complementary approaches to intelligent systems" src="images/intelligent_systems_schism.svg"/></div>
-<p>David Krakauer describes a scientific schism between approaches that retain high-dimensional detail for prediction and approaches that compress a system to expose mechanisms and useful scales.</p>
+<p>David Krakauer describes a scientific schism between approaches that use high-dimensional detail for prediction and approaches that compress a system to expose mechanisms and useful scales.</p>
 <p class="figure-source">David Krakauer, <a href="https://complexity.simplecast.com/episodes/1">“The Landscape of 21st Century Science”</a>; see also <a href="https://doi.org/10.3389/fcpxs.2023.1235202">Gilpin et al. (2023)</a>.</p>
 </div>
 </div>
@@ -8865,7 +8962,7 @@ details.discussion-reveal .discussion-answer > :last-child {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
 <h2 id="Superorganisms">Superorganisms<a class="anchor-link" href="#Superorganisms">¶</a></h2><p>A <strong>superorganism</strong> is a highly integrated society in which specialised individuals cooperate so closely that important functions belong to the colony as a whole.</p>
-<p>A school of fish can coordinate movement and share information. Its members retain the same basic roles and reproduce independently. Collective behaviour alone does not make a superorganism.</p>
+<p>A school of fish can coordinate movement and share information. Its members have the same basic roles and reproduce independently. Collective behaviour alone does not make a superorganism.</p>
 </div>
 </div>
 </div>
@@ -8947,7 +9044,7 @@ details.discussion-reveal .discussion-answer > :last-child {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
 <h2 id="Models">Models<a class="anchor-link" href="#Models">¶</a></h2><div class="two-panel equal-panels compact-panels">
-<div class="image-panel"><img alt="Couzin and Franks individual-based model of army-ant traffic" src="images/Couzin_lane_formation_model.png" style="max-height:390px"/><p><strong>Individual-based model.</strong> Ants follow a fixed pheromone trail, retain an intended direction and avoid nearby ants. Different avoidance turning rates produce the three-lane pattern.</p></div>
+<div class="image-panel"><img alt="Couzin and Franks individual-based model of army-ant traffic" src="images/Couzin_lane_formation_model.png" style="max-height:390px"/><p><strong>Individual-based model.</strong> Ants follow a fixed pheromone trail, maintain an intended direction and avoid nearby ants. Different avoidance turning rates produce the three-lane pattern.</p></div>
 <div class="image-panel"><img alt="Cellular automaton representation of three-lane army-ant traffic" src="images/Chowdhury_lane_formation.png" style="max-height:390px"/><p><strong>Cellular automaton.</strong> Ant traffic is represented more coarsely as occupation and movement between discrete sites.</p></div>
 </div>
 <p>Different representations support different questions about the same collective behaviour.</p>
@@ -9186,7 +9283,7 @@ $$</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
 <img alt="Fraction of ACO runs reaching a near-optimal tour as the evaluation budget is used" src="images/aco_discovery_efficiency.png" style="display:block;max-height:455px;width:auto;margin:0 auto;"/>
-<p>This is a different problem from the explorable. There, ants seek a shortest path from $S$ to $T$; here, each ant constructs a tour that visits all ten cities once and returns to its starting city. One completed tour is one evaluation. The lines isolate stigmergic sharing: $\alpha=1$ uses pheromone and $\alpha=0$ ignores it, while the other settings remain fixed.</p>
+<p>This is a different problem from the explorable. There, ants seek a shortest path from $S$ to $T$; here, each ant constructs a tour that visits all ten cities once and returns to its starting city. The lines isolate stigmergic sharing: $\alpha=1$ uses pheromone and $\alpha=0$ ignores it, while the other settings remain fixed.</p>
 <p style="font-size:0.68em;color:#5B6780"><strong>Notation:</strong> $\alpha$ is the pheromone exponent; $F$ is the fraction of runs finding a tour within 2% of the optimal cost. One complete ten-city tour counts as one objective evaluation.</p>
 </div>
 </div>
@@ -9215,7 +9312,7 @@ $$</p>
 <li>Kennedy and Eberhart began with a simplified flock model.</li>
 <li>A fixed cornfield vector marked a target at known screen coordinates.</li>
 <li>Distance from the target gave each visited position an objective value; particles were not given a direction to the target.</li>
-<li>Each particle retained its own best position and received the swarm's best recorded position.</li>
+<li>Each particle stored its own best position and received the swarm's best recorded position.</li>
 <li>Position became a candidate solution in an abstract solution space.</li>
 </ol>
 <p>As in Week 5, the agents move and exchange social information. Here those processes search an abstract solution space.</p>
@@ -9394,8 +9491,8 @@ $$</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
 <h2 id="One-swarm:-progress-and-diversity">One swarm: progress and diversity<a class="anchor-link" href="#One-swarm:-progress-and-diversity">¶</a></h2><img alt="Progress and diversity within one swarm" src="images/pso_single_swarm.svg" style="display:block;max-height:440px;width:auto;margin:0 auto;"/>
+<div class="ladder-marker"><img alt="Ladder of abstraction" src="images/ladder_marker.svg"/><span><strong>Go down the ladder:</strong> view these traces alongside the swarm animation to connect changes in the plots with particle movements.</span></div>
 <p style="font-size:0.68em;color:#5B6780"><strong>Notation:</strong> $n$ is the iteration and $K=100$ the final iteration. $f_{\mathrm{best}}(n)$ is the lowest objective found by any particle up to iteration $n$. $D(n)=N^{-1}\sum_{i=1}^{N}\|\mathbf{x}_i(n)-\bar{\mathbf{x}}(n)\|$ is the mean distance from the swarm centroid $\bar{\mathbf{x}}$; $N=28$ is the number of particles; this run uses seed 6.</p>
-<p>Go down the ladder: view these traces alongside the swarm animation to connect changes in the plots with particle movements.</p>
 </div>
 </div>
 </div>
@@ -9407,7 +9504,7 @@ $$</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides celltag_slides-only" data-mime-type="text/markdown">
 <h2 id="From-one-swarm-to-repeated-runs">From one swarm to repeated runs<a class="anchor-link" href="#From-one-swarm-to-repeated-runs">¶</a></h2><img alt="Final best objectives across 40 independent runs" src="images/pso_ensemble.svg" style="display:block;max-height:390px;width:auto;margin:0 auto;"/>
-<p>Up the ladder: repeat the simulation with different seeds and compare final solution quality.</p>
+<div class="ladder-marker"><img alt="Ladder of abstraction" src="images/ladder_marker.svg"/><span><strong>Up the ladder:</strong> repeat the simulation with different seeds and compare final solution quality.</span></div>
 <p style="font-size:0.68em;color:#5B6780"><strong>Notation:</strong> $f_{\mathrm{best}}(K)$ is the best objective after $K=100$ updates. Each run has $N=28$ particles; seeds are 0–39. Box = middle 50%; orange line = median; whiskers reach the most extreme values within 1.5 interquartile ranges; dots lie beyond. Values below $10^{-12}$ are displayed at $10^{-12}$.</p>
 </div>
 </div>
@@ -9539,7 +9636,7 @@ $$</p>
 <thead>
 <tr>
 <th>Model</th>
-<th>Each agent retains</th>
+<th>Each agent stores</th>
 <th>Interaction or shared information</th>
 <th>Collective question</th>
 </tr>

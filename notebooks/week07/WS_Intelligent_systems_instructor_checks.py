@@ -66,7 +66,7 @@ upper = np.array([6.0, 5.0])
 assert np.all(run_a["positions"] >= lower)
 assert np.all(run_a["positions"] <= upper)
 
-# A controlled update checks that an improvement is retained and a worse visit
+# A controlled update checks that an improvement is stored and a worse visit
 # does not replace the previous record.
 def sphere(x):
     return np.sum(np.asarray(x, dtype=float) ** 2, axis=-1)

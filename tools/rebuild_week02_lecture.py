@@ -1140,7 +1140,7 @@ This rule produces the **standard middle-thirds Cantor set**. Other Cantor-like 
     <p><strong>Meaning:</strong> <code>F,G</code> draw; <code>+</code> turns left; <code>−</code> turns right</p>
     <p><strong>Initial word:</strong> <code>ω = F</code></p>
     <p><strong>Productions:</strong> <code>F → G−F−G</code>, <code>G → F+G+F</code></p>
-    <p><strong>Geometry:</strong> turn 60°; step length 2<sup>−<em>k</em></sup> at generation <em>k</em></p>
+    <p><strong>Geometry:</strong> initial heading 60°; turn 60°; step length 2<sup>−<em>k</em></sup> at generation <em>k</em></p>
   </div>
   <img src="images/sierpinski_lsystem_iterations.svg" alt="Successive iterations through depth six of the Sierpiński arrowhead L-system" style="display:block;width:100%;max-height:310px;object-fit:contain">
 </div>
@@ -1174,10 +1174,10 @@ def rewrite_lsystem(word, iterations):
         history.append(word)
     return history
 
-def turtle_points(word, turn_degrees=60):
+def turtle_points(word, turn_degrees=60, initial_heading=60):
     """Interpret F/G as forward moves and +/- as turns."""
     position = np.array([0.0, 0.0])
-    heading = 0.0
+    heading = float(initial_heading)
     points = [position.copy()]
     for symbol in word:
         if symbol in {"F", "G"}:
@@ -1195,13 +1195,6 @@ history = rewrite_lsystem("F", iterations=5)
 fig, axes = plt.subplots(2, 3, figsize=(11, 6))
 for depth, (word, ax) in enumerate(zip(history, axes.flat)):
     points = turtle_points(word)
-    baseline = points[-1] - points[0]
-    angle = np.arctan2(baseline[1], baseline[0])
-    rotation = np.array([[np.cos(angle), -np.sin(angle)],
-                         [np.sin(angle),  np.cos(angle)]])
-    points = (points - points[0]) @ rotation
-    if points[:, 1].mean() < 0:
-        points[:, 1] *= -1
     ax.plot(points[:, 0], points[:, 1], color="#172b54", linewidth=1.5)
     ax.set_title(f"k = {depth}")
     ax.set_aspect("equal")

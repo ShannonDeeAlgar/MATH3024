@@ -17,15 +17,27 @@ def short_label(cell: dict, index: int) -> str:
     return f"cell {index}: {first[:88]}"
 
 
+def skip_archived_cells(notebook):
+    """Leave retired and removed material out of a teaching build."""
+    notebook.cells = [cell for cell in notebook.cells
+                      if not {"archive-only", "remove-cell"}
+                      & set(cell.get("metadata", {}).get("tags", []))]
+    return notebook
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("source", type=Path)
     parser.add_argument("output", type=Path)
     parser.add_argument("--kernel", default="math3024-build")
     parser.add_argument("--timeout", type=int, default=1200)
+    parser.add_argument("--skip-archive", action="store_true",
+                        help="Skip archive-only and removed cells in teaching builds")
     args = parser.parse_args()
 
     notebook = nbformat.read(args.source, as_version=4)
+    if args.skip_archive:
+        skip_archived_cells(notebook)
     started: dict[int, float] = {}
     executable = sum(cell.cell_type == "code" for cell in notebook.cells)
     completed = 0

@@ -1153,6 +1153,7 @@ img[src*="pso_ensemble"] {
 .article .reader-map {
   display: block;
   width: min(100%, 900px);
+  max-height: min(76vh, 720px);
   height: auto !important;
   object-fit: contain;
   margin: 1rem auto 0.5rem;

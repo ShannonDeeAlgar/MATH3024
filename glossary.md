@@ -43,11 +43,11 @@ Where a term has several meanings, use the definition for the model being discus
 
 **Correlation time.** A time scale $\tau$ summarising how quickly temporal correlation fades. A longer correlation time means fluctuations remain related for longer. *(Week 8)*
 
-**Combinatorial optimisation problem.** A search for the best discrete arrangement, such as a route, ordering or assignment. *(Week 7)*
+**Candidate solution.** One possible answer represented in the search space and evaluated by the objective function. *(Week 7)*
 
 **Collective behaviour.** Coordinated or patterned group activity arising from interactions among individuals. *(Weeks 5 and 7)*
 
-**Candidate solution.** One possible answer represented in the search space and evaluated by the objective function. *(Week 7)*
+**Combinatorial optimisation problem.** A search for the best discrete arrangement, such as a route, ordering or assignment. *(Week 7)*
 
 **Calibration.** Using observations to choose or estimate model parameters. Agreement with the data used for calibration does not by itself provide an independent test of the model. *(Course-wide modelling practice)*
 
@@ -87,9 +87,14 @@ Where a term has several meanings, use the definition for the model being discus
 
 ## D
 
-**Distributed computation.** Computation in which information storage, processing and decision-making are spread across interacting components. *(Week 7)*
+(degrees-of-freedom)=
+**Degrees of freedom.** The number of independently variable coordinates needed to specify a model’s configuration or state, after accounting for its constraints. State explicitly what is being counted: in mechanics, degrees of freedom normally count configuration coordinates, whereas a full dynamical state also requires their velocities or momenta. A point on a line has one positional degree of freedom; a point in a plane has two; a point constrained to a fixed circle has one (its angle). Fixed model parameters are not additional state degrees of freedom. Here “independent” means not determined by the other coordinates through a constraint, not statistically uncorrelated. *(Week 1; used throughout modelling)*
+
+In statistical estimation, “degrees of freedom” has a related but distinct use, such as the sample size minus the number of fitted parameters; that is not the state-variable count used here.
 
 **Deposit scale.** The ACO parameter controlling the amount of pheromone deposited for a given route cost. In our model, each traversed edge receives the deposit scale divided by the complete route cost. *(Week 7)*
+
+**Distributed computation.** Computation in which information storage, processing and decision-making are spread across interacting components. *(Week 7)*
 
 **Density.** A quantity per unit space or a fraction of occupied components. In probability, a density instead describes how probability is distributed; the intended meaning must be stated. *(Weeks 3, 4, 5 and 9)*
 
@@ -103,7 +108,7 @@ Where a term has several meanings, use the definition for the model being discus
 
 ## E
 
-**Environmental memory.** Information retained in an environment and available to influence later behaviour, such as pheromone left on a trail. *(Week 7)*
+**Environmental memory.** Information stored in an environment and available to influence later behaviour, such as pheromone left on a trail. *(Week 7)*
 
 **Emergence.** The appearance of a useful system-level pattern or behaviour that is not evident from one component considered in isolation. An emergent description does not make the component-level account irrelevant. *(Weeks 1 and 5–8)*
 
@@ -121,18 +126,6 @@ Where a term has several meanings, use the definition for the model being discus
 
 ## F
 
-**Objective landscape.** The objective value viewed across the solution space, with valleys or peaks corresponding to candidate quality under the chosen convention. *(Week 7)*
-
-**NP-hard.** At least as hard as every problem in NP under polynomial-time reductions. This is a worst-case classification; particular instances can still be tractable. *(Week 7; optional computational complexity)*
-
-**Normalised pheromone score.** A route pheromone score divided by a reference value. Our heatmap uses the largest score across all displayed routes and recorded generations in that run, giving one colour scale throughout. *(Week 7)*
-
-**Intelligent system.** A system that uses information to choose actions and adapt its behaviour in pursuit of a goal or in response to changing conditions. *(Week 7)*
-
-**Heuristic.** A practical rule for guiding a search using readily available information. In our ACO example, inverse edge cost favours cheaper edges. *(Week 7)*
-
-**Inertia (PSO).** Retention of part of a particle's previous displacement in its next update, controlled by the inertia weight. *(Week 7)*
-
 **Feedback.** A loop in which a system output influences later inputs or dynamics. **Positive feedback** reinforces an initial change or amplifies a difference; **negative feedback** opposes a change and can regulate or stabilise behaviour. “Positive” and “negative” describe the direction of the loop, not whether its outcome is desirable. *(Weeks 1, 6 and 7)*
 
 **Field.** A quantity defined throughout a spatial domain, such as a chemical concentration or density. A field description represents what is present at each location rather than tracking named individuals. *(Weeks 3 and 8)*
@@ -146,6 +139,12 @@ Where a term has several meanings, use the definition for the model being discus
 **Fractal dimension.** A dimension intended to quantify how measured detail changes with scale. Different definitions and estimation procedures need not give identical finite-data results. *(Weeks 2 and 8)*
 
 ## G–I
+
+**Inertia (PSO).** The contribution of part of a particle's previous displacement in its next update, controlled by the inertia weight. *(Week 7)*
+
+**Heuristic.** A practical rule for guiding a search using readily available information. In our ACO example, inverse edge cost favours cheaper edges. *(Week 7)*
+
+**Intelligent system.** A system that uses information to choose actions and adapt its behaviour in pursuit of a goal or in response to changing conditions. *(Week 7)*
 
 **Garden of Eden configuration.** A cellular-automaton configuration with no predecessor under the global update map. *(Week 4)*
 
@@ -177,15 +176,21 @@ Where a term has several meanings, use the definition for the model being discus
 
 **Mechanism.** The represented process proposed to produce a behaviour, not merely a curve or pattern that resembles the observation. *(All weeks)*
 
-**Memory.** Dependence of later behaviour on information retained from the past. Memory may be stored in an agent, a field, a network, a population or an altered environment. *(Weeks 1, 7 and 10)*
+**Memory.** Dependence of later behaviour on information stored from the past. Memory may be stored in an agent, a field, a network, a population or an altered environment. *(Weeks 1, 7 and 10)*
 
-**Model.** A purposeful representation that retains selected features of a system in order to answer a question. *(All weeks)*
+**Model.** A purposeful representation of selected features of a system in order to answer a question. *(All weeks)*
 
 **Multiscale.** Involving relevant structure or dynamics at more than one spatial, temporal or organisational scale. *(Weeks 1, 2 and 8)*
 
 **Mutual information.** The reduction in uncertainty about one variable obtained by knowing another. It measures statistical dependence, not meaning or causation. *(Week 9)*
 
 ## N–O
+
+**Normalised pheromone score.** A route pheromone score divided by a reference value. Our heatmap uses the largest score across all displayed routes and recorded generations in that run, giving one colour scale throughout. *(Week 7)*
+
+**NP-hard.** At least as hard as every problem in NP under polynomial-time reductions. This is a worst-case classification; particular instances can still be tractable. *(Week 7; optional computational complexity)*
+
+**Objective landscape.** The objective value viewed across the solution space, with valleys or peaks corresponding to candidate quality under the chosen convention. *(Week 7)*
 
 **Neighbourhood.** The set of components permitted to influence a given component's update. It may be geometric, metric, topological or explicitly network-defined. *(Weeks 1 and 3–6)*
 
@@ -213,11 +218,11 @@ Where a term has several meanings, use the definition for the model being discus
 
 ## P
 
-**Premature convergence.** Concentration of a search around a suboptimal solution before sufficient alternatives have been explored. *(Week 7)*
+**Personal best.** The best position a particle has visited so far, stored as its individual search memory in PSO. *(Week 7)*
 
 **Pheromone.** A chemical signal used by animals. In ACO, an artificial numerical value stored on an edge that influences later route choices. *(Week 7)*
 
-**Personal best.** The best position a particle has visited so far, retained as its individual search memory in PSO. *(Week 7)*
+**Premature convergence.** Concentration of a search around a suboptimal solution before sufficient alternatives have been explored. *(Week 7)*
 
 **Parameter.** A fixed input controlling a model or experiment during one run. A state variable evolves; a parameter does not unless the model explicitly promotes it to a dynamic variable. *(All weeks)*
 
@@ -225,7 +230,7 @@ Where a term has several meanings, use the definition for the model being discus
 
 **Payoff.** The numerical outcome assigned to a player for a combination of strategies. A payoff represents what the model treats as preferable; it is not automatically biological fitness or collective welfare. *(Week 10)*
 
-**Particle swarm optimisation (PSO).** An optimisation method in which candidate solutions update their velocities using retained motion, personal best positions and shared best information. *(Week 7)*
+**Particle swarm optimisation (PSO).** An optimisation method in which candidate solutions update their velocities using current motion, personal best positions and shared best information. *(Week 7)*
 
 **Path dependence.** Dependence of an outcome on the sequence of earlier events, not only the present state or final inputs. *(Weeks 1, 7 and 10)*
 
@@ -251,13 +256,13 @@ Where a term has several meanings, use the definition for the model being discus
 
 **Renormalisation.** Coarse-graining followed by rescaling to compare descriptions at different observation scales. Its iterations change scale rather than model time. *(Week 8)*
 
-**Route-use fraction.** The number of ants using a given route divided by the total number of ants in that generation. *(Week 7)*
-
-**Route pheromone score.** The geometric mean of the pheromone values on a route's edges. It summarises stored pheromone along the route; it is not a route-selection probability. *(Week 7)*
+**Reservoir computing.** Using the responses of a dynamical system to transform an input signal, then training a readout to produce the desired output. *(Week 7; optional related approach)*
 
 **Result sharing.** Agents exchanging discoveries that can guide one another's searches. *(Week 7)*
 
-**Reservoir computing.** Using the responses of a dynamical system to transform an input signal, then training a readout to produce the desired output. *(Week 7; optional related approach)*
+**Route pheromone score.** The geometric mean of the pheromone values on a route's edges. It summarises stored pheromone along the route; it is not a route-selection probability. *(Week 7)*
+
+**Route-use fraction.** The number of ants using a given route divided by the total number of ants in that generation. *(Week 7)*
 
 **Random seed.** A value used to initialise a pseudorandom number generator. Recording it makes a stochastic run repeatable; comparing several seeds tests whether a conclusion depends on one random realisation. *(All stochastic workshops)*
 
@@ -267,7 +272,7 @@ Where a term has several meanings, use the definition for the model being discus
 
 **Replicator equation.** An equation for strategy frequencies in which strategies grow or decline according to their payoff relative to the population average. *(Week 10)*
 
-**Reproducibility.** The capacity to obtain the stated result again from a complete specification, code, data and random-seed protocol. *(Course-wide modelling practice)*
+**Reproducibility.** The capacity to obtain the stated result again from a complete specification, code, data and recorded random seeds. *(Course-wide modelling practice)*
 
 **Robustness.** Persistence of a conclusion under reasonable changes to seeds, initial conditions, parameters, system size or modelling choices. *(Weeks 4–10)*
 
@@ -275,15 +280,11 @@ Where a term has several meanings, use the definition for the model being discus
 
 ## S
 
-**Tour.** In the travelling-salesperson problem, a closed route that visits each city once before returning to its starting city. *(Week 7)*
-
-**Task sharing.** Dividing work among agents so that their contributions address different parts of a collective task. *(Week 7)*
-
-**Superorganism.** A colony functioning as an integrated biological unit, with persistent organisation and specialised reproductive roles. *(Week 7)*
+**Shared best.** The best recorded position available to a particle through its communication network. In global-best PSO, this is the best position found anywhere in the swarm. *(Week 7)*
 
 **Shortest-route fraction.** The fraction of ants in a generation using a shortest route. Its ensemble mean summarises allocation to shortest routes across repeated runs. *(Week 7)*
 
-**Shared best.** The best recorded position available to a particle through its communication network. In global-best PSO, this is the best position found anywhere in the swarm. *(Week 7)*
+**Superorganism.** A colony functioning as an integrated biological unit, with persistent organisation and specialised reproductive roles. *(Week 7)*
 
 **Scale-free.** Lacking one characteristic scale over a stated range. The term is used differently across literatures, so the measured quantity and range should be given. *(Weeks 2 and 8)*
 
@@ -325,6 +326,10 @@ Where a term has several meanings, use the definition for the model being discus
 
 ## T–V
 
+**Task sharing.** Dividing work among agents so that their contributions address different parts of a collective task. *(Week 7)*
+
+**Tour.** In the travelling-salesperson problem, a closed route that visits each city once before returning to its starting city. *(Week 7)*
+
 **Transfer entropy.** A directional information measure comparing prediction of a target from its own past with prediction that also uses another process's past. It does not by itself establish causal mechanism. *(Week 9)*
 
 **Transient.** The non-stationary part of a run before the long-time regime used for analysis has been reached. *(Weeks 3 and 5–8)*
@@ -337,11 +342,15 @@ Where a term has several meanings, use the definition for the model being discus
 
 **Verification.** Checking that equations or rules have been implemented as intended, using limiting cases, invariants, known results and intermediate states. *(Course-wide modelling practice)*
 
+## W
+
+**Waggle dance.** A honeybee signal whose orientation and duration convey the direction and distance of a resource relative to the hive. *(Week 7)*
+
 ## Canonical models and named constructions
 
 **Abelian sandpile model.** A driven lattice model in which an unstable site topples by removing four grains and sending one to each neighbour. Grains sent beyond the boundary are lost; a new grain is added after relaxation. The final stable state and toppling counts are independent of legal toppling order. *(Week 8)*
 
-**Cantor set.** A fractal obtained by repeatedly removing the open middle third of each retained interval. *(Week 2)*
+**Cantor set.** A fractal obtained by repeatedly removing the open middle third of each remaining interval. *(Week 2)*
 
 **Game of Life.** Conway's two-dimensional cellular automaton with the B3/S23 outer-totalistic rule. *(Week 4)*
 

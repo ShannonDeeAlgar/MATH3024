@@ -1,9 +1,5 @@
 # Reader and slide equations
 
-This release carries the Week 7 entries from the full authoring audit described
-below. The manifest explicitly limits checks to Week 7; unchanged earlier-week
-notebooks and their committed decks are not replaced by this release.
-
 The reader is the canonical source for course mathematics. Slides may shorten
 explanations, but must not silently change symbols, assumptions or equations.
 
@@ -64,6 +60,9 @@ Always use generate_slides.sh rather than calling nbconvert directly; direct
 nbconvert does not resolve the reader references.
 
 ## Scope
+
+The publication manifest covers Weeks 1–8. Later-week source is outside this
+release and is excluded by the deployment publication filter.
 
 This is a consistency safeguard, not a symbolic proof checker. It covers
 LaTeX mathematics in lecture Markdown source (including inline notation and
