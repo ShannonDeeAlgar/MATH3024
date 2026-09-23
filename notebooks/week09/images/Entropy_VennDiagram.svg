@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 440" role="img" aria-labelledby="title desc">
+  <title id="title">Joint, conditional and mutual information</title>
+  <desc id="desc">H(X) labels the whole blue circle and H(Y) the whole yellow circle. H(X given Y) and H(Y given X) label the exclusive regions. I(X; Y) labels their overlap.</desc>
+  <rect width="760" height="440" fill="white"/>
+  <circle cx="300" cy="240" r="165" fill="#8CB9D8" fill-opacity="0.82" stroke="#172A50" stroke-width="4"/>
+  <circle cx="460" cy="240" r="165" fill="#F4C542" fill-opacity="0.72" stroke="#172A50" stroke-width="4"/>
+  <g fill="none" stroke="#172A50" stroke-width="2">
+    <path d="M 300 63 V 75"/>
+    <path d="M 460 63 V 75"/>
+  </g>
+  <g fill="#172A50" font-family="Arial, Helvetica, sans-serif" text-anchor="middle">
+    <text x="300" y="32" font-size="34" font-style="italic">H(X)</text>
+    <text x="460" y="32" font-size="34" font-style="italic">H(Y)</text>
+    <text x="300" y="57" font-size="20">whole circle</text>
+    <text x="460" y="57" font-size="20">whole circle</text>
+    <text x="215" y="250" font-size="28" font-style="italic">H(X | Y)</text>
+    <text x="380" y="250" font-size="30" font-style="italic">I(X; Y)</text>
+    <text x="545" y="250" font-size="28" font-style="italic">H(Y | X)</text>
+  </g>
+</svg>

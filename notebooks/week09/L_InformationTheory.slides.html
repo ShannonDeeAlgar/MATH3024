@@ -5,8 +5,8 @@
 <meta content="chrome=1" http-equiv="X-UA-Compatible"/>
 <meta content="yes" name="apple-mobile-web-app-capable"/>
 <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
-<title>L_InformationTheory slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
-  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.0/mermaid.esm.min.mjs';
+<title>.L_InformationTheory.resolved.10623 slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
+  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script>
 <!-- General and theme style sheets -->
@@ -7430,679 +7430,2445 @@ main {
     </script>
 <!-- End of mathjax configuration --><!-- Reveal Theme -->
 <link href="https://unpkg.com/reveal.js@4.0.2/dist/theme/simple.css" id="theme" rel="stylesheet"/>
+<style>
+/* Injected by inject_slide_styles.py -- keeps slide styling in
+   sync with style.css. Do not edit directly. */
+.jp-MarkdownOutput h1,
+.jp-MarkdownOutput h2,
+.jp-MarkdownOutput h3,
+.jp-MarkdownOutput h4,
+.jp-MarkdownOutput h5,
+.jp-MarkdownOutput h6 {
+  font-family: Baskerville, Georgia, serif;
+  font-style: italic;
+  font-weight: 700;
+  color: var(--reader-ink, #1B2A4C);
+}
+
+.jp-MarkdownOutput p,
+.jp-MarkdownOutput li,
+.jp-MarkdownOutput blockquote {
+  font-family: Baskerville, Georgia, serif;
+}
+
+.reader-voice {
+  display: grid;
+  grid-template-columns: 1.05em minmax(0, 1fr);
+  column-gap: 0.65em;
+  border: 0;
+  padding: 0;
+  margin: 1.25em 0 1.5em;
+  color: var(--reader-ink, #1B2A4C);
+}
+
+.reader-voice::before {
+  content: "“";
+  grid-column: 1;
+  grid-row: 1 / 3;
+  align-self: stretch;
+  display: flex;
+  align-items: flex-start;
+  height: auto;
+  margin: 0;
+  color: var(--reader-ink-soft, #5A6685);
+  font-family: Baskerville, Georgia, serif;
+  font-size: 3.4em;
+  line-height: 0.72;
+}
+
+.reader-voice-quote {
+  grid-column: 2;
+  font-style: normal;
+  font-family: Baskerville, Georgia, serif;
+  font-size: 1.15em;
+  line-height: 1.28;
+}
+
+.reader-voice-quote::after {
+  content: "”";
+  display: inline;
+  margin-left: 0.2em;
+  color: var(--reader-ink-soft, #5A6685);
+  font-family: Baskerville, Georgia, serif;
+  font-size: 1.7em;
+  line-height: 0;
+  vertical-align: -0.14em;
+}
+
+.reader-voice-attr {
+  grid-column: 2;
+  display: table;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.74em;
+  letter-spacing: 0.06em;
+  color: var(--reader-ink-soft, #5A6685);
+  margin-top: 0.85em;
+  padding-top: 0.55em;
+  border-top: 1px solid var(--reader-line, #C7CEDC);
+  text-align: left;
+}
+
+.reader-voice-attr a {
+  color: var(--reader-ink-soft, #5A6685);
+}
+
+.reader-prompt {
+  position: relative;
+  border: 0;
+  border-left: 2px solid var(--reader-line, #C7CEDC);
+  padding: 0.15em 0 0.15em 3.2em;
+  margin: 1.1em 0;
+  color: var(--reader-ink, #1B2A4C);
+}
+
+.reader-prompt::before {
+  content: "→";
+  position: absolute;
+  left: 0.65em;
+  top: 50%;
+  width: 1.45em;
+  height: 1.45em;
+  transform: translateY(-50%);
+  border: 0;
+  display: grid;
+  place-items: center;
+  font-family: Baskerville, Georgia, serif;
+  font-size: 1.05em;
+  font-style: normal;
+}
+
+.reader-prompt a {
+  color: var(--reader-ink, #1B2A4C);
+}
+
+.reader-prompt-label {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.62em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.35em;
+  color: var(--reader-ink-soft, #5A6685);
+}
+
+.reader-prompt-body {
+  font-family: Baskerville, Georgia, serif;
+  font-size: 1em;
+  font-style: normal;
+  line-height: 1.38;
+}
+
+.reader-prompt-body.italic {
+  font-style: normal;
+}
+
+.article details:is(.myst-dropdown, .reader-answer):not(.discussion-reveal) {
+  margin: 0.35rem 0 1.15rem !important;
+  border: 0 !important;
+  border-top: 1px solid var(--reader-line, #C7CEDC) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  overflow: visible !important;
+}
+
+.jp-MarkdownOutput details:is(.myst-dropdown, .reader-answer):not(.discussion-reveal) > summary {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.875em;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: 1.4;
+  min-height: 2.25rem !important;
+  margin: 0 !important;
+  padding: 0.4rem 0 !important;
+  color: var(--reader-ink-soft, #5A6685) !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  cursor: pointer;
+}
+
+.jp-MarkdownOutput details:is(.myst-dropdown, .reader-answer):not(.discussion-reveal) > summary .myst-dropdown-header-title {
+  font-family: inherit;
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  color: inherit !important;
+}
+
+.article details:is(.myst-dropdown, .reader-answer):not(.discussion-reveal) > summary strong {
+  font-weight: inherit;
+}
+
+.article details:is(.myst-dropdown, .reader-answer):not(.discussion-reveal) > summary:hover {
+  color: var(--reader-ink, #1B2A4C) !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.article details:is(.myst-dropdown, .reader-answer):not(.discussion-reveal) > summary:focus-visible {
+  outline: 2px solid var(--reader-ink, #1B2A4C);
+  outline-offset: 3px;
+}
+
+.article details:is(.myst-dropdown, .reader-answer):not(.discussion-reveal) .myst-dropdown-header-icon {
+  width: 1rem;
+  height: 1rem;
+  padding-left: 0;
+  margin-right: 0;
+  color: var(--reader-ink-soft, #5A6685);
+}
+
+.jp-MarkdownOutput details:is(.myst-dropdown, .reader-answer):not(.discussion-reveal) > :is(.myst-dropdown-body, div) {
+  padding: 0 0 0.45rem !important;
+  background: transparent !important;
+  font-family: Baskerville, Georgia, serif;
+}
+
+.article details:is(.myst-dropdown, .reader-answer):not(.discussion-reveal) > :is(.myst-dropdown-body, div) > :first-child {
+  margin-top: 0.35rem;
+}
+
+.article details:is(.myst-dropdown, .reader-answer):not(.discussion-reveal) > :is(.myst-dropdown-body, div) > :last-child {
+  margin-bottom: 0;
+}
+
+.article details:is(.myst-dropdown, .reader-answer):not(.discussion-reveal) > summary {
+    min-height: 2.75rem !important;
+  }
+
+.reader-prompt-footnote {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.68em;
+  color: var(--reader-ink-soft, #5A6685);
+  margin-top: 1em;
+  padding-top: 0.2em;
+  border-top: 0;
+}
+
+.reader-prompt-footnote a {
+  color: var(--reader-ink-soft, #5A6685);
+}
+
+.reader-emphasis {
+  border-top: 1px solid var(--reader-line, #C7CEDC);
+  border-bottom: 1px solid var(--reader-line, #C7CEDC);
+  padding: 1em;
+  margin: 2em 0;
+  text-align: center;
+}
+
+.reader-emphasis p {
+  font-family: Baskerville, Georgia, serif;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 1.3em;
+  color: var(--reader-ink, #1B2A4C);
+  margin: 0;
+}
+
+.reader-route {
+  border-left: 1px solid var(--reader-ink, #1B2A4C);
+  padding: 0.25em 0 0.25em 1em;
+  margin: 1.5em 0 2em;
+}
+
+.reader-route-label {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.7em;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--reader-ink-soft, #5A6685);
+  margin-bottom: 0.45em;
+}
+
+.reader-route-body {
+  font-family: Baskerville, Georgia, serif;
+  color: var(--reader-ink, #1B2A4C);
+}
+
+.country-map {
+  display: block;
+  max-height: 430px;
+  width: auto;
+  margin: 0.35em auto 0.6em;
+}
+
+.country-slide-grid {
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.65fr);
+}
+
+.country-slide-grid .country-map {
+  width: 100%;
+  max-height: 470px;
+  object-fit: contain;
+}
+
+.country-map-large {
+  display: block;
+  width: 96% !important;
+  max-height: 505px !important;
+  object-fit: contain;
+  margin: 0 auto !important;
+}
+
+.group-slide-grid {
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 0.75fr);
+  align-items: center;
+}
+
+.group-slide-grid .group-photo {
+  width: 100%;
+  max-height: 475px;
+  object-fit: cover;
+  object-position: center;
+  margin: 0 auto;
+}
+
+.group-slide-grid .group-logo {
+  width: 100%;
+  max-height: 245px;
+  object-fit: contain;
+  margin: 0 auto 0.75em;
+}
+
+.figure-reference,
+.figure-caption,
+figcaption {
+  margin-top: 0.45em;
+  color: var(--reader-ink-soft, #5A6685);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.62em;
+  line-height: 1.25;
+}
+
+figure.slide-figure {
+  width: fit-content;
+  max-width: 100%;
+  margin: 0.35em auto;
+}
+
+figure.slide-figure > img {
+  display: block;
+  margin: 0 auto;
+}
+
+figure.slide-figure > .figure-caption {
+  text-align: left;
+}
+
+.figure-panel-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 0.7em;
+  align-items: stretch;
+  margin-top: 0.35em;
+}
+
+.figure-panel {
+  display: flex;
+  min-width: 0;
+  margin: 0;
+  flex-direction: column;
+}
+
+.figure-panel-frame {
+  display: flex;
+  height: 165px;
+  align-items: center;
+  justify-content: center;
+}
+
+.figure-panel-frame img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+  margin: 0;
+  object-fit: contain;
+}
+
+.figure-panel .figure-caption {
+  margin: 0.45em 0 0;
+}
+
+.article .figure-panel-frame {
+  height: 190px;
+}
+
+.unit-essentials {
+  width: 78%;
+  margin: 0.5em auto;
+}
+
+.unit-essentials > div {
+  display: grid;
+  grid-template-columns: 8em 1fr;
+  gap: 1em;
+  padding: 0.34em 0;
+  border-bottom: 1px solid var(--reader-line, #C7CEDC);
+}
+
+.unit-essentials span {
+  text-align: right;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.64em;
+  color: var(--reader-ink-soft, #5A6685);
+}
+
+.unit-essentials strong {
+  text-align: left;
+  font-weight: 400;
+}
+
+.model-specification {
+  margin-top: 0.55em;
+}
+
+.model-specification > div {
+  display: grid;
+  grid-template-columns: 10.5em 1fr;
+  gap: 0.8em;
+  padding: 0.25em 0;
+  border-bottom: 1px solid var(--reader-line, #C7CEDC);
+  font-size: 0.86em;
+}
+
+.model-specification strong { text-align: right; }
+
+.aggregate-definitions { margin-top: 0.35em; }
+
+.aggregate-definitions > div {
+  display: grid;
+  grid-template-columns: 10.5em minmax(0, 1fr);
+  align-items: center;
+  gap: 0.9em;
+  padding: 0.38em 0;
+  border-bottom: 1px solid var(--reader-line, #C7CEDC);
+}
+
+.aggregate-definitions strong { text-align: right; }
+
+.aggregate-definitions p { margin: 0; }
+
+.parameter-outcomes-layout { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); }
+
+.article .choice-marker img,
+.article .discussion-marker img { max-width: 36px !important; }
+
+.article .ladder-marker img { max-width: 30px !important; }
+
+.process-note {
+  margin-top: 0.8em;
+  color: var(--reader-ink-soft, #5A6685);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.62em;
+}
+
+.system-title span {
+  display: inline;
+  margin-left: 0.28em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.48em;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.025em;
+  color: var(--reader-ink-soft, #5A6685);
+}
+
+.system-title span::before { content: ": "; }
+
+.planet-process { display: block; }
+
+.process-sequence { max-width: 49em; }
+
+.process-step {
+  display: grid;
+  grid-template-columns: 1.7em 1fr;
+  gap: 0.55em;
+  align-items: start;
+  margin: 0.08em 0;
+}
+
+.process-step > span {
+  width: 1.45em;
+  height: 1.45em;
+  border: 1px solid var(--reader-ink, #1B2A4C);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.7em;
+}
+
+.process-step p { margin: 0; font-size: 0.72em; line-height: 1.16; }
+
+.process-step.qed { margin-top: 0.28em; padding-top: 0.28em; border-top: 1px solid var(--reader-line, #C7CEDC); }
+
+.variable-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.28em 0.9em;
+  margin-top: 0.45em;
+  padding-top: 0.38em;
+  border-top: 1px solid var(--reader-line, #C7CEDC);
+  color: var(--reader-ink-soft, #5A6685);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.46em;
+  line-height: 1.25;
+}
+
+.variable-strip strong { grid-column: 1 / -1; text-transform: uppercase; letter-spacing: 0.08em; }
+
+.analysis-perspectives {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
+  margin: 0.75em 0;
+}
+
+.analysis-perspectives.three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.analysis-perspectives.four {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.analysis-perspectives.three img,
+.analysis-perspectives.four img {
+  display: block;
+  width: 100%;
+  height: 9rem;
+  object-fit: cover;
+  margin: 0 0 0.6rem;
+}
+
+.analysis-perspectives.three,
+  .analysis-perspectives.four {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+.analysis-perspectives > div {
+  border: 1px solid var(--reader-line, #C7CEDC);
+  padding: 0.58em 0.64em;
+}
+
+.analysis-perspectives strong {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.68em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.analysis-perspectives p { font-size: 0.76em; line-height: 1.22; margin: 0.3em 0; }
+
+.analysis-perspectives.ensemble-comparison > div {
+  min-height: 0;
+  padding: 0.62em 0.72em;
+}
+
+.analysis-perspectives.ensemble-comparison p {
+  margin: 0.35em 0 0;
+  font-size: 0.75em;
+  line-height: 1.2;
+}
+
+.meaning-panel ul,
+.evidence-layout .meaning-panel ul {
+  margin: 0.2em 0 0.55em;
+  padding-left: 1.1em;
+}
+
+.meaning-panel li,
+.evidence-layout .meaning-panel li {
+  padding-left: 0.08em;
+  margin: 0.2em 0;
+}
+
+.group-caption {
+  text-align: center;
+  margin-top: 0.35em;
+  font-family: Baskerville, Georgia, serif;
+  font-size: 1em;
+  line-height: 1.25;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.country-acknowledgement {
+  max-width: 46em;
+  margin: 0.5em auto;
+  text-align: left;
+  font-family: Baskerville, Georgia, serif;
+  color: var(--reader-ink, #1B2A4C);
+}
+
+.slide-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 1.6em;
+  align-items: center;
+  text-align: left;
+}
+
+.slide-columns .column-image {
+  display: block;
+  width: 100%;
+  max-height: 430px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.assumption-reveal {
+  position: relative;
+  border: 1px solid var(--reader-line, #C7CEDC);
+  margin-top: 1em;
+  padding: 0.7em 0.9em 0.7em 4em;
+  color: var(--reader-ink, #1B2A4C);
+}
+
+.assumption-reveal::before {
+  content: "";
+  position: absolute;
+  left: 0.8em;
+  top: 0.75em;
+  width: 2.25em;
+  height: 2.25em;
+  background: center / contain no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%231b2a4c' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 48C24 46 27 38 31 31C35 23 41 17 53 16M31 31C38 35 44 41 51 50'/%3E%3Ccircle cx='12' cy='48' r='5' fill='%231b2a4c'/%3E%3Ccircle cx='53' cy='16' r='5'/%3E%3Ccircle cx='51' cy='50' r='5'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.choice-marker {
+  display: flex;
+  align-items: center;
+  gap: 0.55em;
+  margin: 0.65em 0;
+  color: var(--reader-ink-soft, #5A6685);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.62em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.choice-marker img { width: 34px !important; height: 34px !important; margin: 0 !important; }
+
+.discussion-marker,
+details.discussion-reveal summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0.15rem 0 0.55rem;
+  color: var(--reader-ink, #1B2A4C);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.62em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.discussion-marker img { width: 36px !important; height: 36px !important; margin: 0 !important; }
+
+details.discussion-reveal {
+  margin: 0.7rem 0 1.2rem;
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--reader-ink, #1b2a4c);
+}
+
+details.discussion-reveal summary {
+  position: relative;
+  display: flex;
+  padding: 0.15rem 0;
+  cursor: pointer;
+  list-style: none;
+  background: transparent;
+}
+
+details.discussion-reveal summary::-webkit-details-marker {
+  display: none;
+}
+
+details.discussion-reveal summary > .myst-dropdown-header-title {
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr) 1.2rem;
+  gap: 0.7rem;
+  align-items: center;
+  width: 100%;
+}
+
+details.discussion-reveal summary > .myst-dropdown-header-title > img {
+  grid-column: 1;
+  grid-row: 1;
+  width: 36px !important;
+  height: 36px !important;
+  margin: 0 !important;
+}
+
+details.discussion-reveal summary > .myst-dropdown-header-title > .discussion-reveal-heading {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+details.discussion-reveal summary > .myst-dropdown-header-title > span:has(.myst-dropdown-header-icon) {
+  grid-column: 3;
+  grid-row: 1;
+  justify-self: end;
+  float: none !important;
+  margin: 0 !important;
+}
+
+.discussion-reveal-heading {
+  display: block;
+  min-width: 0;
+}
+
+.discussion-reveal-label {
+  display: none;
+}
+
+.article details.discussion-reveal {
+  border: 0 !important;
+}
+
+.jp-MarkdownOutput details.discussion-reveal summary.myst-dropdown-header {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.62em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.discussion-reveal-question {
+  display: block;
+  color: var(--reader-ink, #1b2a4c);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: inherit;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+details.discussion-reveal summary > img {
+  width: 36px !important;
+  height: 36px !important;
+  flex-shrink: 0;
+  margin: 0 !important;
+}
+
+details.discussion-reveal .discussion-answer {
+  padding: 0.75rem 1rem 0.9rem 4.3rem;
+  border-top: 1px solid #e2e6ed;
+  background: #fff;
+}
+
+details.discussion-reveal .discussion-answer > :first-child {
+  margin-top: 0;
+}
+
+details.discussion-reveal .discussion-answer > :last-child {
+  margin-bottom: 0;
+}
+
+.dark details.discussion-reveal {
+  border-color: #58647a;
+  border-left-color: #edcc55;
+  background: transparent;
+}
+
+.dark details.discussion-reveal summary {
+  background: transparent;
+}
+
+.dark .discussion-reveal-label,
+.dark details.discussion-reveal summary::after {
+  color: #c7cfdd;
+}
+
+.dark .discussion-reveal-question {
+  color: #eef2f8;
+}
+
+.dark details.discussion-reveal .discussion-answer {
+  border-top-color: #46536a;
+  background: #202633;
+}
+
+.discussion-prompt { border-left-color: #EDCC55; }
+
+.qa-grid { margin-top: 0.55em; }
+
+.qa-row {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  gap: 1.1em;
+  align-items: start;
+  padding: 0.42em 0;
+  border-bottom: 1px solid var(--reader-line, #C7CEDC);
+}
+
+.qa-question { text-align: right; font-weight: 700; }
+
+.qa-answer { color: var(--reader-ink, #1B2A4C); }
+
+.qa-row p { margin: 0; font-size: 0.82em; line-height: 1.24; }
+
+.initialisation-layout { grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr); gap: 1em; }
+
+.initialisation-layout .qa-row { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); }
+
+.initialisation-layout .column-image { max-height: 330px; }
+
+.schelling-embed div[style*="padding-bottom"] {
+  padding-bottom: 34% !important;
+}
+
+.schelling-embed {
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto 0.75em;
+}
+
+.schelling-embed > div,
+.schelling-embed > div > div[style*="padding-bottom"],
+.schelling-embed > div iframe {
+  width: 100% !important;
+  height: 215px !important;
+  padding-bottom: 0 !important;
+}
+
+.reveal .schelling-embed,
+.reveal .schelling-embed iframe {
+  width: 74% !important;
+  height: 285px !important;
+  margin-inline: auto;
+}
+
+.evidence-layout {
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 1.25em;
+  align-items: stretch;
+}
+
+.evidence-panel,
+.meaning-panel {
+  border: 1px solid var(--reader-line, #C7CEDC);
+  padding: 0.58em 0.64em;
+  min-width: 0;
+  align-self: stretch;
+}
+
+.evidence-panel img {
+  display: block;
+  width: 100%;
+  max-height: 430px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.meaning-panel > img {
+  display: block;
+  width: 100%;
+  height: 135px;
+  object-fit: contain;
+  margin: 0 auto 0.35em;
+}
+
+.evidence-panel p,
+.meaning-panel p,
+.meaning-panel li {
+  font-size: 0.76em;
+  line-height: 1.22;
+}
+
+.evidence-panel > strong,
+.meaning-panel > strong {
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.68em;
+  line-height: 1.15;
+  min-height: 2.3em;
+  margin: 0.25em 0;
+}
+
+.article .reader-figure {
+  width: min(100%, 620px);
+  margin: 1.2rem auto;
+}
+
+.article .reader-figure.reader-figure-small {
+  width: min(100%, 360px);
+}
+
+.article .reader-figure.reader-figure-wide {
+  width: min(100%, 920px);
+}
+
+.article .reader-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+.slide-week9-opening-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
+  gap: 1.4rem;
+  align-items: center;
+}
+
+.slide-week9-opening-figure {
+  margin: 0;
+  text-align: center;
+}
+
+.slide-week9-opening-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.reveal .slides .slide-week9-opening-layout {
+  grid-template-columns: minmax(0, 1.12fr) minmax(330px, 0.88fr);
+  gap: 1.1em;
+}
+
+.reveal .slides .slide-week9-opening-copy > p {
+  margin: 0 0 0.55em;
+}
+
+.reveal .slides .slide-week9-opening-layout .slide-quote {
+  margin: 0.7em 0 0;
+}
+
+.reveal .slides .slide-week9-opening-figure img {
+  max-height: 330px;
+  object-fit: contain;
+}
+
+.article .slide-week9-opening-layout {
+    grid-template-columns: 1fr;
+  }
+
+.article .slide-week9-opening-figure {
+    width: min(100%, 520px);
+    margin-inline: auto;
+  }
+
+.jp-MarkdownOutput table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Baskerville, Georgia, serif;
+  font-size: 0.95rem;
+  line-height: 1.3;
+}
+
+.reveal .slides table,
+.reveal .slides .model-specification,
+.reveal .slides .qa-grid {
+  font-size: 0.68em;
+  line-height: 1.16;
+}
+
+.reveal .slides .analysis-perspectives.three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.65em;
+}
+
+.reveal .slides .two-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0.8em;
+  align-items: center;
+  width: 100%;
+}
+
+.reveal .slides .two-panel.wide-left {
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
+}
+
+.reveal .slides section .figure-interpretation-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 0.8em;
+  align-items: center;
+  width: 100%;
+}
+
+.reveal .slides section .figure-interpretation-layout > * {
+  min-width: 0;
+}
+
+.reveal .slides section .figure-interpretation-layout .figure-panel img {
+  display: block;
+  width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.reveal .slides section .figure-interpretation-layout .text-panel,
+.reveal .slides section .figure-interpretation-stack .text-panel {
+  font-size: 0.82em;
+  line-height: 1.25;
+}
+
+.reveal .slides section .jp-MarkdownOutput .figure-interpretation-layout .text-panel :is(p, li):not(.small-note):not(.figure-caption):not(.figure-reference),
+.reveal .slides section .jp-MarkdownOutput .figure-interpretation-stack .text-panel :is(p, li):not(.small-note):not(.figure-caption):not(.figure-reference) {
+  font-size: inherit;
+  line-height: inherit;
+  margin-top: 0.35em;
+  margin-bottom: 0.35em;
+}
+
+.reveal .slides section .figure-interpretation-stack .figure-panel img {
+  display: block;
+  width: 100%;
+  max-height: 320px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.reveal .slides section .figure-correlation-panel {
+  width: 100%;
+  aspect-ratio: 458 / 361.19952;
+  position: relative;
+  overflow: hidden;
+}
+
+.reveal .slides section .figure-correlation-panel img {
+  position: absolute;
+  width: 196.7684541485% !important;
+  max-width: none !important;
+  max-height: none !important;
+  height: auto !important;
+  left: 0;
+  top: 0;
+  margin: 0 !important;
+}
+
+.reveal .slides section .figure-correlation-panel.figure-correlation-right {
+  aspect-ratio: 443.19952 / 361.19952;
+}
+
+.reveal .slides section .figure-correlation-panel.figure-correlation-right img {
+  width: 203.3394613112% !important;
+  left: -103.3394613112%;
+}
+
+.reveal .slides .two-panel > *,
+.reveal .slides .three-panel > * { min-width: 0; }
+
+.reveal .slides .two-panel .image-panel,
+.reveal .slides .three-panel .image-panel,
+.reveal .slides .two-panel .text-panel,
+.reveal .slides .three-panel .text-panel {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.reveal .slides .two-panel .image-panel img,
+.reveal .slides .three-panel .image-panel img {
+  display: block;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.reveal .slides .ant-behaviour-gallery {
+  gap: 0.48em;
+}
+
+.reveal .slides .ant-behaviour-gallery .image-panel {
+  display: grid;
+  grid-template-rows: 285px auto;
+  align-content: start;
+  overflow: hidden;
+  border: 1px solid #d5dce8;
+  border-radius: 0.18em;
+  background: #f7f9fc;
+}
+
+.reveal .slides .ant-behaviour-gallery .image-panel img {
+  width: 100%;
+  height: 285px;
+  max-height: none;
+  object-fit: cover;
+}
+
+.reveal .slides .ant-behaviour-gallery .image-panel p {
+  margin: 0;
+  padding: 0.38em 0.48em 0.44em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.59em;
+  line-height: 1.24;
+  text-align: left;
+}
+
+.reveal .slides .model-specification > div {
+  grid-template-columns: minmax(8.5em, 0.72fr) minmax(0, 1.6fr);
+  font-size: 1em;
+  padding: 0.28em 0;
+}
+
+.reveal .slides .model-specification strong {
+  text-align: left;
+}
+
+.ladder-marker {
+  display: flex;
+  align-items: center;
+  gap: 0.65em;
+  border-top: 1px solid var(--reader-line, #C7CEDC);
+  margin-top: 0.8em;
+  padding-top: 0.55em;
+  color: var(--reader-ink-soft, #5A6685);
+  font-family: Baskerville, Georgia, serif;
+  font-size: 0.68em;
+}
+
+.ladder-marker img {
+  width: 30px !important;
+  height: 40px !important;
+  margin: 0 !important;
+  flex: 0 0 auto;
+}
+
+.reveal section:has(.transfer-slide) h1 {
+  font-size: 2.65em;
+  margin-bottom: 0.05em;
+}
+
+.reveal section:has(.transfer-slide) h2 {
+  font-size: 1.45em;
+  margin: 0 0 0.35em;
+}
+
+.reveal section:has(.transfer-slide) p,
+.reveal section:has(.transfer-slide) li {
+  font-size: 0.9em;
+  line-height: 1.25;
+}
+
+.reveal section:has(.transfer-slide) .ladder-marker {
+  margin-top: 0.45em;
+  padding-top: 0.35em;
+}
+
+.schelling-interactive {
+  display: block;
+  width: 100%;
+  height: 475px;
+  margin: 0 auto;
+  border: 0;
+}
+
+.schelling-interactive.compact-simulation {
+  width: 88%;
+  height: 350px;
+}
+
+.reader-event-layout .evidence-panel > img {
+  width: min(100%, 420px);
+  margin-inline: auto;
+}
+
+.simulation-preview {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  margin: 0 auto;
+  border: 0;
+}
+
+.article img.reader-image-detailed,
+.article .reader-figure.reader-figure-wide img {
+  max-height: min(76vh, 720px);
+}
+
+.article .meaning-panel > img {
+  display: block;
+  width: 100%;
+  height: 135px;
+  object-fit: contain;
+  margin: 0 auto 0.35em;
+}
+
+.article .reader-map {
+  display: block;
+  width: min(100%, 900px);
+  max-height: min(76vh, 720px);
+  height: auto !important;
+  object-fit: contain;
+  margin: 1rem auto 0.5rem;
+}
+
+.canonical-model-marker {
+  display: inline-flex;
+  gap: 0.55rem;
+  align-items: baseline;
+  max-width: 92%;
+  margin-top: 1rem;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid #aebbd0;
+  border-left: 5px solid #1b2a4c;
+  background: #f7f9fc;
+  color: #1b2a4c;
+  text-align: left;
+}
+
+.canonical-model-marker span {
+  font-family: Arial, sans-serif;
+  font-size: 0.5em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.canonical-model-marker strong {
+  font-family: Baskerville, Georgia, serif;
+  font-size: 0.76em;
+  line-height: 1.15;
+}
+
+.canonical-model-marker strong small {
+  display: block;
+  margin-top: 0.22em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.68em;
+  font-style: normal;
+  font-weight: 400;
+  color: var(--reader-ink-soft, #5D6D8D);
+}
+
+.modelling-practice-marker {
+  display: inline-flex;
+  gap: 0.55rem;
+  align-items: baseline;
+  max-width: 92%;
+  margin-top: 0.45rem;
+  padding: 0.48rem 0.85rem;
+  border: 1px solid #d4c178;
+  border-left: 5px solid #c89b19;
+  background: #fffaf0;
+  color: #1b2a4c;
+  text-align: left;
+}
+
+.modelling-practice-marker span {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.5em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.modelling-practice-marker strong {
+  font-family: Baskerville, Georgia, serif;
+  font-size: 0.76em;
+  line-height: 1.15;
+}
+
+.dark .modelling-practice-marker {
+  border-color: #8f7f49;
+  border-left-color: #edcc55;
+  background: #292615;
+  color: #f7f1df;
+}
+
+.toolkit-addition-marker {
+  display: inline-flex;
+  gap: 0.55rem;
+  align-items: baseline;
+  max-width: 92%;
+  margin-top: 0.45rem;
+  padding: 0.48rem 0.85rem;
+  border: 1px solid #b8c8bd;
+  border-left: 5px solid #557a60;
+  background: #f5faf6;
+  color: #1b2a4c;
+  text-align: left;
+}
+
+.toolkit-addition-marker span {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.5em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.toolkit-addition-marker strong {
+  font-family: Baskerville, Georgia, serif;
+  font-size: 0.76em;
+  line-height: 1.15;
+}
+
+.dark .toolkit-addition-marker {
+  border-color: #66806d;
+  border-left-color: #93bd9d;
+  background: #1f2b22;
+  color: #eef6f0;
+}
+
+.guiding-question {
+  box-sizing: border-box;
+  width: min(92%, 58rem);
+  margin: 0.8rem 0 0;
+  padding: 0.68rem 0.9rem 0.72rem;
+  border: 1px solid #c7d2e2;
+  border-top: 4px solid #6d83a9;
+  border-radius: 0.25rem;
+  background: #f7f9fc;
+  color: #1b2a4c;
+  text-align: left;
+}
+
+.guiding-question span {
+  display: block;
+  margin-bottom: 0.22rem;
+  color: #5a6685;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.44em;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.guiding-question p {
+  margin: 0;
+  color: inherit;
+  font-family: Baskerville, Georgia, serif;
+  font-size: 0.76em;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.dark .guiding-question {
+  border-color: #586983;
+  border-top-color: #92a6c8;
+  background: #222936;
+  color: #eef2f8;
+}
+
+.dark .guiding-question span {
+  color: #b7c3d7;
+}
+
+.jp-OutputArea-child:has(iframe) .jp-OutputPrompt,
+.jp-Cell-outputWrapper:has(iframe) .jp-OutputCollapser {
+  display: none;
+}
+
+.jp-Cell-outputWrapper:has(iframe) {
+  display: flex;
+  justify-content: center;
+}
+
+:root {
+  --jp-content-font-size1: 28px !important;
+  --reader-ink: #1B2A4C;
+  --reader-ink-soft: #5A6685;
+  --reader-line: #C7CEDC;
+}
+
+.reveal,
+.reveal .slides,
+.reveal .slides section {
+  background: #fff;
+  color: var(--reader-ink);
+}
+
+.reveal .jp-MarkdownOutput p,
+.reveal .jp-MarkdownOutput li,
+.reveal .jp-MarkdownOutput td,
+.reveal .jp-MarkdownOutput th {
+  font-family: Baskerville, Georgia, serif;
+  line-height: 1.28;
+}
+
+.reveal .slides section h1 {
+  font-size: 2.35em;
+  line-height: 1.05;
+}
+
+.reveal .slides section h2,
+.reveal .slides section h3,
+.reveal .slides section h4,
+.reveal .slides section h5 {
+  font-size: 1.45em;
+  line-height: 1.12;
+}
+
+.reveal .slides section h1,
+.reveal .slides section h2,
+.reveal .slides section h3,
+.reveal .slides section h4,
+.reveal .slides section h5 {
+  margin-top: 0;
+  margin-bottom: 0.55em;
+  color: var(--reader-ink);
+}
+
+.reveal .slides section h3,
+.reveal .slides section h4,
+.reveal .slides section h5 {
+  font-size: 1.15em;
+}
+
+.reveal .slides section a {
+  color: var(--reader-ink);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.12em;
+}
+
+/* A quieter quotation treatment for projected slides. */
+.reveal .slides section .slide-quote {
+  display: block;
+  width: min(86%, 860px);
+  margin: 1.35em auto;
+  padding: 0 0 0 0.8em;
+  border: 0;
+  border-left: 4px solid #D69E1E;
+  color: var(--reader-ink);
+  text-align: left;
+}
+
+.reveal .slides section .slide-quote::before {
+  display: none;
+  content: none;
+}
+
+.reveal .slides section .slide-quote .reader-voice-quote {
+  display: block;
+  font-family: Baskerville, Georgia, serif;
+  font-size: 0.82em;
+  font-style: italic;
+  line-height: 1.45;
+}
+
+.reveal .slides section .slide-quote .reader-voice-quote::after {
+  content: none;
+}
+
+.reveal .slides section .slide-quote .reader-voice-attr {
+  display: block;
+  margin: 0.9em 0 0;
+  padding: 0;
+  border: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.55em;
+  font-style: normal;
+  letter-spacing: 0;
+  color: var(--reader-ink-soft);
+}
+
+/* Notebook anchor glyphs are useful in the Reader but are visual noise in a
+   presentation heading. */
+.reveal .slides section .anchor-link {
+  display: none !important;
+}
+
+/* Old notebooks contain a few inline or inherited sans-serif declarations.
+   Body copy follows the common lecture type system; sans serif is reserved
+   for captions, labels and compact annotations below. */
+.reveal .slides section .jp-MarkdownOutput > p,
+.reveal .slides section .jp-MarkdownOutput > ul,
+.reveal .slides section .jp-MarkdownOutput > ol,
+.reveal .slides section .jp-MarkdownOutput > div:not(.small-note):not(.figure-caption):not(.figure-reference) {
+  font-family: Baskerville, Georgia, serif;
+}
+
+.reveal .slides section table {
+  border-collapse: collapse;
+  margin: 0.7em auto;
+  font-size: 0.68em;
+  line-height: 1.16;
+}
+
+.reveal .slides section th,
+.reveal .slides section td {
+  border-bottom: 1px solid var(--reader-line);
+  padding: 0.3em 0.55em;
+}
+
+.reveal .slides section tbody tr:nth-child(even) {
+  background: transparent;
+}
+
+/* Short component labels leave room for the full game specification. */
+.reveal [id="cell-id=8309b600-a5e3-4836-853a-d685bf85dd2f"] table {
+  width: 100%;
+  table-layout: fixed;
+}
+.reveal [id="cell-id=8309b600-a5e3-4836-853a-d685bf85dd2f"] th:first-child {
+  width: 24%;
+}
+.reveal [id="cell-id=8309b600-a5e3-4836-853a-d685bf85dd2f"] th:last-child {
+  width: 76%;
+}
+
+.reveal .slides section .analysis-perspectives.three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.65em;
+}
+
+.reveal .slides section .coat-cards img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.reveal .slides section .coat-cards .coat-image-frame {
+  height: 230px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 0.25em;
+}
+
+.reveal .slides section .coat-cards > div {
+  padding: 0.42em 0.48em;
+}
+
+.reveal .slides section .coat-cards p {
+  margin: 0.18em 0;
+}
+
+.reveal .slides section .compact-panels .text-panel { padding: 0.45em 0.65em; }
+.reveal .slides section .compact-panels p { margin: 0; }
+.reveal .slides section .two-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0.8em;
+  align-items: center;
+  width: 100%;
+}
+.reveal .slides section .two-panel.wide-left {
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
+}
+.reveal .slides section .three-panel {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.65em;
+  align-items: stretch;
+  width: 100%;
+}
+.reveal .slides section .two-panel > *,
+.reveal .slides section .three-panel > * { min-width: 0; }
+.reveal .slides section .application-anchors {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin: 20px 0;
+}
+.reveal .slides section .application-anchors h3 {
+  font-size: .78em;
+  text-align: center;
+  margin: 0 0 12px;
+}
+.reveal .slides section .application-anchors p {
+  font-size: .70em;
+  line-height: 1.35;
+  margin: 12px 0 0;
+}
+.reveal .slides section img.application-schematic {
+  width: 100%;
+  height: 235px;
+  object-fit: contain;
+  margin: 0;
+}
+.reveal .slides section .lizard-photo-anchor {
+  position: relative;
+  overflow: hidden;
+  width: 307px;
+  height: 235px;
+  margin: 0 auto;
+}
+.reveal .slides section .lizard-photo-anchor img {
+  position: absolute;
+  width: 250% !important;
+  max-width: none !important;
+  max-height: none !important;
+  height: auto !important;
+  left: -129.8077%;
+  top: -77.3585%;
+  margin: 0 !important;
+}
+.reveal .slides section p.application-credit {
+  font-size: .40em;
+  line-height: 1.35;
+  color: #5A6685;
+}
+.reveal .slides section .two-panel .image-panel,
+.reveal .slides section .three-panel .image-panel,
+.reveal .slides section .two-panel .text-panel,
+.reveal .slides section .three-panel .text-panel {
+  box-sizing: border-box;
+  width: 100%;
+}
+.reveal .slides section .two-panel .image-panel img,
+.reveal .slides section .three-panel .image-panel img {
+  display: block;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+}
+.reveal .slides section .small-note {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: calc(0.62 * var(--jp-content-font-size1));
+  line-height: 1.28;
+  color: var(--reader-ink-soft);
+}
+
+.reveal .slides section .canonical-model-marker strong small {
+  display: block;
+  margin-top: 0.22em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.68em;
+  font-style: normal;
+  font-weight: 400;
+  color: var(--reader-ink-soft);
+}
+
+.reveal .slides section figcaption,
+.reveal .slides section .figure-caption,
+.reveal .slides section .figure-reference,
+.reveal .slides section .jp-MarkdownOutput :is(figcaption, .figure-caption, .figure-reference),
+.reveal .slides section p:has(> em:first-child:last-child) {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: calc(0.58 * var(--jp-content-font-size1));
+  line-height: 1.25;
+  color: var(--reader-ink-soft);
+}
+
+/* Explicit caption/credit roles must beat the body-paragraph selector, even
+   when the role wraps paragraphs rather than being the paragraph itself. */
+.reveal .slides section .jp-MarkdownOutput :is(figcaption, .figure-caption, .figure-reference, .small-note) :is(p, li) {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+.reveal .slides section .jp-MarkdownOutput .small-note {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Reader numbering is exported separately from the projected description. */
+.reveal .reader-figure-number {
+  display: none;
+}
+
+.reveal .slides section :is(.slide-figure, .figure-panel) {
+  min-width: 0;
+}
+.reveal .slides section :is(.slide-figure, .figure-panel) > :is(.figure-caption, .figure-reference) {
+  margin: 0.35em 0 0;
+  text-align: left;
+}
+.reveal .slides section pre,
+.reveal .slides section code,
+.reveal .jp-CodeCell {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+
+.reveal .slides section img {
+  max-height: 350px;
+  width: auto;
+  height: auto;
+}
+.reveal .slides section img.game-payoff-figure:not(.pd-outcomes-figure) {
+  width: 360px !important;
+  max-width: 100% !important;
+  height: auto !important;
+}
+.reveal .slides section img.game-plane-figure {
+  width: 400px !important;
+  max-width: 100% !important;
+  max-height: 450px;
+  height: auto !important;
+}
+</style>
 </head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 <main>
 <div class="reveal">
 <div class="slides"><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=34b8784d-0010-4691-acfb-9d99cceb4214">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2c576cfe-6ea6-4b81-bf21-5d65d2dc0b5e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p><img alt="" src="images/ChatGPT_Complexity.png"/></p>
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="Information-theory">Information theory<a class="anchor-link" href="#Information-theory">¶</a></h1><div class="slide-week9-opening-layout">
+<div class="slide-week9-opening-copy">
+<p>We will return to the Schelling model to land the key points developed across Week 9.</p>
+<p>This week returns to earlier models and develops a shared language for uncertainty and statistical dependence.</p>
+<div class="reader-voice slide-quote">
+<div class="reader-voice-quote">Information theory is poised to become the lingua franca of our increasingly complexity-aware scientific enterprise.</div>
+<div class="reader-voice-attr">— Thomas F. Varley, <em><a href="https://doi.org/10.1016/j.physrep.2025.09.007">Information Theory for Complex Systems Scientists: What, Why, &amp; How?</a></em></div>
+</div>
+</div>
+<figure class="slide-week9-opening-figure">
+<img alt="Square and triangular characters from Parable of the Polygons" src="images/Parable_of_the_Polygons_Meh_characters.png"/>
+<figcaption class="figure-caption" id="fig-w9-1">Characters from <a href="https://ncase.me/polygons/">Parable of the Polygons</a>.</figcaption>
+</figure>
+</div>
 </div>
 </div>
 </div>
 </div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c287fdd7-3023-4a73-9b7b-5ea0835bf95d">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w9-complex-systems-recap">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="WHAT-exactly-is-'complexity'?">WHAT exactly is 'complexity'?<a class="anchor-link" href="#WHAT-exactly-is-'complexity'?">¶</a></h1>
+<h2 id="Questions-that-have-recurred-across-the-unit">Questions that have recurred across the unit<a class="anchor-link" href="#Questions-that-have-recurred-across-the-unit">¶</a></h2><p>Across the unit, local rules have produced collective behaviour, feedback and structure across scales.</p>
+<table style="width:100%;table-layout:fixed">
+<colgroup><col style="width:25%"/><col style="width:43%"/><col style="width:32%"/></colgroup>
+<thead><tr><th>Shared feature</th><th>Recurring question</th><th>Course examples</th></tr></thead>
+<tbody>
+<tr><td>Local interactions</td><td>How does collective structure emerge?</td><td>Schelling, reaction–diffusion, cellular automata</td></tr>
+<tr><td>Coupling and feedback</td><td>When does collective order appear?</td><td>Vicsek and Kuramoto</td></tr>
+<tr><td>Distributed control</td><td>How do agents coordinate or search?</td><td>ACO and PSO</td></tr>
+<tr><td>Structure across scales</td><td>What persists as scale changes?</td><td>fractals, percolation, sandpiles</td></tr>
+<tr><td>Variability between runs</td><td>Which behaviour is typical?</td><td>parameter sweeps and ensembles</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w9-why-quantify-slide">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Why-try-to-quantify-complexity?">Why try to quantify complexity?<a class="anchor-link" href="#Why-try-to-quantify-complexity?">¶</a></h2><p>Quantitative summaries let us:</p>
+<ul>
+<li>compare systems and assumptions;</li>
+<li>track change through time or parameters;</li>
+<li>distinguish behavioural regimes;</li>
+<li>communicate reproducible claims.</li>
+</ul>
+<p>Earlier measures answer particular questions: geometry, alignment, synchrony and connectivity.</p>
+<p>A <strong>probability distribution</strong> lets information theory quantify uncertainty and statistical dependence.</p>
 </div>
 </div>
 </div>
 </div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=dce31754-cfca-47a9-8dc9-b262830f8113">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w9-shannon-engineering-slide">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="WHERE-is-'complexity'?">WHERE is 'complexity'?<a class="anchor-link" href="#WHERE-is-'complexity'?">¶</a></h1>
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Shannon's-engineering-problem">Shannon's engineering problem<a class="anchor-link" href="#Shannon's-engineering-problem">¶</a></h2><div style="display:grid;grid-template-columns:28% 1fr;gap:2.2rem;align-items:center;margin-top:0.7rem">
+<figure class="slide-figure" style="margin:0;text-align:center">
+<img alt="Portrait of Claude Shannon" src="images/Claude_Shannon.jpeg" style="display:block;max-height:390px;max-width:100%;margin:0 auto"/>
+<figcaption class="figure-caption" style="margin-top:0.45rem">Claude Shannon (1916–2001)</figcaption>
+</figure>
+<div>
+<p>At Bell Labs, Shannon posed a practical engineering question.</p>
+<p style="margin:1.05rem 0 1.2rem;color:#2f78ad;font-family:Georgia, 'Times New Roman', serif;font-size:1.28em;font-style:italic;line-height:1.28">How can a message be transmitted reliably over a noisy channel?</p>
+<p>Information concerns signals transmitted through a channel.</p>
+<p>Received data reduce uncertainty about the message.</p>
+</div>
+</div>
 </div>
 </div>
 </div>
 </div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c5f86d71-a8ec-490f-b78b-51cd29a1ccf3">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w9-meaning-slide">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="WHY-do-we-want-to-measure-'complexity'?">WHY do we want to measure 'complexity'?<a class="anchor-link" href="#WHY-do-we-want-to-measure-'complexity'?">¶</a></h1>
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Messages-and-meaning">Messages and meaning<a class="anchor-link" href="#Messages-and-meaning">¶</a></h2><div class="semantic-message-emphasis" style="margin:0.85rem auto 0.8rem; text-align:center; color:#2f78ad; font-family:Georgia, 'Times New Roman', serif; font-size:1.38em; font-style:italic; line-height:1.3;">
+  “The sky is blue” <span style="color:#d95f3d; padding:0 0.35em;">·</span> “ajksd873##@”
+  <div style="width:5rem; height:3px; margin:0.45rem auto 0; background:#d95f3d;"></div>
+</div>
+<p>Meaning comes from context and interpretation. Information theory treats both strings as possible source outcomes, with probability determining the information required to distinguish them. Equal probabilities give equal information regardless of meaning, while unequal or predictable symbol sequences remain visible in the statistical structure.</p>
 </div>
 </div>
 </div>
-</div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bc31e1dc-c201-432f-9478-59caf06a1a08">
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w9-why-surprise-slide">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<div style="margin: 1.5em 0; border-right: 4px solid #888; padding-right: 1em; text-align: right;">
-<div style="font-style: italic; font-family: 'Comic Neue', 'Segoe Script', cursive; font-size: 1.2em;">
-    [Information theory is] poised to become the lingua franca of our increasingly complexity-aware scientific enterprise  </div>
-<div style="font-style: normal; font-size: 0.95em; margin-top: 0.5em;">
-    — Information Theory for Complex Systems Scientists: What, Why, &amp; How?, Thomas F. Varley
-
-  </div>
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Why-measure-information-in-a-complex-system?">Why measure information in a complex system?<a class="anchor-link" href="#Why-measure-information-in-a-complex-system?">¶</a></h2><div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);gap:1.4rem;align-items:center;margin-top:0.35rem">
+<div>
+<p>Choose the variable, neighbourhood, time or scale.</p>
+<p><strong>Entropy</strong> is average uncertainty in a defined variable. Dependence measures how much observing one variable changes uncertainty about another.</p>
+</div>
+<figure class="figure-panel" style="margin-top:0.1rem">
+<img alt="A schematic curve showing low structural complexity at perfect order and perfect randomness, with greater complexity for structured organisation between them" src="images/entropy_complexity_schematic.svg" style="width:100%;max-height:300px"/>
+</figure>
 </div>
 </div>
 </div>
 </div>
-</div></div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=632fdfe2-ea58-478d-b098-e94d18a20aff">
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w9-surprise-motivation-slide">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="HOW-do-we-measure-'complexity'?">HOW do we measure 'complexity'?<a class="anchor-link" href="#HOW-do-we-measure-'complexity'?">¶</a></h1>
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h3 id="Dice">Dice<a class="anchor-link" href="#Dice">¶</a></h3><table>
+<thead>
+<tr>
+<th>Fair die</th>
+<th>Loaded die</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Every face has probability $1/6$.</td>
+<td>$P(2)=2/3$; every other face has probability $1/15$.</td>
+</tr>
+<tr>
+<td>No preferred prediction.</td>
+<td>2 is the best prediction.</td>
+</tr>
+<tr>
+<td>A 2 and a 5 carry the same information.</td>
+<td>A 2 carries less information than a 5.</td>
+</tr>
+</tbody>
+</table>
+<p>We need a numerical measure of how much information an observed face carries.</p>
 </div>
 </div>
 </div>
-</div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=92e75d3a-e03e-412c-aeb9-4a5e1dd0b0f8">
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w9-surprise-requirements-slide">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>We have already seen one measure of complexity...</p>
-</div>
-</div>
-</div>
-</div></div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2efb75c6-d368-4cf1-ade8-114fa225fef0">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="WHO-and-WHEN:-a-brief-origin-story">WHO and WHEN: a brief origin story<a class="anchor-link" href="#WHO-and-WHEN:-a-brief-origin-story">¶</a></h1><p>Information theory was born in 1948, when Claude Shannon, working at Bell Labs, tackled a practical engineering problem: <em>How can a message be transmitted reliably over a noisy channel?</em></p>
-<p><img alt="" src="images/Claude_Shannon.jpeg"/></p>
-</div>
-</div>
-</div>
-</div><aside class="notes">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e7292d1a-7dd3-46e1-94bd-4e5b96ef23a0">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_presenter-notes celltag_remove-cell" data-mime-type="text/markdown">
-<div style="background-color: #ffff88; padding: 1em; border-left: 5px solid #fff102;">
-<p>Regarding the above quote: along with other transformative technologies like artificial intelligence (AI), blockchain, etc. I have no idea who actually said this.</p>
-<p>Almost entire theory was published in his <em>A Mathematical Theory of Communication</em> [1948]</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</aside></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=997874c3-83f4-48aa-bd97-8c6cc29edbfb">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>Information theory is a toolkit to quantify complexity itself.</p>
-<p>We will look extensively at entropy as the key measure.</p>
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Six-requirements-for-measuring-one-outcome">Six requirements for measuring one outcome<a class="anchor-link" href="#Six-requirements-for-measuring-one-outcome">¶</a></h2><p>The measure $h(x)$ should:</p>
 <ol>
-<li><strong>Entropy</strong>: measures uncertainty and disorder in a system.</li>
+<li>depend only on $P(x)$;</li>
+<li>vary continuously with $P(x)$;</li>
+<li>increase as $P(x)$ falls and never be negative;</li>
+<li>add for independent outcomes;</li>
+<li>satisfy $P(x)=1\Rightarrow h(x)=0$;</li>
+<li>satisfy $P(x)\to0^+\Rightarrow h(x)\to\infty$.</li>
 </ol>
+<p>$$
+h(x_1,x_2)=h(x_1)+h(x_2).
+$$</p>
+<p>Additivity for independent outcomes selects the logarithm.</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=67663f5b-notation-slide">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="The-unique-measure-for-one-outcome">The unique measure for one outcome<a class="anchor-link" href="#The-unique-measure-for-one-outcome">¶</a></h2><p>The unique function meeting the six requirements is</p>
+<p>$$
+h(x)=\log_b\!\left(\frac{1}{P(x)}\right)=-\log_b P(x).
+$$</p>
+<p>This is called <strong>self-information</strong>. <strong>Surprise</strong> is its intuitive interpretation. It is also called local entropy because it belongs to one outcome; entropy averages it over the distribution.</p>
+<p>Less probable outcomes carry more information.</p>
 </div>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ffb2b2ce">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4d9ad5e7-notation-slide">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="Information">Information<a class="anchor-link" href="#Information">¶</a></h2><p>Information is what reduces our uncertainty when data is revealed.</p>
-<p>To Shannon, "information" referred to signals transmitted through a channel.</p>
-<p>Intuitively, information measures <em>how much our uncertainty is reduced when new data becomes available</em>.</p>
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="1.-Entropy-as-expected-surprise">1. Entropy as expected surprise<a class="anchor-link" href="#1.-Entropy-as-expected-surprise">¶</a></h2><p>Entropy $H(X)$ is average uncertainty before the next symbol arrives.</p>
+<p>Rare outcomes surprise more; common outcomes occur more. Entropy weights and averages both effects.</p>
+<p>$$
+H(X)=\mathbb E_X[h(x)]=-\sum_{x\in\mathcal X}P(x)\log_2 P(x).
+$$</p>
 </div>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=07457d15">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w9-dice-entropy-comparison-slide">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>A really important point is that 'information' is agnostic to the question of the "meaning" of a message.</p>
-<ul>
-<li><strong>Information</strong>: a measure of the reduction in uncertainty about a system or event when a signal is received.</li>
-<li><strong>Meaning</strong>: involves interpretation and context, which are subjective and vary depending on the receiver.</li>
-</ul>
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h3 id="Dice">Dice<a class="anchor-link" href="#Dice">¶</a></h3><p>Same six outcomes; different probability weights.</p>
+<figure class="slide-figure" style="margin-top:0.2rem">
+<img alt="Probability histograms for a fair die and a loaded die whose face two has probability two thirds" src="images/fair_loaded_die_distributions.svg" style="max-height:48vh;object-fit:contain"/>
+</figure>
+<p>Fair: $H=2.585$ bits. Loaded: $H=1.692$ bits. Rare outcomes are more surprising.</p>
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4853c503-0f04-4e8a-ad76-ca657449f386">
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w9-yes-no-entropy-example-slide">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>i.e. We aren't interested in what the information represents - only that we have inferred the correct message from some space of possible messages.</p>
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="2.-Entropy-as-required-information">2. Entropy as required information<a class="anchor-link" href="#2.-Entropy-as-required-information">¶</a></h2><p>Entropy gives the ideal average information per observation. $L$ is the actual average number of yes/no questions.</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;margin-top:0.15rem">
+<figure style="margin:0;text-align:center">
+<img alt="An optimal binary decision tree for a fair six-sided die" src="images/BinaryDecisionTree_FairDie.png" style="display:block;width:auto !important;height:165px !important;max-width:100%;object-fit:contain;margin:0 auto 0.15rem"/>
+<figcaption class="figure-caption">Fair die<br/>$H=2.585$ bits on average.</figcaption>
+</figure>
+<figure style="margin:0;text-align:center">
+<img alt="An optimal binary decision tree for the loaded die, beginning by asking whether the result is two" src="images/BinaryDecisionTree_LoadedDie.png" style="display:block;width:auto !important;height:165px !important;max-width:100%;object-fit:contain;margin:0 auto 0.15rem"/>
+<figcaption class="figure-caption">Loaded die<br/>The loaded tree asks “Is it 2?” first<br/>$H=1.692$ bits on average.</figcaption>
+</figure>
+<p class="decision-tree-calculation">$L=2(\frac16)(2)+4(\frac16)(3)$<br/>$=\frac83\approx2.667$ questions</p>
+<p class="decision-tree-calculation">$L=(\frac23)(1)+3(\frac1{15})(3)$<br/>$+2(\frac1{15})(4)=1.8$ questions</p>
+</div>
 </div>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c31e5fdc">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=shannon-entropy-anecdote">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>e.g. Consider the message:</p>
-<div style="text-align: center; color: blue; font-family: 'Georgia', serif; font-size: 22px;">
-<em>"The sky is blue."</em>
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Why-Shannon-called-it-entropy">Why Shannon called it entropy<a class="anchor-link" href="#Why-Shannon-called-it-entropy">¶</a></h2><p>Shannon borrowed the name from statistical mechanics.</p>
+<div class="reader-voice slide-quote">
+<div class="reader-voice-quote">… no one knows what entropy really is, so in a debate you will always have the advantage.</div>
+<div class="reader-voice-attr">John von Neumann, recalled by Claude Shannon; reported by <a href="https://doi.org/10.1038/scientificamerican0971-179">Tribus and McIrvine (1971, p. 180)</a></div>
 </div>
-<p>In the context of Information Theory, this sentence is just a sequence of characters.</p>
-</div>
-</div>
-</div>
-</div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2ca5a42d-14be-482d-809b-3ff09a05d192">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>Information Theory would treat both "The sky is blue" and some random characters "ajksd873##@" in much the same way: as strings of characters.</p>
-</div>
-</div>
-</div>
-</div></div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=801fafe5">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="Entropy">Entropy<a class="anchor-link" href="#Entropy">¶</a></h2><p>Because information is the reduction of uncertainty associated with observing data, we must first understand uncertainty.</p>
-<p>This is done with entropy: a mathematical function that quantifies how uncertain we are (on average) about the state of some variable <em>before</em> any message is received.</p>
-<p>There are many ways to define entropy; we will focus on the perspective of entropy as expected surprise.</p>
 </div>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d603c82d">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w9-physical-entropy-bridge-slide">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h3 id="Entropy-as-expected-surprise">Entropy as expected surprise<a class="anchor-link" href="#Entropy-as-expected-surprise">¶</a></h3><p>Some events are more surprising than others.</p>
-<p>How surprised you are depends on how unlikely the event was.</p>
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Shannon-and-thermodynamic-entropy">Shannon and thermodynamic entropy<a class="anchor-link" href="#Shannon-and-thermodynamic-entropy">¶</a></h2><table style="width:100%;table-layout:fixed">
+<colgroup><col style="width:17%"/><col style="width:41.5%"/><col style="width:41.5%"/></colgroup>
+<thead><tr><th></th><th>Shannon</th><th>Thermodynamic</th></tr></thead>
+<tbody>
+<tr><th>Equation</th><td>$H=-\sum_i p_i\log_2p_i$</td><td>$S=-k_{\mathrm B}\sum_i p_i\ln p_i$</td></tr>
+<tr><th>$p_i$ describes</th><td>Observations</td><td>Physical microstates</td></tr>
+<tr><th>Interpretation</th><td>Expected surprise</td><td>Compatible microstates</td></tr>
+<tr><th>Units</th><td>Dimensionless; bits or nats name the logarithmic scale</td><td>J K$^{-1}$; $k_{\mathrm B}$ supplies the physical units</td></tr>
+<tr><th>Example</th><td>Schelling group or pair</td><td>Gas-particle positions and momenta</td></tr>
+<tr><th>Dynamics</th><td>May increase, decrease or remain constant</td><td>Total entropy does not decrease for an isolated macroscopic system</td></tr>
+</tbody>
+</table>
+<p>Bits and nats label the logarithmic scale; $k_{\mathrm B}$ supplies thermodynamic units.</p>
 </div>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7b9521c4-d768-486f-9706-392e9637664b">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w9-micro-macro-slide">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>Consider a fair die:</p>
-<ul>
-<li>each face has probability of 1/6</li>
-<li>no outcome is more surprising than another (if you were gambling on the die: no reason to pick any face over another)</li>
-</ul>
-<p><img alt="" src="images/Die.png"/></p>
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="From-microstates-to-an-emergent-macrostate">From microstates to an emergent macrostate<a class="anchor-link" href="#From-microstates-to-an-emergent-macrostate">¶</a></h2><table class="micro-macro-table">
+<colgroup><col style="width:14%"/><col style="width:33%"/><col style="width:17%"/><col style="width:36%"/></colgroup>
+<thead><tr><th>Concept</th><th>Meaning</th><th>Schelling</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>Degree of freedom</td><td>One independent coordinate</td><td>Microstate</td><td>Complete grid assignment</td></tr>
+<tr><td>Microstate</td><td>Complete assignment to every degree of freedom</td><td>Macrostate</td><td>Collective description: “mixed” or “segregated”</td></tr>
+<tr><td>Macrostate</td><td>Collective description shared by many microstates</td><td>Multiplicity $W$</td><td>Grids compatible with that macrostate</td></tr>
+</tbody>
+</table>
+<p class="micro-macro-takeaway">A microstate specifies the whole system; a macrostate keeps a chosen collective description.</p>
+<p>$$
+S_{\mathrm B}=k_{\mathrm B}\ln W
+$$</p>
+<p>A macrostate groups complete microstates. Under this coarse-graining, segregation occupies a smaller region of configuration space; the selective Schelling rule can favour it.</p>
 </div>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1b9e5700-82dc-4ab1-885e-74fc52160d1f">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w9-mixing-versus-schelling-slide">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>Now consider a loaded die:</p>
-<ul>
-<li>suppose 2 comes up 2/3 of the time, all other faces come up with probability 1/15</li>
-<li>knowing this probability distribution ahead of time, you will be less surprised to see a 2 come up than you would be to see a 5 come up.</li>
-</ul>
-<p><img alt="" src="images/Die_Roman.jpg"/></p>
-<p>So how do we quantify surprise?</p>
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Mixing-and-segregation-follow-different-dynamics">Mixing and segregation follow different dynamics<a class="anchor-link" href="#Mixing-and-segregation-follow-different-dynamics">¶</a></h2><table style="width:100%;table-layout:fixed">
+<colgroup><col style="width:18%"/><col style="width:41%"/><col style="width:41%"/></colgroup>
+<thead><tr><th></th><th>Gas after removing a divider</th><th>Schelling model</th></tr></thead>
+<tbody>
+<tr><th>Microstate</th><td>Particle positions and momenta</td><td>Yellow, blue or empty at each site</td></tr>
+<tr><th>Evolution</th><td>Separated particles mix</td><td>A well-mixed grid can segregate</td></tr>
+<tr><th>Why?</th><td>Mixed equilibrium has far more compatible microstates</td><td>Relocation rule moves dissatisfied agents</td></tr>
+<tr><th>Entropy</th><td>Total thermodynamic entropy of the isolated system does not decrease</td><td>Entropy of a chosen model observation may rise or fall</td></tr>
+</tbody>
+</table>
+<p>The second law governs isolated thermodynamic systems and total physical entropy. Schelling uses a selective relocation rule, and these information measures describe chosen model observations.</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w9-entropy-limits-slide">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Discrete-observations-depend-on-the-chosen-variable">Discrete observations depend on the chosen variable<a class="anchor-link" href="#Discrete-observations-depend-on-the-chosen-variable">¶</a></h2><div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);gap:1.4rem;align-items:center;margin-top:0.35rem">
+<div>
+<p>One roll, several variables.</p>
+<table class="discrete-observations-table">
+<colgroup><col style="width:25%"/><col style="width:52%"/><col style="width:23%"/></colgroup>
+<thead><tr><th>Observation</th><th>Variable and possible values</th><th>Entropy</th></tr></thead>
+<tbody>
+<tr><td>Exact face</td><td>$X_{\mathrm{face}}=R$; $1,\ldots,6$</td><td>$H=\log_2 6=2.585$ bits</td></tr>
+<tr><td>Whether it is a six</td><td>$X_6=\mathbf 1(R=6)$; yes/no, $P(\text{yes})=1/6$</td><td>$H=0.650$ bits</td></tr>
+<tr><td>Parity</td><td>odd/even, $P(\text{odd})=1/2$</td><td>$H=1$ bit</td></tr>
+</tbody>
+</table>
+<p>The binary curve applies only to two outcomes.</p>
+</div>
+<figure style="margin:0;text-align:center">
+<img alt="Binary entropy curve with the die parity variable marked at probability one half and the is-it-a-six variable marked at probability one sixth" src="images/Binary_entropy_plot.svg" style="display:block;width:100%;height:auto;max-height:390px;object-fit:contain;margin:0 auto"/>
+<figcaption class="figure-caption">Binary variables lie on this curve; exact face uses six categories.</figcaption>
+</figure>
+</div>
 </div>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fd41a6ee">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w9-discrete-continuous-entropy-slide">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>We want a function for the surprise of an event $h(x)$, that satisfies:</p>
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Continuous-random-variables-use-densities">Continuous random variables use densities<a class="anchor-link" href="#Continuous-random-variables-use-densities">¶</a></h2><div style="display:grid;grid-template-columns:minmax(330px,.9fr) minmax(500px,1.1fr);gap:0.8rem;align-items:center">
+<div>
+<p>Continuous variables use densities. Probability is area under the density.</p>
+$P(a\leq X\leq b)=\int_a^b f(x)\,dx$
+</div>
+<figure class="slide-figure">
+<img alt="A continuous probability density with one interval shaded to show that probability is area under the curve" src="images/continuous_density_interval.svg"/>
+<figcaption class="figure-caption">An exact point has probability zero; an interval has probability given by its area.</figcaption>
+</figure>
+</div>
+<p><strong>Differential entropy</strong> $H^{\mathrm{dx}}=-\int f(x)\log_2 f(x)\,dx$ summarises the density.</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w9-estimating-slide">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="From-known-distributions-to-complex-system-data">From known distributions to complex system data<a class="anchor-link" href="#From-known-distributions-to-complex-system-data">¶</a></h2><p>Complex-system probabilities are usually estimated from repeated observations.</p>
+<p>For each application:</p>
 <ol>
-<li>more probable events are less surprising ($h(x)\propto 1/P(x)$)</li>
+<li>define the observation and sampling rule;</li>
+<li>count outcomes across agents, sites, times or runs;</li>
+<li>calculate entropy or another information measure.</li>
 </ol>
-</div>
-</div>
-</div>
-</div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=92c547b8-9958-4cc2-9d7e-2652fbda17ed">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<ol start="2">
-<li>surprise is never be negative</li>
-</ol>
-</div>
-</div>
-</div>
-</div></div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8b4366bc-9fba-4bdf-8965-9ad1c3b3393b">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<ol start="3">
-<li>independent events are additive ($h(x_1,x_2)=h(x_1)+h(x_2)$)</li>
-</ol>
-</div>
-</div>
-</div>
-</div></div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1079f2bb-96f7-4f82-8121-aece496aea3f">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<ol start="4">
-<li>surprise varies continuously</li>
-</ol>
-</div>
-</div>
-</div>
-</div></div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c9b9121a-94f4-420f-b487-8e0a1c59ae21">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<ol start="5">
-<li>guaranteed events are unsurprising: $P(x) = 1 \implies h(x) = 0$</li>
-</ol>
-</div>
-</div>
-</div>
-</div></div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5113789a-67c4-4632-afb4-16eb02ce8a6f">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<ol start="6">
-<li>impossible events are infinitely surprising: $P(x)=0 \implies h(x)=\infty$.</li>
-</ol>
-</div>
-</div>
-</div>
-</div></div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=67663f5b">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>The unique function meeting these criteria is:</p>
 <p>$$
-h(x)=-\log P(x).
+\widehat P_i=\frac{N_i}{N},
+\qquad
+\widehat H=-\sum_i\widehat P_i\log_2\widehat P_i.
 $$</p>
-<p>This is called <strong>surprise</strong>, <strong>self-information</strong> or the <strong>local entropy</strong>.</p>
+<p>For Schelling, record local similarity in fixed bins.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w9-binned-uniform-entropy-slide">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Binned-entropy-depends-on-resolution">Binned entropy depends on resolution<a class="anchor-link" href="#Binned-entropy-depends-on-resolution">¶</a></h2><p>Let $X$ be uniform on $[0,1]$. Divide the interval into $M$ equal bins.</p>
+<p>$$
+H(B)=-M\left(\frac1M\log_2\frac1M\right)=\log_2M.
+$$</p>
+<figure class="slide-figure">
+<img alt="The same uniform variable divided into two, four and eight equal bins, giving one, two and three bits of discrete entropy" src="images/uniform_bin_entropy.svg" style="width:84%; max-height:36vh; object-fit:contain"/>
+<figcaption class="figure-caption">The same uniform variable is grouped into two, four and eight equal-width bins.</figcaption>
+</figure>
+<p>Halving the bin width adds one bit. Compare datasets with the same bin rule.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w9-schelling-bin-sensitivity">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Bin-choice-changes-local-similarity-entropy">Bin choice changes local-similarity entropy<a class="anchor-link" href="#Bin-choice-changes-local-similarity-entropy">¶</a></h2><p>Same observations, different bins. For Schelling, $S$ is local similarity.</p>
+<figure class="slide-figure">
+<img alt="The same Schelling local-similarity observations grouped into three, five and ten bins, producing different entropy values" src="images/schelling_similarity_bin_sensitivity.svg" style="max-height:44vh"/>
+<figcaption class="figure-caption" id="fig-w9-10">Local-similarity entropy under three binning resolutions.</figcaption>
+</figure>
+<p>Compare $H(S)$ with the same bin edges; check sensitivity across reasonable resolutions.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b351e6e9">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Compare-distributions-and-entropy">Compare distributions and entropy<a class="anchor-link" href="#Compare-distributions-and-entropy">¶</a></h2><p>The probability law or density and the entropy formula use the slider parameters. The yellow point marks the current value; a flat sweep identifies a parameter that does not change entropy.</p>
+<iframe height="390" src="entropy_distribution_explorer.html" style="border:0" title="Probability and entropy explorer" width="100%"></iframe>
 </div>
 </div>
 </div>
 </div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4d9ad5e7">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w9-interpretation-slide">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h3 id="Shannon-Entropy,-$H(X)$">Shannon Entropy, $H(X)$<a class="anchor-link" href="#Shannon-Entropy,-$H(X)$">¶</a></h3><p>Formally, entropy is the expected surprise over all outcomes:</p>
-<p>$$
-H(X)=\mathbb{E}_X[h(X)]=-\sum_{x\in \mathcal{X}}P(x)\log P(x).
-$$</p>
-<p>Key ideas:</p>
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Interpreting-an-entropy-value">Interpreting an entropy value<a class="anchor-link" href="#Interpreting-an-entropy-value">¶</a></h2><p>Compare like with like:</p>
 <ul>
-<li>rare events are very surprising but we aren't that surprised very often</li>
-<li>frequent events are unsurprising, so we spend a lot of time not being very surprised.</li>
-<li>entropy balances these, giving the average uncertainty.</li>
+<li>the same observation through time;</li>
+<li>the same observation across parameters;</li>
+<li>the same observation against a reference.</li>
 </ul>
-<p>Note that by convention we say that $0 \log(0) = 0$, so impossible events have no impact on our uncertainty.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d5d99328-c058-415b-8d28-e489a25188b7">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>So which dice - the fair or the loaded one - has a higher entropy?</p>
-</div>
-</div>
-</div>
-</div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d7d7cf29-f01a-44d3-b0a1-c54b5326e5d3">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p><strong>Fair die</strong>: is maximally uncertain — all outcomes equally likely.</p>
-<p>$$
-H(X) = -6\cdot\tfrac{1}{6}\log_2\tfrac{1}{6} = \log_2 6 \approx 2.59 \text{ bits.}
-$$</p>
-<p><strong>Loaded die</strong> ($P(2)=\tfrac{2}{3},\; P(\text{others})=\tfrac{1}{15}$): is more predictable (most of the time it’s “2”), so the average uncertainty is lower</p>
-<p>$$
-H(X) = -\Big[\tfrac{2}{3}\log_2\tfrac{2}{3} + 5\cdot\tfrac{1}{15}\log_2\tfrac{1}{15}\Big] \approx 1.69 \text{ bits.}
-$$</p>
-</div>
-</div>
-</div>
-</div></div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=53b4dce1-9ff8-49c1-ba65-965ec825b96c">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>You might like to keep this picture for a fair coin toss in mind:</p>
-<p>For a Bernoulli random variable with probabilities $p$ and $1-p$:</p>
-<p>$$
-H(p) = -p \log p - (1-p) \log (1-p).
-$$</p>
-<p><img alt="" src="images/Binary_entropy_plot.png"/></p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a7559f61-3f16-447d-aac4-6ec766f746ab">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h3 id="Summarising">Summarising<a class="anchor-link" href="#Summarising">¶</a></h3><p>The question we set out to answer was "WHAT is complexity"</p>
-<p>We have answered a different question: How uncertain is the system.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c277147c-cf37-4c1a-a9db-e6b31f04c5a8">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h4 id="Absolute-meaning">Absolute meaning<a class="anchor-link" href="#Absolute-meaning">¶</a></h4><p>Entropy is measured in <strong>bits (or nats)</strong>, and it tells you:</p>
-<ul>
-<li>the <em>average surprise per symbol</em>, or</li>
-<li>the <em>average number of yes/no questions</em> needed to identify an outcome.</li>
-</ul>
-<p>So if you calculate $H(X) = 2.59$ bits for a fair die, that literally means: on average, you need $\approx 2.59$ binary questions to specify the face.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=84b98886-8c8e-4686-9384-67014e450333">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h4 id="Relative-meaning">Relative meaning<a class="anchor-link" href="#Relative-meaning">¶</a></h4><p>On its own, the <em>magnitude</em> of entropy is less useful unless you compare it to something, like:</p>
-<ul>
-<li><strong>Maximum entropy</strong>: For $k$ equally likely outcomes, the maximum possible entropy is $\log_2 k$.</li>
-<li><strong>Normalisation</strong>: You often look at entropy relative to this maximum (so you can say a distribution is “60% of maximum uncertainty”).</li>
-<li><strong>Comparisons across systems</strong>: Entropy lets you compare two models, two distributions or even to the same system under different conditions, in a principled way.</li>
-</ul>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9d8f1f4a-efe8-4e6d-92bb-a9751f476ac2">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h4 id="Interpretation-in-practice">Interpretation in practice<a class="anchor-link" href="#Interpretation-in-practice">¶</a></h4><ul>
-<li><strong>low</strong> $H$: outcomes are predictable, the system has order.</li>
-<li><strong>high</strong> $H$: outcomes are uncertain, the system is closer to randomness.</li>
-<li>If you just quote “$H=1.7$ bits,” the number alone is meaningless unless you also know: <em>“out of how many possible outcomes?”</em></li>
-</ul>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f16e7a63">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="Joint-entropy,-$H(X,Y)$">Joint entropy, $H(X,Y)$<a class="anchor-link" href="#Joint-entropy,-$H(X,Y)$">¶</a></h2><p>Measures the total uncertainty in two random variables considered together.</p>
-<ul>
-<li>Reflects the uncertainty of each variables <em>and</em> their interactions.</li>
-<li>Useful for understanding interdependencies: higher dependence means lower joint entropy (relative to the independent case).</li>
-</ul>
-<p>Formally defined as the union of both marginal entropies:</p>
-<p>$$
-H(X,Y)=\mathbb{E}_{X,Y}[h(X,Y)]=-\sum_{x\in \mathcal{X}\\ y\in \mathcal{Y}}P(x,y)\log P(x,y).
-$$</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2faf6c72">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="Conditional-entropy,-$H(X%7CY)$">Conditional entropy, $H(X|Y)$<a class="anchor-link" href="#Conditional-entropy,-$H(X%7CY)$">¶</a></h2><p>Quantifies how much uncertainty remains in $X$ once the state of $Y$ is known.</p>
-<p>Formally:</p>
-<p>$$
-H(X|Y)=\mathbb{E}_{X,Y}[h(X|Y)]=-\sum_{x\in \mathcal{X}\\ y\in \mathcal{Y}}P(x,y)\log P(x|y).
-$$</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5452b666">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Mutual-information,-$I(X;-Y)$">Mutual information, $I(X; Y)$<a class="anchor-link" href="#Mutual-information,-$I(X;-Y)$">¶</a></h2><p>A measure of <strong>statistical dependency</strong> between two random variables.</p>
-<p>Answers: <em>how much does knowing $X$ reduce uncertainty about $Y$ (and vice versa)?</em></p>
-<p>Formally:</p>
-<p>$$
-I(X;Y) = \sum_{x,y} P(x,y)\,\log \frac{P(x,y)}{P(x)P(y)}.
-$$</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5f48d6ea">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Many-others-too">Many others too<a class="anchor-link" href="#Many-others-too">¶</a></h2><p>e.g. Relative entropy (Kullback-Liebler divergence)</p>
-<p>...</p>
-<p>We won't get into the details here but you may come across them when researching for your Project and are welcome to use (or invent) any sensible information measure.</p>
+<p>State the variable, outcomes or bins, scale and comparison.</p>
 </div>
 </div>
 </div>
 </div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e9313b8d">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w9-schelling-observation-choices">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h1 id="Putting-it-all-together">Putting it all together<a class="anchor-link" href="#Putting-it-all-together">¶</a></h1><p><img alt="" src="images/Entropy_VennDiagram.png"/></p>
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="One-Schelling-grid,-several-observations">One Schelling grid, several observations<a class="anchor-link" href="#One-Schelling-grid,-several-observations">¶</a></h2><table class="schelling-observation-table" style="width:100%;table-layout:fixed">
+<thead><tr><th>Observation</th><th>Measure</th><th>Retains</th></tr></thead>
+<tbody>
+<tr><td>Group <i>X</i></td><td><i>H</i>(<i>X</i>)</td><td>Group proportions</td></tr>
+<tr><td>Local similarity <i>S</i></td><td>𝔼[<i>S</i>], <i>H</i>(<i>S</i>)</td><td>Distribution of local environments</td></tr>
+<tr><td>Focal–neighbour pair <i>(X,Y)</i></td><td><i>H</i>(<i>X,Y</i>), <i>I</i>(<i>X;Y</i>)</td><td>Local dependence</td></tr>
+<tr><td>Region <i>L</i></td><td><i>I</i>(<i>X;L</i>)</td><td>Segregation at a chosen scale</td></tr>
+</tbody>
+</table>
+<p>Choose the observation before choosing the measure.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w9-schelling-local-similarity">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Local-similarity-has-a-distribution">Local similarity has a distribution<a class="anchor-link" href="#Local-similarity-has-a-distribution">¶</a></h2><p>Use the same bins at both states.</p>
+<figure class="slide-figure">
+<img alt="Initial and segregated Schelling grids paired with distributions of agents' local similarity" src="images/schelling_similarity_distributions.svg" style="max-height:39vh"/>
+<figcaption class="figure-caption" id="fig-w9-11">Schelling grids and their local-similarity distributions.</figcaption>
+</figure>
+<p>Mean similarity locates the distribution; <i>H</i>(<i>S</i>) describes its spread.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w9-schelling-entropy-dynamics">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Entropy-during-Schelling-segregation">Entropy during Schelling segregation<a class="anchor-link" href="#Entropy-during-Schelling-segregation">¶</a></h2><figure class="slide-figure">
+<img alt="Mean local similarity and normalised local-similarity entropy through one Schelling run and across a tolerance-threshold sweep" src="images/schelling_entropy_dynamics.svg"/>
+<figcaption class="figure-caption" id="fig-w9-12">Local similarity and entropy during Schelling segregation.</figcaption>
+</figure>
+<div class="discussion-marker"><img alt="Discussion prompt" src="images/discussion_marker.svg"/><span>Is local-similarity entropy an order parameter for segregation?</span></div>
+<p>Mean similarity shows location; normalised <i>H</i>(<i>S</i>) shows spread.</p>
 </div>
 </div>
 </div>
 </div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e0efb326">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w9-dependence-overview-slide">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Applications">Applications<a class="anchor-link" href="#Applications">¶</a></h1><p>So far, our examples (like dice) assumed we knew the outcome probabilities in advance. In practice, we often do not — but <strong>information-theoretic quantities can still be computed directly from data</strong>.</p>
-<p>Entropy has the general form:</p>
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="From-one-variable-to-relationships-between-variables">From one variable to relationships between variables<a class="anchor-link" href="#From-one-variable-to-relationships-between-variables">¶</a></h2><p>A single die gives one variable, so its entropy $H(X)$ is a marginal entropy. Joint and conditional entropy need a second variable. Here Schelling supplies a substantive pair: focal group X and neighbouring group Y.</p>
+<p>Independence means $P(x,y)=P(x)P(y)$. Dependence appears when the joint distribution departs from that product.</p>
+<p>The joint distribution then supports several different questions:</p>
+<table>
+<thead>
+<tr>
+<th>Measure</th>
+<th>Question</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$H(X,Y)$</td>
+<td>How uncertain is the complete pair?</td>
+</tr>
+<tr>
+<td>$H(Y\mid X)$</td>
+<td>How much uncertainty about $Y$ remains after observing $X$?</td>
+</tr>
+<tr>
+<td>$I(X;Y)$</td>
+<td>How much does observing either variable reduce uncertainty about the other?</td>
+</tr>
+</tbody>
+</table>
+<p>Next, apply these measures to Schelling.</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f16e7a63-notation-slide">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Joint-entropy">Joint entropy<a class="anchor-link" href="#Joint-entropy">¶</a></h2><p>How uncertain is a complete pair of observations?</p>
+<p><strong>Joint entropy</strong> $H(X,Y)$ measures uncertainty in the combined state $(X,Y)$.</p>
+<p>Its equation is</p>
 <p>$$
-H = -\sum p \log p,
+H(X,Y)=-\sum_{x\in\mathcal X}\sum_{y\in\mathcal Y}P(x,y)\log_2 P(x,y).
 $$</p>
-<p>so once we can estimate the probabilities $p$ from observations, we can calculate entropy and related measures.</p>
+<p>It averages surprise across all pair types.</p>
+<p>$$
+\max\{H(X),H(Y)\}\le H(X,Y)\le H(X)+H(Y),
+$$</p>
+<p>For balanced binary variables, $1\le H(X,Y)\le2$ bits. The shortfall is <strong>mutual information</strong>.</p>
 </div>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f4296894">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w9-schelling-observation-slide">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Permutation-Entropy">Permutation Entropy<a class="anchor-link" href="#Permutation-Entropy">¶</a></h3><p>Captures permutation patterns from a scalar time series measured from a complex system by organising windows of the time series with length $n$, according to their <em>relative values</em> forming the symbol $\pi_i$:.</p>
-<p>Formally:</p>
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h3 id="Schelling-model">Schelling model<a class="anchor-link" href="#Schelling-model">¶</a></h3><figure class="slide-figure">
+<img alt="Initial and final focal-neighbour pair distributions beside the joint entropy trajectory through one Schelling simulation" src="images/schelling_joint_entropy_evolution.svg" style="max-height:38vh"/>
+<figcaption class="figure-caption">Initial and final pair distributions, with joint entropy recalculated after every move.</figcaption>
+</figure>
+<div class="model-specification small-note">
+<div><strong>Focal variable</strong><span>$X$: focal-agent group</span></div>
+<div><strong>Neighbour variable</strong><span>$Y$: one selected occupied neighbour's group</span></div>
+<div><strong>Sampling</strong><span>repeat across eligible focal agents to estimate $P(X,Y)$ after every move</span></div>
+</div>
+<p>$H(X,Y)$ falls from $1.802$ to $1.475$ bits as pair types become less diverse.</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2faf6c72-notation-slide">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Conditional-entropy">Conditional entropy<a class="anchor-link" href="#Conditional-entropy">¶</a></h2><p>After observing $X$, <strong>conditional entropy</strong> is the uncertainty that remains about $Y$.</p>
 <p>$$
-H(n) = -\sum_i^{n!} p(\pi_i)\log(p(\pi_i)).
+\begin{aligned}
+H(Y\mid X=x)
+&amp;=-\sum_y P(y\mid x)\log_2P(y\mid x),\\[0.4em]
+H(Y\mid X)
+&amp;=\sum_xP(x)H(Y\mid X=x),\\[0.4em]
+&amp;=-\sum_x P(x)\sum_y P(y\mid x)\log_2P(y\mid x).
+\end{aligned}
+$$</p>
+<p>It averages the remaining uncertainty over $X$. It is directional: $H(Y\mid X)$ can differ from $H(X\mid Y)$. Zero means that $X$ determines $Y$.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w9-schelling-conditional-slide">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h3 id="Schelling-model">Schelling model<a class="anchor-link" href="#Schelling-model">¶</a></h3><p>Condition on focal group $X$, then average the remaining neighbour uncertainty.</p>
+<figure class="slide-figure">
+<img alt="Conditional entropy, marginal neighbour entropy and their difference through one Schelling simulation" src="images/schelling_conditional_entropy_evolution.svg"/>
+<figcaption class="figure-caption">The dashed curve is uncertainty about the neighbour before seeing the focal group. The blue curve is what remains afterwards.</figcaption>
+</figure>
+<p>$H(Y\mid X)$ falls from $0.857$ to $0.530$ bits as the focal group becomes more predictive.</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5452b666-notation-slide">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Mutual-information">Mutual information<a class="anchor-link" href="#Mutual-information">¶</a></h2><p>$I(X;Y)$ is the average reduction in uncertainty about one variable after the other is observed.</p>
+<p>$$
+\underbrace{H(Y)}_{\text{uncertainty before}}
+-\underbrace{H(Y\mid X)}_{\text{uncertainty remaining}}
+=\underbrace{I(X;Y)}_{\text{information gained}}.
+$$</p>
+<p>The probability formula compares each pair with its expected frequency $P(x)P(y)$ under independence. Mutual information is symmetric; zero means independence.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w9-schelling-mi-slide">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h3 id="Schelling-model">Schelling model<a class="anchor-link" href="#Schelling-model">¶</a></h3><p>At every move, $I(X;Y)=H(Y)-H(Y\mid X)$. It measures dependence between focal and neighbour groups. Mean similarity supplies the direction of that dependence.</p>
+<figure class="slide-figure">
+<img alt="Mutual information between focal and neighbour groups through one Schelling simulation" src="images/schelling_mutual_information_evolution.svg"/>
+</figure>
+<p>$I(X;Y)$ changes from $0.049$ to $0.416$ bits. Mean similarity is still needed to show that the dependence is specifically towards same-group pairing.</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e9313b8d-notation-slide">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Relationships-among-information-measures">Relationships among information measures<a class="anchor-link" href="#Relationships-among-information-measures">¶</a></h2><div class="figure-panel">
+<img alt="Marginal, conditional and mutual information relationships" src="images/Entropy_VennDiagram.svg" style="display:block;max-height:300px;margin:0 auto"/>
+<p class="figure-caption">Circles represent marginal entropies. The shared part is mutual information.</p>
+</div>
+<p>$$
+H(X,Y)=H(X\mid Y)+I(X;Y)+H(Y\mid X).
 $$</p>
 </div>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2d13d153-5c9e-4dd8-9d49-6c8889a0f92f">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w9-joint-calculation-slide">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p>The simple example provided by Bandt and Pompe...</p>
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h3 id="Schelling-model">Schelling model<a class="anchor-link" href="#Schelling-model">¶</a></h3><figure class="slide-figure">
+<img alt="Conditional entropies and mutual information stacked to equal joint entropy throughout one Schelling simulation" src="images/schelling_information_decomposition_evolution.svg"/>
+</figure>
+<p class="small-note">The seeded 5×5 run stops after 16 moves: no agent remains below the dissatisfaction threshold q = 0.5.</p>
+<p>$H(Y\mid X)+I(X;Y)+H(X\mid Y)=H(X,Y)$ throughout the run. Individual moves fluctuate; the overall change is towards lower remaining uncertainty and stronger local dependence.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w9-information-across-models-slide">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="The-observation-determines-the-question">The observation determines the question<a class="anchor-link" href="#The-observation-determines-the-question">¶</a></h2><table>
+<thead>
+<tr>
+<th>Earlier model</th>
+<th>Observation</th>
+<th>Information-theoretic question</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Schelling</td>
+<td>focal and neighbouring groups</td>
+<td>How strongly are nearby groups related?</td>
+</tr>
+<tr>
+<td>Reaction–diffusion</td>
+<td>spatial Fourier modes</td>
+<td>Is variation concentrated at particular wavelengths?</td>
+</tr>
+<tr>
+<td>Cellular automata</td>
+<td>cell and neighbourhood states</td>
+<td>What remains after the neighbourhood is known?</td>
+</tr>
+<tr>
+<td>Vicsek or Kuramoto</td>
+<td>headings or phase differences</td>
+<td>How concentrated are directions or phases?</td>
+</tr>
+<tr>
+<td>PSO or ACO</td>
+<td>candidate choices</td>
+<td>Is the search still diverse?</td>
+</tr>
+</tbody>
+</table>
+<p>Same equations; different variables and scales.</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=w9-information-measure-limits-slide">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides-only" data-mime-type="text/markdown">
+<h2 id="Complexity-is-question--and-scale-dependent">Complexity is question- and scale-dependent<a class="anchor-link" href="#Complexity-is-question--and-scale-dependent">¶</a></h2><p>Entropy asks how uncertain this observation is. Other measures expose dependence, geometry and multiscale structure.</p>
+<p>A precise claim states:</p>
 <ul>
-<li>For $x=(4,7,9,10,6,11,3)$ and $n=2$<ul>
-<li>we find find four pairs for which $x_{t+1}&gt;x_{t}$ and two pairs for which $x_{t+1}&lt;x_{t}$, i.e.</li>
-<li>4/6 pairs are represented by the permutation 01 (an increase)</li>
-<li>2/6 are represented by 10 (a decrease)</li>
-<li>permutation entropy (a measure of the probabilities of the permutations 01 and 10):</li>
+<li>the property being measured;</li>
+<li>the observation used to represent it;</li>
+<li>the spatial and temporal scale;</li>
+<li>the reference or comparison.</li>
 </ul>
-</li>
-</ul>
-<p>$$
-H(2) = -\frac{2}{6}\log\left(\frac{2}{6}\right) - \frac{4}{6}\log\left(\frac{4}{6}\right) \approx 0.918
-$$</p>
-<!-- Bandt, Pompe, Phys Rev Lett. 2002 Apr 29;88(17):174102.  doi: 10.1103/PhysRevLett.88.174102 -->
-<p>Everything you wanted to know about permutation entropy (and ordinal methods) is <a href="https://pubs.aip.org/collection/1214/Ordinal-Methods-Concepts-Applications-New?utm_%5B%E2%80%A6%5Ds%20and%20Challenges_Topical_2023&amp;dm_i=1XPS,8DVWE,5T8ELS,YL4WO">here</a></p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=73e0803f">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<p><img alt="" src="images/PermutationEntropy.png"/></p>
-<p>Image from Ordpy package intro <a href="https://doi.org/10.48550/arXiv.2102.06786">here</a>.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=16b18443">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Transfer-Entropy">Transfer Entropy<a class="anchor-link" href="#Transfer-Entropy">¶</a></h3><p>Based on conditional mutual information $I(X; Y |Z)$ of the variables $X$, $Y$ given the variable $Z$:</p>
-<p>$$
-I(X; Y |Z) = H(X|Z) + H(Y |Z) - H(X, Y |Z)
-$$</p>
-<p>Schreiber introduced transfer entropy in 2000 as a means to detect asymmetries in interaction of two coupled dynamical systems from their time series.</p>
-<p>It measures how much knowledge of the present state of $X$ reduces uncertainty about the future of $Y$, beyond what is already explained by $Y$'s own past:</p>
-<p>Formally:</p>
-<p>$$
-T_{X\rightarrow Y} = I(X_t, Y_{t+1}|Y_t).
-$$</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d0ee13a0">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>In the context of animal interactions, $X$ and $Y$ will measure the behavior of two individuals and transfer entropy will be constructed based on raw time series extracted from behavioral observations or trajectory tracking:</p>
-<p><img alt="" src="images/TransferEntropy_Fish.png"/></p>
-<p>Image from <a href="https://doi.org/10.1007/s11721-018-0157-x">here</a></p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7a058e5c">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>In the context of financial markets Korbel et al. analysed information flow between various market communities. They focussed on information transfer of rare events (typically large drops which can spread in the network):</p>
-<p><img alt="" src="images/TransferEntropy_StockExchange.png"/></p>
-<p>Image from <a href="https://doi.org/10.3390/e21111124">here</a></p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5ad48d03-fe37-4f2f-92fa-021aab955926">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput celltag_slides" data-mime-type="text/markdown">
-<h2 id="Data-in-general">Data in general<a class="anchor-link" href="#Data-in-general">¶</a></h2><p>Not all entropy-based extensions are tied to time series. Many are designed for static data, distributions or networks.</p>
-<p>Fundamentally though, the process is the same:</p>
-<ol>
-<li>Define/extract a probability distribution</li>
-<li>Compute $-\sum p\log p$ or a suitable variant of it</li>
-</ol>
 </div>
 </div>
 </div>
@@ -8132,8 +9898,8 @@ require(
             transition: "slide",
             slideNumber: "",
             plugins: [RevealNotes],
-            width: 960,
-			      height: 700,
+            width: 1280,
+			      height: 720,
 
         });
 
