@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+:root{--ink:#1B2A4C;--blue:#3978a8;--grid:#dbe3ef;--muted:#5A6685}
+*{box-sizing:border-box}
+body{font-family:Arial,Helvetica,sans-serif;color:var(--ink);margin:0;padding:12px;background:#fff}
+.wrap{display:grid;grid-template-columns:minmax(230px,.62fr) minmax(520px,1.38fr);gap:18px;align-items:start}
+.visuals{display:grid;grid-template-columns:minmax(300px,1.25fr) minmax(240px,.75fr);gap:14px;align-items:start}
+h2{font-family:Georgia,serif;font-size:1.25rem;font-weight:400;margin:0 0 12px}
+h3{font-family:Georgia,serif;font-size:1rem;font-weight:400;margin:0 0 4px;text-align:center}
+.select,.row{display:grid;grid-template-columns:70px 1fr;gap:8px;align-items:center;margin:10px 0}
+label{font-size:.9rem}
+select{font:inherit;font-size:.9rem;padding:6px;border:1px solid #aebbd0;border-radius:4px;background:white;color:var(--ink);min-width:0}
+.row{grid-template-columns:48px 1fr 48px;margin:12px 0}
+input{width:100%;min-width:0}
+.value{font-size:.9rem;font-variant-numeric:tabular-nums;text-align:right}
+.entropy{font-size:1.08rem;margin-top:16px}
+.formula{font-family:Georgia,serif;font-size:.95rem;line-height:1.35;white-space:pre-line;margin-top:8px}
+.parameter-note{font-size:.82rem;color:var(--muted);line-height:1.35;margin-top:7px}
+.note{font-size:.84rem;color:var(--muted);line-height:1.35;margin:10px 0 0}
+.combined-note{grid-column:1/-1;margin:0}
+svg{width:100%;height:300px;display:block}
+.axis{stroke:var(--ink);stroke-width:1.5}
+.grid{stroke:var(--grid);stroke-width:1}
+.curve{fill:none;stroke:var(--blue);stroke-width:3}
+.sweepcurve{fill:none;stroke:var(--blue);stroke-width:2.5}
+.guide{stroke:#9eabc0;stroke-width:1.2;stroke-dasharray:4 4}
+.current{fill:#f0c33c;stroke:var(--ink);stroke-width:1.5}
+.area{fill:#3978a829}
+.bar{fill:var(--blue)}
+.tick{font:14px Arial,Helvetica,sans-serif;fill:var(--muted)}
+.axislabel{font:16px Arial,Helvetica,sans-serif;fill:var(--ink)}
+@media(max-width:820px){.wrap{grid-template-columns:1fr}.visuals{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.visuals{grid-template-columns:1fr}svg{height:280px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <section>
+    <h2>Choose a distribution</h2>
+    <div class="select"><label for="kind">View</label><select id="kind"><option value="discrete">Discrete probabilities</option><option value="continuous">Continuous densities</option></select></div>
+    <div class="select"><label for="family">Distribution</label><select id="family"></select></div>
+    <div id="controls"></div>
+    <div class="entropy" id="entropy"></div>
+    <div class="formula" id="formula"></div>
+    <div class="parameter-note" id="parameter-note"></div>
+  </section>
+  <section>
+    <div class="visuals">
+      <div>
+        <h3>Selected distribution</h3>
+        <svg id="plot" viewBox="0 0 720 360" role="img" aria-label="Selected probability distribution"></svg>
+      </div>
+      <div>
+        <h3>Entropy across parameter values</h3>
+        <svg id="sweep" viewBox="0 0 420 360" role="img" aria-label="Entropy parameter sweep"></svg>
+      </div>
+    </div>
+  </section>
+  <p class="note combined-note" id="note" aria-live="polite"></p>
+</div>
+<script>
+const DISPLAY_TAIL = .001;
+const ENTROPY_TAIL = 1e-12;
+
+function range(a,b){return Array.from({length:b-a+1},(_,i)=>a+i)}
+function fact(n){let r=1;for(let i=2;i<=n;i++)r*=i;return r}
+function choose(n,k){let r=1;for(let i=1;i<=k;i++)r*=(n-k+i)/i;return r}
+function binaryH(p){return-p*Math.log2(p)-(1-p)*Math.log2(1-p)}
+function entropyDiscrete(ps){return-ps.reduce((s,p)=>s+(p>0?p*Math.log2(p):0),0)}
+function poissonSeries(lambda,tolerance){
+  const ps=[Math.exp(-lambda)];
+  let total=ps[0],k=0;
+  while(1-total>tolerance){k++;ps.push(ps[k-1]*lambda/k);total+=ps[k]}
+  return ps;
+}
+function logGamma(z){
+  const c=[.9999999999998099,676.5203681218851,-1259.1392167224028,771.3234287776531,-176.6150291621406,12.5073432786869,-.13857109526572,9.9843695780196e-6,1.5056327351493116e-7];
+  if(z<.5)return Math.log(Math.PI)-Math.log(Math.sin(Math.PI*z))-logGamma(1-z);
+  z--;let x=c[0];for(let i=1;i<c.length;i++)x+=c[i]/(z+i);
+  const t=z+7.5;
+  return .5*Math.log(2*Math.PI)+(z+.5)*Math.log(t)-t+Math.log(x);
+}
+function beta(a,b){return Math.exp(logGamma(a)+logGamma(b)-logGamma(a+b))}
+function digamma(x){
+  let r=0;while(x<7){r-=1/x;x++}
+  const f=1/(x*x);
+  return r+Math.log(x)-1/(2*x)-f*(1/12-f*(1/120-f/252));
+}
+
+const families={
+  bernoulli:{label:'Bernoulli(p)',kind:'discrete',pars:[['p',.5,.01,.99,.01]],view:[0,1],support:p=>[0,1],pmf:(x,p)=>x?p.p:1-p.p,H:p=>binaryH(p.p),formula:'Probability law:  P(X = x) = p<sup>x</sup>(1 − p)<sup>1 − x</sup>,  x ∈ {0, 1}\nEntropy:  H(p) = −p log<sub>2</sub> p − (1 − p) log<sub>2</sub>(1 − p)',parameters:'p = P(X=1); x is the observed outcome, either 0 or 1.'},
+  binomial:{label:'Binomial(n, p)',kind:'discrete',pars:[['n',10,1,30,1],['p',.5,.01,.99,.01]],view:[0,30],support:p=>range(0,p.n),pmf:(k,p)=>k>p.n?0:choose(p.n,k)*p.p**k*(1-p.p)**(p.n-k),H:p=>entropyDiscrete(range(0,p.n).map(k=>choose(p.n,k)*p.p**k*(1-p.p)**(p.n-k))),formula:'Probability law:  P(X=k; n,p) = C(n,k)pᵏ(1−p)ⁿ⁻ᵏ,  k=0,…,n\nEntropy:  H(n,p) = −Σₖ P(k; n,p) log₂P(k; n,p)',parameters:'n = number of trials; p = success probability on each trial; k = observed number of successes.'},
+  poisson:{label:'Poisson(λ)',kind:'discrete',pars:[['λ',4,.2,15,.1]],view:[0,30],support:p=>range(0,poissonSeries(p.λ,DISPLAY_TAIL).length-1),pmf:(k,p)=>Math.exp(-p.λ)*p.λ**k/fact(k),H:p=>entropyDiscrete(poissonSeries(p.λ,ENTROPY_TAIL)),formula:'Probability law:  P(X=k; λ) = e⁻λ λᵏ/k!\nEntropy:  H(λ) = −Σₖ P(k; λ) log₂P(k; λ)',parameters:'λ = expected count; k = observed count.'},
+  geometric:{label:'Geometric(p)',kind:'discrete',pars:[['p',.35,.05,.95,.01]],view:[1,140],support:p=>range(1,Math.ceil(Math.log(DISPLAY_TAIL)/Math.log(1-p.p))),pmf:(k,p)=>p.p*(1-p.p)**(k-1),H:p=>-(Math.log2(p.p)+(1-p.p)/p.p*Math.log2(1-p.p)),formula:'Probability law:  P(X=k; p) = p(1−p)ᵏ⁻¹,  k=1,2,…\nEntropy:  H(p) = −log₂p − [(1−p)/p] log₂(1−p)',parameters:'p = success probability on each trial; k = trial on which the first success occurs.'},
+  normal:{label:'Normal(μ, σ)',kind:'continuous',pars:[['μ',0,-4,4,.1],['σ',1,.15,3,.05]],view:[-12,12],pdf:(x,p)=>Math.exp(-.5*((x-p.μ)/p.σ)**2)/(p.σ*Math.sqrt(2*Math.PI)),h:p=>.5*Math.log2(2*Math.PI*Math.E*p.σ*p.σ),formula:'Density:  f(x; μ,σ) = exp[−(x−μ)²/(2σ²)]/(σ√(2π))\nDifferential entropy:  Hᵈˣ(μ,σ) = ½ log₂(2πeσ²)',parameters:'μ = mean; σ = standard deviation. The entropy is independent of μ.'},
+  exponential:{label:'Exponential(λ)',kind:'continuous',pars:[['λ',1,.15,4,.05]],view:[0,20],pdf:(x,p)=>p.λ*Math.exp(-p.λ*x),h:p=>(1-Math.log(p.λ))/Math.log(2),formula:'Density:  f(x; λ) = λe⁻λˣ,  x≥0\nDifferential entropy:  Hᵈˣ(λ) = (1 − ln λ)/ln 2',parameters:'λ = rate parameter; 1/λ is the mean.'},
+  uniform:{label:'Uniform(a, w)',kind:'continuous',pars:[['a',0,-4,3,.1],['w',2,.1,8,.1]],view:[-5,12],pdf:(x,p)=>(x>=p.a&&x<=p.a+p.w)?1/p.w:0,h:p=>Math.log2(p.w),formula:'Density:  f(x; a,w) = 1/w for a≤x≤a+w\nDifferential entropy:  Hᵈˣ(a,w) = log₂w',parameters:'a = left endpoint; w = interval width. The entropy is independent of a.'},
+  beta:{label:'Beta(α, β)',kind:'continuous',pars:[['α',2,.2,8,.1],['β',2,.2,8,.1]],view:[.001,.999],pdf:(x,p)=>x**(p.α-1)*(1-x)**(p.β-1)/beta(p.α,p.β),h:p=>(logGamma(p.α)+logGamma(p.β)-logGamma(p.α+p.β)-(p.α-1)*digamma(p.α)-(p.β-1)*digamma(p.β)+(p.α+p.β-2)*digamma(p.α+p.β))/Math.log(2),formula:'Density:  f(x; α,β) = xᵅ⁻¹(1−x)ᵝ⁻¹/B(α,β)\nDifferential entropy:  Hᵈˣ(α,β) = log₂B(α,β) − …',parameters:'α and β are shape parameters.'}
+};
+
+const kind=document.getElementById('kind');
+const select=document.getElementById('family');
+const controls=document.getElementById('controls');
+const plot=document.getElementById('plot');
+const sweep=document.getElementById('sweep');
+
+function setMode(){
+  select.innerHTML='';
+  const choices=Object.entries(families).filter(([,f])=>f.kind===kind.value);
+  choices.forEach(([key,f])=>select.insertAdjacentHTML('beforeend',`<option value="${key}">${f.label}</option>`));
+  select.value=choices[0][0];
+  setup();
+}
+function params(f){
+  const p={};f.pars.forEach(([name])=>p[name]=+document.getElementById('p_'+name).value);return p;
+}
+function setup(){
+  const f=families[select.value];controls.innerHTML='';
+  f.pars.forEach(([name,value,min,max,step])=>controls.insertAdjacentHTML('beforeend',`<div class="row"><label for="p_${name}">${name}</label><input id="p_${name}" type="range" min="${min}" max="${max}" step="${step}" value="${value}"><span class="value" id="v_${name}"></span></div>`));
+  controls.querySelectorAll('input').forEach(input=>input.addEventListener('input',update));
+  update();
+}
+function svg(tag,attrs){
+  const element=document.createElementNS('http://www.w3.org/2000/svg',tag);
+  Object.entries(attrs).forEach(([key,value])=>element.setAttribute(key,value));return element;
+}
+function update(){
+  const f=families[select.value],p=params(f),discrete=f.kind==='discrete';
+  f.pars.forEach(([name])=>document.getElementById('v_'+name).textContent=p[name].toFixed(name==='n'?0:2));
+  document.getElementById('entropy').textContent=(discrete?'Shannon entropy H = ':'Differential entropy Hᵈˣ = ')+(discrete?f.H(p):f.h(p)).toFixed(3)+' bits';
+  document.getElementById('formula').innerHTML=f.formula;
+  document.getElementById('parameter-note').textContent=f.parameters;
+  const interpretation=discrete
+    ? 'Each bar gives an outcome probability. For a fixed finite set of outcomes, equal probabilities give the largest H.'
+    : 'These are model densities, not sampled data. Probability is area under the curve. Hᵈˣ can be negative and depends on measurement units. For fine bins of width Δ, binned H is approximately Hᵈˣ + log₂(1/Δ). The formulas are not assessable.';
+  const distributionNote=draw(f,p);
+  const sweepNote=drawSweeps(f,p);
+  document.getElementById('note').textContent=sweepNote+' '+interpretation+' '+distributionNote;
+}
+function tick(value){return value===0?'0':Number(value.toPrecision(3)).toString()}
+function entropyValue(f,p){return f.kind==='discrete'?f.H(p):f.h(p)}
+function parameterValues(spec){
+  const [name,,min,max,step]=spec;
+  if(name==='n')return range(min,max);
+  const count=Math.min(100,Math.max(50,Math.round((max-min)/step)));
+  return range(0,count).map(i=>min+(max-min)*i/count);
+}
+function drawSweeps(f,p){
+  sweep.innerHTML='';
+  const series=f.pars.map(spec=>{
+    const name=spec[0],xs=parameterValues(spec);
+    const ys=xs.map(value=>entropyValue(f,{...p,[name]:value}));
+    return {name,xs,ys,min:spec[2],max:spec[3]};
+  });
+  let ymin=Math.min(...series.flatMap(s=>s.ys));
+  let ymax=Math.max(...series.flatMap(s=>s.ys));
+  let span=ymax-ymin;
+  if(span<1e-8){
+    const padding=Math.max(.5,Math.abs(ymax)*.2);
+    ymin-=padding;ymax+=padding;
+  }else{
+    const padding=.08*span;
+    ymin-=padding;ymax+=padding;
+  }
+  const L=58,R=404,W=R-L,n=series.length;
+  const panels=n===1?[{T:26,B:316}]:[{T:20,B:157},{T:192,B:329}];
+  const entropyLabel=f.kind==='discrete'?'H (bits)':'Hᵈˣ (bits)';
+  series.forEach((s,index)=>{
+    const {T,B}=panels[index],height=B-T;
+    [0,.5,1].forEach(q=>{
+      const y=B-q*height;
+      sweep.append(svg('line',{x1:L,y1:y,x2:R,y2:y,class:'grid'}));
+      const label=svg('text',{x:L-7,y:y+4,class:'tick','text-anchor':'end'});
+      label.textContent=tick(ymin+q*(ymax-ymin));sweep.append(label);
+    });
+    sweep.append(svg('line',{x1:L,y1:T,x2:L,y2:B,class:'axis'}));
+    sweep.append(svg('line',{x1:L,y1:B,x2:R,y2:B,class:'axis'}));
+    [0,.5,1].forEach(q=>{
+      const x=L+q*W;
+      const label=svg('text',{x,y:B+18,class:'tick','text-anchor':'middle'});
+      label.textContent=tick(s.min+q*(s.max-s.min));sweep.append(label);
+    });
+    const points=s.xs.map((value,i)=>[
+      L+(value-s.min)*W/(s.max-s.min),
+      B-(s.ys[i]-ymin)*height/(ymax-ymin)
+    ]);
+    sweep.append(svg('path',{d:points.map((point,i)=>(i?'L':'M')+` ${point[0]} ${point[1]}`).join(' '),class:'sweepcurve'}));
+    const currentX=L+(p[s.name]-s.min)*W/(s.max-s.min);
+    const currentY=B-(entropyValue(f,p)-ymin)*height/(ymax-ymin);
+    sweep.append(svg('line',{x1:currentX,y1:T,x2:currentX,y2:B,class:'guide'}));
+    sweep.append(svg('circle',{cx:currentX,cy:currentY,r:5,class:'current'}));
+    const title=svg('text',{x:(L+R)/2,y:T-7,class:'axislabel','text-anchor':'middle'});
+    title.textContent=`${entropyLabel} as ${s.name} changes`;sweep.append(title);
+  });
+  const sweepNote=series.length===1
+    ? 'The curve sweeps the full slider range. The yellow point is the current value.'
+    : 'Each curve changes one parameter while holding the other fixed. The yellow point is the current setting. A flat curve means that parameter does not change entropy.';
+  sweep.setAttribute('aria-label',`${f.label}. Entropy plotted across ${series.map(s=>s.name).join(' and ')}. The current settings are marked.`);
+  return sweepNote;
+}
+function draw(f,p){
+  plot.innerHTML='';
+  const L=76,R=700,T=16,B=304,W=R-L,height=B-T,discrete=f.kind==='discrete';
+  let xs,ys,xmin,xmax,rangeNote;
+  if(discrete){
+    [xmin,xmax]=f.view;
+    xs=range(xmin,xmax);ys=xs.map(x=>f.pmf(x,p));
+    const omitted=Math.max(0,1-ys.reduce((sum,y)=>sum+y,0));
+    rangeNote=`The outcome axis stays fixed from ${xmin} to ${xmax}. `;
+    rangeNote+=(f===families.poisson||f===families.geometric)
+      ? `The infinite tail is shortened. Omitted probability ${(100*omitted).toFixed(3)}%. H uses the full distribution.`
+      : 'The fixed view includes the full support.';
+  }else{
+    [xmin,xmax]=f.view;
+    xs=range(0,320).map(i=>xmin+(xmax-xmin)*i/320);ys=xs.map(x=>f.pdf(x,p));
+    if(f===families.uniform){
+      xs=[xmin,p.a,p.a,p.a+p.w,p.a+p.w,xmax];ys=[0,0,1/p.w,1/p.w,0,0];
+    }
+    rangeNote=`The x-axis stays fixed from ${tick(xmin)} to ${tick(xmax)}. `;
+    rangeNote+=f===families.beta
+      ? 'Values at the endpoints are omitted. h uses the full density.'
+      : f===families.uniform
+        ? 'The full support is shown.'
+        : f===families.normal
+          ? 'Small tails may lie outside this comparison window. h uses the full density.'
+          : `Omitted probability ${(100*Math.exp(-p.λ*xmax)).toFixed(3)}%. h uses the full density.`;
+  }
+  const scaleNote=' The horizontal range stays fixed while parameters change. The vertical scale adjusts to the current height.';
+  const ymax=Math.max(...ys)*1.08;
+  [0,.25,.5,.75,1].forEach(q=>{
+    const y=B-q*height;
+    plot.append(svg('line',{x1:L,y1:y,x2:R,y2:y,class:'grid'}));
+    const label=svg('text',{x:L-9,y:y+5,class:'tick','text-anchor':'end'});
+    label.textContent=tick(q*ymax);plot.append(label);
+  });
+  plot.append(svg('line',{x1:L,y1:T,x2:L,y2:B,class:'axis'}));
+  plot.append(svg('line',{x1:L,y1:B,x2:R,y2:B,class:'axis'}));
+  if(discrete){
+    const bw=Math.min(44,(W/xs.length)*.72),interval=Math.ceil(xs.length/10);
+    xs.forEach((x,i)=>{
+      const cx=L+(i+.5)*W/xs.length,y=B-ys[i]/ymax*height;
+      plot.append(svg('rect',{x:cx-bw/2,y,width:bw,height:B-y,class:'bar'}));
+      if(xs.length<=12||i%interval===0||i===xs.length-1){
+        if(xs.length>12&&i!==xs.length-1&&xs.length-1-i<interval*.7)return;
+        const label=svg('text',{x:cx,y:B+20,class:'tick','text-anchor':'middle'});
+        label.textContent=x;plot.append(label);
+      }
+    });
+  }else{
+    const pts=xs.map((x,i)=>[L+(x-xmin)*W/(xmax-xmin),B-ys[i]/ymax*height]);
+    plot.append(svg('path',{d:`M ${L} ${B} `+pts.map(point=>`L ${point[0]} ${point[1]}`).join(' ')+` L ${R} ${B} Z`,class:'area'}));
+    plot.append(svg('path',{d:pts.map((point,i)=>(i?'L':'M')+` ${point[0]} ${point[1]}`).join(' '),class:'curve'}));
+    [0,.25,.5,.75,1].forEach(q=>{
+      const label=svg('text',{x:L+q*W,y:B+20,class:'tick','text-anchor':'middle'});
+      label.textContent=tick(xmin+q*(xmax-xmin));plot.append(label);
+    });
+  }
+  const yl=svg('text',{x:18,y:160,class:'axislabel',transform:'rotate(-90 18 160)','text-anchor':'middle'});
+  yl.textContent=discrete?'Probability':'Probability density';plot.append(yl);
+  const xl=svg('text',{x:(L+R)/2,y:350,class:'axislabel','text-anchor':'middle'});
+  xl.textContent=discrete?'Outcome':'Value, x';plot.append(xl);
+  plot.setAttribute('aria-label',`${f.label} ${discrete?'probabilities':'density'}. ${rangeNote}${scaleNote}`);
+  return rangeNote+scaleNote;
+}
+kind.addEventListener('change',setMode);
+select.addEventListener('change',setup);
+setMode();
+</script>
+</body>
+</html>

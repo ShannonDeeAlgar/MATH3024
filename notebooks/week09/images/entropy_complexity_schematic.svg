@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 430" role="img" aria-labelledby="title desc">
+  <title id="title">Schematic relationship between order, randomness and structural complexity</title>
+  <desc id="desc">Structural complexity is low at perfect order, rises for structured organisation, and falls again at perfect randomness.</desc>
+  <rect width="1200" height="430" fill="#ffffff"/>
+  <g font-family="Arial, Helvetica, sans-serif" fill="#17284f">
+    <line x1="105" y1="332" x2="1125" y2="332" stroke="#17284f" stroke-width="3"/>
+    <path d="M1110 323 L1125 332 L1110 341" fill="none" stroke="#17284f" stroke-width="3"/>
+    <line x1="105" y1="332" x2="105" y2="58" stroke="#17284f" stroke-width="3"/>
+    <path d="M96 73 L105 58 L114 73" fill="none" stroke="#17284f" stroke-width="3"/>
+
+    <path d="M145 305 C330 300 405 92 600 82 C795 92 870 300 1085 305"
+          fill="none" stroke="#2f78ad" stroke-width="8" stroke-linecap="round"/>
+
+    <circle cx="160" cy="302" r="11" fill="#d95f3d"/>
+    <circle cx="600" cy="82" r="11" fill="#d95f3d"/>
+    <circle cx="1080" cy="304" r="11" fill="#d95f3d"/>
+
+    <text x="56" y="202" transform="rotate(-90 56 202)" font-size="28" text-anchor="middle">structural complexity</text>
+    <text x="615" y="405" font-size="28" text-anchor="middle">from order to randomness for a fixed description</text>
+
+    <text x="195" y="239" font-size="28" text-anchor="middle">perfect order</text>
+    <text x="195" y="270" font-size="22" text-anchor="middle" fill="#52627f">predictable</text>
+
+    <text x="600" y="34" font-size="28" text-anchor="middle">structured organisation</text>
+    <text x="600" y="160" font-size="22" text-anchor="middle" fill="#52627f">variety with constraints</text>
+
+    <text x="1040" y="239" font-size="28" text-anchor="middle">perfect randomness</text>
+    <text x="1040" y="270" font-size="22" text-anchor="middle" fill="#52627f">unpredictable</text>
+  </g>
+</svg>

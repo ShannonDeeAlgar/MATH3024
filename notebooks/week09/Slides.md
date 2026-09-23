@@ -1,6 +1,6 @@
 # Lecture slides
 
-## Week 9: Information theory
+## Week 9 information theory
 
 <p><a href="https://shannondeealgar.github.io/MATH3024/slides/week09/L_InformationTheory.slides.html" target="_blank" rel="noopener"><strong>Open the Week 9 lecture slides</strong></a></p>
 
