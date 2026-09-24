@@ -51,6 +51,12 @@ class PresentationTests(unittest.TestCase):
                 target = root / 'notebooks/week10/l-game-theory/images' / name
                 target.parent.mkdir(parents=True, exist_ok=True)
                 target.touch()
+            for route in ['notebooks/week09',
+                          'notebooks/week09/l-informationtheory',
+                          'slides/week09']:
+                target = root / route / 'entropy_distribution_explorer.html'
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_text('explorer')
             self.assertEqual(check_assets(root), [])
             workshop = root / 'notebooks/week08/ws-critical-phenomena/index.html'
             workshop.unlink()
