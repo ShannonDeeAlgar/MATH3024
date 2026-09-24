@@ -32,6 +32,11 @@ class PresentationTests(unittest.TestCase):
                          'notebooks/week08/ws-critical-phenomena/index.html',
                          'notebooks/week08/practice/index.html',
                          'slides/week08/L_Critical_phenomena.slides.html',
+                         'notebooks/week09/l-informationtheory/index.html',
+                         'notebooks/week09/ws-information-theory/index.html',
+                         'notebooks/week09/practice/index.html',
+                         'notebooks/week09/project-consultation/index.html',
+                         'slides/week09/L_InformationTheory.slides.html',
                          'notebooks/week10/l-game-theory/index.html',
                          'notebooks/week10/axelrod-tournament/index.html']:
                 target = root / page; target.parent.mkdir(parents=True, exist_ok=True)
@@ -54,7 +59,7 @@ class PresentationTests(unittest.TestCase):
             workshop.write_text(content)
             (root / 'notebooks/week07/images/pso_explorer.html').unlink()
             self.assertTrue(any('not staged' in error for error in check_assets(root)))
-            (root / 'notebooks/week09').mkdir()
+            (root / 'notebooks/week11').mkdir()
             self.assertTrue(any('Unreleased' in error for error in check_assets(root)))
 
     def test_independent_figure_numbers(self):
@@ -86,13 +91,14 @@ class PresentationTests(unittest.TestCase):
     def test_publication_boundary(self):
         self.assertTrue(allowed('notebooks/week07/Slides.md'))
         self.assertTrue(allowed('notebooks/week08/Slides.md'))
-        self.assertFalse(allowed('notebooks/week09/Slides.md'))
+        self.assertTrue(allowed('notebooks/week09/Slides.md'))
         self.assertTrue(allowed('week10'))
+        self.assertFalse(allowed('notebooks/week11/Slides.md'))
         original = [{'file': 'intro.md', 'children': [{'file': 'notebooks/week08/L.ipynb'}]},
                     {'file': 'notebooks/week07/L.ipynb'}, {'file': 'notebooks/week10/L.ipynb'},
                     {'file': 'notebooks/week09/L.ipynb'}]
         result = filter_toc(original)
-        self.assertEqual(len(result), 3)
+        self.assertEqual(len(result), 4)
         self.assertEqual(result[0]['children'], [{'file': 'notebooks/week08/L.ipynb'}])
         self.assertEqual(len(original[0]['children']), 1)
 

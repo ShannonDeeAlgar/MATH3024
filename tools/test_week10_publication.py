@@ -27,15 +27,15 @@ class Week10PublicationTests(unittest.TestCase):
     def test_release_boundary(self):
         self.assertTrue(publication.allowed('notebooks/week08/L_Critical_phenomena.ipynb'))
         self.assertTrue(publication.allowed(str(LECTURE.relative_to(ROOT))))
-        self.assertFalse(publication.allowed('notebooks/week09/L_InformationTheory.ipynb'))
+        self.assertTrue(publication.allowed('notebooks/week09/L_InformationTheory.ipynb'))
         self.assertFalse(publication.allowed('notebooks/week11/L_Future.ipynb'))
 
-    def test_toc_includes_only_week10_reader_and_linked_example(self):
+    def test_toc_includes_released_week10_reader_and_linked_example(self):
         toc = yaml.safe_load((ROOT / 'myst.yml').read_text())['project']['toc']
         entry = next(item for item in toc if item['file'].startswith('notebooks/week10/'))
         self.assertEqual(entry['file'], str(LECTURE.relative_to(ROOT)))
         self.assertEqual(entry['children'], [{'file': 'notebooks/week10/Axelrod_tournament.ipynb'}])
-        self.assertFalse(any('week09/' in item['file'] for item in toc))
+        self.assertTrue(any('week09/' in item['file'] for item in toc))
 
     def test_reader_assets_and_local_notebook_links_exist(self):
         for source in self.sources.values():
@@ -81,15 +81,15 @@ class Week10PublicationTests(unittest.TestCase):
             self.assertEqual(actual, expected)
         self.assertIn('not an exact entry', self.sources['w10-matching-pennies-normal-form'])
 
-    def test_generated_site_checker_requires_week10_and_rejects_week9(self):
+    def test_generated_site_checker_requires_released_pages(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
             errors = assets.check(root)
             self.assertTrue(any('week10/l-game-theory/index.html' in error for error in errors))
-            forbidden = root / 'notebooks/week09/example/index.html'
-            forbidden.parent.mkdir(parents=True)
-            forbidden.touch()
-            self.assertTrue(any('Unreleased material staged' in error for error in assets.check(root)))
+            week09 = root / 'notebooks/week09/example/index.html'
+            week09.parent.mkdir(parents=True)
+            week09.touch()
+            self.assertFalse(any('Unreleased material staged' in error for error in assets.check(root)))
             forbidden = root / 'slides/week10/L_Game_theory.slides.html'
             forbidden.parent.mkdir(parents=True)
             forbidden.touch()
