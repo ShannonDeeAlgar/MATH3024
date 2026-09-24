@@ -9,6 +9,7 @@
     "notebooks/week06/L_Synchronisation.ipynb",
     "notebooks/week07/L_Intelligent_systems.ipynb",
     "notebooks/week08/L_Critical_phenomena.ipynb",
+    "notebooks/week09/L_InformationTheory.ipynb",
     "notebooks/week10/L_Game_theory.ipynb"
   ],
   "description": "Audited published reader and slide equations and inline LaTeX. Figure pixels and executable implementations are separate checks.",
@@ -961,6 +962,155 @@
           "mode": "exact",
           "reader": "w10-spatial-evolution",
           "reader_index": 1
+        }
+      ]
+    },
+    "notebooks/week09/L_InformationTheory.ipynb": {
+      "math_signatures": {
+        "ffb2b2ce": "e04fbdfae966aa346b0dee61697547512d7aeb6f13e1f872369671d3195ca23b",
+        "fd41a6ee": "ed19efcb161b7aa6f1290923c6cf412224db1ec742f3425dd8dc41ad947b5243",
+        "w9-surprise-requirements": "df72150e652be539aae8a50323166ec932ad5fe5e57f43ad96cf30fb477ef5a5",
+        "w9-surprise-motivation-slide": "5e312299c2804859fbdc29a595a06a68ddfb1230dfd0525574b43650887ac0fc",
+        "w9-surprise-requirements-slide": "6eafe09715570aa8f5cbfe4a7ef3d062f6b22d751ac6783a31a9336814e6e9b1",
+        "67663f5b": "235744a360c48c2075b6ba6c5556d5bdc450144eb80f7b0b1cc2926b260fffb2",
+        "67663f5b-notation-slide": "1db13dd35d9045472e08ad67a47e2537e4daf8b92fba0a15136fd3350c02413f",
+        "w9-surprise-uniqueness-reader": "4c8d41b99c1c986952be084860375cd141d696026e78f8f576d666f9028fb932",
+        "33aa5643": "db5b03d207afba7baed1aa3ac8a55ea13b9e16e41ea32eefbb9ed557dd90526a",
+        "4d9ad5e7": "11c91c9648da7f128f242549f8aaddf79903f87fe8aced2aeca96a67de4b83ef",
+        "d7d7cf29-f01a-44d3-b0a1-c54b5326e5d3": "d92d0d5a3bbfdb7e186c0e50819de2f04f9c2e28ff94244374d39b0ed00d8c7f",
+        "4d9ad5e7-notation-slide": "9712e641f18ecb48505c51078327bd7d54d89b5477ae0efe23694865a50a5661",
+        "w9-dice-entropy-comparison-slide": "15f0a3d970f240182f6cfe7713a176fd02ed914fcd776edd9751f6286ff5dd1f",
+        "w9-yes-no-entropy-example": "1f7ab32927c6a9d5afd1c3a54005bc1e7baefaddc849862dcbc525d17b559c0c",
+        "prediction-compression-entropy": "68dbb6f06348d7943cb162c1be9547a9455ab83489a17ea31d40c22b08ad1340",
+        "w9-yes-no-entropy-example-slide": "e2d725f82b6a3fa1bb7609e897d5132eb94b2f8d0a2b019a18a942b0ef0c84e6",
+        "w9-physical-entropy-bridge": "7af5b3851f4d2d7ae65f71a4ca280751126584a8754434714faecc5fcf2ce921",
+        "w9-physical-entropy-bridge-slide": "9b64e58c0d0307ec7cc750f345e6f66b220b7005cfc5c6123f2b4ebc985d5f7e",
+        "w9-micro-macro-slide": "76f503d31ed2836c422d34fe90238bca9f2097d215a818489cf7e767174c6a9b",
+        "c277147c-cf37-4c1a-a9db-e6b31f04c5a8": "3b782d9c4c76819b4361d608d792610beba5e3dbc920a545ea1b5366107700b0",
+        "w9-uniform-maximum-proof": "4087e466824b9d9a2273115c8b1555bc267d8d8fec52a8cc973655a0340439d7",
+        "w9-entropy-limits-slide": "33cdc32d8c9388c7aa477765f7eff3c6553189828ceb997d8e2d9845d131ef6d",
+        "w9-discrete-continuous-entropy": "832ec0d9a5aec89ec7ef8daced353dff11bc34e6d2f9d9f983c3cffbf97174fd",
+        "w9-discrete-continuous-entropy-slide": "1363100f367d837193cfd1f0a38aec0c360a3a5bffe233456075cfc39f21a910",
+        "e0efb326": "5a4ea5d5682d6ce39bc9f4ee6106969919370ccbc77619a1f7e7c96bb7a79690",
+        "w9-estimating-slide": "f68200a1525bd354d8e5b07d955eff5961d61c7b4e8da0fa3d71a5ecd89458a4",
+        "w9-binned-uniform-entropy": "ac375f7933e377b7b925a3131499debfdcc4032cf550b02f29b0aec3d818bfe9",
+        "w9-binned-uniform-entropy-slide": "1e7070f406c8943457fde908667f4ca9bb0e151dac4ee40020f799cd0cc27292",
+        "w9-schelling-bin-sensitivity": "589d8216fda809861189961bac6a47d0628d9e4235948e135f365216831a88bb",
+        "0a6897ec": "b793605cc2883707c75284faf32a3956663ec1167806009884bf7106257d19ee",
+        "w9-dependence-overview-slide": "c473a312db15cfdfb0f1902a883baaf80dabeaefd5ec0252530b7bbfd0521e2c",
+        "w9-probability-reminder": "b7d23ad3088661f9c65feba49ebf9ceaf340429eb6311642b819cbc5b21bcd3f",
+        "w9-joint-example": "d32a497c5168c5d306d0779bb230e2157b03bf3b067a8d3b54d825b8a25de8cd",
+        "f16e7a63": "36bef9b807426ac8eaf957af67ca5bca32f02d9adeebf677f2cd7fb86a9a18e2",
+        "f16e7a63-notation-slide": "69a7a0204458b22ffef1abc6da17dddfeb29aa04a0be4eaa219dc72ce88f8f3d",
+        "2a9a48f5-f0df-43cb-9f65-e86d73c99dcb": "4182edc5779f92b137d3661dfdc91229e747850148647adea1cc231e249e5c22",
+        "w9-probability-notation-reader": "738440da21cf954a94d97cf1932b62f1adcd019b02209f5f977adacf52836bd2",
+        "w9-schelling-observation-slide": "b6e55ba7faaa728dd0c22924ac7c6e292ba16abe0a0dab2f53f7ebc03f41f5b3",
+        "2faf6c72": "c2a2e0792ff40391979fdd18ea9f3bc75ba965c9f5e248d87acac11c37ccecc8",
+        "2faf6c72-notation-slide": "c56bb1cca143ae7e35106dd4e0ffb28766cf1a9eff15f5e33032c4b327cea1e1",
+        "w9-schelling-conditional-slide": "57481ba01bcb64e592109d9fa8554c2fe57dcdb0e7ebdb91c4cd0ea6aff61ec0",
+        "5452b666": "f65ca0ba9d4d2316608aeb66496e226dd8871759923c2a6165f68ad36942de61",
+        "5452b666-notation-slide": "5b073d6c96fc37b7059ee6ea585363c08fe7e6d1b0683a1338cb3b8128cd6c54",
+        "w9-schelling-mi-slide": "4d9b87d187254ac601dc5c410166e1f6d5cb1b70de9a1a19b842040d01f7080a",
+        "d041ae34-992f-40cc-b8a2-cc9baf02a1b4": "ba2653e28662f154548b9dacd8f4ec44a218bf41fb91a65deb197d992e330249",
+        "w9-mi-bound-slide": "1d5f60bdb1279f763aff9609dc02f4a9400b49dbfbbef96927728d9e2bef06d2",
+        "e9313b8d": "2c794fcc3352aa828dabf9c26b9393d4ac914ecf040fd8ddafc0dddce4e53e26",
+        "e9313b8d-notation-slide": "2c794fcc3352aa828dabf9c26b9393d4ac914ecf040fd8ddafc0dddce4e53e26",
+        "w9-joint-calculation": "f17260b76b9e798d4a797f7559744ebaf34af42a7b81ee8b7312eacc752bfad5",
+        "w9-joint-calculation-slide": "ca64cc5b7edbcaf74448cfa14b4d3403ee5303f67e37bdbea499511f5db4c486",
+        "w9-information-measure-limits": "5b6fe18bb2b988c001d7b63c39b9dd419fe0b308d8ce9896e62243738eaf3628",
+        "w9-schelling-distance-mi-reader": "cda8519948a4642ad1a12d7163cec1f36c644dccffdd625bdc4fe450cb325f5b",
+        "w9-cell-information-comparison": "4b6a96138517e70e1e9ec80ae3a40dfc6ed46cc7c0fc456d946dc12f11d23126",
+        "w9-location-segregation": "4bf2fbd8976926ac0ba79a71b153a50ccfec5dfd1cf9aeeae6ddf6f0b3fa3386",
+        "w9-schelling-neighbour-count": "91c9991899876a7dcf95080d77910b9a085ef30beb4c91da739884654901ef22",
+        "f8bf59aa-0501-4c0f-a792-84b4bc85644c": "4355da4620f472a41caaa3262e786fe97c342942a68150d86a06e658c6581003",
+        "w9-research-examples": "2f9f941e6634f88976896d8d4e1b0be51845beb642ba59863f3ca5c035023984",
+        "f4296894": "2e2bc326541fcb719e5509d34751daca83bcb4e9131ff92346bf6d484bbe74eb",
+        "16b18443": "69c1753d6e6fcbadf34e3d5c249d8eb98a4ea22c7c5031fffabe6aea2a15faf0"
+      },
+      "displays": [
+        {
+          "slide": "w9-surprise-requirements-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "w9-surprise-requirements",
+          "reader_index": 0
+        },
+        {
+          "slide": "67663f5b-notation-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "67663f5b",
+          "reader_index": 0
+        },
+        {
+          "slide": "4d9ad5e7-notation-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "4d9ad5e7",
+          "reader_index": 0
+        },
+        {
+          "slide": "w9-micro-macro-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "w9-physical-entropy-bridge",
+          "reader_index": 0
+        },
+        {
+          "slide": "w9-estimating-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "e0efb326",
+          "reader_index": 0
+        },
+        {
+          "slide": "w9-binned-uniform-entropy-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "w9-binned-uniform-entropy",
+          "reader_index": 1
+        },
+        {
+          "slide": "f16e7a63-notation-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "f16e7a63",
+          "reader_index": 0
+        },
+        {
+          "slide": "f16e7a63-notation-slide",
+          "index": 1,
+          "mode": "exact",
+          "reader": "f16e7a63",
+          "reader_index": 1
+        },
+        {
+          "slide": "2faf6c72-notation-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "2faf6c72",
+          "reader_index": 0
+        },
+        {
+          "slide": "5452b666-notation-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "5452b666",
+          "reader_index": 0
+        },
+        {
+          "slide": "w9-mi-bound-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "d041ae34-992f-40cc-b8a2-cc9baf02a1b4",
+          "reader_index": 0
+        },
+        {
+          "slide": "e9313b8d-notation-slide",
+          "index": 0,
+          "mode": "exact",
+          "reader": "e9313b8d",
+          "reader_index": 0
         }
       ]
     }
