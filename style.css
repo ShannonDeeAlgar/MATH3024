@@ -895,6 +895,56 @@ details.discussion-reveal .discussion-answer > :last-child {
   height: auto;
   margin: 0;
 }
+
+.slide-week9-opening-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
+  gap: 1.4rem;
+  align-items: center;
+}
+
+.slide-week9-opening-figure {
+  width: min(100%, 360px);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.slide-week9-opening-figure img {
+  display: block;
+  width: 100%;
+  max-height: 220px;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.reveal .slides .slide-week9-opening-layout {
+  grid-template-columns: minmax(0, 1.12fr) minmax(330px, 0.88fr);
+  gap: 1.1em;
+}
+
+.reveal .slides .slide-week9-opening-copy > p {
+  margin: 0 0 0.55em;
+}
+
+.reveal .slides .slide-week9-opening-layout .slide-quote {
+  margin: 0.7em 0 0;
+}
+
+.reveal .slides .slide-week9-opening-figure img {
+  max-height: 220px;
+}
+
+@media (max-width: 760px) {
+  .article .slide-week9-opening-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .article .slide-week9-opening-figure {
+    width: min(100%, 360px);
+    margin-inline: auto;
+  }
+}
 .article table {
   width: 100%;
   border-collapse: collapse;
