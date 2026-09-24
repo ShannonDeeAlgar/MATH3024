@@ -9,7 +9,7 @@ import shutil
 import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
-MAX_WEEK = 8
+MAX_WEEK = 9
 EXTRA_WEEKS = {10}
 
 
@@ -40,7 +40,7 @@ def main():
     for directory in (ROOT / 'notebooks').glob('week[0-9][0-9]'):
         if not allowed(directory.name):
             shutil.rmtree(directory)
-    print(f'Publication includes Weeks 0–{MAX_WEEK} and the Week 10 Reader; Week 9 remains excluded.')
+    print(f'Publication includes Weeks 0–{MAX_WEEK} and the Week 10 Reader; later weeks excluded from CI output.')
 
 
 if __name__ == '__main__':
