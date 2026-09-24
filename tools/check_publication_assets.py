@@ -44,6 +44,11 @@ def check(root):
     required_pages += [f'notebooks/week10/l-game-theory/images/{name}' for name in (
         'discussion_marker.svg', 'pd_best_response_plane.svg', 'pd_general_payoffs.svg',
         '2x2games-topology_page1.jpg', '2x2games-topology_page4.jpg', 'sinervo-morphs-source.jpeg')]
+    required_pages += [
+        'notebooks/week09/entropy_distribution_explorer.html',
+        'notebooks/week09/l-informationtheory/entropy_distribution_explorer.html',
+        'slides/week09/entropy_distribution_explorer.html',
+    ]
     for file in required_pages:
         if not (root / file).is_file():
             errors.append(f'Missing published page: {file}')

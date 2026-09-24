@@ -59,6 +59,19 @@ for SOURCE_ROOT in notebooks/week*; do
         done
     fi
 
+    # Week 9 embeds the standalone entropy distribution explorer in both the
+    # Reader notebook and the lecture deck. MyST preserves those raw iframe
+    # URLs but does not copy the loose HTML asset, so stage it beside each
+    # published route that can resolve the relative link.
+    if [[ "$WEEK" == "week09" && -f "$SOURCE_ROOT/entropy_distribution_explorer.html" ]]; then
+        cp "$SOURCE_ROOT/entropy_distribution_explorer.html" \
+            "$SITE_ROOT/notebooks/$WEEK/entropy_distribution_explorer.html"
+        cp "$SOURCE_ROOT/entropy_distribution_explorer.html" \
+            "$SITE_ROOT/notebooks/$WEEK/l-informationtheory/entropy_distribution_explorer.html"
+        cp "$SOURCE_ROOT/entropy_distribution_explorer.html" \
+            "$SLIDE_ROOT/entropy_distribution_explorer.html"
+    fi
+
     # Keep locally embedded lecture media with the deployed deck. Previously
     # only images were staged, so Week 6's Kuramoto animation worked in the
     # notebook directory but disappeared from the Reader and GitHub Pages.
