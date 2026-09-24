@@ -37,7 +37,6 @@ def check(root):
         'notebooks/week09/l-informationtheory/index.html',
         'notebooks/week09/ws-information-theory/index.html',
         'notebooks/week09/practice/index.html',
-        'notebooks/week09/project-consultation/index.html',
         'slides/week09/L_InformationTheory.slides.html',
         'notebooks/week10/l-game-theory/index.html',
         'notebooks/week10/axelrod-tournament/index.html',
