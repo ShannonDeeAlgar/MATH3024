@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 540" role="img" aria-labelledby="title desc">
+  <title id="title">One repeated match and Tit for Tat against several opponents</title>
+  <desc id="desc">The left panel shows two cumulative scores over 50 rounds of one repeated Prisoner's Dilemma match. The right panel holds Tit for Tat fixed and shows its mean cumulative score against Always Cooperate, Always Defect and Random.</desc>
+  <style>
+    .title{font:700 24px Arial,sans-serif;fill:#1B2A4C;text-anchor:middle}.subtitle{font:16px Arial,sans-serif;fill:#4C5975;text-anchor:middle}.axis{stroke:#6A7691;stroke-width:2}.grid{stroke:#D7DDE7;stroke-width:1}.label{font:16px Arial,sans-serif;fill:#4C5975}.small{font:15px Arial,sans-serif;fill:#5A6685}.tft{fill:none;stroke:#0072B2;stroke-width:4}.defect{fill:none;stroke:#D55E00;stroke-width:4}.cooperate{fill:none;stroke:#009E73;stroke-width:4}.random{fill:none;stroke:#B07A00;stroke-width:4;stroke-dasharray:8 5}
+  </style>
+  <rect width="1200" height="540" fill="#FFFFFF"/>
+  <text class="title" x="300" y="32">One repeated match (50 rounds)</text>
+  <text class="subtitle" x="300" y="58">Tit for Tat versus Always Defect</text>
+  <text class="title" x="900" y="32">One strategy, several opponents</text>
+  <text class="subtitle" x="900" y="58">Tit for Tat is the focal strategy</text>
+  <g>
+    <line class="grid" x1="85" y1="110" x2="545" y2="110"/><line class="grid" x1="85" y1="249.5" x2="545" y2="249.5"/><line class="grid" x1="85" y1="389" x2="545" y2="389"/>
+    <line class="axis" x1="85" y1="100" x2="85" y2="399"/><line class="axis" x1="85" y1="389" x2="545" y2="389"/>
+    <text class="label" x="60" y="394">0</text><text class="label" x="46" y="254">30</text><text class="label" x="46" y="115">60</text>
+    <text class="label" x="315" y="425" text-anchor="middle">round</text><text class="label" transform="translate(20,270) rotate(-90)">cumulative payoff</text>
+    <path class="tft" d="M 85,389 177,347.2 269,300.7 361,254.2 453,207.7 545,161.2"/>
+    <path class="defect" d="M 85,389 177,323.8 269,277.4 361,230.9 453,184.4 545,137.9"/>
+  </g>
+  <g>
+    <line class="grid" x1="685" y1="110" x2="1145" y2="110"/><line class="grid" x1="685" y1="249.5" x2="1145" y2="249.5"/><line class="grid" x1="685" y1="389" x2="1145" y2="389"/>
+    <line class="axis" x1="685" y1="100" x2="685" y2="399"/><line class="axis" x1="685" y1="389" x2="1145" y2="389"/>
+    <text class="label" x="660" y="394">0</text><text class="label" x="646" y="254">80</text><text class="label" x="638" y="115">160</text>
+    <text class="label" x="915" y="425" text-anchor="middle">round</text><text class="label" transform="translate(620,270) rotate(-90)">focal cumulative payoff</text>
+    <path class="cooperate" d="M 685,389 777,336.7 869,284.4 961,232.1 1053,179.8 1145,127.4"/>
+    <path class="defect" d="M 685,389 777,373.3 869,355.9 961,338.4 1053,321.0 1145,303.6"/>
+    <path class="random" d="M 685,389 777,347.3 869,307.2 961,269.1 1053,229.5 1145,194.5"/>
+  </g>
+  <g transform="translate(95,470)">
+    <line class="tft" x1="0" y1="0" x2="34" y2="0"/><text class="small" x="44" y="5">Tit for Tat</text>
+    <line class="defect" x1="150" y1="0" x2="184" y2="0"/><text class="small" x="194" y="5">Always Defect</text>
+  </g>
+  <g transform="translate(670,470)">
+    <line class="cooperate" x1="0" y1="0" x2="34" y2="0"/><text class="small" x="44" y="5">vs Always Cooperate</text>
+    <line class="defect" x1="190" y1="0" x2="224" y2="0"/><text class="small" x="234" y="5">vs Always Defect</text>
+    <line class="random" x1="350" y1="0" x2="384" y2="0"/><text class="small" x="394" y="5">vs Random</text>
+  </g>
+  <text class="small" x="600" y="520" text-anchor="middle">Left: two players in one match. Right: mean over 30 matches for one focal strategy against each listed opponent.</text>
+</svg>

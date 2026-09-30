@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1480 350" role="img" aria-labelledby="title desc">
+  <title id="title">Best-response arrows for four two-player games</title>
+  <desc id="desc">Four two by two games. Red arrows show Player 1 improvements and blue arrows show Player 2 improvements. Green circles mark stable pure Nash equilibria; dotted grey circles mark unstable profiles.</desc>
+  <defs>
+    <marker id="red-arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L12 6 L0 12 Z" fill="#B74747"/></marker>
+    <marker id="blue-arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L12 6 L0 12 Z" fill="#376FA8"/></marker>
+    <style>
+      .title { font: 700 21px Arial, sans-serif; fill: #1B2A4C; text-anchor: middle; }
+      .label { font: 15px Arial, sans-serif; fill: #1B2A4C; text-anchor: middle; }
+      .legend { font: 14px Arial, sans-serif; fill: #5A6685; }
+      .grid { fill: #F7F8FB; stroke: #B7C2D4; stroke-width: 2; }
+      .divider { stroke: #D7DDE7; stroke-width: 2; }
+      .row-arrow { stroke: #B74747; stroke-width: 3.5; fill: none; marker-end: url(#red-arrow); }
+      .col-arrow { stroke: #376FA8; stroke-width: 3.5; fill: none; marker-end: url(#blue-arrow); }
+      .stable { fill: #FFFFFF; stroke: #2F7D4A; stroke-width: 2.5; }
+      .unstable { fill: #FFFFFF; stroke: #A7B0BF; stroke-width: 1.8; stroke-dasharray: 3 2; }
+    </style>
+  </defs>
+  <rect width="1480" height="350" fill="#FFFFFF"/>
+
+  <!-- Prisoner's Dilemma -->
+  <text class="title" x="185" y="29">Prisoner's Dilemma</text>
+  <rect class="grid" x="75" y="55" width="220" height="160"/><line class="divider" x1="185" y1="55" x2="185" y2="215"/><line class="divider" x1="75" y1="135" x2="295" y2="135"/>
+  <text class="label" x="130" y="237">C</text><text class="label" x="240" y="237">D</text><text class="label" x="43" y="120">C</text><text class="label" x="43" y="200">D</text>
+  <path class="row-arrow" d="M130 103 L130 167"/><path class="row-arrow" d="M240 103 L240 167"/><path class="col-arrow" d="M138 95 L232 95"/><path class="col-arrow" d="M138 175 L232 175"/>
+  <circle class="unstable" cx="130" cy="95" r="9"/><circle class="unstable" cx="240" cy="95" r="9"/><circle class="unstable" cx="130" cy="175" r="9"/><circle class="stable" cx="240" cy="175" r="9"/>
+
+  <!-- Stag Hunt -->
+  <text class="title" x="555" y="29">Stag Hunt</text>
+  <rect class="grid" x="445" y="55" width="220" height="160"/><line class="divider" x1="555" y1="55" x2="555" y2="215"/><line class="divider" x1="445" y1="135" x2="665" y2="135"/>
+  <text class="label" x="500" y="237">Stag</text><text class="label" x="610" y="237">Hare</text><text class="label" x="413" y="120">Stag</text><text class="label" x="413" y="200">Hare</text>
+  <path class="row-arrow" d="M500 167 L500 103"/><path class="row-arrow" d="M610 103 L610 167"/><path class="col-arrow" d="M602 95 L508 95"/><path class="col-arrow" d="M508 175 L602 175"/>
+  <circle class="stable" cx="500" cy="95" r="9"/><circle class="unstable" cx="610" cy="95" r="9"/><circle class="unstable" cx="500" cy="175" r="9"/><circle class="stable" cx="610" cy="175" r="9"/>
+
+  <!-- Chicken -->
+  <text class="title" x="925" y="29">Chicken</text>
+  <rect class="grid" x="815" y="55" width="220" height="160"/><line class="divider" x1="925" y1="55" x2="925" y2="215"/><line class="divider" x1="815" y1="135" x2="1035" y2="135"/>
+  <text class="label" x="870" y="237">Yield</text><text class="label" x="980" y="237">Escalate</text><text class="label" x="783" y="120">Yield</text><text class="label" x="783" y="200">Escalate</text>
+  <path class="row-arrow" d="M870 103 L870 167"/><path class="row-arrow" d="M980 167 L980 103"/><path class="col-arrow" d="M878 95 L972 95"/><path class="col-arrow" d="M972 175 L878 175"/>
+  <circle class="unstable" cx="870" cy="95" r="9"/><circle class="stable" cx="980" cy="95" r="9"/><circle class="stable" cx="870" cy="175" r="9"/><circle class="unstable" cx="980" cy="175" r="9"/>
+
+  <!-- Matching Pennies -->
+  <text class="title" x="1295" y="29">Matching Pennies</text>
+  <rect class="grid" x="1185" y="55" width="220" height="160"/><line class="divider" x1="1295" y1="55" x2="1295" y2="215"/><line class="divider" x1="1185" y1="135" x2="1405" y2="135"/>
+  <text class="label" x="1240" y="237">Heads</text><text class="label" x="1350" y="237">Tails</text><text class="label" x="1153" y="120">Heads</text><text class="label" x="1153" y="200">Tails</text>
+  <path class="row-arrow" d="M1240 167 L1240 103"/><path class="row-arrow" d="M1350 103 L1350 167"/><path class="col-arrow" d="M1248 95 L1342 95"/><path class="col-arrow" d="M1342 175 L1248 175"/>
+  <circle class="unstable" cx="1240" cy="95" r="9"/><circle class="unstable" cx="1350" cy="95" r="9"/><circle class="unstable" cx="1240" cy="175" r="9"/><circle class="unstable" cx="1350" cy="175" r="9"/>
+
+  <!-- One aligned legend. -->
+  <circle class="stable" cx="380" cy="293" r="9"/><text class="legend" x="397" y="298">stable Nash equilibrium</text>
+  <circle class="unstable" cx="625" cy="293" r="9"/><text class="legend" x="642" y="298">unstable profile</text>
+  <line class="row-arrow" x1="830" y1="293" x2="870" y2="293"/><text class="legend" x="883" y="298">P1 improves</text>
+  <line class="col-arrow" x1="1085" y1="293" x2="1125" y2="293"/><text class="legend" x="1138" y="298">P2 improves</text>
+</svg>

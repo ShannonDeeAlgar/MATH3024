@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 430" role="img" aria-labelledby="title desc">
+  <title id="title">Prisoner's Dilemma payoff symbols</title>
+  <desc id="desc">A two by two payoff matrix. Rows are Player 1 and columns are Player 2. The cells contain the ordered payoff symbols (R,R), (S,T), (T,S), and (P,P).</desc>
+  <style>
+    .heading { font: 600 20px Arial, sans-serif; fill: #1B2A4C; }
+    .axis { font: 600 18px Arial, sans-serif; }
+    .action { font: 700 24px Arial, sans-serif; fill: #1B2A4C; }
+    .payoff { font: 600 25px Arial, sans-serif; fill: #1B2A4C; text-anchor: middle; }
+    .legend { font: 16px Arial, sans-serif; fill: #1B2A4C; }
+    .cell { fill: #F5F7FA; stroke: #C7CEDC; stroke-width: 2; }
+  </style>
+
+  <!-- Column and row roles are stated once. -->
+  <text class="heading" x="410" y="34" text-anchor="middle">Columns: Player 2</text>
+  <text class="heading" x="82" y="176" text-anchor="middle" transform="rotate(-90 82 176)">Rows: Player 1</text>
+
+  <text class="axis" x="300" y="75" text-anchor="middle" fill="#2C7FB8">C</text>
+  <text class="axis" x="515" y="75" text-anchor="middle" fill="#2C7FB8">D</text>
+  <text class="action" x="142" y="152" text-anchor="middle" fill="#D73027">C</text>
+  <text class="action" x="142" y="267" text-anchor="middle" fill="#D73027">D</text>
+
+  <rect class="cell" x="190" y="95" width="210" height="105" rx="2"/>
+  <rect class="cell" x="405" y="95" width="210" height="105" rx="2"/>
+  <rect class="cell" x="190" y="205" width="210" height="105" rx="2"/>
+  <rect class="cell" x="405" y="205" width="210" height="105" rx="2"/>
+
+  <!-- Each cell shows the ordered pair once: Player 1 first, Player 2 second. -->
+  <text class="payoff" x="295" y="155"><tspan fill="#D73027">(R,</tspan><tspan fill="#2C7FB8"> R)</tspan></text>
+  <text class="payoff" x="510" y="155"><tspan fill="#D73027">(S,</tspan><tspan fill="#2C7FB8"> T)</tspan></text>
+  <text class="payoff" x="295" y="265"><tspan fill="#D73027">(T,</tspan><tspan fill="#2C7FB8"> S)</tspan></text>
+  <text class="payoff" x="510" y="265"><tspan fill="#D73027">(P,</tspan><tspan fill="#2C7FB8"> P)</tspan></text>
+
+  <text class="legend" x="360" y="350" text-anchor="middle"><tspan font-weight="700">C</tspan><tspan> = cooperate   ·   </tspan><tspan font-weight="700">D</tspan><tspan> = defect</tspan></text>
+  <text class="legend" x="360" y="378" text-anchor="middle"><tspan font-weight="700">T</tspan><tspan> temptation   ·   </tspan><tspan font-weight="700">R</tspan><tspan> reward   ·   </tspan><tspan font-weight="700">P</tspan><tspan> punishment   ·   </tspan><tspan font-weight="700">S</tspan><tspan> sucker’s payoff</tspan></text>
+</svg>

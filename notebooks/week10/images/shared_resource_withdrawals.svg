@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 350" role="img" aria-labelledby="title desc">
+<title id="title">A shared water resource</title>
+<desc id="desc">Three users withdraw from one shared water supply. Each withdrawal reduces what remains available to others. Conceptual illustration, not a specified payoff model.</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8" fill="none" stroke="#2C7FB8" stroke-width="1.5"/></marker></defs>
+<rect x="8" y="8" width="504" height="334" rx="22" fill="#F5F7FA"/>
+<g font-family="DejaVu Sans, Arial, sans-serif" text-anchor="middle" fill="#1B2A4C">
+<g stroke="#1B2A4C" stroke-width="3" stroke-linejoin="round">
+<path d="M49 91 L94 51 L139 91 M61 81 V129 H127 V81" fill="#E7ECF3"/>
+<path d="M215 91 L260 51 L305 91 M227 81 V129 H293 V81" fill="#E7ECF3"/>
+<path d="M381 91 L426 51 L471 91 M393 81 V129 H459 V81" fill="#E7ECF3"/>
+</g>
+<text x="94" y="40" font-size="21">User 1</text><text x="260" y="40" font-size="21">User 2</text><text x="426" y="40" font-size="21">User 3</text>
+<path d="M120 209 Q90 186 94 145" fill="none" stroke="#2C7FB8" stroke-width="3" marker-end="url(#arrow)"/>
+<path d="M260 204 V145" fill="none" stroke="#2C7FB8" stroke-width="3" marker-end="url(#arrow)"/>
+<path d="M400 209 Q430 186 426 145" fill="none" stroke="#2C7FB8" stroke-width="3" marker-end="url(#arrow)"/>
+<path d="M70 218 Q105 202 140 218 T210 218 T280 218 T350 218 T420 218 L450 218 L424 266 H96 Z" fill="#D8EAF4" stroke="#2C7FB8" stroke-width="3"/>
+<text x="260" y="249" font-size="22">Shared supply</text>
+<text x="260" y="303" font-size="20">Taking more leaves less for others</text>
+<text x="260" y="329" font-size="16" fill="#5A6685">Conceptual schematic</text>
+</g></svg>

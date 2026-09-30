@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 390" role="img" aria-labelledby="title desc">
+  <title id="title">Evolution of strategy frequencies in two games</title>
+  <desc id="desc">In a Prisoner's Dilemma, cooperation falls from one half toward zero. In a Stag Hunt, a starting share below one half loses Stag, while a starting share above one half gains Stag.</desc>
+  <style>
+    .title{font:700 22px Arial,sans-serif;fill:#1B2A4C;text-anchor:middle}.axis{stroke:#6A7691;stroke-width:2}.grid{stroke:#D7DDE7;stroke-width:1}.label{font:15px Arial,sans-serif;fill:#4C5975}.small{font:14px Arial,sans-serif;fill:#5A6685}.pd{fill:none;stroke:#B74747;stroke-width:4}.stag-low{fill:none;stroke:#D49A34;stroke-width:4}.stag-high{fill:none;stroke:#376FA8;stroke-width:4}.threshold{stroke:#8B94A5;stroke-width:2;stroke-dasharray:5 5}
+  </style>
+  <rect width="1200" height="390" fill="#FFFFFF"/>
+  <text class="title" x="300" y="30">Prisoner’s Dilemma: cooperation is selected against</text>
+  <text class="title" x="900" y="30">Stag Hunt: the initial mix selects the basin</text>
+  <g transform="translate(0,0)">
+    <line class="grid" x1="80" y1="110" x2="550" y2="110"/><line class="grid" x1="80" y1="205" x2="550" y2="205"/><line class="grid" x1="80" y1="300" x2="550" y2="300"/>
+    <line class="axis" x1="80" y1="100" x2="80" y2="310"/><line class="axis" x1="80" y1="300" x2="550" y2="300"/>
+    <text class="label" x="56" y="305">0</text><text class="label" x="56" y="210">0.5</text><text class="label" x="56" y="115">1</text><text class="label" x="315" y="335">generation</text><text class="label" transform="translate(20,220) rotate(-90)">share of Cooperate</text>
+    <path class="pd" d="M 120,205 134.3,219.2 148.7,232.5 163,244.3 177.3,254.5 191.7,263.1 206,270.2 220.3,276 234.7,280.7 249,284.5 263.3,287.6 277.7,290.1 292,292.1 306.3,293.6 320.7,294.9 335,295.9 349.3,296.7 363.7,297.4 378,297.9 392.3,298.3 406.7,298.7 421,298.9 435.3,299.1 449.7,299.3 464,299.5 478.3,299.6 492.7,299.6 507,299.7 521.3,299.8 535.7,299.8 550,299.9"/>
+    <text class="small" x="120" y="365" fill="#B74747">x₀ = 0.50 → x₃₀ ≈ 0.001</text>
+  </g>
+  <g transform="translate(580,0)">
+    <line class="grid" x1="80" y1="110" x2="550" y2="110"/><line class="grid" x1="80" y1="205" x2="550" y2="205"/><line class="grid" x1="80" y1="300" x2="550" y2="300"/>
+    <line class="axis" x1="80" y1="100" x2="80" y2="310"/><line class="axis" x1="80" y1="300" x2="550" y2="300"/><line class="threshold" x1="80" y1="205" x2="550" y2="205"/>
+    <text class="label" x="56" y="305">0</text><text class="label" x="56" y="210">0.5</text><text class="label" x="56" y="115">1</text><text class="label" x="315" y="335">generation</text><text class="label" transform="translate(20,220) rotate(-90)">share of Stag</text>
+    <path class="stag-low" d="M 120,243 134.3,246.2 148.7,249.5 163,253 177.3,256.6 191.7,260.2 206,263.9 220.3,267.5 234.7,271.1 249,274.5 263.3,277.7 277.7,280.7 292,283.5 306.3,286 320.7,288.2 335,290.1 349.3,291.8 363.7,293.2 378,294.4 392.3,295.5 406.7,296.3 421,297 435.3,297.6 449.7,298 464,298.4 478.3,298.7 492.7,299 507,299.2 521.3,299.3 535.7,299.5 550,299.6"/>
+    <path class="stag-high" d="M 120,167 134.3,163.8 148.7,160.5 163,157 177.3,153.4 191.7,149.8 206,146.1 220.3,142.5 234.7,138.9 249,135.5 263.3,132.3 277.7,129.3 292,126.5 306.3,124 320.7,121.8 335,119.9 349.3,118.2 363.7,116.8 378,115.6 392.3,114.5 406.7,113.7 421,113 435.3,112.4 449.7,112 464,111.6 478.3,111.3 492.7,111 507,110.8 521.3,110.7 535.7,110.5 550,110.4"/>
+    <text class="small" x="120" y="365" fill="#D49A34">x₀ = 0.30 → x₃₀ ≈ 0</text><text class="small" x="350" y="365" fill="#376FA8">x₀ = 0.70 → x₃₀ ≈ 1</text>
+  </g>
+</svg>
