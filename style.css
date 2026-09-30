@@ -895,6 +895,56 @@ details.discussion-reveal .discussion-answer > :last-child {
   height: auto;
   margin: 0;
 }
+
+.slide-week9-opening-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
+  gap: 1.4rem;
+  align-items: center;
+}
+
+.slide-week9-opening-figure {
+  width: min(100%, 360px);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.slide-week9-opening-figure img {
+  display: block;
+  width: 100%;
+  max-height: 220px;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.reveal .slides .slide-week9-opening-layout {
+  grid-template-columns: minmax(0, 1.12fr) minmax(330px, 0.88fr);
+  gap: 1.1em;
+}
+
+.reveal .slides .slide-week9-opening-copy > p {
+  margin: 0 0 0.55em;
+}
+
+.reveal .slides .slide-week9-opening-layout .slide-quote {
+  margin: 0.7em 0 0;
+}
+
+.reveal .slides .slide-week9-opening-figure img {
+  max-height: 220px;
+}
+
+@media (max-width: 760px) {
+  .article .slide-week9-opening-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .article .slide-week9-opening-figure {
+    width: min(100%, 360px);
+    margin-inline: auto;
+  }
+}
 .article table {
   width: 100%;
   border-collapse: collapse;
@@ -911,6 +961,33 @@ details.discussion-reveal .discussion-answer > :last-child {
 }
 .article table tbody tr:nth-child(even) {
   background: transparent;
+}
+
+/* Give the PSO definitions room without reducing equation size. */
+.pso-measurements-table {
+  overflow-x: auto;
+}
+.pso-measurements-table table,
+table.pso-measurements-table {
+  table-layout: fixed;
+  min-width: 0;
+  width: 100%;
+}
+.pso-measurements-table th:nth-child(1),
+.pso-measurements-table td:nth-child(1) { width: 25%; }
+.pso-measurements-table th:nth-child(2),
+.pso-measurements-table td:nth-child(2) { width: 50%; }
+.pso-measurements-table th:nth-child(3),
+.pso-measurements-table td:nth-child(3) { width: 25%; }
+.pso-measurements-table td:nth-child(2) .katex {
+  white-space: nowrap;
+}
+/* MyST converts HTML images and may discard inline sizing. Match the asset
+   name (including its generated hash) so the single boxplot stays compact. */
+img[src*="pso_ensemble"] {
+  width: min(100%, 440px) !important;
+  height: auto !important;
+  margin-inline: auto;
 }
 .reveal .slides table,
 .reveal .slides .model-specification,
@@ -1112,6 +1189,32 @@ details.discussion-reveal .discussion-answer > :last-child {
   max-height: min(76vh, 720px);
 }
 
+/* Week 10 diagrams and the cropped lizard photograph. */
+.article img.game-payoff-figure,
+.article img.game-plane-figure,
+.article img.game-atlas-figure {
+  display: block;
+  height: auto !important;
+  max-width: 100% !important;
+  margin: 1rem auto;
+}
+.article img.game-payoff-figure { width: min(100%, 360px) !important; }
+.article img.game-plane-figure { width: min(100%, 400px) !important; }
+.article img.game-atlas-figure {
+  width: min(100%, 760px) !important;
+  max-height: min(76vh, 720px);
+}
+.article img[data-canonical-url="images/sinervo-morphs-source.jpeg"] {
+  position: absolute;
+  width: 250% !important;
+  max-width: none !important;
+  max-height: none !important;
+  height: auto !important;
+  left: -129.8077%;
+  top: -77.3585%;
+  margin: 0 !important;
+}
+
 /* MyST's generic article-image rule appears after the card rules above.
    Reassert a shared card image frame so different source aspect ratios do
    not push titles into the images or produce uneven cards. */
@@ -1126,6 +1229,7 @@ details.discussion-reveal .discussion-answer > :last-child {
 .article .reader-map {
   display: block;
   width: min(100%, 900px);
+  max-height: min(76vh, 720px);
   height: auto !important;
   object-fit: contain;
   margin: 1rem auto 0.5rem;

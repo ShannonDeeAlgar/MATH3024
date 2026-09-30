@@ -1,10 +1,24 @@
 # Glossary
 
-This glossary records the shared vocabulary of MATH3024. A term is normally **bolded when it is first introduced substantively** in a topic.
+This glossary collects key concepts used across MATH3024. Model-specific notation and calculation details are defined in the relevant Reader section.
 
-The definitions below are deliberately course-sized. They identify how a word is used here without pretending that every field uses it in exactly the same way. Where a term has several meanings, the model under discussion determines the relevant one.
+Where a term has several meanings, use the definition for the model being discussed.
 
 ## A
+
+**Autocorrelation.** Correlation of a signal with a lagged copy of itself. Its function shows how relatedness changes with the lag. *(Week 8)*
+
+**Action.** One available choice at a decision point; in the one-shot prisoner’s dilemma, cooperate or defect. *(Week 10)*
+
+**Action set.** The choices available to one player. *(Week 10)*
+
+**Action profile.** One specified action for every player. Mutual cooperation is one prisoner’s-dilemma action profile. *(Week 10)*
+
+**Anti-coordination game.** A game in which players benefit from different rather than matching actions. *(Week 10)*
+
+**Asymmetric game.** A game in which exchanging player roles does not preserve the available strategies and payoff rules. *(Week 10)*
+
+**Ant System.** The original ACO algorithm in which each ant constructs a candidate solution and deposits pheromone according to its quality after evaporation. *(Week 7)*
 
 **Adaptation.** A change in an agent, rule or population caused by experience, selection or environmental feedback. Adaptation need not imply biological evolution. *(Weeks 1, 7 and 10)*
 
@@ -18,19 +32,42 @@ The definitions below are deliberately course-sized. They identify how a word is
 
 **Attractor.** A state or set towards which trajectories approach. In an iterated function system, the attractor is the limiting set produced by repeated application of the maps. *(Week 2; wider dynamical-systems vocabulary)*
 
-**Avalanche.** The complete cascade of topplings triggered by adding a grain to a stable sandpile. Its size, area and duration describe different aspects of the event. *(Week 8)*
+**Avalanche.** The complete cascade of topplings triggered by one addition to a stable sandpile. *(Week 8)*
 
 ## B
+
+**Best response.** An action or strategy maximising a player’s payoff against specified opponent choices, or expected payoff against a belief about them. *(Week 10)*
+
+**Biomimicry.** Designing materials, structures or processes using ideas drawn from biological systems. *(Week 7)*
 
 **Bifurcation.** A qualitative change in long-term behaviour as a parameter varies. This is useful wider vocabulary for transitions, although formal bifurcation theory is not assessed in this unit. *(Weeks 3, 6 and 8)*
 
 **Boundary condition.** A rule specifying what happens at the edge of a domain, such as periodic wrapping, fixed values, reflection or loss from the system. *(Weeks 3, 4, 7 and 8)*
 
-**Burn-in.** An initial part of a simulation discarded before measurements are collected, allowing the influence of the starting state to diminish. The chosen length is part of the simulation protocol and should be checked rather than assumed sufficient. *(Weeks 6 and 8)*
+(burn-in)=
+**Burn-in.** An initial simulated period excluded from late-time measurements to reduce the influence of the starting state. Its length should be checked using later windows and different starts. Modelling practice in [Week 6](notebooks/week06/L_Synchronisation.ipynb), applied in Week 8.
 
 **Box-counting dimension.** An estimate of how the number of occupied boxes changes as the box size changes. It is one way to quantify multiscale spatial structure. *(Weeks 2 and 8)*
 
 ## C
+
+**Confidence interval.** An interval describing uncertainty in an estimated quantity. Its confidence level describes how often the interval procedure covers the true value over repeated experiments. *(Week 8)*
+
+**Correlation time.** A time scale $\tau$ summarising how quickly temporal correlation fades. A longer correlation time means fluctuations remain related for longer. *(Week 8)*
+
+**Cooperation.** Acting towards a shared benefit. In the prisoner’s dilemma, the cooperative action benefits the other player but is individually costly relative to defection. *(Week 10)*
+
+**Coordination.** Making actions fit together, even when preferences differ; deliberate agreement is not required. *(Week 10)*
+
+**Coordination game.** A game in which players benefit from compatible choices. *(Week 10)*
+
+**Cyclic dominance.** A cycle of advantages: each type defeats one alternative and is defeated by another, as in rock–paper–scissors. *(Week 10)*
+
+**Candidate solution.** One possible answer represented in the search space and evaluated by the objective function. *(Week 7)*
+
+**Collective behaviour.** Coordinated or patterned group activity arising from interactions among individuals. *(Weeks 5 and 7)*
+
+**Combinatorial optimisation problem.** A search for the best discrete arrangement, such as a route, ordering or assignment. *(Week 7)*
 
 **Calibration.** Using observations to choose or estimate model parameters. Agreement with the data used for calibration does not by itself provide an independent test of the model. *(Course-wide modelling practice)*
 
@@ -44,7 +81,7 @@ The definitions below are deliberately course-sized. They identify how a word is
 
 **Coarse-graining.** Replacing a fine description by variables that summarise behaviour over space, time or components. Coarse-graining loses detail in order to expose larger-scale structure. *(Weeks 3 and 8)*
 
-**Complementary cumulative distribution function (CCDF).** For a variable $X$, the function $P(X\geq x)$. An empirical CCDF shows the fraction of observations at least as large as $x$ and is useful for inspecting a tail without choosing histogram bins. *(Weeks 2 and 8)*
+**Complementary cumulative distribution function (CCDF).** The upper-tail probability $P(X\geq x)$. The ordinary CDF is $F(x)=P(X\leq x)$; the CCDF is $1-F(x)$ for continuous $X$, or $1-F(s-1)$ for integer sizes $S$. Its empirical estimate is the fraction of observations at least as large as the threshold. *(Weeks 2 and 8)*
 
 **Collective intelligence.** Useful problem-solving behaviour produced by a group through interaction, memory or information sharing. Whether a system counts as collectively intelligent depends on what task and evidence are being considered. *(Week 7)*
 
@@ -60,15 +97,26 @@ The definitions below are deliberately course-sized. They identify how a word is
 
 **Control parameter.** A parameter varied to move a system between macroscopic regimes, such as coupling strength, noise or occupation probability. Calling a parameter a control parameter does not imply that it is controlled by an agent within the model. *(Weeks 5, 6 and 8)*
 
-**Correlation.** A statistical dependence between quantities. Correlation describes association; it does not by itself identify the interaction or causal mechanism that produced it. *(Weeks 5, 6, 8 and 9)*
+**Correlation.** How much knowing one observation tells us about another. A correlation function shows how this relatedness changes with spatial or temporal separation. *(Weeks 5, 6, 8 and 9)*
 
-**Correlation length.** A characteristic distance over which fluctuations remain related. Its growth near a continuous critical point indicates that increasingly distant parts of a system behave collectively. *(Weeks 5 and 8)*
+**Correlation length.** A distance $\xi$ summarising how quickly spatial correlation fades, not a sharp limit on connection. Its definition depends on the correlation function and stated estimator. *(Weeks 5 and 8)*
 
-**Critical point.** A parameter value separating macroscopic regimes, often accompanied by long correlations, large fluctuations and scale-free behaviour. *(Week 8)*
+**Critical point.** The control-parameter value of a continuous phase transition. In the infinite-system limit, the correlation length can diverge and correlations decay as a power law. *(Week 8)*
 
-**Critical slowing down.** Increasingly slow recovery from perturbations near a critical point. *(Week 8)*
+**Critical slowing down.** Increasingly slow recovery from disturbances near a continuous critical point. Larger correlated structures can take longer to relax; the relationship depends on the dynamics. *(Week 8)*
 
 ## D
+
+(degrees-of-freedom)=
+**Degrees of freedom.** The number of independently variable coordinates needed to specify a model’s configuration or state, after accounting for its constraints. State explicitly what is being counted: in mechanics, degrees of freedom normally count configuration coordinates, whereas a full dynamical state also requires their velocities or momenta. A point on a line has one positional degree of freedom; a point in a plane has two; a point constrained to a fixed circle has one (its angle). Fixed model parameters are not additional state degrees of freedom. Here “independent” means not determined by the other coordinates through a constraint, not statistically uncorrelated. *(Week 1; used throughout modelling)*
+
+In statistical estimation, “degrees of freedom” has a related but distinct use, such as the sample size minus the number of fitted parameters; that is not the state-variable count used here.
+
+**Defection.** The non-cooperative action in the prisoner’s dilemma: exploiting cooperation or withholding it, here by testifying against the other prisoner. *(Week 10)*
+
+**Deposit scale.** The ACO parameter controlling the amount of pheromone deposited for a given route cost. In our model, each traversed edge receives the deposit scale divided by the complete route cost. *(Week 7)*
+
+**Distributed computation.** Computation in which information storage, processing and decision-making are spread across interacting components. *(Week 7)*
 
 **Density.** A quantity per unit space or a fraction of occupied components. In probability, a density instead describes how probability is distributed; the intended meaning must be stated. *(Weeks 3, 4, 5 and 9)*
 
@@ -82,9 +130,13 @@ The definitions below are deliberately course-sized. They identify how a word is
 
 ## E
 
+**Expected payoff.** The average payoff weighted by the probabilities assigned to possible outcomes. *(Week 10)*
+
+**Environmental memory.** Information stored in an environment and available to influence later behaviour, such as pheromone left on a trail. *(Week 7)*
+
 **Emergence.** The appearance of a useful system-level pattern or behaviour that is not evident from one component considered in isolation. An emergent description does not make the component-level account irrelevant. *(Weeks 1 and 5–8)*
 
-**Ensemble.** A collection of comparable runs, usually differing in random seed, initial condition or sampled population. Ensemble summaries show what is typical and how much outcomes vary. *(Weeks 1 and 5–10)*
+**Ensemble.** Comparable runs differing in random seed, initial condition or sampled population, used to summarise typical behaviour and variation. The number of independent runs needed depends on the quantity, confidence level, precision and domain size. *(Weeks 1 and 5–10)*
 
 **Evaluation budget.** A declared limit on how many times an objective function or other costly model output may be evaluated. Holding this budget fixed permits fairer comparisons between algorithms or population sizes. *(Weeks 4 and 7)*
 
@@ -98,13 +150,15 @@ The definitions below are deliberately course-sized. They identify how a word is
 
 ## F
 
+**Frequency-dependent selection.** Selection in which a type’s success depends on the population’s current mixture of types. *(Week 10)*
+
 **Feedback.** A loop in which a system output influences later inputs or dynamics. **Positive feedback** reinforces an initial change or amplifies a difference; **negative feedback** opposes a change and can regulate or stabilise behaviour. “Positive” and “negative” describe the direction of the loop, not whether its outcome is desirable. *(Weeks 1, 6 and 7)*
 
 **Field.** A quantity defined throughout a spatial domain, such as a chemical concentration or density. A field description represents what is present at each location rather than tracking named individuals. *(Weeks 3 and 8)*
 
 **Finite-size effect.** Behaviour caused or modified by simulating a finite population or domain, rather than the large-system limit being discussed. *(Weeks 4–6 and 8)*
 
-**Fitness.** A measure of reproductive success or expected contribution to later generations. In evolutionary games it is commonly derived from payoff, but payoff and fitness are not identical concepts. *(Week 10)*
+**Fitness.** In optimisation, a score of candidate quality, often defined so that larger values are better; state the convention used. In biology, reproductive success or expected contribution to later generations. Evolutionary games commonly derive fitness from payoff. *(Weeks 7 and 10)*
 
 **Fractal.** A set or pattern with non-trivial structure across scales. Exact self-similarity is sufficient but not necessary for fractal geometry. *(Week 2)*
 
@@ -112,11 +166,21 @@ The definitions below are deliberately course-sized. They identify how a word is
 
 ## G–I
 
+**Game theory.** The study of strategic interaction: choices whose consequences depend on other decision makers’ choices. *(Week 10)*
+
+**Inheritance.** Transmission of a parent’s strategy or trait to descendants or copies in an evolutionary model. *(Week 10)*
+
+**Inertia (PSO).** The contribution of part of a particle's previous displacement in its next update, controlled by the inertia weight. *(Week 7)*
+
+**Heuristic.** A practical rule for guiding a search using readily available information. In our ACO example, inverse edge cost favours cheaper edges. *(Week 7)*
+
+**Intelligent system.** A system that uses information to choose actions and adapt its behaviour in pursuit of a goal or in response to changing conditions. *(Week 7)*
+
 **Garden of Eden configuration.** A cellular-automaton configuration with no predecessor under the global update map. *(Week 4)*
 
 **Hamming distance.** The number of sites at which two discrete configurations differ. *(Week 4)*
 
-**Heavy-tailed distribution.** A distribution that gives relatively substantial probability to unusually large observations. A heavy tail is not automatically a power law. *(Weeks 2 and 8)*
+**Heavy-tailed distribution.** A distribution whose upper tail falls more slowly than any exponential. Power-law and lognormal tails are examples, unlike light tails such as Gaussian and exponential distributions. *(Weeks 2 and 8)*
 
 **Heterogeneity.** Variation among components, for example in natural frequencies, preferences, thresholds or responsiveness. *(Weeks 1, 5–7)*
 
@@ -134,6 +198,12 @@ The definitions below are deliberately course-sized. They identify how a word is
 
 ## L–M
 
+**Mixed strategy.** A probability distribution over pure strategies; in a one-shot game, probabilities assigned to available actions. *(Week 10)*
+
+**Mixed Nash equilibrium.** A strategy profile involving randomised choices where no player can improve expected payoff by changing their own mixture alone. *(Week 10)*
+
+**Mutation.** A change in an inherited or copied strategy; the model specifies its rate and possible outcomes. *(Week 10)*
+
 **Lattice.** A regular discrete arrangement of sites on which states or agents may be placed. *(Weeks 3, 4, 8 and 10)*
 
 **Local rule.** An update determined from a component and a restricted neighbourhood rather than the complete system. *(Weeks 1 and 3–5)*
@@ -142,15 +212,31 @@ The definitions below are deliberately course-sized. They identify how a word is
 
 **Mechanism.** The represented process proposed to produce a behaviour, not merely a curve or pattern that resembles the observation. *(All weeks)*
 
-**Memory.** Dependence of later behaviour on information retained from the past. Memory may be stored in an agent, a field, a network, a population or an altered environment. *(Weeks 1, 7 and 10)*
+**Memory.** Dependence of later behaviour on information stored from the past. Memory may be stored in an agent, a field, a network, a population or an altered environment. *(Weeks 1, 7 and 10)*
 
-**Model.** A purposeful representation that retains selected features of a system in order to answer a question. *(All weeks)*
+**Model.** A purposeful representation of selected features of a system in order to answer a question. *(All weeks)*
 
 **Multiscale.** Involving relevant structure or dynamics at more than one spatial, temporal or organisational scale. *(Weeks 1, 2 and 8)*
 
 **Mutual information.** The reduction in uncertainty about one variable obtained by knowing another. It measures statistical dependence, not meaning or causation. *(Week 9)*
 
 ## N–O
+
+**Negotiation.** Exchanging proposals or concessions to seek agreement when interests differ. *(Week 10)*
+
+**Non-zero-sum game.** A game whose payoff sum is not always zero. In the prisoner’s dilemma the sum varies, and both players prefer mutual cooperation to mutual defection. *(Week 10)*
+
+**Normal form.** A representation specifying players, their strategies and payoffs for every strategy profile. A two-player finite game can be displayed as a payoff matrix. *(Week 10)*
+
+**One-shot game.** A game played once, without future rounds that could reward or punish current behaviour. *(Week 10)*
+
+**Ordinal payoffs.** Rankings of outcomes rather than numerical strengths of preference. Rankings alone do not determine expected utilities for lotteries. *(Week 10)*
+
+**Normalised pheromone score.** A route pheromone score divided by a reference value. Our heatmap uses the largest score across all displayed routes and recorded generations in that run, giving one colour scale throughout. *(Week 7)*
+
+**NP-hard.** At least as hard as every problem in NP under polynomial-time reductions. This is a worst-case classification; particular instances can still be tractable. *(Week 7; optional computational complexity)*
+
+**Objective landscape.** The objective value viewed across the solution space, with valleys or peaks corresponding to candidate quality under the chosen convention. *(Week 7)*
 
 **Neighbourhood.** The set of components permitted to influence a given component's update. It may be geometric, metric, topological or explicitly network-defined. *(Weeks 1 and 3–6)*
 
@@ -178,19 +264,41 @@ The definitions below are deliberately course-sized. They identify how a word is
 
 ## P
 
+**Pareto-superior.** An outcome is Pareto-superior to another if nobody is worse off and at least one player is better off. *(Week 10)*
+
+**Pareto optimal.** An outcome is Pareto optimal, or Pareto efficient, if no feasible alternative improves someone’s payoff without worsening another’s. This differs from Nash equilibrium. *(Week 10)*
+
+**Payoff function.** A rule assigning one player’s payoff to every strategy profile. *(Week 10)*
+
+**Payoff matrix.** A table showing the players’ payoffs for every action or strategy pair. *(Week 10)*
+
+**Payoff plane.** A plot with one player’s payoff on each axis; each action profile is represented by its payoff pair. *(Week 10)*
+
+**Player.** A decision maker in a game. *(Week 10)*
+
+**Pure strategy.** A complete non-randomised rule for acting. In a one-shot game it chooses one action; in a repeated game it specifies an action after each possible history. *(Week 10)*
+
+**Punishment.** In the prisoner’s dilemma, the payoff each player receives under mutual defection. *(Week 10)*
+
+**Personal best.** The best position a particle has visited so far, stored as its individual search memory in PSO. *(Week 7)*
+
+**Pheromone.** A chemical signal used by animals. In ACO, an artificial numerical value stored on an edge that influences later route choices. *(Week 7)*
+
+**Premature convergence.** Concentration of a search around a suboptimal solution before sufficient alternatives have been explored. *(Week 7)*
+
 **Parameter.** A fixed input controlling a model or experiment during one run. A state variable evolves; a parameter does not unless the model explicitly promotes it to a dynamic variable. *(All weeks)*
 
 **Parameter sweep.** A structured comparison in which one or more parameters are varied and the resulting observables are recorded. *(Weeks 1 and 3–10)*
 
 **Payoff.** The numerical outcome assigned to a player for a combination of strategies. A payoff represents what the model treats as preferable; it is not automatically biological fitness or collective welfare. *(Week 10)*
 
-**Particle swarm optimisation (PSO).** An optimisation method in which candidate solutions update their velocities using retained motion, personal best positions and shared best information. *(Week 7)*
+**Particle swarm optimisation (PSO).** An optimisation method in which candidate solutions update their velocities using current motion, personal best positions and shared best information. *(Week 7)*
 
 **Path dependence.** Dependence of an outcome on the sequence of earlier events, not only the present state or final inputs. *(Weeks 1, 7 and 10)*
 
-**Percolation threshold.** The occupation probability at which a spanning cluster first appears in the large-system limit. *(Week 8)*
+**Percolation threshold.** The open-site probability $p_c$ marking the onset of system-wide connectivity in the large-system limit. Open clusters are connected groups of passable sites; a spanning cluster joins opposite boundaries without needing to include every site. *(Week 8)*
 
-**Phase.** Position within a repeating cycle, usually represented modulo $2\pi$. *(Week 6)*
+**Phase.** In synchronisation, position within an oscillator’s repeating cycle, usually modulo $2\pi$. In phase transitions, a macroscopic state of organisation, such as ordered or disordered motion. *(Weeks 6 and 8)*
 
 **Phase locking.** A maintained phase relationship in which the phase difference between oscillators remains constant, not necessarily zero. *(Week 6)*
 
@@ -198,9 +306,9 @@ The definitions below are deliberately course-sized. They identify how a word is
 
 **Phase transition.** A qualitative change in macroscopic behaviour as a control parameter crosses a threshold. Finite systems may round or shift the apparent transition. *(Weeks 5, 6 and 8)*
 
-**Power law.** A relationship of the form $y=Cx^{-\alpha}$ (or another power of $x$). A straight-looking log–log plot is suggestive but is not sufficient evidence by itself. *(Weeks 2 and 8)*
+**Power law.** A relationship $y=A x^b$: multiplying $x$ by a factor $k$ multiplies $y$ by $k^b$ throughout the stated scaling range. See the [Week 8 refresher](notebooks/week08/L_Critical_phenomena.ipynb#week08-power-laws-refresher). *(Weeks 2 and 8)*
 
-**Probability distribution.** A rule assigning probabilities to possible outcomes of a random variable. A distribution, rather than one observation, is the input to the information measures used in Week 9. *(Weeks 1, 2 and 5–9)*
+**Probability distribution.** A rule assigning probabilities to possible outcomes of a random variable. For discrete outcomes, its probability mass function (PMF) assigns a probability to each value. A distribution, rather than one observation, is the input to the information measures used in Week 9. *(Weeks 1, 2 and 5–9)*
 
 **Proof.** A deductive argument establishing a result from stated assumptions. Numerical examples can motivate or test a conjecture, but no finite collection of simulations is a proof of a general mathematical claim. *(Course-wide mathematical practice)*
 
@@ -208,21 +316,65 @@ The definitions below are deliberately course-sized. They identify how a word is
 
 ## R
 
+**Renormalisation.** Coarse-graining followed by rescaling to compare descriptions at different observation scales. Its iterations change scale rather than model time. *(Week 8)*
+
+**Repeated game.** Successive rounds of a game played by the same players; strategies can condition future actions on past play. *(Week 10)*
+
+**Replicator dynamics.** Evolution of population strategy frequencies governed by the replicator equation; above-average-payoff strategies increase their share. *(Week 10)*
+
+**Reward.** In the prisoner’s dilemma, the payoff each player receives under mutual cooperation. *(Week 10)*
+
+**Round-robin tournament.** A comparison in which every pair of entrants plays a match. In our repeated-game experiment, a round is one action pair and a match contains multiple rounds. *(Week 10)*
+
+**Rational agent.** An agent with consistent preferences who chooses an available action that maximises their payoff given their information and beliefs. Under uncertainty, our game-theoretic analysis assumes expected-payoff maximisation. Rationality does not itself require selfish preferences or perfect foresight. *(Week 10)*
+
+**Reservoir computing.** Using the responses of a dynamical system to transform an input signal, then training a readout to produce the desired output. *(Week 7; optional related approach)*
+
+**Result sharing.** Agents exchanging discoveries that can guide one another's searches. *(Week 7)*
+
+**Route pheromone score.** The geometric mean of the pheromone values on a route's edges. It summarises stored pheromone along the route; it is not a route-selection probability. *(Week 7)*
+
+**Route-use fraction.** The number of ants using a given route divided by the total number of ants in that generation. *(Week 7)*
+
 **Random seed.** A value used to initialise a pseudorandom number generator. Recording it makes a stochastic run repeatable; comparing several seeds tests whether a conclusion depends on one random realisation. *(All stochastic workshops)*
 
 **Random variable.** A mapping from possible outcomes to values. Its probability distribution states how likely those values are. *(Week 9)*
 
 **Reaction–diffusion model.** A spatial model combining local reaction terms with diffusion of one or more fields. *(Week 3)*
 
-**Replicator equation.** An equation for strategy frequencies in which strategies grow or decline according to their payoff relative to the population average. *(Week 10)*
+**Replicator equation.** A continuous-time model of selection: a strategy’s population share changes at a rate equal to its current share multiplied by its payoff advantage over the frequency-weighted population mean. The resulting changes are called replicator dynamics. The basic model assumes a well-mixed, effectively infinite population, faithful inheritance and no mutation; it tracks relative shares, not total population size. *(Week 10)*
 
-**Reproducibility.** The capacity to obtain the stated result again from a complete specification, code, data and random-seed protocol. *(Course-wide modelling practice)*
+**Reproducibility.** The capacity to obtain the stated result again from a complete specification, code, data and recorded random seeds. *(Course-wide modelling practice)*
 
 **Robustness.** Persistence of a conclusion under reasonable changes to seeds, initial conditions, parameters, system size or modelling choices. *(Weeks 4–10)*
 
 **Rule space.** The set of possible update rules within a specified model family. *(Week 4)*
 
 ## S
+
+**Selection.** Differential reproductive or copying success that changes the representation of inherited strategies or traits. *(Week 10)*
+
+**Self-regarding preferences.** Preferences that value only the player’s own specified outcome; in our prisoner’s dilemma, reducing their own prison sentence. This is a separate assumption from rationality. *(Week 10)*
+
+**Strategy frequency.** The fraction of a population using a given strategy. *(Week 10)*
+
+**Strategy profile.** One complete strategy specified for every player; in a one-shot pure-strategy game this is an action profile. *(Week 10)*
+
+**Strictly dominant strategy.** A strategy giving a higher payoff than every alternative for every combination of opponents’ choices. *(Week 10)*
+
+**Strictly dominated strategy.** A strategy giving a lower payoff than some alternative strategy for every combination of opponents’ choices. *(Week 10)*
+
+**Structured population.** A population whose interaction opportunities depend on a network, lattice or other specified structure rather than unrestricted random mixing. *(Week 10)*
+
+**Sucker’s payoff.** In the prisoner’s dilemma, the payoff to a cooperator whose opponent defects. *(Week 10)*
+
+**Symmetric game.** A game whose strategy sets and payoff rules are unchanged by exchanging player roles; players need not earn equal payoffs when their actions differ. *(Week 10)*
+
+**Shared best.** The best recorded position available to a particle through its communication network. In global-best PSO, this is the best position found anywhere in the swarm. *(Week 7)*
+
+**Shortest-route fraction.** The fraction of ants in a generation using a shortest route. Its ensemble mean summarises allocation to shortest routes across repeated runs. *(Week 7)*
+
+**Superorganism.** A colony functioning as an integrated biological unit, with persistent organisation and specialised reproductive roles. *(Week 7)*
 
 **Scale-free.** Lacking one characteristic scale over a stated range. The term is used differently across literatures, so the measured quantity and range should be given. *(Weeks 2 and 8)*
 
@@ -234,7 +386,7 @@ The definitions below are deliberately course-sized. They identify how a word is
 
 **Self-organisation.** The formation or maintenance of macroscopic organisation through interactions among components, without a controller specifying the resulting pattern in detail. *(Weeks 5–8)*
 
-**Self-organised criticality.** The proposal that slow driving and threshold dynamics can bring a system towards a critical-like state without externally tuning a control parameter to a special value. *(Week 8)*
+**Self-organised criticality.** Critical behaviour reached and maintained by the system’s dynamics without externally tuning a control parameter to its critical value. In our sandpile, slow additions raise load while boundary-reaching avalanches remove it: this drive–loss feedback maintains the operating regime. *(Week 8)*
 
 **Self-similarity.** Similar structure appearing under magnification. It may be exact, statistical or approximate over a finite range. *(Week 2)*
 
@@ -264,6 +416,16 @@ The definitions below are deliberately course-sized. They identify how a word is
 
 ## T–V
 
+**Temptation.** In the prisoner’s dilemma, the payoff to a defector whose opponent cooperates. *(Week 10)*
+
+**Unilateral deviation.** A change in one player’s strategy while all other players’ strategies remain fixed. *(Week 10)*
+
+**Utility.** A numerical representation of a player’s preferences; higher is better. We use utility as the game payoff, such as negative prison years. *(Week 10)*
+
+**Task sharing.** Dividing work among agents so that their contributions address different parts of a collective task. *(Week 7)*
+
+**Tour.** In the travelling-salesperson problem, a closed route that visits each city once before returning to its starting city. *(Week 7)*
+
 **Transfer entropy.** A directional information measure comparing prediction of a target from its own past with prediction that also uses another process's past. It does not by itself establish causal mechanism. *(Week 9)*
 
 **Transient.** The non-stationary part of a run before the long-time regime used for analysis has been reached. *(Weeks 3 and 5–8)*
@@ -276,11 +438,19 @@ The definitions below are deliberately course-sized. They identify how a word is
 
 **Verification.** Checking that equations or rules have been implemented as intended, using limiting cases, invariants, known results and intermediate states. *(Course-wide modelling practice)*
 
+## W
+
+**Well-mixed population.** A population in which encounter probabilities depend on overall type frequencies rather than spatial neighbourhoods. *(Week 10)*
+
+**Zero-sum game.** A game in which the players’ payoffs sum to zero for every outcome; one player’s gain is another’s loss. *(Week 10)*
+
+**Waggle dance.** A honeybee signal whose orientation and duration convey the direction and distance of a resource relative to the hive. *(Week 7)*
+
 ## Canonical models and named constructions
 
-**Abelian sandpile model.** A driven lattice model in which unstable sites topple and redistribute grains; used here to study avalanches and self-organised criticality. *(Week 8)*
+**Abelian sandpile model.** A driven lattice model in which an unstable site topples by removing four grains and sending one to each neighbour. Grains sent beyond the boundary are lost; a new grain is added after relaxation. The final stable state and toppling counts are independent of legal toppling order. *(Week 8)*
 
-**Cantor set.** A fractal obtained by repeatedly removing the open middle third of each retained interval. *(Week 2)*
+**Cantor set.** A fractal obtained by repeatedly removing the open middle third of each remaining interval. *(Week 2)*
 
 **Game of Life.** Conway's two-dimensional cellular automaton with the B3/S23 outer-totalistic rule. *(Week 4)*
 

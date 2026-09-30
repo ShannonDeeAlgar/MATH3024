@@ -31,7 +31,7 @@ elements = [
 ]
 for depth, y in enumerate(row_y):
     elements.append(
-        f'<text x="22" y="{y + 7}" font-family="Arial, sans-serif" '
+        f'<text x="22" y="{y + 7}" font-family="DejaVu Sans, sans-serif" '
         f'font-size="24" fill="#64789B">k = {depth}</text>'
     )
     for start, end in intervals(depth):

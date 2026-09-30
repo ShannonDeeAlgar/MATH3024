@@ -1,13 +1,14 @@
 # MATH3024 Reader
 
-Each weekly topic is explored through a canonical model across three connected resources. Lectures establish the phenomenon and questions, the Reader develops the durable explanation, and workshops make the model executable so that you can test its assumptions and behaviour.
+Each topic uses one or more models. Lectures introduce the behaviour and questions. The Reader develops the ideas and analysis; workshops let you inspect, test and work with the code.
 
 - **Unit essentials, announcements, assessment, and weekly resource links:** LMS
 - **Reader:** this site
-- **Lecture slides:** use the clearly labelled **Lecture slides** child beneath each week
-- **Workshop notebooks:** download the weekly file beginning `WS_` from LMS
+- **Lecture slides:** open Lecture slides beneath each topic
+- **Practice questions:** open Practice questions beneath each topic
+- **Workshop notebooks:** download the weekly `.ipynb` from its Workshop page or LMS
 
-Start with [Getting Started](notebooks/week00/Getting_Started.ipynb) for the weekly learning rhythm, notebook setup, and direct access links.
+Start with [Getting started with complex-systems modelling](notebooks/week00/Getting_Started.ipynb) for the modelling process, notebook setup and code guidance. The [Glossary](glossary.md) defines the vocabulary used across topics.
 
 ```{tableofcontents}
 ```

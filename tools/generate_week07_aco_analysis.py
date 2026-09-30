@@ -1,6 +1,6 @@
 """Generate complementary ACO analysis figures for Week 7.
 
-The benchmark is one fixed ten-city Euclidean travelling-salesman instance.
+The benchmark is one fixed ten-city Euclidean travelling-salesperson instance.
 Its exact optimum is calculated by enumeration and used only to score runs.
 Each algorithm run receives the same budget of 100 completed tours.
 """
@@ -53,12 +53,13 @@ OPTIMUM = exact_optimum()
 TARGET = (1.0 + GOOD_GAP) * OPTIMUM
 
 
-def run_aco(seed: int, alpha: float, rho: float, beta: float = BETA) -> np.ndarray:
+def run_aco(seed: int, alpha: float, rho: float, beta: float = BETA, *, record_tours=False):
     """Return best-so-far tour cost after every completed-tour evaluation."""
     random = np.random.default_rng(seed)
     pheromone = np.ones((CITY_COUNT, CITY_COUNT))
     best = np.inf
     history = []
+    generation_costs = []
 
     for _ in range(GENERATIONS):
         tours = np.zeros((ANTS, CITY_COUNT + 1), dtype=int)
@@ -79,6 +80,8 @@ def run_aco(seed: int, alpha: float, rho: float, beta: float = BETA) -> np.ndarr
             costs += distances[current, selected]
 
         costs += distances[tours[:, CITY_COUNT - 1], 0]
+        if record_tours:
+            generation_costs.append(costs.copy())
 
         for cost in costs:
             best = min(best, cost)
@@ -92,7 +95,53 @@ def run_aco(seed: int, alpha: float, rho: float, beta: float = BETA) -> np.ndarr
             np.add.at(pheromone, (start, end), deposit)
             np.add.at(pheromone, (end, start), deposit)
 
+    if record_tours:
+        return np.asarray(history), np.asarray(generation_costs)
     return np.asarray(history)
+
+
+def progress_figure() -> None:
+    history, costs = run_aco(0, alpha=1.0, rho=0.5, record_tours=True)
+    assert costs.shape == (GENERATIONS, ANTS)
+    np.testing.assert_array_equal(history, np.minimum.accumulate(costs.ravel()))
+    np.testing.assert_array_equal(history, run_aco(0, alpha=1.0, rho=0.5))
+    lower, median, upper = np.percentile(costs, [25, 50, 75], axis=1)
+    generation = np.arange(1, GENERATIONS + 1)
+    fig, ax = plt.subplots(figsize=(10.8, 5.4), constrained_layout=True)
+    ax.fill_between(generation, lower, upper, color=BLUE, alpha=0.18, label="Middle 50% of tours in each generation")
+    ax.plot(generation, median, color=BLUE, marker="o", label="Median tour length in each generation")
+    ax.step(generation, history.reshape(GENERATIONS, ANTS)[:, -1], where="post", color=INK, lw=2.6, label="Best tour length found so far")
+    ax.axhline(OPTIMUM, color=ORANGE, ls="-", label=f"Known optimum ({OPTIMUM:.4f})")
+    ax.axhline(TARGET, color=ORANGE, ls="--", label=f"2% success threshold ({TARGET:.4f})")
+    ax.set(xlabel="Generation (10 evaluated tours per generation)", ylabel="Tour length", xticks=generation, xlim=(1, GENERATIONS), title="One run: how tour quality changes")
+    ax.legend(frameon=False, fontsize=10, loc="upper right")
+    finish_axes(ax)
+    fig.savefig(ROOT / "notebooks/week07/images/aco_tsp_progress.svg", facecolor="white", bbox_inches="tight")
+    plt.close(fig)
+    print(f"Progress run seed 0: final best={history[-1]:.6f}; target={TARGET:.6f}")
+
+
+def benchmark_figure() -> None:
+    """Show the exact coordinates and an independently enumerated reference tour."""
+    best_tour = min(
+        ((0, *middle, 0) for middle in permutations(range(1, CITY_COUNT))),
+        key=lambda tour: sum(distances[a, b] for a, b in zip(tour[:-1], tour[1:])),
+    )
+    assert np.isclose(sum(distances[a, b] for a, b in zip(best_tour[:-1], best_tour[1:])), OPTIMUM)
+    fig, axes = plt.subplots(1, 2, figsize=(10.8, 4.8))
+    fig.subplots_adjust(left=0.07, right=0.98, bottom=0.14, top=0.86, wspace=0.27)
+    for ax in axes:
+        ax.scatter(*coordinates.T, s=85, color=INK, zorder=3)
+        for i, (x, y) in enumerate(coordinates):
+            ax.annotate(str(i + 1), (x, y), xytext=(7, 7), textcoords="offset points", color=INK, fontsize=12)
+        ax.set(xlim=(0, 1), ylim=(0, 1), xlabel="Horizontal coordinate", ylabel="Vertical coordinate", aspect="equal")
+        finish_axes(ax)
+    axes[0].set_title("Ten fixed city locations")
+    tour_coordinates = coordinates[list(best_tour)]
+    axes[1].plot(*tour_coordinates.T, color=ORANGE, lw=2.3, zorder=2)
+    axes[1].set_title(f"Shortest tour: cost {OPTIMUM:.4f}")
+    fig.savefig(ROOT / "notebooks/week07/images/aco_tsp_benchmark.svg", facecolor="white", bbox_inches="tight")
+    plt.close(fig)
 
 
 def discovery_figure() -> None:
@@ -129,7 +178,7 @@ def discovery_figure() -> None:
     fig.text(
         0.5,
         0.035,
-        f"Travelling-salesman benchmark (not the explorable network): {RUNS} seeded runs; 10 ants × 10 generations; "
+        f"Travelling-salesperson benchmark (not the explorable network): {RUNS} seeded runs; 10 ants × 10 generations; "
         r"$\beta=2$. The known shortest tour is used only to assess performance.",
         ha="center",
         color=INK,
@@ -221,7 +270,7 @@ def sweep_figure() -> None:
     fig.text(
         0.5,
         0.045,
-        f"The same travelling-salesman benchmark (not the explorable network): {RUNS} seeded runs per setting; "
+        f"The same travelling-salesperson benchmark (not the explorable network): {RUNS} seeded runs per setting; "
         r"100 completed tours per run. At $\alpha=0$, pheromone has no influence. Read broad regions, not one best cell.",
         ha="center",
         color=INK,
@@ -235,7 +284,14 @@ def sweep_figure() -> None:
     plt.close(fig)
 
 
-discovery_figure()
-sweep_figure()
-print(ROOT / "notebooks/week07/images/aco_discovery_efficiency.png")
-print(ROOT / "notebooks/week07/images/aco_parameter_sweep.png")
+if __name__ == "__main__":
+    if "--progress-only" in sys.argv:
+        progress_figure()
+    elif "--benchmark-only" in sys.argv:
+        benchmark_figure()
+    else:
+        benchmark_figure()
+        progress_figure()
+        discovery_figure()
+        sweep_figure()
+    print(ROOT / "notebooks/week07/images/aco_tsp_benchmark.svg")

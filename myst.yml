@@ -1,6 +1,8 @@
 version: 1
 project:
   title: Unit Reader
+  bibliography:
+    - course_references.bib
   toc:
     - file: intro.md
     - file: notebooks/week00/Getting_Started.ipynb
@@ -43,6 +45,16 @@ project:
     - file: notebooks/week08/L_Critical_phenomena.ipynb
       children:
         - file: notebooks/week08/Slides.md
+        - file: notebooks/week08/WS_Critical_phenomena.ipynb
+        - file: notebooks/week08/Practice.md
+    - file: notebooks/week09/L_InformationTheory.ipynb
+      children:
+        - file: notebooks/week09/Slides.md
+        - file: notebooks/week09/Practice.md
+        - file: notebooks/week09/WS_Information_theory.ipynb
+    - file: notebooks/week10/L_Game_theory.ipynb
+      children:
+        - file: notebooks/week10/Axelrod_tournament.ipynb
 site:
   options:
     folders: true

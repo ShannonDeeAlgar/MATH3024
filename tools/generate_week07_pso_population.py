@@ -35,6 +35,7 @@ def run(seed, n, evaluation_budget=3000, inertia=.72, personal=1.3,
     # Initial positions are objective evaluations too. Reserve their cost before
     # deciding how many complete swarm updates fit within the budget.
     steps = max(0, evaluation_budget // n - 1)
+    history = [ps.min()]
     for _ in range(steps):
         g = p[np.argmin(ps)].copy()
         raw = (inertia * v
@@ -47,17 +48,24 @@ def run(seed, n, evaluation_budget=3000, inertia=.72, personal=1.3,
         improved = score < ps
         p[improved] = x[improved]
         ps[improved] = score[improved]
-    return ps.min(), steps
+        history.append(ps.min())
+    history = np.asarray(history)
+    assert np.all(np.diff(history) <= 0)
+    assert n * len(history) <= evaluation_budget
+    return ps.min(), steps, history
 
 
-sizes = np.array([1, 3, 8, 15, 30, 60])
+sizes = np.array([1, 3, 8, 15, 30, 40, 50, 60])
 runs = 30
 budget = 3000
 final = np.zeros((len(sizes), runs))
 steps = []
+histories = {}
 for row, n in enumerate(sizes):
+    histories[n] = []
     for seed in range(runs):
-        final[row, seed], n_steps = run(seed, int(n), budget)
+        final[row, seed], n_steps, history = run(seed, int(n), budget)
+        histories[n].append(history)
     steps.append(n_steps)
 
 success = np.mean(final < 1e-8, axis=1)
@@ -65,7 +73,14 @@ median = np.median(final, axis=1)
 q25, q75 = np.quantile(final, [.25, .75], axis=1)
 
 fig, axes = plt.subplots(1, 2, figsize=(12.5, 4.8), constrained_layout=True)
-axes[0].plot(sizes, success, marker="o", color=INK, lw=2.2)
+z = 1.96
+centre = (success + z*z/(2*runs)) / (1 + z*z/runs)
+half = z * np.sqrt(success*(1-success)/runs + z*z/(4*runs*runs)) / (1 + z*z/runs)
+lower, upper = np.clip(centre-half, 0, 1), np.clip(centre+half, 0, 1)
+axes[0].errorbar(sizes, success, yerr=[success-lower, upper-success],
+                 marker="o", color=INK, lw=2.2, capsize=4,
+                 label="approx. 95% Wilson intervals")
+axes[0].legend(frameon=False, fontsize=10, loc="lower right")
 axes[0].set(xlabel="Number of particles, $N$", ylabel=r"Success fraction, $F$",
             ylim=(-.03, 1.03), title="Reliability")
 finish_axes(axes[0])
@@ -88,5 +103,27 @@ fig.text(.5, -.01,
          ha="center", color=INK, fontsize=11)
 out = ROOT / "notebooks/week07/images/pso_population_size_sweep.png"
 fig.savefig(out, dpi=180, facecolor="white", bbox_inches="tight")
+plt.close(fig)
+print(out)
+
+fig, ax = plt.subplots(figsize=(11, 5.1), constrained_layout=True)
+for n, colour in zip([8, 30, 40, 50, 60], [BLUE, INK, ORANGE, '#208c78', '#8b4ca8']):
+    records = np.asarray(histories[n])
+    evaluations = n * np.arange(1, records.shape[1]+1)
+    fraction = (records < 1e-8).mean(axis=0)
+    assert np.isclose(fraction[-1], success[np.where(sizes == n)[0][0]])
+    assert np.all(np.diff(fraction) >= 0)
+    ax.step(np.r_[0, evaluations], np.r_[0, fraction], where="post",
+            label=f"$N={n}$", color=colour, lw=2)
+    print(f"N={n}: K={records.shape[1]-1}, final success={fraction[-1]:.3f}, "
+          f"success by 2400 evaluations={fraction[evaluations <= 2400][-1]:.3f}")
+ax.set(xlabel=r"Cumulative objective evaluations, $E=N(k+1)$",
+       ylabel=r"Fraction reaching the target by $E$",
+       xlim=(0, budget), ylim=(-.02, 1.03),
+       title="Progress at equal evaluation cost\n30 seeded runs per population size; target $f<10^{-8}$")
+ax.legend(frameon=False, ncol=5, loc="upper left")
+finish_axes(ax)
+out = ROOT / "notebooks/week07/images/pso_population_evaluation_progress.png"
+fig.savefig(out, dpi=180, facecolor="white")
 plt.close(fig)
 print(out)

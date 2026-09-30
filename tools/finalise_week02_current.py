@@ -201,6 +201,7 @@ This rule produces the **standard middle-thirds Cantor set**. Other Cantor-like 
     <p><strong>Meaning:</strong> <em>F</em> and <em>G</em> draw; + turns left by 60°; − turns right by 60°</p>
     <p><strong>Initial word:</strong> ω = <em>F</em></p>
     <p><strong>Productions:</strong> <em>F</em> → <em>G−F−G</em>, <em>G</em> → <em>F+G+F</em></p>
+    <p><strong>Geometry:</strong> initial heading 60°; turns 60°</p>
   </div>
   <img src="images/sierpinski_lsystem_iterations.svg" alt="Successive iterations through depth six of the Sierpiński arrowhead L-system" style="display:block;width:100%;max-height:310px;object-fit:contain">
 </div>
@@ -400,6 +401,81 @@ Mandelbrot's classic treatment is B. Mandelbrot (1967), [“How Long Is the Coas
 """,
     )
 
+    _set_source(
+        by_id["scaling-caution-code-intro"],
+        """## Reproduce the Britain diagnostic
+
+The optional code below contains the calculation used for the preceding figure. It makes the representation, box sizes, and fitted range inspectable without repeating the completed plot in the main Reader flow.
+
+Open the source and call `plot_britain_diagnostic()` if you want to reproduce the figure.
+""",
+    )
+    by_id["scaling-caution-code"]["metadata"] = {
+        "tags": ["reader-only", "hide-input"],
+        "slideshow": {"slide_type": "skip"},
+    }
+    _set_source(
+        by_id["scaling-caution-code"],
+        r'''from pathlib import Path
+
+import matplotlib.pyplot as plt
+import numpy as np
+from PIL import Image
+
+
+def occupied_boundary_boxes(mask, box_size):
+    """Count grid boxes containing both land and background pixels."""
+    height, width = mask.shape
+    padded_height = int(np.ceil(height / box_size) * box_size)
+    padded_width = int(np.ceil(width / box_size) * box_size)
+    padded = np.zeros((padded_height, padded_width), dtype=bool)
+    padded[:height, :width] = mask
+    blocks = padded.reshape(
+        padded_height // box_size,
+        box_size,
+        padded_width // box_size,
+        box_size,
+    ).transpose(0, 2, 1, 3)
+    return np.count_nonzero(
+        blocks.any(axis=(2, 3)) & (~blocks).any(axis=(2, 3))
+    )
+
+
+def plot_britain_diagnostic():
+    """Reproduce the illustrative box-counting diagnostic for Britain."""
+    image_path = Path("images/British_coastline.png")
+    rgba = np.asarray(Image.open(image_path).convert("RGBA"))
+    land = (rgba[..., 3] > 20) & (rgba[..., :3].mean(axis=2) < 210)
+
+    box_sizes = np.array([2, 4, 8, 16, 32, 64, 128, 256])
+    counts = np.array([
+        occupied_boundary_boxes(land, size) for size in box_sizes
+    ])
+
+    x = np.log(1 / box_sizes.astype(float))
+    y = np.log(counts)
+    fit_indices = np.arange(1, 6)
+    slope, intercept = np.polyfit(x[fit_indices], y[fit_indices], 1)
+
+    fig, ax = plt.subplots(figsize=(7, 4.5))
+    ax.scatter(x, y, color="#1B2A4C", zorder=3)
+    ax.plot(
+        x[fit_indices],
+        slope * x[fit_indices] + intercept,
+        color="#D5A62A",
+        linewidth=3,
+        label=f"intermediate-scale slope = {slope:.2f}",
+    )
+    ax.set(
+        xlabel=r"$\log(1/\varepsilon)$",
+        ylabel=r"$\log N(\varepsilon)$",
+    )
+    ax.legend(frameon=False)
+    fig.tight_layout()
+    return fig, ax
+''',
+    )
+
     reader_sections = {
         "scale-free-bridge-reader": r"""# From dimension to scale-free behaviour
 
@@ -442,11 +518,11 @@ For a circle, magnification eventually reveals either a locally straight boundar
 <div class="slide-columns evidence-layout" style="grid-template-columns:1fr 1fr;align-items:stretch">
   <div class="meaning-panel" style="text-align:left">
     <strong>Circle</strong>
-    <p>Doubling the radius multiplies area by \(2^2=4\). This is a scaling law for a family of circles. A particular circle still contains the characteristic length \(R\).</p>
+    <p>Doubling the radius multiplies area by 2<sup>2</sup> = 4. This is a scaling law for a family of circles. A particular circle still contains the characteristic length <em>R</em>.</p>
   </div>
   <div class="meaning-panel" style="text-align:left">
     <strong>Exact fractal</strong>
-    <p>Reducing each length to \(1/L\) reveals \(N=L^D\) copies inside the same set. The structure repeats; \(D\) is a dimensionless ratio of complexity across scales, not a physical size.</p>
+    <p>Reducing each length to 1/<em>L</em> reveals <em>N</em> = <em>L</em><sup><em>D</em></sup> copies inside the same set. The structure repeats; <em>D</em> is a dimensionless ratio of complexity across scales, not a physical size.</p>
   </div>
 </div>
 """,
@@ -465,7 +541,7 @@ For a circle, magnification eventually reveals either a locally straight boundar
   </div>
 </div>
 
-The area relation \(A(R)=\pi R^2\) is homogeneous in \(R\), but this does not make the geometry of one fixed circle self-similar under magnification. Always state **what object or relationship is being rescaled**.
+<p>The area relation <em>A</em>(<em>R</em>) = π<em>R</em><sup>2</sup> is homogeneous in <em>R</em>, but this does not make the geometry of one fixed circle self-similar under magnification. Always state <strong>what object or relationship is being rescaled</strong>.</p>
 """,
         "return-to-branching-scale-free": r"""## Example 1: Branching trees
 
@@ -798,6 +874,7 @@ Scale-free behaviour may arise from several different mechanisms. Later in the u
     move_after("generation-methods-summary-reader", "generation-methods-summary")
     move_after("linear-scale-factor-reader", "euclidean-scaling")
     move_after("invent-a-fractal-reader", "similarity-dimension")
+    move_after("box-counting-intuition", "box-counting-intro")
 
     # Horizontal arrows introduce a new construction method. Vertical arrows
     # compare examples within that method.
@@ -846,7 +923,7 @@ Scale-free behaviour may arise from several different mechanisms. Later in the u
         "scale-free-diagnostic-reader",
         "scale-free-complex-systems-reader",
     )
-    scale_free_anchor = "box-counting-intuition"
+    scale_free_anchor = "australian-coast"
     for cell_id in scale_free_order:
         move_after(cell_id, scale_free_anchor)
         scale_free_anchor = cell_id
