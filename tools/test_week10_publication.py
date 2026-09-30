@@ -34,7 +34,11 @@ class Week10PublicationTests(unittest.TestCase):
         toc = yaml.safe_load((ROOT / 'myst.yml').read_text())['project']['toc']
         entry = next(item for item in toc if item['file'].startswith('notebooks/week10/'))
         self.assertEqual(entry['file'], str(LECTURE.relative_to(ROOT)))
-        self.assertEqual(entry['children'], [{'file': 'notebooks/week10/Axelrod_tournament.ipynb'}])
+        self.assertEqual(entry['children'], [
+            {'file': 'notebooks/week10/Slides.md'},
+            {'file': 'notebooks/week10/Practice.md'},
+            {'file': 'notebooks/week10/WS_Game_theory.ipynb'},
+        ])
         self.assertTrue(any('week09/' in item['file'] for item in toc))
 
     def test_reader_assets_and_local_notebook_links_exist(self):
