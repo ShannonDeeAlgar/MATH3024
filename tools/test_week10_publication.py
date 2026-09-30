@@ -51,11 +51,16 @@ class Week10PublicationTests(unittest.TestCase):
         self.assertIn('doi = {10.1111/evo.14416}', bibliography)
 
     def test_simulation_comes_before_analysis(self):
-        sequence = ['w10-rps-population', 'w10-rps-arena',
-                    'w10-rps-population-behaviour', 'w10-lizard-morphs']
+        # The reader introduces the biological RPS example before the two
+        # population-model views: first the moving-agent explorable, then its
+        # interpretation.  The old test referred to pre-release cell ids and
+        # therefore inverted this order after the Week 10 reorganisation.
+        sequence = ['w10-lizard-morphs', 'w10-rps-population',
+                    'w10-rps-arena', 'w10-rps-population-behaviour']
         positions = [self.ids.index(i) for i in sequence]
         self.assertEqual(positions, sorted(positions))
         self.assertEqual(positions[2], positions[1] + 1)
+        self.assertEqual(positions[3], positions[2] + 1)
 
     def test_ordinal_definition_is_with_prisoners_dilemma(self):
         definition = 'a8733185-a037-45a2-b04e-75ac43cedb98'
@@ -64,22 +69,23 @@ class Week10PublicationTests(unittest.TestCase):
         self.assertIn('{dropdown} How many games are shown?', self.sources['f6989099'])
 
     def test_normal_form_equilibria(self):
-        for cell_id, expected in [
-            ('w10-stag-hunt-normal-form', {(0, 0), (1, 1)}),
-            ('w10-chicken-normal-form', {(0, 1), (1, 0)}),
-            ('w10-matching-pennies-normal-form', set()),
-        ]:
-            source = self.sources[cell_id]
-            rows = '\n'.join(line for line in source.replace('−', '-').splitlines()
-                             if line.startswith('| '))
-            pairs = [tuple(map(int, pair)) for pair in re.findall(r'\((-?\d+),\s*(-?\d+)\)', rows)]
-            self.assertEqual(len(pairs), 4)
-            matrix = [pairs[:2], pairs[2:]]
-            actual = {(i, j) for i in range(2) for j in range(2)
-                      if matrix[i][j][0] >= matrix[1-i][j][0]
-                      and matrix[i][j][1] >= matrix[i][1-j][1]}
-            self.assertEqual(actual, expected)
-        self.assertIn('not an exact entry', self.sources['w10-matching-pennies-normal-form'])
+        # The four matrices are now a single comparison cell.  Check the
+        # canonical entries directly so this guard remains useful after the
+        # individual matrix cells were removed from the released reader.
+        source = self.sources['w10-game-comparison-matrices']
+        expected = {
+            'Prisoner’s Dilemma': ['(3,3)', '(1,4)', '(4,1)', '(2,2)'],
+            'Stag Hunt': ['(4,4)', '(1,3)', '(3,1)', '(2,2)'],
+            'Chicken': ['(3,3)', '(2,4)', '(4,2)', '(1,1)'],
+            'Matching Pennies': ['(1,−1)', '(−1,1)', '(−1,1)', '(1,−1)'],
+        }
+        for title, entries in expected.items():
+            self.assertIn(f'>{title}<', source)
+            start = source.index(f'>{title}<')
+            block = source[start:source.find('</div>', start)]
+            for entry in entries:
+                self.assertIn(entry, block)
+        self.assertIn('Matching Pennies is grey', source)
 
     def test_generated_site_checker_requires_released_pages(self):
         with tempfile.TemporaryDirectory() as temporary:
