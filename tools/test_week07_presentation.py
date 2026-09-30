@@ -37,7 +37,9 @@ class PresentationTests(unittest.TestCase):
                          'notebooks/week09/practice/index.html',
                          'slides/week09/L_InformationTheory.slides.html',
                          'notebooks/week10/l-game-theory/index.html',
-                         'notebooks/week10/axelrod-tournament/index.html']:
+                         'slides/week10/L_Game_theory.slides.html',
+                         'notebooks/week10/practice/index.html',
+                         'notebooks/week10/ws-game-theory/index.html']:
                 target = root / page; target.parent.mkdir(parents=True, exist_ok=True)
                 target.write_text(content)
             for route in ['notebooks/week07/images',

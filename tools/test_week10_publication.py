@@ -100,10 +100,10 @@ class Week10PublicationTests(unittest.TestCase):
             week09.parent.mkdir(parents=True)
             week09.touch()
             self.assertFalse(any('Unreleased material staged' in error for error in assets.check(root)))
-            forbidden = root / 'slides/week10/L_Game_theory.slides.html'
-            forbidden.parent.mkdir(parents=True)
-            forbidden.touch()
-            self.assertTrue(any('Reader-only release' in error for error in assets.check(root)))
+            published_slide = root / 'slides/week10/L_Game_theory.slides.html'
+            published_slide.parent.mkdir(parents=True)
+            published_slide.touch()
+            self.assertFalse(any('Reader-only release' in error for error in assets.check(root)))
 
     def test_reader_has_no_code_or_slide_only_cells(self):
         self.assertFalse(any(c['cell_type'] == 'code' for c in self.cells))

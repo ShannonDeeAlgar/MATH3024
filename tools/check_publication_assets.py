@@ -25,10 +25,6 @@ def check(root):
         week = re.search(r'(?:^|/)week(\d+)(?:/|\.|$)', str(path.relative_to(root)))
         if week and int(week[1]) >= 11:
             errors.append(f'Unreleased material staged: {path.relative_to(root)}')
-        if re.search(r'(?:^|/)week10/(?:ws[-_]|practice(?:/|\.|$))', str(path.relative_to(root)), re.I):
-            errors.append(f'Unreleased Week 10 workshop or practice staged: {path.relative_to(root)}')
-        if str(path.relative_to(root)).startswith('slides/week10'):
-            errors.append(f'Week 10 is a Reader-only release: {path.relative_to(root)}')
     required_pages = [
         'notebooks/week08/l-critical-phenomena/index.html',
         'slides/week08/L_Critical_phenomena.slides.html',
@@ -39,7 +35,9 @@ def check(root):
         'notebooks/week09/practice/index.html',
         'slides/week09/L_InformationTheory.slides.html',
         'notebooks/week10/l-game-theory/index.html',
-        'notebooks/week10/axelrod-tournament/index.html',
+        'slides/week10/L_Game_theory.slides.html',
+        'notebooks/week10/practice/index.html',
+        'notebooks/week10/ws-game-theory/index.html',
     ]
     required_pages += [f'notebooks/week10/l-game-theory/images/{name}' for name in (
         'discussion_marker.svg', 'pd_best_response_plane.svg', 'pd_general_payoffs.svg',
@@ -82,4 +80,4 @@ if __name__ == '__main__':
     errors = check(Path(sys.argv[1] if len(sys.argv) > 1 else '_build/html'))
     if errors:
         raise SystemExit('\n'.join(errors))
-    print('Weeks 1–9 and the Week 10 Reader are present; Week 10 slides/workshop/practice are absent; Week 7 explorables resolve under /MATH3024.')
+    print('Weeks 1–9 and the Week 10 Reader, slides, practice and workshop are present; Week 7 explorables resolve under /MATH3024.')
