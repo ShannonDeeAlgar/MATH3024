@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 236" role="img">
+<defs>
+<marker id="red-head" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z" fill="#C94A4A"/></marker>
+<marker id="blue-head" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z" fill="#2C6DA4"/></marker>
+</defs>
+<rect width="350" height="236" fill="white"/>
+<rect x="78" y="46" width="232" height="156" fill="#F4F7FB" stroke="#C7CEDC" stroke-width="1.5"/>
+<line x1="194" y1="46" x2="194" y2="202" stroke="#C7CEDC" stroke-width="1.5"/>
+<line x1="78" y1="124" x2="310" y2="124" stroke="#C7CEDC" stroke-width="1.5"/>
+<text x="136.0" y="25" text-anchor="middle" font-family="DejaVu Sans" font-size="16" fill="#1B2A4C">Stag</text>
+<text x="252.0" y="25" text-anchor="middle" font-family="DejaVu Sans" font-size="16" fill="#1B2A4C">Hare</text>
+<text x="61" y="90.0" text-anchor="end" font-family="DejaVu Sans" font-size="15" fill="#1B2A4C">Stag</text>
+<text x="61" y="168.0" text-anchor="end" font-family="DejaVu Sans" font-size="15" fill="#1B2A4C">Hare</text>
+<text x="136.0" y="91.0" text-anchor="middle" font-family="DejaVu Sans" font-size="22" fill="#1B2A4C">(4, 4)</text>
+<text x="252.0" y="91.0" text-anchor="middle" font-family="DejaVu Sans" font-size="22" fill="#1B2A4C">(1, 3)</text>
+<text x="136.0" y="169.0" text-anchor="middle" font-family="DejaVu Sans" font-size="22" fill="#1B2A4C">(3, 1)</text>
+<text x="252.0" y="169.0" text-anchor="middle" font-family="DejaVu Sans" font-size="22" fill="#1B2A4C">(2, 2)</text>
+<line x1="214" y1="114" x2="214" y2="152" stroke="#C94A4A" stroke-width="4" stroke-linecap="round" marker-end="url(#red-head)"/>
+<line x1="174" y1="66" x2="126" y2="66" stroke="#2C6DA4" stroke-width="4" stroke-linecap="round" marker-end="url(#blue-head)"/>
+<line x1="98" y1="182" x2="98" y2="144" stroke="#C94A4A" stroke-width="4" stroke-linecap="round" marker-end="url(#red-head)"/>
+<line x1="174" y1="182" x2="222" y2="182" stroke="#2C6DA4" stroke-width="4" stroke-linecap="round" marker-end="url(#blue-head)"/>
+</svg>

@@ -1,0 +1,39 @@
+{
+  "players": [
+    "Always Cooperate",
+    "Always Defect",
+    "Tit for Tat",
+    "Grudger",
+    "Tit for Two Tats",
+    "Random",
+    "Win-Stay Lose-Shift"
+  ],
+  "rounds": 200,
+  "repetitions": 30,
+  "noise": 0,
+  "seed": 3024,
+  "self_play": true,
+  "payoffs": [
+    5,
+    3,
+    1,
+    0
+  ],
+  "numpy_version": "2.4.2",
+  "lengths": [
+    10,
+    30,
+    100,
+    200
+  ],
+  "noises": [
+    0,
+    0.01,
+    0.05,
+    0.1
+  ],
+  "ranking": "median across repetitions of mean payoff per round; equal opponent weights",
+  "self_play_weight": "one opponent contribution, average of both seats",
+  "wins": "non-self strict wins; draws count as zero",
+  "historical_reproduction": false
+}

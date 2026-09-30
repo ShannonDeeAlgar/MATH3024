@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 400" role="img" aria-labelledby="title desc">
+  <title id="title">Replicator dynamics in the Prisoner’s Dilemma</title>
+  <desc id="desc">In a well-mixed Prisoner’s Dilemma population, the share of cooperation falls and the share of defection rises. Different initial mixtures all move toward defection.</desc>
+  <style>
+    .title{font:18px "DejaVu Sans",sans-serif;font-weight:400;fill:#1B2A4C;text-anchor:middle}.axis{stroke:#6A7691;stroke-width:1.5}.grid{stroke:#D7DDE7;stroke-width:1}.label{font:13px "DejaVu Sans",sans-serif;fill:#4C5975}.legend{font:13px "DejaVu Sans",sans-serif;fill:#5A6685}.cooperate{fill:none;stroke:#D55E00;stroke-width:4}.defect{fill:none;stroke:#0072B2;stroke-width:4;stroke-dasharray:8 6}.low{fill:none;stroke:#B07A00;stroke-width:3}.mid{fill:none;stroke:#D55E00;stroke-width:3}.high{fill:none;stroke:#0072B2;stroke-width:3}
+  </style>
+  <rect width="980" height="430" fill="#FFFFFF"/>
+  <text class="title" x="255" y="30">Population mix from x₀ = 0.50</text>
+  <text class="title" x="735" y="30">Different starting mixtures</text>
+  <line class="cooperate" x1="105" y1="58" x2="133" y2="58"/><text class="legend" x="142" y="63">cooperate</text>
+  <line class="defect" x1="270" y1="58" x2="298" y2="58"/><text class="legend" x="307" y="63">defect</text>
+  <line class="low" x1="575" y1="58" x2="603" y2="58"/><text class="legend" x="612" y="63">x₀ = 0.20</text>
+  <line class="mid" x1="700" y1="58" x2="728" y2="58"/><text class="legend" x="737" y="63">x₀ = 0.50</text>
+  <line class="high" x1="825" y1="58" x2="853" y2="58"/><text class="legend" x="862" y="63">x₀ = 0.80</text>
+  <g>
+    <line class="grid" x1="80" y1="95" x2="430" y2="95"/><line class="grid" x1="80" y1="215" x2="430" y2="215"/><line class="grid" x1="80" y1="335" x2="430" y2="335"/>
+    <line class="axis" x1="80" y1="85" x2="80" y2="345"/><line class="axis" x1="80" y1="335" x2="430" y2="335"/>
+    <text class="label" x="54" y="340">0</text><text class="label" x="46" y="220">0.5</text><text class="label" x="54" y="100">1</text><text class="label" x="235" y="370">generation</text><text class="label" transform="translate(20,255) rotate(-90)">frequency</text>
+    <path class="cooperate" d="M 80,215 91.7,233 103.3,249.7 115,264.6 126.7,277.5 138.3,288.3 150,297.3 161.7,304.7 173.3,310.6 185,315.5 196.7,319.3 208.3,322.5 220,325 231.7,327 243.3,328.6 255,329.9 266.7,330.9 278.3,331.7 290,332.4 301.7,332.9 313.3,333.3 325,333.7 336.7,333.9 348.3,334.1 360,334.3 371.7,334.4 383.3,334.6 395,334.6 406.7,334.7 418.3,334.8 430,334.8"/>
+    <path class="defect" d="M 80,215 91.7,197 103.3,180.3 115,165.4 126.7,152.5 138.3,141.7 150,132.7 161.7,125.3 173.3,119.4 185,114.5 196.7,110.7 208.3,107.5 220,105 231.7,103 243.3,101.4 255,100.1 266.7,99.1 278.3,98.3 290,97.6 301.7,97.1 313.3,96.7 325,96.3 336.7,96.1 348.3,95.9 360,95.7 371.7,95.6 383.3,95.4 395,95.4 406.7,95.3 418.3,95.2 430,95.2"/>
+  </g>
+  <g>
+    <line class="grid" x1="570" y1="95" x2="920" y2="95"/><line class="grid" x1="570" y1="215" x2="920" y2="215"/><line class="grid" x1="570" y1="335" x2="920" y2="335"/>
+    <line class="axis" x1="570" y1="85" x2="570" y2="345"/><line class="axis" x1="570" y1="335" x2="920" y2="335"/>
+    <text class="label" x="544" y="340">0</text><text class="label" x="536" y="220">0.5</text><text class="label" x="544" y="100">1</text><text class="label" x="725" y="370">generation</text><text class="label" transform="translate(510,255) rotate(-90)">share cooperating</text>
+    <path class="low" d="M 570,287 581.7,296.2 593.3,303.8 605,309.9 616.7,314.9 628.3,318.9 640,322.1 651.7,324.7 663.3,326.7 675,328.4 686.7,329.7 698.3,330.8 710,331.6 721.7,332.3 733.3,332.8 745,333.3 756.7,333.6 768.3,333.9 780,334.1 791.7,334.3 803.3,334.4 815,334.5 826.7,334.6 838.3,334.7 850,334.8 861.7,334.8 873.3,334.9 885,334.9 896.7,334.9 908.3,334.9 920,334.9"/>
+    <path class="mid" d="M 570,215 581.7,233 593.3,249.7 605,264.6 616.7,277.5 628.3,288.3 640,297.3 651.7,304.7 663.3,310.6 675,315.5 686.7,319.3 698.3,322.5 710,325 721.7,327 733.3,328.6 745,329.9 756.7,330.9 768.3,331.7 780,332.4 791.7,332.9 803.3,333.3 815,333.7 826.7,333.9 838.3,334.1 850,334.3 861.7,334.4 873.3,334.6 885,334.6 896.7,334.7 908.3,334.8 920,334.8"/>
+    <path class="high" d="M 570,143 581.7,156.8 593.3,172.8 605,190.4 616.7,208.9 628.3,227.1 640,244.3 651.7,259.9 663.3,273.4 675,284.9 686.7,294.5 698.3,302.4 710,308.8 721.7,314 733.3,318.1 745,321.5 756.7,324.2 768.3,326.3 780,328.1 791.7,329.5 803.3,330.6 815,331.5 826.7,332.2 838.3,332.7 850,333.2 861.7,333.5 873.3,333.8 885,334.1 896.7,334.3 908.3,334.4 920,334.5"/>
+  </g>
+</svg>
