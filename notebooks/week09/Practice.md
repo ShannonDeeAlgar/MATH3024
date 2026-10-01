@@ -22,14 +22,16 @@ Unless stated otherwise, use base-2 logarithms, so entropy is measured in bits. 
     The non-overlapping parts are the conditional entropies. The overlap is mutual information. Their union is the joint entropy.
     ~~~
 
-2. Self-information $h(x)$ quantifies the surprise of one outcome. State the six requirements used to define it. What unique form do they produce once the unit is fixed? Why does base 2 give bits, and what changes if we use base $e$ or base 10?
+2. Self-information $h(x)$ quantifies the surprise of one outcome. State the six requirements used to define it. What unique form do they produce once the unit is fixed? Show how to convert entropy between logarithm bases. Compare one bit with one hartley, and interpret what each says about a uniform random choice. Does changing the base make a distribution more or less random?
 
     ~~~{dropdown} Answer
     Surprise depends only on probability, varies continuously, increases as probability falls and is non-negative. Surprises add for independent outcomes. A guaranteed event has zero surprise, while surprise diverges as probability approaches zero. Once the unit is fixed, these requirements give the unique logarithmic form $h(x)=-\log_bP(x)$.
 
-    Base 2 measures information in binary units. An outcome with probability $1/2$ has surprise one bit. Base $e$ gives nats and base 10 gives hartleys. Changing the base changes the unit, not the uncertainty. For $b>1$,
+    Base 2 measures information in binary units. An outcome with probability $1/2$ has surprise one bit. Base $e$ gives nats and base 10 gives hartleys. For any $b>1$, changing the base changes the unit but not the uncertainty or the ordering of distributions:
 
     $$H_b(X)=\frac{H_2(X)}{\log_2 b}.$$
+
+    Thus $1$ bit is $\log_{10}2\approx0.301$ hartleys, while $1$ hartley is $\log_2 10\approx3.322$ bits. The raw numbers $1$ and $1$ cannot be compared until the units are made the same. One bit is the entropy of a fair choice between two outcomes; one hartley is the entropy of a uniform choice between ten outcomes. Both distributions are maximally random on their respective supports. The base does not make either distribution more or less random; it only rescales the numerical entropy.
 
     ~~~
 
